@@ -56,6 +56,35 @@ Route::get('/support/messages', function () {
     return view('support.messages');
 });
 
+
+Route::get('/analytics/overview', function () {
+    return view('analytics.overview');
+});
+Route::get('/analytics/brokers', function () {
+    return view('analytics.brokers');
+});
+Route::get('/analytics/fleet', function () {
+    return view('analytics.fleet');
+});
+Route::get('/analytics/load', function () {
+    return view('analytics.load');
+});
+Route::get('/analytics/sales', function () {
+    return view('analytics.sales');
+});
+Route::get('/analytics/security', function () {
+    return view('analytics.security');
+});
+Route::get('/analytics/shipment', function () {
+    return view('analytics.shipment');
+});
+Route::get('/analytics/users', function () {
+    return view('analytics.users');
+});
+
+
+
+
 // END ACTUAL ROUTES
 
 // FOR TEMPLATE
