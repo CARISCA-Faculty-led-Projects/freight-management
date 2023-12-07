@@ -7,6 +7,16 @@ use Laravel\Sail\SailServiceProvider;
 Route::get('/', function () {
     return view('dashboards.index');
 });
+
+
+Route::get('/organization/overview', function () {
+    return view('organization.overview');
+});
+Route::get('/organization/list', function () {
+    return view('organization.list');
+});
+
+
 Route::get('/fleet/overview', function () {
     return view('fleet.overview');
 });
@@ -30,6 +40,15 @@ Route::get('/load/bids', function () {
 Route::get('/load/documents', function () {
     return view('load.documents');
 });
+
+
+Route::get('/brokers/overview', function () {
+    return view('brokers.overview');
+});
+Route::get('/brokers/list', function () {
+    return view('brokers.list');
+});
+
 
 Route::get('/customers/overview', function () {
     return view('customers.overview');
