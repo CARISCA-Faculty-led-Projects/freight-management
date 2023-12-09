@@ -25,7 +25,7 @@
 						<!--begin::Content wrapper-->
 						<div class="d-flex flex-column flex-column-fluid">
 							<!--begin::Toolbar-->
-                            @include('layout.toolbar')
+                            {{--@include('layout.toolbar')--}}
 							<!--end::Toolbar-->
 							<!--begin::Content-->
                             @yield("content")

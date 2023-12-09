@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
 Author: Keenthemes
-Product Name: Metronic
-Product Version: 8.1.8
+Organization Name: Metronic
+Organization Version: 8.1.8
 Purchase: https://1.envato.market/EA4JP
 Website: http://www.keenthemes.com
 Contact: support@keenthemes.com
@@ -13,7 +13,7 @@ License: For each use you must have a valid license purchased only from above li
 -->
 <html lang="en">
 	<!--begin::Head-->
-	<head><base href="../../"/>
+	<head><base href="../../../"/>
 		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -1185,7 +1185,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<div class="menu-item p-0 m-0">
 																		<!--begin:Menu link-->
 																		<a href="/authentication/email/subscription-confirmed" class="menu-link">
-																			<span class="menu-title">Organization Confirmed</span>
+																			<span class="menu-title">Subscription Confirmed</span>
 																		</a>
 																		<!--end:Menu link-->
 																	</div>
@@ -1771,7 +1771,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -1784,7 +1784,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--begin:Menu sub-->
 												<div class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown menu-active-bg px-lg-2 py-lg-4 w-lg-225px">
 													<!--begin:Menu item-->
-													<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+													<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
 														<!--begin:Menu link-->
 														<span class="menu-link">
 															<span class="menu-bullet">
@@ -1803,7 +1803,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Products</span>
+																	<span class="menu-title">Organizations</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1823,11 +1823,11 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin:Menu item-->
 															<div class="menu-item">
 																<!--begin:Menu link-->
-																<a class="menu-link" href="/apps/ecommerce/catalog/add-product">
+																<a class="menu-link active" href="/apps/ecommerce/catalog/add-product">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Add Product</span>
+																	<span class="menu-title">Add Organization</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1839,7 +1839,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Edit Product</span>
+																	<span class="menu-title">Edit Organization</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1998,7 +1998,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Products Viewed</span>
+																	<span class="menu-title">Organizations Viewed</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -2404,7 +2404,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -2415,7 +2415,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="path4"></span>
 														</i>
 													</span>
-													<span class="menu-title">Organization</span>
+													<span class="menu-title">Subscriptions</span>
 													<span class="menu-arrow"></span>
 												</span>
 												<!--end:Menu link-->
@@ -2436,11 +2436,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link active" href="/apps/subscriptions/list">
+														<a class="menu-link" href="/apps/subscriptions/list">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Organization List</span>
+															<span class="menu-title">Subscription List</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -2452,7 +2452,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Add Organization</span>
+															<span class="menu-title">Add Subscription</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -2464,7 +2464,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">View Organization</span>
+															<span class="menu-title">View Subscription</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -3909,7 +3909,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Title-->
 															<div class="mb-0 me-2">
 																<a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Project Breafing</a>
-																<div class="text-gray-400 fs-7">Product launch status update</div>
+																<div class="text-gray-400 fs-7">Organization launch status update</div>
 															</div>
 															<!--end::Title-->
 														</div>
@@ -4336,7 +4336,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Menu item-->
 														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
 															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Organization</span>
+																<span class="menu-title">Subscription</span>
 																<span class="menu-arrow"></span>
 															</a>
 															<!--begin::Menu sub-->
@@ -4662,7 +4662,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Menu item-->
 										<div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
 											<a href="#" class="menu-link px-5">
-												<span class="menu-title">My Organization</span>
+												<span class="menu-title">My Subscription</span>
 												<span class="menu-arrow"></span>
 											</a>
 											<!--begin::Menu sub-->
@@ -5698,7 +5698,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Organization Confirmed</span>
+															<span class="menu-title">Subscription Confirmed</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -6948,7 +6948,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -6966,7 +6966,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin:Menu sub-->
 										<div class="menu-sub menu-sub-accordion">
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-bullet">
@@ -6985,7 +6985,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Products</span>
+															<span class="menu-title">Organizations</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7005,11 +7005,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link" href="/apps/ecommerce/catalog/add-product">
+														<a class="menu-link active" href="/apps/ecommerce/catalog/add-product">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Add Product</span>
+															<span class="menu-title">Add Organization</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7021,7 +7021,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Edit Product</span>
+															<span class="menu-title">Edit Organization</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7180,7 +7180,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Products Viewed</span>
+															<span class="menu-title">Organizations Viewed</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7642,7 +7642,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -7652,7 +7652,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="path3"></span>
 												</i>
 											</span>
-											<span class="menu-title">Organization</span>
+											<span class="menu-title">Subscription</span>
 											<span class="menu-arrow"></span>
 										</span>
 										<!--end:Menu link-->
@@ -7673,11 +7673,11 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="/apps/subscriptions/list">
+												<a class="menu-link" href="/apps/subscriptions/list">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Organization List</span>
+													<span class="menu-title">Subscription List</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -7689,7 +7689,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Add Organization</span>
+													<span class="menu-title">Add Subscription</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -7701,7 +7701,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">View Organization</span>
+													<span class="menu-title">View Subscription</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Organization List</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Organization Form</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8273,9 +8273,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">
-												<a href="/index" class="text-muted text-hover-primary">Organization</a>
-											</li>
+											<li class="breadcrumb-item text-muted">eCommerce</li>
 											<!--end::Item-->
 											<!--begin::Item-->
 											<li class="breadcrumb-item">
@@ -8283,7 +8281,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">List</li>
+											<li class="breadcrumb-item text-muted">Catalog</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -8301,7 +8299,7 @@ License: For each use you must have a valid license purchased only from above li
 											</i>Filter</a>
 											<!--end::Menu toggle-->
 											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac425413c4">
+											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac40d84f82">
 												<!--begin::Header-->
 												<div class="px-7 py-5">
 													<div class="fs-5 text-dark fw-bold">Filter Options</div>
@@ -8319,7 +8317,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--end::Label-->
 														<!--begin::Input-->
 														<div>
-															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac425413c4" data-allow-clear="true">
+															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac40d84f82" data-allow-clear="true">
 																<option></option>
 																<option value="1">Approved</option>
 																<option value="2">Pending</option>
@@ -8393,1091 +8391,762 @@ License: For each use you must have a valid license purchased only from above li
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container container-xxl">
-									<!--begin::Card-->
-									<div class="card">
-										<!--begin::Card header-->
-										<div class="card-header border-0 pt-6">
-											<!--begin::Card title-->
-											<div class="card-title">
-												<!--begin::Search-->
-												<div class="d-flex align-items-center position-relative my-1">
-													<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<input type="text" data-kt-subscription-table-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Organization" />
-												</div>
-												<!--end::Search-->
-											</div>
-											<!--begin::Card title-->
-											<!--begin::Card toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Toolbar-->
-												<div class="d-flex justify-content-end" data-kt-subscription-table-toolbar="base">
-													<!--begin::Filter-->
-													<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-													<i class="ki-duotone ki-filter fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>Filter</button>
-													<!--begin::Menu 1-->
-													<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
-														<!--begin::Header-->
-														<div class="px-7 py-5">
-															<div class="fs-5 text-dark fw-bold">Filter Options</div>
-														</div>
-														<!--end::Header-->
-														<!--begin::Separator-->
-														<div class="separator border-gray-200"></div>
-														<!--end::Separator-->
-														<!--begin::Content-->
-														<div class="px-7 py-5" data-kt-subscription-table-filter="form">
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Month:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="month" data-hide-search="true">
-																	<option></option>
-																	<option value="jan">January</option>
-																	<option value="feb">February</option>
-																	<option value="mar">March</option>
-																	<option value="apr">April</option>
-																	<option value="may">May</option>
-																	<option value="jun">June</option>
-																	<option value="jul">July</option>
-																	<option value="aug">August</option>
-																	<option value="sep">September</option>
-																	<option value="oct">October</option>
-																	<option value="nov">November</option>
-																	<option value="dec">December</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Status:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="status" data-hide-search="true">
-																	<option></option>
-																	<option value="Active">Active</option>
-																	<option value="Expiring">Expiring</option>
-																	<option value="Suspended">Suspended</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Billing Method:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="billing" data-hide-search="true">
-																	<option></option>
-																	<option value="Auto-debit">Auto-debit</option>
-																	<option value="Manual - Credit Card">Manual - Credit Card</option>
-																	<option value="Manual - Cash">Manual - Cash</option>
-																	<option value="Manual - Paypal">Manual - Paypal</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Product:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="product" data-hide-search="true">
-																	<option></option>
-																	<option value="Basic">Basic</option>
-																	<option value="Basic Bundle">Basic Bundle</option>
-																	<option value="Teams">Teams</option>
-																	<option value="Teams Bundle">Teams Bundle</option>
-																	<option value="Enterprise">Enterprise</option>
-																	<option value=" Enterprise Bundle">Enterprise Bundle</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Actions-->
-															<div class="d-flex justify-content-end">
-																<button type="reset" class="btn btn-light btn-active-light-primary fw-semibold me-2 px-6" data-kt-menu-dismiss="true" data-kt-subscription-table-filter="reset">Reset</button>
-																<button type="submit" class="btn btn-primary fw-semibold px-6" data-kt-menu-dismiss="true" data-kt-subscription-table-filter="filter">Apply</button>
-															</div>
-															<!--end::Actions-->
-														</div>
-														<!--end::Content-->
+									<!--begin::Form-->
+									<form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row" data-kt-redirect="/apps/ecommerce/catalog/products">
+										<!--begin::Aside column-->
+										<div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+											<!--begin::Thumbnail settings-->
+											<div class="card card-flush py-4">
+												<!--begin::Card header-->
+												<div class="card-header">
+													<!--begin::Card title-->
+													<div class="card-title">
+														<h2>Thumbnail</h2>
 													</div>
-													<!--end::Menu 1-->
-													<!--end::Filter-->
-													<!--begin::Export-->
-													<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_subscriptions_export_modal">
-													<i class="ki-duotone ki-exit-up fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>Export</button>
-													<!--end::Export-->
-													<!--begin::Add subscription-->
-													<a href="/organization/add" class="btn btn-primary">
-													<i class="ki-duotone ki-plus fs-2"></i>Add Organization</a>
-													<!--end::Add subscription-->
+													<!--end::Card title-->
 												</div>
-												<!--end::Toolbar-->
-												<!--begin::Group actions-->
-												<div class="d-flex justify-content-end align-items-center d-none" data-kt-subscription-table-toolbar="selected">
-													<div class="fw-bold me-5">
-													<span class="me-2" data-kt-subscription-table-select="selected_count"></span>Selected</div>
-													<button type="button" class="btn btn-danger" data-kt-subscription-table-select="delete_selected">Delete Selected</button>
-												</div>
-												<!--end::Group actions-->
-											</div>
-											<!--end::Card toolbar-->
-										</div>
-										<!--end::Card header-->
-										<!--begin::Card body-->
-										<div class="card-body pt-0">
-											<!--begin::Table-->
-											<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_subscriptions_table">
-												<thead>
-													<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-														<th class="w-10px pe-2">
-															<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-																<input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_subscriptions_table .form-check-input" value="1" />
-															</div>
-														</th>
-														<th class="min-w-125px">Customer</th>
-														<th class="min-w-125px">Status</th>
-														<th class="min-w-125px">Billing</th>
-														<th class="min-w-125px">Product</th>
-														<th class="min-w-125px">Created Date</th>
-														<th class="text-end min-w-70px">Actions</th>
-													</tr>
-												</thead>
-												<tbody class="text-gray-600 fw-semibold">
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Basic</td>
-														<td>Aug 19, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/organization/details" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Melody Macy</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>May 05, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/organization/details" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Max Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Cash</div>
-														</td>
-														<td>Teams Bundle</td>
-														<td>Jun 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Sean Bean</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Paypal</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Aug 19, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Brian Cox</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Basic</td>
-														<td>Oct 25, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Mikaela Collins</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Enterprise Bundle</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Francis Mitcham</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Teams</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Olivia Wild</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Neil Owen</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Basic</td>
-														<td>Oct 25, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Dan Wilson</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Enterprise Bundle</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Emma Bold</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Jun 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Ana Crown</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>Apr 15, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Robert Doe</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Teams Bundle</td>
-														<td>Mar 10, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">John Miller</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Paypal</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Lucy Kunic</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Neil Owen</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Basic Bundle</td>
-														<td>Mar 10, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Dan Wilson</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Paypal</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Dec 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Teams</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Melody Macy</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>Jun 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Max Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Basic Bundle</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-												</tbody>
-											</table>
-											<!--end::Table-->
-										</div>
-										<!--end::Card body-->
-									</div>
-									<!--end::Card-->
-									<!--begin::Modals-->
-									<!--begin::Modal - Adjust Balance-->
-									<div class="modal fade" id="kt_subscriptions_export_modal" tabindex="-1" aria-hidden="true">
-										<!--begin::Modal dialog-->
-										<div class="modal-dialog modal-dialog-centered mw-650px">
-											<!--begin::Modal content-->
-											<div class="modal-content">
-												<!--begin::Modal header-->
-												<div class="modal-header">
-													<!--begin::Modal title-->
-													<h2 class="fw-bold">Export Organization</h2>
-													<!--end::Modal title-->
-													<!--begin::Close-->
-													<div id="kt_subscriptions_export_close" class="btn btn-icon btn-sm btn-active-icon-primary">
-														<i class="ki-duotone ki-cross fs-1">
-															<span class="path1"></span>
-															<span class="path2"></span>
-														</i>
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body text-center pt-0">
+													<!--begin::Image input-->
+													<!--begin::Image input placeholder-->
+													<style>.image-input-placeholder { background-image: url('assets/media/svg/files/blank-image.svg'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
+													<!--end::Image input placeholder-->
+													<div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3" data-kt-image-input="true">
+														<!--begin::Preview existing avatar-->
+														<div class="image-input-wrapper w-150px h-150px"></div>
+														<!--end::Preview existing avatar-->
+														<!--begin::Label-->
+														<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+															<i class="ki-duotone ki-pencil fs-7">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+															<!--begin::Inputs-->
+															<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+															<input type="hidden" name="avatar_remove" />
+															<!--end::Inputs-->
+														</label>
+														<!--end::Label-->
+														<!--begin::Cancel-->
+														<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+															<i class="ki-duotone ki-cross fs-2">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+														</span>
+														<!--end::Cancel-->
+														<!--begin::Remove-->
+														<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+															<i class="ki-duotone ki-cross fs-2">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+														</span>
+														<!--end::Remove-->
 													</div>
-													<!--end::Close-->
+													<!--end::Image input-->
+													<!--begin::Description-->
+													<div class="text-muted fs-7">Set the product thumbnail image. Only *.png, *.jpg and *.jpeg image files are accepted</div>
+													<!--end::Description-->
 												</div>
-												<!--end::Modal header-->
-												<!--begin::Modal body-->
-												<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-													<!--begin::Form-->
-													<form id="kt_subscriptions_export_form" class="form" action="#">
-														<!--begin::Input group-->
-														<div class="fv-row mb-10">
-															<!--begin::Label-->
-															<label class="fs-5 fw-semibold form-label mb-5">Select Export Format:</label>
-															<!--end::Label-->
-															<!--begin::Input-->
-															<select data-control="select2" data-placeholder="Select a format" data-hide-search="true" name="format" class="form-select form-select-solid">
-																<option value="excell">Excel</option>
-																<option value="pdf">PDF</option>
-																<option value="cvs">CVS</option>
-																<option value="zip">ZIP</option>
-															</select>
-															<!--end::Input-->
-														</div>
-														<!--end::Input group-->
-														<!--begin::Input group-->
-														<div class="fv-row mb-10">
-															<!--begin::Label-->
-															<label class="fs-5 fw-semibold form-label mb-5">Select Date Range:</label>
-															<!--end::Label-->
-															<!--begin::Input-->
-															<input class="form-control form-control-solid" placeholder="Pick a date" name="date" />
-															<!--end::Input-->
-														</div>
-														<!--end::Input group-->
-														<!--begin::Row-->
-														<div class="row fv-row mb-15">
-															<!--begin::Label-->
-															<label class="fs-5 fw-semibold form-label mb-5">Payment Type:</label>
-															<!--end::Label-->
-															<!--begin::Radio group-->
-															<div class="d-flex flex-column">
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-																	<input class="form-check-input" type="checkbox" value="1" checked="checked" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">All</span>
-																</label>
-																<!--end::Radio button-->
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-																	<input class="form-check-input" type="checkbox" value="2" checked="checked" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">Visa</span>
-																</label>
-																<!--end::Radio button-->
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-																	<input class="form-check-input" type="checkbox" value="3" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">Mastercard</span>
-																</label>
-																<!--end::Radio button-->
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid">
-																	<input class="form-check-input" type="checkbox" value="4" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">American Express</span>
-																</label>
-																<!--end::Radio button-->
-															</div>
-															<!--end::Input group-->
-														</div>
-														<!--end::Row-->
-														<!--begin::Actions-->
-														<div class="text-center">
-															<button type="reset" id="kt_subscriptions_export_cancel" class="btn btn-light me-3">Discard</button>
-															<button type="submit" id="kt_subscriptions_export_submit" class="btn btn-primary">
-																<span class="indicator-label">Submit</span>
-																<span class="indicator-progress">Please wait...
-																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-															</button>
-														</div>
-														<!--end::Actions-->
-													</form>
-													<!--end::Form-->
-												</div>
-												<!--end::Modal body-->
+												<!--end::Card body-->
 											</div>
-											<!--end::Modal content-->
+											<!--end::Thumbnail settings-->
+											<!--begin::Status-->
+											<div class="card card-flush py-4">
+												<!--begin::Card header-->
+												<div class="card-header">
+													<!--begin::Card title-->
+													<div class="card-title">
+														<h2>Status</h2>
+													</div>
+													<!--end::Card title-->
+													<!--begin::Card toolbar-->
+													<div class="card-toolbar">
+														<div class="rounded-circle bg-success w-15px h-15px" id="kt_ecommerce_add_product_status"></div>
+													</div>
+													<!--begin::Card toolbar-->
+												</div>
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-0">
+													<!--begin::Select2-->
+													<select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+														<option></option>
+														<option value="published" selected="selected">Published</option>
+														<option value="draft">Draft</option>
+														<option value="scheduled">Scheduled</option>
+														<option value="inactive">Inactive</option>
+													</select>
+													<!--end::Select2-->
+													<!--begin::Description-->
+													<div class="text-muted fs-7">Set the product status.</div>
+													<!--end::Description-->
+													<!--begin::Datepicker-->
+													<div class="d-none mt-10">
+														<label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing date and time</label>
+														<input class="form-control" id="kt_ecommerce_add_product_status_datepicker" placeholder="Pick date & time" />
+													</div>
+													<!--end::Datepicker-->
+												</div>
+												<!--end::Card body-->
+											</div>
+											<!--end::Status-->
+											<!--begin::Category & tags-->
+											<div class="card card-flush py-4">
+												<!--begin::Card header-->
+												<div class="card-header">
+													<!--begin::Card title-->
+													<div class="card-title">
+														<h2>Organization Details</h2>
+													</div>
+													<!--end::Card title-->
+												</div>
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-0">
+													<!--begin::Input group-->
+													<!--begin::Label-->
+													<label class="form-label">Categories</label>
+													<!--end::Label-->
+													<!--begin::Select2-->
+													<select class="form-select mb-2" data-control="select2" data-placeholder="Select an option" data-allow-clear="true" multiple="multiple">
+														<option></option>
+														<option value="Computers">Computers</option>
+														<option value="Watches">Watches</option>
+														<option value="Headphones">Headphones</option>
+														<option value="Footwear">Footwear</option>
+														<option value="Cameras">Cameras</option>
+														<option value="Shirts">Shirts</option>
+														<option value="Household">Household</option>
+														<option value="Handbags">Handbags</option>
+														<option value="Wines">Wines</option>
+														<option value="Sandals">Sandals</option>
+													</select>
+													<!--end::Select2-->
+													<!--begin::Description-->
+													<div class="text-muted fs-7 mb-7">Add product to a category.</div>
+													<!--end::Description-->
+													<!--end::Input group-->
+													<!--begin::Button-->
+													<a href="/apps/ecommerce/catalog/add-category" class="btn btn-light-primary btn-sm mb-10">
+													<i class="ki-duotone ki-plus fs-2"></i>Create new category</a>
+													<!--end::Button-->
+													<!--begin::Input group-->
+													<!--begin::Label-->
+													<label class="form-label d-block">Tags</label>
+													<!--end::Label-->
+													<!--begin::Input-->
+													<input id="kt_ecommerce_add_product_tags" name="kt_ecommerce_add_product_tags" class="form-control mb-2" value="" />
+													<!--end::Input-->
+													<!--begin::Description-->
+													<div class="text-muted fs-7">Add tags to a product.</div>
+													<!--end::Description-->
+													<!--end::Input group-->
+												</div>
+												<!--end::Card body-->
+											</div>
+											<!--end::Category & tags-->
+											<!--begin::Weekly sales-->
+											<div class="card card-flush py-4">
+												<!--begin::Card header-->
+												<div class="card-header">
+													<!--begin::Card title-->
+													<div class="card-title">
+														<h2>Weekly Sales</h2>
+													</div>
+													<!--end::Card title-->
+												</div>
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-0">
+													<span class="text-muted">No data available. Sales data will begin capturing once product has been published.</span>
+												</div>
+												<!--end::Card body-->
+											</div>
+											<!--end::Weekly sales-->
+											<!--begin::Template settings-->
+											<div class="card card-flush py-4">
+												<!--begin::Card header-->
+												<div class="card-header">
+													<!--begin::Card title-->
+													<div class="card-title">
+														<h2>Organization Template</h2>
+													</div>
+													<!--end::Card title-->
+												</div>
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-0">
+													<!--begin::Select store template-->
+													<label for="kt_ecommerce_add_product_store_template" class="form-label">Select a product template</label>
+													<!--end::Select store template-->
+													<!--begin::Select2-->
+													<select class="form-select mb-2" data-control="select2" data-hide-search="true" data-placeholder="Select an option" id="kt_ecommerce_add_product_store_template">
+														<option></option>
+														<option value="default" selected="selected">Default template</option>
+														<option value="electronics">Electronics</option>
+														<option value="office">Office stationary</option>
+														<option value="fashion">Fashion</option>
+													</select>
+													<!--end::Select2-->
+													<!--begin::Description-->
+													<div class="text-muted fs-7">Assign a template from your current theme to define how a single product is displayed.</div>
+													<!--end::Description-->
+												</div>
+												<!--end::Card body-->
+											</div>
+											<!--end::Template settings-->
 										</div>
-										<!--end::Modal dialog-->
-									</div>
-									<!--end::Modal - New Card-->
-									<!--end::Modals-->
+										<!--end::Aside column-->
+										<!--begin::Main column-->
+										<div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+											<!--begin:::Tabs-->
+											<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
+												<!--begin:::Tab item-->
+												<li class="nav-item">
+													<a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_add_product_general">General</a>
+												</li>
+												<!--end:::Tab item-->
+												<!--begin:::Tab item-->
+												<li class="nav-item">
+													<a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_add_product_advanced">Advanced</a>
+												</li>
+												<!--end:::Tab item-->
+											</ul>
+											<!--end:::Tabs-->
+											<!--begin::Tab content-->
+											<div class="tab-content">
+												<!--begin::Tab pane-->
+												<div class="tab-pane fade show active" id="kt_ecommerce_add_product_general" role="tab-panel">
+													<div class="d-flex flex-column gap-7 gap-lg-10">
+														<!--begin::General options-->
+														<div class="card card-flush py-4">
+															<!--begin::Card header-->
+															<div class="card-header">
+																<div class="card-title">
+																	<h2>General</h2>
+																</div>
+															</div>
+															<!--end::Card header-->
+															<!--begin::Card body-->
+															<div class="card-body pt-0">
+																<!--begin::Input group-->
+																<div class="mb-10 fv-row">
+																	<!--begin::Label-->
+																	<label class="required form-label">Organization Name</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="product_name" class="form-control mb-2" placeholder="Organization name" value="" />
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">A product name is required and recommended to be unique.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div>
+																	<!--begin::Label-->
+																	<label class="form-label">Description</label>
+																	<!--end::Label-->
+																	<!--begin::Editor-->
+																	<div id="kt_ecommerce_add_product_description" name="kt_ecommerce_add_product_description" class="min-h-200px mb-2"></div>
+																	<!--end::Editor-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set a description to the product for better visibility.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+															</div>
+															<!--end::Card header-->
+														</div>
+														<!--end::General options-->
+														<!--begin::Media-->
+														<div class="card card-flush py-4">
+															<!--begin::Card header-->
+															<div class="card-header">
+																<div class="card-title">
+																	<h2>Media</h2>
+																</div>
+															</div>
+															<!--end::Card header-->
+															<!--begin::Card body-->
+															<div class="card-body pt-0">
+																<!--begin::Input group-->
+																<div class="fv-row mb-2">
+																	<!--begin::Dropzone-->
+																	<div class="dropzone" id="kt_ecommerce_add_product_media">
+																		<!--begin::Message-->
+																		<div class="dz-message needsclick">
+																			<!--begin::Icon-->
+																			<i class="ki-duotone ki-file-up text-primary fs-3x">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																			</i>
+																			<!--end::Icon-->
+																			<!--begin::Info-->
+																			<div class="ms-4">
+																				<h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
+																				<span class="fs-7 fw-semibold text-gray-400">Upload up to 10 files</span>
+																			</div>
+																			<!--end::Info-->
+																		</div>
+																	</div>
+																	<!--end::Dropzone-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Description-->
+																<div class="text-muted fs-7">Set the product media gallery.</div>
+																<!--end::Description-->
+															</div>
+															<!--end::Card header-->
+														</div>
+														<!--end::Media-->
+														<!--begin::Pricing-->
+														<div class="card card-flush py-4">
+															<!--begin::Card header-->
+															<div class="card-header">
+																<div class="card-title">
+																	<h2>Pricing</h2>
+																</div>
+															</div>
+															<!--end::Card header-->
+															<!--begin::Card body-->
+															<div class="card-body pt-0">
+																<!--begin::Input group-->
+																<div class="mb-10 fv-row">
+																	<!--begin::Label-->
+																	<label class="required form-label">Base Price</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="price" class="form-control mb-2" placeholder="Organization price" value="" />
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set the product price.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="fv-row mb-10">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">Discount Type
+																	<span class="ms-1" data-bs-toggle="tooltip" title="Select a discount type that will be applied to this product">
+																		<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																		</i>
+																	</span></label>
+																	<!--End::Label-->
+																	<!--begin::Row-->
+																	<div class="row row-cols-1 row-cols-md-3 row-cols-lg-1 row-cols-xl-3 g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
+																		<!--begin::Col-->
+																		<div class="col">
+																			<!--begin::Option-->
+																			<label class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6" data-kt-button="true">
+																				<!--begin::Radio-->
+																				<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+																					<input class="form-check-input" type="radio" name="discount_option" value="1" checked="checked" />
+																				</span>
+																				<!--end::Radio-->
+																				<!--begin::Info-->
+																				<span class="ms-5">
+																					<span class="fs-4 fw-bold text-gray-800 d-block">No Discount</span>
+																				</span>
+																				<!--end::Info-->
+																			</label>
+																			<!--end::Option-->
+																		</div>
+																		<!--end::Col-->
+																		<!--begin::Col-->
+																		<div class="col">
+																			<!--begin::Option-->
+																			<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
+																				<!--begin::Radio-->
+																				<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+																					<input class="form-check-input" type="radio" name="discount_option" value="2" />
+																				</span>
+																				<!--end::Radio-->
+																				<!--begin::Info-->
+																				<span class="ms-5">
+																					<span class="fs-4 fw-bold text-gray-800 d-block">Percentage %</span>
+																				</span>
+																				<!--end::Info-->
+																			</label>
+																			<!--end::Option-->
+																		</div>
+																		<!--end::Col-->
+																		<!--begin::Col-->
+																		<div class="col">
+																			<!--begin::Option-->
+																			<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
+																				<!--begin::Radio-->
+																				<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+																					<input class="form-check-input" type="radio" name="discount_option" value="3" />
+																				</span>
+																				<!--end::Radio-->
+																				<!--begin::Info-->
+																				<span class="ms-5">
+																					<span class="fs-4 fw-bold text-gray-800 d-block">Fixed Price</span>
+																				</span>
+																				<!--end::Info-->
+																			</label>
+																			<!--end::Option-->
+																		</div>
+																		<!--end::Col-->
+																	</div>
+																	<!--end::Row-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-none mb-10 fv-row" id="kt_ecommerce_add_product_discount_percentage">
+																	<!--begin::Label-->
+																	<label class="form-label">Set Discount Percentage</label>
+																	<!--end::Label-->
+																	<!--begin::Slider-->
+																	<div class="d-flex flex-column text-center mb-5">
+																		<div class="d-flex align-items-start justify-content-center mb-7">
+																			<span class="fw-bold fs-3x" id="kt_ecommerce_add_product_discount_label">0</span>
+																			<span class="fw-bold fs-4 mt-1 ms-2">%</span>
+																		</div>
+																		<div id="kt_ecommerce_add_product_discount_slider" class="noUi-sm"></div>
+																	</div>
+																	<!--end::Slider-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set a percentage discount to be applied on this product.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-none mb-10 fv-row" id="kt_ecommerce_add_product_discount_fixed">
+																	<!--begin::Label-->
+																	<label class="form-label">Fixed Discounted Price</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="dicsounted_price" class="form-control mb-2" placeholder="Discounted price" />
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set the discounted product price. The product will be reduced at the determined fixed price</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Tax-->
+																<div class="d-flex flex-wrap gap-5">
+																	<!--begin::Input group-->
+																	<div class="fv-row w-100 flex-md-root">
+																		<!--begin::Label-->
+																		<label class="required form-label">Tax Class</label>
+																		<!--end::Label-->
+																		<!--begin::Select2-->
+																		<select class="form-select mb-2" name="tax" data-control="select2" data-hide-search="true" data-placeholder="Select an option">
+																			<option></option>
+																			<option value="0">Tax Free</option>
+																			<option value="1">Taxable Goods</option>
+																			<option value="2">Downloadable Organization</option>
+																		</select>
+																		<!--end::Select2-->
+																		<!--begin::Description-->
+																		<div class="text-muted fs-7">Set the product tax class.</div>
+																		<!--end::Description-->
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="fv-row w-100 flex-md-root">
+																		<!--begin::Label-->
+																		<label class="form-label">VAT Amount (%)</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<input type="text" class="form-control mb-2" value="" />
+																		<!--end::Input-->
+																		<!--begin::Description-->
+																		<div class="text-muted fs-7">Set the product VAT about.</div>
+																		<!--end::Description-->
+																	</div>
+																	<!--end::Input group-->
+																</div>
+																<!--end:Tax-->
+															</div>
+															<!--end::Card header-->
+														</div>
+														<!--end::Pricing-->
+													</div>
+												</div>
+												<!--end::Tab pane-->
+												<!--begin::Tab pane-->
+												<div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
+													<div class="d-flex flex-column gap-7 gap-lg-10">
+														<!--begin::Inventory-->
+														<div class="card card-flush py-4">
+															<!--begin::Card header-->
+															<div class="card-header">
+																<div class="card-title">
+																	<h2>Inventory</h2>
+																</div>
+															</div>
+															<!--end::Card header-->
+															<!--begin::Card body-->
+															<div class="card-body pt-0">
+																<!--begin::Input group-->
+																<div class="mb-10 fv-row">
+																	<!--begin::Label-->
+																	<label class="required form-label">SKU</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="sku" class="form-control mb-2" placeholder="SKU Number" value="" />
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Enter the product SKU.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="mb-10 fv-row">
+																	<!--begin::Label-->
+																	<label class="required form-label">Barcode</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" name="sku" class="form-control mb-2" placeholder="Barcode Number" value="" />
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Enter the product barcode number.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="mb-10 fv-row">
+																	<!--begin::Label-->
+																	<label class="required form-label">Quantity</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<div class="d-flex gap-3">
+																		<input type="number" name="shelf" class="form-control mb-2" placeholder="On shelf" value="" />
+																		<input type="number" name="warehouse" class="form-control mb-2" placeholder="In warehouse" />
+																	</div>
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Enter the product quantity.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="fv-row">
+																	<!--begin::Label-->
+																	<label class="form-label">Allow Backorders</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<div class="form-check form-check-custom form-check-solid mb-2">
+																		<input class="form-check-input" type="checkbox" value="" />
+																		<label class="form-check-label">Yes</label>
+																	</div>
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Allow customers to purchase products that are out of stock.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+															</div>
+															<!--end::Card header-->
+														</div>
+														<!--end::Inventory-->
+														<!--begin::Variations-->
+														<div class="card card-flush py-4">
+															<!--begin::Card header-->
+															<div class="card-header">
+																<div class="card-title">
+																	<h2>Variations</h2>
+																</div>
+															</div>
+															<!--end::Card header-->
+															<!--begin::Card body-->
+															<div class="card-body pt-0">
+																<!--begin::Input group-->
+																<div class="" data-kt-ecommerce-catalog-add-product="auto-options">
+																	<!--begin::Label-->
+																	<label class="form-label">Add Organization Variations</label>
+																	<!--end::Label-->
+																	<!--begin::Repeater-->
+																	<div id="kt_ecommerce_add_product_options">
+																		<!--begin::Form group-->
+																		<div class="form-group">
+																			<div data-repeater-list="kt_ecommerce_add_product_options" class="d-flex flex-column gap-3">
+																				<div data-repeater-item="" class="form-group d-flex flex-wrap align-items-center gap-5">
+																					<!--begin::Select2-->
+																					<div class="w-100 w-md-200px">
+																						<select class="form-select" name="product_option" data-placeholder="Select a variation" data-kt-ecommerce-catalog-add-product="product_option">
+																							<option></option>
+																							<option value="color">Color</option>
+																							<option value="size">Size</option>
+																							<option value="material">Material</option>
+																							<option value="style">Style</option>
+																						</select>
+																					</div>
+																					<!--end::Select2-->
+																					<!--begin::Input-->
+																					<input type="text" class="form-control mw-100 w-200px" name="product_option_value" placeholder="Variation" />
+																					<!--end::Input-->
+																					<button type="button" data-repeater-delete="" class="btn btn-sm btn-icon btn-light-danger">
+																						<i class="ki-duotone ki-cross fs-1">
+																							<span class="path1"></span>
+																							<span class="path2"></span>
+																						</i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																		<!--end::Form group-->
+																		<!--begin::Form group-->
+																		<div class="form-group mt-5">
+																			<button type="button" data-repeater-create="" class="btn btn-sm btn-light-primary">
+																			<i class="ki-duotone ki-plus fs-2"></i>Add another variation</button>
+																		</div>
+																		<!--end::Form group-->
+																	</div>
+																	<!--end::Repeater-->
+																</div>
+																<!--end::Input group-->
+															</div>
+															<!--end::Card header-->
+														</div>
+														<!--end::Variations-->
+														<!--begin::Shipping-->
+														<div class="card card-flush py-4">
+															<!--begin::Card header-->
+															<div class="card-header">
+																<div class="card-title">
+																	<h2>Shipping</h2>
+																</div>
+															</div>
+															<!--end::Card header-->
+															<!--begin::Card body-->
+															<div class="card-body pt-0">
+																<!--begin::Input group-->
+																<div class="fv-row">
+																	<!--begin::Input-->
+																	<div class="form-check form-check-custom form-check-solid mb-2">
+																		<input class="form-check-input" type="checkbox" id="kt_ecommerce_add_product_shipping_checkbox" value="1" />
+																		<label class="form-check-label">This is a physical product</label>
+																	</div>
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set if the product is a physical or digital item. Physical products may require shipping.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Shipping form-->
+																<div id="kt_ecommerce_add_product_shipping" class="d-none mt-10">
+																	<!--begin::Input group-->
+																	<div class="mb-10 fv-row">
+																		<!--begin::Label-->
+																		<label class="form-label">Weight</label>
+																		<!--end::Label-->
+																		<!--begin::Editor-->
+																		<input type="text" name="weight" class="form-control mb-2" placeholder="Organization weight" value="" />
+																		<!--end::Editor-->
+																		<!--begin::Description-->
+																		<div class="text-muted fs-7">Set a product weight in kilograms (kg).</div>
+																		<!--end::Description-->
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="fv-row">
+																		<!--begin::Label-->
+																		<label class="form-label">Dimension</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<div class="d-flex flex-wrap flex-sm-nowrap gap-3">
+																			<input type="number" name="width" class="form-control mb-2" placeholder="Width (w)" value="" />
+																			<input type="number" name="height" class="form-control mb-2" placeholder="Height (h)" value="" />
+																			<input type="number" name="length" class="form-control mb-2" placeholder="Lengtn (l)" value="" />
+																		</div>
+																		<!--end::Input-->
+																		<!--begin::Description-->
+																		<div class="text-muted fs-7">Enter the product dimensions in centimeters (cm).</div>
+																		<!--end::Description-->
+																	</div>
+																	<!--end::Input group-->
+																</div>
+																<!--end::Shipping form-->
+															</div>
+															<!--end::Card header-->
+														</div>
+														<!--end::Shipping-->
+														<!--begin::Meta options-->
+														<div class="card card-flush py-4">
+															<!--begin::Card header-->
+															<div class="card-header">
+																<div class="card-title">
+																	<h2>Meta Options</h2>
+																</div>
+															</div>
+															<!--end::Card header-->
+															<!--begin::Card body-->
+															<div class="card-body pt-0">
+																<!--begin::Input group-->
+																<div class="mb-10">
+																	<!--begin::Label-->
+																	<label class="form-label">Meta Tag Title</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" class="form-control mb-2" name="meta_title" placeholder="Meta tag name" />
+																	<!--end::Input-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set a meta tag title. Recommended to be simple and precise keywords.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="mb-10">
+																	<!--begin::Label-->
+																	<label class="form-label">Meta Tag Description</label>
+																	<!--end::Label-->
+																	<!--begin::Editor-->
+																	<div id="kt_ecommerce_add_product_meta_description" name="kt_ecommerce_add_product_meta_description" class="min-h-100px mb-2"></div>
+																	<!--end::Editor-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set a meta tag description to the product for increased SEO ranking.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div>
+																	<!--begin::Label-->
+																	<label class="form-label">Meta Tag Keywords</label>
+																	<!--end::Label-->
+																	<!--begin::Editor-->
+																	<input id="kt_ecommerce_add_product_meta_keywords" name="kt_ecommerce_add_product_meta_keywords" class="form-control mb-2" />
+																	<!--end::Editor-->
+																	<!--begin::Description-->
+																	<div class="text-muted fs-7">Set a list of keywords that the product is related to. Separate the keywords by adding a comma
+																	<code>,</code>between each keyword.</div>
+																	<!--end::Description-->
+																</div>
+																<!--end::Input group-->
+															</div>
+															<!--end::Card header-->
+														</div>
+														<!--end::Meta options-->
+													</div>
+												</div>
+												<!--end::Tab pane-->
+											</div>
+											<!--end::Tab content-->
+											<div class="d-flex justify-content-end">
+												<!--begin::Button-->
+												<a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel" class="btn btn-light me-5">Cancel</a>
+												<!--end::Button-->
+												<!--begin::Button-->
+												<button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+													<span class="indicator-label">Save Changes</span>
+													<span class="indicator-progress">Please wait...
+													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+												</button>
+												<!--end::Button-->
+											</div>
+										</div>
+										<!--end::Main column-->
+									</form>
+									<!--end::Form-->
 								</div>
 								<!--end::Content container-->
 							</div>
@@ -12761,13 +12430,13 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
+													<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
 												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
-													<div class="fw-semibold text-muted">robert@benko.com</div>
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
+													<div class="fw-semibold text-muted">smith@kpmg.com</div>
 												</div>
 												<!--end::Details-->
 											</div>
@@ -13324,13 +12993,13 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
+											<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
 										<div class="ms-5">
-											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-											<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+											<div class="fw-semibold text-muted">brian@exchange.com</div>
 										</div>
 										<!--end::Details-->
 									</div>
@@ -13383,10 +13052,10 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="assets/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="assets/js/custom/apps/subscriptions/list/export.js"></script>
-		<script src="assets/js/custom/apps/subscriptions/list/list.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/catalog/save-product.js"></script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>

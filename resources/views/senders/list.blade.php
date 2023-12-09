@@ -1185,7 +1185,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<div class="menu-item p-0 m-0">
 																		<!--begin:Menu link-->
 																		<a href="/authentication/email/subscription-confirmed" class="menu-link">
-																			<span class="menu-title">Organization Confirmed</span>
+																			<span class="menu-title">Subscription Confirmed</span>
 																		</a>
 																		<!--end:Menu link-->
 																	</div>
@@ -2336,7 +2336,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -2390,7 +2390,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link" href="/apps/contacts/view-contact">
+														<a class="menu-link active" href="/apps/contacts/view-contact">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
@@ -2404,7 +2404,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -2415,7 +2415,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="path4"></span>
 														</i>
 													</span>
-													<span class="menu-title">Organization</span>
+													<span class="menu-title">Subscriptions</span>
 													<span class="menu-arrow"></span>
 												</span>
 												<!--end:Menu link-->
@@ -2436,11 +2436,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link active" href="/apps/subscriptions/list">
+														<a class="menu-link" href="/apps/subscriptions/list">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Organization List</span>
+															<span class="menu-title">Subscription List</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -2452,7 +2452,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Add Organization</span>
+															<span class="menu-title">Add Subscription</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -2464,7 +2464,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">View Organization</span>
+															<span class="menu-title">View Subscription</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -4336,7 +4336,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Menu item-->
 														<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
 															<a href="#" class="menu-link px-3">
-																<span class="menu-title">Organization</span>
+																<span class="menu-title">Subscription</span>
 																<span class="menu-arrow"></span>
 															</a>
 															<!--begin::Menu sub-->
@@ -4662,7 +4662,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Menu item-->
 										<div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
 											<a href="#" class="menu-link px-5">
-												<span class="menu-title">My Organization</span>
+												<span class="menu-title">My Subscription</span>
 												<span class="menu-arrow"></span>
 											</a>
 											<!--begin::Menu sub-->
@@ -5698,7 +5698,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Organization Confirmed</span>
+															<span class="menu-title">Subscription Confirmed</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7254,7 +7254,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -7308,7 +7308,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="/apps/contacts/view-contact">
+												<a class="menu-link active" href="/apps/contacts/view-contact">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -7642,7 +7642,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -7652,7 +7652,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="path3"></span>
 												</i>
 											</span>
-											<span class="menu-title">Organization</span>
+											<span class="menu-title">Subscription</span>
 											<span class="menu-arrow"></span>
 										</span>
 										<!--end:Menu link-->
@@ -7673,11 +7673,11 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="/apps/subscriptions/list">
+												<a class="menu-link" href="/apps/subscriptions/list">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Organization List</span>
+													<span class="menu-title">Subscription List</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -7689,7 +7689,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Add Organization</span>
+													<span class="menu-title">Add Subscription</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -7701,7 +7701,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">View Organization</span>
+													<span class="menu-title">View Subscription</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Organization List</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">View Contact</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8273,17 +8273,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">
-												<a href="/index" class="text-muted text-hover-primary">Organization</a>
-											</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item">
-												<span class="bullet bg-gray-400 w-5px h-2px"></span>
-											</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">List</li>
+											<li class="breadcrumb-item text-muted">Contacts</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -8301,7 +8291,7 @@ License: For each use you must have a valid license purchased only from above li
 											</i>Filter</a>
 											<!--end::Menu toggle-->
 											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac425413c4">
+											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac423cc7bd">
 												<!--begin::Header-->
 												<div class="px-7 py-5">
 													<div class="fs-5 text-dark fw-bold">Filter Options</div>
@@ -8319,7 +8309,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--end::Label-->
 														<!--begin::Input-->
 														<div>
-															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac425413c4" data-allow-clear="true">
+															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac423cc7bd" data-allow-clear="true">
 																<option></option>
 																<option value="1">Approved</option>
 																<option value="2">Pending</option>
@@ -8393,1091 +8383,1700 @@ License: For each use you must have a valid license purchased only from above li
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container container-xxl">
-									<!--begin::Card-->
-									<div class="card">
-										<!--begin::Card header-->
-										<div class="card-header border-0 pt-6">
-											<!--begin::Card title-->
-											<div class="card-title">
-												<!--begin::Search-->
-												<div class="d-flex align-items-center position-relative my-1">
-													<i class="ki-duotone ki-magnifier fs-3 position-absolute ms-5">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<input type="text" data-kt-subscription-table-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Organization" />
-												</div>
-												<!--end::Search-->
-											</div>
-											<!--begin::Card title-->
-											<!--begin::Card toolbar-->
-											<div class="card-toolbar">
-												<!--begin::Toolbar-->
-												<div class="d-flex justify-content-end" data-kt-subscription-table-toolbar="base">
-													<!--begin::Filter-->
-													<button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-													<i class="ki-duotone ki-filter fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>Filter</button>
-													<!--begin::Menu 1-->
-													<div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true">
-														<!--begin::Header-->
-														<div class="px-7 py-5">
-															<div class="fs-5 text-dark fw-bold">Filter Options</div>
-														</div>
-														<!--end::Header-->
-														<!--begin::Separator-->
-														<div class="separator border-gray-200"></div>
-														<!--end::Separator-->
-														<!--begin::Content-->
-														<div class="px-7 py-5" data-kt-subscription-table-filter="form">
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Month:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="month" data-hide-search="true">
-																	<option></option>
-																	<option value="jan">January</option>
-																	<option value="feb">February</option>
-																	<option value="mar">March</option>
-																	<option value="apr">April</option>
-																	<option value="may">May</option>
-																	<option value="jun">June</option>
-																	<option value="jul">July</option>
-																	<option value="aug">August</option>
-																	<option value="sep">September</option>
-																	<option value="oct">October</option>
-																	<option value="nov">November</option>
-																	<option value="dec">December</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Status:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="status" data-hide-search="true">
-																	<option></option>
-																	<option value="Active">Active</option>
-																	<option value="Expiring">Expiring</option>
-																	<option value="Suspended">Suspended</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Billing Method:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="billing" data-hide-search="true">
-																	<option></option>
-																	<option value="Auto-debit">Auto-debit</option>
-																	<option value="Manual - Credit Card">Manual - Credit Card</option>
-																	<option value="Manual - Cash">Manual - Cash</option>
-																	<option value="Manual - Paypal">Manual - Paypal</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Input group-->
-															<div class="mb-10">
-																<label class="form-label fs-6 fw-semibold">Product:</label>
-																<select class="form-select form-select-solid fw-bold" data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-subscription-table-filter="product" data-hide-search="true">
-																	<option></option>
-																	<option value="Basic">Basic</option>
-																	<option value="Basic Bundle">Basic Bundle</option>
-																	<option value="Teams">Teams</option>
-																	<option value="Teams Bundle">Teams Bundle</option>
-																	<option value="Enterprise">Enterprise</option>
-																	<option value=" Enterprise Bundle">Enterprise Bundle</option>
-																</select>
-															</div>
-															<!--end::Input group-->
-															<!--begin::Actions-->
-															<div class="d-flex justify-content-end">
-																<button type="reset" class="btn btn-light btn-active-light-primary fw-semibold me-2 px-6" data-kt-menu-dismiss="true" data-kt-subscription-table-filter="reset">Reset</button>
-																<button type="submit" class="btn btn-primary fw-semibold px-6" data-kt-menu-dismiss="true" data-kt-subscription-table-filter="filter">Apply</button>
-															</div>
-															<!--end::Actions-->
-														</div>
-														<!--end::Content-->
+									<!--begin::Contacts App- View Contact-->
+									<div class="row g-7">
+										<!--begin::Contact groups-->
+										<div class="col-lg-6 col-xl-3">
+											<!--begin::Contact group wrapper-->
+											<div class="card card-flush">
+												<!--begin::Card header-->
+												<div class="card-header pt-7" id="kt_chat_contacts_header">
+													<!--begin::Card title-->
+													<div class="card-title">
+														<h2>Groups</h2>
 													</div>
-													<!--end::Menu 1-->
-													<!--end::Filter-->
-													<!--begin::Export-->
-													<button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_subscriptions_export_modal">
-													<i class="ki-duotone ki-exit-up fs-2">
+													<!--end::Card title-->
+												</div>
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-5">
+													<!--begin::Contact groups-->
+													<div class="d-flex flex-column gap-5">
+														<!--begin::Contact group-->
+														<div class="d-flex flex-stack">
+															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary text-active-primary active">All Contacts</a>
+															<div class="badge badge-light-primary">9</div>
+														</div>
+														<!--begin::Contact group-->
+														<!--begin::Contact group-->
+														<div class="d-flex flex-stack">
+															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary">Subscribed</a>
+															<div class="badge badge-light-primary">3</div>
+														</div>
+														<!--begin::Contact group-->
+														<!--begin::Contact group-->
+														<div class="d-flex flex-stack">
+															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary">Tier 1 Member</a>
+															<div class="badge badge-light-primary">1</div>
+														</div>
+														<!--begin::Contact group-->
+														<!--begin::Contact group-->
+														<div class="d-flex flex-stack">
+															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary">Pending Approval</a>
+															<div class="badge badge-light-primary">3</div>
+														</div>
+														<!--begin::Contact group-->
+														<!--begin::Contact group-->
+														<div class="d-flex flex-stack">
+															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-danger text-hover-primary">Blocked</a>
+															<div class="badge badge-light-danger">2</div>
+														</div>
+														<!--begin::Contact group-->
+													</div>
+													<!--end::Contact groups-->
+													<!--begin::Separator-->
+													<div class="separator my-7"></div>
+													<!--begin::Separator-->
+													<!--begin::Add contact group-->
+													<label class="fs-6 fw-semibold form-label">Add new group</label>
+													<div class="input-group">
+														<input type="text" class="form-control form-control-solid" placeholder="Group name" />
+														<button type="button" class="btn btn-icon btn-light">
+															<i class="ki-duotone ki-plus-square fs-2">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+														</button>
+													</div>
+													<!--end::Add contact group-->
+													<!--begin::Separator-->
+													<div class="separator my-7"></div>
+													<!--begin::Separator-->
+													<!--begin::Add new contact-->
+													<a href="/apps/contacts/add-contact" class="btn btn-primary w-100">
+													<i class="ki-duotone ki-badge fs-2">
 														<span class="path1"></span>
 														<span class="path2"></span>
-													</i>Export</button>
-													<!--end::Export-->
-													<!--begin::Add subscription-->
-													<a href="/organization/add" class="btn btn-primary">
-													<i class="ki-duotone ki-plus fs-2"></i>Add Organization</a>
-													<!--end::Add subscription-->
+														<span class="path3"></span>
+														<span class="path4"></span>
+														<span class="path5"></span>
+													</i>Add new contact</a>
+													<!--end::Add new contact-->
 												</div>
-												<!--end::Toolbar-->
-												<!--begin::Group actions-->
-												<div class="d-flex justify-content-end align-items-center d-none" data-kt-subscription-table-toolbar="selected">
-													<div class="fw-bold me-5">
-													<span class="me-2" data-kt-subscription-table-select="selected_count"></span>Selected</div>
-													<button type="button" class="btn btn-danger" data-kt-subscription-table-select="delete_selected">Delete Selected</button>
-												</div>
-												<!--end::Group actions-->
+												<!--end::Card body-->
 											</div>
-											<!--end::Card toolbar-->
+											<!--end::Contact group wrapper-->
 										</div>
-										<!--end::Card header-->
-										<!--begin::Card body-->
-										<div class="card-body pt-0">
-											<!--begin::Table-->
-											<table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_subscriptions_table">
-												<thead>
-													<tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-														<th class="w-10px pe-2">
-															<div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-																<input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_subscriptions_table .form-check-input" value="1" />
-															</div>
-														</th>
-														<th class="min-w-125px">Customer</th>
-														<th class="min-w-125px">Status</th>
-														<th class="min-w-125px">Billing</th>
-														<th class="min-w-125px">Product</th>
-														<th class="min-w-125px">Created Date</th>
-														<th class="text-end min-w-70px">Actions</th>
-													</tr>
-												</thead>
-												<tbody class="text-gray-600 fw-semibold">
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Basic</td>
-														<td>Aug 19, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/organization/details" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Melody Macy</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>May 05, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/organization/details" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Max Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Cash</div>
-														</td>
-														<td>Teams Bundle</td>
-														<td>Jun 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Sean Bean</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Paypal</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Aug 19, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Brian Cox</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Basic</td>
-														<td>Oct 25, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Mikaela Collins</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Enterprise Bundle</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Francis Mitcham</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Teams</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Olivia Wild</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Neil Owen</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Basic</td>
-														<td>Oct 25, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Dan Wilson</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Enterprise Bundle</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Emma Bold</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Jun 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Ana Crown</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>Apr 15, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Robert Doe</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Teams Bundle</td>
-														<td>Mar 10, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">John Miller</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Paypal</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Lucy Kunic</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Neil Owen</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Basic Bundle</td>
-														<td>Mar 10, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Dan Wilson</a>
-														</td>
-														<td>
-															<div class="badge badge-light-warning">Expiring</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Paypal</div>
-														</td>
-														<td>Enterprise</td>
-														<td>Dec 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Emma Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Auto-debit</div>
-														</td>
-														<td>Teams</td>
-														<td>Jun 24, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Melody Macy</a>
-														</td>
-														<td>
-															<div class="badge badge-light-success">Active</div>
-														</td>
-														<td>
-															<div class="badge badge-light">Manual - Credit Card</div>
-														</td>
-														<td>Basic</td>
-														<td>Jun 20, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<div class="form-check form-check-sm form-check-custom form-check-solid">
-																<input class="form-check-input" type="checkbox" value="1" />
-															</div>
-														</td>
-														<td>
-															<a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Max Smith</a>
-														</td>
-														<td>
-															<div class="badge badge-light-danger">Suspended</div>
-														</td>
-														<td>
-															<div class="badge badge-light">--</div>
-														</td>
-														<td>Basic Bundle</td>
-														<td>Sep 22, 2023</td>
-														<td class="text-end">
-															<a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-															<i class="ki-duotone ki-down fs-5 m-0"></i></a>
-															<!--begin::Menu-->
-															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-																</div>
-																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="#" data-kt-subscriptions-table-filter="delete_row" class="menu-link px-3">Delete</a>
-																</div>
-																<!--end::Menu item-->
-															</div>
-															<!--end::Menu-->
-														</td>
-													</tr>
-												</tbody>
-											</table>
-											<!--end::Table-->
-										</div>
-										<!--end::Card body-->
-									</div>
-									<!--end::Card-->
-									<!--begin::Modals-->
-									<!--begin::Modal - Adjust Balance-->
-									<div class="modal fade" id="kt_subscriptions_export_modal" tabindex="-1" aria-hidden="true">
-										<!--begin::Modal dialog-->
-										<div class="modal-dialog modal-dialog-centered mw-650px">
-											<!--begin::Modal content-->
-											<div class="modal-content">
-												<!--begin::Modal header-->
-												<div class="modal-header">
-													<!--begin::Modal title-->
-													<h2 class="fw-bold">Export Organization</h2>
-													<!--end::Modal title-->
-													<!--begin::Close-->
-													<div id="kt_subscriptions_export_close" class="btn btn-icon btn-sm btn-active-icon-primary">
-														<i class="ki-duotone ki-cross fs-1">
+										<!--end::Contact groups-->
+										<!--begin::Search-->
+										<div class="col-lg-6 col-xl-3">
+											<!--begin::Contacts-->
+											<div class="card card-flush" id="kt_contacts_list">
+												<!--begin::Card header-->
+												<div class="card-header pt-7" id="kt_contacts_list_header">
+													<!--begin::Form-->
+													<form class="d-flex align-items-center position-relative w-100 m-0" autocomplete="off">
+														<!--begin::Icon-->
+														<i class="ki-duotone ki-magnifier fs-3 text-gray-500 position-absolute top-50 ms-5 translate-middle-y">
 															<span class="path1"></span>
 															<span class="path2"></span>
 														</i>
-													</div>
-													<!--end::Close-->
-												</div>
-												<!--end::Modal header-->
-												<!--begin::Modal body-->
-												<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
-													<!--begin::Form-->
-													<form id="kt_subscriptions_export_form" class="form" action="#">
-														<!--begin::Input group-->
-														<div class="fv-row mb-10">
-															<!--begin::Label-->
-															<label class="fs-5 fw-semibold form-label mb-5">Select Export Format:</label>
-															<!--end::Label-->
-															<!--begin::Input-->
-															<select data-control="select2" data-placeholder="Select a format" data-hide-search="true" name="format" class="form-select form-select-solid">
-																<option value="excell">Excel</option>
-																<option value="pdf">PDF</option>
-																<option value="cvs">CVS</option>
-																<option value="zip">ZIP</option>
-															</select>
-															<!--end::Input-->
-														</div>
-														<!--end::Input group-->
-														<!--begin::Input group-->
-														<div class="fv-row mb-10">
-															<!--begin::Label-->
-															<label class="fs-5 fw-semibold form-label mb-5">Select Date Range:</label>
-															<!--end::Label-->
-															<!--begin::Input-->
-															<input class="form-control form-control-solid" placeholder="Pick a date" name="date" />
-															<!--end::Input-->
-														</div>
-														<!--end::Input group-->
-														<!--begin::Row-->
-														<div class="row fv-row mb-15">
-															<!--begin::Label-->
-															<label class="fs-5 fw-semibold form-label mb-5">Payment Type:</label>
-															<!--end::Label-->
-															<!--begin::Radio group-->
-															<div class="d-flex flex-column">
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-																	<input class="form-check-input" type="checkbox" value="1" checked="checked" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">All</span>
-																</label>
-																<!--end::Radio button-->
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-																	<input class="form-check-input" type="checkbox" value="2" checked="checked" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">Visa</span>
-																</label>
-																<!--end::Radio button-->
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid mb-3">
-																	<input class="form-check-input" type="checkbox" value="3" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">Mastercard</span>
-																</label>
-																<!--end::Radio button-->
-																<!--begin::Radio button-->
-																<label class="form-check form-check-custom form-check-sm form-check-solid">
-																	<input class="form-check-input" type="checkbox" value="4" name="payment_type" />
-																	<span class="form-check-label text-gray-600 fw-semibold">American Express</span>
-																</label>
-																<!--end::Radio button-->
-															</div>
-															<!--end::Input group-->
-														</div>
-														<!--end::Row-->
-														<!--begin::Actions-->
-														<div class="text-center">
-															<button type="reset" id="kt_subscriptions_export_cancel" class="btn btn-light me-3">Discard</button>
-															<button type="submit" id="kt_subscriptions_export_submit" class="btn btn-primary">
-																<span class="indicator-label">Submit</span>
-																<span class="indicator-progress">Please wait...
-																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-															</button>
-														</div>
-														<!--end::Actions-->
+														<!--end::Icon-->
+														<!--begin::Input-->
+														<input type="text" class="form-control form-control-solid ps-13" name="search" value="" placeholder="Search contacts" />
+														<!--end::Input-->
 													</form>
 													<!--end::Form-->
 												</div>
-												<!--end::Modal body-->
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-5" id="kt_contacts_list_body">
+													<!--begin::List-->
+													<div class="scroll-y me-n5 pe-5 h-300px h-xl-auto" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_header, #kt_toolbar, #kt_footer, #kt_contacts_list_header" data-kt-scroll-wrappers="#kt_content, #kt_contacts_list_body" data-kt-scroll-stretch="#kt_contacts_list, #kt_contacts_main" data-kt-scroll-offset="5px">
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
+																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
+																	<div class="fw-semibold fs-7 text-muted">smith@kpmg.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">M</span>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
+																	<div class="fw-semibold fs-7 text-muted">melody@altbox.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
+																	<div class="fw-semibold fs-7 text-muted">max@kt.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
+																	<div class="fw-semibold fs-7 text-muted">sean@dellito.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+																	<div class="fw-semibold fs-7 text-muted">brian@exchange.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<span class="symbol-label bg-light-warning text-warning fs-6 fw-bolder">C</span>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
+																	<div class="fw-semibold fs-7 text-muted">mik@pex.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
+																	<div class="fw-semibold fs-7 text-muted">f.mit@kpmg.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">O</span>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
+																	<div class="fw-semibold fs-7 text-muted">olivia@corpmail.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<span class="symbol-label bg-light-primary text-primary fs-6 fw-bolder">N</span>
+																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Neil Owen</a>
+																	<div class="fw-semibold fs-7 text-muted">owen.neil@gmail.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
+																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
+																	<div class="fw-semibold fs-7 text-muted">dam@consilting.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">E</span>
+																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Emma Bold</a>
+																	<div class="fw-semibold fs-7 text-muted">emma@intenso.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Ana Crown</a>
+																	<div class="fw-semibold fs-7 text-muted">ana.cf@limtel.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<span class="symbol-label bg-light-info text-info fs-6 fw-bolder">A</span>
+																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
+																	<div class="fw-semibold fs-7 text-muted">robert@benko.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-13.jpg" />
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
+																	<div class="fw-semibold fs-7 text-muted">miller@mapple.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<span class="symbol-label bg-light-success text-success fs-6 fw-bolder">L</span>
+																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
+																	<div class="fw-semibold fs-7 text-muted">lucy.m@fentech.com</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed d-none"></div>
+														<!--end::Separator-->
+														<!--begin::User-->
+														<div class="d-flex flex-stack py-4">
+															<!--begin::Details-->
+															<div class="d-flex align-items-center">
+																<!--begin::Avatar-->
+																<div class="symbol symbol-40px symbol-circle">
+																	<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
+																</div>
+																<!--end::Avatar-->
+																<!--begin::Details-->
+																<div class="ms-4">
+																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
+																	<div class="fw-semibold fs-7 text-muted">ethan@loop.com.au</div>
+																</div>
+																<!--end::Details-->
+															</div>
+															<!--end::Details-->
+														</div>
+														<!--end::User-->
+													</div>
+													<!--end::List-->
+												</div>
+												<!--end::Card body-->
 											</div>
-											<!--end::Modal content-->
+											<!--end::Contacts-->
 										</div>
-										<!--end::Modal dialog-->
+										<!--end::Search-->
+										<!--begin::Content-->
+										<div class="col-xl-6">
+											<!--begin::Contacts-->
+											<div class="card card-flush h-lg-100" id="kt_contacts_main">
+												<!--begin::Card header-->
+												<div class="card-header pt-7" id="kt_chat_contacts_header">
+													<!--begin::Card title-->
+													<div class="card-title">
+														<i class="ki-duotone ki-badge fs-1 me-2">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+															<span class="path4"></span>
+															<span class="path5"></span>
+														</i>
+														<h2>Contact Details</h2>
+													</div>
+													<!--end::Card title-->
+													<!--begin::Card toolbar-->
+													<div class="card-toolbar gap-3">
+														<!--begin::Chat-->
+														<button class="btn btn-sm btn-light btn-active-light-primary" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_chat">
+														<i class="ki-duotone ki-message-text-2 fs-2">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>Chat</button>
+														<!--end::Chat-->
+														<!--begin::Chat-->
+														<a href="/apps/inbox/reply" class="btn btn-sm btn-light btn-active-light-primary">
+														<i class="ki-duotone ki-messages fs-2">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+															<span class="path4"></span>
+															<span class="path5"></span>
+														</i>Message</a>
+														<!--end::Chat-->
+														<!--begin::Action menu-->
+														<a href="#" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+															<i class="ki-duotone ki-dots-square fs-2">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+																<span class="path4"></span>
+															</i>
+														</a>
+														<!--begin::Menu-->
+														<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="/apps/contacts/edit-contact" class="menu-link px-3">Edit</a>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="#" class="menu-link px-3" id="kt_contact_delete" data-kt-redirect="/apps/contacts/getting-started">Delete</a>
+															</div>
+															<!--end::Menu item-->
+														</div>
+														<!--end::Menu-->
+														<!--end::Action menu-->
+													</div>
+													<!--end::Card toolbar-->
+												</div>
+												<!--end::Card header-->
+												<!--begin::Card body-->
+												<div class="card-body pt-5">
+													<!--begin::Profile-->
+													<div class="d-flex gap-7 align-items-center">
+														<!--begin::Avatar-->
+														<div class="symbol symbol-circle symbol-100px">
+															<img src="assets/media/avatars/300-6.jpg" alt="image" />
+														</div>
+														<!--end::Avatar-->
+														<!--begin::Contact details-->
+														<div class="d-flex flex-column gap-2">
+															<!--begin::Name-->
+															<h3 class="mb-0">Emma Smith</h3>
+															<!--end::Name-->
+															<!--begin::Email-->
+															<div class="d-flex align-items-center gap-2">
+																<i class="ki-duotone ki-sms fs-2">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																</i>
+																<a href="#" class="text-muted text-hover-primary">smith@kpmg.com</a>
+															</div>
+															<!--end::Email-->
+															<!--begin::Phone-->
+															<div class="d-flex align-items-center gap-2">
+																<i class="ki-duotone ki-phone fs-2">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																</i>
+																<a href="#" class="text-muted text-hover-primary">+6141 234 567</a>
+															</div>
+															<!--end::Phone-->
+														</div>
+														<!--end::Contact details-->
+													</div>
+													<!--end::Profile-->
+													<!--begin:::Tabs-->
+													<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x fs-6 fw-semibold mt-6 mb-8 gap-2">
+														<!--begin:::Tab item-->
+														<li class="nav-item">
+															<a class="nav-link text-active-primary d-flex align-items-center pb-4 active" data-bs-toggle="tab" href="#kt_contact_view_general">
+															<i class="ki-duotone ki-home fs-4 me-1"></i>General</a>
+														</li>
+														<!--end:::Tab item-->
+														<!--begin:::Tab item-->
+														<li class="nav-item">
+															<a class="nav-link text-active-primary d-flex align-items-center pb-4" data-bs-toggle="tab" href="#kt_contact_view_meetings">
+															<i class="ki-duotone ki-calendar-8 fs-4 me-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+																<span class="path4"></span>
+																<span class="path5"></span>
+																<span class="path6"></span>
+															</i>Meetings</a>
+														</li>
+														<!--end:::Tab item-->
+														<!--begin:::Tab item-->
+														<li class="nav-item">
+															<a class="nav-link text-active-primary d-flex align-items-center pb-4" data-bs-toggle="tab" href="#kt_contact_view_activity">
+															<i class="ki-duotone ki-save-2 fs-4 me-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>Activity</a>
+														</li>
+														<!--end:::Tab item-->
+													</ul>
+													<!--end:::Tabs-->
+													<!--begin::Tab content-->
+													<div class="tab-content" id="">
+														<!--begin:::Tab pane-->
+														<div class="tab-pane fade show active" id="kt_contact_view_general" role="tabpanel">
+															<!--begin::Additional details-->
+															<div class="d-flex flex-column gap-5 mt-7">
+																<!--begin::Company name-->
+																<div class="d-flex flex-column gap-1">
+																	<div class="fw-bold text-muted">Company Name</div>
+																	<div class="fw-bold fs-5">Keenthemes Inc</div>
+																</div>
+																<!--end::Company name-->
+																<!--begin::City-->
+																<div class="d-flex flex-column gap-1">
+																	<div class="fw-bold text-muted">City</div>
+																	<div class="fw-bold fs-5">Melbourne</div>
+																</div>
+																<!--end::City-->
+																<!--begin::Country-->
+																<div class="d-flex flex-column gap-1">
+																	<div class="fw-bold text-muted">Country</div>
+																	<div class="fw-bold fs-5">Australia</div>
+																</div>
+																<!--end::Country-->
+																<!--begin::Notes-->
+																<div class="d-flex flex-column gap-1">
+																	<div class="fw-bold text-muted">Notes</div>
+																	<p>Emma Smith joined the team on September 2019 as a junior associate. She soon showcased her expertise and experience in knowledge and skill in the field, which was very valuable to the company. She was promptly promoted to senior associate on July 2020.
+																	<br />
+																	<br />Emma Smith now heads a team of 5 associates and leads the company's sales growth by 7%.</p>
+																</div>
+																<!--end::Notes-->
+															</div>
+															<!--end::Additional details-->
+														</div>
+														<!--end:::Tab pane-->
+														<!--begin:::Tab pane-->
+														<div class="tab-pane fade" id="kt_contact_view_meetings" role="tabpanel">
+															<!--begin::Dates-->
+															<ul class="nav nav-pills d-flex flex-stack flex-nowrap hover-scroll-x">
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_0">
+																		<span class="opacity-50 fs-7 fw-semibold">Su</span>
+																		<span class="fs-6 fw-bold">22</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary active" data-bs-toggle="tab" href="#kt_schedule_day_1">
+																		<span class="opacity-50 fs-7 fw-semibold">Mo</span>
+																		<span class="fs-6 fw-bold">23</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_2">
+																		<span class="opacity-50 fs-7 fw-semibold">Tu</span>
+																		<span class="fs-6 fw-bold">24</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_3">
+																		<span class="opacity-50 fs-7 fw-semibold">We</span>
+																		<span class="fs-6 fw-bold">25</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_4">
+																		<span class="opacity-50 fs-7 fw-semibold">Th</span>
+																		<span class="fs-6 fw-bold">26</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_5">
+																		<span class="opacity-50 fs-7 fw-semibold">Fr</span>
+																		<span class="fs-6 fw-bold">27</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_6">
+																		<span class="opacity-50 fs-7 fw-semibold">Sa</span>
+																		<span class="fs-6 fw-bold">28</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_7">
+																		<span class="opacity-50 fs-7 fw-semibold">Su</span>
+																		<span class="fs-6 fw-bold">29</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_8">
+																		<span class="opacity-50 fs-7 fw-semibold">Mo</span>
+																		<span class="fs-6 fw-bold">30</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+																<!--begin::Date-->
+																<li class="nav-item me-1">
+																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_9">
+																		<span class="opacity-50 fs-7 fw-semibold">Tu</span>
+																		<span class="fs-6 fw-bold">31</span>
+																	</a>
+																</li>
+																<!--end::Date-->
+															</ul>
+															<!--end::Dates-->
+															<!--begin::Tab Content-->
+															<div class="tab-content">
+																<!--begin::Day-->
+																<div id="kt_schedule_day_0" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">14:30 - 15:30
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Caleb Donaldson</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">13:00 - 14:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">David Stevenson</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">13:00 - 14:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Walter White</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_1" class="tab-pane fade show active">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">9:00 - 10:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Peter Marcus</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">12:00 - 13:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">9 Degree Project Estimation Meeting</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Sean Bean</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">12:00 - 13:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">9 Degree Project Estimation Meeting</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Peter Marcus</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_2" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">10:00 - 11:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Sean Bean</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">10:00 - 11:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Lunch & Learn Catch Up</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Kendell Trevor</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">9:00 - 10:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Yannis Gloverson</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_3" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">11:00 - 11:45
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Naomi Hayabusa</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">16:30 - 17:30
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Kendell Trevor</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">13:00 - 14:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Mark Randall</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_4" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">13:00 - 14:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Kendell Trevor</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">9:00 - 10:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Mark Randall</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">10:00 - 11:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Sean Bean</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_5" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">16:30 - 17:30
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Lunch & Learn Catch Up</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Bob Harris</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">9:00 - 10:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Dashboard UI/UX Design Review</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Naomi Hayabusa</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">9:00 - 10:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Development Team Capacity Review</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Sean Bean</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_6" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">12:00 - 13:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Development Team Capacity Review</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Michael Walters</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">11:00 - 11:45
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Walter White</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">12:00 - 13:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Caleb Donaldson</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_7" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">13:00 - 14:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Yannis Gloverson</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">11:00 - 11:45
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Walter White</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">13:00 - 14:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Kendell Trevor</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_8" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">10:00 - 11:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Yannis Gloverson</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">9:00 - 10:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Bob Harris</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">11:00 - 11:45
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Sean Bean</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+																<!--begin::Day-->
+																<div id="kt_schedule_day_9" class="tab-pane fade show">
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">13:00 - 14:00
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Karina Clarke</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">16:30 - 17:30
+																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Peter Marcus</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																	<!--begin::Time-->
+																	<div class="d-flex flex-stack position-relative mt-8">
+																		<!--begin::Bar-->
+																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
+																		<!--end::Bar-->
+																		<!--begin::Info-->
+																		<div class="fw-semibold ms-5 text-gray-600">
+																			<!--begin::Time-->
+																			<div class="fs-5">9:00 - 10:00
+																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
+																			<!--end::Time-->
+																			<!--begin::Title-->
+																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
+																			<!--end::Title-->
+																			<!--begin::User-->
+																			<div class="text-gray-400">Lead by
+																			<a href="#">Kendell Trevor</a></div>
+																			<!--end::User-->
+																		</div>
+																		<!--end::Info-->
+																		<!--begin::Action-->
+																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
+																		<!--end::Action-->
+																	</div>
+																	<!--end::Time-->
+																</div>
+																<!--end::Day-->
+															</div>
+															<!--end::Tab Content-->
+														</div>
+														<!--end:::Tab pane-->
+														<!--begin:::Tab pane-->
+														<div class="tab-pane fade" id="kt_contact_view_activity" role="tabpanel">
+															<!--begin::Timeline-->
+															<div class="timeline-label">
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">08:42</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-warning fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Text-->
+																	<div class="fw-mormal timeline-content text-muted ps-3">Outlines keep you honest. And keep structure</div>
+																	<!--end::Text-->
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">10:00</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-success fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Content-->
+																	<div class="timeline-content d-flex">
+																		<span class="fw-bold text-gray-800 ps-3">AEOL meeting</span>
+																	</div>
+																	<!--end::Content-->
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">14:37</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-danger fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Desc-->
+																	<div class="timeline-content fw-bold text-gray-800 ps-3">Make deposit
+																	<a href="#" class="text-primary">USD 700</a>. to ESL</div>
+																	<!--end::Desc-->
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">16:50</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-primary fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Text-->
+																	<div class="timeline-content fw-mormal text-muted ps-3">Indulging in poorly driving and keep structure keep great</div>
+																	<!--end::Text-->
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">21:03</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-danger fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Desc-->
+																	<div class="timeline-content fw-semibold text-gray-800 ps-3">New order placed
+																	<a href="#" class="text-primary">#XF-2356</a>.</div>
+																	<!--end::Desc-->
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">16:50</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-primary fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Text-->
+																	<div class="timeline-content fw-mormal text-muted ps-3">Indulging in poorly driving and keep structure keep great</div>
+																	<!--end::Text-->
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">21:03</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-danger fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Desc-->
+																	<div class="timeline-content fw-semibold text-gray-800 ps-3">New order placed
+																	<a href="#" class="text-primary">#XF-2356</a>.</div>
+																	<!--end::Desc-->
+																</div>
+																<!--end::Item-->
+																<!--begin::Item-->
+																<div class="timeline-item">
+																	<!--begin::Label-->
+																	<div class="timeline-label fw-bold text-gray-800 fs-6">10:30</div>
+																	<!--end::Label-->
+																	<!--begin::Badge-->
+																	<div class="timeline-badge">
+																		<i class="ki-duotone ki-abstract-8 text-success fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</div>
+																	<!--end::Badge-->
+																	<!--begin::Text-->
+																	<div class="timeline-content fw-mormal text-muted ps-3">Finance KPI Mobile app launch preparion meeting</div>
+																	<!--end::Text-->
+																</div>
+																<!--end::Item-->
+															</div>
+															<!--end::Timeline-->
+														</div>
+														<!--end:::Tab pane-->
+													</div>
+													<!--end::Tab content-->
+												</div>
+												<!--end::Card body-->
+											</div>
+											<!--end::Contacts-->
+										</div>
+										<!--end::Content-->
 									</div>
-									<!--end::Modal - New Card-->
-									<!--end::Modals-->
+									<!--end::Contacts App- View Contact-->
 								</div>
 								<!--end::Content container-->
 							</div>
@@ -12761,13 +13360,13 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
+													<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
 												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
-													<div class="fw-semibold text-muted">robert@benko.com</div>
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
+													<div class="fw-semibold text-muted">olivia@corpmail.com</div>
 												</div>
 												<!--end::Details-->
 											</div>
@@ -13324,13 +13923,13 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
+											<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
 										<div class="ms-5">
-											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-											<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
+											<div class="fw-semibold text-muted">robert@benko.com</div>
 										</div>
 										<!--end::Details-->
 									</div>
@@ -13385,8 +13984,7 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="assets/js/custom/apps/subscriptions/list/export.js"></script>
-		<script src="assets/js/custom/apps/subscriptions/list/list.js"></script>
+		<script src="assets/js/custom/apps/contacts/view-contact.js"></script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>

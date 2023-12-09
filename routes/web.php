@@ -9,11 +9,22 @@ Route::get('/', function () {
 });
 
 
+Route::get('/shipments/schedule', function () {
+    return view('shipments.schedule');
+});
+
+
 Route::get('/organization/overview', function () {
     return view('organization.overview');
 });
+Route::get('/organization/add', function () {
+    return view('organization.add-organization');
+});
 Route::get('/organization/list', function () {
     return view('organization.list');
+});
+Route::get('/organization/details', function () {
+    return view('organization.details');
 });
 
 
