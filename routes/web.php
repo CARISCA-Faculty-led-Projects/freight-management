@@ -31,11 +31,35 @@ Route::get('/organization/details', function () {
 Route::get('/fleet/overview', function () {
     return view('fleet.overview');
 });
+Route::get('/fleet/locate', function () {
+    return view('fleet.locate');
+});
 Route::get('/fleet/vehicles', function () {
-    return view('fleet.vehicles');
+    return view('fleet.vehicles.vehicles');
+});
+Route::get('/fleet/vehicles/details', function () {
+    return view('fleet.vehicles.details');
+});
+Route::get('/fleet/vehicles/locate', function () {
+    return view('fleet.vehicles.locate');
+});
+Route::get('/fleet/vehicles/edit', function () {
+    return view('fleet.vehicles.edit');
 });
 Route::get('/fleet/drivers', function () {
-    return view('fleet.drivers');
+    return view('fleet.drivers.drivers');
+});
+Route::get('/fleet/drivers/details', function () {
+    return view('fleet.drivers.details');
+});
+Route::get('/fleet/drivers/locate', function () {
+    return view('fleet.drivers.locate');
+});
+Route::get('/fleet/drivers/edit', function () {
+    return view('fleet.drivers.edit');
+});
+Route::get('/fleet/maintenance', function () {
+    return view('fleet.maintenance');
 });
 
 
@@ -45,11 +69,29 @@ Route::get('/load/overview', function () {
 Route::get('/load/list', function () {
     return view('load.list');
 });
+Route::get('/load/add', function () {
+    return view('load.add');
+});
+Route::get('/load/edit', function () {
+    return view('load.edit');
+});
+Route::get('/load/details', function () {
+    return view('load.details');
+});
 Route::get('/load/bids', function () {
     return view('load.bids');
 });
+Route::get('/load/locate', function () {
+    return view('load.locate');
+});
 Route::get('/load/documents', function () {
     return view('load.documents');
+});
+Route::get('/load/offer-a-deal', function () {
+    return view('load.offer-a-deal');
+});
+Route::get('/load/add-deal', function () {
+    return view('load.add-deal');
 });
 
 

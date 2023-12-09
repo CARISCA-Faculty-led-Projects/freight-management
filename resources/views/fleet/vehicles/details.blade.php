@@ -25,16 +25,16 @@ License: For each use you must have a valid license purchased only from above li
 		<meta property="og:url" content="https://keenthemes.com/metronic" />
 		<meta property="og:site_name" content="Keenthemes | Metronic" />
 		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-		<link rel="shortcut icon" href="assets/media/logos/favicon.ico" />
+		<link rel="shortcut icon" href="../assets/media/logos/favicon.ico" />
 		<!--begin::Fonts(mandatory for all pages)-->
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Vendor Stylesheets(used for this page only)-->
-		<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
-		<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
-		<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Global Stylesheets Bundle-->
 	</head>
 	<!--end::Head-->
@@ -64,7 +64,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--begin::Mobile logo-->
 						<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
 							<a href="/index" class="d-lg-none">
-								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-30px" />
+								<img alt="Logo" src="../assets/media/logos/default-small.svg" class="h-30px" />
 							</a>
 						</div>
 						<!--end::Mobile logo-->
@@ -75,7 +75,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Menu-->
 								<div class="menu menu-rounded menu-column menu-lg-row my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0" id="kt_app_header_menu" data-kt-menu="true">
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-title">Dashboards</span>
@@ -232,7 +232,7 @@ License: For each use you must have a valid license purchased only from above li
 																<!--begin:Menu item-->
 																<div class="menu-item p-0 m-0">
 																	<!--begin:Menu link-->
-																	<a href="/dashboards/bidding" class="menu-link active">
+																	<a href="/dashboards/bidding" class="menu-link">
 																		<span class="menu-custom-icon d-flex flex-center flex-shrink-0 rounded w-40px h-40px me-3">
 																			<i class="ki-duotone ki-switch text-warning fs-1">
 																				<span class="path1"></span>
@@ -410,7 +410,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-0 me-lg-2">
+									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-title">Pages</span>
@@ -426,12 +426,12 @@ License: For each use you must have a valid license purchased only from above li
 													<ul class="nav nav-stretch nav-line-tabs fw-bold fs-6 p-0 p-lg-10 flex-nowrap flex-grow-1">
 														<!--begin:Nav item-->
 														<li class="nav-item mx-lg-1">
-															<a class="nav-link py-3 py-lg-6 active text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_pages">General</a>
+															<a class="nav-link py-3 py-lg-6 text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_pages">General</a>
 														</li>
 														<!--end:Nav item-->
 														<!--begin:Nav item-->
 														<li class="nav-item mx-lg-1">
-															<a class="nav-link py-3 py-lg-6 text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_account">Account</a>
+															<a class="nav-link py-3 py-lg-6 active text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_account">Vehicle</a>
 														</li>
 														<!--end:Nav item-->
 														<!--begin:Nav item-->
@@ -455,7 +455,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--begin:Tab content-->
 												<div class="tab-content py-4 py-lg-8 px-lg-7">
 													<!--begin:Tab pane-->
-													<div class="tab-pane active w-lg-1000px" id="kt_app_header_menu_pages_pages">
+													<div class="tab-pane w-lg-1000px" id="kt_app_header_menu_pages_pages">
 														<!--begin:Row-->
 														<div class="row">
 															<!--begin:Col-->
@@ -471,7 +471,7 @@ License: For each use you must have a valid license purchased only from above li
 																		<div class="menu-item p-0 m-0">
 																			<!--begin:Menu link-->
 																			<a href="/pages/user-profile/overview" class="menu-link">
-																				<span class="menu-title">Overview</span>
+																				<span class="menu-title">Details</span>
 																			</a>
 																			<!--end:Menu link-->
 																		</div>
@@ -736,7 +736,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--end:Col-->
 															<!--begin:Col-->
 															<div class="col-lg-4">
-																<img src="assets/media/stock/600x600/img-82.jpg" class="rounded mw-100" alt="" />
+																<img src="../assets/media/stock/600x600/img-82.jpg" class="rounded mw-100" alt="" />
 															</div>
 															<!--end:Col-->
 														</div>
@@ -744,7 +744,7 @@ License: For each use you must have a valid license purchased only from above li
 													</div>
 													<!--end:Tab pane-->
 													<!--begin:Tab pane-->
-													<div class="tab-pane w-lg-600px" id="kt_app_header_menu_pages_account">
+													<div class="tab-pane active w-lg-600px" id="kt_app_header_menu_pages_account">
 														<!--begin:Row-->
 														<div class="row">
 															<!--begin:Col-->
@@ -756,8 +756,8 @@ License: For each use you must have a valid license purchased only from above li
 																		<!--begin:Menu item-->
 																		<div class="menu-item p-0 m-0">
 																			<!--begin:Menu link-->
-																			<a href="/account/overview" class="menu-link">
-																				<span class="menu-title">Overview</span>
+																			<a href="/account/overview" class="menu-link active">
+																				<span class="menu-title">Details</span>
 																			</a>
 																			<!--end:Menu link-->
 																		</div>
@@ -846,7 +846,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--end:Col-->
 															<!--begin:Col-->
 															<div class="col-lg-7">
-																<img src="assets/media/stock/900x600/46.jpg" class="rounded mw-100" alt="" />
+																<img src="../assets/media/stock/900x600/46.jpg" class="rounded mw-100" alt="" />
 															</div>
 															<!--end:Col-->
 														</div>
@@ -1129,7 +1129,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<div class="menu-item p-0 m-0">
 																		<!--begin:Menu link-->
 																		<a href="/authentication/general/account-deactivated" class="menu-link">
-																			<span class="menu-title">Account Deactivation</span>
+																			<span class="menu-title">Vehicle Deactivation</span>
 																		</a>
 																		<!--end:Menu link-->
 																	</div>
@@ -1516,7 +1516,7 @@ License: For each use you must have a valid license purchased only from above li
 																			<div class="menu-item p-0 m-0">
 																				<!--begin:Menu link-->
 																				<a href="/utilities/wizards/create-account" class="menu-link">
-																					<span class="menu-title">Create Account</span>
+																					<span class="menu-title">Create Vehicle</span>
 																				</a>
 																				<!--end:Menu link-->
 																			</div>
@@ -1558,7 +1558,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--end:Col-->
 															<!--begin:Col-->
 															<div class="col-lg-5 pe-lg-5">
-																<img src="assets/media/stock/600x600/img-84.jpg" class="rounded mw-100" alt="" />
+																<img src="../assets/media/stock/600x600/img-84.jpg" class="rounded mw-100" alt="" />
 															</div>
 															<!--end:Col-->
 														</div>
@@ -1629,7 +1629,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--end:Col-->
 															<!--begin:Col-->
 															<div class="col-lg-8">
-																<img src="assets/media/stock/900x600/44.jpg" class="rounded mw-100" alt="" />
+																<img src="../assets/media/stock/900x600/44.jpg" class="rounded mw-100" alt="" />
 															</div>
 															<!--end:Col-->
 														</div>
@@ -2094,7 +2094,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Overview</span>
+															<span class="menu-title">Details</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -2930,7 +2930,7 @@ License: For each use you must have a valid license purchased only from above li
 																		<span class="menu-bullet">
 																			<span class="bullet bullet-dot bg-gray-300i h-6px w-6px"></span>
 																		</span>
-																		<span class="menu-title">Accounting</span>
+																		<span class="menu-title">Vehicleing</span>
 																	</a>
 																	<!--end:Menu link-->
 																</div>
@@ -2977,7 +2977,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end:Col-->
 													<!--begin:Col-->
 													<div class="col-lg-6 mb-3 py-lg-3 pe-lg-8 d-flex align-items-center">
-														<img src="assets/media/stock/900x600/45.jpg" class="rounded mw-100" alt="" />
+														<img src="../assets/media/stock/900x600/45.jpg" class="rounded mw-100" alt="" />
 													</div>
 													<!--end:Col-->
 												</div>
@@ -3130,7 +3130,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-6.jpg" alt="" />
+																<img src="../assets/media/avatars/300-6.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -3145,7 +3145,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-2.jpg" alt="" />
+																<img src="../assets/media/avatars/300-2.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -3160,7 +3160,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-9.jpg" alt="" />
+																<img src="../assets/media/avatars/300-9.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -3175,7 +3175,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-14.jpg" alt="" />
+																<img src="../assets/media/avatars/300-14.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -3190,7 +3190,7 @@ License: For each use you must have a valid license purchased only from above li
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
-																<img src="assets/media/avatars/300-11.jpg" alt="" />
+																<img src="../assets/media/avatars/300-11.jpg" alt="" />
 															</div>
 															<!--end::Symbol-->
 															<!--begin::Title-->
@@ -3209,7 +3209,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/volicity-9.svg" alt="" />
+																	<img class="w-20px h-20px" src="../assets/media/svg/brand-logos/volicity-9.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -3226,7 +3226,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/tvit.svg" alt="" />
+																	<img class="w-20px h-20px" src="../assets/media/svg/brand-logos/tvit.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -3243,7 +3243,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/misc/infography.svg" alt="" />
+																	<img class="w-20px h-20px" src="../assets/media/svg/misc/infography.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -3260,7 +3260,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/leaf.svg" alt="" />
+																	<img class="w-20px h-20px" src="../assets/media/svg/brand-logos/leaf.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -3277,7 +3277,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Symbol-->
 															<div class="symbol symbol-40px me-4">
 																<span class="symbol-label bg-light">
-																	<img class="w-20px h-20px" src="assets/media/svg/brand-logos/tower.svg" alt="" />
+																	<img class="w-20px h-20px" src="../assets/media/svg/brand-logos/tower.svg" alt="" />
 																</span>
 															</div>
 															<!--end::Symbol-->
@@ -3755,7 +3755,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Menu-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true" id="kt_menu_notifications">
 										<!--begin::Heading-->
-										<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/menu-header-bg.jpg')">
+										<div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('../assets/media/misc/menu-header-bg.jpg')">
 											<!--begin::Title-->
 											<h3 class="text-white fw-semibold px-9 mt-10 mb-6">Notifications
 											<span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
@@ -4023,7 +4023,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Section-->
 													<!--begin::Illustration-->
 													<div class="text-center px-4">
-														<img class="mw-100 mh-200px" alt="image" src="assets/media/illustrations/sketchy-1/1.png" />
+														<img class="mw-100 mh-200px" alt="image" src="../assets/media/illustrations/sketchy-1/1.png" />
 													</div>
 													<!--end::Illustration-->
 												</div>
@@ -4400,7 +4400,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/amazon.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/amazon.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">AWS</span>
 															</a>
 														</div>
@@ -4408,7 +4408,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/angular-icon-1.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/angular-icon-1.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">AngularJS</span>
 															</a>
 														</div>
@@ -4416,7 +4416,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/atica.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/atica.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Atica</span>
 															</a>
 														</div>
@@ -4424,7 +4424,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/beats-electronics.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/beats-electronics.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Music</span>
 															</a>
 														</div>
@@ -4432,7 +4432,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/codeigniter.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/codeigniter.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Codeigniter</span>
 															</a>
 														</div>
@@ -4440,7 +4440,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/bootstrap-4.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/bootstrap-4.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Bootstrap</span>
 															</a>
 														</div>
@@ -4448,7 +4448,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/google-tag-manager.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/google-tag-manager.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">GTM</span>
 															</a>
 														</div>
@@ -4456,7 +4456,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/disqus.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/disqus.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Disqus</span>
 															</a>
 														</div>
@@ -4464,7 +4464,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/dribbble-icon-1.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/dribbble-icon-1.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Dribble</span>
 															</a>
 														</div>
@@ -4472,7 +4472,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/google-play-store.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/google-play-store.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Play Store</span>
 															</a>
 														</div>
@@ -4480,7 +4480,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/google-podcasts.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/google-podcasts.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Podcasts</span>
 															</a>
 														</div>
@@ -4488,7 +4488,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/figma-1.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/figma-1.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Figma</span>
 															</a>
 														</div>
@@ -4496,7 +4496,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/github.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/github.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Github</span>
 															</a>
 														</div>
@@ -4504,7 +4504,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/gitlab.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/gitlab.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Gitlab</span>
 															</a>
 														</div>
@@ -4512,7 +4512,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/instagram-2-1.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/instagram-2-1.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Instagram</span>
 															</a>
 														</div>
@@ -4520,7 +4520,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Col-->
 														<div class="col-4">
 															<a href="#" class="d-flex flex-column flex-center text-center text-gray-800 text-hover-primary bg-hover-light rounded py-4 px-3 mb-3">
-																<img src="assets/media/svg/brand-logos/pinterest-p.svg" class="w-25px h-25px mb-2" alt="" />
+																<img src="../assets/media/svg/brand-logos/pinterest-p.svg" class="w-25px h-25px mb-2" alt="" />
 																<span class="fw-semibold">Pinterest</span>
 															</a>
 														</div>
@@ -4619,7 +4619,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="app-navbar-item ms-1 ms-md-3" id="kt_header_user_menu_toggle">
 									<!--begin::Menu wrapper-->
 									<div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-										<img src="assets/media/avatars/300-1.jpg" alt="user" />
+										<img src="../assets/media/avatars/300-1.jpg" alt="user" />
 									</div>
 									<!--begin::User account menu-->
 									<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-color fw-semibold py-4 fs-6 w-275px" data-kt-menu="true">
@@ -4628,7 +4628,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="menu-content d-flex align-items-center px-3">
 												<!--begin::Avatar-->
 												<div class="symbol symbol-50px me-5">
-													<img alt="Logo" src="assets/media/avatars/300-1.jpg" />
+													<img alt="Logo" src="../assets/media/avatars/300-1.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Username-->
@@ -4724,7 +4724,7 @@ License: For each use you must have a valid license purchased only from above li
 											<a href="#" class="menu-link px-5">
 												<span class="menu-title position-relative">Language
 												<span class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-												<img class="w-15px h-15px rounded-1 ms-2" src="assets/media/flags/united-states.svg" alt="" /></span></span>
+												<img class="w-15px h-15px rounded-1 ms-2" src="../assets/media/flags/united-states.svg" alt="" /></span></span>
 											</a>
 											<!--begin::Menu sub-->
 											<div class="menu-sub menu-sub-dropdown w-175px py-4">
@@ -4732,7 +4732,7 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="menu-item px-3">
 													<a href="/account/settings" class="menu-link d-flex px-5 active">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
+														<img class="rounded-1" src="../assets/media/flags/united-states.svg" alt="" />
 													</span>English</a>
 												</div>
 												<!--end::Menu item-->
@@ -4740,7 +4740,7 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="menu-item px-3">
 													<a href="/account/settings" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
+														<img class="rounded-1" src="../assets/media/flags/spain.svg" alt="" />
 													</span>Spanish</a>
 												</div>
 												<!--end::Menu item-->
@@ -4748,7 +4748,7 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="menu-item px-3">
 													<a href="/account/settings" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
+														<img class="rounded-1" src="../assets/media/flags/germany.svg" alt="" />
 													</span>German</a>
 												</div>
 												<!--end::Menu item-->
@@ -4756,7 +4756,7 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="menu-item px-3">
 													<a href="/account/settings" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
+														<img class="rounded-1" src="../assets/media/flags/japan.svg" alt="" />
 													</span>Japanese</a>
 												</div>
 												<!--end::Menu item-->
@@ -4764,7 +4764,7 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="menu-item px-3">
 													<a href="/account/settings" class="menu-link d-flex px-5">
 													<span class="symbol symbol-20px me-4">
-														<img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
+														<img class="rounded-1" src="../assets/media/flags/france.svg" alt="" />
 													</span>French</a>
 												</div>
 												<!--end::Menu item-->
@@ -4774,7 +4774,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
 										<div class="menu-item px-5 my-1">
-											<a href="/account/settings" class="menu-link px-5">Account Settings</a>
+											<a href="/account/settings" class="menu-link px-5">Vehicle Settings</a>
 										</div>
 										<!--end::Menu item-->
 										<!--begin::Menu item-->
@@ -4813,8 +4813,8 @@ License: For each use you must have a valid license purchased only from above li
 						<div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
 							<!--begin::Logo image-->
 							<a href="/index">
-								<img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default" />
-								<img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
+								<img alt="Logo" src="../assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default" />
+								<img alt="Logo" src="../assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" />
 							</a>
 							<!--end::Logo image-->
 							<!--begin::Sidebar toggle-->
@@ -4842,7 +4842,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--begin::Menu-->
 								<div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -4919,11 +4919,11 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end:Menu link-->
 											</div>
 											<!--end:Menu item-->
-											<div class="menu-inner flex-column collapse show" id="kt_app_sidebar_menu_dashboards_collapse">
+											<div class="menu-inner flex-column collapse" id="kt_app_sidebar_menu_dashboards_collapse">
 												<!--begin:Menu item-->
 												<div class="menu-item">
 													<!--begin:Menu link-->
-													<a class="menu-link active" href="/dashboards/bidding">
+													<a class="menu-link" href="/dashboards/bidding">
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
@@ -5079,8 +5079,8 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<div class="menu-item">
 												<div class="menu-content">
-													<a class="btn btn-flex btn-color-primary d-flex flex-stack fs-base p-0 ms-2 mb-2 toggle collapsible active" data-bs-toggle="collapse" href="#kt_app_sidebar_menu_dashboards_collapse" data-kt-toggle-text="Show 12 More">
-														<span data-kt-toggle-text-target="true">Show Less</span>
+													<a class="btn btn-flex btn-color-primary d-flex flex-stack fs-base p-0 ms-2 mb-2 toggle collapsible collapsed" data-bs-toggle="collapse" href="#kt_app_sidebar_menu_dashboards_collapse" data-kt-toggle-text="Show Less">
+														<span data-kt-toggle-text-target="true">Show 12 More</span>
 														<i class="ki-duotone ki-minus-square toggle-on fs-2 me-0">
 															<span class="path1"></span>
 															<span class="path2"></span>
@@ -5130,7 +5130,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Overview</span>
+													<span class="menu-title">Details</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -5200,7 +5200,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -5212,7 +5212,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="path5"></span>
 												</i>
 											</span>
-											<span class="menu-title">Account</span>
+											<span class="menu-title">Vehicle</span>
 											<span class="menu-arrow"></span>
 										</span>
 										<!--end:Menu link-->
@@ -5221,11 +5221,11 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="/account/overview">
+												<a class="menu-link active" href="/account/overview">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Overview</span>
+													<span class="menu-title">Details</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -5822,7 +5822,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Account Deactivation</span>
+													<span class="menu-title">Vehicle Deactivation</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -6681,7 +6681,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Create Account</span>
+															<span class="menu-title">Create Vehicle</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7344,7 +7344,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Overview</span>
+													<span class="menu-title">Details</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -8124,7 +8124,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Accounting</span>
+													<span class="menu-title">Vehicleing</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Bidding Dashboard</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Vehicle Details</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8273,7 +8273,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Dashboards</li>
+											<li class="breadcrumb-item text-muted">Vehicle</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -8281,11 +8281,97 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Page title-->
 									<!--begin::Actions-->
 									<div class="d-flex align-items-center gap-2 gap-lg-3">
+										<!--begin::Filter menu-->
+										<div class="m-0">
+											<!--begin::Menu toggle-->
+											<a href="#" class="btn btn-sm btn-flex bg-body btn-color-gray-700 btn-active-color-primary fw-bold" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+											<i class="ki-duotone ki-filter fs-6 text-muted me-1">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>Filter</a>
+											<!--end::Menu toggle-->
+											<!--begin::Menu 1-->
+											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac433a9096">
+												<!--begin::Header-->
+												<div class="px-7 py-5">
+													<div class="fs-5 text-dark fw-bold">Filter Options</div>
+												</div>
+												<!--end::Header-->
+												<!--begin::Menu separator-->
+												<div class="separator border-gray-200"></div>
+												<!--end::Menu separator-->
+												<!--begin::Form-->
+												<div class="px-7 py-5">
+													<!--begin::Input group-->
+													<div class="mb-10">
+														<!--begin::Label-->
+														<label class="form-label fw-semibold">Status:</label>
+														<!--end::Label-->
+														<!--begin::Input-->
+														<div>
+															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac433a9096" data-allow-clear="true">
+																<option></option>
+																<option value="1">Approved</option>
+																<option value="2">Pending</option>
+																<option value="2">In Process</option>
+																<option value="2">Rejected</option>
+															</select>
+														</div>
+														<!--end::Input-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Input group-->
+													<div class="mb-10">
+														<!--begin::Label-->
+														<label class="form-label fw-semibold">Member Type:</label>
+														<!--end::Label-->
+														<!--begin::Options-->
+														<div class="d-flex">
+															<!--begin::Options-->
+															<label class="form-check form-check-sm form-check-custom form-check-solid me-5">
+																<input class="form-check-input" type="checkbox" value="1" />
+																<span class="form-check-label">Author</span>
+															</label>
+															<!--end::Options-->
+															<!--begin::Options-->
+															<label class="form-check form-check-sm form-check-custom form-check-solid">
+																<input class="form-check-input" type="checkbox" value="2" checked="checked" />
+																<span class="form-check-label">Customer</span>
+															</label>
+															<!--end::Options-->
+														</div>
+														<!--end::Options-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Input group-->
+													<div class="mb-10">
+														<!--begin::Label-->
+														<label class="form-label fw-semibold">Notifications:</label>
+														<!--end::Label-->
+														<!--begin::Switch-->
+														<div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
+															<input class="form-check-input" type="checkbox" value="" name="notifications" checked="checked" />
+															<label class="form-check-label">Enabled</label>
+														</div>
+														<!--end::Switch-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Actions-->
+													<div class="d-flex justify-content-end">
+														<button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2" data-kt-menu-dismiss="true">Reset</button>
+														<button type="submit" class="btn btn-sm btn-primary" data-kt-menu-dismiss="true">Apply</button>
+													</div>
+													<!--end::Actions-->
+												</div>
+												<!--end::Form-->
+											</div>
+											<!--end::Menu 1-->
+										</div>
+										<!--end::Filter menu-->
 										<!--begin::Secondary button-->
-										<a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary" /*data-bs-toggle="modal" data-bs-target="#kt_modal_create_project"*/>Manage Bids</a>
 										<!--end::Secondary button-->
 										<!--begin::Primary button-->
-										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_bidding">Place Bid</a>
+										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
 										<!--end::Primary button-->
 									</div>
 									<!--end::Actions-->
@@ -8297,252 +8383,444 @@ License: For each use you must have a valid license purchased only from above li
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container container-xxl">
-									<!--begin::Row-->
-									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-										<!--begin::Col-->
-										<div class="col-xxl-6">
-											<!--begin::Card widget 15-->
-											<div class="card card-flush h-xl-100">
-												<!--begin::Body-->
-												<div class="card-body py-9">
-													<!--begin::Row-->
-													<div class="row gx-9 h-100">
-														<!--begin::Col-->
-														<div class="col-sm-6 mb-10 mb-sm-0">
-															<!--begin::Overlay-->
-															<a class="d-block overlay h-100" data-fslightbox="lightbox-hot-sales" href="assets/media/stock/600x600/img-42.jpg">
-																<!--begin::Image-->
-																<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-200px h-100" style="background-image:url('assets/media/stock/600x600/img-42.jpg')"></div>
-																<!--end::Image-->
-																<!--begin::Action-->
-																<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-																	<i class="ki-duotone ki-eye fs-3x text-white">
+									<!--begin::Navbar-->
+									<div class="card mb-5 mb-xl-10">
+										<div class="card-body pt-9 pb-0">
+											<!--begin::Details-->
+											<div class="d-flex flex-wrap flex-sm-nowrap">
+												<!--begin: Pic-->
+												<div class="me-7 mb-4">
+													<div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
+														<img src="../assets/media/avatars/300-1.jpg" alt="image" />
+														<div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
+													</div>
+												</div>
+												<!--end::Pic-->
+												<!--begin::Info-->
+												<div class="flex-grow-1">
+													<!--begin::Title-->
+													<div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
+														<!--begin::User-->
+														<div class="d-flex flex-column">
+															<!--begin::Name-->
+															<div class="d-flex align-items-center mb-2">
+																<a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">Max Smith</a>
+																<a href="#">
+																	<i class="ki-duotone ki-verify fs-1 text-primary">
 																		<span class="path1"></span>
 																		<span class="path2"></span>
-																		<span class="path3"></span>
 																	</i>
-																</div>
-																<!--end::Action-->
-															</a>
-															<!--end::Overlay-->
-														</div>
-														<!--end::Col-->
-														<!--begin::Col-->
-														<div class="col-sm-6">
-															<!--begin::Wrapper-->
-															<div class="d-flex flex-column h-100">
-																<!--begin::Header-->
-																<div class="mb-7">
-																	<!--begin::Title-->
-																	<div class="mb-6">
-																		<span class="text-gray-400 fs-7 fw-bold me-2 d-block lh-1 pb-1">NFT ID: 34356776</span>
-																		<a href="/apps/projects/users" class="text-gray-800 text-hover-primary fs-1 fw-bold">California Art</a>
-																	</div>
-																	<!--end::Title-->
-																	<!--begin::Items-->
-																	<div class="d-flex align-items-center flex-wrap d-grid gap-2">
-																		<!--begin::Item-->
-																		<div class="d-flex align-items-center me-5 me-xl-13">
-																			<!--begin::Symbol-->
-																			<div class="symbol symbol-30px symbol-circle me-3">
-																				<img src="assets/media/avatars/300-3.jpg" class="" alt="" />
-																			</div>
-																			<!--end::Symbol-->
-																			<!--begin::Info-->
-																			<div class="m-0">
-																				<span class="fw-semibold text-gray-400 d-block fs-8">Creator</span>
-																				<a href="/apps/projects/users" class="fw-bold text-gray-800 text-hover-primary fs-7">Robert Fox</a>
-																			</div>
-																			<!--end::Info-->
-																		</div>
-																		<!--end::Item-->
-																		<!--begin::Item-->
-																		<div class="d-flex align-items-center">
-																			<!--begin::Symbol-->
-																			<div class="symbol symbol-30px symbol-circle me-3">
-																				<span class="symbol-label bg-success">
-																					<i class="ki-duotone ki-abstract-41 fs-5 text-white">
-																						<span class="path1"></span>
-																						<span class="path2"></span>
-																					</i>
-																				</span>
-																			</div>
-																			<!--end::Symbol-->
-																			<!--begin::Info-->
-																			<div class="m-0">
-																				<span class="fw-semibold text-gray-400 d-block fs-8">Instant Price</span>
-																				<a href="#" class="fw-bold text-gray-800 text-hover-primary fs-7">4.2 ETH</a>
-																			</div>
-																			<!--end::Info-->
-																		</div>
-																		<!--end::Item-->
-																	</div>
-																	<!--end::Items-->
-																</div>
-																<!--end::Header-->
-																<!--begin::Body-->
-																<div class="d-flex flex-column border border-1 border-gray-300 text-center pt-5 pb-7 mb-8 card-rounded">
-																	<span class="fw-semibold text-gray-600 fs-7 pb-1">Last Bid</span>
-																	<span class="fw-bold text-gray-800 fs-2hx lh-1 pb-1">2.48 ETH</span>
-																	<span class="fw-bold text-gray-600 fs-4 pb-5">$6,047.84</span>
-																	<span class="fw-semibold text-gray-600 fs-7 pb-1">Ending in</span>
-																	<span class="fw-bold text-gray-800 fs-3">06h 52m 47s</span>
-																</div>
-																<!--end::Body-->
-																<!--begin::Footer-->
-																<div class="d-flex flex-stack mt-auto bd-highlight">
-																	<!--begin::Actions-->
-																	<a href="#" class="btn btn-primary btn-sm flex-shrink-0 me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_bidding">Place a Bid</a>
-																	<a href="#" class="btn btn-light btn-sm flex-shrink-0" data-bs-toggle="modal" data-bs-target="#kt_modal_users_search">View Item</a>
-																	<!--end::Actions-->
-																</div>
-																<!--end::Footer-->
+																</a>
 															</div>
-															<!--end::Wrapper-->
+															<!--end::Name-->
+															<!--begin::Info-->
+															<div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
+																<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+																<i class="ki-duotone ki-profile-circle fs-4 me-1">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>Developer</a>
+																<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
+																<i class="ki-duotone ki-geolocation fs-4 me-1">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																</i>SF, Bay Area</a>
+																<a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
+																<i class="ki-duotone ki-sms fs-4 me-1">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																</i>max@kt.com</a>
+															</div>
+															<!--end::Info-->
 														</div>
-														<!--end::Col-->
+														<!--end::User-->
+														<!--begin::Actions-->
+														<div class="d-flex my-4">
+															<a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
+																<i class="ki-duotone ki-check fs-3 d-none"></i>
+																<!--begin::Indicator label-->
+																<span class="indicator-label">Follow</span>
+																<!--end::Indicator label-->
+																<!--begin::Indicator progress-->
+																<span class="indicator-progress">Please wait...
+																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																<!--end::Indicator progress-->
+															</a>
+															<a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_offer_a_deal">Hire Me</a>
+															<!--begin::Menu-->
+															<div class="me-0">
+																<button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																	<i class="ki-solid ki-dots-horizontal fs-2x me-1"></i>
+																</button>
+																<!--begin::Menu 3-->
+																<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
+																	<!--begin::Heading-->
+																	<div class="menu-item px-3">
+																		<div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments</div>
+																	</div>
+																	<!--end::Heading-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link px-3">Create Invoice</a>
+																	</div>
+																	<!--end::Menu item-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link flex-stack px-3">Create Payment
+																		<span class="ms-2" data-bs-toggle="tooltip" title="Specify a target name for future usage and reference">
+																			<i class="ki-duotone ki-information fs-6">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																			</i>
+																		</span></a>
+																	</div>
+																	<!--end::Menu item-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link px-3">Generate Bill</a>
+																	</div>
+																	<!--end::Menu item-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-end">
+																		<a href="#" class="menu-link px-3">
+																			<span class="menu-title">Subscription</span>
+																			<span class="menu-arrow"></span>
+																		</a>
+																		<!--begin::Menu sub-->
+																		<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3">Plans</a>
+																			</div>
+																			<!--end::Menu item-->
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3">Billing</a>
+																			</div>
+																			<!--end::Menu item-->
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3">Statements</a>
+																			</div>
+																			<!--end::Menu item-->
+																			<!--begin::Menu separator-->
+																			<div class="separator my-2"></div>
+																			<!--end::Menu separator-->
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<div class="menu-content px-3">
+																					<!--begin::Switch-->
+																					<label class="form-check form-switch form-check-custom form-check-solid">
+																						<!--begin::Input-->
+																						<input class="form-check-input w-30px h-20px" type="checkbox" value="1" checked="checked" name="notifications" />
+																						<!--end::Input-->
+																						<!--end::Label-->
+																						<span class="form-check-label text-muted fs-6">Recuring</span>
+																						<!--end::Label-->
+																					</label>
+																					<!--end::Switch-->
+																				</div>
+																			</div>
+																			<!--end::Menu item-->
+																		</div>
+																		<!--end::Menu sub-->
+																	</div>
+																	<!--end::Menu item-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3 my-1">
+																		<a href="#" class="menu-link px-3">Settings</a>
+																	</div>
+																	<!--end::Menu item-->
+																</div>
+																<!--end::Menu 3-->
+															</div>
+															<!--end::Menu-->
+														</div>
+														<!--end::Actions-->
 													</div>
-													<!--end::Row-->
-												</div>
-												<!--end::Body-->
-											</div>
-											<!--end::Card widget 15-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-sm-6 col-xxl-3">
-											<!--begin::Card widget 14-->
-											<div class="card card-flush h-xl-100">
-												<!--begin::Body-->
-												<div class="card-body text-center pb-5">
-													<!--begin::Overlay-->
-													<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="assets/media/stock/600x600/img-39.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded mb-7" style="height: 266px;background-image:url('assets/media/stock/600x600/img-39.jpg"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="ki-duotone ki-eye fs-3x text-white">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
+													<!--end::Title-->
+													<!--begin::Stats-->
+													<div class="d-flex flex-wrap flex-stack">
+														<!--begin::Wrapper-->
+														<div class="d-flex flex-column flex-grow-1 pe-8">
+															<!--begin::Stats-->
+															<div class="d-flex flex-wrap">
+																<!--begin::Stat-->
+																<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+																	<!--begin::Number-->
+																	<div class="d-flex align-items-center">
+																		<i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																		<div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="4500" data-kt-countup-prefix="$">0</div>
+																	</div>
+																	<!--end::Number-->
+																	<!--begin::Label-->
+																	<div class="fw-semibold fs-6 text-gray-400">Earnings</div>
+																	<!--end::Label-->
+																</div>
+																<!--end::Stat-->
+																<!--begin::Stat-->
+																<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+																	<!--begin::Number-->
+																	<div class="d-flex align-items-center">
+																		<i class="ki-duotone ki-arrow-down fs-3 text-danger me-2">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																		<div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="80">0</div>
+																	</div>
+																	<!--end::Number-->
+																	<!--begin::Label-->
+																	<div class="fw-semibold fs-6 text-gray-400">Projects</div>
+																	<!--end::Label-->
+																</div>
+																<!--end::Stat-->
+																<!--begin::Stat-->
+																<div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
+																	<!--begin::Number-->
+																	<div class="d-flex align-items-center">
+																		<i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																		<div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="60" data-kt-countup-prefix="%">0</div>
+																	</div>
+																	<!--end::Number-->
+																	<!--begin::Label-->
+																	<div class="fw-semibold fs-6 text-gray-400">Success Rate</div>
+																	<!--end::Label-->
+																</div>
+																<!--end::Stat-->
+															</div>
+															<!--end::Stats-->
 														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Overlay-->
-													<!--begin::Info-->
-													<div class="d-flex align-items-end flex-stack mb-1">
-														<!--begin::Title-->
-														<div class="text-start">
-															<span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-4 d-block">Wavy Curved Art</span>
-															<span class="text-gray-400 mt-1 fw-bold fs-6">Last Bid: 1.07 ETH</span>
+														<!--end::Wrapper-->
+														<!--begin::Progress-->
+														<div class="d-flex align-items-center w-200px w-sm-300px flex-column mt-3">
+															<div class="d-flex justify-content-between w-100 mt-auto mb-2">
+																<span class="fw-semibold fs-6 text-gray-400">Profile Compleation</span>
+																<span class="fw-bold fs-6">50%</span>
+															</div>
+															<div class="h-5px mx-3 w-100 bg-light mb-3">
+																<div class="bg-success rounded h-5px" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+															</div>
 														</div>
-														<!--end::Title-->
-														<!--begin::Total-->
-														<span class="text-gray-600 text-end fw-bold fs-6">$2,630</span>
-														<!--end::Total-->
+														<!--end::Progress-->
 													</div>
-													<!--end::Info-->
+													<!--end::Stats-->
 												</div>
-												<!--end::Body-->
-												<!--begin::Footer-->
-												<div class="card-footer d-flex flex-stack pt-0">
-													<!--begin::Link-->
-													<a class="btn btn-sm btn-primary flex-shrink-0 me-2" data-bs-target="#kt_modal_bidding" data-bs-toggle="modal">Place a Bid</a>
-													<!--end::Link-->
-													<!--begin::Link-->
-													<a class="btn btn-sm btn-light flex-shrink-0" href="/apps/ecommerce/sales/listing">View Item</a>
-													<!--end::Link-->
-												</div>
-												<!--end::Footer-->
+												<!--end::Info-->
 											</div>
-											<!--end::Card widget 14-->
+											<!--end::Details-->
+											<!--begin::Navs-->
+											<ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5 active" href="/account/overview">Details</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/settings">Settings</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/security">Security</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/activity">Activity</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/billing">Billing</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/statements">Statements</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/referrals">Referrals</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/api-keys">API Keys</a>
+												</li>
+												<!--end::Nav item-->
+												<!--begin::Nav item-->
+												<li class="nav-item mt-2">
+													<a class="nav-link text-active-primary ms-0 me-10 py-5" href="/account/logs">Logs</a>
+												</li>
+												<!--end::Nav item-->
+											</ul>
+											<!--begin::Navs-->
 										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-sm-6 col-xxl-3">
-											<!--begin::Card widget 14-->
-											<div class="card card-flush h-xl-100">
-												<!--begin::Body-->
-												<div class="card-body text-center pb-5">
-													<!--begin::Overlay-->
-													<a class="d-block overlay" data-fslightbox="lightbox-hot-sales" href="assets/media/stock/600x600/img-47.jpg">
-														<!--begin::Image-->
-														<div class="overlay-wrapper bgi-no-repeat bgi-position-center bgi-size-cover card-rounded mb-7" style="height: 266px;background-image:url('assets/media/stock/600x600/img-47.jpg"></div>
-														<!--end::Image-->
-														<!--begin::Action-->
-														<div class="overlay-layer card-rounded bg-dark bg-opacity-25">
-															<i class="ki-duotone ki-eye fs-3x text-white">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</div>
-														<!--end::Action-->
-													</a>
-													<!--end::Overlay-->
-													<!--begin::Info-->
-													<div class="d-flex align-items-end flex-stack mb-1">
-														<!--begin::Title-->
-														<div class="text-start">
-															<span class="fw-bold text-gray-800 cursor-pointer text-hover-primary fs-4 d-block">Happy Kitty Art</span>
-															<span class="text-gray-400 mt-1 fw-bold fs-6">Last Bid: 7.83 ETH</span>
-														</div>
-														<!--end::Title-->
-														<!--begin::Total-->
-														<span class="text-gray-600 text-end fw-bold fs-6">$17,035</span>
-														<!--end::Total-->
-													</div>
-													<!--end::Info-->
-												</div>
-												<!--end::Body-->
-												<!--begin::Footer-->
-												<div class="card-footer d-flex flex-stack pt-0">
-													<!--begin::Link-->
-													<a class="btn btn-sm btn-primary flex-shrink-0 me-2" data-bs-target="#kt_modal_bidding" data-bs-toggle="modal">Place a Bid</a>
-													<!--end::Link-->
-													<!--begin::Link-->
-													<a class="btn btn-sm btn-light flex-shrink-0" href="/apps/ecommerce/sales/listing">View Item</a>
-													<!--end::Link-->
-												</div>
-												<!--end::Footer-->
-											</div>
-											<!--end::Card widget 14-->
-										</div>
-										<!--end::Col-->
 									</div>
-									<!--end::Row-->
+									<!--end::Navbar-->
+									<!--begin::details View-->
+									<div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
+										<!--begin::Card header-->
+										<div class="card-header cursor-pointer">
+											<!--begin::Card title-->
+											<div class="card-title m-0">
+												<h3 class="fw-bold m-0">Profile Details</h3>
+											</div>
+											<!--end::Card title-->
+											<!--begin::Action-->
+											<a href="/account/settings" class="btn btn-sm btn-primary align-self-center">Edit Profile</a>
+											<!--end::Action-->
+										</div>
+										<!--begin::Card header-->
+										<!--begin::Card body-->
+										<div class="card-body p-9">
+											<!--begin::Row-->
+											<div class="row mb-7">
+												<!--begin::Label-->
+												<label class="col-lg-4 fw-semibold text-muted">Full Name</label>
+												<!--end::Label-->
+												<!--begin::Col-->
+												<div class="col-lg-8">
+													<span class="fw-bold fs-6 text-gray-800">Max Smith</span>
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Row-->
+											<!--begin::Input group-->
+											<div class="row mb-7">
+												<!--begin::Label-->
+												<label class="col-lg-4 fw-semibold text-muted">Company</label>
+												<!--end::Label-->
+												<!--begin::Col-->
+												<div class="col-lg-8 fv-row">
+													<span class="fw-semibold text-gray-800 fs-6">Keenthemes</span>
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Input group-->
+											<div class="row mb-7">
+												<!--begin::Label-->
+												<label class="col-lg-4 fw-semibold text-muted">Contact Phone
+												<span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span></label>
+												<!--end::Label-->
+												<!--begin::Col-->
+												<div class="col-lg-8 d-flex align-items-center">
+													<span class="fw-bold fs-6 text-gray-800 me-2">044 3276 454 935</span>
+													<span class="badge badge-success">Verified</span>
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Input group-->
+											<div class="row mb-7">
+												<!--begin::Label-->
+												<label class="col-lg-4 fw-semibold text-muted">Company Site</label>
+												<!--end::Label-->
+												<!--begin::Col-->
+												<div class="col-lg-8">
+													<a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">keenthemes.com</a>
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Input group-->
+											<div class="row mb-7">
+												<!--begin::Label-->
+												<label class="col-lg-4 fw-semibold text-muted">Country
+												<span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
+													<i class="ki-duotone ki-information fs-7">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span></label>
+												<!--end::Label-->
+												<!--begin::Col-->
+												<div class="col-lg-8">
+													<span class="fw-bold fs-6 text-gray-800">Germany</span>
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Input group-->
+											<div class="row mb-7">
+												<!--begin::Label-->
+												<label class="col-lg-4 fw-semibold text-muted">Communication</label>
+												<!--end::Label-->
+												<!--begin::Col-->
+												<div class="col-lg-8">
+													<span class="fw-bold fs-6 text-gray-800">Email, Phone</span>
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Input group-->
+											<div class="row mb-10">
+												<!--begin::Label-->
+												<label class="col-lg-4 fw-semibold text-muted">Allow Changes</label>
+												<!--begin::Label-->
+												<!--begin::Label-->
+												<div class="col-lg-8">
+													<span class="fw-semibold fs-6 text-gray-800">Yes</span>
+												</div>
+												<!--begin::Label-->
+											</div>
+											<!--end::Input group-->
+											<!--begin::Notice-->
+											<div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+												<!--begin::Icon-->
+												<i class="ki-duotone ki-information fs-2tx text-warning me-4">
+													<span class="path1"></span>
+													<span class="path2"></span>
+													<span class="path3"></span>
+												</i>
+												<!--end::Icon-->
+												<!--begin::Wrapper-->
+												<div class="d-flex flex-stack flex-grow-1">
+													<!--begin::Content-->
+													<div class="fw-semibold">
+														<h4 class="text-gray-900 fw-bold">We need your attention!</h4>
+														<div class="fs-6 text-gray-700">Your payment was declined. To start using tools, please
+														<a class="fw-bold" href="/account/billing">Add Payment Method</a>.</div>
+													</div>
+													<!--end::Content-->
+												</div>
+												<!--end::Wrapper-->
+											</div>
+											<!--end::Notice-->
+										</div>
+										<!--end::Card body-->
+									</div>
+									<!--end::details View-->
 									<!--begin::Row-->
-									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
+									<div class="row gy-5 g-xl-10">
 										<!--begin::Col-->
-										<div class="col-xl-4">
-											<!--begin::Chart Widget 33-->
-											<div class="card card-flush h-xl-100">
+										<div class="col-xl-8 mb-xl-10">
+											<!--begin::Chart widget 5-->
+											<div class="card card-flush h-lg-100">
 												<!--begin::Header-->
-												<div class="card-header pt-5 mb-6">
+												<div class="card-header flex-nowrap pt-5">
 													<!--begin::Title-->
 													<h3 class="card-title align-items-start flex-column">
-														<!--begin::Statistics-->
-														<div class="d-flex align-items-center mb-2">
-															<!--begin::Currency-->
-															<span class="fs-3 fw-semibold text-gray-400 align-self-start me-1">$</span>
-															<!--end::Currency-->
-															<!--begin::Value-->
-															<span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">3,274.94</span>
-															<!--end::Value-->
-															<!--begin::Label-->
-															<span class="badge badge-light-success fs-base">
-															<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>9.2%</span>
-															<!--end::Label-->
-														</div>
-														<!--end::Statistics-->
-														<!--begin::Description-->
-														<span class="fs-6 fw-semibold text-gray-400">Etherium rate</span>
-														<!--end::Description-->
+														<span class="card-label fw-bold text-dark">Top Selling Categories</span>
+														<span class="text-gray-400 pt-2 fw-semibold fs-6">8k social visitors</span>
 													</h3>
 													<!--end::Title-->
 													<!--begin::Toolbar-->
@@ -8628,1167 +8906,16 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Header-->
 												<!--begin::Body-->
-												<div class="card-body py-0 px-0">
-													<!--begin::Nav-->
-													<ul class="nav d-flex justify-content-between mb-3 mx-9">
-														<!--begin::Item-->
-														<li class="nav-item mb-3">
-															<!--begin::Link-->
-															<a class="nav-link btn btn-flex flex-center btn-active-danger btn-color-gray-600 btn-active-color-white rounded-2 w-45px h-35px active" data-bs-toggle="tab" id="kt_charts_widget_33_tab_1" href="#kt_charts_widget_33_tab_content_1">1d</a>
-															<!--end::Link-->
-														</li>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<li class="nav-item mb-3">
-															<!--begin::Link-->
-															<a class="nav-link btn btn-flex flex-center btn-active-danger btn-color-gray-600 btn-active-color-white rounded-2 w-45px h-35px" data-bs-toggle="tab" id="kt_charts_widget_33_tab_2" href="#kt_charts_widget_33_tab_content_2">5d</a>
-															<!--end::Link-->
-														</li>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<li class="nav-item mb-3">
-															<!--begin::Link-->
-															<a class="nav-link btn btn-flex flex-center btn-active-danger btn-color-gray-600 btn-active-color-white rounded-2 w-45px h-35px" data-bs-toggle="tab" id="kt_charts_widget_33_tab_3" href="#kt_charts_widget_33_tab_content_3">1m</a>
-															<!--end::Link-->
-														</li>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<li class="nav-item mb-3">
-															<!--begin::Link-->
-															<a class="nav-link btn btn-flex flex-center btn-active-danger btn-color-gray-600 btn-active-color-white rounded-2 w-45px h-35px" data-bs-toggle="tab" id="kt_charts_widget_33_tab_4" href="#kt_charts_widget_33_tab_content_4">6m</a>
-															<!--end::Link-->
-														</li>
-														<!--end::Item-->
-														<!--begin::Item-->
-														<li class="nav-item mb-3">
-															<!--begin::Link-->
-															<a class="nav-link btn btn-flex flex-center btn-active-danger btn-color-gray-600 btn-active-color-white rounded-2 w-45px h-35px" data-bs-toggle="tab" id="kt_charts_widget_33_tab_5" href="#kt_charts_widget_33_tab_content_5">1y</a>
-															<!--end::Link-->
-														</li>
-														<!--end::Item-->
-													</ul>
-													<!--end::Nav-->
-													<!--begin::Tab Content-->
-													<div class="tab-content mt-n6">
-														<!--begin::Tap pane-->
-														<div class="tab-pane fade active show" id="kt_charts_widget_33_tab_content_1">
-															<!--begin::Chart-->
-															<div id="kt_charts_widget_33_chart_1" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-															<!--end::Chart-->
-															<!--begin::Table container-->
-															<div class="table-responsive mx-9 mt-n6">
-																<!--begin::Table-->
-																<table class="table align-middle gs-0 gy-4">
-																	<!--begin::Table head-->
-																	<thead>
-																		<tr>
-																			<th class="min-w-100px"></th>
-																			<th class="min-w-100px text-end pe-0"></th>
-																			<th class="text-end min-w-50px"></th>
-																		</tr>
-																	</thead>
-																	<!--end::Table head-->
-																	<!--begin::Table body-->
-																	<tbody>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">2:30 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,756.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-danger">-139.34</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">3:10 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$3,207.03</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-success">+576.24</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">3:55 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$3,274.94</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-success">+124.03</span>
-																			</td>
-																		</tr>
-																	</tbody>
-																	<!--end::Table body-->
-																</table>
-																<!--end::Table-->
-															</div>
-															<!--end::Table container-->
-														</div>
-														<!--end::Tap pane-->
-														<!--begin::Tap pane-->
-														<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_2">
-															<!--begin::Chart-->
-															<div id="kt_charts_widget_33_chart_2" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-															<!--end::Chart-->
-															<!--begin::Table container-->
-															<div class="table-responsive mx-9 mt-n6">
-																<!--begin::Table-->
-																<table class="table align-middle gs-0 gy-4">
-																	<!--begin::Table head-->
-																	<thead>
-																		<tr>
-																			<th class="min-w-100px"></th>
-																			<th class="min-w-100px text-end pe-0"></th>
-																			<th class="text-end min-w-50px"></th>
-																		</tr>
-																	</thead>
-																	<!--end::Table head-->
-																	<!--begin::Table body-->
-																	<tbody>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">2:30 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,756.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-success">+231.01</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">2:30 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,756.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-primary">+233.07</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">2:30 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,145.55</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-danger">+134.06</span>
-																			</td>
-																		</tr>
-																	</tbody>
-																	<!--end::Table body-->
-																</table>
-																<!--end::Table-->
-															</div>
-															<!--end::Table container-->
-														</div>
-														<!--end::Tap pane-->
-														<!--begin::Tap pane-->
-														<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_3">
-															<!--begin::Chart-->
-															<div id="kt_charts_widget_33_chart_3" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-															<!--end::Chart-->
-															<!--begin::Table container-->
-															<div class="table-responsive mx-9 mt-n6">
-																<!--begin::Table-->
-																<table class="table align-middle gs-0 gy-4">
-																	<!--begin::Table head-->
-																	<thead>
-																		<tr>
-																			<th class="min-w-100px"></th>
-																			<th class="min-w-100px text-end pe-0"></th>
-																			<th class="text-end min-w-50px"></th>
-																		</tr>
-																	</thead>
-																	<!--end::Table head-->
-																	<!--begin::Table body-->
-																	<tbody>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">12:40 AM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,346.25</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-warning">+134.57</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">11:30 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$1,565.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-danger">+155.03</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">4:25 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,756.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-success">+124.03</span>
-																			</td>
-																		</tr>
-																	</tbody>
-																	<!--end::Table body-->
-																</table>
-																<!--end::Table-->
-															</div>
-															<!--end::Table container-->
-														</div>
-														<!--end::Tap pane-->
-														<!--begin::Tap pane-->
-														<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_4">
-															<!--begin::Chart-->
-															<div id="kt_charts_widget_33_chart_4" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-															<!--end::Chart-->
-															<!--begin::Table container-->
-															<div class="table-responsive mx-9 mt-n6">
-																<!--begin::Table-->
-																<table class="table align-middle gs-0 gy-4">
-																	<!--begin::Table head-->
-																	<thead>
-																		<tr>
-																			<th class="min-w-100px"></th>
-																			<th class="min-w-100px text-end pe-0"></th>
-																			<th class="text-end min-w-50px"></th>
-																		</tr>
-																	</thead>
-																	<!--end::Table head-->
-																	<!--begin::Table body-->
-																	<tbody>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">3:20 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$3,756.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-danger">+234.03</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">10:30 AM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$1,474.04</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-info">-134.03</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">1:30 AM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,756.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-primary">+124.03</span>
-																			</td>
-																		</tr>
-																	</tbody>
-																	<!--end::Table body-->
-																</table>
-																<!--end::Table-->
-															</div>
-															<!--end::Table container-->
-														</div>
-														<!--end::Tap pane-->
-														<!--begin::Tap pane-->
-														<div class="tab-pane fade" id="kt_charts_widget_33_tab_content_5">
-															<!--begin::Chart-->
-															<div id="kt_charts_widget_33_chart_5" data-kt-chart-color="info" class="min-h-auto h-200px ps-3 pe-6"></div>
-															<!--end::Chart-->
-															<!--begin::Table container-->
-															<div class="table-responsive mx-9 mt-n6">
-																<!--begin::Table-->
-																<table class="table align-middle gs-0 gy-4">
-																	<!--begin::Table head-->
-																	<thead>
-																		<tr>
-																			<th class="min-w-100px"></th>
-																			<th class="min-w-100px text-end pe-0"></th>
-																			<th class="text-end min-w-50px"></th>
-																		</tr>
-																	</thead>
-																	<!--end::Table head-->
-																	<!--begin::Table body-->
-																	<tbody>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">3:30 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$1,756.25</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-primary">+144.04</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">2:30 PM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,756.26</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-danger">+124.03</span>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<a href="#" class="text-gray-600 fw-bold fs-6">12:30 AM</a>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="text-gray-800 fw-bold fs-6 me-1">$2,034.65</span>
-																			</td>
-																			<td class="pe-0 text-end">
-																				<span class="fw-bold fs-6 text-success">+184.05</span>
-																			</td>
-																		</tr>
-																	</tbody>
-																	<!--end::Table body-->
-																</table>
-																<!--end::Table-->
-															</div>
-															<!--end::Table container-->
-														</div>
-														<!--end::Tap pane-->
-													</div>
-													<!--end::Tab Content-->
+												<div class="card-body pt-5 ps-6">
+													<div id="kt_charts_widget_5" class="min-h-auto"></div>
 												</div>
 												<!--end::Body-->
 											</div>
-											<!--end::Chart Widget 33-->
+											<!--end::Chart widget 5-->
 										</div>
 										<!--end::Col-->
 										<!--begin::Col-->
-										<div class="col-xl-8">
-											<!--begin::Table widget 12-->
-											<div class="card card-flush h-xl-100">
-												<!--begin::Header-->
-												<div class="card-header pt-7">
-													<!--begin::Title-->
-													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold text-gray-800">Active Auctions</span>
-														<span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span>
-													</h3>
-													<!--end::Title-->
-													<!--begin::Toolbar-->
-													<div class="card-toolbar">
-														<a href="/apps/ecommerce/catalog/add-product" class="btn btn-sm btn-light">History</a>
-													</div>
-													<!--end::Toolbar-->
-												</div>
-												<!--end::Header-->
-												<!--begin::Body-->
-												<div class="card-body">
-													<!--begin::Table container-->
-													<div class="table-responsive">
-														<!--begin::Table-->
-														<table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
-															<!--begin::Table head-->
-															<thead>
-																<tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
-																	<th class="p-0 pb-3 min-w-175px text-start">ITEM</th>
-																	<th class="p-0 pb-3 min-w-100px text-end">OPEN PRICE</th>
-																	<th class="p-0 pb-3 min-w-100px text-end">YOUR OFFER</th>
-																	<th class="p-0 pb-3 min-w-125px text-end">RECENT OFFER</th>
-																	<th class="p-0 pb-3 min-w-100px text-end">TIME LEFT</th>
-																	<th class="p-0 pb-3 w-80px text-end">VIEW</th>
-																</tr>
-															</thead>
-															<!--end::Table head-->
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-49.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">The Art</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Jenny Wilson</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">0.054 ETH</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">0.089 ETH</span>
-																	</td>
-																	<td class="pe-0">
-																		<div class="d-flex align-items-center justify-content-end">
-																			<div class="symbol symbol-30px me-3">
-																				<img src="assets/media/avatars/300-13.jpg" class="" alt="" />
-																			</div>
-																			<span class="text-gray-600 fw-bold d-block fs-6">0.089 ETH</span>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">1h 43m 52s</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-43.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Blue Bubble Art</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Guy Hawkins</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">1.830 ETH</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">2.451 ETH</span>
-																	</td>
-																	<td class="pe-0">
-																		<div class="d-flex align-items-center justify-content-end">
-																			<div class="symbol symbol-30px me-3">
-																				<img src="assets/media/avatars/300-2.jpg" class="" alt="" />
-																			</div>
-																			<span class="text-gray-600 fw-bold d-block fs-6">3.083 ETH</span>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">4h 28m 07s</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-46.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Color Face Art</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Wade Warren</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">0.043 ETH</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">0.124 ETH</span>
-																	</td>
-																	<td class="pe-0">
-																		<div class="d-flex align-items-center justify-content-end">
-																			<div class="symbol symbol-30px me-3">
-																				<img src="assets/media/avatars/300-11.jpg" class="" alt="" />
-																			</div>
-																			<span class="text-gray-600 fw-bold d-block fs-6">1.058 ETH</span>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">5h 09m 23s</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-54.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Blue to Orange Art</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Jane Cooper</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">0.092 ETH</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">0.158 ETH</span>
-																	</td>
-																	<td class="pe-0">
-																		<div class="d-flex align-items-center justify-content-end">
-																			<div class="symbol symbol-30px me-3">
-																				<img src="assets/media/avatars/300-10.jpg" class="" alt="" />
-																			</div>
-																			<span class="text-gray-600 fw-bold d-block fs-6">0.403 ETH</span>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">7h 23m 16s</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol-50px me-3">
-																				<img src="assets/media/stock/600x600/img-45.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="#" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Awesome Bird Art</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Jacob Jones</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">0.824 ETH</span>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">1.072 ETH</span>
-																	</td>
-																	<td class="pe-0">
-																		<div class="d-flex align-items-center justify-content-end">
-																			<div class="symbol symbol-30px me-3">
-																				<img src="assets/media/avatars/300-9.jpg" class="" alt="" />
-																			</div>
-																			<span class="text-gray-600 fw-bold d-block fs-6">1.094 ETH</span>
-																		</div>
-																	</td>
-																	<td class="text-end pe-0">
-																		<span class="text-gray-600 fw-bold fs-6">36h 18m 42s</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-30px h-30px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-															</tbody>
-															<!--end::Table body-->
-														</table>
-													</div>
-													<!--end::Table-->
-												</div>
-												<!--end: Card Body-->
-											</div>
-											<!--end::Table widget 12-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-									<!--begin::Row-->
-									<div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-										<!--begin::Col-->
-										<div class="col-xl-4">
-											<!--begin::List widget 23-->
-											<div class="card card-flush h-xl-100">
-												<!--begin::Header-->
-												<div class="card-header pt-7">
-													<!--begin::Title-->
-													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold text-gray-800">Lading Teams</span>
-														<span class="text-gray-400 mt-1 fw-semibold fs-6">8k social visitors</span>
-													</h3>
-													<!--end::Title-->
-													<!--begin::Toolbar-->
-													<div class="card-toolbar"></div>
-													<!--end::Toolbar-->
-												</div>
-												<!--end::Header-->
-												<!--begin::Body-->
-												<div class="card-body pt-5">
-													<!--begin::Items-->
-													<div class="">
-														<!--begin::Item-->
-														<div class="d-flex flex-stack">
-															<!--begin::Section-->
-															<div class="d-flex align-items-center me-5">
-																<!--begin::Flag-->
-																<img src="assets/media/svg/brand-logos/atica.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-																<!--end::Flag-->
-																<!--begin::Content-->
-																<div class="me-5">
-																	<!--begin::Title-->
-																	<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Abstergo Ltd.</a>
-																	<!--end::Title-->
-																	<!--begin::Desc-->
-																	<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Community</span>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Content-->
-															</div>
-															<!--end::Section-->
-															<!--begin::Wrapper-->
-															<div class="d-flex align-items-center">
-																<!--begin::Number-->
-																<span class="text-gray-800 fw-bold fs-4 me-3">579</span>
-																<!--end::Number-->
-																<!--begin::Info-->
-																<div class="m-0">
-																	<!--begin::Label-->
-																	<span class="badge badge-light-success fs-base">
-																	<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>2.6%</span>
-																	<!--end::Label-->
-																</div>
-																<!--end::Info-->
-															</div>
-															<!--end::Wrapper-->
-														</div>
-														<!--end::Item-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed my-3"></div>
-														<!--end::Separator-->
-														<!--begin::Item-->
-														<div class="d-flex flex-stack">
-															<!--begin::Section-->
-															<div class="d-flex align-items-center me-5">
-																<!--begin::Flag-->
-																<img src="assets/media/svg/brand-logos/telegram-2.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-																<!--end::Flag-->
-																<!--begin::Content-->
-																<div class="me-5">
-																	<!--begin::Title-->
-																	<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Binford Ltd.</a>
-																	<!--end::Title-->
-																	<!--begin::Desc-->
-																	<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Media</span>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Content-->
-															</div>
-															<!--end::Section-->
-															<!--begin::Wrapper-->
-															<div class="d-flex align-items-center">
-																<!--begin::Number-->
-																<span class="text-gray-800 fw-bold fs-4 me-3">2,588</span>
-																<!--end::Number-->
-																<!--begin::Info-->
-																<div class="m-0">
-																	<!--begin::Label-->
-																	<span class="badge badge-light-danger fs-base">
-																	<i class="ki-duotone ki-arrow-down fs-5 text-danger ms-n1">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>0.4%</span>
-																	<!--end::Label-->
-																</div>
-																<!--end::Info-->
-															</div>
-															<!--end::Wrapper-->
-														</div>
-														<!--end::Item-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed my-3"></div>
-														<!--end::Separator-->
-														<!--begin::Item-->
-														<div class="d-flex flex-stack">
-															<!--begin::Section-->
-															<div class="d-flex align-items-center me-5">
-																<!--begin::Flag-->
-																<img src="assets/media/svg/brand-logos/balloon.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-																<!--end::Flag-->
-																<!--begin::Content-->
-																<div class="me-5">
-																	<!--begin::Title-->
-																	<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Barone LLC.</a>
-																	<!--end::Title-->
-																	<!--begin::Desc-->
-																	<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Messanger</span>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Content-->
-															</div>
-															<!--end::Section-->
-															<!--begin::Wrapper-->
-															<div class="d-flex align-items-center">
-																<!--begin::Number-->
-																<span class="text-gray-800 fw-bold fs-4 me-3">794</span>
-																<!--end::Number-->
-																<!--begin::Info-->
-																<div class="m-0">
-																	<!--begin::Label-->
-																	<span class="badge badge-light-success fs-base">
-																	<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>0.2%</span>
-																	<!--end::Label-->
-																</div>
-																<!--end::Info-->
-															</div>
-															<!--end::Wrapper-->
-														</div>
-														<!--end::Item-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed my-3"></div>
-														<!--end::Separator-->
-														<!--begin::Item-->
-														<div class="d-flex flex-stack">
-															<!--begin::Section-->
-															<div class="d-flex align-items-center me-5">
-																<!--begin::Flag-->
-																<img src="assets/media/svg/brand-logos/kickstarter.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-																<!--end::Flag-->
-																<!--begin::Content-->
-																<div class="me-5">
-																	<!--begin::Title-->
-																	<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Abstergo Ltd.</a>
-																	<!--end::Title-->
-																	<!--begin::Desc-->
-																	<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Video Channel</span>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Content-->
-															</div>
-															<!--end::Section-->
-															<!--begin::Wrapper-->
-															<div class="d-flex align-items-center">
-																<!--begin::Number-->
-																<span class="text-gray-800 fw-bold fs-4 me-3">1,578</span>
-																<!--end::Number-->
-																<!--begin::Info-->
-																<div class="m-0">
-																	<!--begin::Label-->
-																	<span class="badge badge-light-success fs-base">
-																	<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>4.1%</span>
-																	<!--end::Label-->
-																</div>
-																<!--end::Info-->
-															</div>
-															<!--end::Wrapper-->
-														</div>
-														<!--end::Item-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed my-3"></div>
-														<!--end::Separator-->
-														<!--begin::Item-->
-														<div class="d-flex flex-stack">
-															<!--begin::Section-->
-															<div class="d-flex align-items-center me-5">
-																<!--begin::Flag-->
-																<img src="assets/media/svg/brand-logos/vimeo.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-																<!--end::Flag-->
-																<!--begin::Content-->
-																<div class="me-5">
-																	<!--begin::Title-->
-																	<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Biffco Enterprises</a>
-																	<!--end::Title-->
-																	<!--begin::Desc-->
-																	<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Content-->
-															</div>
-															<!--end::Section-->
-															<!--begin::Wrapper-->
-															<div class="d-flex align-items-center">
-																<!--begin::Number-->
-																<span class="text-gray-800 fw-bold fs-4 me-3">3,458</span>
-																<!--end::Number-->
-																<!--begin::Info-->
-																<div class="m-0">
-																	<!--begin::Label-->
-																	<span class="badge badge-light-success fs-base">
-																	<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>8.3%</span>
-																	<!--end::Label-->
-																</div>
-																<!--end::Info-->
-															</div>
-															<!--end::Wrapper-->
-														</div>
-														<!--end::Item-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed my-3"></div>
-														<!--end::Separator-->
-														<!--begin::Item-->
-														<div class="d-flex flex-stack">
-															<!--begin::Section-->
-															<div class="d-flex align-items-center me-5">
-																<!--begin::Flag-->
-																<img src="assets/media/svg/brand-logos/plurk.svg" class="me-4 w-30px" style="border-radius: 4px" alt="" />
-																<!--end::Flag-->
-																<!--begin::Content-->
-																<div class="me-5">
-																	<!--begin::Title-->
-																	<a href="#" class="text-gray-800 fw-bold text-hover-primary fs-6">Big Kahuna Burger</a>
-																	<!--end::Title-->
-																	<!--begin::Desc-->
-																	<span class="text-gray-400 fw-semibold fs-7 d-block text-start ps-0">Social Network</span>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Content-->
-															</div>
-															<!--end::Section-->
-															<!--begin::Wrapper-->
-															<div class="d-flex align-items-center">
-																<!--begin::Number-->
-																<span class="text-gray-800 fw-bold fs-4 me-3">2,047</span>
-																<!--end::Number-->
-																<!--begin::Info-->
-																<div class="m-0">
-																	<!--begin::Label-->
-																	<span class="badge badge-light-success fs-base">
-																	<i class="ki-duotone ki-arrow-up fs-5 text-success ms-n1">
-																		<span class="path1"></span>
-																		<span class="path2"></span>
-																	</i>1.9%</span>
-																	<!--end::Label-->
-																</div>
-																<!--end::Info-->
-															</div>
-															<!--end::Wrapper-->
-														</div>
-														<!--end::Item-->
-													</div>
-													<!--end::Items-->
-												</div>
-												<!--end: Card Body-->
-											</div>
-											<!--end::List widget 23-->
-										</div>
-										<!--end::Col-->
-										<!--begin::Col-->
-										<div class="col-xl-8">
-											<!--begin::Table widget 13-->
-											<div class="card card-flush h-xl-100">
-												<!--begin::Header-->
-												<div class="card-header pt-7">
-													<!--begin::Title-->
-													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold text-gray-800">Most Popular Sellers</span>
-														<span class="text-gray-400 mt-1 fw-semibold fs-6">Total 424,567 deliveries</span>
-													</h3>
-													<!--end::Title-->
-													<!--begin::Toolbar-->
-													<div class="card-toolbar">
-														<!--begin::Daterangepicker(defined in src/js/layout/app.js)-->
-														<div data-kt-daterangepicker="true" data-kt-daterangepicker-opens="left" class="btn btn-sm btn-light d-flex align-items-center px-4">
-															<!--begin::Display range-->
-															<div class="text-gray-600 fw-bold">Loading date range...</div>
-															<!--end::Display range-->
-															<i class="ki-duotone ki-calendar-8 fs-1 ms-2 me-0">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-																<span class="path4"></span>
-																<span class="path5"></span>
-																<span class="path6"></span>
-															</i>
-														</div>
-														<!--end::Daterangepicker-->
-													</div>
-													<!--end::Toolbar-->
-												</div>
-												<!--end::Header-->
-												<!--begin::Body-->
-												<div class="card-body pt-3 pb-4">
-													<!--begin::Table container-->
-													<div class="table-responsive">
-														<!--begin::Table-->
-														<table class="table table-row-dashed align-middle gs-0 gy-4 my-0">
-															<!--begin::Table head-->
-															<thead>
-																<tr class="fs-7 fw-bold text-gray-500 border-bottom-0">
-																	<th class="p-0 min-w-200px"></th>
-																	<th class="p-0 min-w-150px"></th>
-																	<th class="p-0 min-w-125px"></th>
-																	<th class="p-0 min-w-125px"></th>
-																	<th class="p-0 w-100px"></th>
-																</tr>
-															</thead>
-															<!--end::Table head-->
-															<!--begin::Table body-->
-															<tbody>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol- symbol-40px me-3">
-																				<img src="assets/media/avatars/300-1.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="/account/overview" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Brooklyn Simmons</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Zuid Area</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end">
-																		<span class="text-gray-800 fw-bold d-block mb-1 fs-6">1,240</span>
-																		<span class="fw-semibold text-gray-400 d-block">Deliveries</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="text-gray-800 fw-bold text-hover-primary d-block mb-1 fs-6">$5,400</a>
-																		<span class="text-gray-400 fw-semibold d-block fs-7">Earnings</span>
-																	</td>
-																	<td class="float-end text-end border-0">
-																		<div class="rating">
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																		</div>
-																		<span class="text-gray-400 fw-semibold d-block fs-7 mt-1">Rating</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol- symbol-40px me-3">
-																				<img src="assets/media/avatars/300-2.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="/account/overview" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Annette Black</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Zuid Area</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end">
-																		<span class="text-gray-800 fw-bold d-block mb-1 fs-6">6,074</span>
-																		<span class="fw-semibold text-gray-400 d-block">Deliveries</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="text-gray-800 fw-bold text-hover-primary d-block mb-1 fs-6">$174,074</a>
-																		<span class="text-gray-400 fw-semibold d-block fs-7">Earnings</span>
-																	</td>
-																	<td class="float-end text-end border-0">
-																		<div class="rating">
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																		</div>
-																		<span class="text-gray-400 fw-semibold d-block fs-7 mt-1">Rating</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol- symbol-40px me-3">
-																				<img src="assets/media/avatars/300-12.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="/account/overview" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Esther Howard</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Zuid Area</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end">
-																		<span class="text-gray-800 fw-bold d-block mb-1 fs-6">357</span>
-																		<span class="fw-semibold text-gray-400 d-block">Deliveries</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="text-gray-800 fw-bold text-hover-primary d-block mb-1 fs-6">$2,737</a>
-																		<span class="text-gray-400 fw-semibold d-block fs-7">Earnings</span>
-																	</td>
-																	<td class="float-end text-end border-0">
-																		<div class="rating">
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																		</div>
-																		<span class="text-gray-400 fw-semibold d-block fs-7 mt-1">Rating</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol- symbol-40px me-3">
-																				<img src="assets/media/avatars/300-11.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="/account/overview" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Guy Hawkins</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Zuid Area</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end">
-																		<span class="text-gray-800 fw-bold d-block mb-1 fs-6">2,954</span>
-																		<span class="fw-semibold text-gray-400 d-block">Deliveries</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="text-gray-800 fw-bold text-hover-primary d-block mb-1 fs-6">$59,634</a>
-																		<span class="text-gray-400 fw-semibold d-block fs-7">Earnings</span>
-																	</td>
-																	<td class="float-end text-end border-0">
-																		<div class="rating">
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																		</div>
-																		<span class="text-gray-400 fw-semibold d-block fs-7 mt-1">Rating</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td>
-																		<div class="d-flex align-items-center">
-																			<div class="symbol symbol- symbol-40px me-3">
-																				<img src="assets/media/avatars/300-3.jpg" class="" alt="" />
-																			</div>
-																			<div class="d-flex justify-content-start flex-column">
-																				<a href="/account/overview" class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">Marvin McKinney</a>
-																				<span class="text-gray-400 fw-semibold d-block fs-7">Zuid Area</span>
-																			</div>
-																		</div>
-																	</td>
-																	<td class="text-end">
-																		<span class="text-gray-800 fw-bold d-block mb-1 fs-6">822</span>
-																		<span class="fw-semibold text-gray-400 d-block">Deliveries</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="text-gray-800 fw-bold text-hover-primary d-block mb-1 fs-6">$19,842</a>
-																		<span class="text-gray-400 fw-semibold d-block fs-7">Earnings</span>
-																	</td>
-																	<td class="float-end text-end border-0">
-																		<div class="rating">
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																			<div class="rating-label checked">
-																				<i class="ki-duotone ki-star fs-6"></i>
-																			</div>
-																		</div>
-																		<span class="text-gray-400 fw-semibold d-block fs-7 mt-1">Rating</span>
-																	</td>
-																	<td class="text-end">
-																		<a href="#" class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary w-25px h-25px">
-																			<i class="ki-duotone ki-black-right fs-2 text-gray-500"></i>
-																		</a>
-																	</td>
-																</tr>
-															</tbody>
-															<!--end::Table body-->
-														</table>
-													</div>
-													<!--end::Table container-->
-												</div>
-												<!--end: Card Body-->
-											</div>
-											<!--end::Table widget 13-->
-										</div>
-										<!--end::Col-->
-									</div>
-									<!--end::Row-->
-									<!--begin::Row-->
-									<div class="row g-5 g-xl-10">
-										<!--begin::Col-->
-										<div class="col-xl-4">
+										<div class="col-xl-4 mb-5 mb-xl-10">
 											<!--begin::Engage widget 1-->
 											<div class="card h-md-100" dir="ltr">
 												<!--begin::Body-->
@@ -9796,14 +8923,14 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Heading-->
 													<div class="mb-2">
 														<!--begin::Title-->
-														<h1 class="fw-semibold text-gray-800 text-center lh-lg">Have your tried
+														<h1 class="fw-semibold text-gray-800 text-center lh-lg">Have you tried
 														<br />new
-														<span class="fw-bolder">Invoice Manager?</span></h1>
+														<span class="fw-bolder">Mobile Application ?</span></h1>
 														<!--end::Title-->
 														<!--begin::Illustration-->
 														<div class="py-10 text-center">
-															<img src="assets/media/svg/illustrations/easy/2.svg" class="theme-light-show w-200px" alt="" />
-															<img src="assets/media/svg/illustrations/easy/2-dark.svg" class="theme-dark-show w-200px" alt="" />
+															<img src="../assets/media/svg/illustrations/easy/1.svg" class="theme-light-show w-200px" alt="" />
+															<img src="../assets/media/svg/illustrations/easy/1-dark.svg" class="theme-dark-show w-200px" alt="" />
 														</div>
 														<!--end::Illustration-->
 													</div>
@@ -9811,10 +8938,10 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Links-->
 													<div class="text-center mb-1">
 														<!--begin::Link-->
-														<a class="btn btn-sm btn-primary me-2" data-bs-target="#kt_modal_create_app" data-bs-toggle="modal">Try Now</a>
+														<a class="btn btn-sm btn-primary me-2" data-bs-target="#kt_modal_create_app" data-bs-toggle="modal">Try now</a>
 														<!--end::Link-->
 														<!--begin::Link-->
-														<a class="btn btn-sm btn-light" href="/account/settings">Learn More</a>
+														<a class="btn btn-sm btn-light" href="/apps/invoices/view/invoice-1">Learn more</a>
 														<!--end::Link-->
 													</div>
 													<!--end::Links-->
@@ -9824,16 +8951,705 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Engage widget 1-->
 										</div>
 										<!--end::Col-->
+									</div>
+									<!--end::Row-->
+									<!--begin::Row-->
+									<div class="row gy-5 g-xl-10">
+										<!--begin::Col-->
+										<div class="col-xl-4">
+											<!--begin::List widget 5-->
+											<div class="card card-flush h-xl-100">
+												<!--begin::Header-->
+												<div class="card-header pt-7">
+													<!--begin::Title-->
+													<h3 class="card-title align-items-start flex-column">
+														<span class="card-label fw-bold text-dark">Product Delivery</span>
+														<span class="text-gray-400 mt-1 fw-semibold fs-6">1M Products Shipped so far</span>
+													</h3>
+													<!--end::Title-->
+													<!--begin::Toolbar-->
+													<div class="card-toolbar">
+														<a href="/apps/ecommerce/sales/details" class="btn btn-sm btn-light">Order Details</a>
+													</div>
+													<!--end::Toolbar-->
+												</div>
+												<!--end::Header-->
+												<!--begin::Body-->
+												<div class="card-body">
+													<!--begin::Scroll-->
+													<div class="hover-scroll-overlay-y pe-6 me-n6" style="height: 415px">
+														<!--begin::Item-->
+														<div class="border border-dashed border-gray-300 rounded px-7 py-3 mb-6">
+															<!--begin::Info-->
+															<div class="d-flex flex-stack mb-3">
+																<!--begin::Wrapper-->
+																<div class="me-3">
+																	<!--begin::Icon-->
+																	<img src="../assets/media/stock/ecommerce/210.png" class="w-50px ms-n1 me-1" alt="" />
+																	<!--end::Icon-->
+																	<!--begin::Title-->
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary fw-bold">Elephant 1802</a>
+																	<!--end::Title-->
+																</div>
+																<!--end::Wrapper-->
+																<!--begin::Action-->
+																<div class="m-0">
+																	<!--begin::Menu-->
+																	<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+																		<i class="ki-duotone ki-dots-square fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																	</button>
+																	<!--begin::Menu 2-->
+																	<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mb-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Ticket</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Customer</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+																			<!--begin::Menu item-->
+																			<a href="#" class="menu-link px-3">
+																				<span class="menu-title">New Group</span>
+																				<span class="menu-arrow"></span>
+																			</a>
+																			<!--end::Menu item-->
+																			<!--begin::Menu sub-->
+																			<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Admin Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Staff Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Member Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																			</div>
+																			<!--end::Menu sub-->
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Contact</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mt-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content px-3 py-3">
+																				<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+																			</div>
+																		</div>
+																		<!--end::Menu item-->
+																	</div>
+																	<!--end::Menu 2-->
+																	<!--end::Menu-->
+																</div>
+																<!--end::Action-->
+															</div>
+															<!--end::Info-->
+															<!--begin::Customer-->
+															<div class="d-flex flex-stack">
+																<!--begin::Name-->
+																<span class="text-gray-400 fw-bold">To:
+																<a href="/apps/ecommerce/sales/details" class="text-gray-800 text-hover-primary fw-bold">Jason Bourne</a></span>
+																<!--end::Name-->
+																<!--begin::Label-->
+																<span class="badge badge-light-success">Delivered</span>
+																<!--end::Label-->
+															</div>
+															<!--end::Customer-->
+														</div>
+														<!--end::Item-->
+														<!--begin::Item-->
+														<div class="border border-dashed border-gray-300 rounded px-7 py-3 mb-6">
+															<!--begin::Info-->
+															<div class="d-flex flex-stack mb-3">
+																<!--begin::Wrapper-->
+																<div class="me-3">
+																	<!--begin::Icon-->
+																	<img src="../assets/media/stock/ecommerce/209.png" class="w-50px ms-n1 me-1" alt="" />
+																	<!--end::Icon-->
+																	<!--begin::Title-->
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary fw-bold">RiseUP</a>
+																	<!--end::Title-->
+																</div>
+																<!--end::Wrapper-->
+																<!--begin::Action-->
+																<div class="m-0">
+																	<!--begin::Menu-->
+																	<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+																		<i class="ki-duotone ki-dots-square fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																	</button>
+																	<!--begin::Menu 2-->
+																	<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mb-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Ticket</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Customer</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+																			<!--begin::Menu item-->
+																			<a href="#" class="menu-link px-3">
+																				<span class="menu-title">New Group</span>
+																				<span class="menu-arrow"></span>
+																			</a>
+																			<!--end::Menu item-->
+																			<!--begin::Menu sub-->
+																			<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Admin Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Staff Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Member Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																			</div>
+																			<!--end::Menu sub-->
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Contact</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mt-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content px-3 py-3">
+																				<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+																			</div>
+																		</div>
+																		<!--end::Menu item-->
+																	</div>
+																	<!--end::Menu 2-->
+																	<!--end::Menu-->
+																</div>
+																<!--end::Action-->
+															</div>
+															<!--end::Info-->
+															<!--begin::Customer-->
+															<div class="d-flex flex-stack">
+																<!--begin::Name-->
+																<span class="text-gray-400 fw-bold">To:
+																<a href="/apps/ecommerce/sales/details" class="text-gray-800 text-hover-primary fw-bold">Marie Durant</a></span>
+																<!--end::Name-->
+																<!--begin::Label-->
+																<span class="badge badge-light-primary">Shipping</span>
+																<!--end::Label-->
+															</div>
+															<!--end::Customer-->
+														</div>
+														<!--end::Item-->
+														<!--begin::Item-->
+														<div class="border border-dashed border-gray-300 rounded px-7 py-3 mb-6">
+															<!--begin::Info-->
+															<div class="d-flex flex-stack mb-3">
+																<!--begin::Wrapper-->
+																<div class="me-3">
+																	<!--begin::Icon-->
+																	<img src="../assets/media/stock/ecommerce/214.png" class="w-50px ms-n1 me-1" alt="" />
+																	<!--end::Icon-->
+																	<!--begin::Title-->
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary fw-bold">Yellow Stone</a>
+																	<!--end::Title-->
+																</div>
+																<!--end::Wrapper-->
+																<!--begin::Action-->
+																<div class="m-0">
+																	<!--begin::Menu-->
+																	<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+																		<i class="ki-duotone ki-dots-square fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																	</button>
+																	<!--begin::Menu 2-->
+																	<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mb-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Ticket</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Customer</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+																			<!--begin::Menu item-->
+																			<a href="#" class="menu-link px-3">
+																				<span class="menu-title">New Group</span>
+																				<span class="menu-arrow"></span>
+																			</a>
+																			<!--end::Menu item-->
+																			<!--begin::Menu sub-->
+																			<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Admin Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Staff Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Member Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																			</div>
+																			<!--end::Menu sub-->
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Contact</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mt-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content px-3 py-3">
+																				<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+																			</div>
+																		</div>
+																		<!--end::Menu item-->
+																	</div>
+																	<!--end::Menu 2-->
+																	<!--end::Menu-->
+																</div>
+																<!--end::Action-->
+															</div>
+															<!--end::Info-->
+															<!--begin::Customer-->
+															<div class="d-flex flex-stack">
+																<!--begin::Name-->
+																<span class="text-gray-400 fw-bold">To:
+																<a href="/apps/ecommerce/sales/details" class="text-gray-800 text-hover-primary fw-bold">Dan Wilson</a></span>
+																<!--end::Name-->
+																<!--begin::Label-->
+																<span class="badge badge-light-danger">Confirmed</span>
+																<!--end::Label-->
+															</div>
+															<!--end::Customer-->
+														</div>
+														<!--end::Item-->
+														<!--begin::Item-->
+														<div class="border border-dashed border-gray-300 rounded px-7 py-3 mb-6">
+															<!--begin::Info-->
+															<div class="d-flex flex-stack mb-3">
+																<!--begin::Wrapper-->
+																<div class="me-3">
+																	<!--begin::Icon-->
+																	<img src="../assets/media/stock/ecommerce/211.png" class="w-50px ms-n1 me-1" alt="" />
+																	<!--end::Icon-->
+																	<!--begin::Title-->
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary fw-bold">Elephant 1802</a>
+																	<!--end::Title-->
+																</div>
+																<!--end::Wrapper-->
+																<!--begin::Action-->
+																<div class="m-0">
+																	<!--begin::Menu-->
+																	<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+																		<i class="ki-duotone ki-dots-square fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																	</button>
+																	<!--begin::Menu 2-->
+																	<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mb-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Ticket</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Customer</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+																			<!--begin::Menu item-->
+																			<a href="#" class="menu-link px-3">
+																				<span class="menu-title">New Group</span>
+																				<span class="menu-arrow"></span>
+																			</a>
+																			<!--end::Menu item-->
+																			<!--begin::Menu sub-->
+																			<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Admin Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Staff Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Member Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																			</div>
+																			<!--end::Menu sub-->
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Contact</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mt-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content px-3 py-3">
+																				<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+																			</div>
+																		</div>
+																		<!--end::Menu item-->
+																	</div>
+																	<!--end::Menu 2-->
+																	<!--end::Menu-->
+																</div>
+																<!--end::Action-->
+															</div>
+															<!--end::Info-->
+															<!--begin::Customer-->
+															<div class="d-flex flex-stack">
+																<!--begin::Name-->
+																<span class="text-gray-400 fw-bold">To:
+																<a href="/apps/ecommerce/sales/details" class="text-gray-800 text-hover-primary fw-bold">Lebron Wayde</a></span>
+																<!--end::Name-->
+																<!--begin::Label-->
+																<span class="badge badge-light-success">Delivered</span>
+																<!--end::Label-->
+															</div>
+															<!--end::Customer-->
+														</div>
+														<!--end::Item-->
+														<!--begin::Item-->
+														<div class="border border-dashed border-gray-300 rounded px-7 py-3 mb-6">
+															<!--begin::Info-->
+															<div class="d-flex flex-stack mb-3">
+																<!--begin::Wrapper-->
+																<div class="me-3">
+																	<!--begin::Icon-->
+																	<img src="../assets/media/stock/ecommerce/215.png" class="w-50px ms-n1 me-1" alt="" />
+																	<!--end::Icon-->
+																	<!--begin::Title-->
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary fw-bold">RiseUP</a>
+																	<!--end::Title-->
+																</div>
+																<!--end::Wrapper-->
+																<!--begin::Action-->
+																<div class="m-0">
+																	<!--begin::Menu-->
+																	<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+																		<i class="ki-duotone ki-dots-square fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																	</button>
+																	<!--begin::Menu 2-->
+																	<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mb-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Ticket</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Customer</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+																			<!--begin::Menu item-->
+																			<a href="#" class="menu-link px-3">
+																				<span class="menu-title">New Group</span>
+																				<span class="menu-arrow"></span>
+																			</a>
+																			<!--end::Menu item-->
+																			<!--begin::Menu sub-->
+																			<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Admin Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Staff Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Member Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																			</div>
+																			<!--end::Menu sub-->
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Contact</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mt-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content px-3 py-3">
+																				<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+																			</div>
+																		</div>
+																		<!--end::Menu item-->
+																	</div>
+																	<!--end::Menu 2-->
+																	<!--end::Menu-->
+																</div>
+																<!--end::Action-->
+															</div>
+															<!--end::Info-->
+															<!--begin::Customer-->
+															<div class="d-flex flex-stack">
+																<!--begin::Name-->
+																<span class="text-gray-400 fw-bold">To:
+																<a href="/apps/ecommerce/sales/details" class="text-gray-800 text-hover-primary fw-bold">Ana Simmons</a></span>
+																<!--end::Name-->
+																<!--begin::Label-->
+																<span class="badge badge-light-primary">Shipping</span>
+																<!--end::Label-->
+															</div>
+															<!--end::Customer-->
+														</div>
+														<!--end::Item-->
+														<!--begin::Item-->
+														<div class="border border-dashed border-gray-300 rounded px-7 py-3">
+															<!--begin::Info-->
+															<div class="d-flex flex-stack mb-3">
+																<!--begin::Wrapper-->
+																<div class="me-3">
+																	<!--begin::Icon-->
+																	<img src="../assets/media/stock/ecommerce/192.png" class="w-50px ms-n1 me-1" alt="" />
+																	<!--end::Icon-->
+																	<!--begin::Title-->
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary fw-bold">Yellow Stone</a>
+																	<!--end::Title-->
+																</div>
+																<!--end::Wrapper-->
+																<!--begin::Action-->
+																<div class="m-0">
+																	<!--begin::Menu-->
+																	<button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end" data-kt-menu-overflow="true">
+																		<i class="ki-duotone ki-dots-square fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																	</button>
+																	<!--begin::Menu 2-->
+																	<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px" data-kt-menu="true">
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content fs-6 text-dark fw-bold px-3 py-4">Quick Actions</div>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mb-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Ticket</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Customer</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3" data-kt-menu-trigger="hover" data-kt-menu-placement="right-start">
+																			<!--begin::Menu item-->
+																			<a href="#" class="menu-link px-3">
+																				<span class="menu-title">New Group</span>
+																				<span class="menu-arrow"></span>
+																			</a>
+																			<!--end::Menu item-->
+																			<!--begin::Menu sub-->
+																			<div class="menu-sub menu-sub-dropdown w-175px py-4">
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Admin Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Staff Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																				<!--begin::Menu item-->
+																				<div class="menu-item px-3">
+																					<a href="#" class="menu-link px-3">Member Group</a>
+																				</div>
+																				<!--end::Menu item-->
+																			</div>
+																			<!--end::Menu sub-->
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<a href="#" class="menu-link px-3">New Contact</a>
+																		</div>
+																		<!--end::Menu item-->
+																		<!--begin::Menu separator-->
+																		<div class="separator mt-3 opacity-75"></div>
+																		<!--end::Menu separator-->
+																		<!--begin::Menu item-->
+																		<div class="menu-item px-3">
+																			<div class="menu-content px-3 py-3">
+																				<a class="btn btn-primary btn-sm px-4" href="#">Generate Reports</a>
+																			</div>
+																		</div>
+																		<!--end::Menu item-->
+																	</div>
+																	<!--end::Menu 2-->
+																	<!--end::Menu-->
+																</div>
+																<!--end::Action-->
+															</div>
+															<!--end::Info-->
+															<!--begin::Customer-->
+															<div class="d-flex flex-stack">
+																<!--begin::Name-->
+																<span class="text-gray-400 fw-bold">To:
+																<a href="/apps/ecommerce/sales/details" class="text-gray-800 text-hover-primary fw-bold">Kevin Leonard</a></span>
+																<!--end::Name-->
+																<!--begin::Label-->
+																<span class="badge badge-light-danger">Confirmed</span>
+																<!--end::Label-->
+															</div>
+															<!--end::Customer-->
+														</div>
+														<!--end::Item-->
+													</div>
+													<!--end::Scroll-->
+												</div>
+												<!--end::Body-->
+											</div>
+											<!--end::List widget 5-->
+										</div>
+										<!--end::Col-->
 										<!--begin::Col-->
 										<div class="col-xl-8">
-											<!--begin::Table Widget 4-->
+											<!--begin::Table Widget 5-->
 											<div class="card card-flush h-xl-100">
 												<!--begin::Card header-->
 												<div class="card-header pt-7">
 													<!--begin::Title-->
 													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold text-gray-800">My Sales in Details</span>
-														<span class="text-gray-400 mt-1 fw-semibold fs-6">Avg. 57 orders per day</span>
+														<span class="card-label fw-bold text-dark">Stock Report</span>
+														<span class="text-gray-400 mt-1 fw-semibold fs-6">Total 2,356 Items in the Stock</span>
 													</h3>
 													<!--end::Title-->
 													<!--begin::Actions-->
@@ -9843,14 +9659,14 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Destination-->
 															<div class="d-flex align-items-center fw-bold">
 																<!--begin::Label-->
-																<div class="text-gray-400 fs-7 me-2">Cateogry</div>
+																<div class="text-muted fs-7 me-2">Cateogry</div>
 																<!--end::Label-->
 																<!--begin::Select-->
-																<select class="form-select form-select-transparent text-graY-800 fs-base lh-1 fw-bold py-0 ps-3 w-auto" data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px" data-placeholder="Select an option">
+																<select class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bold py-0 ps-3 w-auto" data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px" data-placeholder="Select an option">
 																	<option></option>
 																	<option value="Show All" selected="selected">Show All</option>
 																	<option value="a">Category A</option>
-																	<option value="b">Category A</option>
+																	<option value="b">Category B</option>
 																</select>
 																<!--end::Select-->
 															</div>
@@ -9858,28 +9674,21 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Status-->
 															<div class="d-flex align-items-center fw-bold">
 																<!--begin::Label-->
-																<div class="text-gray-400 fs-7 me-2">Status</div>
+																<div class="text-muted fs-7 me-2">Status</div>
 																<!--end::Label-->
 																<!--begin::Select-->
-																<select class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bold py-0 ps-3 w-auto" data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px" data-placeholder="Select an option" data-kt-table-widget-4="filter_status">
+																<select class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bold py-0 ps-3 w-auto" data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px" data-placeholder="Select an option" data-kt-table-widget-5="filter_status">
 																	<option></option>
 																	<option value="Show All" selected="selected">Show All</option>
-																	<option value="Shipped">Shipped</option>
-																	<option value="Confirmed">Confirmed</option>
-																	<option value="Rejected">Rejected</option>
-																	<option value="Pending">Pending</option>
+																	<option value="In Stock">In Stock</option>
+																	<option value="Out of Stock">Out of Stock</option>
+																	<option value="Low Stock">Low Stock</option>
 																</select>
 																<!--end::Select-->
 															</div>
 															<!--end::Status-->
 															<!--begin::Search-->
-															<div class="position-relative my-1">
-																<i class="ki-duotone ki-magnifier fs-2 position-absolute top-50 translate-middle-y ms-4">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>
-																<input type="text" data-kt-table-widget-4="search" class="form-control w-150px fs-7 ps-12" placeholder="Search" />
-															</div>
+															<a href="/apps/ecommerce/catalog/products" class="btn btn-light btn-sm">View Stock</a>
 															<!--end::Search-->
 														</div>
 														<!--begin::Filters-->
@@ -9888,209 +9697,206 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Card header-->
 												<!--begin::Card body-->
-												<div class="card-body pt-2">
+												<div class="card-body">
 													<!--begin::Table-->
-													<table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_table_widget_4_table">
+													<table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_table_widget_5_table">
 														<!--begin::Table head-->
 														<thead>
 															<!--begin::Table row-->
 															<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-																<th class="min-w-100px">Order ID</th>
-																<th class="text-end min-w-100px">Created</th>
-																<th class="text-end min-w-125px">Customer</th>
-																<th class="text-end min-w-100px">Total</th>
-																<th class="text-end min-w-100px">Profit</th>
-																<th class="text-end min-w-50px">Status</th>
-																<th class="text-end"></th>
+																<th class="min-w-150px">Item</th>
+																<th class="text-end pe-3 min-w-100px">Product ID</th>
+																<th class="text-end pe-3 min-w-150px">Date Added</th>
+																<th class="text-end pe-3 min-w-100px">Price</th>
+																<th class="text-end pe-3 min-w-100px">Status</th>
+																<th class="text-end pe-0 min-w-75px">Qty</th>
 															</tr>
 															<!--end::Table row-->
 														</thead>
 														<!--end::Table head-->
 														<!--begin::Table body-->
 														<tbody class="fw-bold text-gray-600">
-															<tr data-kt-table-widget-4="subtable_template" class="d-none">
-																<td colspan="2">
-																	<div class="d-flex align-items-center gap-3">
-																		<a href="#" class="symbol symbol-50px bg-secondary bg-opacity-25 rounded">
-																			<img src="" data-kt-src-path="assets/media/stock/ecommerce/" alt="" data-kt-table-widget-4="template_image" />
-																		</a>
-																		<div class="d-flex flex-column text-muted">
-																			<a href="#" class="text-gray-800 text-hover-primary fw-bold" data-kt-table-widget-4="template_name">Product name</a>
-																			<div class="fs-7" data-kt-table-widget-4="template_description">Product description</div>
-																		</div>
-																	</div>
+															<tr>
+																<!--begin::Item-->
+																<td>
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-dark text-hover-primary">Macbook Air M1</a>
 																</td>
+																<!--end::Item-->
+																<!--begin::Product ID-->
+																<td class="text-end">#XGY-356</td>
+																<!--end::Product ID-->
+																<!--begin::Date added-->
+																<td class="text-end">02 Apr, 2023</td>
+																<!--end::Date added-->
+																<!--begin::Price-->
+																<td class="text-end">$1,230</td>
+																<!--end::Price-->
+																<!--begin::Status-->
 																<td class="text-end">
-																	<div class="text-gray-800 fs-7">Cost</div>
-																	<div class="text-muted fs-7 fw-bold" data-kt-table-widget-4="template_cost">1</div>
+																	<span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
 																</td>
-																<td class="text-end">
-																	<div class="text-gray-800 fs-7">Qty</div>
-																	<div class="text-muted fs-7 fw-bold" data-kt-table-widget-4="template_qty">1</div>
+																<!--end::Status-->
+																<!--begin::Qty-->
+																<td class="text-end" data-order="58">
+																	<span class="text-dark fw-bold">58 PCS</span>
 																</td>
-																<td class="text-end">
-																	<div class="text-gray-800 fs-7">Total</div>
-																	<div class="text-muted fs-7 fw-bold" data-kt-table-widget-4="template_total">name</div>
-																</td>
-																<td class="text-end">
-																	<div class="text-gray-800 fs-7 me-3">On hand</div>
-																	<div class="text-muted fs-7 fw-bold" data-kt-table-widget-4="template_stock">32</div>
-																</td>
-																<td></td>
+																<!--end::Qty-->
 															</tr>
 															<tr>
+																<!--begin::Item-->
 																<td>
-																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary">#XGY-346</a>
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-dark text-hover-primary">Surface Laptop 4</a>
 																</td>
-																<td class="text-end">7 min ago</td>
+																<!--end::Item-->
+																<!--begin::Product ID-->
+																<td class="text-end">#YHD-047</td>
+																<!--end::Product ID-->
+																<!--begin::Date added-->
+																<td class="text-end">01 Apr, 2023</td>
+																<!--end::Date added-->
+																<!--begin::Price-->
+																<td class="text-end">$1,060</td>
+																<!--end::Price-->
+																<!--begin::Status-->
 																<td class="text-end">
-																	<a href="#" class="text-gray-600 text-hover-primary">Albert Flores</a>
+																	<span class="badge py-3 px-4 fs-7 badge-light-danger">Out of Stock</span>
 																</td>
-																<td class="text-end">$630.00</td>
-																<td class="text-end">
-																	<span class="text-gray-800 fw-bolder">$86.70</span>
+																<!--end::Status-->
+																<!--begin::Qty-->
+																<td class="text-end" data-order="0">
+																	<span class="text-dark fw-bold">0 PCS</span>
 																</td>
-																<td class="text-end">
-																	<span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
-																</td>
-																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-																		<i class="ki-duotone ki-minus fs-4 m-0 toggle-on"></i>
-																	</button>
-																</td>
+																<!--end::Qty-->
 															</tr>
 															<tr>
+																<!--begin::Item-->
 																<td>
-																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary">#YHD-047</a>
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-dark text-hover-primary">Logitech MX 250</a>
 																</td>
-																<td class="text-end">52 min ago</td>
+																<!--end::Item-->
+																<!--begin::Product ID-->
+																<td class="text-end">#SRR-678</td>
+																<!--end::Product ID-->
+																<!--begin::Date added-->
+																<td class="text-end">24 Mar, 2023</td>
+																<!--end::Date added-->
+																<!--begin::Price-->
+																<td class="text-end">$64</td>
+																<!--end::Price-->
+																<!--begin::Status-->
 																<td class="text-end">
-																	<a href="#" class="text-gray-600 text-hover-primary">Jenny Wilson</a>
+																	<span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
 																</td>
-																<td class="text-end">$25.00</td>
-																<td class="text-end">
-																	<span class="text-gray-800 fw-bolder">$4.20</span>
+																<!--end::Status-->
+																<!--begin::Qty-->
+																<td class="text-end" data-order="290">
+																	<span class="text-dark fw-bold">290 PCS</span>
 																</td>
-																<td class="text-end">
-																	<span class="badge py-3 px-4 fs-7 badge-light-primary">Confirmed</span>
-																</td>
-																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-																		<i class="ki-duotone ki-minus fs-4 m-0 toggle-on"></i>
-																	</button>
-																</td>
+																<!--end::Qty-->
 															</tr>
 															<tr>
+																<!--begin::Item-->
 																<td>
-																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary">#SRR-678</a>
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-dark text-hover-primary">AudioEngine HD3</a>
 																</td>
-																<td class="text-end">1 hour ago</td>
+																<!--end::Item-->
+																<!--begin::Product ID-->
+																<td class="text-end">#PXF-578</td>
+																<!--end::Product ID-->
+																<!--begin::Date added-->
+																<td class="text-end">24 Mar, 2023</td>
+																<!--end::Date added-->
+																<!--begin::Price-->
+																<td class="text-end">$1,060</td>
+																<!--end::Price-->
+																<!--begin::Status-->
 																<td class="text-end">
-																	<a href="#" class="text-gray-600 text-hover-primary">Robert Fox</a>
+																	<span class="badge py-3 px-4 fs-7 badge-light-danger">Out of Stock</span>
 																</td>
-																<td class="text-end">$1,630.00</td>
-																<td class="text-end">
-																	<span class="text-gray-800 fw-bolder">$203.90</span>
+																<!--end::Status-->
+																<!--begin::Qty-->
+																<td class="text-end" data-order="46">
+																	<span class="text-dark fw-bold">46 PCS</span>
 																</td>
-																<td class="text-end">
-																	<span class="badge py-3 px-4 fs-7 badge-light-warning">Pending</span>
-																</td>
-																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-																		<i class="ki-duotone ki-minus fs-4 m-0 toggle-on"></i>
-																	</button>
-																</td>
+																<!--end::Qty-->
 															</tr>
 															<tr>
+																<!--begin::Item-->
 																<td>
-																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary">#PXF-534</a>
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-dark text-hover-primary">HP Hyper LTR</a>
 																</td>
-																<td class="text-end">3 hour ago</td>
+																<!--end::Item-->
+																<!--begin::Product ID-->
+																<td class="text-end">#PXF-778</td>
+																<!--end::Product ID-->
+																<!--begin::Date added-->
+																<td class="text-end">16 Jan, 2023</td>
+																<!--end::Date added-->
+																<!--begin::Price-->
+																<td class="text-end">$4500</td>
+																<!--end::Price-->
+																<!--begin::Status-->
 																<td class="text-end">
-																	<a href="#" class="text-gray-600 text-hover-primary">Cody Fisher</a>
+																	<span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
 																</td>
-																<td class="text-end">$119.00</td>
-																<td class="text-end">
-																	<span class="text-gray-800 fw-bolder">$12.00</span>
+																<!--end::Status-->
+																<!--begin::Qty-->
+																<td class="text-end" data-order="78">
+																	<span class="text-dark fw-bold">78 PCS</span>
 																</td>
-																<td class="text-end">
-																	<span class="badge py-3 px-4 fs-7 badge-light-success">Shipped</span>
-																</td>
-																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-																		<i class="ki-duotone ki-minus fs-4 m-0 toggle-on"></i>
-																	</button>
-																</td>
+																<!--end::Qty-->
 															</tr>
 															<tr>
+																<!--begin::Item-->
 																<td>
-																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary">#XGD-249</a>
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-dark text-hover-primary">Dell 32 UltraSharp</a>
 																</td>
-																<td class="text-end">2 day ago</td>
+																<!--end::Item-->
+																<!--begin::Product ID-->
+																<td class="text-end">#XGY-356</td>
+																<!--end::Product ID-->
+																<!--begin::Date added-->
+																<td class="text-end">22 Dec, 2023</td>
+																<!--end::Date added-->
+																<!--begin::Price-->
+																<td class="text-end">$1,060</td>
+																<!--end::Price-->
+																<!--begin::Status-->
 																<td class="text-end">
-																	<a href="#" class="text-gray-600 text-hover-primary">Arlene McCoy</a>
+																	<span class="badge py-3 px-4 fs-7 badge-light-warning">Low Stock</span>
 																</td>
-																<td class="text-end">$660.00</td>
-																<td class="text-end">
-																	<span class="text-gray-800 fw-bolder">$52.26</span>
+																<!--end::Status-->
+																<!--begin::Qty-->
+																<td class="text-end" data-order="8">
+																	<span class="text-dark fw-bold">8 PCS</span>
 																</td>
-																<td class="text-end">
-																	<span class="badge py-3 px-4 fs-7 badge-light-success">Shipped</span>
-																</td>
-																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-																		<i class="ki-duotone ki-minus fs-4 m-0 toggle-on"></i>
-																	</button>
-																</td>
+																<!--end::Qty-->
 															</tr>
 															<tr>
+																<!--begin::Item-->
 																<td>
-																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary">#SKP-035</a>
+																	<a href="/apps/ecommerce/catalog/edit-product" class="text-dark text-hover-primary">Google Pixel 6 Pro</a>
 																</td>
-																<td class="text-end">2 day ago</td>
+																<!--end::Item-->
+																<!--begin::Product ID-->
+																<td class="text-end">#XVR-425</td>
+																<!--end::Product ID-->
+																<!--begin::Date added-->
+																<td class="text-end">27 Dec, 2023</td>
+																<!--end::Date added-->
+																<!--begin::Price-->
+																<td class="text-end">$1,060</td>
+																<!--end::Price-->
+																<!--begin::Status-->
 																<td class="text-end">
-																	<a href="#" class="text-gray-600 text-hover-primary">Eleanor Pena</a>
+																	<span class="badge py-3 px-4 fs-7 badge-light-primary">In Stock</span>
 																</td>
-																<td class="text-end">$290.00</td>
-																<td class="text-end">
-																	<span class="text-gray-800 fw-bolder">$29.00</span>
+																<!--end::Status-->
+																<!--begin::Qty-->
+																<td class="text-end" data-order="124">
+																	<span class="text-dark fw-bold">124 PCS</span>
 																</td>
-																<td class="text-end">
-																	<span class="badge py-3 px-4 fs-7 badge-light-danger">Rejected</span>
-																</td>
-																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-																		<i class="ki-duotone ki-minus fs-4 m-0 toggle-on"></i>
-																	</button>
-																</td>
-															</tr>
-															<tr>
-																<td>
-																	<a href="/apps/ecommerce/catalog/edit-product" class="text-gray-800 text-hover-primary">#SKP-567</a>
-																</td>
-																<td class="text-end">7 min ago</td>
-																<td class="text-end">
-																	<a href="#" class="text-gray-600 text-hover-primary">Dan Wilson</a>
-																</td>
-																<td class="text-end">$590.00</td>
-																<td class="text-end">
-																	<span class="text-gray-800 fw-bolder">$50.00</span>
-																</td>
-																<td class="text-end">
-																	<span class="badge py-3 px-4 fs-7 badge-light-success">Shipped</span>
-																</td>
-																<td class="text-end">
-																	<button type="button" class="btn btn-sm btn-icon btn-light btn-active-light-primary toggle h-25px w-25px" data-kt-table-widget-4="expand_row">
-																		<i class="ki-duotone ki-plus fs-4 m-0 toggle-off"></i>
-																		<i class="ki-duotone ki-minus fs-4 m-0 toggle-on"></i>
-																	</button>
-																</td>
+																<!--end::Qty-->
 															</tr>
 														</tbody>
 														<!--end::Table body-->
@@ -10099,7 +9905,7 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Card body-->
 											</div>
-											<!--end::Table Widget 4-->
+											<!--end::Table Widget 5-->
 										</div>
 										<!--end::Col-->
 									</div>
@@ -10198,7 +10004,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-												<img src="assets/media/avatars/300-14.jpg" alt="img" />
+												<img src="../assets/media/avatars/300-14.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -10221,12 +10027,12 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/300-2.jpg" alt="img" />
+													<img src="../assets/media/avatars/300-2.jpg" alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/300-14.jpg" alt="img" />
+													<img src="../assets/media/avatars/300-14.jpg" alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
@@ -10260,7 +10066,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
 												<!--begin::User-->
 												<div class="symbol symbol-circle symbol-25px">
-													<img src="assets/media/avatars/300-20.jpg" alt="img" />
+													<img src="../assets/media/avatars/300-20.jpg" alt="img" />
 												</div>
 												<!--end::User-->
 												<!--begin::User-->
@@ -10315,7 +10121,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-												<img src="assets/media/avatars/300-1.jpg" alt="img" />
+												<img src="../assets/media/avatars/300-1.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -10358,7 +10164,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-												<img src="assets/media/avatars/300-23.jpg" alt="img" />
+												<img src="../assets/media/avatars/300-23.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -10371,7 +10177,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 												<!--begin::Icon-->
-												<img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
+												<img alt="" class="w-30px me-3" src="../assets/media/svg/files/pdf.svg" />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-semibold">
@@ -10388,7 +10194,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 												<!--begin::Icon-->
-												<img alt="/apps/projects/project" class="w-30px me-3" src="assets/media/svg/files/doc.svg" />
+												<img alt="/apps/projects/project" class="w-30px me-3" src="../assets/media/svg/files/doc.svg" />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-semibold">
@@ -10405,7 +10211,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center">
 												<!--begin::Icon-->
-												<img alt="/apps/projects/project" class="w-30px me-3" src="assets/media/svg/files/css.svg" />
+												<img alt="/apps/projects/project" class="w-30px me-3" src="../assets/media/svg/files/css.svg" />
 												<!--end::Icon-->
 												<!--begin::Info-->
 												<div class="ms-1 fw-semibold">
@@ -10457,7 +10263,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-												<img src="assets/media/avatars/300-14.jpg" alt="img" />
+												<img src="../assets/media/avatars/300-14.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -10497,7 +10303,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-												<img src="assets/media/avatars/300-2.jpg" alt="img" />
+												<img src="../assets/media/avatars/300-2.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -10511,7 +10317,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay me-10">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-29.jpg" />
+													<img alt="img" class="rounded w-150px" src="../assets/media/stock/600x400/img-29.jpg" />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -10525,7 +10331,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay me-10">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-31.jpg" />
+													<img alt="img" class="rounded w-150px" src="../assets/media/stock/600x400/img-31.jpg" />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -10539,7 +10345,7 @@ License: For each use you must have a valid license purchased only from above li
 											<div class="overlay">
 												<!--begin::Image-->
 												<div class="overlay-wrapper">
-													<img alt="img" class="rounded w-150px" src="assets/media/stock/600x400/img-40.jpg" />
+													<img alt="img" class="rounded w-150px" src="../assets/media/stock/600x400/img-40.jpg" />
 												</div>
 												<!--end::Image-->
 												<!--begin::Link-->
@@ -10628,7 +10434,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Info-->
 											<!--begin::User-->
 											<div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip" data-bs-boundary="window" data-bs-placement="top" title="Robert Rich">
-												<img src="assets/media/avatars/300-4.jpg" alt="img" />
+												<img src="../assets/media/avatars/300-4.jpg" alt="img" />
 											</div>
 											<!--end::User-->
 										</div>
@@ -10843,7 +10649,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -10875,7 +10681,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -10895,7 +10701,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -10927,7 +10733,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -10947,7 +10753,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -10980,7 +10786,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -11000,7 +10806,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -11032,7 +10838,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Details-->
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
 									</div>
 									<!--end::Avatar-->
 								</div>
@@ -11052,7 +10858,7 @@ License: For each use you must have a valid license purchased only from above li
 								<div class="d-flex align-items-center mb-2">
 									<!--begin::Avatar-->
 									<div class="symbol symbol-35px symbol-circle">
-										<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+										<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
 									</div>
 									<!--end::Avatar-->
 									<!--begin::Details-->
@@ -11157,7 +10963,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-1.jpg" alt="" />
+							<img src="../assets/media/stock/600x400/img-1.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -11192,7 +10998,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-3.jpg" alt="" />
+							<img src="../assets/media/stock/600x400/img-3.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -11227,7 +11033,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-8.jpg" alt="" />
+							<img src="../assets/media/stock/600x400/img-8.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -11262,7 +11068,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-26.jpg" alt="" />
+							<img src="../assets/media/stock/600x400/img-26.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -11297,7 +11103,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-21.jpg" alt="" />
+							<img src="../assets/media/stock/600x400/img-21.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -11332,7 +11138,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-34.jpg" alt="" />
+							<img src="../assets/media/stock/600x400/img-34.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -11367,7 +11173,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Wrapper-->
 						<!--begin::Pic-->
 						<div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-							<img src="assets/media/stock/600x400/img-27.jpg" alt="" />
+							<img src="../assets/media/stock/600x400/img-27.jpg" alt="" />
 						</div>
 						<!--end::Pic-->
 					</div>
@@ -11612,7 +11418,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Item-->
 												<!--begin::Item-->
 												<div class="d-flex align-items-center mb-7">
-													<span class="fw-semibold fs-5 text-muted flex-grow-1">Accounting Module</span>
+													<span class="fw-semibold fs-5 text-muted flex-grow-1">Vehicleing Module</span>
 													<i class="ki-duotone ki-cross-circle fs-1">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -11689,7 +11495,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Item-->
 												<!--begin::Item-->
 												<div class="d-flex align-items-center mb-7">
-													<span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting Module</span>
+													<span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Vehicleing Module</span>
 													<i class="ki-duotone ki-check-circle fs-1 text-success">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -11766,7 +11572,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Item-->
 												<!--begin::Item-->
 												<div class="d-flex align-items-center mb-7">
-													<span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting Module</span>
+													<span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Vehicleing Module</span>
 													<i class="ki-duotone ki-check-circle fs-1 text-success">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -11843,7 +11649,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Item-->
 												<!--begin::Item-->
 												<div class="d-flex align-items-center mb-7">
-													<span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting Module</span>
+													<span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Vehicleing Module</span>
 													<i class="ki-duotone ki-check-circle fs-1 text-success">
 														<span class="path1"></span>
 														<span class="path2"></span>
@@ -11902,3089 +11708,6 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Modal dialog-->
 		</div>
 		<!--end::Modal - Upgrade plan-->
-		<!--begin::Modal - Create Project-->
-		<div class="modal fade" id="kt_modal_create_project" tabindex="-1" aria-hidden="true">
-			<!--begin::Modal dialog-->
-			<div class="modal-dialog modal-fullscreen p-9">
-				<!--begin::Modal content-->
-				<div class="modal-content modal-rounded">
-					<!--begin::Modal header-->
-					<div class="modal-header">
-						<!--begin::Modal title-->
-						<h2>Create Project</h2>
-						<!--end::Modal title-->
-						<!--begin::Close-->
-						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-							<i class="ki-duotone ki-cross fs-1">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</div>
-						<!--end::Close-->
-					</div>
-					<!--end::Modal header-->
-					<!--begin::Modal body-->
-					<div class="modal-body scroll-y m-5">
-						<!--begin::Stepper-->
-						<div class="stepper stepper-links d-flex flex-column" id="kt_modal_create_project_stepper">
-							<!--begin::Container-->
-							<div class="container">
-								<!--begin::Nav-->
-								<div class="stepper-nav justify-content-center py-2">
-									<!--begin::Step 1-->
-									<div class="stepper-item me-5 me-md-15 current" data-kt-stepper-element="nav">
-										<h3 class="stepper-title">Project Type</h3>
-									</div>
-									<!--end::Step 1-->
-									<!--begin::Step 2-->
-									<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-										<h3 class="stepper-title">Project Settings</h3>
-									</div>
-									<!--end::Step 2-->
-									<!--begin::Step 3-->
-									<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-										<h3 class="stepper-title">Budget</h3>
-									</div>
-									<!--end::Step 3-->
-									<!--begin::Step 4-->
-									<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-										<h3 class="stepper-title">Build A Team</h3>
-									</div>
-									<!--end::Step 4-->
-									<!--begin::Step 5-->
-									<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-										<h3 class="stepper-title">Set First Target</h3>
-									</div>
-									<!--end::Step 5-->
-									<!--begin::Step 6-->
-									<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-										<h3 class="stepper-title">Upload Files</h3>
-									</div>
-									<!--end::Step 6-->
-									<!--begin::Step 7-->
-									<div class="stepper-item" data-kt-stepper-element="nav">
-										<h3 class="stepper-title">Completed</h3>
-									</div>
-									<!--end::Step 7-->
-								</div>
-								<!--end::Nav-->
-								<!--begin::Form-->
-								<form class="mx-auto w-100 mw-600px pt-15 pb-10" novalidate="novalidate" id="kt_modal_create_project_form" method="post">
-									<!--begin::Type-->
-									<div class="current" data-kt-stepper-element="content">
-										<!--begin::Wrapper-->
-										<div class="w-100">
-											<!--begin::Heading-->
-											<div class="pb-7 pb-lg-12">
-												<!--begin::Title-->
-												<h1 class="fw-bold text-dark">Project Type</h1>
-												<!--end::Title-->
-												<!--begin::Description-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check out
-												<a href="#" class="link-primary fw-bold">FAQ Page</a></div>
-												<!--end::Description-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-15" data-kt-buttons="true">
-												<!--begin::Option-->
-												<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6 mb-6 active">
-													<!--begin::Input-->
-													<input class="btn-check" type="radio" checked="checked" name="project_type" value="1" />
-													<!--end::Input-->
-													<!--begin::Label-->
-													<span class="d-flex">
-														<!--begin::Icon-->
-														<i class="ki-duotone ki-profile-circle fs-3hx">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-														<!--end::Icon-->
-														<!--begin::Info-->
-														<span class="ms-4">
-															<span class="fs-3 fw-bold text-gray-900 mb-2 d-block">Personal Project</span>
-															<span class="fw-semibold fs-4 text-muted">If you need more info, please check it out</span>
-														</span>
-														<!--end::Info-->
-													</span>
-													<!--end::Label-->
-												</label>
-												<!--end::Option-->
-												<!--begin::Option-->
-												<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6">
-													<!--begin::Input-->
-													<input class="btn-check" type="radio" name="project_type" value="2" />
-													<!--end::Input-->
-													<!--begin::Label-->
-													<span class="d-flex">
-														<!--begin::Icon-->
-														<i class="ki-duotone ki-rocket fs-3hx">
-															<span class="path1"></span>
-															<span class="path2"></span>
-														</i>
-														<!--end::Icon-->
-														<!--begin::Info-->
-														<span class="ms-4">
-															<span class="fs-3 fw-bold text-gray-900 mb-2 d-block">Team Project</span>
-															<span class="fw-semibold fs-4 text-muted">Create corporate account to manage users</span>
-														</span>
-														<!--end::Info-->
-													</span>
-													<!--end::Label-->
-												</label>
-												<!--end::Option-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Actions-->
-											<div class="d-flex justify-content-end">
-												<button type="button" class="btn btn-lg btn-primary" data-kt-element="type-next">
-													<span class="indicator-label">Project Settings</span>
-													<span class="indicator-progress">Please wait...
-													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-												</button>
-											</div>
-											<!--end::Actions-->
-										</div>
-										<!--end::Wrapper-->
-									</div>
-									<!--end::Type-->
-									<!--begin::Settings-->
-									<div data-kt-stepper-element="content">
-										<!--begin::Wrapper-->
-										<div class="w-100">
-											<!--begin::Heading-->
-											<div class="pb-12">
-												<!--begin::Title-->
-												<h1 class="fw-bold text-dark">Project Settings</h1>
-												<!--end::Title-->
-												<!--begin::Description-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check
-												<a href="#" class="link-primary">Project Guidelines</a></div>
-												<!--end::Description-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Dropzone-->
-												<div class="dropzone" id="kt_modal_create_project_settings_logo">
-													<!--begin::Message-->
-													<div class="dz-message needsclick">
-														<!--begin::Icon-->
-														<i class="ki-duotone ki-file-up fs-3hx text-primary">
-															<span class="path1"></span>
-															<span class="path2"></span>
-														</i>
-														<!--end::Icon-->
-														<!--begin::Info-->
-														<div class="ms-4">
-															<h3 class="dfs-3 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
-															<span class="fw-semibold fs-4 text-muted">Upload up to 10 files</span>
-														</div>
-														<!--end::Info-->
-													</div>
-												</div>
-												<!--end::Dropzone-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Label-->
-												<label class="required fs-6 fw-semibold mb-2">Customer</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select..." name="settings_customer">
-													<option></option>
-													<option value="1">Keenthemes</option>
-													<option value="2">CRM App</option>
-												</select>
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Label-->
-												<label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
-													<span class="required">Project Name</span>
-													<span class="ms-1" data-bs-toggle="tooltip" title="Specify project name">
-														<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<input type="text" class="form-control form-control-solid" placeholder="Enter Project Name" value="StockPro Mobile App" name="settings_name" />
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Label-->
-												<label class="required fs-6 fw-semibold mb-2">Project Description</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<textarea class="form-control form-control-solid" rows="3" placeholder="Enter Project Description" name="settings_description">Experience share market at your fingertips with TICK PRO stock investment mobile trading app</textarea>
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Label-->
-												<label class="required fs-6 fw-semibold mb-2">Release Date</label>
-												<!--end::Label-->
-												<!--begin::Wrapper-->
-												<div class="position-relative d-flex align-items-center">
-													<!--begin::Icon-->
-													<i class="ki-duotone ki-calendar-8 fs-2 position-absolute mx-4">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-														<span class="path5"></span>
-														<span class="path6"></span>
-													</i>
-													<!--end::Icon-->
-													<!--begin::Input-->
-													<input class="form-control form-control-solid ps-12" placeholder="Pick date range" name="settings_release_date" />
-													<!--end::Input-->
-												</div>
-												<!--end::Wrapper-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-15">
-												<!--begin::Wrapper-->
-												<div class="d-flex flex-stack">
-													<!--begin::Label-->
-													<div class="me-5">
-														<label class="required fs-6 fw-semibold">Notifications</label>
-														<div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or Email</div>
-													</div>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex">
-														<!--begin::Checkbox-->
-														<label class="form-check form-check-custom form-check-solid me-10">
-															<!--begin::Input-->
-															<input class="form-check-input h-20px w-20px" type="checkbox" value="email" name="settings_notifications[]" />
-															<!--end::Input-->
-															<!--begin::Label-->
-															<span class="form-check-label fw-semibold">Email</span>
-															<!--end::Label-->
-														</label>
-														<!--end::Checkbox-->
-														<!--begin::Checkbox-->
-														<label class="form-check form-check-custom form-check-solid">
-															<!--begin::Input-->
-															<input class="form-check-input h-20px w-20px" type="checkbox" value="phone" checked="checked" name="settings_notifications[]" />
-															<!--end::Input-->
-															<!--begin::Label-->
-															<span class="form-check-label fw-semibold">Phone</span>
-															<!--end::Label-->
-														</label>
-														<!--end::Checkbox-->
-													</div>
-													<!--end::Checkboxes-->
-												</div>
-												<!--begin::Wrapper-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Actions-->
-											<div class="d-flex flex-stack">
-												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="settings-previous">Project Type</button>
-												<button type="button" class="btn btn-lg btn-primary" data-kt-element="settings-next">
-													<span class="indicator-label">Budget</span>
-													<span class="indicator-progress">Please wait...
-													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-												</button>
-											</div>
-											<!--end::Actions-->
-										</div>
-										<!--end::Wrapper-->
-									</div>
-									<!--end::Settings-->
-									<!--begin::Budget-->
-									<div data-kt-stepper-element="content">
-										<!--begin::Wrapper-->
-										<div class="w-100">
-											<!--begin::Heading-->
-											<div class="pb-10 pb-lg-12">
-												<!--begin::Title-->
-												<h1 class="fw-bold text-dark">Budget</h1>
-												<!--end::Title-->
-												<!--begin::Description-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check
-												<a href="#" class="link-primary">Project Guidelines</a></div>
-												<!--end::Description-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Label-->
-												<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-													<span class="required">Setup Budget</span>
-													<span class="ms-1" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-content="&lt;div class=&#039;p-4 rounded bg-light&#039;&gt; &lt;div class=&#039;d-flex flex-stack text-muted mb-4&#039;&gt; &lt;i class=&quot;ki-duotone ki-bank fs-3 me-3&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt; &lt;div class=&#039;fw-bold&#039;&gt;INCBANK **** 1245 STATEMENT&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack fw-semibold text-gray-600&#039;&gt; &lt;div&gt;Amount&lt;/div&gt; &lt;div&gt;Transaction&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;separator separator-dashed my-2&#039;&gt;&lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-dark fw-bold mb-2&#039;&gt; &lt;div&gt;USD345.00&lt;/div&gt; &lt;div&gt;KEENTHEMES*&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-muted mb-2&#039;&gt; &lt;div&gt;USD75.00&lt;/div&gt; &lt;div&gt;Hosting fee&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-muted&#039;&gt; &lt;div&gt;USD3,950.00&lt;/div&gt; &lt;div&gt;Payrol&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;">
-														<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>
-													</span>
-												</label>
-												<!--end::Label-->
-												<!--begin::Dialer-->
-												<div class="position-relative w-lg-250px" id="kt_modal_create_project_budget_setup" data-kt-dialer="true" data-kt-dialer-min="50" data-kt-dialer-max="50000" data-kt-dialer-step="100" data-kt-dialer-prefix="$" data-kt-dialer-decimals="2">
-													<!--begin::Decrease control-->
-													<button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 start-0" data-kt-dialer-control="decrease">
-														<i class="ki-duotone ki-minus-circle fs-1">
-															<span class="path1"></span>
-															<span class="path2"></span>
-														</i>
-													</button>
-													<!--end::Decrease control-->
-													<!--begin::Input control-->
-													<input type="text" class="form-control form-control-solid border-0 ps-12" data-kt-dialer-control="input" placeholder="Amount" name="budget_setup" readonly="readonly" value="$50" />
-													<!--end::Input control-->
-													<!--begin::Increase control-->
-													<button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 end-0" data-kt-dialer-control="increase">
-														<i class="ki-duotone ki-plus-circle fs-1">
-															<span class="path1"></span>
-															<span class="path2"></span>
-														</i>
-													</button>
-													<!--end::Increase control-->
-												</div>
-												<!--end::Dialer-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">Budget Usage</label>
-												<!--end::Label-->
-												<!--begin::Row-->
-												<div class="row g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
-													<!--begin::Col-->
-													<div class="col-md-6 col-lg-12 col-xxl-6">
-														<!--begin::Option-->
-														<label class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6" data-kt-button="true">
-															<!--begin::Radio-->
-															<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-																<input class="form-check-input" type="radio" name="budget_usage" value="1" checked="checked" />
-															</span>
-															<!--end::Radio-->
-															<!--begin::Info-->
-															<span class="ms-5">
-																<span class="fs-4 fw-bold text-gray-800 mb-2 d-block">Precise Usage</span>
-																<span class="fw-semibold fs-7 text-gray-600">Withdraw money to your bank account per transaction under $50,000 budget</span>
-															</span>
-															<!--end::Info-->
-														</label>
-														<!--end::Option-->
-													</div>
-													<!--end::Col-->
-													<!--begin::Col-->
-													<div class="col-md-6 col-lg-12 col-xxl-6">
-														<!--begin::Option-->
-														<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
-															<!--begin::Radio-->
-															<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-																<input class="form-check-input" type="radio" name="budget_usage" value="2" />
-															</span>
-															<!--end::Radio-->
-															<!--begin::Info-->
-															<span class="ms-5">
-																<span class="fs-4 fw-bold text-gray-800 mb-2 d-block">Extreme Usage</span>
-																<span class="fw-semibold fs-7 text-gray-600">Withdraw money to your bank account per transaction under $50,000 budget</span>
-															</span>
-															<!--end::Info-->
-														</label>
-														<!--end::Option-->
-													</div>
-													<!--end::Col-->
-												</div>
-												<!--end::Row-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-15">
-												<!--begin::Wrapper-->
-												<div class="d-flex flex-stack">
-													<!--begin::Label-->
-													<div class="me-5">
-														<label class="fs-6 fw-semibold">Allow Changes in Budget</label>
-														<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
-													</div>
-													<!--end::Label-->
-													<!--begin::Switch-->
-													<label class="form-check form-switch form-check-custom form-check-solid">
-														<input class="form-check-input" type="checkbox" value="1" name="budget_allow" checked="checked" />
-														<span class="form-check-label fw-semibold text-muted">Allowed</span>
-													</label>
-													<!--end::Switch-->
-												</div>
-												<!--end::Wrapper-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Actions-->
-											<div class="d-flex flex-stack">
-												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="budget-previous">Project Settings</button>
-												<button type="button" class="btn btn-lg btn-primary" data-kt-element="budget-next">
-													<span class="indicator-label">Build Team</span>
-													<span class="indicator-progress">Please wait...
-													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-												</button>
-											</div>
-											<!--end::Actions-->
-										</div>
-										<!--end::Wrapper-->
-									</div>
-									<!--end::Budget-->
-									<!--begin::Team-->
-									<div data-kt-stepper-element="content">
-										<!--begin::Wrapper-->
-										<div class="w-100">
-											<!--begin::Heading-->
-											<div class="pb-12">
-												<!--begin::Title-->
-												<h1 class="fw-bold text-dark">Build a Team</h1>
-												<!--end::Title-->
-												<!--begin::Description-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check
-												<a href="#" class="link-primary">Project Guidelines</a></div>
-												<!--end::Description-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Input group-->
-											<div class="mb-8">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">Invite Teammates</label>
-												<!--end::Label-->
-												<!--begin::Input-->
-												<input type="text" class="form-control form-control-solid" placeholder="Add project memnbers by name or email.." name="invite_teammates" />
-												<!--end::Input-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="mb-8">
-												<!--begin::Label-->
-												<div class="fs-6 fw-semibold mb-2">Team Members</div>
-												<!--end::Label-->
-												<!--begin::Users-->
-												<div class="mh-300px scroll-y me-n7 pe-7">
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
-																<div class="fw-semibold text-muted">smith@kpmg.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2" selected="selected">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
-																<div class="fw-semibold text-muted">melody@altbox.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1" selected="selected">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
-																<div class="fw-semibold text-muted">max@kt.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3" selected="selected">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
-																<div class="fw-semibold text-muted">sean@dellito.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2" selected="selected">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
-																<div class="fw-semibold text-muted">brian@exchange.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3" selected="selected">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-warning text-warning fw-semibold">C</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
-																<div class="fw-semibold text-muted">mik@pex.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2" selected="selected">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
-																<div class="fw-semibold text-muted">f.mit@kpmg.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3" selected="selected">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
-																<div class="fw-semibold text-muted">olivia@corpmail.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2" selected="selected">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-primary text-primary fw-semibold">N</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Neil Owen</a>
-																<div class="fw-semibold text-muted">owen.neil@gmail.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1" selected="selected">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
-																<div class="fw-semibold text-muted">dam@consilting.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3" selected="selected">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-danger text-danger fw-semibold">E</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Bold</a>
-																<div class="fw-semibold text-muted">emma@intenso.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2" selected="selected">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ana Crown</a>
-																<div class="fw-semibold text-muted">ana.cf@limtel.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1" selected="selected">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
-																<div class="fw-semibold text-muted">robert@benko.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3" selected="selected">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-13.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
-																<div class="fw-semibold text-muted">miller@mapple.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3" selected="selected">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-																<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2" selected="selected">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
-																<div class="fw-semibold text-muted">ethan@loop.com.au</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1" selected="selected">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-													<!--begin::User-->
-													<div class="d-flex flex-stack py-4">
-														<!--begin::Details-->
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px symbol-circle">
-																<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-5">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-																<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::Details-->
-														<!--begin::Access menu-->
-														<div class="ms-2 w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-																<option value="1">Guest</option>
-																<option value="2">Owner</option>
-																<option value="3" selected="selected">Can Edit</option>
-															</select>
-														</div>
-														<!--end::Access menu-->
-													</div>
-													<!--end::User-->
-												</div>
-												<!--end::Users-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Notice-->
-											<div class="d-flex flex-stack mb-15">
-												<!--begin::Label-->
-												<div class="me-5 fw-semibold">
-													<label class="fs-6">Adding Users by Team Members</label>
-													<div class="fs-7 text-muted">If you need more info, please check budget planning</div>
-												</div>
-												<!--end::Label-->
-												<!--begin::Switch-->
-												<label class="form-check form-switch form-check-custom form-check-solid">
-													<input class="form-check-input" type="checkbox" value="" checked="checked" />
-												</label>
-												<!--end::Switch-->
-											</div>
-											<!--end::Notice-->
-											<!--begin::Actions-->
-											<div class="d-flex flex-stack">
-												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="team-previous">Budget</button>
-												<button type="button" class="btn btn-lg btn-primary" data-kt-element="team-next">
-													<span class="indicator-label">Set Target</span>
-													<span class="indicator-progress">Please wait...
-													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-												</button>
-											</div>
-											<!--end::Actions-->
-										</div>
-										<!--end::Wrapper-->
-									</div>
-									<!--end::Team-->
-									<!--begin::Targets-->
-									<div data-kt-stepper-element="content">
-										<!--begin::Wrapper-->
-										<div class="w-100">
-											<!--begin::Heading-->
-											<div class="pb-12">
-												<!--begin::Title-->
-												<h1 class="fw-bold text-dark">Set First Target</h1>
-												<!--end::Title-->
-												<!--begin::Title-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check
-												<a href="#" class="link-primary">Project Guidelines</a></div>
-												<!--end::Title-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<label class="fs-6 fw-semibold mb-2">Target Title</label>
-												<input type="text" class="form-control form-control-solid" placeholder="Enter Target Title" name="Project Launch" />
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="row g-9 mb-8">
-												<!--begin::Col-->
-												<div class="col-md-6 fv-row">
-													<label class="required fs-6 fw-semibold mb-2">Assign</label>
-													<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Team Member" name="target_assign">
-														<option></option>
-														<option value="1">Karina Clark</option>
-														<option value="2" selected="selected">Robert Doe</option>
-														<option value="3">Niel Owen</option>
-														<option value="4">Olivia Wild</option>
-														<option value="5">Sean Bean</option>
-													</select>
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col-md-6 fv-row">
-													<label class="required fs-6 fw-semibold mb-2">Due Date</label>
-													<div class="position-relative d-flex align-items-center">
-														<!--begin::Icon-->
-														<i class="ki-duotone ki-calendar-8 fs-2 position-absolute mx-4">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-															<span class="path4"></span>
-															<span class="path5"></span>
-															<span class="path6"></span>
-														</i>
-														<!--end::Icon-->
-														<!--begin::Datepicker-->
-														<input class="form-control form-control-solid ps-12" placeholder="Pick date range" name="target_due_date" />
-														<!--end::Datepicker-->
-													</div>
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<label class="fs-6 fw-semibold mb-2">Target Details</label>
-												<textarea class="form-control form-control-solid" rows="2" name="target_details" placeholder="Type Target Details">Experience share market at your fingertips with TICK PRO stock investment mobile trading app</textarea>
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<label class="required fs-6 fw-semibold mb-2">Tags</label>
-												<input class="form-control form-control-solid" value="Important, Urgent" name="target_tags" />
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Wrapper-->
-												<div class="d-flex flex-stack">
-													<!--begin::Label-->
-													<div class="me-5">
-														<label class="fs-6 fw-semibold">Allow Changes in Budget</label>
-														<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
-													</div>
-													<!--end::Label-->
-													<!--begin::Switch-->
-													<label class="form-check form-switch form-check-custom form-check-solid">
-														<input class="form-check-input" type="checkbox" value="1" name="target_allow" checked="checked" />
-														<span class="form-check-label fw-semibold text-muted">Allowed</span>
-													</label>
-													<!--end::Switch-->
-												</div>
-												<!--end::Wrapper-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-15">
-												<!--begin::Wrapper-->
-												<div class="d-flex flex-stack">
-													<!--begin::Label-->
-													<div class="me-5">
-														<label class="fs-6 fw-semibold">Notifications</label>
-														<div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or Email</div>
-													</div>
-													<!--end::Label-->
-													<!--begin::Checkboxes-->
-													<div class="d-flex">
-														<!--begin::Checkbox-->
-														<label class="form-check form-check-custom form-check-solid me-10">
-															<!--begin::Input-->
-															<input class="form-check-input h-20px w-20px" type="checkbox" value="email" name="target_notifications[]" />
-															<!--end::Input-->
-															<!--begin::Label-->
-															<span class="form-check-label fw-semibold">Email</span>
-															<!--end::Label-->
-														</label>
-														<!--end::Checkbox-->
-														<!--begin::Checkbox-->
-														<label class="form-check form-check-custom form-check-solid">
-															<!--begin::Input-->
-															<input class="form-check-input h-20px w-20px" type="checkbox" value="phone" checked="checked" name="target_notifications[]" />
-															<!--end::Input-->
-															<!--begin::Label-->
-															<span class="form-check-label fw-semibold">Phone</span>
-															<!--end::Label-->
-														</label>
-														<!--end::Checkbox-->
-													</div>
-													<!--end::Checkboxes-->
-												</div>
-												<!--end::Wrapper-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Actions-->
-											<div class="d-flex flex-stack">
-												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="targets-previous">Build a Team</button>
-												<button type="button" class="btn btn-lg btn-primary" data-kt-element="targets-next">
-													<span class="indicator-label">Upload Files</span>
-													<span class="indicator-progress">Please wait...
-													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-												</button>
-											</div>
-											<!--end::Actions-->
-										</div>
-										<!--end::Wrapper-->
-									</div>
-									<!--end::Targets-->
-									<!--begin::Files-->
-									<div data-kt-stepper-element="content">
-										<!--begin::Wrapper-->
-										<div class="w-100">
-											<!--begin::Heading-->
-											<div class="pb-10 pb-lg-12">
-												<!--begin::Title-->
-												<h1 class="fw-bold text-dark">Upload Files</h1>
-												<!--end::Title-->
-												<!--begin::Description-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check
-												<a href="#" class="link-primary">Project Guidelines</a></div>
-												<!--end::Description-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Dropzone-->
-												<div class="dropzone" id="kt_modal_create_project_files_upload">
-													<!--begin::Message-->
-													<div class="dz-message needsclick">
-														<!--begin::Icon-->
-														<i class="ki-duotone ki-file-up fs-3hx text-primary">
-															<span class="path1"></span>
-															<span class="path2"></span>
-														</i>
-														<!--end::Icon-->
-														<!--begin::Info-->
-														<div class="ms-4">
-															<h3 class="dfs-3 fw-bold text-gray-900 mb-1">Drop files here or click to upload.</h3>
-															<span class="fw-semibold fs-4 text-muted">Upload up to 10 files</span>
-														</div>
-														<!--end::Info-->
-													</div>
-												</div>
-												<!--end::Dropzone-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="mb-8">
-												<!--begin::Label-->
-												<label class="fs-6 fw-semibold mb-2">Uploaded File</label>
-												<!--End::Label-->
-												<!--begin::Files-->
-												<div class="mh-300px scroll-y me-n7 pe-7">
-													<!--begin::File-->
-													<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px">
-																<img src="assets/media/svg/files/pdf.svg" alt="icon" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-6">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Avionica Technical Requirements</a>
-																<div class="fw-semibold text-muted">230kb</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--begin::Menu-->
-														<div class="min-w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-																<option></option>
-																<option value="1">Remove</option>
-																<option value="2">Modify</option>
-																<option value="3">Select</option>
-															</select>
-														</div>
-														<!--end::Menu-->
-													</div>
-													<!--end::File-->
-													<!--begin::File-->
-													<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px">
-																<img src="assets/media/svg/files/doc.svg" alt="icon" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-6">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">9 Degree CURD draftplan</a>
-																<div class="fw-semibold text-muted">3.6mb</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--begin::Menu-->
-														<div class="min-w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-																<option></option>
-																<option value="1">Remove</option>
-																<option value="2">Modify</option>
-																<option value="3">Select</option>
-															</select>
-														</div>
-														<!--end::Menu-->
-													</div>
-													<!--end::File-->
-													<!--begin::File-->
-													<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px">
-																<img src="assets/media/svg/files/css.svg" alt="icon" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-6">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">User CRUD Styles</a>
-																<div class="fw-semibold text-muted">85kb</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--begin::Menu-->
-														<div class="min-w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-																<option></option>
-																<option value="1">Remove</option>
-																<option value="2">Modify</option>
-																<option value="3">Select</option>
-															</select>
-														</div>
-														<!--end::Menu-->
-													</div>
-													<!--end::File-->
-													<!--begin::File-->
-													<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px">
-																<img src="assets/media/svg/files/ai.svg" alt="icon" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-6">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Design Initial Logo</a>
-																<div class="fw-semibold text-muted">40kb</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--begin::Menu-->
-														<div class="min-w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-																<option></option>
-																<option value="1">Remove</option>
-																<option value="2">Modify</option>
-																<option value="3">Select</option>
-															</select>
-														</div>
-														<!--end::Menu-->
-													</div>
-													<!--end::File-->
-													<!--begin::File-->
-													<div class="d-flex flex-stack py-4">
-														<div class="d-flex align-items-center">
-															<!--begin::Avatar-->
-															<div class="symbol symbol-35px">
-																<img src="assets/media/svg/files/tif.svg" alt="icon" />
-															</div>
-															<!--end::Avatar-->
-															<!--begin::Details-->
-															<div class="ms-6">
-																<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Tower Hill Bilboard</a>
-																<div class="fw-semibold text-muted">27mb</div>
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--begin::Menu-->
-														<div class="min-w-100px">
-															<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-																<option></option>
-																<option value="1">Remove</option>
-																<option value="2">Modify</option>
-																<option value="3">Select</option>
-															</select>
-														</div>
-														<!--end::Menu-->
-													</div>
-													<!--end::File-->
-												</div>
-												<!--end::Files-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Input group-->
-											<div class="fv-row mb-8">
-												<!--begin::Wrapper-->
-												<div class="d-flex flex-stack">
-													<!--begin::Label-->
-													<div class="me-5">
-														<label class="fs-6 fw-semibold">Allow Changes in Budget</label>
-														<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
-													</div>
-													<!--end::Label-->
-													<!--begin::Switch-->
-													<label class="form-check form-switch form-check-custom form-check-solid">
-														<input class="form-check-input" type="checkbox" value="1" name="target_allow" checked="checked" />
-														<span class="form-check-label fw-semibold text-muted">Allowed</span>
-													</label>
-													<!--end::Switch-->
-												</div>
-												<!--end::Wrapper-->
-											</div>
-											<!--end::Input group-->
-											<!--begin::Actions-->
-											<div class="d-flex flex-stack">
-												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="files-previous">Set First Target</button>
-												<button type="button" class="btn btn-lg btn-primary" data-kt-element="files-next">
-													<span class="indicator-label">Complete</span>
-													<span class="indicator-progress">Please wait...
-													<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-												</button>
-											</div>
-											<!--end::Actions-->
-										</div>
-										<!--end::Wrapper-->
-									</div>
-									<!--end::Files-->
-									<!--begin::Complete-->
-									<div data-kt-stepper-element="content">
-										<!--begin::Wrapper-->
-										<div class="w-100">
-											<!--begin::Heading-->
-											<div class="pb-12 text-center">
-												<!--begin::Title-->
-												<h1 class="fw-bold text-dark">Project Created!</h1>
-												<!--end::Title-->
-												<!--begin::Description-->
-												<div class="text-muted fw-semibold fs-4">If you need more info, please check how to create project</div>
-												<!--end::Description-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Actions-->
-											<div class="d-flex flex-center pb-20">
-												<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="complete-start">Create New Project</button>
-												<a href="" class="btn btn-lg btn-primary" data-bs-toggle="tooltip" title="Coming Soon">View Project</a>
-											</div>
-											<!--end::Actions-->
-											<!--begin::Illustration-->
-											<div class="text-center px-4">
-												<img src="assets/media/illustrations/sketchy-1/9.png" alt="" class="mww-100 mh-350px" />
-											</div>
-											<!--end::Illustration-->
-										</div>
-									</div>
-									<!--end::Complete-->
-								</form>
-								<!--end::Form-->
-							</div>
-							<!--begin::Container-->
-						</div>
-						<!--end::Stepper-->
-					</div>
-					<!--end::Modal body-->
-				</div>
-				<!--end::Modal content-->
-			</div>
-			<!--end::Modal dialog-->
-		</div>
-		<!--end::Modal - Create Project-->
-		<!--begin::Modal - Create Campaign-->
-		<div class="modal fade" id="kt_modal_create_campaign" tabindex="-1" aria-hidden="true">
-			<!--begin::Modal dialog-->
-			<div class="modal-dialog modal-fullscreen p-9">
-				<!--begin::Modal content-->
-				<div class="modal-content modal-rounded">
-					<!--begin::Modal header-->
-					<div class="modal-header py-7 d-flex justify-content-between">
-						<!--begin::Modal title-->
-						<h2>Create Campaign</h2>
-						<!--end::Modal title-->
-						<!--begin::Close-->
-						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-							<i class="ki-duotone ki-cross fs-1">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</div>
-						<!--end::Close-->
-					</div>
-					<!--begin::Modal header-->
-					<!--begin::Modal body-->
-					<div class="modal-body scroll-y m-5">
-						<!--begin::Stepper-->
-						<div class="stepper stepper-links d-flex flex-column" id="kt_modal_create_campaign_stepper">
-							<!--begin::Nav-->
-							<div class="stepper-nav justify-content-center py-2">
-								<!--begin::Step 1-->
-								<div class="stepper-item me-5 me-md-15 current" data-kt-stepper-element="nav">
-									<h3 class="stepper-title">Campaign Details</h3>
-								</div>
-								<!--end::Step 1-->
-								<!--begin::Step 2-->
-								<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-									<h3 class="stepper-title">Creative Uploads</h3>
-								</div>
-								<!--end::Step 2-->
-								<!--begin::Step 3-->
-								<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-									<h3 class="stepper-title">Audiences</h3>
-								</div>
-								<!--end::Step 3-->
-								<!--begin::Step 4-->
-								<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-									<h3 class="stepper-title">Budget Estimates</h3>
-								</div>
-								<!--end::Step 4-->
-								<!--begin::Step 5-->
-								<div class="stepper-item" data-kt-stepper-element="nav">
-									<h3 class="stepper-title">Completed</h3>
-								</div>
-								<!--end::Step 5-->
-							</div>
-							<!--end::Nav-->
-							<!--begin::Form-->
-							<form class="mx-auto w-100 mw-600px pt-15 pb-10" novalidate="novalidate" id="kt_modal_create_campaign_stepper_form">
-								<!--begin::Step 1-->
-								<div class="current" data-kt-stepper-element="content">
-									<!--begin::Wrapper-->
-									<div class="w-100">
-										<!--begin::Heading-->
-										<div class="pb-10 pb-lg-15">
-											<!--begin::Title-->
-											<h2 class="fw-bold d-flex align-items-center text-dark">Setup Campaign Details
-											<span class="ms-1" data-bs-toggle="tooltip" title="Campaign name will be used as reference within your campaign reports">
-												<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-												</i>
-											</span></h2>
-											<!--end::Title-->
-											<!--begin::Notice-->
-											<div class="text-muted fw-semibold fs-6">If you need more info, please check out
-											<a href="#" class="link-primary fw-bold">Help Page</a>.</div>
-											<!--end::Notice-->
-										</div>
-										<!--end::Heading-->
-										<!--begin::Input group-->
-										<div class="mb-10 fv-row">
-											<!--begin::Label-->
-											<label class="required form-label mb-3">Campaign Name</label>
-											<!--end::Label-->
-											<!--begin::Input-->
-											<input type="text" class="form-control form-control-lg form-control-solid" name="campaign_name" placeholder="" value="" />
-											<!--end::Input-->
-										</div>
-										<!--end::Input group-->
-										<!--begin::Input group-->
-										<div class="fv-row mb-10">
-											<!--begin::Label-->
-											<label class="d-block fw-semibold fs-6 mb-5">
-												<span class="required">Company Logo</span>
-												<span class="ms-1" data-bs-toggle="tooltip" title="E.g. Select a logo to represent the company that's running the campaign.">
-													<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-													</i>
-												</span>
-											</label>
-											<!--end::Label-->
-											<!--begin::Image input placeholder-->
-											<style>.image-input-placeholder { background-image: url('assets/media/svg/files/blank-image.svg'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
-											<!--end::Image input placeholder-->
-											<!--begin::Image input-->
-											<div class="image-input image-input-empty image-input-outline image-input-placeholder" data-kt-image-input="true">
-												<!--begin::Preview existing avatar-->
-												<div class="image-input-wrapper w-125px h-125px"></div>
-												<!--end::Preview existing avatar-->
-												<!--begin::Label-->
-												<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
-													<i class="ki-duotone ki-pencil fs-7">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<!--begin::Inputs-->
-													<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
-													<input type="hidden" name="avatar_remove" />
-													<!--end::Inputs-->
-												</label>
-												<!--end::Label-->
-												<!--begin::Cancel-->
-												<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
-													<i class="ki-duotone ki-cross fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-												</span>
-												<!--end::Cancel-->
-												<!--begin::Remove-->
-												<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
-													<i class="ki-duotone ki-cross fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-												</span>
-												<!--end::Remove-->
-											</div>
-											<!--end::Image input-->
-											<!--begin::Hint-->
-											<div class="form-text">Allowed file types: png, jpg, jpeg.</div>
-											<!--end::Hint-->
-										</div>
-										<!--end::Input group-->
-										<!--begin::Input group-->
-										<div class="mb-10">
-											<!--begin::Label-->
-											<label class="required fw-semibold fs-6 mb-5">Campaign Goal</label>
-											<!--end::Label-->
-											<!--begin::Roles-->
-											<!--begin::Input row-->
-											<div class="d-flex fv-row">
-												<!--begin::Radio-->
-												<div class="form-check form-check-custom form-check-solid">
-													<!--begin::Input-->
-													<input class="form-check-input me-3" name="user_role" type="radio" value="0" id="kt_modal_update_role_option_0" checked='checked' />
-													<!--end::Input-->
-													<!--begin::Label-->
-													<label class="form-check-label" for="kt_modal_update_role_option_0">
-														<div class="fw-bold text-gray-800">Get more visitors</div>
-														<div class="text-gray-600">Increase impression traffic onto the platform</div>
-													</label>
-													<!--end::Label-->
-												</div>
-												<!--end::Radio-->
-											</div>
-											<!--end::Input row-->
-											<div class='separator separator-dashed my-5'></div>
-											<!--begin::Input row-->
-											<div class="d-flex fv-row">
-												<!--begin::Radio-->
-												<div class="form-check form-check-custom form-check-solid">
-													<!--begin::Input-->
-													<input class="form-check-input me-3" name="user_role" type="radio" value="1" id="kt_modal_update_role_option_1" />
-													<!--end::Input-->
-													<!--begin::Label-->
-													<label class="form-check-label" for="kt_modal_update_role_option_1">
-														<div class="fw-bold text-gray-800">Get more messages on chat</div>
-														<div class="text-gray-600">Increase community interaction and communication</div>
-													</label>
-													<!--end::Label-->
-												</div>
-												<!--end::Radio-->
-											</div>
-											<!--end::Input row-->
-											<div class='separator separator-dashed my-5'></div>
-											<!--begin::Input row-->
-											<div class="d-flex fv-row">
-												<!--begin::Radio-->
-												<div class="form-check form-check-custom form-check-solid">
-													<!--begin::Input-->
-													<input class="form-check-input me-3" name="user_role" type="radio" value="2" id="kt_modal_update_role_option_2" />
-													<!--end::Input-->
-													<!--begin::Label-->
-													<label class="form-check-label" for="kt_modal_update_role_option_2">
-														<div class="fw-bold text-gray-800">Get more calls</div>
-														<div class="text-gray-600">Boost telecommunication feedback to provide precise and accurate information</div>
-													</label>
-													<!--end::Label-->
-												</div>
-												<!--end::Radio-->
-											</div>
-											<!--end::Input row-->
-											<div class='separator separator-dashed my-5'></div>
-											<!--begin::Input row-->
-											<div class="d-flex fv-row">
-												<!--begin::Radio-->
-												<div class="form-check form-check-custom form-check-solid">
-													<!--begin::Input-->
-													<input class="form-check-input me-3" name="user_role" type="radio" value="3" id="kt_modal_update_role_option_3" />
-													<!--end::Input-->
-													<!--begin::Label-->
-													<label class="form-check-label" for="kt_modal_update_role_option_3">
-														<div class="fw-bold text-gray-800">Get more likes</div>
-														<div class="text-gray-600">Increase positive interactivity on social media platforms</div>
-													</label>
-													<!--end::Label-->
-												</div>
-												<!--end::Radio-->
-											</div>
-											<!--end::Input row-->
-											<div class='separator separator-dashed my-5'></div>
-											<!--begin::Input row-->
-											<div class="d-flex fv-row">
-												<!--begin::Radio-->
-												<div class="form-check form-check-custom form-check-solid">
-													<!--begin::Input-->
-													<input class="form-check-input me-3" name="user_role" type="radio" value="4" id="kt_modal_update_role_option_4" />
-													<!--end::Input-->
-													<!--begin::Label-->
-													<label class="form-check-label" for="kt_modal_update_role_option_4">
-														<div class="fw-bold text-gray-800">Lead generation</div>
-														<div class="text-gray-600">Collect contact information for potential customers</div>
-													</label>
-													<!--end::Label-->
-												</div>
-												<!--end::Radio-->
-											</div>
-											<!--end::Input row-->
-											<!--end::Roles-->
-										</div>
-										<!--end::Input group-->
-									</div>
-									<!--end::Wrapper-->
-								</div>
-								<!--end::Step 1-->
-								<!--begin::Step 2-->
-								<div data-kt-stepper-element="content">
-									<!--begin::Wrapper-->
-									<div class="w-100">
-										<!--begin::Heading-->
-										<div class="pb-10 pb-lg-12">
-											<!--begin::Title-->
-											<h1 class="fw-bold text-dark">Upload Files</h1>
-											<!--end::Title-->
-											<!--begin::Description-->
-											<div class="text-muted fw-semibold fs-4">If you need more info, please check
-											<a href="#" class="link-primary">Campaign Guidelines</a></div>
-											<!--end::Description-->
-										</div>
-										<!--end::Heading-->
-										<!--begin::Input group-->
-										<div class="fv-row mb-10">
-											<!--begin::Dropzone-->
-											<div class="dropzone" id="kt_modal_create_campaign_files_upload">
-												<!--begin::Message-->
-												<div class="dz-message needsclick">
-													<!--begin::Icon-->
-													<i class="ki-duotone ki-file-up fs-3hx text-primary">
-														<span class="path1"></span>
-														<span class="path2"></span>
-													</i>
-													<!--end::Icon-->
-													<!--begin::Info-->
-													<div class="ms-4">
-														<h3 class="dfs-3 fw-bold text-gray-900 mb-1">Drop campaign files here or click to upload.</h3>
-														<span class="fw-semibold fs-4 text-muted">Upload up to 10 files</span>
-													</div>
-													<!--end::Info-->
-												</div>
-											</div>
-											<!--end::Dropzone-->
-										</div>
-										<!--end::Input group-->
-										<!--begin::Input group-->
-										<div class="mb-10">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">Uploaded File</label>
-											<!--End::Label-->
-											<!--begin::Files-->
-											<div class="mh-300px scroll-y me-n7 pe-7">
-												<!--begin::File-->
-												<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-													<div class="d-flex align-items-center">
-														<!--begin::Avatar-->
-														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/pdf.svg" alt="icon" />
-														</div>
-														<!--end::Avatar-->
-														<!--begin::Details-->
-														<div class="ms-6">
-															<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Product Specifications</a>
-															<div class="fw-semibold text-muted">230kb</div>
-														</div>
-														<!--end::Details-->
-													</div>
-													<!--begin::Menu-->
-													<div class="min-w-100px">
-														<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-															<option></option>
-															<option value="1">Remove</option>
-															<option value="2">Modify</option>
-															<option value="3">Select</option>
-														</select>
-													</div>
-													<!--end::Menu-->
-												</div>
-												<!--end::File-->
-												<!--begin::File-->
-												<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-													<div class="d-flex align-items-center">
-														<!--begin::Avatar-->
-														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/tif.svg" alt="icon" />
-														</div>
-														<!--end::Avatar-->
-														<!--begin::Details-->
-														<div class="ms-6">
-															<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign Creative Poster</a>
-															<div class="fw-semibold text-muted">2.4mb</div>
-														</div>
-														<!--end::Details-->
-													</div>
-													<!--begin::Menu-->
-													<div class="min-w-100px">
-														<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-															<option></option>
-															<option value="1">Remove</option>
-															<option value="2">Modify</option>
-															<option value="3">Select</option>
-														</select>
-													</div>
-													<!--end::Menu-->
-												</div>
-												<!--end::File-->
-												<!--begin::File-->
-												<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-													<div class="d-flex align-items-center">
-														<!--begin::Avatar-->
-														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/folder-document.svg" alt="icon" />
-														</div>
-														<!--end::Avatar-->
-														<!--begin::Details-->
-														<div class="ms-6">
-															<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign Landing Page Source</a>
-															<div class="fw-semibold text-muted">1.12mb</div>
-														</div>
-														<!--end::Details-->
-													</div>
-													<!--begin::Menu-->
-													<div class="min-w-100px">
-														<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-															<option></option>
-															<option value="1">Remove</option>
-															<option value="2">Modify</option>
-															<option value="3">Select</option>
-														</select>
-													</div>
-													<!--end::Menu-->
-												</div>
-												<!--end::File-->
-												<!--begin::File-->
-												<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-													<div class="d-flex align-items-center">
-														<!--begin::Avatar-->
-														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/css.svg" alt="icon" />
-														</div>
-														<!--end::Avatar-->
-														<!--begin::Details-->
-														<div class="ms-6">
-															<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Landing Page Styling</a>
-															<div class="fw-semibold text-muted">85kb</div>
-														</div>
-														<!--end::Details-->
-													</div>
-													<!--begin::Menu-->
-													<div class="min-w-100px">
-														<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-															<option></option>
-															<option value="1">Remove</option>
-															<option value="2">Modify</option>
-															<option value="3">Select</option>
-														</select>
-													</div>
-													<!--end::Menu-->
-												</div>
-												<!--end::File-->
-												<!--begin::File-->
-												<div class="d-flex flex-stack py-4 border border-top-0 border-left-0 border-right-0 border-dashed">
-													<div class="d-flex align-items-center">
-														<!--begin::Avatar-->
-														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/ai.svg" alt="icon" />
-														</div>
-														<!--end::Avatar-->
-														<!--begin::Details-->
-														<div class="ms-6">
-															<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Design Source Files</a>
-															<div class="fw-semibold text-muted">48mb</div>
-														</div>
-														<!--end::Details-->
-													</div>
-													<!--begin::Menu-->
-													<div class="min-w-100px">
-														<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-															<option></option>
-															<option value="1">Remove</option>
-															<option value="2">Modify</option>
-															<option value="3">Select</option>
-														</select>
-													</div>
-													<!--end::Menu-->
-												</div>
-												<!--end::File-->
-												<!--begin::File-->
-												<div class="d-flex flex-stack py-4">
-													<div class="d-flex align-items-center">
-														<!--begin::Avatar-->
-														<div class="symbol symbol-35px">
-															<img src="assets/media/svg/files/doc.svg" alt="icon" />
-														</div>
-														<!--end::Avatar-->
-														<!--begin::Details-->
-														<div class="ms-6">
-															<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Campaign Plan Document</a>
-															<div class="fw-semibold text-muted">27kb</div>
-														</div>
-														<!--end::Details-->
-													</div>
-													<!--begin::Menu-->
-													<div class="min-w-100px">
-														<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true" data-placeholder="Edit">
-															<option></option>
-															<option value="1">Remove</option>
-															<option value="2">Modify</option>
-															<option value="3">Select</option>
-														</select>
-													</div>
-													<!--end::Menu-->
-												</div>
-												<!--end::File-->
-											</div>
-											<!--end::Files-->
-										</div>
-										<!--end::Input group-->
-									</div>
-									<!--end::Wrapper-->
-								</div>
-								<!--end::Step 2-->
-								<!--begin::Step 3-->
-								<div data-kt-stepper-element="content">
-									<!--begin::Wrapper-->
-									<div class="w-100">
-										<!--begin::Heading-->
-										<div class="pb-10 pb-lg-12">
-											<!--begin::Title-->
-											<h1 class="fw-bold text-dark">Configure Audiences</h1>
-											<!--end::Title-->
-											<!--begin::Description-->
-											<div class="text-muted fw-semibold fs-4">If you need more info, please check
-											<a href="#" class="link-primary">Campaign Guidelines</a></div>
-											<!--end::Description-->
-										</div>
-										<!--end::Heading-->
-										<!--begin::Input group-->
-										<div class="fv-row mb-10">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">Gender
-											<span class="ms-1" data-bs-toggle="tooltip" title="Show your ads to either men or women, or select 'All' for both">
-												<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-												</i>
-											</span></label>
-											<!--End::Label-->
-											<!--begin::Row-->
-											<div class="row g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Option-->
-													<label class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6" data-kt-button="true">
-														<!--begin::Radio-->
-														<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-															<input class="form-check-input" type="radio" name="campaign_gender" value="1" checked="checked" />
-														</span>
-														<!--end::Radio-->
-														<!--begin::Info-->
-														<span class="ms-5">
-															<span class="fs-4 fw-bold text-gray-800 d-block">All</span>
-														</span>
-														<!--end::Info-->
-													</label>
-													<!--end::Option-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Option-->
-													<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
-														<!--begin::Radio-->
-														<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-															<input class="form-check-input" type="radio" name="campaign_gender" value="2" />
-														</span>
-														<!--end::Radio-->
-														<!--begin::Info-->
-														<span class="ms-5">
-															<span class="fs-4 fw-bold text-gray-800 d-block">Male</span>
-														</span>
-														<!--end::Info-->
-													</label>
-													<!--end::Option-->
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col">
-													<!--begin::Option-->
-													<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
-														<!--begin::Radio-->
-														<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-															<input class="form-check-input" type="radio" name="campaign_gender" value="3" />
-														</span>
-														<!--end::Radio-->
-														<!--begin::Info-->
-														<span class="ms-5">
-															<span class="fs-4 fw-bold text-gray-800 d-block">Female</span>
-														</span>
-														<!--end::Info-->
-													</label>
-													<!--end::Option-->
-												</div>
-												<!--end::Col-->
-											</div>
-											<!--end::Row-->
-										</div>
-										<!--end::Input group-->
-										<!--begin::Input group-->
-										<div class="fv-row mb-10">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">Age
-											<span class="ms-1" data-bs-toggle="tooltip" title="Select the minimum and maximum age of the people who will find your ad relevant.">
-												<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-												</i>
-											</span></label>
-											<!--End::Label-->
-											<!--begin::Slider-->
-											<div class="d-flex flex-stack">
-												<div id="kt_modal_create_campaign_age_min" class="fs-7 fw-semibold text-muted"></div>
-												<div id="kt_modal_create_campaign_age_slider" class="noUi-sm w-100 ms-5 me-8"></div>
-												<div id="kt_modal_create_campaign_age_max" class="fs-7 fw-semibold text-muted"></div>
-											</div>
-											<!--end::Slider-->
-										</div>
-										<!--end::Input group-->
-										<!--begin::Input group-->
-										<div class="fv-row mb-10">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">Location
-											<span class="ms-1" data-bs-toggle="tooltip" title="Enter one or more location points for more specific targeting.">
-												<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-												</i>
-											</span></label>
-											<!--End::Label-->
-											<!--begin::Tagify-->
-											<input class="form-control d-flex align-items-center" value="" id="kt_modal_create_campaign_location" data-kt-flags-path="assets/media/flags/" />
-											<!--end::Tagify-->
-										</div>
-										<!--end::Input group-->
-									</div>
-									<!--end::Wrapper-->
-								</div>
-								<!--end::Step 3-->
-								<!--begin::Step 4-->
-								<div data-kt-stepper-element="content">
-									<!--begin::Wrapper-->
-									<div class="w-100">
-										<!--begin::Heading-->
-										<div class="pb-10 pb-lg-12">
-											<!--begin::Title-->
-											<h1 class="fw-bold text-dark">Budget Estimates</h1>
-											<!--end::Title-->
-											<!--begin::Description-->
-											<div class="text-muted fw-semibold fs-4">If you need more info, please check
-											<a href="#" class="link-primary">Campaign Guidelines</a></div>
-											<!--end::Description-->
-										</div>
-										<!--end::Heading-->
-										<!--begin::Input group-->
-										<div class="fv-row mb-10">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">Campaign Duration
-											<span class="ms-1" data-bs-toggle="tooltip" title="Choose how long you want your ad to run for">
-												<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-												</i>
-											</span></label>
-											<!--end::Label-->
-											<!--begin::Duration option-->
-											<div class="d-flex gap-9 mb-7">
-												<!--begin::Button-->
-												<button type="button" class="btn btn-outline btn-outline-dashed btn-active-light-primary active" id="kt_modal_create_campaign_duration_all">Continuous duration
-												<br />
-												<span class="fs-7">Your ad will run continuously for a daily budget.</span></button>
-												<!--end::Button-->
-												<!--begin::Button-->
-												<button type="button" class="btn btn-outline btn-outline-dashed btn-active-light-primary btn-outline-default" id="kt_modal_create_campaign_duration_fixed">Fixed duration
-												<br />
-												<span class="fs-7">Your ad will run on the specified dates only.</span></button>
-												<!--end::Button-->
-											</div>
-											<!--end::Duration option-->
-											<!--begin::Datepicker-->
-											<input class="form-control form-control-solid d-none" placeholder="Pick date & time" id="kt_modal_create_campaign_datepicker" />
-											<!--end::Datepicker-->
-										</div>
-										<!--end::Input group-->
-										<!--begin::Input group-->
-										<div class="fv-row mb-10">
-											<!--begin::Label-->
-											<label class="fs-6 fw-semibold mb-2">Daily Budget
-											<span class="ms-1" data-bs-toggle="tooltip" title="Choose the budget allocated for each day. Higher budget will generate better results">
-												<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-													<span class="path1"></span>
-													<span class="path2"></span>
-													<span class="path3"></span>
-												</i>
-											</span></label>
-											<!--end::Label-->
-											<!--begin::Slider-->
-											<div class="d-flex flex-column text-center">
-												<div class="d-flex align-items-start justify-content-center mb-7">
-													<span class="fw-bold fs-4 mt-1 me-2">$</span>
-													<span class="fw-bold fs-3x" id="kt_modal_create_campaign_budget_label"></span>
-													<span class="fw-bold fs-3x">.00</span>
-												</div>
-												<div id="kt_modal_create_campaign_budget_slider" class="noUi-sm"></div>
-											</div>
-											<!--end::Slider-->
-										</div>
-										<!--end::Input group-->
-									</div>
-									<!--end::Wrapper-->
-								</div>
-								<!--end::Step 4-->
-								<!--begin::Step 5-->
-								<div data-kt-stepper-element="content">
-									<!--begin::Wrapper-->
-									<div class="w-100">
-										<!--begin::Heading-->
-										<div class="pb-12 text-center">
-											<!--begin::Title-->
-											<h1 class="fw-bold text-dark">Campaign Created!</h1>
-											<!--end::Title-->
-											<!--begin::Description-->
-											<div class="fw-semibold text-muted fs-4">You will receive an email with with the summary of your newly created campaign!</div>
-											<!--end::Description-->
-										</div>
-										<!--end::Heading-->
-										<!--begin::Actions-->
-										<div class="d-flex flex-center pb-20">
-											<button id="kt_modal_create_campaign_create_new" type="button" class="btn btn-lg btn-light me-3" data-kt-element="complete-start">Create New Campaign</button>
-											<a href="" class="btn btn-lg btn-primary" data-bs-toggle="tooltip" title="Coming Soon">View Campaign</a>
-										</div>
-										<!--end::Actions-->
-										<!--begin::Illustration-->
-										<div class="text-center px-4">
-											<img src="assets/media/illustrations/sketchy-1/9.png" alt="" class="mww-100 mh-350px" />
-										</div>
-										<!--end::Illustration-->
-									</div>
-								</div>
-								<!--end::Step 5-->
-								<!--begin::Actions-->
-								<div class="d-flex flex-stack pt-10">
-									<!--begin::Wrapper-->
-									<div class="me-2">
-										<button type="button" class="btn btn-lg btn-light-primary me-3" data-kt-stepper-action="previous">
-										<i class="ki-duotone ki-arrow-left fs-3 me-1">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i>Back</button>
-									</div>
-									<!--end::Wrapper-->
-									<!--begin::Wrapper-->
-									<div>
-										<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="submit">
-											<span class="indicator-label">Submit
-											<i class="ki-duotone ki-arrow-right fs-3 ms-2 me-0">
-												<span class="path1"></span>
-												<span class="path2"></span>
-											</i></span>
-											<span class="indicator-progress">Please wait...
-											<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-										</button>
-										<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue
-										<i class="ki-duotone ki-arrow-right fs-3 ms-1 me-0">
-											<span class="path1"></span>
-											<span class="path2"></span>
-										</i></button>
-									</div>
-									<!--end::Wrapper-->
-								</div>
-								<!--end::Actions-->
-							</form>
-							<!--end::Form-->
-						</div>
-						<!--end::Stepper-->
-					</div>
-					<!--begin::Modal body-->
-				</div>
-			</div>
-		</div>
-		<!--end::Modal - Create Campaign-->
-		<!--begin::Modal - New Target-->
-		<div class="modal fade" id="kt_modal_bidding" tabindex="-1" aria-hidden="true">
-			<!--begin::Modal dialog-->
-			<div class="modal-dialog modal-dialog-centered mw-650px">
-				<!--begin::Modal content-->
-				<div class="modal-content rounded">
-					<!--begin::Modal header-->
-					<div class="modal-header pb-0 border-0 justify-content-end">
-						<!--begin::Close-->
-						<div class="btn btn-sm btn-icon btn-active-color-primary" data-kt-modal-action-type="close">
-							<i class="ki-duotone ki-cross fs-1">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</div>
-						<!--end::Close-->
-					</div>
-					<!--begin::Modal header-->
-					<!--begin::Modal body-->
-					<div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
-						<!--begin:Form-->
-						<form id="kt_modal_bidding_form" class="form" action="#">
-							<!--begin::Heading-->
-							<div class="mb-13 text-center">
-								<!--begin::Title-->
-								<h1 class="mb-3">Place your bids</h1>
-								<!--end::Title-->
-								<!--begin::Description-->
-								<div class="text-muted fw-semibold fs-5">If you need more info, please check
-								<a href="#" class="fw-bold link-primary">Bidding Guidelines</a>.</div>
-								<!--end::Description-->
-							</div>
-							<!--end::Heading-->
-							<!--begin::Input group-->
-							<div class="d-flex flex-column mb-8 fv-row">
-								<!--begin::Label-->
-								<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-									<span class="required">Bid Amount</span>
-									<span class="ms-1" data-bs-toggle="tooltip" title="Specify the bid amount to place in.">
-										<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-											<span class="path1"></span>
-											<span class="path2"></span>
-											<span class="path3"></span>
-										</i>
-									</span>
-								</label>
-								<!--end::Label-->
-								<!--begin::Bid options-->
-								<div class="d-flex flex-stack gap-5 mb-3">
-									<button type="button" class="btn btn-light-primary w-100" data-kt-modal-bidding="option">10</button>
-									<button type="button" class="btn btn-light-primary w-100" data-kt-modal-bidding="option">50</button>
-									<button type="button" class="btn btn-light-primary w-100" data-kt-modal-bidding="option">100</button>
-								</div>
-								<!--begin::Bid options-->
-								<input type="text" class="form-control form-control-solid" placeholder="Enter Bid Amount" name="bid_amount" />
-							</div>
-							<!--end::Input group-->
-							<!--begin::Input group-->
-							<div class="fv-row mb-8">
-								<!--begin::Label-->
-								<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-									<span class="required">Currency Type</span>
-									<span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
-										<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-											<span class="path1"></span>
-											<span class="path2"></span>
-											<span class="path3"></span>
-										</i>
-									</span>
-								</label>
-								<!--end::Label-->
-								<!--begin::Select2-->
-								<select class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Select a Currency Type" name="currency_type">
-									<option value=""></option>
-									<option value="dollar" selected="selected">Dollar</option>
-									<option value="crypto">Crypto</option>
-								</select>
-								<!--end::Select2-->
-							</div>
-							<!--end::Input group-->
-							<!--begin::Input group-->
-							<div class="fv-row mb-8">
-								<!--begin::Label-->
-								<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-									<span>Currency</span>
-								</label>
-								<!--end::Label-->
-								<!--begin::Dollar type-->
-								<div class="" data-kt-modal-bidding-type="dollar">
-									<!--begin::Select2-->
-									<select name="currency_dollar" aria-label="Select a Currency" data-placeholder="Select a currency.." class="form-select form-select-solid form-select-lg">
-										<option data-kt-bidding-modal-option-icon="flags/united-states.svg" value="USD" selected="selected">
-										<b>USD</b>&nbsp;-&nbsp;USA dollar</option>
-										<option data-kt-bidding-modal-option-icon="flags/united-kingdom.svg" value="GBP">
-										<b>GBP</b>&nbsp;-&nbsp;British pound</option>
-										<option data-kt-bidding-modal-option-icon="flags/australia.svg" value="AUD">
-										<b>AUD</b>&nbsp;-&nbsp;Australian dollar</option>
-										<option data-kt-bidding-modal-option-icon="flags/japan.svg" value="JPY">
-										<b>JPY</b>&nbsp;-&nbsp;Japanese yen</option>
-										<option data-kt-bidding-modal-option-icon="flags/sweden.svg" value="SEK">
-										<b>SEK</b>&nbsp;-&nbsp;Swedish krona</option>
-										<option data-kt-bidding-modal-option-icon="flags/canada.svg" value="CAD">
-										<b>CAD</b>&nbsp;-&nbsp;Canadian dollar</option>
-										<option data-kt-bidding-modal-option-icon="flags/switzerland.svg" value="CHF">
-										<b>CHF</b>&nbsp;-&nbsp;Swiss franc</option>
-									</select>
-									<!--end::Select2-->
-								</div>
-								<!--end::Dollar type-->
-								<!--begin::Crypto type-->
-								<div class="d-none" data-kt-modal-bidding-type="crypto">
-									<!--begin::Select2-->
-									<select name="currency_crypto" aria-label="Select a Coin" data-placeholder="Select a currency.." class="form-select form-select-solid form-select-lg">
-										<option data-kt-bidding-modal-option-icon="svg/coins/bitcoin.svg" value="1" selected="selected">Bitcoin</option>
-										<option data-kt-bidding-modal-option-icon="svg/coins/binance.svg" value="2">Binance</option>
-										<option data-kt-bidding-modal-option-icon="svg/coins/chainlink.svg" value="3">Chainlink</option>
-										<option data-kt-bidding-modal-option-icon="svg/coins/coin.svg" value="4">Coin</option>
-										<option data-kt-bidding-modal-option-icon="svg/coins/ethereum.svg" value="5">Ethereum</option>
-										<option data-kt-bidding-modal-option-icon="svg/coins/filecoin.svg" value="6">Filecoin</option>
-									</select>
-									<!--end::Select2-->
-								</div>
-								<!--end::Crypto type-->
-							</div>
-							<!--end::Input group-->
-							<!--begin::Notice-->
-							<!--begin::Notice-->
-							<div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
-								<!--begin::Icon-->
-								<i class="ki-duotone ki-wallet fs-2tx text-primary me-4">
-									<span class="path1"></span>
-									<span class="path2"></span>
-									<span class="path3"></span>
-									<span class="path4"></span>
-								</i>
-								<!--end::Icon-->
-								<!--begin::Wrapper-->
-								<div class="d-flex flex-stack flex-grow-1">
-									<!--begin::Content-->
-									<div class="fw-semibold">
-										<h4 class="text-gray-900 fw-bold">Top up funds</h4>
-										<div class="fs-6 text-gray-700">Not enough funds in your wallet?
-										<a href="/utilities/modals/wizards/top-up-wallet" class="text-bolder">Top up wallet</a>.</div>
-									</div>
-									<!--end::Content-->
-								</div>
-								<!--end::Wrapper-->
-							</div>
-							<!--end::Notice-->
-							<!--end::Notice-->
-							<!--begin::Actions-->
-							<div class="text-center">
-								<button type="reset" class="btn btn-light me-3" data-kt-modal-action-type="cancel">Cancel</button>
-								<button type="submit" class="btn btn-primary" data-kt-modal-action-type="submit">
-									<span class="indicator-label">Submit</span>
-									<span class="indicator-progress">Please wait...
-									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-								</button>
-							</div>
-							<!--end::Actions-->
-						</form>
-						<!--end:Form-->
-					</div>
-					<!--end::Modal body-->
-				</div>
-				<!--end::Modal content-->
-			</div>
-			<!--end::Modal dialog-->
-		</div>
-		<!--end::Modal - New Target-->
-		<!--begin::Modal - Users Search-->
-		<div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">
-			<!--begin::Modal dialog-->
-			<div class="modal-dialog modal-dialog-centered mw-650px">
-				<!--begin::Modal content-->
-				<div class="modal-content">
-					<!--begin::Modal header-->
-					<div class="modal-header pb-0 border-0 justify-content-end">
-						<!--begin::Close-->
-						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-							<i class="ki-duotone ki-cross fs-1">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</div>
-						<!--end::Close-->
-					</div>
-					<!--begin::Modal header-->
-					<!--begin::Modal body-->
-					<div class="modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15">
-						<!--begin::Content-->
-						<div class="text-center mb-13">
-							<h1 class="mb-3">Search Users</h1>
-							<div class="text-muted fw-semibold fs-5">Invite Collaborators To Your Project</div>
-						</div>
-						<!--end::Content-->
-						<!--begin::Search-->
-						<div id="kt_modal_users_search_handler" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="inline">
-							<!--begin::Form-->
-							<form data-kt-search-element="form" class="w-100 position-relative mb-5" autocomplete="off">
-								<!--begin::Hidden input(Added to disable form autocomplete)-->
-								<input type="hidden" />
-								<!--end::Hidden input-->
-								<!--begin::Icon-->
-								<i class="ki-duotone ki-magnifier fs-2 fs-lg-1 text-gray-500 position-absolute top-50 ms-5 translate-middle-y">
-									<span class="path1"></span>
-									<span class="path2"></span>
-								</i>
-								<!--end::Icon-->
-								<!--begin::Input-->
-								<input type="text" class="form-control form-control-lg form-control-solid px-15" name="search" value="" placeholder="Search by username, full name or email..." data-kt-search-element="input" />
-								<!--end::Input-->
-								<!--begin::Spinner-->
-								<span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5" data-kt-search-element="spinner">
-									<span class="spinner-border h-15px w-15px align-middle text-muted"></span>
-								</span>
-								<!--end::Spinner-->
-								<!--begin::Reset-->
-								<span class="btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 me-5 d-none" data-kt-search-element="clear">
-									<i class="ki-duotone ki-cross fs-2 fs-lg-1 me-0">
-										<span class="path1"></span>
-										<span class="path2"></span>
-									</i>
-								</span>
-								<!--end::Reset-->
-							</form>
-							<!--end::Form-->
-							<!--begin::Wrapper-->
-							<div class="py-5">
-								<!--begin::Suggestions-->
-								<div data-kt-search-element="suggestions">
-									<!--begin::Heading-->
-									<h3 class="fw-semibold mb-5">Recently searched:</h3>
-									<!--end::Heading-->
-									<!--begin::Users-->
-									<div class="mh-375px scroll-y me-n7 pe-7">
-										<!--begin::User-->
-										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
-											<!--begin::Avatar-->
-											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
-											</div>
-											<!--end::Avatar-->
-											<!--begin::Info-->
-											<div class="fw-semibold">
-												<span class="fs-6 text-gray-800 me-2">Emma Smith</span>
-												<span class="badge badge-light">Art Director</span>
-											</div>
-											<!--end::Info-->
-										</a>
-										<!--end::User-->
-										<!--begin::User-->
-										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
-											<!--begin::Avatar-->
-											<div class="symbol symbol-35px symbol-circle me-5">
-												<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
-											</div>
-											<!--end::Avatar-->
-											<!--begin::Info-->
-											<div class="fw-semibold">
-												<span class="fs-6 text-gray-800 me-2">Melody Macy</span>
-												<span class="badge badge-light">Marketing Analytic</span>
-											</div>
-											<!--end::Info-->
-										</a>
-										<!--end::User-->
-										<!--begin::User-->
-										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
-											<!--begin::Avatar-->
-											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
-											</div>
-											<!--end::Avatar-->
-											<!--begin::Info-->
-											<div class="fw-semibold">
-												<span class="fs-6 text-gray-800 me-2">Max Smith</span>
-												<span class="badge badge-light">Software Enginer</span>
-											</div>
-											<!--end::Info-->
-										</a>
-										<!--end::User-->
-										<!--begin::User-->
-										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
-											<!--begin::Avatar-->
-											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
-											</div>
-											<!--end::Avatar-->
-											<!--begin::Info-->
-											<div class="fw-semibold">
-												<span class="fs-6 text-gray-800 me-2">Sean Bean</span>
-												<span class="badge badge-light">Web Developer</span>
-											</div>
-											<!--end::Info-->
-										</a>
-										<!--end::User-->
-										<!--begin::User-->
-										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
-											<!--begin::Avatar-->
-											<div class="symbol symbol-35px symbol-circle me-5">
-												<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
-											</div>
-											<!--end::Avatar-->
-											<!--begin::Info-->
-											<div class="fw-semibold">
-												<span class="fs-6 text-gray-800 me-2">Brian Cox</span>
-												<span class="badge badge-light">UI/UX Designer</span>
-											</div>
-											<!--end::Info-->
-										</a>
-										<!--end::User-->
-									</div>
-									<!--end::Users-->
-								</div>
-								<!--end::Suggestions-->
-								<!--begin::Results(add d-none to below element to hide the users list by default)-->
-								<div data-kt-search-element="results" class="d-none">
-									<!--begin::Users-->
-									<div class="mh-375px scroll-y me-n7 pe-7">
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="0">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='0']" value="0" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
-													<div class="fw-semibold text-muted">smith@kpmg.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2" selected="selected">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="1">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='1']" value="1" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
-													<div class="fw-semibold text-muted">melody@altbox.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1" selected="selected">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="2">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='2']" value="2" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
-													<div class="fw-semibold text-muted">max@kt.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3" selected="selected">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="3">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='3']" value="3" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
-													<div class="fw-semibold text-muted">sean@dellito.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2" selected="selected">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="4">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='4']" value="4" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
-													<div class="fw-semibold text-muted">brian@exchange.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3" selected="selected">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="5">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='5']" value="5" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-warning text-warning fw-semibold">C</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
-													<div class="fw-semibold text-muted">mik@pex.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2" selected="selected">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="6">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='6']" value="6" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
-													<div class="fw-semibold text-muted">f.mit@kpmg.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3" selected="selected">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="7">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='7']" value="7" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
-													<div class="fw-semibold text-muted">olivia@corpmail.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2" selected="selected">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="8">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='8']" value="8" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-primary text-primary fw-semibold">N</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Neil Owen</a>
-													<div class="fw-semibold text-muted">owen.neil@gmail.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1" selected="selected">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="9">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='9']" value="9" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
-													<div class="fw-semibold text-muted">dam@consilting.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3" selected="selected">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="10">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='10']" value="10" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-danger text-danger fw-semibold">E</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Bold</a>
-													<div class="fw-semibold text-muted">emma@intenso.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2" selected="selected">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="11">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='11']" value="11" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ana Crown</a>
-													<div class="fw-semibold text-muted">ana.cf@limtel.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1" selected="selected">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="12">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='12']" value="12" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
-													<div class="fw-semibold text-muted">robert@benko.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3" selected="selected">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="13">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='13']" value="13" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-13.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
-													<div class="fw-semibold text-muted">miller@mapple.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3" selected="selected">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="14">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='14']" value="14" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-													<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2" selected="selected">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="15">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='15']" value="15" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
-													<div class="fw-semibold text-muted">ethan@loop.com.au</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1" selected="selected">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-										<!--begin::Separator-->
-										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
-										<!--end::Separator-->
-										<!--begin::User-->
-										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="16">
-											<!--begin::Details-->
-											<div class="d-flex align-items-center">
-												<!--begin::Checkbox-->
-												<label class="form-check form-check-custom form-check-solid me-5">
-													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='16']" value="16" />
-												</label>
-												<!--end::Checkbox-->
-												<!--begin::Avatar-->
-												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
-												</div>
-												<!--end::Avatar-->
-												<!--begin::Details-->
-												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
-													<div class="fw-semibold text-muted">melody@altbox.com</div>
-												</div>
-												<!--end::Details-->
-											</div>
-											<!--end::Details-->
-											<!--begin::Access menu-->
-											<div class="ms-2 w-100px">
-												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
-													<option value="1">Guest</option>
-													<option value="2">Owner</option>
-													<option value="3" selected="selected">Can Edit</option>
-												</select>
-											</div>
-											<!--end::Access menu-->
-										</div>
-										<!--end::User-->
-									</div>
-									<!--end::Users-->
-									<!--begin::Actions-->
-									<div class="d-flex flex-center mt-15">
-										<button type="reset" id="kt_modal_users_search_reset" data-bs-dismiss="modal" class="btn btn-active-light me-3">Cancel</button>
-										<button type="submit" id="kt_modal_users_search_submit" class="btn btn-primary">Add Selected Users</button>
-									</div>
-									<!--end::Actions-->
-								</div>
-								<!--end::Results-->
-								<!--begin::Empty-->
-								<div data-kt-search-element="empty" class="text-center d-none">
-									<!--begin::Message-->
-									<div class="fw-semibold py-10">
-										<div class="text-gray-600 fs-3 mb-2">No users found</div>
-										<div class="text-muted fs-6">Try to search by username, full name or email...</div>
-									</div>
-									<!--end::Message-->
-									<!--begin::Illustration-->
-									<div class="text-center px-5">
-										<img src="assets/media/illustrations/sketchy-1/1.png" alt="" class="w-100 h-200px h-sm-325px" />
-									</div>
-									<!--end::Illustration-->
-								</div>
-								<!--end::Empty-->
-							</div>
-							<!--end::Wrapper-->
-						</div>
-						<!--end::Search-->
-					</div>
-					<!--end::Modal body-->
-				</div>
-				<!--end::Modal content-->
-			</div>
-			<!--end::Modal dialog-->
-		</div>
-		<!--end::Modal - Users Search-->
 		<!--begin::Modal - Create App-->
 		<div class="modal fade" id="kt_modal_create_app" tabindex="-1" aria-hidden="true">
 			<!--begin::Modal dialog-->
@@ -15561,9 +12284,9 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Input-->
 													<!--begin::Card logos-->
 													<div class="position-absolute translate-middle-y top-50 end-0 me-5">
-														<img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
-														<img src="assets/media/svg/card-logos/mastercard.svg" alt="" class="h-25px" />
-														<img src="assets/media/svg/card-logos/american-express.svg" alt="" class="h-25px" />
+														<img src="../assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
+														<img src="../assets/media/svg/card-logos/mastercard.svg" alt="" class="h-25px" />
+														<img src="../assets/media/svg/card-logos/american-express.svg" alt="" class="h-25px" />
 													</div>
 													<!--end::Card logos-->
 												</div>
@@ -15683,7 +12406,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--end::Description-->
 											<!--begin::Illustration-->
 											<div class="text-center px-4 py-15">
-												<img src="assets/media/illustrations/sketchy-1/9.png" alt="" class="mw-100 mh-300px" />
+												<img src="../assets/media/illustrations/sketchy-1/9.png" alt="" class="mw-100 mh-300px" />
 											</div>
 											<!--end::Illustration-->
 										</div>
@@ -15734,6 +12457,1230 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Modal dialog-->
 		</div>
 		<!--end::Modal - Create App-->
+		<!--begin::Modal - Offer A Deal-->
+		<div class="modal fade" id="kt_modal_offer_a_deal" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-1000px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header py-7 d-flex justify-content-between">
+						<!--begin::Modal title-->
+						<h2>Offer a Deal</h2>
+						<!--end::Modal title-->
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-duotone ki-cross fs-1">
+								<span class="path1"></span>
+								<span class="path2"></span>
+							</i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--begin::Modal header-->
+					<!--begin::Modal body-->
+					<div class="modal-body scroll-y m-5">
+						<!--begin::Stepper-->
+						<div class="stepper stepper-links d-flex flex-column" id="kt_modal_offer_a_deal_stepper">
+							<!--begin::Nav-->
+							<div class="stepper-nav justify-content-center py-2">
+								<!--begin::Step 1-->
+								<div class="stepper-item me-5 me-md-15 current" data-kt-stepper-element="nav">
+									<h3 class="stepper-title">Deal Type</h3>
+								</div>
+								<!--end::Step 1-->
+								<!--begin::Step 2-->
+								<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
+									<h3 class="stepper-title">Deal Details</h3>
+								</div>
+								<!--end::Step 2-->
+								<!--begin::Step 3-->
+								<div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
+									<h3 class="stepper-title">Finance Settings</h3>
+								</div>
+								<!--end::Step 3-->
+								<!--begin::Step 4-->
+								<div class="stepper-item" data-kt-stepper-element="nav">
+									<h3 class="stepper-title">Completed</h3>
+								</div>
+								<!--end::Step 4-->
+							</div>
+							<!--end::Nav-->
+							<!--begin::Form-->
+							<form class="mx-auto mw-500px w-100 pt-15 pb-10" novalidate="novalidate" id="kt_modal_offer_a_deal_form">
+								<!--begin::Type-->
+								<div class="current" data-kt-stepper-element="content">
+									<!--begin::Wrapper-->
+									<div class="w-100">
+										<!--begin::Heading-->
+										<div class="mb-13">
+											<!--begin::Title-->
+											<h2 class="mb-3">Deal Type</h2>
+											<!--end::Title-->
+											<!--begin::Description-->
+											<div class="text-muted fw-semibold fs-5">If you need more info, please check out
+											<a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
+											<!--end::Description-->
+										</div>
+										<!--end::Heading-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-15" data-kt-buttons="true">
+											<!--begin::Option-->
+											<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6 mb-6 active">
+												<!--begin::Input-->
+												<input class="btn-check" type="radio" checked="checked" name="offer_type" value="1" />
+												<!--end::Input-->
+												<!--begin::Label-->
+												<span class="d-flex">
+													<!--begin::Icon-->
+													<i class="ki-duotone ki-profile-circle fs-3hx">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+													<!--end::Icon-->
+													<!--begin::Info-->
+													<span class="ms-4">
+														<span class="fs-3 fw-bold text-gray-900 mb-2 d-block">Personal Deal</span>
+														<span class="fw-semibold fs-4 text-muted">If you need more info, please check it out</span>
+													</span>
+													<!--end::Info-->
+												</span>
+												<!--end::Label-->
+											</label>
+											<!--end::Option-->
+											<!--begin::Option-->
+											<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6">
+												<!--begin::Input-->
+												<input class="btn-check" type="radio" name="offer_type" value="2" />
+												<!--end::Input-->
+												<!--begin::Label-->
+												<span class="d-flex">
+													<!--begin::Icon-->
+													<i class="ki-duotone ki-element-11 fs-3hx">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+														<span class="path4"></span>
+													</i>
+													<!--end::Icon-->
+													<!--begin::Info-->
+													<span class="ms-4">
+														<span class="fs-3 fw-bold text-gray-900 mb-2 d-block">Corporate Deal</span>
+														<span class="fw-semibold fs-4 text-muted">Create corporate account to manage users</span>
+													</span>
+													<!--end::Info-->
+												</span>
+												<!--end::Label-->
+											</label>
+											<!--end::Option-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Actions-->
+										<div class="d-flex justify-content-end">
+											<button type="button" class="btn btn-lg btn-primary" data-kt-element="type-next">
+												<span class="indicator-label">Offer Details</span>
+												<span class="indicator-progress">Please wait...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+											</button>
+										</div>
+										<!--end::Actions-->
+									</div>
+									<!--end::Wrapper-->
+								</div>
+								<!--end::Type-->
+								<!--begin::Details-->
+								<div data-kt-stepper-element="content">
+									<!--begin::Wrapper-->
+									<div class="w-100">
+										<!--begin::Heading-->
+										<div class="mb-13">
+											<!--begin::Title-->
+											<h2 class="mb-3">Deal Details</h2>
+											<!--end::Title-->
+											<!--begin::Description-->
+											<div class="text-muted fw-semibold fs-5">If you need more info, please check out
+											<a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
+											<!--end::Description-->
+										</div>
+										<!--end::Heading-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-8">
+											<!--begin::Label-->
+											<label class="required fs-6 fw-semibold mb-2">Customer</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<select class="form-select form-select-solid" data-control="select2" data-placeholder="Select an option" name="details_customer">
+												<option></option>
+												<option value="1" selected="selected">Keenthemes</option>
+												<option value="2">CRM App</option>
+											</select>
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-8">
+											<!--begin::Label-->
+											<label class="required fs-6 fw-semibold mb-2">Deal Title</label>
+											<!--end::Label-->
+											<!--begin::Input-->
+											<input type="text" class="form-control form-control-solid" placeholder="Enter Deal Title" name="details_title" value="Marketing Campaign" />
+											<!--end::Input-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-8">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">Deal Description</label>
+											<!--end::Label-->
+											<!--begin::Label-->
+											<textarea class="form-control form-control-solid" rows="3" placeholder="Enter Deal Description" name="details_description">Experience share market at your fingertips with TICK PRO stock investment mobile trading app</textarea>
+											<!--end::Label-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-8">
+											<label class="required fs-6 fw-semibold mb-2">Activation Date</label>
+											<div class="position-relative d-flex align-items-center">
+												<!--begin::Icon-->
+												<i class="ki-duotone ki-calendar-8 fs-2 position-absolute mx-4">
+													<span class="path1"></span>
+													<span class="path2"></span>
+													<span class="path3"></span>
+													<span class="path4"></span>
+													<span class="path5"></span>
+													<span class="path6"></span>
+												</i>
+												<!--end::Icon-->
+												<!--begin::Datepicker-->
+												<input class="form-control form-control-solid ps-12" placeholder="Pick date range" name="details_activation_date" />
+												<!--end::Datepicker-->
+											</div>
+										</div>
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-15">
+											<!--begin::Wrapper-->
+											<div class="d-flex flex-stack">
+												<!--begin::Label-->
+												<div class="me-5">
+													<label class="required fs-6 fw-semibold">Notifications</label>
+													<div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or Email</div>
+												</div>
+												<!--end::Label-->
+												<!--begin::Checkboxes-->
+												<div class="d-flex">
+													<!--begin::Checkbox-->
+													<label class="form-check form-check-custom form-check-solid me-10">
+														<!--begin::Input-->
+														<input class="form-check-input h-20px w-20px" type="checkbox" value="email" name="details_notifications[]" />
+														<!--end::Input-->
+														<!--begin::Label-->
+														<span class="form-check-label fw-semibold">Email</span>
+														<!--end::Label-->
+													</label>
+													<!--end::Checkbox-->
+													<!--begin::Checkbox-->
+													<label class="form-check form-check-custom form-check-solid">
+														<!--begin::Input-->
+														<input class="form-check-input h-20px w-20px" type="checkbox" value="phone" checked="checked" name="details_notifications[]" />
+														<!--end::Input-->
+														<!--begin::Label-->
+														<span class="form-check-label fw-semibold">Phone</span>
+														<!--end::Label-->
+													</label>
+													<!--end::Checkbox-->
+												</div>
+												<!--end::Checkboxes-->
+											</div>
+											<!--begin::Wrapper-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Actions-->
+										<div class="d-flex flex-stack">
+											<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="details-previous">Deal Type</button>
+											<button type="button" class="btn btn-lg btn-primary" data-kt-element="details-next">
+												<span class="indicator-label">Financing</span>
+												<span class="indicator-progress">Please wait...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+											</button>
+										</div>
+										<!--end::Actions-->
+									</div>
+									<!--end::Wrapper-->
+								</div>
+								<!--end::Details-->
+								<!--begin::Budget-->
+								<div data-kt-stepper-element="content">
+									<!--begin::Wrapper-->
+									<div class="w-100">
+										<!--begin::Heading-->
+										<div class="mb-13">
+											<!--begin::Title-->
+											<h2 class="mb-3">Finance</h2>
+											<!--end::Title-->
+											<!--begin::Description-->
+											<div class="text-muted fw-semibold fs-5">If you need more info, please check out
+											<a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
+											<!--end::Description-->
+										</div>
+										<!--end::Heading-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-8">
+											<!--begin::Label-->
+											<label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+												<span class="required">Setup Budget</span>
+												<span class="ms-1" data-bs-toggle="popover" data-bs-trigger="hover" data-bs-html="true" data-bs-content="&lt;div class=&#039;p-4 rounded bg-light&#039;&gt; &lt;div class=&#039;d-flex flex-stack text-muted mb-4&#039;&gt; &lt;i class=&quot;ki-duotone ki-bank fs-3 me-3&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt; &lt;div class=&#039;fw-bold&#039;&gt;INCBANK **** 1245 STATEMENT&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack fw-semibold text-gray-600&#039;&gt; &lt;div&gt;Amount&lt;/div&gt; &lt;div&gt;Transaction&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;separator separator-dashed my-2&#039;&gt;&lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-dark fw-bold mb-2&#039;&gt; &lt;div&gt;USD345.00&lt;/div&gt; &lt;div&gt;KEENTHEMES*&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-muted mb-2&#039;&gt; &lt;div&gt;USD75.00&lt;/div&gt; &lt;div&gt;Hosting fee&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-muted&#039;&gt; &lt;div&gt;USD3,950.00&lt;/div&gt; &lt;div&gt;Payrol&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;">
+													<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+														<span class="path1"></span>
+														<span class="path2"></span>
+														<span class="path3"></span>
+													</i>
+												</span>
+											</label>
+											<!--end::Label-->
+											<!--begin::Dialer-->
+											<div class="position-relative w-lg-250px" id="kt_modal_finance_setup" data-kt-dialer="true" data-kt-dialer-min="50" data-kt-dialer-max="50000" data-kt-dialer-step="100" data-kt-dialer-prefix="$" data-kt-dialer-decimals="2">
+												<!--begin::Decrease control-->
+												<button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 start-0" data-kt-dialer-control="decrease">
+													<i class="ki-duotone ki-minus-circle fs-1">
+														<span class="path1"></span>
+														<span class="path2"></span>
+													</i>
+												</button>
+												<!--end::Decrease control-->
+												<!--begin::Input control-->
+												<input type="text" class="form-control form-control-solid border-0 ps-12" data-kt-dialer-control="input" placeholder="Amount" name="finance_setup" readonly="readonly" value="$50" />
+												<!--end::Input control-->
+												<!--begin::Increase control-->
+												<button type="button" class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 end-0" data-kt-dialer-control="increase">
+													<i class="ki-duotone ki-plus-circle fs-1">
+														<span class="path1"></span>
+														<span class="path2"></span>
+													</i>
+												</button>
+												<!--end::Increase control-->
+											</div>
+											<!--end::Dialer-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-8">
+											<!--begin::Label-->
+											<label class="fs-6 fw-semibold mb-2">Budget Usage</label>
+											<!--end::Label-->
+											<!--begin::Row-->
+											<div class="row g-9" data-kt-buttons="true" data-kt-buttons-target="[data-kt-button='true']">
+												<!--begin::Col-->
+												<div class="col-md-6 col-lg-12 col-xxl-6">
+													<!--begin::Option-->
+													<label class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6" data-kt-button="true">
+														<!--begin::Radio-->
+														<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+															<input class="form-check-input" type="radio" name="finance_usage" value="1" checked="checked" />
+														</span>
+														<!--end::Radio-->
+														<!--begin::Info-->
+														<span class="ms-5">
+															<span class="fs-4 fw-bold text-gray-800 mb-2 d-block">Precise Usage</span>
+															<span class="fw-semibold fs-7 text-gray-600">Withdraw money to your bank account per transaction under $50,000 budget</span>
+														</span>
+														<!--end::Info-->
+													</label>
+													<!--end::Option-->
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col-md-6 col-lg-12 col-xxl-6">
+													<!--begin::Option-->
+													<label class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6" data-kt-button="true">
+														<!--begin::Radio-->
+														<span class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
+															<input class="form-check-input" type="radio" name="finance_usage" value="2" />
+														</span>
+														<!--end::Radio-->
+														<!--begin::Info-->
+														<span class="ms-5">
+															<span class="fs-4 fw-bold text-gray-800 mb-2 d-block">Extreme Usage</span>
+															<span class="fw-semibold fs-7 text-gray-600">Withdraw money to your bank account per transaction under $50,000 budget</span>
+														</span>
+														<!--end::Info-->
+													</label>
+													<!--end::Option-->
+												</div>
+												<!--end::Col-->
+											</div>
+											<!--end::Row-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Input group-->
+										<div class="fv-row mb-15">
+											<!--begin::Wrapper-->
+											<div class="d-flex flex-stack">
+												<!--begin::Label-->
+												<div class="me-5">
+													<label class="fs-6 fw-semibold">Allow Changes in Budget</label>
+													<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+												</div>
+												<!--end::Label-->
+												<!--begin::Switch-->
+												<label class="form-check form-switch form-check-custom form-check-solid">
+													<input class="form-check-input" type="checkbox" value="1" name="finance_allow" checked="checked" />
+													<span class="form-check-label fw-semibold text-muted">Allowed</span>
+												</label>
+												<!--end::Switch-->
+											</div>
+											<!--end::Wrapper-->
+										</div>
+										<!--end::Input group-->
+										<!--begin::Actions-->
+										<div class="d-flex flex-stack">
+											<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="finance-previous">Project Settings</button>
+											<button type="button" class="btn btn-lg btn-primary" data-kt-element="finance-next">
+												<span class="indicator-label">Build Team</span>
+												<span class="indicator-progress">Please wait...
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+											</button>
+										</div>
+										<!--end::Actions-->
+									</div>
+									<!--end::Wrapper-->
+								</div>
+								<!--end::Budget-->
+								<!--begin::Complete-->
+								<div data-kt-stepper-element="content">
+									<!--begin::Wrapper-->
+									<div class="w-100">
+										<!--begin::Heading-->
+										<div class="mb-13">
+											<!--begin::Title-->
+											<h2 class="mb-3">Deal Created!</h2>
+											<!--end::Title-->
+											<!--begin::Description-->
+											<div class="text-muted fw-semibold fs-5">If you need more info, please check out
+											<a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
+											<!--end::Description-->
+										</div>
+										<!--end::Heading-->
+										<!--begin::Actions-->
+										<div class="d-flex flex-center pb-20">
+											<button type="button" class="btn btn-lg btn-light me-3" data-kt-element="complete-start">Create New Deal</button>
+											<a href="#" class="btn btn-lg btn-primary" data-bs-toggle="tooltip" title="Coming Soon">View Deal</a>
+										</div>
+										<!--end::Actions-->
+										<!--begin::Illustration-->
+										<div class="text-center px-4">
+											<img src="../assets/media/illustrations/sketchy-1/20.png" alt="" class="mw-100 mh-300px" />
+										</div>
+										<!--end::Illustration-->
+									</div>
+								</div>
+								<!--end::Complete-->
+							</form>
+							<!--end::Form-->
+						</div>
+						<!--end::Stepper-->
+					</div>
+					<!--begin::Modal body-->
+				</div>
+			</div>
+		</div>
+		<!--end::Modal - Offer A Deal-->
+		<!--begin::Modal - Users Search-->
+		<div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-650px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header pb-0 border-0 justify-content-end">
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-duotone ki-cross fs-1">
+								<span class="path1"></span>
+								<span class="path2"></span>
+							</i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--begin::Modal header-->
+					<!--begin::Modal body-->
+					<div class="modal-body scroll-y mx-5 mx-xl-18 pt-0 pb-15">
+						<!--begin::Content-->
+						<div class="text-center mb-13">
+							<h1 class="mb-3">Search Users</h1>
+							<div class="text-muted fw-semibold fs-5">Invite Collaborators To Your Project</div>
+						</div>
+						<!--end::Content-->
+						<!--begin::Search-->
+						<div id="kt_modal_users_search_handler" data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter" data-kt-search-layout="inline">
+							<!--begin::Form-->
+							<form data-kt-search-element="form" class="w-100 position-relative mb-5" autocomplete="off">
+								<!--begin::Hidden input(Added to disable form autocomplete)-->
+								<input type="hidden" />
+								<!--end::Hidden input-->
+								<!--begin::Icon-->
+								<i class="ki-duotone ki-magnifier fs-2 fs-lg-1 text-gray-500 position-absolute top-50 ms-5 translate-middle-y">
+									<span class="path1"></span>
+									<span class="path2"></span>
+								</i>
+								<!--end::Icon-->
+								<!--begin::Input-->
+								<input type="text" class="form-control form-control-lg form-control-solid px-15" name="search" value="" placeholder="Search by username, full name or email..." data-kt-search-element="input" />
+								<!--end::Input-->
+								<!--begin::Spinner-->
+								<span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5" data-kt-search-element="spinner">
+									<span class="spinner-border h-15px w-15px align-middle text-muted"></span>
+								</span>
+								<!--end::Spinner-->
+								<!--begin::Reset-->
+								<span class="btn btn-flush btn-active-color-primary position-absolute top-50 end-0 translate-middle-y lh-0 me-5 d-none" data-kt-search-element="clear">
+									<i class="ki-duotone ki-cross fs-2 fs-lg-1 me-0">
+										<span class="path1"></span>
+										<span class="path2"></span>
+									</i>
+								</span>
+								<!--end::Reset-->
+							</form>
+							<!--end::Form-->
+							<!--begin::Wrapper-->
+							<div class="py-5">
+								<!--begin::Suggestions-->
+								<div data-kt-search-element="suggestions">
+									<!--begin::Heading-->
+									<h3 class="fw-semibold mb-5">Recently searched:</h3>
+									<!--end::Heading-->
+									<!--begin::Users-->
+									<div class="mh-375px scroll-y me-n7 pe-7">
+										<!--begin::User-->
+										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
+											<!--begin::Avatar-->
+											<div class="symbol symbol-35px symbol-circle me-5">
+												<img alt="Pic" src="../assets/media/avatars/300-6.jpg" />
+											</div>
+											<!--end::Avatar-->
+											<!--begin::Info-->
+											<div class="fw-semibold">
+												<span class="fs-6 text-gray-800 me-2">Emma Smith</span>
+												<span class="badge badge-light">Art Director</span>
+											</div>
+											<!--end::Info-->
+										</a>
+										<!--end::User-->
+										<!--begin::User-->
+										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
+											<!--begin::Avatar-->
+											<div class="symbol symbol-35px symbol-circle me-5">
+												<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
+											</div>
+											<!--end::Avatar-->
+											<!--begin::Info-->
+											<div class="fw-semibold">
+												<span class="fs-6 text-gray-800 me-2">Melody Macy</span>
+												<span class="badge badge-light">Marketing Analytic</span>
+											</div>
+											<!--end::Info-->
+										</a>
+										<!--end::User-->
+										<!--begin::User-->
+										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
+											<!--begin::Avatar-->
+											<div class="symbol symbol-35px symbol-circle me-5">
+												<img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+											</div>
+											<!--end::Avatar-->
+											<!--begin::Info-->
+											<div class="fw-semibold">
+												<span class="fs-6 text-gray-800 me-2">Max Smith</span>
+												<span class="badge badge-light">Software Enginer</span>
+											</div>
+											<!--end::Info-->
+										</a>
+										<!--end::User-->
+										<!--begin::User-->
+										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
+											<!--begin::Avatar-->
+											<div class="symbol symbol-35px symbol-circle me-5">
+												<img alt="Pic" src="../assets/media/avatars/300-5.jpg" />
+											</div>
+											<!--end::Avatar-->
+											<!--begin::Info-->
+											<div class="fw-semibold">
+												<span class="fs-6 text-gray-800 me-2">Sean Bean</span>
+												<span class="badge badge-light">Web Developer</span>
+											</div>
+											<!--end::Info-->
+										</a>
+										<!--end::User-->
+										<!--begin::User-->
+										<a href="#" class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
+											<!--begin::Avatar-->
+											<div class="symbol symbol-35px symbol-circle me-5">
+												<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+											</div>
+											<!--end::Avatar-->
+											<!--begin::Info-->
+											<div class="fw-semibold">
+												<span class="fs-6 text-gray-800 me-2">Brian Cox</span>
+												<span class="badge badge-light">UI/UX Designer</span>
+											</div>
+											<!--end::Info-->
+										</a>
+										<!--end::User-->
+									</div>
+									<!--end::Users-->
+								</div>
+								<!--end::Suggestions-->
+								<!--begin::Results(add d-none to below element to hide the users list by default)-->
+								<div data-kt-search-element="results" class="d-none">
+									<!--begin::Users-->
+									<div class="mh-375px scroll-y me-n7 pe-7">
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="0">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='0']" value="0" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-6.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
+													<div class="fw-semibold text-muted">smith@kpmg.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2" selected="selected">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="1">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='1']" value="1" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
+													<div class="fw-semibold text-muted">melody@altbox.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1" selected="selected">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="2">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='2']" value="2" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
+													<div class="fw-semibold text-muted">max@kt.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3" selected="selected">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="3">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='3']" value="3" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-5.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
+													<div class="fw-semibold text-muted">sean@dellito.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2" selected="selected">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="4">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='4']" value="4" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+													<div class="fw-semibold text-muted">brian@exchange.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3" selected="selected">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="5">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='5']" value="5" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-warning text-warning fw-semibold">C</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
+													<div class="fw-semibold text-muted">mik@pex.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2" selected="selected">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="6">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='6']" value="6" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-9.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
+													<div class="fw-semibold text-muted">f.mit@kpmg.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3" selected="selected">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="7">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='7']" value="7" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
+													<div class="fw-semibold text-muted">olivia@corpmail.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2" selected="selected">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="8">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='8']" value="8" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-primary text-primary fw-semibold">N</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Neil Owen</a>
+													<div class="fw-semibold text-muted">owen.neil@gmail.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1" selected="selected">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="9">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='9']" value="9" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-23.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
+													<div class="fw-semibold text-muted">dam@consilting.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3" selected="selected">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="10">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='10']" value="10" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-danger text-danger fw-semibold">E</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma Bold</a>
+													<div class="fw-semibold text-muted">emma@intenso.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2" selected="selected">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="11">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='11']" value="11" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-12.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ana Crown</a>
+													<div class="fw-semibold text-muted">ana.cf@limtel.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1" selected="selected">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="12">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='12']" value="12" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
+													<div class="fw-semibold text-muted">robert@benko.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3" selected="selected">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="13">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='13']" value="13" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-13.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
+													<div class="fw-semibold text-muted">miller@mapple.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3" selected="selected">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="14">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='14']" value="14" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
+													<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2" selected="selected">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="15">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='15']" value="15" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<img alt="Pic" src="../assets/media/avatars/300-21.jpg" />
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
+													<div class="fw-semibold text-muted">ethan@loop.com.au</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1" selected="selected">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+										<!--begin::Separator-->
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
+										<!--end::Separator-->
+										<!--begin::User-->
+										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="16">
+											<!--begin::Details-->
+											<div class="d-flex align-items-center">
+												<!--begin::Checkbox-->
+												<label class="form-check form-check-custom form-check-solid me-5">
+													<input class="form-check-input" type="checkbox" name="users" data-kt-check="true" data-kt-check-target="[data-user-id='16']" value="16" />
+												</label>
+												<!--end::Checkbox-->
+												<!--begin::Avatar-->
+												<div class="symbol symbol-35px symbol-circle">
+													<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
+												</div>
+												<!--end::Avatar-->
+												<!--begin::Details-->
+												<div class="ms-5">
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
+													<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+												</div>
+												<!--end::Details-->
+											</div>
+											<!--end::Details-->
+											<!--begin::Access menu-->
+											<div class="ms-2 w-100px">
+												<select class="form-select form-select-solid form-select-sm" data-control="select2" data-hide-search="true">
+													<option value="1">Guest</option>
+													<option value="2">Owner</option>
+													<option value="3" selected="selected">Can Edit</option>
+												</select>
+											</div>
+											<!--end::Access menu-->
+										</div>
+										<!--end::User-->
+									</div>
+									<!--end::Users-->
+									<!--begin::Actions-->
+									<div class="d-flex flex-center mt-15">
+										<button type="reset" id="kt_modal_users_search_reset" data-bs-dismiss="modal" class="btn btn-active-light me-3">Cancel</button>
+										<button type="submit" id="kt_modal_users_search_submit" class="btn btn-primary">Add Selected Users</button>
+									</div>
+									<!--end::Actions-->
+								</div>
+								<!--end::Results-->
+								<!--begin::Empty-->
+								<div data-kt-search-element="empty" class="text-center d-none">
+									<!--begin::Message-->
+									<div class="fw-semibold py-10">
+										<div class="text-gray-600 fs-3 mb-2">No users found</div>
+										<div class="text-muted fs-6">Try to search by username, full name or email...</div>
+									</div>
+									<!--end::Message-->
+									<!--begin::Illustration-->
+									<div class="text-center px-5">
+										<img src="../assets/media/illustrations/sketchy-1/1.png" alt="" class="w-100 h-200px h-sm-325px" />
+									</div>
+									<!--end::Illustration-->
+								</div>
+								<!--end::Empty-->
+							</div>
+							<!--end::Wrapper-->
+						</div>
+						<!--end::Search-->
+					</div>
+					<!--end::Modal body-->
+				</div>
+				<!--end::Modal content-->
+			</div>
+			<!--end::Modal dialog-->
+		</div>
+		<!--end::Modal - Users Search-->
 		<!--begin::Modal - Invite Friends-->
 		<div class="modal fade" id="kt_modal_invite_friends" tabindex="-1" aria-hidden="true">
 			<!--begin::Modal dialog-->
@@ -15767,7 +13714,7 @@ License: For each use you must have a valid license purchased only from above li
 						<!--end::Heading-->
 						<!--begin::Google Contacts Invite-->
 						<div class="btn btn-light-primary fw-bold w-100 mb-8">
-						<img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite Gmail Contacts</div>
+						<img alt="Logo" src="../assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite Gmail Contacts</div>
 						<!--end::Google Contacts Invite-->
 						<!--begin::Separator-->
 						<div class="separator d-flex flex-center mb-8">
@@ -15790,7 +13737,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-6.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -15846,7 +13793,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -15874,7 +13821,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-5.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -15902,7 +13849,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -15958,7 +13905,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-9.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -16042,7 +13989,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-23.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -16098,7 +14045,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-12.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -16154,7 +14101,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-13.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-13.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -16210,7 +14157,7 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
+											<img alt="Pic" src="../assets/media/avatars/300-21.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
@@ -16238,13 +14185,13 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-warning text-warning fw-semibold">C</span>
+											<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
 										<div class="ms-5">
-											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
-											<div class="fw-semibold text-muted">mik@pex.com</div>
+											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
+											<div class="fw-semibold text-muted">olivia@corpmail.com</div>
 										</div>
 										<!--end::Details-->
 									</div>
@@ -16290,38 +14237,27 @@ License: For each use you must have a valid license purchased only from above li
 		<!--end::Modal - Invite Friend-->
 		<!--end::Modals-->
 		<!--begin::Javascript-->
-		<script>var hostUrl = "assets/";</script>
+		<script>var hostUrl = "../assets/";</script>
 		<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-		<script src="assets/plugins/global/plugins.bundle.js"></script>
-		<script src="assets/js/scripts.bundle.js"></script>
+		<script src="../assets/plugins/global/plugins.bundle.js"></script>
+		<script src="../assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="assets/plugins/custom/fslightbox/fslightbox.bundle.js"></script>
-		<script src="assets/plugins/custom/typedjs/typedjs.bundle.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/index.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/xy.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/percent.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/radar.js"></script>
-		<script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
-		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+		<script src="../assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="assets/js/widgets.bundle.js"></script>
-		<script src="assets/js/custom/widgets.js"></script>
-		<script src="assets/js/custom/apps/chat/chat.js"></script>
-		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/type.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/budget.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/settings.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/team.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/targets.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/files.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/complete.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-project/main.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-campaign.js"></script>
-		<script src="assets/js/custom/utilities/modals/bidding.js"></script>
-		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
+		<script src="../assets/js/custom/pages/user-profile/general.js"></script>
+		<script src="../assets/js/widgets.bundle.js"></script>
+		<script src="../assets/js/custom/widgets.js"></script>
+		<script src="../assets/js/custom/apps/chat/chat.js"></script>
+		<script src="../assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+		<script src="../assets/js/custom/utilities/modals/create-app.js"></script>
+		<script src="../assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
+		<script src="../assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
+		<script src="../assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
+		<script src="../assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
+		<script src="../assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
+		<script src="../assets/js/custom/utilities/modals/users-search.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
 	</body>

@@ -160,11 +160,11 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="/fleet/maintenance">
+                        <a class="menu-link" href="/fleet/drivers">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">Maintenance Schedule</span>
+                            <span class="menu-title">Driver</span>
                         </a>
                         <!--end:Menu link-->
                     </div>
@@ -172,11 +172,11 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="/fleet/drivers">
+                        <a class="menu-link" href="/fleet/maintenance">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
-                            <span class="menu-title">Driver</span>
+                            <span class="menu-title">Maintenance Schedule</span>
                         </a>
                         <!--end:Menu link-->
                     </div>

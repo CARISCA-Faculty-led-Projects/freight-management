@@ -1892,7 +1892,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Orders Listing</span>
+																	<span class="menu-title">Load Listing</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1912,7 +1912,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin:Menu item-->
 															<div class="menu-item">
 																<!--begin:Menu link-->
-																<a class="menu-link" href="/apps/ecommerce/sales/add-order">
+																<a class="menu-link" href="/load/add">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
@@ -2034,7 +2034,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customer Orders</span>
+																	<span class="menu-title">Customer Load</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -3590,7 +3590,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Option-->
 														<label>
 															<input type="radio" class="btn-check" name="type" value="orders" />
-															<span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Orders</span>
+															<span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Load</span>
 														</label>
 														<!--end::Option-->
 														<!--begin::Option-->
@@ -7074,7 +7074,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Orders Listing</span>
+															<span class="menu-title">Load Listing</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7216,7 +7216,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Orders</span>
+															<span class="menu-title">Customer Load</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Orders Listing</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Load Listing</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8379,7 +8379,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Secondary button-->
 										<!--end::Secondary button-->
 										<!--begin::Primary button-->
-										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
+										<a href="/load/list" class="btn btn-sm fw-bold btn-primary">Ongoing Shipments</a>
 										<!--end::Primary button-->
 									</div>
 									<!--end::Actions-->
@@ -8440,7 +8440,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Select2-->
 												</div>
 												<!--begin::Add product-->
-												<a href="/apps/ecommerce/catalog/add-product" class="btn btn-primary">Add Order</a>
+												<a href="/load/add" class="btn btn-primary">Add Load</a>
 												<!--end::Add product-->
 											</div>
 											<!--end::Card toolbar-->
@@ -8515,12 +8515,37 @@ License: For each use you must have a valid license purchased only from above li
 															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="/apps/ecommerce/sales/details" class="menu-link px-3">View</a>
+																	<a href="/load/details" class="menu-link px-3">View</a>
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="/apps/ecommerce/sales/edit-order" class="menu-link px-3">Edit</a>
+																	<a href="/load/edit" class="menu-link px-3">Edit</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="/load/locate" class="menu-link px-3">Locate</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="/load/offer-a-deal" class="menu-link px-3">Bid</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="/load/bid" class="menu-link px-3">Invoice</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="/load/bid" class="menu-link px-3">Assign</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="/load/track" class="menu-link px-3">Track</a>
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
