@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Shipping Report</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Shipment</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8273,7 +8273,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">eCommerce</li>
+											<li class="breadcrumb-item text-muted">Shipments</li>
 											<!--end::Item-->
 											<!--begin::Item-->
 											<li class="breadcrumb-item">
@@ -8281,7 +8281,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Reports</li>
+											<li class="breadcrumb-item text-muted">List</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -8379,7 +8379,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Secondary button-->
 										<!--end::Secondary button-->
 										<!--begin::Primary button-->
-										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
+										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Add Shipment</a>
 										<!--end::Primary button-->
 									</div>
 									<!--end::Actions-->

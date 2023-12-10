@@ -8379,7 +8379,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Secondary button-->
 										<!--end::Secondary button-->
 										<!--begin::Primary button-->
-										<a href="/load/list" class="btn btn-sm fw-bold btn-primary">Ongoing Shipments</a>
+										<a href="/shipments/list" class="btn btn-sm fw-bold btn-primary">Ongoing Shipments</a>
 										<!--end::Primary button-->
 									</div>
 									<!--end::Actions-->
@@ -8535,7 +8535,7 @@ License: For each use you must have a valid license purchased only from above li
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="/load/bid" class="menu-link px-3">Invoice</a>
+																	<a href="/load/create-invoice" class="menu-link px-3">Invoice</a>
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
@@ -8543,11 +8543,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<a href="/load/bid" class="menu-link px-3">Assign</a>
 																</div>
 																<!--end::Menu item-->
-																<!--begin::Menu item-->
-																<div class="menu-item px-3">
-																	<a href="/load/track" class="menu-link px-3">Track</a>
-																</div>
-																<!--end::Menu item-->
+																
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
 																	<a href="#" class="menu-link px-3" data-kt-ecommerce-order-filter="delete_row">Delete</a>

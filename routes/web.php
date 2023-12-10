@@ -93,14 +93,39 @@ Route::get('/load/offer-a-deal', function () {
 Route::get('/load/add-deal', function () {
     return view('load.add-deal');
 });
+Route::get('/load/create-invoice', function () {
+    return view('load.create-invoice');
+});
 
 
 Route::get('/brokers/overview', function () {
     return view('brokers.overview');
 });
+Route::get('/brokers/add', function () {
+    return view('brokers.add');
+});
 Route::get('/brokers/list', function () {
     return view('brokers.list');
 });
+Route::get('/brokers/edit', function () {
+    return view('brokers.edit');
+});
+Route::get('/brokers/details', function () {
+    return view('brokers.details');
+});
+
+
+Route::get('/senders/overview', function () {
+    return view('senders.overview');
+});
+Route::get('/senders/list', function () {
+    return view('senders.list');
+});
+Route::get('/senders/billing', function () {
+    return view('senders.biling');
+});
+
+
 
 
 Route::get('/customers/overview', function () {
@@ -109,12 +134,21 @@ Route::get('/customers/overview', function () {
 Route::get('/customers/list', function () {
     return view('customers.list');
 });
+Route::get('/customers/add', function () {
+    return view('customers.add');
+});
+Route::get('/customers/billing', function () {
+    return view('customers.biling');
+});
 
 Route::get('/shipments/overview', function () {
     return view('shipments.overview');
 });
 Route::get('/shipments/list', function () {
     return view('shipments.list');
+});
+Route::get('/shipments/details', function () {
+    return view('shipments.details');
 });
 Route::get('/shipments/tracking', function () {
     return view('shipments.tracking');

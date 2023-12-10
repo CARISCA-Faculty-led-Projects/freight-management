@@ -368,7 +368,7 @@ License: For each use you must have a valid license purchased only from above li
 														<div class="menu-item p-0 m-0">
 															<!--begin:Menu link-->
 															<a href="/dashboards/delivery" class="menu-link py-2 active">
-																<span class="menu-title">Delivery</span>
+																<span class="menu-title">Shipment</span>
 															</a>
 															<!--end:Menu link-->
 														</div>
@@ -5024,7 +5024,7 @@ License: For each use you must have a valid license purchased only from above li
 														<span class="menu-bullet">
 															<span class="bullet bullet-dot"></span>
 														</span>
-														<span class="menu-title">Delivery</span>
+														<span class="menu-title">Shipment</span>
 													</a>
 													<!--end:Menu link-->
 												</div>
@@ -8259,7 +8259,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Delivery</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Shipment</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8283,7 +8283,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Actions-->
 									<div class="d-flex align-items-center gap-2 gap-lg-3">
 										<!--begin::Secondary button-->
-										<a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Rollover</a>
+										<a href="/shipments/tracking" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Track Shipments</a>
 										<!--end::Secondary button-->
 										<!--begin::Primary button-->
 										<a href="/apps/ecommerce/sales/add-order" class="btn btn-sm fw-bold btn-primary">New Shipment</a>
@@ -8309,9 +8309,9 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Heading-->
 													<div class="m-0">
 														<!--begin::Title-->
-														<h1 class="fw-semibold text-white text-center lh-lg mb-9">Delivery is easy
+														<h1 class="fw-semibold text-white text-center lh-lg mb-9">Shipment is easy
 														<br />
-														<span class="fw-bolder">Start Your Delivery</span></h1>
+														<span class="fw-bolder">Start Your Shipment</span></h1>
 														<!--end::Title-->
 														<!--begin::Illustration-->
 														<div class="flex-grow-1 bgi-no-repeat bgi-size-contain bgi-position-x-center card-rounded-bottom h-200px mh-200px my-5 mb-lg-12" style="background-image:url('assets/media/svg/illustrations/easy/5.svg')"></div>
@@ -8321,7 +8321,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Links-->
 													<div class="text-center">
 														<!--begin::Link-->
-														<a class="btn btn-sm bg-white btn-color-gray-800 me-2" data-bs-target="#kt_modal_bidding" data-bs-toggle="modal">New Delivery</a>
+														<a class="btn btn-sm bg-white btn-color-gray-800 me-2" data-bs-target="#kt_modal_bidding" data-bs-toggle="modal">New Shipment</a>
 														<!--end::Link-->
 														<!--begin::Link-->
 														<a class="btn btn-sm bg-white btn-color-white bg-opacity-20" href="/pages/user-profile/projects">Quick Guide</a>
@@ -8342,7 +8342,7 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="card-header pt-5">
 													<!--begin::Title-->
 													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold text-dark">Delivery Stats</span>
+														<span class="card-label fw-bold text-dark">Shipment Stats</span>
 														<span class="text-gray-400 mt-1 fw-semibold fs-6">Users from all channels</span>
 													</h3>
 													<!--end::Title-->
@@ -8438,13 +8438,13 @@ License: For each use you must have a valid license purchased only from above li
 												<div class="card-header pt-7">
 													<!--begin::Title-->
 													<h3 class="card-title align-items-start flex-column">
-														<span class="card-label fw-bold text-gray-800">Delivery Tracking</span>
+														<span class="card-label fw-bold text-gray-800">Shipment Tracking</span>
 														<span class="text-gray-400 mt-1 fw-semibold fs-6">56 deliveries in progress</span>
 													</h3>
 													<!--end::Title-->
 													<!--begin::Toolbar-->
 													<div class="card-toolbar">
-														<a href="#" class="btn btn-sm btn-light" data-bs-toggle='tooltip' data-bs-dismiss='click' data-bs-custom-class="tooltip-inverse" title="Delivery App is coming soon">View All</a>
+														<a href="#" class="btn btn-sm btn-light" data-bs-toggle='tooltip' data-bs-dismiss='click' data-bs-custom-class="tooltip-inverse" title="Shipment App is coming soon">View All</a>
 													</div>
 													<!--end::Toolbar-->
 												</div>
@@ -11531,7 +11531,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Record-->
 										<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-750px px-7 py-3 mb-0">
 											<!--begin::Title-->
-											<a href="/apps/projects/project" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Project Delivery Preparation</a>
+											<a href="/apps/projects/project" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Project Shipment Preparation</a>
 											<!--end::Title-->
 											<!--begin::Label-->
 											<div class="min-w-175px">

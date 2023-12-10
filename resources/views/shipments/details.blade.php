@@ -13,7 +13,7 @@ License: For each use you must have a valid license purchased only from above li
 -->
 <html lang="en">
 	<!--begin::Head-->
-	<head><base href="../../"/>
+	<head><base href="../../../"/>
 		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -1771,7 +1771,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -1938,13 +1938,13 @@ License: For each use you must have a valid license purchased only from above li
 													</div>
 													<!--end:Menu item-->
 													<!--begin:Menu item-->
-													<div data-kt-menu-trigger="click" class="menu-item menu-accordion menu-sub-indention">
+													<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion menu-sub-indention">
 														<!--begin:Menu link-->
 														<span class="menu-link">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customers</span>
+															<span class="menu-title">Shipments</span>
 															<span class="menu-arrow"></span>
 														</span>
 														<!--end:Menu link-->
@@ -1957,7 +1957,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customers Listing</span>
+																	<span class="menu-title">Shipments Listing</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1965,11 +1965,11 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin:Menu item-->
 															<div class="menu-item">
 																<!--begin:Menu link-->
-																<a class="menu-link" href="/apps/ecommerce/customers/details">
+																<a class="menu-link active" href="/apps/ecommerce/customers/details">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customers Details</span>
+																	<span class="menu-title">Shipments Details</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -2034,7 +2034,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customer Orders</span>
+																	<span class="menu-title">Shipment Orders</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -2336,7 +2336,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -2390,7 +2390,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link active" href="/apps/contacts/view-contact">
+														<a class="menu-link" href="/apps/contacts/view-contact">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
@@ -2483,7 +2483,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="path2"></span>
 														</i>
 													</span>
-													<span class="menu-title">Customers</span>
+													<span class="menu-title">Shipments</span>
 													<span class="menu-arrow"></span>
 												</span>
 												<!--end:Menu link-->
@@ -2508,7 +2508,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Listing</span>
+															<span class="menu-title">Shipment Listing</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -2520,7 +2520,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Details</span>
+															<span class="menu-title">Shipment Details</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -3202,7 +3202,7 @@ License: For each use you must have a valid license purchased only from above li
 														</a>
 														<!--end::Item-->
 														<!--begin::Category title-->
-														<h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">Customers</h3>
+														<h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">Shipments</h3>
 														<!--end::Category title-->
 														<!--begin::Item-->
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
@@ -6948,7 +6948,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -7120,13 +7120,13 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+											<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Customers</span>
+													<span class="menu-title">Shipments</span>
 													<span class="menu-arrow"></span>
 												</span>
 												<!--end:Menu link-->
@@ -7139,7 +7139,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Listing</span>
+															<span class="menu-title">Shipment Listing</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7147,11 +7147,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link" href="/apps/ecommerce/customers/details">
+														<a class="menu-link active" href="/apps/ecommerce/customers/details">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Details</span>
+															<span class="menu-title">Shipment Details</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7216,7 +7216,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Orders</span>
+															<span class="menu-title">Shipment Orders</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7254,7 +7254,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -7308,7 +7308,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link active" href="/apps/contacts/view-contact">
+												<a class="menu-link" href="/apps/contacts/view-contact">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -7595,7 +7595,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="path2"></span>
 												</i>
 											</span>
-											<span class="menu-title">Customers</span>
+											<span class="menu-title">Shipments</span>
 											<span class="menu-arrow"></span>
 										</span>
 										<!--end:Menu link-->
@@ -7620,7 +7620,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Customer Listing</span>
+													<span class="menu-title">Shipment Listing</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -7632,7 +7632,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Customer Details</span>
+													<span class="menu-title">Shipment Details</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">View Contact</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Shipment Details</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8273,7 +8273,15 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Contacts</li>
+											<li class="breadcrumb-item text-muted">eCommerce</li>
+											<!--end::Item-->
+											<!--begin::Item-->
+											<li class="breadcrumb-item">
+												<span class="bullet bg-gray-400 w-5px h-2px"></span>
+											</li>
+											<!--end::Item-->
+											<!--begin::Item-->
+											<li class="breadcrumb-item text-muted">Shipments</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -8291,7 +8299,7 @@ License: For each use you must have a valid license purchased only from above li
 											</i>Filter</a>
 											<!--end::Menu toggle-->
 											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac423cc7bd">
+											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac4144e333">
 												<!--begin::Header-->
 												<div class="px-7 py-5">
 													<div class="fs-5 text-dark fw-bold">Filter Options</div>
@@ -8309,7 +8317,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--end::Label-->
 														<!--begin::Input-->
 														<div>
-															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac423cc7bd" data-allow-clear="true">
+															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac4144e333" data-allow-clear="true">
 																<option></option>
 																<option value="1">Approved</option>
 																<option value="2">Pending</option>
@@ -8336,7 +8344,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Options-->
 															<label class="form-check form-check-sm form-check-custom form-check-solid">
 																<input class="form-check-input" type="checkbox" value="2" checked="checked" />
-																<span class="form-check-label">Customer</span>
+																<span class="form-check-label">Shipment</span>
 															</label>
 															<!--end::Options-->
 														</div>
@@ -8383,1705 +8391,2440 @@ License: For each use you must have a valid license purchased only from above li
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container container-xxl">
-									<!--begin::Contacts App- View Contact-->
-									<div class="row g-7">
-										<!--begin::Contact groups-->
-										<div class="col-lg-6 col-xl-3">
-											<!--begin::Contact group wrapper-->
-											<div class="card card-flush">
-												<!--begin::Card header-->
-												<div class="card-header pt-7" id="kt_chat_contacts_header">
-													<!--begin::Card title-->
-													<div class="card-title">
-														<h2>Groups</h2>
-													</div>
-													<!--end::Card title-->
-												</div>
-												<!--end::Card header-->
+									<!--begin::Layout-->
+									<div class="d-flex flex-column flex-xl-row">
+										<!--begin::Sidebar-->
+										<div class="flex-column flex-lg-row-auto w-100 w-xl-350px mb-10">
+											<!--begin::Card-->
+											<div class="card mb-5 mb-xl-8">
 												<!--begin::Card body-->
-												<div class="card-body pt-5">
-													<!--begin::Contact groups-->
-													<div class="d-flex flex-column gap-5">
-														<!--begin::Contact group-->
-														<div class="d-flex flex-stack">
-															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary text-active-primary active">All Contacts</a>
-															<div class="badge badge-light-primary">9</div>
-														</div>
-														<!--begin::Contact group-->
-														<!--begin::Contact group-->
-														<div class="d-flex flex-stack">
-															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary">Subscribed</a>
-															<div class="badge badge-light-primary">3</div>
-														</div>
-														<!--begin::Contact group-->
-														<!--begin::Contact group-->
-														<div class="d-flex flex-stack">
-															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary">Tier 1 Member</a>
-															<div class="badge badge-light-primary">1</div>
-														</div>
-														<!--begin::Contact group-->
-														<!--begin::Contact group-->
-														<div class="d-flex flex-stack">
-															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-gray-800 text-hover-primary">Pending Approval</a>
-															<div class="badge badge-light-primary">3</div>
-														</div>
-														<!--begin::Contact group-->
-														<!--begin::Contact group-->
-														<div class="d-flex flex-stack">
-															<a href="/apps/contacts/getting-started" class="fs-6 fw-bold text-danger text-hover-primary">Blocked</a>
-															<div class="badge badge-light-danger">2</div>
-														</div>
-														<!--begin::Contact group-->
-													</div>
-													<!--end::Contact groups-->
-													<!--begin::Separator-->
-													<div class="separator my-7"></div>
-													<!--begin::Separator-->
-													<!--begin::Add contact group-->
-													<label class="fs-6 fw-semibold form-label">Add new group</label>
-													<div class="input-group">
-														<input type="text" class="form-control form-control-solid" placeholder="Group name" />
-														<button type="button" class="btn btn-icon btn-light">
-															<i class="ki-duotone ki-plus-square fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-															</i>
-														</button>
-													</div>
-													<!--end::Add contact group-->
-													<!--begin::Separator-->
-													<div class="separator my-7"></div>
-													<!--begin::Separator-->
-													<!--begin::Add new customer-->
-													<a href="/customers/add" class="btn btn-primary w-100">
-													<i class="ki-duotone ki-badge fs-2">
-														<span class="path1"></span>
-														<span class="path2"></span>
-														<span class="path3"></span>
-														<span class="path4"></span>
-														<span class="path5"></span>
-													</i>Add new customer</a>
-													<!--end::Add new customer-->
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Contact group wrapper-->
-										</div>
-										<!--end::Contact groups-->
-										<!--begin::Search-->
-										<div class="col-lg-6 col-xl-3">
-											<!--begin::Contacts-->
-											<div class="card card-flush" id="kt_contacts_list">
-												<!--begin::Card header-->
-												<div class="card-header pt-7" id="kt_contacts_list_header">
-													<!--begin::Form-->
-													<form class="d-flex align-items-center position-relative w-100 m-0" autocomplete="off">
-														<!--begin::Icon-->
-														<i class="ki-duotone ki-magnifier fs-3 text-gray-500 position-absolute top-50 ms-5 translate-middle-y">
-															<span class="path1"></span>
-															<span class="path2"></span>
-														</i>
-														<!--end::Icon-->
-														<!--begin::Input-->
-														<input type="text" class="form-control form-control-solid ps-13" name="search" value="" placeholder="Search contacts" />
-														<!--end::Input-->
-													</form>
-													<!--end::Form-->
-												</div>
-												<!--end::Card header-->
-												<!--begin::Card body-->
-												<div class="card-body pt-5" id="kt_contacts_list_body">
-													<!--begin::List-->
-													<div class="scroll-y me-n5 pe-5 h-300px h-xl-auto" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_header, #kt_toolbar, #kt_footer, #kt_contacts_list_header" data-kt-scroll-wrappers="#kt_content, #kt_contacts_list_body" data-kt-scroll-stretch="#kt_contacts_list, #kt_contacts_main" data-kt-scroll-offset="5px">
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-6.jpg" />
-																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Emma Smith</a>
-																	<div class="fw-semibold fs-7 text-muted">smith@kpmg.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">M</span>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
-																	<div class="fw-semibold fs-7 text-muted">melody@altbox.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-1.jpg" />
-																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Max Smith</a>
-																	<div class="fw-semibold fs-7 text-muted">max@kt.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
-																	<div class="fw-semibold fs-7 text-muted">sean@dellito.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
-																	<div class="fw-semibold fs-7 text-muted">brian@exchange.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<span class="symbol-label bg-light-warning text-warning fs-6 fw-bolder">C</span>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Mikaela Collins</a>
-																	<div class="fw-semibold fs-7 text-muted">mik@pex.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-9.jpg" />
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Francis Mitcham</a>
-																	<div class="fw-semibold fs-7 text-muted">f.mit@kpmg.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">O</span>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
-																	<div class="fw-semibold fs-7 text-muted">olivia@corpmail.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<span class="symbol-label bg-light-primary text-primary fs-6 fw-bolder">N</span>
-																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Neil Owen</a>
-																	<div class="fw-semibold fs-7 text-muted">owen.neil@gmail.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
-																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
-																	<div class="fw-semibold fs-7 text-muted">dam@consilting.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<span class="symbol-label bg-light-danger text-danger fs-6 fw-bolder">E</span>
-																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Emma Bold</a>
-																	<div class="fw-semibold fs-7 text-muted">emma@intenso.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-12.jpg" />
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Ana Crown</a>
-																	<div class="fw-semibold fs-7 text-muted">ana.cf@limtel.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<span class="symbol-label bg-light-info text-info fs-6 fw-bolder">A</span>
-																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
-																	<div class="fw-semibold fs-7 text-muted">robert@benko.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-13.jpg" />
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">John Miller</a>
-																	<div class="fw-semibold fs-7 text-muted">miller@mapple.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<span class="symbol-label bg-light-success text-success fs-6 fw-bolder">L</span>
-																	<div class="symbol-badge bg-success start-100 top-100 border-4 h-15px w-15px ms-n2 mt-n2"></div>
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-																	<div class="fw-semibold fs-7 text-muted">lucy.m@fentech.com</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-														<!--begin::Separator-->
-														<div class="separator separator-dashed d-none"></div>
-														<!--end::Separator-->
-														<!--begin::User-->
-														<div class="d-flex flex-stack py-4">
-															<!--begin::Details-->
-															<div class="d-flex align-items-center">
-																<!--begin::Avatar-->
-																<div class="symbol symbol-40px symbol-circle">
-																	<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
-																</div>
-																<!--end::Avatar-->
-																<!--begin::Details-->
-																<div class="ms-4">
-																	<a href="/apps/contacts/view-contact" class="fs-6 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
-																	<div class="fw-semibold fs-7 text-muted">ethan@loop.com.au</div>
-																</div>
-																<!--end::Details-->
-															</div>
-															<!--end::Details-->
-														</div>
-														<!--end::User-->
-													</div>
-													<!--end::List-->
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Contacts-->
-										</div>
-										<!--end::Search-->
-										<!--begin::Content-->
-										<div class="col-xl-6">
-											<!--begin::Contacts-->
-											<div class="card card-flush h-lg-100" id="kt_contacts_main">
-												<!--begin::Card header-->
-												<div class="card-header pt-7" id="kt_chat_contacts_header">
-													<!--begin::Card title-->
-													<div class="card-title">
-														<i class="ki-duotone ki-badge fs-1 me-2">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-															<span class="path4"></span>
-															<span class="path5"></span>
-														</i>
-														<h2>Contact Details</h2>
-													</div>
-													<!--end::Card title-->
-													<!--begin::Card toolbar-->
-													<div class="card-toolbar gap-3">
-														<!--begin::Chat-->
-														<button class="btn btn-sm btn-light btn-active-light-primary" data-kt-drawer-show="true" data-kt-drawer-target="#kt_drawer_chat">
-														<i class="ki-duotone ki-message-text-2 fs-2">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-														</i>Chat</button>
-														<!--end::Chat-->
-														<!--begin::Chat-->
-														<a href="/apps/inbox/reply" class="btn btn-sm btn-light btn-active-light-primary">
-														<i class="ki-duotone ki-messages fs-2">
-															<span class="path1"></span>
-															<span class="path2"></span>
-															<span class="path3"></span>
-															<span class="path4"></span>
-															<span class="path5"></span>
-														</i>Message</a>
-														<!--end::Chat-->
-														<!--begin::Action menu-->
-														<a href="#" class="btn btn-sm btn-icon btn-light btn-active-light-primary" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-															<i class="ki-duotone ki-dots-square fs-2">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-																<span class="path4"></span>
-															</i>
-														</a>
-														<!--begin::Menu-->
-														<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="/apps/contacts/edit-contact" class="menu-link px-3">Edit</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="/customers/billing" class="menu-link px-3">Billing</a>
-															</div>
-															<!--end::Menu item-->
-															<!--begin::Menu item-->
-															<div class="menu-item px-3">
-																<a href="#" class="menu-link px-3" id="kt_contact_delete" data-kt-redirect="/apps/contacts/getting-started">Delete</a>
-															</div>
-															<!--end::Menu item-->
-														</div>
-														<!--end::Menu-->
-														<!--end::Action menu-->
-													</div>
-													<!--end::Card toolbar-->
-												</div>
-												<!--end::Card header-->
-												<!--begin::Card body-->
-												<div class="card-body pt-5">
-													<!--begin::Profile-->
-													<div class="d-flex gap-7 align-items-center">
+												<div class="card-body pt-15">
+													<!--begin::Summary-->
+													<div class="d-flex flex-center flex-column mb-5">
 														<!--begin::Avatar-->
-														<div class="symbol symbol-circle symbol-100px">
-															<img src="assets/media/avatars/300-6.jpg" alt="image" />
+														<div class="symbol symbol-150px symbol-circle mb-7">
+															<img src="assets/media/avatars/300-1.jpg" alt="image" />
 														</div>
 														<!--end::Avatar-->
-														<!--begin::Contact details-->
-														<div class="d-flex flex-column gap-2">
-															<!--begin::Name-->
-															<h3 class="mb-0">Emma Smith</h3>
-															<!--end::Name-->
-															<!--begin::Email-->
-															<div class="d-flex align-items-center gap-2">
-																<i class="ki-duotone ki-sms fs-2">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>
-																<a href="#" class="text-muted text-hover-primary">smith@kpmg.com</a>
-															</div>
-															<!--end::Email-->
-															<!--begin::Phone-->
-															<div class="d-flex align-items-center gap-2">
-																<i class="ki-duotone ki-phone fs-2">
-																	<span class="path1"></span>
-																	<span class="path2"></span>
-																</i>
-																<a href="#" class="text-muted text-hover-primary">+6141 234 567</a>
-															</div>
-															<!--end::Phone-->
-														</div>
-														<!--end::Contact details-->
+														<!--begin::Name-->
+														<a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">Max Smith</a>
+														<!--end::Name-->
+														<!--begin::Email-->
+														<a href="#" class="fs-5 fw-semibold text-muted text-hover-primary mb-6">max@kt.com</a>
+														<!--end::Email-->
 													</div>
-													<!--end::Profile-->
-													<!--begin:::Tabs-->
-													<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x fs-6 fw-semibold mt-6 mb-8 gap-2">
-														<!--begin:::Tab item-->
-														<li class="nav-item">
-															<a class="nav-link text-active-primary d-flex align-items-center pb-4 active" data-bs-toggle="tab" href="#kt_contact_view_general">
-															<i class="ki-duotone ki-home fs-4 me-1"></i>General</a>
-														</li>
-														<!--end:::Tab item-->
-														<!--begin:::Tab item-->
-														<li class="nav-item">
-															<a class="nav-link text-active-primary d-flex align-items-center pb-4" data-bs-toggle="tab" href="#kt_contact_view_meetings">
-															<i class="ki-duotone ki-calendar-8 fs-4 me-1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-																<span class="path3"></span>
-																<span class="path4"></span>
-																<span class="path5"></span>
-																<span class="path6"></span>
-															</i>Meetings</a>
-														</li>
-														<!--end:::Tab item-->
-														<!--begin:::Tab item-->
-														<li class="nav-item">
-															<a class="nav-link text-active-primary d-flex align-items-center pb-4" data-bs-toggle="tab" href="#kt_contact_view_activity">
-															<i class="ki-duotone ki-save-2 fs-4 me-1">
-																<span class="path1"></span>
-																<span class="path2"></span>
-															</i>Activity</a>
-														</li>
-														<!--end:::Tab item-->
-													</ul>
-													<!--end:::Tabs-->
-													<!--begin::Tab content-->
-													<div class="tab-content" id="">
-														<!--begin:::Tab pane-->
-														<div class="tab-pane fade show active" id="kt_contact_view_general" role="tabpanel">
-															<!--begin::Additional details-->
-															<div class="d-flex flex-column gap-5 mt-7">
-																<!--begin::Company name-->
-																<div class="d-flex flex-column gap-1">
-																	<div class="fw-bold text-muted">Company Name</div>
-																	<div class="fw-bold fs-5">Keenthemes Inc</div>
-																</div>
-																<!--end::Company name-->
-																<!--begin::City-->
-																<div class="d-flex flex-column gap-1">
-																	<div class="fw-bold text-muted">City</div>
-																	<div class="fw-bold fs-5">Melbourne</div>
-																</div>
-																<!--end::City-->
-																<!--begin::Country-->
-																<div class="d-flex flex-column gap-1">
-																	<div class="fw-bold text-muted">Country</div>
-																	<div class="fw-bold fs-5">Australia</div>
-																</div>
-																<!--end::Country-->
-																<!--begin::Notes-->
-																<div class="d-flex flex-column gap-1">
-																	<div class="fw-bold text-muted">Notes</div>
-																	<p>Emma Smith joined the team on September 2019 as a junior associate. She soon showcased her expertise and experience in knowledge and skill in the field, which was very valuable to the company. She was promptly promoted to senior associate on July 2020.
-																	<br />
-																	<br />Emma Smith now heads a team of 5 associates and leads the company's sales growth by 7%.</p>
-																</div>
-																<!--end::Notes-->
-															</div>
-															<!--end::Additional details-->
-														</div>
-														<!--end:::Tab pane-->
-														<!--begin:::Tab pane-->
-														<div class="tab-pane fade" id="kt_contact_view_meetings" role="tabpanel">
-															<!--begin::Dates-->
-															<ul class="nav nav-pills d-flex flex-stack flex-nowrap hover-scroll-x">
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_0">
-																		<span class="opacity-50 fs-7 fw-semibold">Su</span>
-																		<span class="fs-6 fw-bold">22</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary active" data-bs-toggle="tab" href="#kt_schedule_day_1">
-																		<span class="opacity-50 fs-7 fw-semibold">Mo</span>
-																		<span class="fs-6 fw-bold">23</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_2">
-																		<span class="opacity-50 fs-7 fw-semibold">Tu</span>
-																		<span class="fs-6 fw-bold">24</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_3">
-																		<span class="opacity-50 fs-7 fw-semibold">We</span>
-																		<span class="fs-6 fw-bold">25</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_4">
-																		<span class="opacity-50 fs-7 fw-semibold">Th</span>
-																		<span class="fs-6 fw-bold">26</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_5">
-																		<span class="opacity-50 fs-7 fw-semibold">Fr</span>
-																		<span class="fs-6 fw-bold">27</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_6">
-																		<span class="opacity-50 fs-7 fw-semibold">Sa</span>
-																		<span class="fs-6 fw-bold">28</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_7">
-																		<span class="opacity-50 fs-7 fw-semibold">Su</span>
-																		<span class="fs-6 fw-bold">29</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_8">
-																		<span class="opacity-50 fs-7 fw-semibold">Mo</span>
-																		<span class="fs-6 fw-bold">30</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-																<!--begin::Date-->
-																<li class="nav-item me-1">
-																	<a class="nav-link btn d-flex flex-column flex-center rounded-pill min-w-45px me-2 py-4 px-3 text-dark text-active-white btn-active-primary" data-bs-toggle="tab" href="#kt_schedule_day_9">
-																		<span class="opacity-50 fs-7 fw-semibold">Tu</span>
-																		<span class="fs-6 fw-bold">31</span>
-																	</a>
-																</li>
-																<!--end::Date-->
-															</ul>
-															<!--end::Dates-->
-															<!--begin::Tab Content-->
-															<div class="tab-content">
-																<!--begin::Day-->
-																<div id="kt_schedule_day_0" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">14:30 - 15:30
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Caleb Donaldson</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">13:00 - 14:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">David Stevenson</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">13:00 - 14:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Walter White</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_1" class="tab-pane fade show active">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">9:00 - 10:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Peter Marcus</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">12:00 - 13:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">9 Degree Project Estimation Meeting</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Sean Bean</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">12:00 - 13:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">9 Degree Project Estimation Meeting</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Peter Marcus</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_2" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">10:00 - 11:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Creative Content Initiative</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Sean Bean</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">10:00 - 11:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Lunch & Learn Catch Up</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Kendell Trevor</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">9:00 - 10:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Yannis Gloverson</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_3" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">11:00 - 11:45
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Naomi Hayabusa</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">16:30 - 17:30
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Kendell Trevor</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">13:00 - 14:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Mark Randall</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_4" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">13:00 - 14:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Kendell Trevor</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">9:00 - 10:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Mark Randall</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">10:00 - 11:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Sean Bean</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_5" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">16:30 - 17:30
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Lunch & Learn Catch Up</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Bob Harris</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">9:00 - 10:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Dashboard UI/UX Design Review</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Naomi Hayabusa</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">9:00 - 10:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Development Team Capacity Review</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Sean Bean</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_6" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">12:00 - 13:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Development Team Capacity Review</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Michael Walters</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">11:00 - 11:45
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Walter White</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">12:00 - 13:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Caleb Donaldson</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_7" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">13:00 - 14:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Weekly Team Stand-Up</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Yannis Gloverson</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">11:00 - 11:45
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Sales Pitch Proposal</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Walter White</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-primary rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">13:00 - 14:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Kendell Trevor</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_8" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">10:00 - 11:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Yannis Gloverson</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-danger rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">9:00 - 10:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Bob Harris</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">11:00 - 11:45
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Sean Bean</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-																<!--begin::Day-->
-																<div id="kt_schedule_day_9" class="tab-pane fade show">
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-warning rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">13:00 - 14:00
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Project Review & Testing</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Karina Clarke</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-success rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">16:30 - 17:30
-																			<span class="fs-7 text-gray-400 text-uppercase">pm</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Marketing Campaign Discussion</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Peter Marcus</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																	<!--begin::Time-->
-																	<div class="d-flex flex-stack position-relative mt-8">
-																		<!--begin::Bar-->
-																		<div class="position-absolute h-100 w-4px bg-info rounded top-0 start-0"></div>
-																		<!--end::Bar-->
-																		<!--begin::Info-->
-																		<div class="fw-semibold ms-5 text-gray-600">
-																			<!--begin::Time-->
-																			<div class="fs-5">9:00 - 10:00
-																			<span class="fs-7 text-gray-400 text-uppercase">am</span></div>
-																			<!--end::Time-->
-																			<!--begin::Title-->
-																			<a href="#" class="fs-5 fw-bold text-gray-800 text-hover-primary mb-2">Team Backlog Grooming Session</a>
-																			<!--end::Title-->
-																			<!--begin::User-->
-																			<div class="text-gray-400">Lead by
-																			<a href="#">Kendell Trevor</a></div>
-																			<!--end::User-->
-																		</div>
-																		<!--end::Info-->
-																		<!--begin::Action-->
-																		<a href="#" class="btn btn-bg-light btn-active-color-primary btn-sm">View</a>
-																		<!--end::Action-->
-																	</div>
-																	<!--end::Time-->
-																</div>
-																<!--end::Day-->
-															</div>
-															<!--end::Tab Content-->
-														</div>
-														<!--end:::Tab pane-->
-														<!--begin:::Tab pane-->
-														<div class="tab-pane fade" id="kt_contact_view_activity" role="tabpanel">
-															<!--begin::Timeline-->
-															<div class="timeline-label">
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">08:42</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-warning fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Text-->
-																	<div class="fw-mormal timeline-content text-muted ps-3">Outlines keep you honest. And keep structure</div>
-																	<!--end::Text-->
-																</div>
-																<!--end::Item-->
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">10:00</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-success fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Content-->
-																	<div class="timeline-content d-flex">
-																		<span class="fw-bold text-gray-800 ps-3">AEOL meeting</span>
-																	</div>
-																	<!--end::Content-->
-																</div>
-																<!--end::Item-->
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">14:37</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-danger fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Desc-->
-																	<div class="timeline-content fw-bold text-gray-800 ps-3">Make deposit
-																	<a href="#" class="text-primary">USD 700</a>. to ESL</div>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Item-->
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">16:50</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-primary fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Text-->
-																	<div class="timeline-content fw-mormal text-muted ps-3">Indulging in poorly driving and keep structure keep great</div>
-																	<!--end::Text-->
-																</div>
-																<!--end::Item-->
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">21:03</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-danger fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Desc-->
-																	<div class="timeline-content fw-semibold text-gray-800 ps-3">New order placed
-																	<a href="#" class="text-primary">#XF-2356</a>.</div>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Item-->
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">16:50</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-primary fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Text-->
-																	<div class="timeline-content fw-mormal text-muted ps-3">Indulging in poorly driving and keep structure keep great</div>
-																	<!--end::Text-->
-																</div>
-																<!--end::Item-->
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">21:03</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-danger fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Desc-->
-																	<div class="timeline-content fw-semibold text-gray-800 ps-3">New order placed
-																	<a href="#" class="text-primary">#XF-2356</a>.</div>
-																	<!--end::Desc-->
-																</div>
-																<!--end::Item-->
-																<!--begin::Item-->
-																<div class="timeline-item">
-																	<!--begin::Label-->
-																	<div class="timeline-label fw-bold text-gray-800 fs-6">10:30</div>
-																	<!--end::Label-->
-																	<!--begin::Badge-->
-																	<div class="timeline-badge">
-																		<i class="ki-duotone ki-abstract-8 text-success fs-1">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>
-																	</div>
-																	<!--end::Badge-->
-																	<!--begin::Text-->
-																	<div class="timeline-content fw-mormal text-muted ps-3">Finance KPI Mobile app launch preparion meeting</div>
-																	<!--end::Text-->
-																</div>
-																<!--end::Item-->
-															</div>
-															<!--end::Timeline-->
-														</div>
-														<!--end:::Tab pane-->
+													<!--end::Summary-->
+													<!--begin::Details toggle-->
+													<div class="d-flex flex-stack fs-4 py-3">
+														<div class="fw-bold">Details</div>
+														<!--begin::Badge-->
+														<div class="badge badge-light-info d-inline">Premium user</div>
+														<!--begin::Badge-->
 													</div>
-													<!--end::Tab content-->
+													<!--end::Details toggle-->
+													<div class="separator separator-dashed my-3"></div>
+													<!--begin::Details content-->
+													<div class="pb-5 fs-6">
+														<!--begin::Details item-->
+														<div class="fw-bold mt-5">Account ID</div>
+														<div class="text-gray-600">ID-45453423</div>
+														<!--begin::Details item-->
+														<!--begin::Details item-->
+														<div class="fw-bold mt-5">Billing Email</div>
+														<div class="text-gray-600">
+															<a href="#" class="text-gray-600 text-hover-primary">info@keenthemes.com</a>
+														</div>
+														<!--begin::Details item-->
+														<!--begin::Details item-->
+														<div class="fw-bold mt-5">Delivery Address</div>
+														<div class="text-gray-600">101 Collin Street,
+														<br />Melbourne 3000 VIC
+														<br />Australia</div>
+														<!--begin::Details item-->
+														<!--begin::Details item-->
+														<div class="fw-bold mt-5">Language</div>
+														<div class="text-gray-600">English</div>
+														<!--begin::Details item-->
+														<!--begin::Details item-->
+														<div class="fw-bold mt-5">Latest Transaction</div>
+														<div class="text-gray-600">
+															<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary">#14534</a>
+														</div>
+														<!--begin::Details item-->
+													</div>
+													<!--end::Details content-->
 												</div>
 												<!--end::Card body-->
 											</div>
-											<!--end::Contacts-->
+											<!--end::Card-->
+										</div>
+										<!--end::Sidebar-->
+										<!--begin::Content-->
+										<div class="flex-lg-row-fluid ms-lg-15">
+											<!--begin:::Tabs-->
+											<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-8">
+												<!--begin:::Tab item-->
+												<li class="nav-item">
+													<a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_customer_overview">Overview</a>
+												</li>
+												<!--end:::Tab item-->
+												<!--begin:::Tab item-->
+												<li class="nav-item">
+													<a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_customer_general">General Settings</a>
+												</li>
+												<!--end:::Tab item-->
+												<!--begin:::Tab item-->
+												<li class="nav-item">
+													<a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_customer_advanced">Advanced Settings</a>
+												</li>
+												<!--end:::Tab item-->
+											</ul>
+											<!--end:::Tabs-->
+											<!--begin:::Tab content-->
+											<div class="tab-content" id="myTabContent">
+												<!--begin:::Tab pane-->
+												<div class="tab-pane fade show active" id="kt_ecommerce_customer_overview" role="tabpanel">
+													<div class="row row-cols-1 row-cols-md-2 mb-6 mb-xl-9">
+														<div class="col">
+															<!--begin::Card-->
+															<div class="card pt-4 h-md-100 mb-6 mb-md-0">
+																<!--begin::Card header-->
+																<div class="card-header border-0">
+																	<!--begin::Card title-->
+																	<div class="card-title">
+																		<h2 class="fw-bold">Reward Points</h2>
+																	</div>
+																	<!--end::Card title-->
+																</div>
+																<!--end::Card header-->
+																<!--begin::Card body-->
+																<div class="card-body pt-0">
+																	<div class="fw-bold fs-2">
+																		<div class="d-flex">
+																			<i class="ki-duotone ki-heart text-info fs-2x">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																			</i>
+																			<div class="ms-2">4,571
+																			<span class="text-muted fs-4 fw-semibold">Points earned</span></div>
+																		</div>
+																		<div class="fs-7 fw-normal text-muted">Earn reward points with every purchase.</div>
+																	</div>
+																</div>
+																<!--end::Card body-->
+															</div>
+															<!--end::Card-->
+														</div>
+														<div class="col">
+															<!--begin::Reward Tier-->
+															<a href="#" class="card bg-info hoverable h-md-100">
+																<!--begin::Body-->
+																<div class="card-body">
+																	<i class="ki-duotone ki-award text-white fs-3x ms-n1">
+																		<span class="path1"></span>
+																		<span class="path2"></span>
+																		<span class="path3"></span>
+																	</i>
+																	<div class="text-white fw-bold fs-2 mt-5">Premium Member</div>
+																	<div class="fw-semibold text-white">Tier Milestone Reached</div>
+																</div>
+																<!--end::Body-->
+															</a>
+															<!--end::Reward Tier-->
+														</div>
+													</div>
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title">
+																<h2>Transaction History</h2>
+															</div>
+															<!--end::Card title-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div class="card-body pt-0 pb-5">
+															<!--begin::Table-->
+															<table class="table align-middle table-row-dashed gy-5" id="kt_table_customers_payment">
+																<thead class="border-bottom border-gray-200 fs-7 fw-bold">
+																	<tr class="text-start text-muted text-uppercase gs-0">
+																		<th class="min-w-100px">order No.</th>
+																		<th>Status</th>
+																		<th>Amount</th>
+																		<th class="min-w-100px">Rewards</th>
+																		<th class="min-w-100px">Date</th>
+																	</tr>
+																</thead>
+																<tbody class="fs-6 fw-semibold text-gray-600">
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#15433</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-success">Successful</span>
+																		</td>
+																		<td>$1,200.00</td>
+																		<td>120</td>
+																		<td>14 Dec 2020, 8:43 pm</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#14484</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-success">Successful</span>
+																		</td>
+																		<td>$79.00</td>
+																		<td>7</td>
+																		<td>01 Dec 2020, 10:12 am</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#15679</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-success">Successful</span>
+																		</td>
+																		<td>$5,500.00</td>
+																		<td>550</td>
+																		<td>12 Nov 2020, 2:01 pm</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#15341</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-warning">Pending</span>
+																		</td>
+																		<td>$880.00</td>
+																		<td>88</td>
+																		<td>21 Oct 2020, 5:54 pm</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#14853</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-success">Successful</span>
+																		</td>
+																		<td>$7,650.00</td>
+																		<td>765</td>
+																		<td>19 Oct 2020, 7:32 am</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#15486</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-success">Successful</span>
+																		</td>
+																		<td>$375.00</td>
+																		<td>37</td>
+																		<td>23 Sep 2020, 12:38 am</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#15748</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-success">Successful</span>
+																		</td>
+																		<td>$129.00</td>
+																		<td>12</td>
+																		<td>11 Sep 2020, 3:18 pm</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#14385</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-danger">Rejected</span>
+																		</td>
+																		<td>$450.00</td>
+																		<td>45</td>
+																		<td>03 Sep 2020, 1:08 am</td>
+																	</tr>
+																	<tr>
+																		<td>
+																			<a href="/apps/ecommerce/sales/details" class="text-gray-600 text-hover-primary mb-1">#14733</a>
+																		</td>
+																		<td>
+																			<span class="badge badge-light-warning">Pending</span>
+																		</td>
+																		<td>$8,700.00</td>
+																		<td>870</td>
+																		<td>01 Sep 2020, 4:58 pm</td>
+																	</tr>
+																</tbody>
+															</table>
+															<!--end::Table-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+												</div>
+												<!--end:::Tab pane-->
+												<!--begin:::Tab pane-->
+												<div class="tab-pane fade" id="kt_ecommerce_customer_general" role="tabpanel">
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title">
+																<h2>Profile</h2>
+															</div>
+															<!--end::Card title-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div class="card-body pt-0 pb-5">
+															<!--begin::Form-->
+															<form class="form" action="#" id="kt_ecommerce_customer_profile">
+																<!--begin::Input group-->
+																<div class="mb-7">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">
+																		<span>Update Avatar</span>
+																		<span class="ms-1" data-bs-toggle="tooltip" title="Allowed file types: png, jpg, jpeg.">
+																			<i class="ki-duotone ki-information fs-7">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																			</i>
+																		</span>
+																	</label>
+																	<!--end::Label-->
+																	<!--begin::Image input wrapper-->
+																	<div class="mt-1">
+																		<!--begin::Image input placeholder-->
+																		<style>.image-input-placeholder { background-image: url('assets/media/svg/files/blank-image.svg'); } [data-bs-theme="dark"] .image-input-placeholder { background-image: url('assets/media/svg/files/blank-image-dark.svg'); }</style>
+																		<!--end::Image input placeholder-->
+																		<!--begin::Image input-->
+																		<div class="image-input image-input-outline image-input-placeholder" data-kt-image-input="true">
+																			<!--begin::Preview existing avatar-->
+																			<div class="image-input-wrapper w-125px h-125px" style="background-image: url(assets/media/avatars/300-1.jpg)"></div>
+																			<!--end::Preview existing avatar-->
+																			<!--begin::Edit-->
+																			<label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+																				<i class="ki-duotone ki-pencil fs-7">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																				<!--begin::Inputs-->
+																				<input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+																				<input type="hidden" name="avatar_remove" />
+																				<!--end::Inputs-->
+																			</label>
+																			<!--end::Edit-->
+																			<!--begin::Cancel-->
+																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+																				<i class="ki-duotone ki-cross fs-2">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																			<!--end::Cancel-->
+																			<!--begin::Remove-->
+																			<span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow" data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+																				<i class="ki-duotone ki-cross fs-2">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																			<!--end::Remove-->
+																		</div>
+																		<!--end::Image input-->
+																	</div>
+																	<!--end::Image input wrapper-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="fv-row mb-7">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">Name</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input type="text" class="form-control form-control-solid" placeholder="" name="name" value="Max Smith" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Row-->
+																<div class="row row-cols-1 row-cols-md-2">
+																	<!--begin::Col-->
+																	<div class="col">
+																		<!--begin::Input group-->
+																		<div class="fv-row mb-7">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold mb-2">
+																				<span class="required">General Email</span>
+																				<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+																					<i class="ki-duotone ki-information fs-7">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																						<span class="path3"></span>
+																					</i>
+																				</span>
+																			</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<input type="email" class="form-control form-control-solid" placeholder="" name="gen_email" value="max@kt.com" />
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Input group-->
+																	</div>
+																	<!--end::Col-->
+																	<!--begin::Col-->
+																	<div class="col">
+																		<!--begin::Input group-->
+																		<div class="fv-row mb-7">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold mb-2">
+																				<span>Billing Email</span>
+																				<span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+																					<i class="ki-duotone ki-information fs-7">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																						<span class="path3"></span>
+																					</i>
+																				</span>
+																			</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<input type="email" class="form-control form-control-solid" placeholder="" name="bill_email" value="info@keenthemes.com" />
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Input group-->
+																	</div>
+																	<!--end::Col-->
+																</div>
+																<!--end::Row-->
+																<div class="d-flex justify-content-end">
+																	<!--begin::Button-->
+																	<button type="submit" id="kt_ecommerce_customer_profile_submit" class="btn btn-light-primary">
+																		<span class="indicator-label">Save</span>
+																		<span class="indicator-progress">Please wait...
+																		<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+																	</button>
+																	<!--end::Button-->
+																</div>
+															</form>
+															<!--end::Form-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title">
+																<h2>Address Book</h2>
+															</div>
+															<!--end::Card title-->
+															<!--begin::Card toolbar-->
+															<div class="card-toolbar">
+																<a href="#" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_address">
+																<i class="ki-duotone ki-plus-square fs-3">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>Add new address</a>
+															</div>
+															<!--end::Card toolbar-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div id="kt_ecommerce_customer_addresses" class="card-body pt-0 pb-5">
+															<!--begin::Addresses-->
+															<!--begin::Address-->
+															<div class="py-0">
+																<!--begin::Header-->
+																<div class="py-3 d-flex flex-stack flex-wrap">
+																	<!--begin::Toggle-->
+																	<div class="d-flex align-items-center collapsible collapsed rotate" data-bs-toggle="collapse" href="#kt_ecommerce_customer_addresses_1" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_1">
+																		<!--begin::Arrow-->
+																		<div class="me-3 rotate-90">
+																			<i class="ki-duotone ki-right fs-3"></i>
+																		</div>
+																		<!--end::Arrow-->
+																		<!--begin::Summary-->
+																		<div class="me-3">
+																			<div class="d-flex align-items-center">
+																				<div class="fs-4 fw-bold">Home</div>
+																				<div class="badge badge-light-primary ms-5">Default Address</div>
+																			</div>
+																			<div class="text-muted">101 Collin Street</div>
+																		</div>
+																		<!--end::Summary-->
+																	</div>
+																	<!--end::Toggle-->
+																	<!--begin::Toolbar-->
+																	<div class="d-flex my-3 ms-9">
+																		<!--begin::Edit-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_update_address">
+																			<span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+																				<i class="ki-duotone ki-pencil fs-3">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																		</a>
+																		<!--end::Edit-->
+																		<!--begin::Delete-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+																			<i class="ki-duotone ki-trash fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--end::Delete-->
+																		<!--begin::More-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																			<i class="ki-duotone ki-setting-3 fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--begin::Menu-->
+																		<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_default">Set as default address</a>
+																			</div>
+																			<!--end::Menu item-->
+																		</div>
+																		<!--end::Menu-->
+																		<!--end::More-->
+																	</div>
+																	<!--end::Toolbar-->
+																</div>
+																<!--end::Header-->
+																<!--begin::Body-->
+																<div id="kt_ecommerce_customer_addresses_1" class="collapse fs-6 ps-9" data-bs-parent="#kt_ecommerce_customer_addresses">
+																	<!--begin::Details-->
+																	<div class="d-flex flex-column pb-5">
+																		<div class="fw-bold text-gray-600">Max Smith</div>
+																		<div class="text-muted">101 Collin Street,
+																		<br />Melbourne, VIC 3000,
+																		<br />Australia</div>
+																	</div>
+																	<!--end::Details-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Address-->
+															<!--begin::Address-->
+															<div class="py-0">
+																<!--begin::Header-->
+																<div class="py-3 d-flex flex-stack flex-wrap">
+																	<!--begin::Toggle-->
+																	<div class="d-flex align-items-center collapsible collapsed rotate" data-bs-toggle="collapse" href="#kt_ecommerce_customer_addresses_2" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_2">
+																		<!--begin::Arrow-->
+																		<div class="me-3 rotate-90">
+																			<i class="ki-duotone ki-right fs-3"></i>
+																		</div>
+																		<!--end::Arrow-->
+																		<!--begin::Summary-->
+																		<div class="me-3">
+																			<div class="d-flex align-items-center">
+																				<div class="fs-4 fw-bold">Work</div>
+																			</div>
+																			<div class="text-muted">54 Spring Street</div>
+																		</div>
+																		<!--end::Summary-->
+																	</div>
+																	<!--end::Toggle-->
+																	<!--begin::Toolbar-->
+																	<div class="d-flex my-3 ms-9">
+																		<!--begin::Edit-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_update_address">
+																			<span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+																				<i class="ki-duotone ki-pencil fs-3">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																		</a>
+																		<!--end::Edit-->
+																		<!--begin::Delete-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+																			<i class="ki-duotone ki-trash fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--end::Delete-->
+																		<!--begin::More-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																			<i class="ki-duotone ki-setting-3 fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--begin::Menu-->
+																		<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_default">Set as default address</a>
+																			</div>
+																			<!--end::Menu item-->
+																		</div>
+																		<!--end::Menu-->
+																		<!--end::More-->
+																	</div>
+																	<!--end::Toolbar-->
+																</div>
+																<!--end::Header-->
+																<!--begin::Body-->
+																<div id="kt_ecommerce_customer_addresses_2" class="collapse fs-6 ps-9" data-bs-parent="#kt_ecommerce_customer_addresses">
+																	<!--begin::Details-->
+																	<div class="d-flex flex-column pb-5">
+																		<div class="fw-bold text-gray-600">Max Smith</div>
+																		<div class="text-muted">54 Spring Street,
+																		<br />Melbourne, VIC 3000,
+																		<br />Australia</div>
+																	</div>
+																	<!--end::Details-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Address-->
+															<!--begin::Address-->
+															<div class="py-0">
+																<!--begin::Header-->
+																<div class="py-3 d-flex flex-stack flex-wrap">
+																	<!--begin::Toggle-->
+																	<div class="d-flex align-items-center collapsible collapsed rotate" data-bs-toggle="collapse" href="#kt_ecommerce_customer_addresses_3" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_3">
+																		<!--begin::Arrow-->
+																		<div class="me-3 rotate-90">
+																			<i class="ki-duotone ki-right fs-3"></i>
+																		</div>
+																		<!--end::Arrow-->
+																		<!--begin::Summary-->
+																		<div class="me-3">
+																			<div class="d-flex align-items-center">
+																				<div class="fs-4 fw-bold">Family</div>
+																			</div>
+																			<div class="text-muted">1521 Broadway</div>
+																		</div>
+																		<!--end::Summary-->
+																	</div>
+																	<!--end::Toggle-->
+																	<!--begin::Toolbar-->
+																	<div class="d-flex my-3 ms-9">
+																		<!--begin::Edit-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_update_address">
+																			<span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+																				<i class="ki-duotone ki-pencil fs-3">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																		</a>
+																		<!--end::Edit-->
+																		<!--begin::Delete-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+																			<i class="ki-duotone ki-trash fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--end::Delete-->
+																		<!--begin::More-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																			<i class="ki-duotone ki-setting-3 fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--begin::Menu-->
+																		<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-200px py-3" data-kt-menu="true">
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_default">Set as default address</a>
+																			</div>
+																			<!--end::Menu item-->
+																		</div>
+																		<!--end::Menu-->
+																		<!--end::More-->
+																	</div>
+																	<!--end::Toolbar-->
+																</div>
+																<!--end::Header-->
+																<!--begin::Body-->
+																<div id="kt_ecommerce_customer_addresses_3" class="collapse fs-6 ps-9" data-bs-parent="#kt_ecommerce_customer_addresses">
+																	<!--begin::Details-->
+																	<div class="d-flex flex-column pb-5">
+																		<div class="fw-bold text-gray-600">Francis Mitcham</div>
+																		<div class="text-muted">1521 Broadway,
+																		<br />New York,
+																		<br />Melbourne, NY 10036,
+																		<br />United States</div>
+																	</div>
+																	<!--end::Details-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Address-->
+															<!--end::Addresses-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+												</div>
+												<!--end:::Tab pane-->
+												<!--begin:::Tab pane-->
+												<div class="tab-pane fade" id="kt_ecommerce_customer_advanced" role="tabpanel">
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title">
+																<h2>Security Details</h2>
+															</div>
+															<!--end::Card title-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div class="card-body pt-0 pb-5">
+															<!--begin::Table wrapper-->
+															<div class="table-responsive">
+																<!--begin::Table-->
+																<table class="table align-middle table-row-dashed gy-5" id="kt_table_users_login_session">
+																	<!--begin::Table body-->
+																	<tbody class="fs-6 fw-semibold text-gray-600">
+																		<tr>
+																			<td>Phone</td>
+																			<td>+6141 234 567</td>
+																			<td class="text-end">
+																				<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_phone">
+																					<i class="ki-duotone ki-pencil fs-3">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																					</i>
+																				</button>
+																			</td>
+																		</tr>
+																		<tr>
+																			<td>Password</td>
+																			<td>******</td>
+																			<td class="text-end">
+																				<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" data-bs-toggle="modal" data-bs-target="#kt_modal_update_password">
+																					<i class="ki-duotone ki-pencil fs-3">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																					</i>
+																				</button>
+																			</td>
+																		</tr>
+																	</tbody>
+																	<!--end::Table body-->
+																</table>
+																<!--end::Table-->
+															</div>
+															<!--end::Table wrapper-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title flex-column">
+																<h2 class="mb-1">Two Step Authentication</h2>
+																<div class="fs-6 fw-semibold text-muted">Keep your account extra secure with a second authentication step.</div>
+															</div>
+															<!--end::Card title-->
+															<!--begin::Card toolbar-->
+															<div class="card-toolbar">
+																<!--begin::Add-->
+																<button type="button" class="btn btn-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																<i class="ki-duotone ki-fingerprint-scanning fs-3">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																	<span class="path4"></span>
+																	<span class="path5"></span>
+																</i>Add Authentication Step</button>
+																<!--begin::Menu-->
+																<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-6 w-200px py-4" data-kt-menu="true">
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_add_auth_app">Use authenticator app</a>
+																	</div>
+																	<!--end::Menu item-->
+																	<!--begin::Menu item-->
+																	<div class="menu-item px-3">
+																		<a href="#" class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_add_one_time_password">Enable one-time password</a>
+																	</div>
+																	<!--end::Menu item-->
+																</div>
+																<!--end::Menu-->
+																<!--end::Add-->
+															</div>
+															<!--end::Card toolbar-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div class="card-body pb-5">
+															<!--begin::Item-->
+															<div class="d-flex flex-stack">
+																<!--begin::Content-->
+																<div class="d-flex flex-column">
+																	<span>SMS</span>
+																	<span class="text-muted fs-6">+6141 234 567</span>
+																</div>
+																<!--end::Content-->
+																<!--begin::Action-->
+																<div class="d-flex justify-content-end align-items-center">
+																	<!--begin::Button-->
+																	<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto me-5" data-bs-toggle="modal" data-bs-target="#kt_modal_add_one_time_password">
+																		<i class="ki-duotone ki-pencil fs-3">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																		</i>
+																	</button>
+																	<!--end::Button-->
+																	<!--begin::Button-->
+																	<button type="button" class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto" id="kt_users_delete_two_step">
+																		<i class="ki-duotone ki-trash fs-3">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																			<span class="path5"></span>
+																		</i>
+																	</button>
+																	<!--end::Button-->
+																</div>
+																<!--end::Action-->
+															</div>
+															<!--end::Item-->
+															<!--begin:Separator-->
+															<div class="separator separator-dashed my-5"></div>
+															<!--end:Separator-->
+															<!--begin::Disclaimer-->
+															<div class="text-gray-600">If you lose your mobile device or security key, you can
+															<a href='#' class="me-1">generate a backup code</a>to sign in to your account.</div>
+															<!--end::Disclaimer-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+													<!--begin::Card-->
+													<div class="card pt-4 mb-6 mb-xl-9">
+														<!--begin::Card header-->
+														<div class="card-header border-0">
+															<!--begin::Card title-->
+															<div class="card-title">
+																<h2 class="fw-bold mb-0">Payment Methods</h2>
+															</div>
+															<!--end::Card title-->
+															<!--begin::Card toolbar-->
+															<div class="card-toolbar">
+																<a href="#" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+																<i class="ki-duotone ki-plus-square fs-3">
+																	<span class="path1"></span>
+																	<span class="path2"></span>
+																	<span class="path3"></span>
+																</i>Add new method</a>
+															</div>
+															<!--end::Card toolbar-->
+														</div>
+														<!--end::Card header-->
+														<!--begin::Card body-->
+														<div id="kt_customer_view_payment_method" class="card-body pt-0">
+															<!--begin::Option-->
+															<div class="py-0" data-kt-customer-payment-method="row">
+																<!--begin::Header-->
+																<div class="py-3 d-flex flex-stack flex-wrap">
+																	<!--begin::Toggle-->
+																	<div class="d-flex align-items-center collapsible rotate" data-bs-toggle="collapse" href="#kt_customer_view_payment_method_1" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_1">
+																		<!--begin::Arrow-->
+																		<div class="me-3 rotate-90">
+																			<i class="ki-duotone ki-right fs-3"></i>
+																		</div>
+																		<!--end::Arrow-->
+																		<!--begin::Logo-->
+																		<img src="assets/media/svg/card-logos/mastercard.svg" class="w-40px me-3" alt="" />
+																		<!--end::Logo-->
+																		<!--begin::Summary-->
+																		<div class="me-3">
+																			<div class="d-flex align-items-center">
+																				<div class="text-gray-800 fw-bold">Mastercard</div>
+																				<div class="badge badge-light-primary ms-5">Primary</div>
+																			</div>
+																			<div class="text-muted">Expires Dec 2024</div>
+																		</div>
+																		<!--end::Summary-->
+																	</div>
+																	<!--end::Toggle-->
+																	<!--begin::Toolbar-->
+																	<div class="d-flex my-3 ms-9">
+																		<!--begin::Edit-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+																			<span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+																				<i class="ki-duotone ki-pencil fs-3">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																		</a>
+																		<!--end::Edit-->
+																		<!--begin::Delete-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+																			<i class="ki-duotone ki-trash fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--end::Delete-->
+																		<!--begin::More-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																			<i class="ki-duotone ki-setting-3 fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--begin::Menu-->
+																		<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3" data-kt-menu="true">
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_primary">Set as Primary</a>
+																			</div>
+																			<!--end::Menu item-->
+																		</div>
+																		<!--end::Menu-->
+																		<!--end::More-->
+																	</div>
+																	<!--end::Toolbar-->
+																</div>
+																<!--end::Header-->
+																<!--begin::Body-->
+																<div id="kt_customer_view_payment_method_1" class="collapse show fs-6 ps-10" data-bs-parent="#kt_customer_view_payment_method">
+																	<!--begin::Details-->
+																	<div class="d-flex flex-wrap py-5">
+																		<!--begin::Col-->
+																		<div class="flex-equal me-5">
+																			<table class="table table-flush fw-semibold gy-1">
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Name</td>
+																					<td class="text-gray-800">Emma Smith</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Number</td>
+																					<td class="text-gray-800">**** 8322</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Expires</td>
+																					<td class="text-gray-800">12/2024</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Type</td>
+																					<td class="text-gray-800">Mastercard credit card</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Issuer</td>
+																					<td class="text-gray-800">VICBANK</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">ID</td>
+																					<td class="text-gray-800">id_4325df90sdf8</td>
+																				</tr>
+																			</table>
+																		</div>
+																		<!--end::Col-->
+																		<!--begin::Col-->
+																		<div class="flex-equal">
+																			<table class="table table-flush fw-semibold gy-1">
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Billing address</td>
+																					<td class="text-gray-800">AU</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Phone</td>
+																					<td class="text-gray-800">No phone provided</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Email</td>
+																					<td class="text-gray-800">
+																						<a href="#" class="text-gray-900 text-hover-primary">smith@kpmg.com</a>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Origin</td>
+																					<td class="text-gray-800">Australia
+																					<div class="symbol symbol-20px symbol-circle ms-2">
+																						<img src="assets/media/flags/australia.svg" />
+																					</div></td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">CVC check</td>
+																					<td class="text-gray-800">Passed
+																					<i class="ki-duotone ki-check-circle fs-2 text-success">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																					</i></td>
+																				</tr>
+																			</table>
+																		</div>
+																		<!--end::Col-->
+																	</div>
+																	<!--end::Details-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Option-->
+															<div class="separator separator-dashed"></div>
+															<!--begin::Option-->
+															<div class="py-0" data-kt-customer-payment-method="row">
+																<!--begin::Header-->
+																<div class="py-3 d-flex flex-stack flex-wrap">
+																	<!--begin::Toggle-->
+																	<div class="d-flex align-items-center collapsible collapsed rotate" data-bs-toggle="collapse" href="#kt_customer_view_payment_method_2" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_2">
+																		<!--begin::Arrow-->
+																		<div class="me-3 rotate-90">
+																			<i class="ki-duotone ki-right fs-3"></i>
+																		</div>
+																		<!--end::Arrow-->
+																		<!--begin::Logo-->
+																		<img src="assets/media/svg/card-logos/visa.svg" class="w-40px me-3" alt="" />
+																		<!--end::Logo-->
+																		<!--begin::Summary-->
+																		<div class="me-3">
+																			<div class="d-flex align-items-center">
+																				<div class="text-gray-800 fw-bold">Visa</div>
+																			</div>
+																			<div class="text-muted">Expires Feb 2022</div>
+																		</div>
+																		<!--end::Summary-->
+																	</div>
+																	<!--end::Toggle-->
+																	<!--begin::Toolbar-->
+																	<div class="d-flex my-3 ms-9">
+																		<!--begin::Edit-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+																			<span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+																				<i class="ki-duotone ki-pencil fs-3">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																		</a>
+																		<!--end::Edit-->
+																		<!--begin::Delete-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+																			<i class="ki-duotone ki-trash fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--end::Delete-->
+																		<!--begin::More-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																			<i class="ki-duotone ki-setting-3 fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--begin::Menu-->
+																		<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3" data-kt-menu="true">
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_primary">Set as Primary</a>
+																			</div>
+																			<!--end::Menu item-->
+																		</div>
+																		<!--end::Menu-->
+																		<!--end::More-->
+																	</div>
+																	<!--end::Toolbar-->
+																</div>
+																<!--end::Header-->
+																<!--begin::Body-->
+																<div id="kt_customer_view_payment_method_2" class="collapse fs-6 ps-10" data-bs-parent="#kt_customer_view_payment_method">
+																	<!--begin::Details-->
+																	<div class="d-flex flex-wrap py-5">
+																		<!--begin::Col-->
+																		<div class="flex-equal me-5">
+																			<table class="table table-flush fw-semibold gy-1">
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Name</td>
+																					<td class="text-gray-800">Melody Macy</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Number</td>
+																					<td class="text-gray-800">**** 5359</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Expires</td>
+																					<td class="text-gray-800">02/2022</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Type</td>
+																					<td class="text-gray-800">Visa credit card</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Issuer</td>
+																					<td class="text-gray-800">ENBANK</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">ID</td>
+																					<td class="text-gray-800">id_w2r84jdy723</td>
+																				</tr>
+																			</table>
+																		</div>
+																		<!--end::Col-->
+																		<!--begin::Col-->
+																		<div class="flex-equal">
+																			<table class="table table-flush fw-semibold gy-1">
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Billing address</td>
+																					<td class="text-gray-800">UK</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Phone</td>
+																					<td class="text-gray-800">No phone provided</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Email</td>
+																					<td class="text-gray-800">
+																						<a href="#" class="text-gray-900 text-hover-primary">melody@altbox.com</a>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Origin</td>
+																					<td class="text-gray-800">United Kingdom
+																					<div class="symbol symbol-20px symbol-circle ms-2">
+																						<img src="assets/media/flags/united-kingdom.svg" />
+																					</div></td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">CVC check</td>
+																					<td class="text-gray-800">Passed
+																					<i class="ki-duotone ki-check fs-2 text-success"></i></td>
+																				</tr>
+																			</table>
+																		</div>
+																		<!--end::Col-->
+																	</div>
+																	<!--end::Details-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Option-->
+															<div class="separator separator-dashed"></div>
+															<!--begin::Option-->
+															<div class="py-0" data-kt-customer-payment-method="row">
+																<!--begin::Header-->
+																<div class="py-3 d-flex flex-stack flex-wrap">
+																	<!--begin::Toggle-->
+																	<div class="d-flex align-items-center collapsible collapsed rotate" data-bs-toggle="collapse" href="#kt_customer_view_payment_method_3" role="button" aria-expanded="false" aria-controls="kt_customer_view_payment_method_3">
+																		<!--begin::Arrow-->
+																		<div class="me-3 rotate-90">
+																			<i class="ki-duotone ki-right fs-3"></i>
+																		</div>
+																		<!--end::Arrow-->
+																		<!--begin::Logo-->
+																		<img src="assets/media/svg/card-logos/american-express.svg" class="w-40px me-3" alt="" />
+																		<!--end::Logo-->
+																		<!--begin::Summary-->
+																		<div class="me-3">
+																			<div class="d-flex align-items-center">
+																				<div class="text-gray-800 fw-bold">American Express</div>
+																				<div class="badge badge-light-danger ms-5">Expired</div>
+																			</div>
+																			<div class="text-muted">Expires Aug 2021</div>
+																		</div>
+																		<!--end::Summary-->
+																	</div>
+																	<!--end::Toggle-->
+																	<!--begin::Toolbar-->
+																	<div class="d-flex my-3 ms-9">
+																		<!--begin::Edit-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+																			<span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+																				<i class="ki-duotone ki-pencil fs-3">
+																					<span class="path1"></span>
+																					<span class="path2"></span>
+																				</i>
+																			</span>
+																		</a>
+																		<!--end::Edit-->
+																		<!--begin::Delete-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px me-3" data-bs-toggle="tooltip" title="Delete" data-kt-customer-payment-method="delete">
+																			<i class="ki-duotone ki-trash fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--end::Delete-->
+																		<!--begin::More-->
+																		<a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px" data-bs-toggle="tooltip" title="More Options" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+																			<i class="ki-duotone ki-setting-3 fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</a>
+																		<!--begin::Menu-->
+																		<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3" data-kt-menu="true">
+																			<!--begin::Menu item-->
+																			<div class="menu-item px-3">
+																				<a href="#" class="menu-link px-3" data-kt-payment-mehtod-action="set_as_primary">Set as Primary</a>
+																			</div>
+																			<!--end::Menu item-->
+																		</div>
+																		<!--end::Menu-->
+																		<!--end::More-->
+																	</div>
+																	<!--end::Toolbar-->
+																</div>
+																<!--end::Header-->
+																<!--begin::Body-->
+																<div id="kt_customer_view_payment_method_3" class="collapse fs-6 ps-10" data-bs-parent="#kt_customer_view_payment_method">
+																	<!--begin::Details-->
+																	<div class="d-flex flex-wrap py-5">
+																		<!--begin::Col-->
+																		<div class="flex-equal me-5">
+																			<table class="table table-flush fw-semibold gy-1">
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Name</td>
+																					<td class="text-gray-800">Max Smith</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Number</td>
+																					<td class="text-gray-800">**** 4437</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Expires</td>
+																					<td class="text-gray-800">08/2021</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Type</td>
+																					<td class="text-gray-800">American express credit card</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Issuer</td>
+																					<td class="text-gray-800">USABANK</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">ID</td>
+																					<td class="text-gray-800">id_89457jcje63</td>
+																				</tr>
+																			</table>
+																		</div>
+																		<!--end::Col-->
+																		<!--begin::Col-->
+																		<div class="flex-equal">
+																			<table class="table table-flush fw-semibold gy-1">
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Billing address</td>
+																					<td class="text-gray-800">US</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Phone</td>
+																					<td class="text-gray-800">No phone provided</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Email</td>
+																					<td class="text-gray-800">
+																						<a href="#" class="text-gray-900 text-hover-primary">max@kt.com</a>
+																					</td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">Origin</td>
+																					<td class="text-gray-800">United States of America
+																					<div class="symbol symbol-20px symbol-circle ms-2">
+																						<img src="assets/media/flags/united-states.svg" />
+																					</div></td>
+																				</tr>
+																				<tr>
+																					<td class="text-muted min-w-125px w-125px">CVC check</td>
+																					<td class="text-gray-800">Failed
+																					<i class="ki-duotone ki-cross fs-2 text-danger">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																					</i></td>
+																				</tr>
+																			</table>
+																		</div>
+																		<!--end::Col-->
+																	</div>
+																	<!--end::Details-->
+																</div>
+																<!--end::Body-->
+															</div>
+															<!--end::Option-->
+														</div>
+														<!--end::Card body-->
+													</div>
+													<!--end::Card-->
+												</div>
+												<!--end:::Tab pane-->
+											</div>
+											<!--end:::Tab content-->
 										</div>
 										<!--end::Content-->
 									</div>
-									<!--end::Contacts App- View Contact-->
+									<!--end::Layout-->
+									<!--begin::Modals-->
+									<!--begin::Modal - New Address-->
+									<div class="modal fade" id="kt_modal_update_address" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Form-->
+												<form class="form" action="#" id="kt_modal_update_address_form">
+													<!--begin::Modal header-->
+													<div class="modal-header" id="kt_modal_update_address_header">
+														<!--begin::Modal title-->
+														<h2 class="fw-bold">Update Address</h2>
+														<!--end::Modal title-->
+														<!--begin::Close-->
+														<div id="kt_modal_update_address_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+															<i class="ki-duotone ki-cross fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+														</div>
+														<!--end::Close-->
+													</div>
+													<!--end::Modal header-->
+													<!--begin::Modal body-->
+													<div class="modal-body py-10 px-lg-17">
+														<!--begin::Scroll-->
+														<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_update_address_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_update_address_header" data-kt-scroll-wrappers="#kt_modal_update_address_scroll" data-kt-scroll-offset="300px">
+															<!--begin::Billing toggle-->
+															<div class="fw-bold fs-3 rotate collapsible collapsed mb-7" data-bs-toggle="collapse" href="#kt_modal_update_address_billing_info" role="button" aria-expanded="false" aria-controls="kt_modal_update_address_billing_info">Shipping Information
+															<span class="ms-2 rotate-180">
+																<i class="ki-duotone ki-down fs-3"></i>
+															</span></div>
+															<!--end::Billing toggle-->
+															<!--begin::Billing form-->
+															<div id="kt_modal_update_address_billing_info" class="collapse show">
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">Address Line 1</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" placeholder="" name="address1" value="101, Collins Street" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">Address Line 2</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" placeholder="" name="address2" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">City / Town</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" placeholder="" name="city" value="Melbourne" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="row g-9 mb-7">
+																	<!--begin::Col-->
+																	<div class="col-md-6 fv-row">
+																		<!--begin::Label-->
+																		<label class="fs-6 fw-semibold mb-2 required">State / Province</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<input class="form-control form-control-solid" placeholder="" name="state" value="Victoria" />
+																		<!--end::Input-->
+																	</div>
+																	<!--end::Col-->
+																	<!--begin::Col-->
+																	<div class="col-md-6 fv-row">
+																		<!--begin::Label-->
+																		<label class="fs-6 fw-semibold mb-2 required">Post Code</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<input class="form-control form-control-solid" placeholder="" name="postcode" value="3000" />
+																		<!--end::Input-->
+																	</div>
+																	<!--end::Col-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">
+																		<span class="required">Country</span>
+																		<span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
+																			<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																			</i>
+																		</span>
+																	</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<select name="country" aria-label="Select a Country" data-control="select2" data-placeholder="Select a Country..." data-dropdown-parent="#kt_modal_update_address" class="form-select form-select-solid fw-bold">
+																		<option value="">Select a Country...</option>
+																		<option value="AF">Afghanistan</option>
+																		<option value="AX">Aland Islands</option>
+																		<option value="AL">Albania</option>
+																		<option value="DZ">Algeria</option>
+																		<option value="AS">American Samoa</option>
+																		<option value="AD">Andorra</option>
+																		<option value="AO">Angola</option>
+																		<option value="AI">Anguilla</option>
+																		<option value="AG">Antigua and Barbuda</option>
+																		<option value="AR">Argentina</option>
+																		<option value="AM">Armenia</option>
+																		<option value="AW">Aruba</option>
+																		<option value="AU" selected="selected">Australia</option>
+																		<option value="AT">Austria</option>
+																		<option value="AZ">Azerbaijan</option>
+																		<option value="BS">Bahamas</option>
+																		<option value="BH">Bahrain</option>
+																		<option value="BD">Bangladesh</option>
+																		<option value="BB">Barbados</option>
+																		<option value="BY">Belarus</option>
+																		<option value="BE">Belgium</option>
+																		<option value="BZ">Belize</option>
+																		<option value="BJ">Benin</option>
+																		<option value="BM">Bermuda</option>
+																		<option value="BT">Bhutan</option>
+																		<option value="BO">Bolivia, Plurinational State of</option>
+																		<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+																		<option value="BA">Bosnia and Herzegovina</option>
+																		<option value="BW">Botswana</option>
+																		<option value="BR">Brazil</option>
+																		<option value="IO">British Indian Ocean Territory</option>
+																		<option value="BN">Brunei Darussalam</option>
+																		<option value="BG">Bulgaria</option>
+																		<option value="BF">Burkina Faso</option>
+																		<option value="BI">Burundi</option>
+																		<option value="KH">Cambodia</option>
+																		<option value="CM">Cameroon</option>
+																		<option value="CA">Canada</option>
+																		<option value="CV">Cape Verde</option>
+																		<option value="KY">Cayman Islands</option>
+																		<option value="CF">Central African Republic</option>
+																		<option value="TD">Chad</option>
+																		<option value="CL">Chile</option>
+																		<option value="CN">China</option>
+																		<option value="CX">Christmas Island</option>
+																		<option value="CC">Cocos (Keeling) Islands</option>
+																		<option value="CO">Colombia</option>
+																		<option value="KM">Comoros</option>
+																		<option value="CK">Cook Islands</option>
+																		<option value="CR">Costa Rica</option>
+																		<option value="CI">Côte d'Ivoire</option>
+																		<option value="HR">Croatia</option>
+																		<option value="CU">Cuba</option>
+																		<option value="CW">Curaçao</option>
+																		<option value="CZ">Czech Republic</option>
+																		<option value="DK">Denmark</option>
+																		<option value="DJ">Djibouti</option>
+																		<option value="DM">Dominica</option>
+																		<option value="DO">Dominican Republic</option>
+																		<option value="EC">Ecuador</option>
+																		<option value="EG">Egypt</option>
+																		<option value="SV">El Salvador</option>
+																		<option value="GQ">Equatorial Guinea</option>
+																		<option value="ER">Eritrea</option>
+																		<option value="EE">Estonia</option>
+																		<option value="ET">Ethiopia</option>
+																		<option value="FK">Falkland Islands (Malvinas)</option>
+																		<option value="FJ">Fiji</option>
+																		<option value="FI">Finland</option>
+																		<option value="FR">France</option>
+																		<option value="PF">French Polynesia</option>
+																		<option value="GA">Gabon</option>
+																		<option value="GM">Gambia</option>
+																		<option value="GE">Georgia</option>
+																		<option value="DE">Germany</option>
+																		<option value="GH">Ghana</option>
+																		<option value="GI">Gibraltar</option>
+																		<option value="GR">Greece</option>
+																		<option value="GL">Greenland</option>
+																		<option value="GD">Grenada</option>
+																		<option value="GU">Guam</option>
+																		<option value="GT">Guatemala</option>
+																		<option value="GG">Guernsey</option>
+																		<option value="GN">Guinea</option>
+																		<option value="GW">Guinea-Bissau</option>
+																		<option value="HT">Haiti</option>
+																		<option value="VA">Holy See (Vatican City State)</option>
+																		<option value="HN">Honduras</option>
+																		<option value="HK">Hong Kong</option>
+																		<option value="HU">Hungary</option>
+																		<option value="IS">Iceland</option>
+																		<option value="IN">India</option>
+																		<option value="ID">Indonesia</option>
+																		<option value="IR">Iran, Islamic Republic of</option>
+																		<option value="IQ">Iraq</option>
+																		<option value="IE">Ireland</option>
+																		<option value="IM">Isle of Man</option>
+																		<option value="IL">Israel</option>
+																		<option value="IT">Italy</option>
+																		<option value="JM">Jamaica</option>
+																		<option value="JP">Japan</option>
+																		<option value="JE">Jersey</option>
+																		<option value="JO">Jordan</option>
+																		<option value="KZ">Kazakhstan</option>
+																		<option value="KE">Kenya</option>
+																		<option value="KI">Kiribati</option>
+																		<option value="KP">Korea, Democratic People's Republic of</option>
+																		<option value="KW">Kuwait</option>
+																		<option value="KG">Kyrgyzstan</option>
+																		<option value="LA">Lao People's Democratic Republic</option>
+																		<option value="LV">Latvia</option>
+																		<option value="LB">Lebanon</option>
+																		<option value="LS">Lesotho</option>
+																		<option value="LR">Liberia</option>
+																		<option value="LY">Libya</option>
+																		<option value="LI">Liechtenstein</option>
+																		<option value="LT">Lithuania</option>
+																		<option value="LU">Luxembourg</option>
+																		<option value="MO">Macao</option>
+																		<option value="MG">Madagascar</option>
+																		<option value="MW">Malawi</option>
+																		<option value="MY">Malaysia</option>
+																		<option value="MV">Maldives</option>
+																		<option value="ML">Mali</option>
+																		<option value="MT">Malta</option>
+																		<option value="MH">Marshall Islands</option>
+																		<option value="MQ">Martinique</option>
+																		<option value="MR">Mauritania</option>
+																		<option value="MU">Mauritius</option>
+																		<option value="MX">Mexico</option>
+																		<option value="FM">Micronesia, Federated States of</option>
+																		<option value="MD">Moldova, Republic of</option>
+																		<option value="MC">Monaco</option>
+																		<option value="MN">Mongolia</option>
+																		<option value="ME">Montenegro</option>
+																		<option value="MS">Montserrat</option>
+																		<option value="MA">Morocco</option>
+																		<option value="MZ">Mozambique</option>
+																		<option value="MM">Myanmar</option>
+																		<option value="NA">Namibia</option>
+																		<option value="NR">Nauru</option>
+																		<option value="NP">Nepal</option>
+																		<option value="NL">Netherlands</option>
+																		<option value="NZ">New Zealand</option>
+																		<option value="NI">Nicaragua</option>
+																		<option value="NE">Niger</option>
+																		<option value="NG">Nigeria</option>
+																		<option value="NU">Niue</option>
+																		<option value="NF">Norfolk Island</option>
+																		<option value="MP">Northern Mariana Islands</option>
+																		<option value="NO">Norway</option>
+																		<option value="OM">Oman</option>
+																		<option value="PK">Pakistan</option>
+																		<option value="PW">Palau</option>
+																		<option value="PS">Palestinian Territory, Occupied</option>
+																		<option value="PA">Panama</option>
+																		<option value="PG">Papua New Guinea</option>
+																		<option value="PY">Paraguay</option>
+																		<option value="PE">Peru</option>
+																		<option value="PH">Philippines</option>
+																		<option value="PL">Poland</option>
+																		<option value="PT">Portugal</option>
+																		<option value="PR">Puerto Rico</option>
+																		<option value="QA">Qatar</option>
+																		<option value="RO">Romania</option>
+																		<option value="RU">Russian Federation</option>
+																		<option value="RW">Rwanda</option>
+																		<option value="BL">Saint Barthélemy</option>
+																		<option value="KN">Saint Kitts and Nevis</option>
+																		<option value="LC">Saint Lucia</option>
+																		<option value="MF">Saint Martin (French part)</option>
+																		<option value="VC">Saint Vincent and the Grenadines</option>
+																		<option value="WS">Samoa</option>
+																		<option value="SM">San Marino</option>
+																		<option value="ST">Sao Tome and Principe</option>
+																		<option value="SA">Saudi Arabia</option>
+																		<option value="SN">Senegal</option>
+																		<option value="RS">Serbia</option>
+																		<option value="SC">Seychelles</option>
+																		<option value="SL">Sierra Leone</option>
+																		<option value="SG">Singapore</option>
+																		<option value="SX">Sint Maarten (Dutch part)</option>
+																		<option value="SK">Slovakia</option>
+																		<option value="SI">Slovenia</option>
+																		<option value="SB">Solomon Islands</option>
+																		<option value="SO">Somalia</option>
+																		<option value="ZA">South Africa</option>
+																		<option value="KR">South Korea</option>
+																		<option value="SS">South Sudan</option>
+																		<option value="ES">Spain</option>
+																		<option value="LK">Sri Lanka</option>
+																		<option value="SD">Sudan</option>
+																		<option value="SR">Suriname</option>
+																		<option value="SZ">Swaziland</option>
+																		<option value="SE">Sweden</option>
+																		<option value="CH">Switzerland</option>
+																		<option value="SY">Syrian Arab Republic</option>
+																		<option value="TW">Taiwan, Province of China</option>
+																		<option value="TJ">Tajikistan</option>
+																		<option value="TZ">Tanzania, United Republic of</option>
+																		<option value="TH">Thailand</option>
+																		<option value="TG">Togo</option>
+																		<option value="TK">Tokelau</option>
+																		<option value="TO">Tonga</option>
+																		<option value="TT">Trinidad and Tobago</option>
+																		<option value="TN">Tunisia</option>
+																		<option value="TR">Turkey</option>
+																		<option value="TM">Turkmenistan</option>
+																		<option value="TC">Turks and Caicos Islands</option>
+																		<option value="TV">Tuvalu</option>
+																		<option value="UG">Uganda</option>
+																		<option value="UA">Ukraine</option>
+																		<option value="AE">United Arab Emirates</option>
+																		<option value="GB">United Kingdom</option>
+																		<option value="US">United States</option>
+																		<option value="UY">Uruguay</option>
+																		<option value="UZ">Uzbekistan</option>
+																		<option value="VU">Vanuatu</option>
+																		<option value="VE">Venezuela, Bolivarian Republic of</option>
+																		<option value="VN">Vietnam</option>
+																		<option value="VI">Virgin Islands</option>
+																		<option value="YE">Yemen</option>
+																		<option value="ZM">Zambia</option>
+																		<option value="ZW">Zimbabwe</option>
+																	</select>
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="fv-row mb-7">
+																	<!--begin::Wrapper-->
+																	<div class="d-flex flex-stack">
+																		<!--begin::Label-->
+																		<div class="me-5">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold">Use as a billing address?</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Label-->
+																		<!--begin::Switch-->
+																		<label class="form-check form-switch form-check-custom form-check-solid">
+																			<!--begin::Input-->
+																			<input class="form-check-input" name="billing" type="checkbox" value="1" id="kt_modal_update_address_billing" checked="checked" />
+																			<!--end::Input-->
+																			<!--begin::Label-->
+																			<span class="form-check-label fw-semibold text-muted" for="kt_modal_update_address_billing">Yes</span>
+																			<!--end::Label-->
+																		</label>
+																		<!--end::Switch-->
+																	</div>
+																	<!--begin::Wrapper-->
+																</div>
+																<!--end::Input group-->
+															</div>
+															<!--end::Billing form-->
+														</div>
+														<!--end::Scroll-->
+													</div>
+													<!--end::Modal body-->
+													<!--begin::Modal footer-->
+													<div class="modal-footer flex-center">
+														<!--begin::Button-->
+														<button type="reset" id="kt_modal_update_address_cancel" class="btn btn-light me-3">Discard</button>
+														<!--end::Button-->
+														<!--begin::Button-->
+														<button type="submit" id="kt_modal_update_address_submit" class="btn btn-primary">
+															<span class="indicator-label">Submit</span>
+															<span class="indicator-progress">Please wait...
+															<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+														</button>
+														<!--end::Button-->
+													</div>
+													<!--end::Modal footer-->
+												</form>
+												<!--end::Form-->
+											</div>
+										</div>
+									</div>
+									<!--end::Modal - New Address-->
+									<!--begin::Modal - Update password-->
+									<div class="modal fade" id="kt_modal_update_password" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Modal header-->
+												<div class="modal-header">
+													<!--begin::Modal title-->
+													<h2 class="fw-bold">Update Password</h2>
+													<!--end::Modal title-->
+													<!--begin::Close-->
+													<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+														<i class="ki-duotone ki-cross fs-1">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+													</div>
+													<!--end::Close-->
+												</div>
+												<!--end::Modal header-->
+												<!--begin::Modal body-->
+												<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+													<!--begin::Form-->
+													<form id="kt_modal_update_password_form" class="form" action="#">
+														<!--begin::Input group=-->
+														<div class="fv-row mb-10">
+															<label class="required form-label fs-6 mb-2">Current Password</label>
+															<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="current_password" autocomplete="off" />
+														</div>
+														<!--end::Input group=-->
+														<!--begin::Input group-->
+														<div class="mb-10 fv-row" data-kt-password-meter="true">
+															<!--begin::Wrapper-->
+															<div class="mb-1">
+																<!--begin::Label-->
+																<label class="form-label fw-semibold fs-6 mb-2">New Password</label>
+																<!--end::Label-->
+																<!--begin::Input wrapper-->
+																<div class="position-relative mb-3">
+																	<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="new_password" autocomplete="off" />
+																	<span class="btn btn-sm btn-icon position-absolute translate-middle top-50 end-0 me-n2" data-kt-password-meter-control="visibility">
+																		<i class="ki-duotone ki-eye-slash fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																			<span class="path4"></span>
+																		</i>
+																		<i class="ki-duotone ki-eye d-none fs-1">
+																			<span class="path1"></span>
+																			<span class="path2"></span>
+																			<span class="path3"></span>
+																		</i>
+																	</span>
+																</div>
+																<!--end::Input wrapper-->
+																<!--begin::Meter-->
+																<div class="d-flex align-items-center mb-3" data-kt-password-meter-control="highlight">
+																	<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+																	<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+																	<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px me-2"></div>
+																	<div class="flex-grow-1 bg-secondary bg-active-success rounded h-5px"></div>
+																</div>
+																<!--end::Meter-->
+															</div>
+															<!--end::Wrapper-->
+															<!--begin::Hint-->
+															<div class="text-muted">Use 8 or more characters with a mix of letters, numbers & symbols.</div>
+															<!--end::Hint-->
+														</div>
+														<!--end::Input group=-->
+														<!--begin::Input group=-->
+														<div class="fv-row mb-10">
+															<label class="form-label fw-semibold fs-6 mb-2">Confirm New Password</label>
+															<input class="form-control form-control-lg form-control-solid" type="password" placeholder="" name="confirm_password" autocomplete="off" />
+														</div>
+														<!--end::Input group=-->
+														<!--begin::Actions-->
+														<div class="text-center pt-15">
+															<button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
+															<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+																<span class="indicator-label">Submit</span>
+																<span class="indicator-progress">Please wait...
+																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+															</button>
+														</div>
+														<!--end::Actions-->
+													</form>
+													<!--end::Form-->
+												</div>
+												<!--end::Modal body-->
+											</div>
+											<!--end::Modal content-->
+										</div>
+										<!--end::Modal dialog-->
+									</div>
+									<!--end::Modal - Update password-->
+									<!--begin::Modal - Update email-->
+									<div class="modal fade" id="kt_modal_update_phone" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Modal header-->
+												<div class="modal-header">
+													<!--begin::Modal title-->
+													<h2 class="fw-bold">Update Phone Number</h2>
+													<!--end::Modal title-->
+													<!--begin::Close-->
+													<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+														<i class="ki-duotone ki-cross fs-1">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+													</div>
+													<!--end::Close-->
+												</div>
+												<!--end::Modal header-->
+												<!--begin::Modal body-->
+												<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+													<!--begin::Form-->
+													<form id="kt_modal_update_phone_form" class="form" action="#">
+														<!--begin::Notice-->
+														<!--begin::Notice-->
+														<div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
+															<!--begin::Icon-->
+															<i class="ki-duotone ki-information fs-2tx text-primary me-4">
+																<span class="path1"></span>
+																<span class="path2"></span>
+																<span class="path3"></span>
+															</i>
+															<!--end::Icon-->
+															<!--begin::Wrapper-->
+															<div class="d-flex flex-stack flex-grow-1">
+																<!--begin::Content-->
+																<div class="fw-semibold">
+																	<div class="fs-6 text-gray-700">Please note that a valid phone number may be required for order or shipping rescheduling.</div>
+																</div>
+																<!--end::Content-->
+															</div>
+															<!--end::Wrapper-->
+														</div>
+														<!--end::Notice-->
+														<!--end::Notice-->
+														<!--begin::Input group-->
+														<div class="fv-row mb-7">
+															<!--begin::Label-->
+															<label class="fs-6 fw-semibold form-label mb-2">
+																<span class="required">Phone</span>
+															</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input class="form-control form-control-solid" placeholder="" name="profile_phone" value="+6141 234 567" />
+															<!--end::Input-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Actions-->
+														<div class="text-center pt-15">
+															<button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Discard</button>
+															<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+																<span class="indicator-label">Submit</span>
+																<span class="indicator-progress">Please wait...
+																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+															</button>
+														</div>
+														<!--end::Actions-->
+													</form>
+													<!--end::Form-->
+												</div>
+												<!--end::Modal body-->
+											</div>
+											<!--end::Modal content-->
+										</div>
+										<!--end::Modal dialog-->
+									</div>
+									<!--end::Modal - Update email-->
+									<!--begin::Modal - New Address-->
+									<div class="modal fade" id="kt_modal_add_address" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Form-->
+												<form class="form" action="#" id="kt_modal_add_address_form">
+													<!--begin::Modal header-->
+													<div class="modal-header" id="kt_modal_add_address_header">
+														<!--begin::Modal title-->
+														<h2 class="fw-bold">Add New Address</h2>
+														<!--end::Modal title-->
+														<!--begin::Close-->
+														<div id="kt_modal_add_address_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+															<i class="ki-duotone ki-cross fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+														</div>
+														<!--end::Close-->
+													</div>
+													<!--end::Modal header-->
+													<!--begin::Modal body-->
+													<div class="modal-body py-10 px-lg-17">
+														<!--begin::Scroll-->
+														<div class="d-flex flex-column scroll-y me-n7 pe-7" id="kt_modal_add_address_scroll" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-max-height="auto" data-kt-scroll-dependencies="#kt_modal_add_address_header" data-kt-scroll-wrappers="#kt_modal_add_address_scroll" data-kt-scroll-offset="300px">
+															<!--begin::Billing toggle-->
+															<div class="fw-bold fs-3 rotate collapsible collapsed mb-7" data-bs-toggle="collapse" href="#kt_modal_add_address_billing_info" role="button" aria-expanded="false" aria-controls="kt_modal_add_address_billing_info">Shipping Information
+															<span class="ms-2 rotate-180">
+																<i class="ki-duotone ki-down fs-3"></i>
+															</span></div>
+															<!--end::Billing toggle-->
+															<!--begin::Billing form-->
+															<div id="kt_modal_add_address_billing_info" class="collapse show">
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">Address Name</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" placeholder="" name="name" value="" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">Address Line 1</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" placeholder="" name="address1" value="" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">Address Line 2</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" placeholder="" name="address2" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">City / Town</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" placeholder="" name="city" value="" />
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="row g-9 mb-7">
+																	<!--begin::Col-->
+																	<div class="col-md-6 fv-row">
+																		<!--begin::Label-->
+																		<label class="fs-6 fw-semibold mb-2 required">State / Province</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<input class="form-control form-control-solid" placeholder="" name="state" value="" />
+																		<!--end::Input-->
+																	</div>
+																	<!--end::Col-->
+																	<!--begin::Col-->
+																	<div class="col-md-6 fv-row">
+																		<!--begin::Label-->
+																		<label class="fs-6 fw-semibold mb-2 required">Post Code</label>
+																		<!--end::Label-->
+																		<!--begin::Input-->
+																		<input class="form-control form-control-solid" placeholder="" name="postcode" value="" />
+																		<!--end::Input-->
+																	</div>
+																	<!--end::Col-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="d-flex flex-column mb-7 fv-row">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">
+																		<span class="required">Country</span>
+																		<span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
+																			<i class="ki-duotone ki-information fs-7">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																			</i>
+																		</span>
+																	</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<select name="country" aria-label="Select a Country" data-control="select2" data-placeholder="Select a Country..." data-dropdown-parent="#kt_modal_add_address" class="form-select form-select-solid fw-bold">
+																		<option value="">Select a Country...</option>
+																		<option value="AF">Afghanistan</option>
+																		<option value="AX">Aland Islands</option>
+																		<option value="AL">Albania</option>
+																		<option value="DZ">Algeria</option>
+																		<option value="AS">American Samoa</option>
+																		<option value="AD">Andorra</option>
+																		<option value="AO">Angola</option>
+																		<option value="AI">Anguilla</option>
+																		<option value="AG">Antigua and Barbuda</option>
+																		<option value="AR">Argentina</option>
+																		<option value="AM">Armenia</option>
+																		<option value="AW">Aruba</option>
+																		<option value="AU">Australia</option>
+																		<option value="AT">Austria</option>
+																		<option value="AZ">Azerbaijan</option>
+																		<option value="BS">Bahamas</option>
+																		<option value="BH">Bahrain</option>
+																		<option value="BD">Bangladesh</option>
+																		<option value="BB">Barbados</option>
+																		<option value="BY">Belarus</option>
+																		<option value="BE">Belgium</option>
+																		<option value="BZ">Belize</option>
+																		<option value="BJ">Benin</option>
+																		<option value="BM">Bermuda</option>
+																		<option value="BT">Bhutan</option>
+																		<option value="BO">Bolivia, Plurinational State of</option>
+																		<option value="BQ">Bonaire, Sint Eustatius and Saba</option>
+																		<option value="BA">Bosnia and Herzegovina</option>
+																		<option value="BW">Botswana</option>
+																		<option value="BR">Brazil</option>
+																		<option value="IO">British Indian Ocean Territory</option>
+																		<option value="BN">Brunei Darussalam</option>
+																		<option value="BG">Bulgaria</option>
+																		<option value="BF">Burkina Faso</option>
+																		<option value="BI">Burundi</option>
+																		<option value="KH">Cambodia</option>
+																		<option value="CM">Cameroon</option>
+																		<option value="CA">Canada</option>
+																		<option value="CV">Cape Verde</option>
+																		<option value="KY">Cayman Islands</option>
+																		<option value="CF">Central African Republic</option>
+																		<option value="TD">Chad</option>
+																		<option value="CL">Chile</option>
+																		<option value="CN">China</option>
+																		<option value="CX">Christmas Island</option>
+																		<option value="CC">Cocos (Keeling) Islands</option>
+																		<option value="CO">Colombia</option>
+																		<option value="KM">Comoros</option>
+																		<option value="CK">Cook Islands</option>
+																		<option value="CR">Costa Rica</option>
+																		<option value="CI">Côte d'Ivoire</option>
+																		<option value="HR">Croatia</option>
+																		<option value="CU">Cuba</option>
+																		<option value="CW">Curaçao</option>
+																		<option value="CZ">Czech Republic</option>
+																		<option value="DK">Denmark</option>
+																		<option value="DJ">Djibouti</option>
+																		<option value="DM">Dominica</option>
+																		<option value="DO">Dominican Republic</option>
+																		<option value="EC">Ecuador</option>
+																		<option value="EG">Egypt</option>
+																		<option value="SV">El Salvador</option>
+																		<option value="GQ">Equatorial Guinea</option>
+																		<option value="ER">Eritrea</option>
+																		<option value="EE">Estonia</option>
+																		<option value="ET">Ethiopia</option>
+																		<option value="FK">Falkland Islands (Malvinas)</option>
+																		<option value="FJ">Fiji</option>
+																		<option value="FI">Finland</option>
+																		<option value="FR">France</option>
+																		<option value="PF">French Polynesia</option>
+																		<option value="GA">Gabon</option>
+																		<option value="GM">Gambia</option>
+																		<option value="GE">Georgia</option>
+																		<option value="DE">Germany</option>
+																		<option value="GH">Ghana</option>
+																		<option value="GI">Gibraltar</option>
+																		<option value="GR">Greece</option>
+																		<option value="GL">Greenland</option>
+																		<option value="GD">Grenada</option>
+																		<option value="GU">Guam</option>
+																		<option value="GT">Guatemala</option>
+																		<option value="GG">Guernsey</option>
+																		<option value="GN">Guinea</option>
+																		<option value="GW">Guinea-Bissau</option>
+																		<option value="HT">Haiti</option>
+																		<option value="VA">Holy See (Vatican City State)</option>
+																		<option value="HN">Honduras</option>
+																		<option value="HK">Hong Kong</option>
+																		<option value="HU">Hungary</option>
+																		<option value="IS">Iceland</option>
+																		<option value="IN">India</option>
+																		<option value="ID">Indonesia</option>
+																		<option value="IR">Iran, Islamic Republic of</option>
+																		<option value="IQ">Iraq</option>
+																		<option value="IE">Ireland</option>
+																		<option value="IM">Isle of Man</option>
+																		<option value="IL">Israel</option>
+																		<option value="IT">Italy</option>
+																		<option value="JM">Jamaica</option>
+																		<option value="JP">Japan</option>
+																		<option value="JE">Jersey</option>
+																		<option value="JO">Jordan</option>
+																		<option value="KZ">Kazakhstan</option>
+																		<option value="KE">Kenya</option>
+																		<option value="KI">Kiribati</option>
+																		<option value="KP">Korea, Democratic People's Republic of</option>
+																		<option value="KW">Kuwait</option>
+																		<option value="KG">Kyrgyzstan</option>
+																		<option value="LA">Lao People's Democratic Republic</option>
+																		<option value="LV">Latvia</option>
+																		<option value="LB">Lebanon</option>
+																		<option value="LS">Lesotho</option>
+																		<option value="LR">Liberia</option>
+																		<option value="LY">Libya</option>
+																		<option value="LI">Liechtenstein</option>
+																		<option value="LT">Lithuania</option>
+																		<option value="LU">Luxembourg</option>
+																		<option value="MO">Macao</option>
+																		<option value="MG">Madagascar</option>
+																		<option value="MW">Malawi</option>
+																		<option value="MY">Malaysia</option>
+																		<option value="MV">Maldives</option>
+																		<option value="ML">Mali</option>
+																		<option value="MT">Malta</option>
+																		<option value="MH">Marshall Islands</option>
+																		<option value="MQ">Martinique</option>
+																		<option value="MR">Mauritania</option>
+																		<option value="MU">Mauritius</option>
+																		<option value="MX">Mexico</option>
+																		<option value="FM">Micronesia, Federated States of</option>
+																		<option value="MD">Moldova, Republic of</option>
+																		<option value="MC">Monaco</option>
+																		<option value="MN">Mongolia</option>
+																		<option value="ME">Montenegro</option>
+																		<option value="MS">Montserrat</option>
+																		<option value="MA">Morocco</option>
+																		<option value="MZ">Mozambique</option>
+																		<option value="MM">Myanmar</option>
+																		<option value="NA">Namibia</option>
+																		<option value="NR">Nauru</option>
+																		<option value="NP">Nepal</option>
+																		<option value="NL">Netherlands</option>
+																		<option value="NZ">New Zealand</option>
+																		<option value="NI">Nicaragua</option>
+																		<option value="NE">Niger</option>
+																		<option value="NG">Nigeria</option>
+																		<option value="NU">Niue</option>
+																		<option value="NF">Norfolk Island</option>
+																		<option value="MP">Northern Mariana Islands</option>
+																		<option value="NO">Norway</option>
+																		<option value="OM">Oman</option>
+																		<option value="PK">Pakistan</option>
+																		<option value="PW">Palau</option>
+																		<option value="PS">Palestinian Territory, Occupied</option>
+																		<option value="PA">Panama</option>
+																		<option value="PG">Papua New Guinea</option>
+																		<option value="PY">Paraguay</option>
+																		<option value="PE">Peru</option>
+																		<option value="PH">Philippines</option>
+																		<option value="PL">Poland</option>
+																		<option value="PT">Portugal</option>
+																		<option value="PR">Puerto Rico</option>
+																		<option value="QA">Qatar</option>
+																		<option value="RO">Romania</option>
+																		<option value="RU">Russian Federation</option>
+																		<option value="RW">Rwanda</option>
+																		<option value="BL">Saint Barthélemy</option>
+																		<option value="KN">Saint Kitts and Nevis</option>
+																		<option value="LC">Saint Lucia</option>
+																		<option value="MF">Saint Martin (French part)</option>
+																		<option value="VC">Saint Vincent and the Grenadines</option>
+																		<option value="WS">Samoa</option>
+																		<option value="SM">San Marino</option>
+																		<option value="ST">Sao Tome and Principe</option>
+																		<option value="SA">Saudi Arabia</option>
+																		<option value="SN">Senegal</option>
+																		<option value="RS">Serbia</option>
+																		<option value="SC">Seychelles</option>
+																		<option value="SL">Sierra Leone</option>
+																		<option value="SG">Singapore</option>
+																		<option value="SX">Sint Maarten (Dutch part)</option>
+																		<option value="SK">Slovakia</option>
+																		<option value="SI">Slovenia</option>
+																		<option value="SB">Solomon Islands</option>
+																		<option value="SO">Somalia</option>
+																		<option value="ZA">South Africa</option>
+																		<option value="KR">South Korea</option>
+																		<option value="SS">South Sudan</option>
+																		<option value="ES">Spain</option>
+																		<option value="LK">Sri Lanka</option>
+																		<option value="SD">Sudan</option>
+																		<option value="SR">Suriname</option>
+																		<option value="SZ">Swaziland</option>
+																		<option value="SE">Sweden</option>
+																		<option value="CH">Switzerland</option>
+																		<option value="SY">Syrian Arab Republic</option>
+																		<option value="TW">Taiwan, Province of China</option>
+																		<option value="TJ">Tajikistan</option>
+																		<option value="TZ">Tanzania, United Republic of</option>
+																		<option value="TH">Thailand</option>
+																		<option value="TG">Togo</option>
+																		<option value="TK">Tokelau</option>
+																		<option value="TO">Tonga</option>
+																		<option value="TT">Trinidad and Tobago</option>
+																		<option value="TN">Tunisia</option>
+																		<option value="TR">Turkey</option>
+																		<option value="TM">Turkmenistan</option>
+																		<option value="TC">Turks and Caicos Islands</option>
+																		<option value="TV">Tuvalu</option>
+																		<option value="UG">Uganda</option>
+																		<option value="UA">Ukraine</option>
+																		<option value="AE">United Arab Emirates</option>
+																		<option value="GB">United Kingdom</option>
+																		<option value="US">United States</option>
+																		<option value="UY">Uruguay</option>
+																		<option value="UZ">Uzbekistan</option>
+																		<option value="VU">Vanuatu</option>
+																		<option value="VE">Venezuela, Bolivarian Republic of</option>
+																		<option value="VN">Vietnam</option>
+																		<option value="VI">Virgin Islands</option>
+																		<option value="YE">Yemen</option>
+																		<option value="ZM">Zambia</option>
+																		<option value="ZW">Zimbabwe</option>
+																	</select>
+																	<!--end::Input-->
+																</div>
+																<!--end::Input group-->
+																<!--begin::Input group-->
+																<div class="fv-row mb-7">
+																	<!--begin::Wrapper-->
+																	<div class="d-flex flex-stack">
+																		<!--begin::Label-->
+																		<div class="me-5">
+																			<!--begin::Label-->
+																			<label class="fs-6 fw-semibold">Use as a billing address?</label>
+																			<!--end::Label-->
+																			<!--begin::Input-->
+																			<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+																			<!--end::Input-->
+																		</div>
+																		<!--end::Label-->
+																		<!--begin::Switch-->
+																		<label class="form-check form-switch form-check-custom form-check-solid">
+																			<!--begin::Input-->
+																			<input class="form-check-input" name="billing" type="checkbox" value="1" id="kt_modal_add_address_billing" checked="checked" />
+																			<!--end::Input-->
+																			<!--begin::Label-->
+																			<span class="form-check-label fw-semibold text-muted" for="kt_modal_add_address_billing">Yes</span>
+																			<!--end::Label-->
+																		</label>
+																		<!--end::Switch-->
+																	</div>
+																	<!--begin::Wrapper-->
+																</div>
+																<!--end::Input group-->
+															</div>
+															<!--end::Billing form-->
+														</div>
+														<!--end::Scroll-->
+													</div>
+													<!--end::Modal body-->
+													<!--begin::Modal footer-->
+													<div class="modal-footer flex-center">
+														<!--begin::Button-->
+														<button type="reset" id="kt_modal_add_address_cancel" class="btn btn-light me-3">Discard</button>
+														<!--end::Button-->
+														<!--begin::Button-->
+														<button type="submit" id="kt_modal_add_address_submit" class="btn btn-primary">
+															<span class="indicator-label">Submit</span>
+															<span class="indicator-progress">Please wait...
+															<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+														</button>
+														<!--end::Button-->
+													</div>
+													<!--end::Modal footer-->
+												</form>
+												<!--end::Form-->
+											</div>
+										</div>
+									</div>
+									<!--end::Modal - New Address-->
+									<!--begin::Modal - Add task-->
+									<div class="modal fade" id="kt_modal_add_auth_app" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Modal header-->
+												<div class="modal-header">
+													<!--begin::Modal title-->
+													<h2 class="fw-bold">Add Authenticator App</h2>
+													<!--end::Modal title-->
+													<!--begin::Close-->
+													<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+														<i class="ki-duotone ki-cross fs-1">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+													</div>
+													<!--end::Close-->
+												</div>
+												<!--end::Modal header-->
+												<!--begin::Modal body-->
+												<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+													<!--begin::Content-->
+													<div class="fw-bold d-flex flex-column justify-content-center mb-5">
+														<!--begin::Label-->
+														<div class="text-center mb-5" data-kt-add-auth-action="qr-code-label">Download the
+														<a href="#">Authenticator app</a>, add a new account, then scan this barcode to set up your account.</div>
+														<div class="text-center mb-5 d-none" data-kt-add-auth-action="text-code-label">Download the
+														<a href="#">Authenticator app</a>, add a new account, then enter this code to set up your account.</div>
+														<!--end::Label-->
+														<!--begin::QR code-->
+														<div class="d-flex flex-center" data-kt-add-auth-action="qr-code">
+															<img src="assets/media/misc/qr.png" alt="Scan this QR code" />
+														</div>
+														<!--end::QR code-->
+														<!--begin::Text code-->
+														<div class="border rounded p-5 d-flex flex-center d-none" data-kt-add-auth-action="text-code">
+															<div class="fs-1">gi2kdnb54is709j</div>
+														</div>
+														<!--end::Text code-->
+													</div>
+													<!--end::Content-->
+													<!--begin::Action-->
+													<div class="d-flex flex-center">
+														<div class="btn btn-light-primary" data-kt-add-auth-action="text-code-button">Enter code manually</div>
+														<div class="btn btn-light-primary d-none" data-kt-add-auth-action="qr-code-button">Scan barcode instead</div>
+													</div>
+													<!--end::Action-->
+												</div>
+												<!--end::Modal body-->
+											</div>
+											<!--end::Modal content-->
+										</div>
+										<!--end::Modal dialog-->
+									</div>
+									<!--end::Modal - Add task-->
+									<!--begin::Modal - Add task-->
+									<div class="modal fade" id="kt_modal_add_one_time_password" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Modal header-->
+												<div class="modal-header">
+													<!--begin::Modal title-->
+													<h2 class="fw-bold">Enable One Time Password</h2>
+													<!--end::Modal title-->
+													<!--begin::Close-->
+													<div class="btn btn-icon btn-sm btn-active-icon-primary" data-kt-users-modal-action="close">
+														<i class="ki-duotone ki-cross fs-1">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+													</div>
+													<!--end::Close-->
+												</div>
+												<!--end::Modal header-->
+												<!--begin::Modal body-->
+												<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+													<!--begin::Form-->
+													<form class="form" id="kt_modal_add_one_time_password_form">
+														<!--begin::Label-->
+														<div class="fw-bold mb-9">Enter the new phone number to receive an SMS to when you log in.</div>
+														<!--end::Label-->
+														<!--begin::Input group-->
+														<div class="fv-row mb-7">
+															<!--begin::Label-->
+															<label class="fs-6 fw-semibold form-label mb-2">
+																<span class="required">Mobile number</span>
+																<span class="ms-1" data-bs-toggle="tooltip" title="A valid mobile number is required to receive the one-time password to validate your account login.">
+																	<i class="ki-duotone ki-information fs-7">
+																		<span class="path1"></span>
+																		<span class="path2"></span>
+																		<span class="path3"></span>
+																	</i>
+																</span>
+															</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input type="text" class="form-control form-control-solid" name="otp_mobile_number" placeholder="+6123 456 789" value="" />
+															<!--end::Input-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Separator-->
+														<div class="separator saperator-dashed my-5"></div>
+														<!--end::Separator-->
+														<!--begin::Input group-->
+														<div class="fv-row mb-7">
+															<!--begin::Label-->
+															<label class="fs-6 fw-semibold form-label mb-2">
+																<span class="required">Email</span>
+															</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input type="email" class="form-control form-control-solid" name="otp_email" value="smith@kpmg.com" readonly="readonly" />
+															<!--end::Input-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Input group-->
+														<div class="fv-row mb-7">
+															<!--begin::Label-->
+															<label class="fs-6 fw-semibold form-label mb-2">
+																<span class="required">Confirm password</span>
+															</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input type="password" class="form-control form-control-solid" name="otp_confirm_password" value="" />
+															<!--end::Input-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Actions-->
+														<div class="text-center pt-15">
+															<button type="reset" class="btn btn-light me-3" data-kt-users-modal-action="cancel">Cancel</button>
+															<button type="submit" class="btn btn-primary" data-kt-users-modal-action="submit">
+																<span class="indicator-label">Submit</span>
+																<span class="indicator-progress">Please wait...
+																<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+															</button>
+														</div>
+														<!--end::Actions-->
+													</form>
+													<!--end::Form-->
+												</div>
+												<!--end::Modal body-->
+											</div>
+											<!--end::Modal content-->
+										</div>
+										<!--end::Modal dialog-->
+									</div>
+									<!--end::Modal - Add task-->
+									<!--end::Modals-->
 								</div>
 								<!--end::Content container-->
 							</div>
@@ -12629,6 +13372,188 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Modal dialog-->
 		</div>
 		<!--end::Modal - Create App-->
+		<!--begin::Modal - New Card-->
+		<div class="modal fade" id="kt_modal_new_card" tabindex="-1" aria-hidden="true">
+			<!--begin::Modal dialog-->
+			<div class="modal-dialog modal-dialog-centered mw-650px">
+				<!--begin::Modal content-->
+				<div class="modal-content">
+					<!--begin::Modal header-->
+					<div class="modal-header">
+						<!--begin::Modal title-->
+						<h2>Add New Card</h2>
+						<!--end::Modal title-->
+						<!--begin::Close-->
+						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
+							<i class="ki-duotone ki-cross fs-1">
+								<span class="path1"></span>
+								<span class="path2"></span>
+							</i>
+						</div>
+						<!--end::Close-->
+					</div>
+					<!--end::Modal header-->
+					<!--begin::Modal body-->
+					<div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
+						<!--begin::Form-->
+						<form id="kt_modal_new_card_form" class="form" action="#">
+							<!--begin::Input group-->
+							<div class="d-flex flex-column mb-7 fv-row">
+								<!--begin::Label-->
+								<label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+									<span class="required">Name On Card</span>
+									<span class="ms-1" data-bs-toggle="tooltip" title="Specify a card holder's name">
+										<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+											<span class="path1"></span>
+											<span class="path2"></span>
+											<span class="path3"></span>
+										</i>
+									</span>
+								</label>
+								<!--end::Label-->
+								<input type="text" class="form-control form-control-solid" placeholder="" name="card_name" value="Max Doe" />
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="d-flex flex-column mb-7 fv-row">
+								<!--begin::Label-->
+								<label class="required fs-6 fw-semibold form-label mb-2">Card Number</label>
+								<!--end::Label-->
+								<!--begin::Input wrapper-->
+								<div class="position-relative">
+									<!--begin::Input-->
+									<input type="text" class="form-control form-control-solid" placeholder="Enter card number" name="card_number" value="4111 1111 1111 1111" />
+									<!--end::Input-->
+									<!--begin::Card logos-->
+									<div class="position-absolute translate-middle-y top-50 end-0 me-5">
+										<img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
+										<img src="assets/media/svg/card-logos/mastercard.svg" alt="" class="h-25px" />
+										<img src="assets/media/svg/card-logos/american-express.svg" alt="" class="h-25px" />
+									</div>
+									<!--end::Card logos-->
+								</div>
+								<!--end::Input wrapper-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="row mb-10">
+								<!--begin::Col-->
+								<div class="col-md-8 fv-row">
+									<!--begin::Label-->
+									<label class="required fs-6 fw-semibold form-label mb-2">Expiration Date</label>
+									<!--end::Label-->
+									<!--begin::Row-->
+									<div class="row fv-row">
+										<!--begin::Col-->
+										<div class="col-6">
+											<select name="card_expiry_month" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Month">
+												<option></option>
+												<option value="1">1</option>
+												<option value="2">2</option>
+												<option value="3">3</option>
+												<option value="4">4</option>
+												<option value="5">5</option>
+												<option value="6">6</option>
+												<option value="7">7</option>
+												<option value="8">8</option>
+												<option value="9">9</option>
+												<option value="10">10</option>
+												<option value="11">11</option>
+												<option value="12">12</option>
+											</select>
+										</div>
+										<!--end::Col-->
+										<!--begin::Col-->
+										<div class="col-6">
+											<select name="card_expiry_year" class="form-select form-select-solid" data-control="select2" data-hide-search="true" data-placeholder="Year">
+												<option></option>
+												<option value="2023">2023</option>
+												<option value="2024">2024</option>
+												<option value="2025">2025</option>
+												<option value="2026">2026</option>
+												<option value="2027">2027</option>
+												<option value="2028">2028</option>
+												<option value="2029">2029</option>
+												<option value="2030">2030</option>
+												<option value="2031">2031</option>
+												<option value="2032">2032</option>
+												<option value="2033">2033</option>
+											</select>
+										</div>
+										<!--end::Col-->
+									</div>
+									<!--end::Row-->
+								</div>
+								<!--end::Col-->
+								<!--begin::Col-->
+								<div class="col-md-4 fv-row">
+									<!--begin::Label-->
+									<label class="d-flex align-items-center fs-6 fw-semibold form-label mb-2">
+										<span class="required">CVV</span>
+										<span class="ms-1" data-bs-toggle="tooltip" title="Enter a card CVV code">
+											<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+												<span class="path1"></span>
+												<span class="path2"></span>
+												<span class="path3"></span>
+											</i>
+										</span>
+									</label>
+									<!--end::Label-->
+									<!--begin::Input wrapper-->
+									<div class="position-relative">
+										<!--begin::Input-->
+										<input type="text" class="form-control form-control-solid" minlength="3" maxlength="4" placeholder="CVV" name="card_cvv" />
+										<!--end::Input-->
+										<!--begin::CVV icon-->
+										<div class="position-absolute translate-middle-y top-50 end-0 me-3">
+											<i class="ki-duotone ki-credit-cart fs-2hx">
+												<span class="path1"></span>
+												<span class="path2"></span>
+											</i>
+										</div>
+										<!--end::CVV icon-->
+									</div>
+									<!--end::Input wrapper-->
+								</div>
+								<!--end::Col-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Input group-->
+							<div class="d-flex flex-stack">
+								<!--begin::Label-->
+								<div class="me-5">
+									<label class="fs-6 fw-semibold form-label">Save Card for further billing?</label>
+									<div class="fs-7 fw-semibold text-muted">If you need more info, please check budget planning</div>
+								</div>
+								<!--end::Label-->
+								<!--begin::Switch-->
+								<label class="form-check form-switch form-check-custom form-check-solid">
+									<input class="form-check-input" type="checkbox" value="1" checked="checked" />
+									<span class="form-check-label fw-semibold text-muted">Save Card</span>
+								</label>
+								<!--end::Switch-->
+							</div>
+							<!--end::Input group-->
+							<!--begin::Actions-->
+							<div class="text-center pt-15">
+								<button type="reset" id="kt_modal_new_card_cancel" class="btn btn-light me-3">Discard</button>
+								<button type="submit" id="kt_modal_new_card_submit" class="btn btn-primary">
+									<span class="indicator-label">Submit</span>
+									<span class="indicator-progress">Please wait...
+									<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+								</button>
+							</div>
+							<!--end::Actions-->
+						</form>
+						<!--end::Form-->
+					</div>
+					<!--end::Modal body-->
+				</div>
+				<!--end::Modal content-->
+			</div>
+			<!--end::Modal dialog-->
+		</div>
+		<!--end::Modal - New Card-->
 		<!--begin::Modal - Users Search-->
 		<div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">
 			<!--begin::Modal dialog-->
@@ -13365,13 +14290,13 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
+													<img alt="Pic" src="assets/media/avatars/300-25.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
 												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
-													<div class="fw-semibold text-muted">olivia@corpmail.com</div>
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+													<div class="fw-semibold text-muted">brian@exchange.com</div>
 												</div>
 												<!--end::Details-->
 											</div>
@@ -13928,13 +14853,13 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-info text-info fw-semibold">A</span>
+											<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
 										<div class="ms-5">
-											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Robert Doe</a>
-											<div class="fw-semibold text-muted">robert@benko.com</div>
+											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
+											<div class="fw-semibold text-muted">ethan@loop.com.au</div>
 										</div>
 										<!--end::Details-->
 									</div>
@@ -13989,12 +14914,20 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
-		<script src="assets/js/custom/apps/contacts/view-contact.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/transaction-history.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/add-auth-app.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/add-address.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/add-one-time-password.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/update-password.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/update-phone.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/update-address.js"></script>
+		<script src="assets/js/custom/apps/ecommerce/customers/details/update-profile.js"></script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
 		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
+		<script src="assets/js/custom/utilities/modals/new-card.js"></script>
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->

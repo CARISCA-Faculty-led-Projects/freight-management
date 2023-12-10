@@ -1944,7 +1944,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customers</span>
+															<span class="menu-title">Broker</span>
 															<span class="menu-arrow"></span>
 														</span>
 														<!--end:Menu link-->
@@ -1957,7 +1957,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customers Listing</span>
+																	<span class="menu-title">Broker Listing</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1969,7 +1969,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customers Details</span>
+																	<span class="menu-title">Broker Details</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -2034,7 +2034,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customer Orders</span>
+																	<span class="menu-title">Broker Orders</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -2483,7 +2483,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="path2"></span>
 														</i>
 													</span>
-													<span class="menu-title">Customers</span>
+													<span class="menu-title">Broker</span>
 													<span class="menu-arrow"></span>
 												</span>
 												<!--end:Menu link-->
@@ -2508,7 +2508,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Listing</span>
+															<span class="menu-title">Broker Listing</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -2520,7 +2520,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Details</span>
+															<span class="menu-title">Broker Details</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -3202,7 +3202,7 @@ License: For each use you must have a valid license purchased only from above li
 														</a>
 														<!--end::Item-->
 														<!--begin::Category title-->
-														<h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">Customers</h3>
+														<h3 class="fs-5 text-muted m-0 pt-5 pb-5" data-kt-search-element="category-title">Broker</h3>
 														<!--end::Category title-->
 														<!--begin::Item-->
 														<a href="#" class="d-flex text-dark text-hover-primary align-items-center mb-5">
@@ -7126,7 +7126,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Customers</span>
+													<span class="menu-title">Broker</span>
 													<span class="menu-arrow"></span>
 												</span>
 												<!--end:Menu link-->
@@ -7139,7 +7139,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Listing</span>
+															<span class="menu-title">Broker Listing</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7151,7 +7151,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Details</span>
+															<span class="menu-title">Broker Details</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7216,7 +7216,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Orders</span>
+															<span class="menu-title">Broker Orders</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7595,7 +7595,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="path2"></span>
 												</i>
 											</span>
-											<span class="menu-title">Customers</span>
+											<span class="menu-title">Broker</span>
 											<span class="menu-arrow"></span>
 										</span>
 										<!--end:Menu link-->
@@ -7620,7 +7620,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Customer Listing</span>
+													<span class="menu-title">Broker Listing</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -7632,7 +7632,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">Customer Details</span>
+													<span class="menu-title">Broker Details</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Customer List</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Broker List</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8273,7 +8273,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Customers</li>
+											<li class="breadcrumb-item text-muted">Broker</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -8336,7 +8336,7 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Options-->
 															<label class="form-check form-check-sm form-check-custom form-check-solid">
 																<input class="form-check-input" type="checkbox" value="2" checked="checked" />
-																<span class="form-check-label">Customer</span>
+																<span class="form-check-label">Broker</span>
 															</label>
 															<!--end::Options-->
 														</div>
@@ -8395,7 +8395,7 @@ License: For each use you must have a valid license purchased only from above li
 														<span class="path1"></span>
 														<span class="path2"></span>
 													</i>
-													<input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Customers" />
+													<input type="text" data-kt-customer-table-filter="search" class="form-control form-control-solid w-250px ps-12" placeholder="Search Broker" />
 												</div>
 												<!--end::Search-->
 											</div>
@@ -8493,7 +8493,7 @@ License: For each use you must have a valid license purchased only from above li
 													</i>Export</button>
 													<!--end::Export-->
 													<!--begin::Add customer-->
-													<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">Add Customer</button>
+													<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer">Add Broker</button>
 													<!--end::Add customer-->
 												</div>
 												<!--end::Toolbar-->
@@ -8519,7 +8519,7 @@ License: For each use you must have a valid license purchased only from above li
 																<input class="form-check-input" type="checkbox" data-kt-check="true" data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
 															</div>
 														</th>
-														<th class="min-w-125px">Customer Name</th>
+														<th class="min-w-125px">Broker Name</th>
 														<th class="min-w-125px">Email</th>
 														<th class="min-w-125px">Company</th>
 														<th class="min-w-125px">Payment Method</th>
@@ -8551,7 +8551,12 @@ License: For each use you must have a valid license purchased only from above li
 															<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">
 																<!--begin::Menu item-->
 																<div class="menu-item px-3">
-																	<a href="/apps/customers/view" class="menu-link px-3">View</a>
+																	<a href="/brokers/details" class="menu-link px-3">View</a>
+																</div>
+																<!--end::Menu item-->
+																<!--begin::Menu item-->
+																<div class="menu-item px-3">
+																	<a href="/brokers/edit" class="menu-link px-3">Edit</a>
 																</div>
 																<!--end::Menu item-->
 																<!--begin::Menu item-->
@@ -9936,7 +9941,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end::Card-->
 									<!--begin::Modals-->
-									<!--begin::Modal - Customers - Add-->
+									<!--begin::Modal - Broker - Add-->
 									<div class="modal fade" id="kt_modal_add_customer" tabindex="-1" aria-hidden="true">
 										<!--begin::Modal dialog-->
 										<div class="modal-dialog modal-dialog-centered mw-650px">
@@ -9947,7 +9952,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin::Modal header-->
 													<div class="modal-header" id="kt_modal_add_customer_header">
 														<!--begin::Modal title-->
-														<h2 class="fw-bold">Add a Customer</h2>
+														<h2 class="fw-bold">Add a Broker</h2>
 														<!--end::Modal title-->
 														<!--begin::Close-->
 														<div id="kt_modal_add_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
@@ -10362,7 +10367,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 										</div>
 									</div>
-									<!--end::Modal - Customers - Add-->
+									<!--end::Modal - Broker - Add-->
 									<!--begin::Modal - Adjust Balance-->
 									<div class="modal fade" id="kt_customers_export_modal" tabindex="-1" aria-hidden="true">
 										<!--begin::Modal dialog-->
@@ -10372,7 +10377,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--begin::Modal header-->
 												<div class="modal-header">
 													<!--begin::Modal title-->
-													<h2 class="fw-bold">Export Customers</h2>
+													<h2 class="fw-bold">Export Broker</h2>
 													<!--end::Modal title-->
 													<!--begin::Close-->
 													<div id="kt_customers_export_close" class="btn btn-icon btn-sm btn-active-icon-primary">

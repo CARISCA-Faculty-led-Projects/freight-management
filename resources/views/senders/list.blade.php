@@ -2394,7 +2394,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">View Contact</span>
+															<span class="menu-title">Senders</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7312,7 +7312,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
-													<span class="menu-title">View Contact</span>
+													<span class="menu-title">Senders</span>
 												</a>
 												<!--end:Menu link-->
 											</div>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">View Contact</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Senders</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8383,7 +8383,7 @@ License: For each use you must have a valid license purchased only from above li
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container container-xxl">
-									<!--begin::Contacts App- View Contact-->
+									<!--begin::Contacts App- Senders-->
 									<div class="row g-7">
 										<!--begin::Contact groups-->
 										<div class="col-lg-6 col-xl-3">
@@ -8910,6 +8910,11 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin::Menu item-->
 															<div class="menu-item px-3">
 																<a href="/apps/contacts/edit-contact" class="menu-link px-3">Edit</a>
+															</div>
+															<!--end::Menu item-->
+															<!--begin::Menu item-->
+															<div class="menu-item px-3">
+																<a href="/senders/billing" class="menu-link px-3">Billing</a>
 															</div>
 															<!--end::Menu item-->
 															<!--begin::Menu item-->
@@ -10076,7 +10081,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::Content-->
 									</div>
-									<!--end::Contacts App- View Contact-->
+									<!--end::Contacts App- Senders-->
 								</div>
 								<!--end::Content container-->
 							</div>
