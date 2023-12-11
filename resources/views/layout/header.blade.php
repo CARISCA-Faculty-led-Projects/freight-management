@@ -1594,8 +1594,8 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="/apps/projects/list" class="menu-link px-5">
-                                <span class="menu-text">My Projects</span>
+                            <a href="/" class="menu-link px-5">
+                                <span class="menu-text">My Messages</span>
                                 <span class="menu-badge">
                                     <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
                                 </span>
