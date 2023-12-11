@@ -26,3 +26,12 @@
 <script src="{{ asset('assets/js/custom/utilities/modals/create-campaign.js') }}"></script>
 <script src="{{ asset('assets/js/custom/utilities/modals/bidding.js') }}"></script>
 <script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
+
+<!--end::Global Javascript Bundle-->
+<!--begin::Vendors Javascript(used for this page only)-->
+<script src="{{ asset('assets/plugins/custom/formrepeater/formrepeater.bundle.js') }}"></script>
+<!--end::Vendors Javascript-->
+<!--begin::Custom Javascript(used for this page only)-->
+<script src="{{ asset('assets/js/custom/apps/ecommerce/catalog/save-product.js') }}"></script>
+<script src="{{ asset('assets/js/custom/utilities/modals/create-app.js') }}"></script>
+		

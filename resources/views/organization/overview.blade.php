@@ -1,6 +1,5 @@
 @extends('layout.app')
 
-
 @section('content')
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">

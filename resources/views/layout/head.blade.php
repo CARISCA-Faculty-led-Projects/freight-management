@@ -1,6 +1,6 @@
 <head>
     <base href=""/>
-    <title>{{ config('app.name', 'E-Procurement Management System') }}</title>
+    <title>{{ config('app.name', 'Fleet Management System') }}</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta charset="utf-8"/>
     <meta name="description" content=""/>
