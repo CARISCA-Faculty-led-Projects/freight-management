@@ -26,6 +26,15 @@ Route::get('/organization/list', function () {
 Route::get('/organization/details', function () {
     return view('organization.details');
 });
+Route::get('/organization/edit', function () {
+    return view('organization.edit-organization');
+});
+Route::get('/organization/invoices/add', function () {
+    return view('organization.invoices.add');
+});
+Route::get('/organization/invoices/view', function () {
+    return view('organization.invoices.view');
+});
 
 
 Route::get('/fleet/overview', function () {
