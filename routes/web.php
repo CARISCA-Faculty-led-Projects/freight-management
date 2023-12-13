@@ -52,6 +52,9 @@ Route::get('/fleet/vehicles/details', function () {
 Route::get('/fleet/vehicles/locate', function () {
     return view('fleet.vehicles.locate');
 });
+Route::get('/fleet/vehicles/add', function () {
+    return view('fleet.vehicles.add');
+});
 Route::get('/fleet/vehicles/edit', function () {
     return view('fleet.vehicles.edit');
 });

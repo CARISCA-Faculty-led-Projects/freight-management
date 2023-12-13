@@ -9,7 +9,7 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Edit Vehicle</h1>
+                    Add Vehicle</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -34,7 +34,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Edit</li>
+                    <li class="breadcrumb-item text-muted">Add</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -309,54 +309,28 @@
                 <div class="tab-content">
                     <!--begin::Tab pane-->
                     <div class="tab-pane fade show active" id="kt_ecommerce_add_product_general" role="tab-panel">
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <!--begin::Statistics Widget 5-->
-                                <a href="#" class="card bg-dark hoverable card-xl-stretch mb-xl-8">
-                                    <!--begin::Body-->
-                                    <div class="card-body">
-                                        <i class="ki-duotone ki-cheque text-white fs-2x ms-n1">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                            <span class="path6"></span>
-                                            <span class="path7"></span>
-                                        </i>
-                                        <div class="text-white fw-bold fs-2 mb-2 mt-5">Nissan Almero X788</div>
-                                        <div class="fw-semibold text-white">Currently Editting</div>
-                                    </div>
-                                    <!--end::Body-->
-                                </a>
-                                <!--end::Statistics Widget 5-->
-                            </div>
-                            <div class="col-xl-6">
-                                <!--begin::Statistics Widget 5-->
-                                <a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
-                                    <!--begin::Body-->
-                                    <div class="card-body">
-                                        <i class="ki-duotone ki-cheque text-white fs-2x ms-n1">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                            <span class="path6"></span>
-                                            <span class="path7"></span>
-                                        </i>
-                                        <div class="text-white fw-bold fs-2 mb-2 mt-5">Jess Fleet Management Inc</div>
-                                        <div class="fw-semibold text-white">Details will be populated into
-                                            Jess
-                                            Fleet Management Inc</div>
-                                    </div>
-                                    <!--end::Body-->
-                                </a>
-                                <!--end::Statistics Widget 5-->
-                            </div>
-
+                        <div class="col-xl-12">
+                            <!--begin::Statistics Widget 5-->
+                            <a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+                                <!--begin::Body-->
+                                <div class="card-body">
+                                    <i class="ki-duotone ki-cheque text-white fs-2x ms-n1">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                        <span class="path5"></span>
+                                        <span class="path6"></span>
+                                        <span class="path7"></span>
+                                    </i>
+                                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Jess Fleet Management Inc</div>
+                                    <div class="fw-semibold text-white">All vehicle details will be populated into Jess
+                                        Fleet Management Inc</div>
+                                </div>
+                                <!--end::Body-->
+                            </a>
+                            <!--end::Statistics Widget 5-->
                         </div>
-
                         <div class="d-flex flex-column gap-7 gap-lg-10">
                             <!--begin::General options-->
                             <div class="card card-flush py-4">
@@ -987,13 +961,13 @@
                                 <!--end::Card header-->
                             </div>
                             <!--end::Shipping-->
-
+                            
                         </div>
                     </div>
                     <!--end::Tab pane-->
 
                     <div class="tab-pane fade" id="kt_ecommerce_add_driver" role="tab-panel">
-                        <div class="d-flex flex-column gap-7 gap-lg-10">
+                    <div class="d-flex flex-column gap-7 gap-lg-10">
                             <!--begin::Meta options-->
                             <div class="card card-flush py-4">
                                 <!--begin::Card header-->
@@ -1233,7 +1207,7 @@
                                 <!--end::Card header-->
                             </div>
                             <!--end::Media-->
-
+                            
                         </div>
                     </div>
                 </div>
