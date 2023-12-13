@@ -2,7 +2,7 @@
 @section('content')
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
-<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
             <!--begin::Page title-->
@@ -85,7 +85,8 @@
                             <div class="d-flex flex-column">
                                 <!--begin::Name-->
                                 <div class="d-flex align-items-center mb-2">
-                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">Emma Smith</a>
+                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">Emma
+                                        Smith</a>
                                     <a href="#">
                                         <i class="ki-duotone ki-verify fs-1 text-primary">
                                             <span class="path1"></span>
@@ -170,7 +171,7 @@
                                             <a href="#" class="menu-link px-3">Generate Bill</a>
                                         </div>
                                         <!--end::Menu item-->
-                                        
+
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3 my-1">
                                             <a href="#" class="menu-link px-3">Settings</a>
@@ -248,14 +249,14 @@
                                 <!--end::Stats-->
                             </div>
                             <!--end::Wrapper-->
-                            
+
                         </div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Info-->
                 </div>
                 <!--end::Details-->
-               @include('partials.general.drivers.menu')
+                @include('partials.general.drivers.menu')
             </div>
         </div>
         <!--end::Navbar-->
@@ -338,7 +339,8 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
-                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">101 Collin Street,</br>Melbourne 3000 VIC,</br> Ghana</a>
+                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">101 Collin
+                            Street,</br>Melbourne 3000 VIC,</br> Ghana</a>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -424,7 +426,7 @@
             <!--end::Card body-->
         </div>
         <!--end::details View-->
-    
+
     </div>
     <!--end::Content container-->
 </div>

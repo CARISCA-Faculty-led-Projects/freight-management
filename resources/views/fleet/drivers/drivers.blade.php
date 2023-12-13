@@ -288,8 +288,68 @@
                                 <!--end::Menu-->
                             </td>
                         </tr>
+                        <!-- Row 2 -->
                         <tr>
+                            <td>
+                                <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                    <input class="form-check-input" type="checkbox" value="2" />
+                                </div>
+                            </td>
+                            <td>
+                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">XYZ
+                                    Transport Solutions</a>
+                            </td>
+                            <td>
+                                John Doe
+                            </td>
+                            <td>
+                                +233 555123456
+                            </td>
+                            <td>
+                                JD1234-5
+                            </td>
+                            <td>
+                                11/25/2023
+                            </td>
+                            <td>
+                                <a href="#" class="text-gray-600 text-hover-primary mb-1">#76</a>
+                            </td>
+                            <td>-</td>
+                            <td class="text-end">
+                                <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
+                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
+                                <!--begin::Menu-->
+                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
+                                    data-kt-menu="true">
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a href="/fleet/drivers/details" class="menu-link px-3">View</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a href="/fleet/drivers/edit" class="menu-link px-3">Edit</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a href="/fleet/drivers/locate" class="menu-link px-3">Locate</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a href="#" class="menu-link px-3"
+                                            data-kt-customer-table-filter="delete_row">Delete</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                </div>
+                                <!--end::Menu-->
+                            </td>
+                        </tr>
 
+                        <!-- Row 3 -->
+                        <tr>
                             <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                     <input class="form-check-input" type="checkbox" value="1" />
