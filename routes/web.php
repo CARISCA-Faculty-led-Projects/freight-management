@@ -70,6 +70,18 @@ Route::get('/fleet/drivers/locate', function () {
 Route::get('/fleet/drivers/edit', function () {
     return view('fleet.drivers.edit');
 });
+Route::get('/fleet/drivers/shipment_history', function () {
+    return view('fleet.drivers.shipment_history');
+});
+Route::get('/fleet/drivers/driving_info', function () {
+    return view('fleet.drivers.driving_info');
+});
+Route::get('/fleet/drivers/payment_info', function () {
+    return view('fleet.drivers.payment_info');
+});
+Route::get('/fleet/drivers/payment_history', function () {
+    return view('fleet.drivers.payment_history');
+});
 Route::get('/fleet/maintenance', function () {
     return view('fleet.maintenance');
 });

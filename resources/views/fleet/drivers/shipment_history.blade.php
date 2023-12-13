@@ -2,7 +2,7 @@
 @section('content')
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
-<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
             <!--begin::Page title-->
@@ -85,7 +85,8 @@
                             <div class="d-flex flex-column">
                                 <!--begin::Name-->
                                 <div class="d-flex align-items-center mb-2">
-                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">Emma Smith</a>
+                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">Emma
+                                        Smith</a>
                                     <a href="#">
                                         <i class="ki-duotone ki-verify fs-1 text-primary">
                                             <span class="path1"></span>
@@ -170,7 +171,7 @@
                                             <a href="#" class="menu-link px-3">Generate Bill</a>
                                         </div>
                                         <!--end::Menu item-->
-                                        
+
                                         <!--begin::Menu item-->
                                         <div class="menu-item px-3 my-1">
                                             <a href="#" class="menu-link px-3">Settings</a>
@@ -248,183 +249,242 @@
                                 <!--end::Stats-->
                             </div>
                             <!--end::Wrapper-->
-                            
+
                         </div>
                         <!--end::Stats-->
                     </div>
                     <!--end::Info-->
                 </div>
                 <!--end::Details-->
-               @include('partials.general.drivers.menu')
+                {{--@include('partials.general.drivers.menu')--}}
+                <!--begin::Navs-->
+                <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
+                    <!--begin::Nav item-->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link text-active-primary ms-0 me-10 py-5" href="/fleet/drivers/details">Personal
+                            Information</a>
+                    </li>
+                    <!--end::Nav item-->
+                    <!--begin::Nav item-->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link text-active-primary ms-0 me-10 py-5 active"
+                            href="/fleet/drivers/shipment_history">Shipment
+                            History</a>
+                    </li>
+                    <!--end::Nav item-->
+                    <!--begin::Nav item-->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link text-active-primary ms-0 me-10 py-5"
+                            href="/fleet/drivers/driving_info">Driving Information</a>
+                    </li>
+                    <!--end::Nav item-->
+                    <!--begin::Nav item-->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link text-active-primary ms-0 me-10 py-5"
+                            href="/fleet/drivers/payment_info">Payment Information</a>
+                    </li>
+                    <!--end::Nav item-->
+                    <!--begin::Nav item-->
+                    <li class="nav-item mt-2">
+                        <a class="nav-link text-active-primary ms-0 me-10 py-5"
+                            href="/fleet/drivers/payment_history">Re-embursement History</a>
+                    </li>
+                    <!--end::Nav item-->
+                </ul>
+                <!--begin::Navs-->
             </div>
         </div>
         <!--end::Navbar-->
-        <!--begin::details View-->
-        <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
-            <!--begin::Card header-->
-            <div class="card-header cursor-pointer">
-                <!--begin::Card title-->
-                <div class="card-title m-0">
-                    <h3 class="fw-bold m-0">Personal Information</h3>
-                </div>
-                <!--end::Card title-->
-                <!--begin::Action-->
-                <a href="" class="btn btn-sm btn-primary align-self-center">Edit Driver</a>
-                <!--end::Action-->
-            </div>
-            <!--begin::Card header-->
-            <!--begin::Card body-->
-            <div class="card-body p-9">
-                <!--begin::Row-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Full Name</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">Max Smith</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Row-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Company</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8 fv-row">
-                        <span class="fw-semibold text-gray-800 fs-6">Jess Fleet Management Inc</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Contact Phone
-                        <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
-                            <i class="ki-duotone ki-information fs-7">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                        </span></label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8 d-flex align-items-center">
-                        <span class="fw-bold fs-6 text-gray-800 me-2">044 3276 454 935</span>
-                        <span class="badge badge-success">Verified</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Email</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">address@gmail.com</a>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Physical Address</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">101 Collin Street,</br>Melbourne 3000 VIC,</br> Ghana</a>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">DOB</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">1st September, 2023</a>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Country
-                        <span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
-                            <i class="ki-duotone ki-information fs-7">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                        </span></label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">Germany</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Communication</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">Email, Phone</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-10">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Allow Changes</label>
-                    <!--begin::Label-->
-                    <!--begin::Label-->
-                    <div class="col-lg-8">
-                        <span class="fw-semibold fs-6 text-gray-800">Yes</span>
-                    </div>
-                    <!--begin::Label-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Notice-->
-                <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
-                    <!--begin::Icon-->
-                    <i class="ki-duotone ki-information fs-2tx text-warning me-4">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                        <span class="path3"></span>
-                    </i>
-                    <!--end::Icon-->
-                    <!--begin::Wrapper-->
-                    <div class="d-flex flex-stack flex-grow-1">
-                        <!--begin::Content-->
-                        <div class="fw-semibold">
-                            <h4 class="text-gray-900 fw-bold">We need your attention!</h4>
-                            <div class="fs-6 text-gray-700">Payout account not added yet. To start using tools, please
-                                <a class="fw-bold" href="/account/billing">Add Payment Method</a>.</div>
+
+        <!--begin::Row-->
+        <div class="row gy-5 g-xl-10">
+
+            <!--begin::Col-->
+            <div class="col-xl-12">
+                <!--begin::Table Widget 5-->
+                <div class="card card-flush h-xl-100">
+                    <!--begin::Card header-->
+                    <div class="card-header pt-7">
+                        <!--begin::Title-->
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bold text-dark">Shipment History</span>
+                            <span class="text-gray-400 mt-1 fw-semibold fs-6">Total 2,356 Shipments so far</span>
+                        </h3>
+                        <!--end::Title-->
+                        <!--begin::Actions-->
+                        <div class="card-toolbar">
+                            <!--begin::Filters-->
+                            <div class="d-flex flex-stack flex-wrap gap-4">
+                                <!--begin::Destination-->
+                                <div class="d-flex align-items-center fw-bold">
+                                    <!--begin::Label-->
+                                    <div class="text-muted fs-7 me-2">Cateogry</div>
+                                    <!--end::Label-->
+                                    <!--begin::Select-->
+                                    <select
+                                        class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bold py-0 ps-3 w-auto"
+                                        data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px"
+                                        data-placeholder="Select an option">
+                                        <option></option>
+                                        <option value="Show All" selected="selected">Show All</option>
+                                        <option value="a">Category A</option>
+                                        <option value="b">Category B</option>
+                                    </select>
+                                    <!--end::Select-->
+                                </div>
+                                <!--end::Destination-->
+                                <!--begin::Status-->
+                                <div class="d-flex align-items-center fw-bold">
+                                    <!--begin::Label-->
+                                    <div class="text-muted fs-7 me-2">Status</div>
+                                    <!--end::Label-->
+                                    <!--begin::Select-->
+                                    <select
+                                        class="form-select form-select-transparent text-dark fs-7 lh-1 fw-bold py-0 ps-3 w-auto"
+                                        data-control="select2" data-hide-search="true" data-dropdown-css-class="w-150px"
+                                        data-placeholder="Select an option" data-kt-table-widget-5="filter_status">
+                                        <option></option>
+                                        <option value="Show All" selected="selected">Show All</option>
+                                        <option value="In Stock">In Stock</option>
+                                        <option value="Out of Stock">Out of Stock</option>
+                                        <option value="Low Stock">Low Stock</option>
+                                    </select>
+                                    <!--end::Select-->
+                                </div>
+                                <!--end::Status-->
+                                <!--begin::Search-->
+                                <a href="" class="btn btn-light btn-sm">Load History</a>
+                                <!--end::Search-->
+                            </div>
+                            <!--begin::Filters-->
                         </div>
-                        <!--end::Content-->
+                        <!--end::Actions-->
                     </div>
-                    <!--end::Wrapper-->
+                    <!--end::Card header-->
+                    <!--begin::Card body-->
+                    <div class="card-body">
+                        <!--begin::Table-->
+                        <table class="table align-middle table-row-dashed fs-6 gy-3" id="kt_table_widget_5_table">
+                            <!--begin::Table head-->
+                            <thead>
+                                <!--begin::Table row-->
+                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                    <th class="min-w-150px">Shipment #</th>
+                                    <th class="text-end pe-3 min-w-100px">Pickup / Delivery Location</th>
+                                    <th class="text-end pe-3 min-w-150px">Cargo Type</th>
+                                    <th class="text-end pe-3 min-w-100px">Prize/Mile</th>
+                                    <th class="text-end pe-3 min-w-100px">Status</th>
+                                    <th class="text-end pe-3 min-w-100px">Delivery Date</th>
+                                    <th class="text-end pe-0 min-w-75px">Total Distance</th>
+                                </tr>
+                                <!--end::Table row-->
+                            </thead>
+                            <!--end::Table head-->
+                            <!--begin::Table body-->
+                            <tbody class="fw-bold text-gray-600">
+                                <tr>
+                                    <td>#XGY-356</td>
+                                    <!--begin::Item-->
+                                    <td>
+                                        <a href="/apps/ecommerce/catalog/edit-product"
+                                            class="text-dark text-hover-primary">Edum, Kumasi <=> Tema, Accra</a>
+                                    </td>
+                                    <!--end::Item-->
+                                    <!--begin::Product ID-->
+                                    <!--end::Product ID-->
+                                    <!--begin::Date added-->
+                                    <td class="text-end">General Cargo</td>
+                                    <!--end::Date added-->
+                                    <!--begin::Date added-->
+                                    <td class="text-end">GHS 10.00</td>
+                                    <!--end::Date added-->
+                                    <!--begin::Status-->
+                                    <td class="text-end">
+                                        <span class="badge py-3 px-4 fs-7 badge-light-primary">Completed</span>
+                                    </td>
+                                    <!--end::Status-->
+                                    <!--begin::Price-->
+                                    <td class="text-end">13/03/2023</td>
+                                    <!--end::Price-->
+                                    <!--begin::Qty-->
+                                    <td class="text-end" data-order="58">
+                                        <span class="text-dark fw-bold">58,000 Miles</span>
+                                    </td>
+                                    <!--end::Qty-->
+                                </tr>
+                                <tr>
+                                    <td>#XGY-2256</td>
+                                    <!--begin::Item-->
+                                    <td>
+                                        <a href="/apps/ecommerce/catalog/edit-product"
+                                            class="text-dark text-hover-primary">Accra, Ghana <=> Gruie, Nigeria</a>
+                                    </td>
+                                    <!--end::Item-->
+                                    <!--begin::Product ID-->
+                                    <!--end::Product ID-->
+                                    <!--begin::Date added-->
+                                    <td class="text-end">Refrigerated Cargo</td>
+                                    <!--end::Date added-->
+                                    <!--begin::Date added-->
+                                    <td class="text-end">GHS 14.00</td>
+                                    <!--end::Date added-->
+                                    <!--begin::Status-->
+                                    <td class="text-end">
+                                        <span class="badge py-3 px-4 fs-7 badge-light-warning">On Route</span>
+                                    </td>
+                                    <!--end::Status-->
+                                    <!--begin::Price-->
+                                    <td class="text-end">13/03/2023</td>
+                                    <!--end::Price-->
+                                    <!--begin::Qty-->
+                                    <td class="text-end" data-order="58">
+                                        <span class="text-dark fw-bold">18,000 Miles</span>
+                                    </td>
+                                    <!--end::Qty-->
+                                </tr>
+                                <tr>
+                                    <td>#XGY-156</td>
+                                    <!--begin::Item-->
+                                    <td>
+                                        <a href="/apps/ecommerce/catalog/edit-product"
+                                            class="text-dark text-hover-primary">Accra, Ghana <=> Feeddet, Nigeria</a>
+                                    </td>
+                                    <!--end::Item-->
+                                    <!--begin::Product ID-->
+                                    <!--end::Product ID-->
+                                    <!--begin::Date added-->
+                                    <td class="text-end">General Cargo</td>
+                                    <!--end::Date added-->
+                                    <!--begin::Date added-->
+                                    <td class="text-end">GHS 11.00</td>
+                                    <!--end::Date added-->
+                                    <!--begin::Status-->
+                                    <td class="text-end">
+                                        <span class="badge py-3 px-4 fs-7 badge-light-danger">Failed</span>
+                                    </td>
+                                    <!--end::Status-->
+                                    <!--begin::Price-->
+                                    <td class="text-end">1/03/2023</td>
+                                    <!--end::Price-->
+                                    <!--begin::Qty-->
+                                    <td class="text-end" data-order="58">
+                                        <span class="text-dark fw-bold">138,000 Miles</span>
+                                    </td>
+                                    <!--end::Qty-->
+                                </tr>
+
+                            </tbody>
+                            <!--end::Table body-->
+                        </table>
+                        <!--end::Table-->
+                    </div>
+                    <!--end::Card body-->
                 </div>
-                <!--end::Notice-->
+                <!--end::Table Widget 5-->
             </div>
-            <!--end::Card body-->
+            <!--end::Col-->
         </div>
-        <!--end::details View-->
-    
+        <!--end::Row-->
     </div>
     <!--end::Content container-->
 </div>
@@ -1511,7 +1571,7 @@
                     <!--end::Section-->
                     <!--begin::Section-->
                     <div class="d-flex align-items-center">
-                        <span class="fw-bold text-gray-800 fs-5">$ 350</span>
+                        <span class="fw-bold text-gray-800 fs-5">GHS 350</span>
                         <span class="text-muted mx-2">for</span>
                         <span class="fw-bold text-gray-800 fs-5 me-3">5</span>
                         <a href="#" class="btn btn-sm btn-light-success btn-icon-success btn-icon w-25px h-25px me-2">
