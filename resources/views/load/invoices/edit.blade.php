@@ -9,11 +9,11 @@ Contact: support@keenthemes.com
 Follow: www.twitter.com/keenthemes
 Dribbble: www.dribbble.com/keenthemes
 Like: www.facebook.com/keenthemes
-License: For each use you must have a valid license purchased only from above link in Load to legally use the theme for your project.
+License: For each use you must have a valid license purchased only from above link in order to legally use the theme for your project.
 -->
 <html lang="en">
 	<!--begin::Head-->
-	<head><base href="../../../"/>
+	<head><base href="../../"/>
 		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -1771,7 +1771,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -1873,7 +1873,7 @@ License: For each use you must have a valid license purchased only from above li
 													</div>
 													<!--end:Menu item-->
 													<!--begin:Menu item-->
-													<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion menu-sub-indention">
+													<div data-kt-menu-trigger="click" class="menu-item menu-accordion menu-sub-indention">
 														<!--begin:Menu link-->
 														<span class="menu-link">
 															<span class="menu-bullet">
@@ -1892,7 +1892,7 @@ License: For each use you must have a valid license purchased only from above li
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Loads Listing</span>
+																	<span class="menu-title">Orders Listing</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1900,11 +1900,11 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin:Menu item-->
 															<div class="menu-item">
 																<!--begin:Menu link-->
-																<a class="menu-link active" href="/apps/ecommerce/sales/details">
+																<a class="menu-link" href="/apps/ecommerce/sales/details">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Load Details</span>
+																	<span class="menu-title">Order Details</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1912,11 +1912,11 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin:Menu item-->
 															<div class="menu-item">
 																<!--begin:Menu link-->
-																<a class="menu-link" href="/apps/ecommerce/sales/add-Load">
+																<a class="menu-link" href="/apps/ecommerce/sales/add-order">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Add Load</span>
+																	<span class="menu-title">Add Order</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -1924,11 +1924,11 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin:Menu item-->
 															<div class="menu-item">
 																<!--begin:Menu link-->
-																<a class="menu-link" href="/apps/ecommerce/sales/edit-Load">
+																<a class="menu-link" href="/apps/ecommerce/sales/edit-order">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Edit Load</span>
+																	<span class="menu-title">Edit Order</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -2030,11 +2030,11 @@ License: For each use you must have a valid license purchased only from above li
 															<!--begin:Menu item-->
 															<div class="menu-item">
 																<!--begin:Menu link-->
-																<a class="menu-link" href="/apps/ecommerce/reports/customer-Loads">
+																<a class="menu-link" href="/apps/ecommerce/reports/customer-orders">
 																	<span class="menu-bullet">
 																		<span class="bullet bullet-dot"></span>
 																	</span>
-																	<span class="menu-title">Customer Loads</span>
+																	<span class="menu-title">Customer Orders</span>
 																</a>
 																<!--end:Menu link-->
 															</div>
@@ -2530,7 +2530,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
+											<div data-kt-menu-trigger="{default:'click', lg: 'hover'}" data-kt-menu-placement="right-start" class="menu-item here show menu-lg-down-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-icon">
@@ -2601,7 +2601,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link" href="/apps/invoices/create">
+														<a class="menu-link active" href="/apps/invoices/create">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
@@ -3086,7 +3086,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--end::Input-->
 													<!--begin::Spinner-->
 													<span class="search-spinner position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-1" data-kt-search-element="spinner">
-														<span class="spinner-bLoad h-15px w-15px align-middle text-gray-400"></span>
+														<span class="spinner-border h-15px w-15px align-middle text-gray-400"></span>
 													</span>
 													<!--end::Spinner-->
 													<!--begin::Reset-->
@@ -3117,7 +3117,7 @@ License: For each use you must have a valid license purchased only from above li
 												</form>
 												<!--end::Form-->
 												<!--begin::Separator-->
-												<div class="separator bLoad-gray-200 mb-6"></div>
+												<div class="separator border-gray-200 mb-6"></div>
 												<!--end::Separator-->
 												<!--begin::Recently viewed-->
 												<div data-kt-search-element="results" class="d-none">
@@ -3589,8 +3589,8 @@ License: For each use you must have a valid license purchased only from above li
 														<!--end::Option-->
 														<!--begin::Option-->
 														<label>
-															<input type="radio" class="btn-check" name="type" value="Loads" />
-															<span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Loads</span>
+															<input type="radio" class="btn-check" name="type" value="orders" />
+															<span class="btn btn-sm btn-color-muted btn-active btn-active-primary px-4">Orders</span>
 														</label>
 														<!--end::Option-->
 														<!--begin::Option-->
@@ -3676,7 +3676,7 @@ License: For each use you must have a valid license purchased only from above li
 												<h3 class="fw-semibold text-dark mb-7">Search Preferences</h3>
 												<!--end::Heading-->
 												<!--begin::Input group-->
-												<div class="pb-4 bLoad-bottom">
+												<div class="pb-4 border-bottom">
 													<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
 														<span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Projects</span>
 														<input class="form-check-input" type="checkbox" value="1" checked="checked" />
@@ -3684,7 +3684,7 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
-												<div class="py-4 bLoad-bottom">
+												<div class="py-4 border-bottom">
 													<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
 														<span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Targets</span>
 														<input class="form-check-input" type="checkbox" value="1" checked="checked" />
@@ -3692,7 +3692,7 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
-												<div class="py-4 bLoad-bottom">
+												<div class="py-4 border-bottom">
 													<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
 														<span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Affiliate Programs</span>
 														<input class="form-check-input" type="checkbox" value="1" />
@@ -3700,7 +3700,7 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
-												<div class="py-4 bLoad-bottom">
+												<div class="py-4 border-bottom">
 													<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
 														<span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Referrals</span>
 														<input class="form-check-input" type="checkbox" value="1" checked="checked" />
@@ -3708,7 +3708,7 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Input group-->
 												<!--begin::Input group-->
-												<div class="py-4 bLoad-bottom">
+												<div class="py-4 border-bottom">
 													<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
 														<span class="form-check-label text-gray-700 fs-6 fw-semibold ms-0 me-2">Users</span>
 														<input class="form-check-input" type="checkbox" value="1" />
@@ -3992,7 +3992,7 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Items-->
 												<!--begin::View more-->
-												<div class="py-3 text-center bLoad-top">
+												<div class="py-3 text-center border-top">
 													<a href="/pages/user-profile/activity" class="btn btn-color-gray-600 btn-active-color-primary">View All
 													<i class="ki-duotone ki-arrow-right fs-5">
 														<span class="path1"></span>
@@ -4042,7 +4042,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="w-70px badge badge-light-success me-4">200 OK</span>
 															<!--end::Code-->
 															<!--begin::Title-->
-															<a href="#" class="text-gray-800 text-hover-primary fw-semibold">New Load</a>
+															<a href="#" class="text-gray-800 text-hover-primary fw-semibold">New order</a>
 															<!--end::Title-->
 														</div>
 														<!--end::Section-->
@@ -4241,7 +4241,7 @@ License: For each use you must have a valid license purchased only from above li
 												</div>
 												<!--end::Items-->
 												<!--begin::View more-->
-												<div class="py-3 text-center bLoad-top">
+												<div class="py-3 text-center border-top">
 													<a href="/pages/user-profile/activity" class="btn btn-color-gray-600 btn-active-color-primary">View All
 													<i class="ki-duotone ki-arrow-right fs-5">
 														<span class="path1"></span>
@@ -6948,7 +6948,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -7055,7 +7055,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+											<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-bullet">
@@ -7074,7 +7074,7 @@ License: For each use you must have a valid license purchased only from above li
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Loads Listing</span>
+															<span class="menu-title">Orders Listing</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7082,11 +7082,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link active" href="/apps/ecommerce/sales/details">
+														<a class="menu-link" href="/apps/ecommerce/sales/details">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Load Details</span>
+															<span class="menu-title">Order Details</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7094,11 +7094,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link" href="/apps/ecommerce/sales/add-Load">
+														<a class="menu-link" href="/apps/ecommerce/sales/add-order">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Add Load</span>
+															<span class="menu-title">Add Order</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7106,11 +7106,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link" href="/apps/ecommerce/sales/edit-Load">
+														<a class="menu-link" href="/apps/ecommerce/sales/edit-order">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Edit Load</span>
+															<span class="menu-title">Edit Order</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7212,11 +7212,11 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link" href="/apps/ecommerce/reports/customer-Loads">
+														<a class="menu-link" href="/apps/ecommerce/reports/customer-orders">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
-															<span class="menu-title">Customer Loads</span>
+															<span class="menu-title">Customer Orders</span>
 														</a>
 														<!--end:Menu link-->
 													</div>
@@ -7711,7 +7711,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -7782,7 +7782,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="/apps/invoices/create">
+												<a class="menu-link active" href="/apps/invoices/create">
 													<span class="menu-bullet">
 														<span class="bullet bullet-dot"></span>
 													</span>
@@ -8258,7 +8258,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Load Details</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Create</h1>
 										<!--end::Title-->
 										<!--begin::Breadcrumb-->
 										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -8273,15 +8273,7 @@ License: For each use you must have a valid license purchased only from above li
 											</li>
 											<!--end::Item-->
 											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">eCommerce</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item">
-												<span class="bullet bg-gray-400 w-5px h-2px"></span>
-											</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Sales</li>
+											<li class="breadcrumb-item text-muted">Invoice Manager</li>
 											<!--end::Item-->
 										</ul>
 										<!--end::Breadcrumb-->
@@ -8299,14 +8291,14 @@ License: For each use you must have a valid license purchased only from above li
 											</i>Filter</a>
 											<!--end::Menu toggle-->
 											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac4114177f">
+											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac42f13340">
 												<!--begin::Header-->
 												<div class="px-7 py-5">
 													<div class="fs-5 text-dark fw-bold">Filter Options</div>
 												</div>
 												<!--end::Header-->
 												<!--begin::Menu separator-->
-												<div class="separator bLoad-gray-200"></div>
+												<div class="separator border-gray-200"></div>
 												<!--end::Menu separator-->
 												<!--begin::Form-->
 												<div class="px-7 py-5">
@@ -8317,7 +8309,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--end::Label-->
 														<!--begin::Input-->
 														<div>
-															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac4114177f" data-allow-clear="true">
+															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac42f13340" data-allow-clear="true">
 																<option></option>
 																<option value="1">Approved</option>
 																<option value="2">Pending</option>
@@ -8391,571 +8383,322 @@ License: For each use you must have a valid license purchased only from above li
 							<div id="kt_app_content" class="app-content flex-column-fluid">
 								<!--begin::Content container-->
 								<div id="kt_app_content_container" class="app-container container-xxl">
-									<!--begin::Load details page-->
-									<div class="d-flex flex-column gap-7 gap-lg-10">
-										<div class="d-flex flex-wrap flex-stack gap-5 gap-lg-10">
-											<!--begin:::Tabs-->
-											<ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x bLoad-0 fs-4 fw-semibold mb-lg-n2 me-auto">
-												<!--begin:::Tab item-->
-												<li class="nav-item">
-													<a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab" href="#kt_ecommerce_sales_Load_summary">Load Summary</a>
-												</li>
-												<!--end:::Tab item-->
-												<!--begin:::Tab item-->
-												<li class="nav-item">
-													<a class="nav-link text-active-primary pb-4" data-bs-toggle="tab" href="#kt_ecommerce_sales_Load_history">Load History</a>
-												</li>
-												<!--end:::Tab item-->
-											</ul>
-											<!--end:::Tabs-->
-											<!--begin::Button-->
-											<a href="/apps/ecommerce/sales/listing" class="btn btn-icon btn-light btn-sm ms-auto me-lg-n7">
-												<i class="ki-duotone ki-left fs-2"></i>
-											</a>
-											<!--end::Button-->
-											<!--begin::Button-->
-											<a href="/apps/ecommerce/sales/edit-Load" class="btn btn-success btn-sm me-lg-n7">Edit Load</a>
-											<!--end::Button-->
-											<!--begin::Button-->
-											<a href="/apps/ecommerce/sales/add-Load" class="btn btn-primary btn-sm">Add New Load</a>
-											<!--end::Button-->
-										</div>
-										<!--begin::Load summary-->
-										<div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
-											<!--begin::Load details-->
-											<div class="card card-flush py-4 flex-row-fluid">
-												<!--begin::Card header-->
-												<div class="card-header">
-													<div class="card-title">
-														<h2>Load Details (#14534)</h2>
-													</div>
-												</div>
-												<!--end::Card header-->
+									<!--begin::Layout-->
+									<div class="d-flex flex-column flex-lg-row">
+										<!--begin::Content-->
+										<div class="flex-lg-row-fluid mb-10 mb-lg-0 me-lg-7 me-xl-10">
+											<!--begin::Card-->
+											<div class="card">
 												<!--begin::Card body-->
-												<div class="card-body pt-0">
-													<div class="table-responsive">
-														<!--begin::Table-->
-														<table class="table align-middle table-row-bLoaded mb-0 fs-6 gy-5 min-w-300px">
-															<tbody class="fw-semibold text-gray-600">
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-calendar fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>Date Added</div>
-																	</td>
-																	<td class="fw-bold text-end">22/03/2023</td>
-																</tr>
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-wallet fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																			<span class="path3"></span>
-																			<span class="path4"></span>
-																		</i>Payment Method</div>
-																	</td>
-																	<td class="fw-bold text-end">Online
-																	<img src="assets/media/svg/card-logos/visa.svg" class="w-50px ms-2" /></td>
-																</tr>
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-truck fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																			<span class="path3"></span>
-																			<span class="path4"></span>
-																			<span class="path5"></span>
-																		</i>Shipping Method</div>
-																	</td>
-																	<td class="fw-bold text-end">Flat Shipping Rate</td>
-																</tr>
-															</tbody>
-														</table>
-														<!--end::Table-->
-													</div>
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Load details-->
-											<!--begin::Customer details-->
-											<div class="card card-flush py-4 flex-row-fluid">
-												<!--begin::Card header-->
-												<div class="card-header">
-													<div class="card-title">
-														<h2>Customer Details</h2>
-													</div>
-												</div>
-												<!--end::Card header-->
-												<!--begin::Card body-->
-												<div class="card-body pt-0">
-													<div class="table-responsive">
-														<!--begin::Table-->
-														<table class="table align-middle table-row-bLoaded mb-0 fs-6 gy-5 min-w-300px">
-															<tbody class="fw-semibold text-gray-600">
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-profile-circle fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																			<span class="path3"></span>
-																		</i>Customer</div>
-																	</td>
-																	<td class="fw-bold text-end">
-																		<div class="d-flex align-items-center justify-content-end">
-																			<!--begin:: Avatar -->
-																			<div class="symbol symbol-circle symbol-25px overflow-hidden me-3">
-																				<a href="/apps/ecommerce/customers/details">
-																					<div class="symbol-label">
-																						<img src="assets/media/avatars/300-23.jpg" alt="Dan Wilson" class="w-100" />
-																					</div>
-																				</a>
-																			</div>
-																			<!--end::Avatar-->
-																			<!--begin::Name-->
-																			<a href="/apps/ecommerce/customers/details" class="text-gray-600 text-hover-primary">Dan Wilson</a>
-																			<!--end::Name-->
-																		</div>
-																	</td>
-																</tr>
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-sms fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>Email</div>
-																	</td>
-																	<td class="fw-bold text-end">
-																		<a href="/apps/user-management/users/view" class="text-gray-600 text-hover-primary">dam@consilting.com</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-phone fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>Phone</div>
-																	</td>
-																	<td class="fw-bold text-end">+6141 234 567</td>
-																</tr>
-															</tbody>
-														</table>
-														<!--end::Table-->
-													</div>
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Customer details-->
-											<!--begin::Documents-->
-											<div class="card card-flush py-4 flex-row-fluid">
-												<!--begin::Card header-->
-												<div class="card-header">
-													<div class="card-title">
-														<h2>Documents</h2>
-													</div>
-												</div>
-												<!--end::Card header-->
-												<!--begin::Card body-->
-												<div class="card-body pt-0">
-													<div class="table-responsive">
-														<!--begin::Table-->
-														<table class="table align-middle table-row-bLoaded mb-0 fs-6 gy-5 min-w-300px">
-															<tbody class="fw-semibold text-gray-600">
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-devices fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																			<span class="path3"></span>
-																			<span class="path4"></span>
-																			<span class="path5"></span>
-																		</i>Invoice
-																		<span class="ms-1" data-bs-toggle="tooltip" title="View the invoice generated by this Load.">
-																			<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																				<span class="path3"></span>
-																			</i>
-																		</span></div>
-																	</td>
-																	<td class="fw-bold text-end">
-																		<a href="/apps/invoices/view/invoice-3" class="text-gray-600 text-hover-primary">#INV-000414</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-truck fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																			<span class="path3"></span>
-																			<span class="path4"></span>
-																			<span class="path5"></span>
-																		</i>Shipping
-																		<span class="ms-1" data-bs-toggle="tooltip" title="View the shipping manifest generated by this Load.">
-																			<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																				<span class="path3"></span>
-																			</i>
-																		</span></div>
-																	</td>
-																	<td class="fw-bold text-end">
-																		<a href="#" class="text-gray-600 text-hover-primary">#SHP-0025410</a>
-																	</td>
-																</tr>
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-discount fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>Reward Points
-																		<span class="ms-1" data-bs-toggle="tooltip" title="Reward value earned by customer when purchasing this Load">
-																			<i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-																				<span class="path1"></span>
-																				<span class="path2"></span>
-																				<span class="path3"></span>
-																			</i>
-																		</span></div>
-																	</td>
-																	<td class="fw-bold text-end">600</td>
-																</tr>
-															</tbody>
-														</table>
-														<!--end::Table-->
-													</div>
-												</div>
-												<!--end::Card body-->
-											</div>
-											<!--end::Documents-->
-										</div>
-										<!--end::Load summary-->
-										<!--begin::Tab content-->
-										<div class="tab-content">
-											<!--begin::Tab pane-->
-											<div class="tab-pane fade show active" id="kt_ecommerce_sales_Load_summary" role="tab-panel">
-												<!--begin::Loads-->
-												<div class="d-flex flex-column gap-7 gap-lg-10">
-													<div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
-														<!--begin::Payment address-->
-														<div class="card card-flush py-4 flex-row-fluid position-relative">
-															<!--begin::Background-->
-															<div class="position-absolute top-0 end-0 bottom-0 opacity-10 d-flex align-items-center me-5">
-																<i class="ki-solid ki-two-credit-cart" style="font-size: 14em"></i>
-															</div>
-															<!--end::Background-->
-															<!--begin::Card header-->
-															<div class="card-header">
-																<div class="card-title">
-																	<h2>Billing Address</h2>
+												<div class="card-body p-12">
+													<!--begin::Form-->
+													<form action="" id="kt_invoice_form">
+														<!--begin::Wrapper-->
+														<div class="d-flex flex-column align-items-start flex-xxl-row">
+															<!--begin::Input group-->
+															<div class="d-flex align-items-center flex-equal fw-row me-4 order-2" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Specify invoice date">
+																<!--begin::Date-->
+																<div class="fs-6 fw-bold text-gray-700 text-nowrap">Date:</div>
+																<!--end::Date-->
+																<!--begin::Input-->
+																<div class="position-relative d-flex align-items-center w-150px">
+																	<!--begin::Datepicker-->
+																	<input class="form-control form-control-transparent fw-bold pe-5" placeholder="Select date" name="invoice_date" />
+																	<!--end::Datepicker-->
+																	<!--begin::Icon-->
+																	<i class="ki-duotone ki-down fs-4 position-absolute ms-4 end-0"></i>
+																	<!--end::Icon-->
 																</div>
+																<!--end::Input-->
 															</div>
-															<!--end::Card header-->
-															<!--begin::Card body-->
-															<div class="card-body pt-0">Unit 1/23 Hastings Road,
-															<br />Melbourne 3000,
-															<br />Victoria,
-															<br />Australia.</div>
-															<!--end::Card body-->
-														</div>
-														<!--end::Payment address-->
-														<!--begin::Shipping address-->
-														<div class="card card-flush py-4 flex-row-fluid position-relative">
-															<!--begin::Background-->
-															<div class="position-absolute top-0 end-0 bottom-0 opacity-10 d-flex align-items-center me-5">
-																<i class="ki-solid ki-delivery" style="font-size: 13em"></i>
+															<!--end::Input group-->
+															<!--begin::Input group-->
+															<div class="d-flex flex-center flex-equal fw-row text-nowrap order-1 order-xxl-2 me-4" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Enter invoice number">
+																<span class="fs-2x fw-bold text-gray-800">Invoice #</span>
+																<input type="text" class="form-control form-control-flush fw-bold text-muted fs-3 w-125px" value="2021001" placehoder="..." />
 															</div>
-															<!--end::Background-->
-															<!--begin::Card header-->
-															<div class="card-header">
-																<div class="card-title">
-																	<h2>Shipping Address</h2>
+															<!--end::Input group-->
+															<!--begin::Input group-->
+															<div class="d-flex align-items-center justify-content-end flex-equal order-3 fw-row" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Specify invoice due date">
+																<!--begin::Date-->
+																<div class="fs-6 fw-bold text-gray-700 text-nowrap">Due Date:</div>
+																<!--end::Date-->
+																<!--begin::Input-->
+																<div class="position-relative d-flex align-items-center w-150px">
+																	<!--begin::Datepicker-->
+																	<input class="form-control form-control-transparent fw-bold pe-5" placeholder="Select date" name="invoice_due_date" />
+																	<!--end::Datepicker-->
+																	<!--begin::Icon-->
+																	<i class="ki-duotone ki-down fs-4 position-absolute end-0 ms-4"></i>
+																	<!--end::Icon-->
 																</div>
+																<!--end::Input-->
 															</div>
-															<!--end::Card header-->
-															<!--begin::Card body-->
-															<div class="card-body pt-0">Unit 1/23 Hastings Road,
-															<br />Melbourne 3000,
-															<br />Victoria,
-															<br />Australia.</div>
-															<!--end::Card body-->
+															<!--end::Input group-->
 														</div>
-														<!--end::Shipping address-->
-													</div>
-													<!--begin::Product List-->
-													<div class="card card-flush py-4 flex-row-fluid overflow-hidden">
-														<!--begin::Card header-->
-														<div class="card-header">
-															<div class="card-title">
-																<h2>Load #14534</h2>
+														<!--end::Top-->
+														<!--begin::Separator-->
+														<div class="separator separator-dashed my-10"></div>
+														<!--end::Separator-->
+														<!--begin::Wrapper-->
+														<div class="mb-0">
+															<!--begin::Row-->
+															<div class="row gx-10 mb-5">
+																<!--begin::Col-->
+																<div class="col-lg-6">
+																	<label class="form-label fs-6 fw-bold text-gray-700 mb-3">Bill From</label>
+																	<!--begin::Input group-->
+																	<div class="mb-5">
+																		<input type="text" class="form-control form-control-solid" placeholder="Name" />
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="mb-5">
+																		<input type="text" class="form-control form-control-solid" placeholder="Email" />
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="mb-5">
+																		<textarea name="notes" class="form-control form-control-solid" rows="3" placeholder="Who is this invoice from?"></textarea>
+																	</div>
+																	<!--end::Input group-->
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-lg-6">
+																	<label class="form-label fs-6 fw-bold text-gray-700 mb-3">Bill To</label>
+																	<!--begin::Input group-->
+																	<div class="mb-5">
+																		<input type="text" class="form-control form-control-solid" placeholder="Name" />
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="mb-5">
+																		<input type="text" class="form-control form-control-solid" placeholder="Email" />
+																	</div>
+																	<!--end::Input group-->
+																	<!--begin::Input group-->
+																	<div class="mb-5">
+																		<textarea name="notes" class="form-control form-control-solid" rows="3" placeholder="What is this invoice for?"></textarea>
+																	</div>
+																	<!--end::Input group-->
+																</div>
+																<!--end::Col-->
 															</div>
-														</div>
-														<!--end::Card header-->
-														<!--begin::Card body-->
-														<div class="card-body pt-0">
-															<div class="table-responsive">
+															<!--end::Row-->
+															<!--begin::Table wrapper-->
+															<div class="table-responsive mb-10">
 																<!--begin::Table-->
-																<table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
+																<table class="table g-5 gs-0 mb-0 fw-bold text-gray-700" data-kt-element="items">
+																	<!--begin::Table head-->
 																	<thead>
-																		<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-																			<th class="min-w-175px">Product</th>
-																			<th class="min-w-100px text-end">SKU</th>
-																			<th class="min-w-70px text-end">Qty</th>
-																			<th class="min-w-100px text-end">Unit Price</th>
-																			<th class="min-w-100px text-end">Total</th>
+																		<tr class="border-bottom fs-7 fw-bold text-gray-700 text-uppercase">
+																			<th class="min-w-300px w-475px">Item</th>
+																			<th class="min-w-100px w-100px">QTY</th>
+																			<th class="min-w-150px w-150px">Price</th>
+																			<th class="min-w-100px w-150px text-end">Total</th>
+																			<th class="min-w-75px w-75px text-end">Action</th>
 																		</tr>
 																	</thead>
-																	<tbody class="fw-semibold text-gray-600">
-																		<tr>
+																	<!--end::Table head-->
+																	<!--begin::Table body-->
+																	<tbody>
+																		<tr class="border-bottom border-bottom-dashed" data-kt-element="item">
+																			<td class="pe-7">
+																				<input type="text" class="form-control form-control-solid mb-2" name="name[]" placeholder="Item name" />
+																				<input type="text" class="form-control form-control-solid" name="description[]" placeholder="Description" />
+																			</td>
+																			<td class="ps-0">
+																				<input class="form-control form-control-solid" type="number" min="1" name="quantity[]" placeholder="1" value="1" data-kt-element="quantity" />
+																			</td>
 																			<td>
-																				<div class="d-flex align-items-center">
-																					<!--begin::Thumbnail-->
-																					<a href="/apps/ecommerce/catalog/edit-product" class="symbol symbol-50px">
-																						<span class="symbol-label" style="background-image:url(assets/media//stock/ecommerce/1.png);"></span>
-																					</a>
-																					<!--end::Thumbnail-->
-																					<!--begin::Title-->
-																					<div class="ms-5">
-																						<a href="/apps/ecommerce/catalog/edit-product" class="fw-bold text-gray-600 text-hover-primary">Product 1</a>
-																						<div class="fs-7 text-muted">Delivery Date: 22/03/2023</div>
-																					</div>
-																					<!--end::Title-->
+																				<input type="text" class="form-control form-control-solid text-end" name="price[]" placeholder="0.00" value="0.00" data-kt-element="price" />
+																			</td>
+																			<td class="pt-8 text-end text-nowrap">$
+																			<span data-kt-element="total">0.00</span></td>
+																			<td class="pt-5 text-end">
+																				<button type="button" class="btn btn-sm btn-icon btn-active-color-primary" data-kt-element="remove-item">
+																					<i class="ki-duotone ki-trash fs-3">
+																						<span class="path1"></span>
+																						<span class="path2"></span>
+																						<span class="path3"></span>
+																						<span class="path4"></span>
+																						<span class="path5"></span>
+																					</i>
+																				</button>
+																			</td>
+																		</tr>
+																	</tbody>
+																	<!--end::Table body-->
+																	<!--begin::Table foot-->
+																	<tfoot>
+																		<tr class="border-top border-top-dashed align-top fs-6 fw-bold text-gray-700">
+																			<th class="text-primary">
+																				<button class="btn btn-link py-1" data-kt-element="add-item">Add item</button>
+																			</th>
+																			<th colspan="2" class="border-bottom border-bottom-dashed ps-0">
+																				<div class="d-flex flex-column align-items-start">
+																					<div class="fs-5">Subtotal</div>
+																					<button class="btn btn-link py-1" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Coming soon">Add tax</button>
+																					<button class="btn btn-link py-1" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Coming soon">Add discount</button>
 																				</div>
-																			</td>
-																			<td class="text-end">04726008</td>
-																			<td class="text-end">2</td>
-																			<td class="text-end">$120.00</td>
-																			<td class="text-end">$240.00</td>
+																			</th>
+																			<th colspan="2" class="border-bottom border-bottom-dashed text-end">$
+																			<span data-kt-element="sub-total">0.00</span></th>
 																		</tr>
-																		<tr>
-																			<td>
-																				<div class="d-flex align-items-center">
-																					<!--begin::Thumbnail-->
-																					<a href="/apps/ecommerce/catalog/edit-product" class="symbol symbol-50px">
-																						<span class="symbol-label" style="background-image:url(assets/media//stock/ecommerce/100.png);"></span>
-																					</a>
-																					<!--end::Thumbnail-->
-																					<!--begin::Title-->
-																					<div class="ms-5">
-																						<a href="/apps/ecommerce/catalog/edit-product" class="fw-bold text-gray-600 text-hover-primary">Footwear</a>
-																						<div class="fs-7 text-muted">Delivery Date: 22/03/2023</div>
-																					</div>
-																					<!--end::Title-->
-																				</div>
-																			</td>
-																			<td class="text-end">03745004</td>
-																			<td class="text-end">1</td>
-																			<td class="text-end">$24.00</td>
-																			<td class="text-end">$24.00</td>
+																		<tr class="align-top fw-bold text-gray-700">
+																			<th></th>
+																			<th colspan="2" class="fs-4 ps-0">Total</th>
+																			<th colspan="2" class="text-end fs-4 text-nowrap">$
+																			<span data-kt-element="grand-total">0.00</span></th>
 																		</tr>
-																		<tr>
-																			<td colspan="4" class="text-end">Subtotal</td>
-																			<td class="text-end">$264.00</td>
-																		</tr>
-																		<tr>
-																			<td colspan="4" class="text-end">VAT (0%)</td>
-																			<td class="text-end">$0.00</td>
-																		</tr>
-																		<tr>
-																			<td colspan="4" class="text-end">Shipping Rate</td>
-																			<td class="text-end">$5.00</td>
-																		</tr>
-																		<tr>
-																			<td colspan="4" class="fs-3 text-dark text-end">Grand Total</td>
-																			<td class="text-dark fs-3 fw-bolder text-end">$269.00</td>
-																		</tr>
-																	</tbody>
+																	</tfoot>
+																	<!--end::Table foot-->
 																</table>
-																<!--end::Table-->
 															</div>
+															<!--end::Table-->
+															<!--begin::Item template-->
+															<table class="table d-none" data-kt-element="item-template">
+																<tr class="border-bottom border-bottom-dashed" data-kt-element="item">
+																	<td class="pe-7">
+																		<input type="text" class="form-control form-control-solid mb-2" name="name[]" placeholder="Item name" />
+																		<input type="text" class="form-control form-control-solid" name="description[]" placeholder="Description" />
+																	</td>
+																	<td class="ps-0">
+																		<input class="form-control form-control-solid" type="number" min="1" name="quantity[]" placeholder="1" data-kt-element="quantity" />
+																	</td>
+																	<td>
+																		<input type="text" class="form-control form-control-solid text-end" name="price[]" placeholder="0.00" data-kt-element="price" />
+																	</td>
+																	<td class="pt-8 text-end">$
+																	<span data-kt-element="total">0.00</span></td>
+																	<td class="pt-5 text-end">
+																		<button type="button" class="btn btn-sm btn-icon btn-active-color-primary" data-kt-element="remove-item">
+																			<i class="ki-duotone ki-trash fs-3">
+																				<span class="path1"></span>
+																				<span class="path2"></span>
+																				<span class="path3"></span>
+																				<span class="path4"></span>
+																				<span class="path5"></span>
+																			</i>
+																		</button>
+																	</td>
+																</tr>
+															</table>
+															<table class="table d-none" data-kt-element="empty-template">
+																<tr data-kt-element="empty">
+																	<th colspan="5" class="text-muted text-center py-10">No items</th>
+																</tr>
+															</table>
+															<!--end::Item template-->
+															<!--begin::Notes-->
+															<div class="mb-0">
+																<label class="form-label fs-6 fw-bold text-gray-700">Notes</label>
+																<textarea name="notes" class="form-control form-control-solid" rows="3" placeholder="Thanks for your business"></textarea>
+															</div>
+															<!--end::Notes-->
 														</div>
-														<!--end::Card body-->
-													</div>
-													<!--end::Product List-->
+														<!--end::Wrapper-->
+													</form>
+													<!--end::Form-->
 												</div>
-												<!--end::Loads-->
+												<!--end::Card body-->
 											</div>
-											<!--end::Tab pane-->
-											<!--begin::Tab pane-->
-											<div class="tab-pane fade" id="kt_ecommerce_sales_Load_history" role="tab-panel">
-												<!--begin::Loads-->
-												<div class="d-flex flex-column gap-7 gap-lg-10">
-													<!--begin::Load history-->
-													<div class="card card-flush py-4 flex-row-fluid">
-														<!--begin::Card header-->
-														<div class="card-header">
-															<div class="card-title">
-																<h2>Load History</h2>
-															</div>
-														</div>
-														<!--end::Card header-->
-														<!--begin::Card body-->
-														<div class="card-body pt-0">
-															<div class="table-responsive">
-																<!--begin::Table-->
-																<table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
-																	<thead>
-																		<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-																			<th class="min-w-100px">Date Added</th>
-																			<th class="min-w-175px">Comment</th>
-																			<th class="min-w-70px">Load Status</th>
-																			<th class="min-w-100px">Customer Notifed</th>
-																		</tr>
-																	</thead>
-																	<tbody class="fw-semibold text-gray-600">
-																		<tr>
-																			<td>22/03/2023</td>
-																			<td>Load completed</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-success">Completed</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>No</td>
-																		</tr>
-																		<tr>
-																			<td>21/03/2023</td>
-																			<td>Load received by customer</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-success">Delivered</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>Yes</td>
-																		</tr>
-																		<tr>
-																			<td>20/03/2023</td>
-																			<td>Load shipped from warehouse</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-primary">Delivering</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>Yes</td>
-																		</tr>
-																		<tr>
-																			<td>19/03/2023</td>
-																			<td>Payment received</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-primary">Processing</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>No</td>
-																		</tr>
-																		<tr>
-																			<td>18/03/2023</td>
-																			<td>Pending payment</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-warning">Pending</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>No</td>
-																		</tr>
-																		<tr>
-																			<td>17/03/2023</td>
-																			<td>Payment method updated</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-warning">Pending</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>No</td>
-																		</tr>
-																		<tr>
-																			<td>16/03/2023</td>
-																			<td>Payment method expired</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-danger">Failed</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>Yes</td>
-																		</tr>
-																		<tr>
-																			<td>15/03/2023</td>
-																			<td>Pending payment</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-warning">Pending</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>No</td>
-																		</tr>
-																		<tr>
-																			<td>14/03/2023</td>
-																			<td>Load received</td>
-																			<td>
-																				<!--begin::Badges-->
-																				<div class="badge badge-light-warning">Pending</div>
-																				<!--end::Badges-->
-																			</td>
-																			<td>Yes</td>
-																		</tr>
-																	</tbody>
-																</table>
-																<!--end::Table-->
-															</div>
-														</div>
-														<!--end::Card body-->
-													</div>
-													<!--end::Load history-->
-													<!--begin::Load data-->
-													<div class="card card-flush py-4 flex-row-fluid">
-														<!--begin::Card header-->
-														<div class="card-header">
-															<div class="card-title">
-																<h2>Load Data</h2>
-															</div>
-														</div>
-														<!--end::Card header-->
-														<!--begin::Card body-->
-														<div class="card-body pt-0">
-															<div class="table-responsive">
-																<!--begin::Table-->
-																<table class="table align-middle table-row-bLoaded mb-0 fs-6 gy-5">
-																	<tbody class="fw-semibold text-gray-600">
-																		<tr>
-																			<td class="text-muted">IP Address</td>
-																			<td class="fw-bold text-end">172.68.221.26</td>
-																		</tr>
-																		<tr>
-																			<td class="text-muted">Forwarded IP</td>
-																			<td class="fw-bold text-end">89.201.163.49</td>
-																		</tr>
-																		<tr>
-																			<td class="text-muted">User Agent</td>
-																			<td class="fw-bold text-end">Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36</td>
-																		</tr>
-																		<tr>
-																			<td class="text-muted">Accept Language</td>
-																			<td class="fw-bold text-end">en-GB,en-US;q=0.9,en;q=0.8</td>
-																		</tr>
-																	</tbody>
-																</table>
-																<!--end::Table-->
-															</div>
-														</div>
-														<!--end::Card body-->
-													</div>
-													<!--end::Load data-->
-												</div>
-												<!--end::Loads-->
-											</div>
-											<!--end::Tab pane-->
+											<!--end::Card-->
 										</div>
-										<!--end::Tab content-->
+										<!--end::Content-->
+										<!--begin::Sidebar-->
+										<div class="flex-lg-auto min-w-lg-300px">
+											<!--begin::Card-->
+											<div class="card" data-kt-sticky="true" data-kt-sticky-name="invoice" data-kt-sticky-offset="{default: false, lg: '200px'}" data-kt-sticky-width="{lg: '250px', lg: '300px'}" data-kt-sticky-left="auto" data-kt-sticky-top="150px" data-kt-sticky-animation="false" data-kt-sticky-zindex="95">
+												<!--begin::Card body-->
+												<div class="card-body p-10">
+													<!--begin::Input group-->
+													<div class="mb-10">
+														<!--begin::Label-->
+														<label class="form-label fw-bold fs-6 text-gray-700">Currency</label>
+														<!--end::Label-->
+														<!--begin::Select-->
+														<select name="currnecy" aria-label="Select a Timezone" data-control="select2" data-placeholder="Select currency" class="form-select form-select-solid">
+															<option value=""></option>
+															<option data-kt-flag="flags/united-states.svg" value="USD">
+															<b>USD</b>&nbsp;-&nbsp;USA dollar</option>
+															<option data-kt-flag="flags/united-kingdom.svg" value="GBP">
+															<b>GBP</b>&nbsp;-&nbsp;British pound</option>
+															<option data-kt-flag="flags/australia.svg" value="AUD">
+															<b>AUD</b>&nbsp;-&nbsp;Australian dollar</option>
+															<option data-kt-flag="flags/japan.svg" value="JPY">
+															<b>JPY</b>&nbsp;-&nbsp;Japanese yen</option>
+															<option data-kt-flag="flags/sweden.svg" value="SEK">
+															<b>SEK</b>&nbsp;-&nbsp;Swedish krona</option>
+															<option data-kt-flag="flags/canada.svg" value="CAD">
+															<b>CAD</b>&nbsp;-&nbsp;Canadian dollar</option>
+															<option data-kt-flag="flags/switzerland.svg" value="CHF">
+															<b>CHF</b>&nbsp;-&nbsp;Swiss franc</option>
+														</select>
+														<!--end::Select-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed mb-8"></div>
+													<!--end::Separator-->
+													<!--begin::Input group-->
+													<div class="mb-8">
+														<!--begin::Option-->
+														<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack mb-5">
+															<span class="form-check-label ms-0 fw-bold fs-6 text-gray-700">Payment method</span>
+															<input class="form-check-input" type="checkbox" checked="checked" value="" />
+														</label>
+														<!--end::Option-->
+														<!--begin::Option-->
+														<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack mb-5">
+															<span class="form-check-label ms-0 fw-bold fs-6 text-gray-700">Late fees</span>
+															<input class="form-check-input" type="checkbox" value="" />
+														</label>
+														<!--end::Option-->
+														<!--begin::Option-->
+														<label class="form-check form-switch form-switch-sm form-check-custom form-check-solid flex-stack">
+															<span class="form-check-label ms-0 fw-bold fs-6 text-gray-700">Notes</span>
+															<input class="form-check-input" type="checkbox" value="" />
+														</label>
+														<!--end::Option-->
+													</div>
+													<!--end::Input group-->
+													<!--begin::Separator-->
+													<div class="separator separator-dashed mb-8"></div>
+													<!--end::Separator-->
+													<!--begin::Actions-->
+													<div class="mb-0">
+														<!--begin::Row-->
+														<div class="row mb-5">
+															<!--begin::Col-->
+															<div class="col">
+																<a href="#" class="btn btn-light btn-active-light-primary w-100">Preview</a>
+															</div>
+															<!--end::Col-->
+															<!--begin::Col-->
+															<div class="col">
+																<a href="#" class="btn btn-light btn-active-light-primary w-100">Download</a>
+															</div>
+															<!--end::Col-->
+														</div>
+														<!--end::Row-->
+														<button type="submit" href="#" class="btn btn-primary w-100" id="kt_invoice_submit_button">
+														<i class="ki-duotone ki-triangle fs-3">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+														</i>Send Invoice</button>
+													</div>
+													<!--end::Actions-->
+												</div>
+												<!--end::Card body-->
+											</div>
+											<!--end::Card-->
+										</div>
+										<!--end::Sidebar-->
 									</div>
-									<!--end::Load details page-->
+									<!--end::Layout-->
 								</div>
 								<!--end::Content container-->
 							</div>
@@ -8967,13 +8710,13 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::Footer container-->
 							<div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
 								<!--begin::Copyright-->
-								<div class="text-dark Load-2 Load-md-1">
+								<div class="text-dark order-2 order-md-1">
 									<span class="text-muted fw-semibold me-1">2023&copy;</span>
 									<a href="https://keenthemes.com" target="_blank" class="text-gray-800 text-hover-primary">Keenthemes</a>
 								</div>
 								<!--end::Copyright-->
 								<!--begin::Menu-->
-								<ul class="menu menu-gray-600 menu-hover-primary fw-semibold Load-1">
+								<ul class="menu menu-gray-600 menu-hover-primary fw-semibold order-1">
 									<li class="menu-item">
 										<a href="https://keenthemes.com" target="_blank" class="menu-link px-2">About</a>
 									</li>
@@ -9000,7 +8743,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Drawers-->
 		<!--begin::Activities drawer-->
 		<div id="kt_activities" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="activities" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'lg': '900px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_activities_toggle" data-kt-drawer-close="#kt_activities_close">
-			<div class="card shadow-none bLoad-0 rounded-0">
+			<div class="card shadow-none border-0 rounded-0">
 				<!--begin::Header-->
 				<div class="card-header" id="kt_activities_header">
 					<h3 class="card-title fw-bold text-dark">Activity Logs</h3>
@@ -9060,7 +8803,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Timeline details-->
 									<div class="overflow-auto pb-5">
 										<!--begin::Record-->
-										<div class="d-flex align-items-center bLoad bLoad-dashed bLoad-gray-300 rounded min-w-750px px-7 py-3 mb-5">
+										<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-750px px-7 py-3 mb-5">
 											<!--begin::Title-->
 											<a href="/apps/projects/project" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Meeting with customer</a>
 											<!--end::Title-->
@@ -9099,7 +8842,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::Record-->
 										<!--begin::Record-->
-										<div class="d-flex align-items-center bLoad bLoad-dashed bLoad-gray-300 rounded min-w-750px px-7 py-3 mb-0">
+										<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-750px px-7 py-3 mb-0">
 											<!--begin::Title-->
 											<a href="/apps/projects/project" class="fs-5 text-dark text-hover-primary fw-semibold w-375px min-w-200px">Project Delivery Preparation</a>
 											<!--end::Title-->
@@ -9219,7 +8962,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Timeline heading-->
 									<!--begin::Timeline details-->
 									<div class="overflow-auto pb-5">
-										<div class="d-flex align-items-center bLoad bLoad-dashed bLoad-gray-300 rounded min-w-700px p-5">
+										<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-5">
 											<!--begin::Item-->
 											<div class="d-flex flex-aligns-center pe-10 pe-lg-20">
 												<!--begin::Icon-->
@@ -9358,7 +9101,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--end::Timeline heading-->
 									<!--begin::Timeline details-->
 									<div class="overflow-auto pb-5">
-										<div class="d-flex align-items-center bLoad bLoad-dashed bLoad-gray-300 rounded min-w-700px p-7">
+										<div class="d-flex align-items-center border border-dashed border-gray-300 rounded min-w-700px p-7">
 											<!--begin::Item-->
 											<div class="overlay me-10">
 												<!--begin::Image-->
@@ -9471,7 +9214,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Timeline heading-->
 									<div class="pe-3 mb-5">
 										<!--begin::Title-->
-										<div class="fs-5 fw-semibold mb-2">You have received a new Load:</div>
+										<div class="fs-5 fw-semibold mb-2">You have received a new order:</div>
 										<!--end::Title-->
 										<!--begin::Description-->
 										<div class="d-flex align-items-center mt-1 fs-6">
@@ -9490,7 +9233,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Timeline details-->
 									<div class="overflow-auto pb-5">
 										<!--begin::Notice-->
-										<div class="notice d-flex bg-light-primary rounded bLoad-primary bLoad bLoad-dashed min-w-lg-600px flex-shrink-0 p-6">
+										<div class="notice d-flex bg-light-primary rounded border-primary border border-dashed min-w-lg-600px flex-shrink-0 p-6">
 											<!--begin::Icon-->
 											<i class="ki-duotone ki-devices-2 fs-2tx text-primary me-4">
 												<span class="path1"></span>
@@ -9541,7 +9284,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Timeline heading-->
 									<div class="pe-3 mb-5">
 										<!--begin::Title-->
-										<div class="fs-5 fw-semibold mb-2">New Load
+										<div class="fs-5 fw-semibold mb-2">New order
 										<a href="#" class="text-primary fw-bold me-1">#67890</a>is placed for Workshow Planning & Budget Estimation</div>
 										<!--end::Title-->
 										<!--begin::Description-->
@@ -9581,7 +9324,7 @@ License: For each use you must have a valid license purchased only from above li
 		<!--begin::Chat drawer-->
 		<div id="kt_drawer_chat" class="bg-body" data-kt-drawer="true" data-kt-drawer-name="chat" data-kt-drawer-activate="true" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'300px', 'md': '500px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_drawer_chat_toggle" data-kt-drawer-close="#kt_drawer_chat_close">
 			<!--begin::Messenger-->
-			<div class="card w-100 bLoad-0 rounded-0" id="kt_drawer_chat_messenger">
+			<div class="card w-100 border-0 rounded-0" id="kt_drawer_chat_messenger">
 				<!--begin::Card header-->
 				<div class="card-header pe-5" id="kt_drawer_chat_messenger_header">
 					<!--begin::Title-->
@@ -10242,7 +9985,7 @@ License: For each use you must have a valid license purchased only from above li
 					<!--end::Item-->
 					<!--end::Action-->
 					<div class="d-flex justify-content-end mt-9">
-						<a href="#" class="btn btn-primary d-flex justify-content-end">Pleace Load</a>
+						<a href="#" class="btn btn-primary d-flex justify-content-end">Pleace Order</a>
 					</div>
 					<!--end::Action-->
 				</div>
@@ -10268,7 +10011,7 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Modal content-->
 				<div class="modal-content rounded">
 					<!--begin::Modal header-->
-					<div class="modal-header justify-content-end bLoad-0 pb-0">
+					<div class="modal-header justify-content-end border-0 pb-0">
 						<!--begin::Close-->
 						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
 							<i class="ki-duotone ki-cross fs-1">
@@ -10741,7 +10484,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Indicator label-->
 								<!--begin::Indicator progress-->
 								<span class="indicator-progress">Please wait...
-								<span class="spinner-bLoad spinner-bLoad-sm align-middle ms-2"></span></span>
+								<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 								<!--end::Indicator progress-->
 							</button>
 						</div>
@@ -11478,7 +11221,7 @@ License: For each use you must have a valid license purchased only from above li
 													<span class="path2"></span>
 												</i></span>
 												<span class="indicator-progress">Please wait...
-												<span class="spinner-bLoad spinner-bLoad-sm align-middle ms-2"></span></span>
+												<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
 											</button>
 											<button type="button" class="btn btn-lg btn-primary" data-kt-stepper-action="next">Continue
 											<i class="ki-duotone ki-arrow-right fs-3 ms-1 me-0">
@@ -11510,7 +11253,7 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Modal content-->
 				<div class="modal-content">
 					<!--begin::Modal header-->
-					<div class="modal-header pb-0 bLoad-0 justify-content-end">
+					<div class="modal-header pb-0 border-0 justify-content-end">
 						<!--begin::Close-->
 						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
 							<i class="ki-duotone ki-cross fs-1">
@@ -11547,7 +11290,7 @@ License: For each use you must have a valid license purchased only from above li
 								<!--end::Input-->
 								<!--begin::Spinner-->
 								<span class="position-absolute top-50 end-0 translate-middle-y lh-0 d-none me-5" data-kt-search-element="spinner">
-									<span class="spinner-bLoad h-15px w-15px align-middle text-muted"></span>
+									<span class="spinner-border h-15px w-15px align-middle text-muted"></span>
 								</span>
 								<!--end::Spinner-->
 								<!--begin::Reset-->
@@ -11686,7 +11429,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="1">
@@ -11722,7 +11465,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="2">
@@ -11758,7 +11501,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="3">
@@ -11794,7 +11537,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="4">
@@ -11830,7 +11573,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="5">
@@ -11866,7 +11609,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="6">
@@ -11902,7 +11645,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="7">
@@ -11938,7 +11681,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="8">
@@ -11974,7 +11717,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="9">
@@ -12010,7 +11753,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="10">
@@ -12046,7 +11789,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="11">
@@ -12082,7 +11825,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="12">
@@ -12118,7 +11861,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="13">
@@ -12154,7 +11897,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="14">
@@ -12190,7 +11933,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="15">
@@ -12226,7 +11969,7 @@ License: For each use you must have a valid license purchased only from above li
 										</div>
 										<!--end::User-->
 										<!--begin::Separator-->
-										<div class="bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed"></div>
+										<div class="border-bottom border-gray-300 border-bottom-dashed"></div>
 										<!--end::Separator-->
 										<!--begin::User-->
 										<div class="rounded d-flex flex-stack bg-active-lighten p-4" data-user-id="16">
@@ -12239,13 +11982,13 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<img alt="Pic" src="assets/media/avatars/300-23.jpg" />
+													<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
 												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Dan Wilson</a>
-													<div class="fw-semibold text-muted">dam@consilting.com</div>
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
+													<div class="fw-semibold text-muted">ethan@loop.com.au</div>
 												</div>
 												<!--end::Details-->
 											</div>
@@ -12305,7 +12048,7 @@ License: For each use you must have a valid license purchased only from above li
 				<!--begin::Modal content-->
 				<div class="modal-content">
 					<!--begin::Modal header-->
-					<div class="modal-header pb-0 bLoad-0 justify-content-end">
+					<div class="modal-header pb-0 border-0 justify-content-end">
 						<!--begin::Close-->
 						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
 							<i class="ki-duotone ki-cross fs-1">
@@ -12349,7 +12092,7 @@ License: For each use you must have a valid license purchased only from above li
 							<!--begin::List-->
 							<div class="mh-300px scroll-y me-n7 pe-7">
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12377,7 +12120,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12405,7 +12148,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12433,7 +12176,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12461,7 +12204,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12489,7 +12232,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12517,7 +12260,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12545,7 +12288,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12573,7 +12316,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12601,7 +12344,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12629,7 +12372,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12657,7 +12400,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12685,7 +12428,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12713,7 +12456,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12741,7 +12484,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12769,7 +12512,7 @@ License: For each use you must have a valid license purchased only from above li
 								</div>
 								<!--end::User-->
 								<!--begin::User-->
-								<div class="d-flex flex-stack py-4 bLoad-bottom bLoad-gray-300 bLoad-bottom-dashed">
+								<div class="d-flex flex-stack py-4 border-bottom border-gray-300 border-bottom-dashed">
 									<!--begin::Details-->
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
@@ -12802,13 +12545,13 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
+											<img alt="Pic" src="assets/media/avatars/300-21.jpg" />
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
 										<div class="ms-5">
-											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia Wild</a>
-											<div class="fw-semibold text-muted">olivia@corpmail.com</div>
+											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Ethan Wilder</a>
+											<div class="fw-semibold text-muted">ethan@loop.com.au</div>
 										</div>
 										<!--end::Details-->
 									</div>
@@ -12863,6 +12606,7 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
+		<script src="assets/js/custom/apps/invoices/create.js"></script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>

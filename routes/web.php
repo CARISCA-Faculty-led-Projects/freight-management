@@ -117,8 +117,14 @@ Route::get('/load/offer-a-deal', function () {
 Route::get('/load/add-deal', function () {
     return view('load.add-deal');
 });
-Route::get('/load/create-invoice', function () {
-    return view('load.create-invoice');
+Route::get('/load/invoices/create', function () {
+    return view('load.invoices.create');
+});
+Route::get('/load/invoices/edit', function () {
+    return view('load.invoices.edit');
+});
+Route::get('/load/invoices/view', function () {
+    return view('load.invoices.view');
 });
 
 
