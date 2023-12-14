@@ -2175,7 +2175,7 @@ License: For each use you must have a valid license purchased only from above li
                                                         <!--begin:Menu item-->
                                                         <div class="menu-item">
                                                             <!--begin:Menu link-->
-                                                            <a class="menu-link" href="/apps/ecommerce/sales/add-Load">
+                                                            <a class="menu-link" href="/load/add">
                                                                 <span class="menu-bullet">
                                                                     <span class="bullet bullet-dot"></span>
                                                                 </span>
@@ -8981,7 +8981,8 @@ License: For each use you must have a valid license purchased only from above li
                                         </li>
                                         <!--end::Item-->
                                         <!--begin::Item-->
-                                        <li class="breadcrumb-item text-muted">eCommerce</li>
+                                        <li class="breadcrumb-item text-muted"> <a href="/index"
+                                                class="text-muted text-hover-primary">Load</a></li>
                                         <!--end::Item-->
                                         <!--begin::Item-->
                                         <li class="breadcrumb-item">
@@ -8989,7 +8990,16 @@ License: For each use you must have a valid license purchased only from above li
                                         </li>
                                         <!--end::Item-->
                                         <!--begin::Item-->
-                                        <li class="breadcrumb-item text-muted">Sales</li>
+                                        <li class="breadcrumb-item text-muted"> <a href="/index"
+                                                class="text-muted text-hover-primary">#4544</a></li>
+                                        <!--end::Item-->
+                                        <!--begin::Item-->
+                                        <li class="breadcrumb-item">
+                                            <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                                        </li>
+                                        <!--end::Item-->
+                                        <!--begin::Item-->
+                                        <li class="breadcrumb-item text-muted">Details</li>
                                         <!--end::Item-->
                                     </ul>
                                     <!--end::Breadcrumb-->
@@ -9147,15 +9157,14 @@ License: For each use you must have a valid license purchased only from above li
                                         </a>
                                         <!--end::Button-->
                                         <!--begin::Button-->
-                                        <a href="/apps/ecommerce/sales/edit-Load"
-                                            class="btn btn-success btn-sm me-lg-n7">Edit Load</a>
+                                        <a href="/load/edit" class="btn btn-success btn-sm me-lg-n7">Edit Load</a>
                                         <!--end::Button-->
                                         <!--begin::Button-->
                                         <!--begin::Button-->
-                                        <a href="/apps/ecommerce/sales/edit-Load"
-                                            class="btn btn-primary btn-sm me-lg-n7">Add New Load</a>
+                                        <a href="/load/add" class="btn btn-primary btn-sm me-lg-n7">Add New Load</a>
                                         <!--end::Button-->
-                                        <a href="/apps/ecommerce/sales/add-Load" class="btn btn-dark btn-sm">Initiate
+                                        <a class="btn btn-dark btn-sm" data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_adjust_balance">Initiate
                                             Payment</a>
                                         <!--end::Button-->
                                     </div>
@@ -9803,7 +9812,8 @@ License: For each use you must have a valid license purchased only from above li
                                                                         <th class="min-w-175px">Product</th>
                                                                         <th class="min-w-100px text-end">SKU</th>
                                                                         <th class="min-w-70px text-end">Qty</th>
-                                                                        <th class="min-w-100px text-end">Unit Price</th>
+                                                                        <th class="min-w-100px text-end">Value Price
+                                                                        </th>
                                                                         <th class="min-w-100px text-end">Total</th>
                                                                     </tr>
                                                                 </thead>
@@ -9824,15 +9834,15 @@ License: For each use you must have a valid license purchased only from above li
                                                                                         class="fw-bold text-gray-600 text-hover-primary">Product
                                                                                         1</a>
                                                                                     <div class="fs-7 text-muted">
-                                                                                        Delivery Date: 22/03/2023</div>
+                                                                                        Category: Electronics</div>
                                                                                 </div>
                                                                                 <!--end::Title-->
                                                                             </div>
                                                                         </td>
                                                                         <td class="text-end">04726008</td>
-                                                                        <td class="text-end">2</td>
-                                                                        <td class="text-end">$120.00</td>
-                                                                        <td class="text-end">$240.00</td>
+                                                                        <td class="text-end">2000</td>
+                                                                        <td class="text-end">GHS 120.00</td>
+                                                                        <td class="text-end">GHS 240,000.00</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>
@@ -9849,34 +9859,34 @@ License: For each use you must have a valid license purchased only from above li
                                                                                     <a href="/apps/ecommerce/catalog/edit-product"
                                                                                         class="fw-bold text-gray-600 text-hover-primary">Footwear</a>
                                                                                     <div class="fs-7 text-muted">
-                                                                                        Delivery Date: 22/03/2023</div>
+                                                                                        Category: Clothing</div>
                                                                                 </div>
                                                                                 <!--end::Title-->
                                                                             </div>
                                                                         </td>
                                                                         <td class="text-end">03745004</td>
-                                                                        <td class="text-end">1</td>
-                                                                        <td class="text-end">$24.00</td>
-                                                                        <td class="text-end">$24.00</td>
+                                                                        <td class="text-end">1000</td>
+                                                                        <td class="text-end">GHS 24.00</td>
+                                                                        <td class="text-end">GHS 24,000.00</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td colspan="4" class="text-end">Subtotal</td>
-                                                                        <td class="text-end">$264.00</td>
+                                                                        <td class="text-end">GHS 264,000.00</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td colspan="4" class="text-end">VAT (0%)</td>
-                                                                        <td class="text-end">$0.00</td>
+                                                                        <td class="text-end">GHS 0.00</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td colspan="4" class="text-end">Shipping Rate
                                                                         </td>
-                                                                        <td class="text-end">$5.00</td>
+                                                                        <td class="text-end">GHS 5.00</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td colspan="4" class="fs-3 text-dark text-end">
                                                                             Grand Total</td>
                                                                         <td class="text-dark fs-3 fw-bolder text-end">
-                                                                            $269.00</td>
+                                                                            GHS 264,000.00</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -14686,3 +14696,4 @@ License: For each use you must have a valid license purchased only from above li
 </html>
 
 @include('partials.modals.add_payment_method')
+@include('partials.modals.initiate_payment')

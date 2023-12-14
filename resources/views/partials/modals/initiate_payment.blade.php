@@ -23,21 +23,16 @@
               <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                   <!--begin::Balance preview-->
                   <div class="d-flex text-center mb-9">
+                      
                       <div class="w-50 border border-dashed border-gray-300 rounded mx-2 p-4">
-                          <div class="fs-6 fw-semibold mb-2 text-muted">Current Balance</div>
-                          <div class="fs-2 fw-bold" kt-modal-adjust-balance="current_balance">US$ 32,487.57</div>
+                          <div class="fs-6 fw-semibold mb-2 text-muted">Order #
+                              
+                            </div>
+                          <div class="fs-2 fw-bold" kt-modal-adjust-balance="new_balance">#78898</div>
                       </div>
                       <div class="w-50 border border-dashed border-gray-300 rounded mx-2 p-4">
-                          <div class="fs-6 fw-semibold mb-2 text-muted">New Balance
-                              <span class="ms-2" data-bs-toggle="tooltip"
-                                  title="Enter an amount to preview the new balance.">
-                                  <i class="ki-duotone ki-information fs-7">
-                                      <span class="path1"></span>
-                                      <span class="path2"></span>
-                                      <span class="path3"></span>
-                                  </i>
-                              </span></div>
-                          <div class="fs-2 fw-bold" kt-modal-adjust-balance="new_balance">--</div>
+                          <div class="fs-6 fw-semibold mb-2 text-muted">Amount</div>
+                          <div class="fs-2 fw-bold" kt-modal-adjust-balance="current_balance">GHS 32,487.57</div>
                       </div>
                   </div>
                   <!--end::Balance preview-->
@@ -46,35 +41,32 @@
                       <!--begin::Input group-->
                       <div class="fv-row mb-7">
                           <!--begin::Label-->
-                          <label class="required fs-6 fw-semibold form-label mb-2">Adjustment type</label>
+                          <label class="required fs-6 fw-semibold form-label mb-2">Debit Account</label>
                           <!--end::Label-->
                           <!--begin::Dropdown-->
                           <select class="form-select form-select-solid fw-bold" name="adjustment"
                               aria-label="Select an option" data-control="select2"
                               data-dropdown-parent="#kt_modal_adjust_balance" data-placeholder="Select an option"
                               data-hide-search="true">
-                              <option></option>
-                              <option value="1">Credit</option>
-                              <option value="2">Debit</option>
+                              <!-- <option></option> -->
+                              <option value="1">Mastercard - ***********34</option>
+                              <!-- <option value="2">Debit</option> -->
                           </select>
                           <!--end::Dropdown-->
                       </div>
                       <!--end::Input group-->
                       <!--begin::Input group-->
-                      <div class="fv-row mb-7">
-                          <!--begin::Label-->
+                      <!-- <div class="fv-row mb-7">
                           <label class="required fs-6 fw-semibold form-label mb-2">Amount</label>
-                          <!--end::Label-->
-                          <!--begin::Input-->
+                          
                           <input id="kt_modal_inputmask" type="text" class="form-control form-control-solid"
                               name="amount" value="" />
-                          <!--end::Input-->
-                      </div>
+                      </div> -->
                       <!--end::Input group-->
                       <!--begin::Input group-->
                       <div class="fv-row mb-7">
                           <!--begin::Label-->
-                          <label class="fs-6 fw-semibold form-label mb-2">Add adjustment note</label>
+                          <label class="fs-6 fw-semibold form-label mb-2">Add payment note</label>
                           <!--end::Label-->
                           <!--begin::Input-->
                           <textarea class="form-control form-control-solid rounded-3 mb-5"></textarea>

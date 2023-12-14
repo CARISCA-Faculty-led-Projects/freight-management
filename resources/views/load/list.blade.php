@@ -132,6 +132,7 @@
                                         data-kt-check-target="#kt_ecommerce_sales_table .form-check-input" value="1" />
                                 </div>
                             </th>
+                            <th class="min-w-105px">#</th>
                             <th class="min-w-105px">Category</th>
                             <th class="text-end min-w-70px">Status</th>
                             <th class="text-end min-w-70px">Shipment Status</th>
@@ -151,6 +152,7 @@
                                     <input class="form-check-input" type="checkbox" value="2" />
                                 </div>
                             </td>
+                            <td>0001</td>
                             <td>Refrigerated Goods</td>
                             <td class="text-end pe-0" data-order="Delivering">
                                 <!--begin::Badges-->
@@ -169,17 +171,15 @@
                             <td class="text-end">Edum, Kumasi</td>
                             <td class="text-end">Tema, Accra</td>
                             <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                <span 
-                                    class="badge badge-dark">Hazardous</span>
-                                <span 
-                                    class="badge badge-dark">Fragile</span>
+                                <span class="badge badge-dark">Hazardous</span>
+                                <span class="badge badge-dark">Fragile</span>
                             </td>
                             <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                 <a href="/apps/ecommerce/sales/details"
                                     class="text-gray-800 text-hover-primary fw-bold">documentation.pdf</a>
                             </td>
 
-                           
+
                             <td class="text-end">
                                 <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
@@ -202,13 +202,13 @@
                                         <a href="/load/locate" class="menu-link px-3">Locate</a>
                                     </div>
                                     <!--end::Menu item-->
-                                   
+
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
                                     </div>
                                     <!--end::Menu item-->
-                                    
+
 
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
@@ -221,42 +221,42 @@
                             </td>
                         </tr>
                         <!-- Row 2 -->
-						<!-- Row 4 -->
-						<tr>
-							<td>
-								<div class="form-check form-check-sm form-check-custom form-check-solid">
-									<input class="form-check-input" type="checkbox" value="4" />
-								</div>
-							</td>
-							<td>Chemicals</td>
-							<td class="text-end pe-0" data-order="Delivered">
-								<!--begin::Badges-->
-								<div class="badge badge-light-success">Approved</div>|
-								<div class="badge badge-light-danger">Unpaid</div>
-								<!--end::Badges-->
-							</td>
-							<td class="text-end pe-0" data-order="Delivering">
+                        <!-- Row 4 -->
+                        <tr>
+                            <td>
+                                <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                    <input class="form-check-input" type="checkbox" value="4" />
+                                </div>
+                            </td>
+                            <td>0002</td>
+                            <td>Chemicals</td>
+                            <td class="text-end pe-0" data-order="Delivered">
+                                <!--begin::Badges-->
+                                <div class="badge badge-light-success">Approved</div>|
+                                <div class="badge badge-light-danger">Unpaid</div>
+                                <!--end::Badges-->
+                            </td>
+                            <td class="text-end pe-0" data-order="Delivering">
                                 <!--begin::Badges-->
                                 <div class="badge badge-light-warning">On route</div>
                                 <!--end::Badges-->
                             </td>
-							<td class="text-end pe-0">
-								<span class="fw-bold">10 units, 5 Tons, 15*30*25</span>
-							</td>
-							<td class="text-end">Takoradi, Western Region</td>
-							<td class="text-end">Edum, Kumasi</td>
-
-							<td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                               
-                                <span 
-                                    class="badge badge-dark">Fragile</span>
+                            <td class="text-end pe-0">
+                                <span class="fw-bold">10 units, 5 Tons, 15*30*25</span>
                             </td>
-							<td data-kt-ecommerce-order-filter="order_id" class="text-end">
-								<a href="/apps/ecommerce/sales/details"
-									class="text-gray-800 text-hover-primary fw-bold">document.pdf</a>
-							</td>
-							
-							<td class="text-end">
+                            <td class="text-end">Takoradi, Western Region</td>
+                            <td class="text-end">Edum, Kumasi</td>
+
+                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
+
+                                <span class="badge badge-dark">Fragile</span>
+                            </td>
+                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
+                                <a href="/apps/ecommerce/sales/details"
+                                    class="text-gray-800 text-hover-primary fw-bold">document.pdf</a>
+                            </td>
+
+                            <td class="text-end">
                                 <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                     <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
@@ -278,13 +278,13 @@
                                         <a href="/load/locate" class="menu-link px-3">Locate</a>
                                     </div>
                                     <!--end::Menu item-->
-                                    
+
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a href="/load/create-invoice" class="menu-link px-3">Invoice</a>
                                     </div>
                                     <!--end::Menu item-->
-                                   
+
 
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
@@ -295,7 +295,7 @@
                                 </div>
                                 <!--end::Menu-->
                             </td>
-						</tr>
+                        </tr>
                         <tr>
                             <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -303,6 +303,7 @@
                                 </div>
                             </td>
 
+                            <td>0003</td>
                             <td>Electronics</td>
                             <td class="text-end pe-0" data-order="Pending">
                                 <!--begin::Badges-->
@@ -322,15 +323,14 @@
                             <td class="text-end">Victoria Avenue, Nigeria</td>
 
                             <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                               
-                                <span 
-                                    class="badge badge-dark">Fragile</span>
+
+                                <span class="badge badge-dark">Fragile</span>
                             </td>
                             <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                 <a href="/apps/ecommerce/sales/details"
                                     class="text-gray-800 text-hover-primary fw-bold">drtee.pdf</a>
                             </td>
-                            
+
                             <td class="text-end">
                                 <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
@@ -348,7 +348,7 @@
                                         <a href="/load/edit" class="menu-link px-3">Edit</a>
                                     </div>
                                     <!--end::Menu item-->
-                                   
+
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a href="/load/offer-a-deal" class="menu-link px-3">Bid</a>
@@ -383,6 +383,7 @@
                                 </div>
                             </td>
 
+                            <td>0004</td>
                             <td>Furniture</td>
                             <td class="text-end pe-0" data-order="In Transit">
                                 <!--begin::Badges-->
@@ -400,16 +401,15 @@
                             </td>
                             <td class="text-end">Koforidua, Eastern Region</td>
                             <td class="text-end">Tema, Community 5, Accra</td>
-							<td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                               
-							   <span 
-								   class="badge badge-dark">Hazardous</span>
-						   </td>
-						   <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-							   <a href="/apps/ecommerce/sales/details"
-								   class="text-gray-800 text-hover-primary fw-bold">instructions.pdf</a>
-						   </td>
-						   <td class="text-end">
+                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
+
+                                <span class="badge badge-dark">Hazardous</span>
+                            </td>
+                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
+                                <a href="/apps/ecommerce/sales/details"
+                                    class="text-gray-800 text-hover-primary fw-bold">instructions.pdf</a>
+                            </td>
+                            <td class="text-end">
                                 <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                     <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
@@ -421,7 +421,7 @@
                                         <a href="/load/details" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
-                                
+
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a href="#" class="menu-link px-3"
