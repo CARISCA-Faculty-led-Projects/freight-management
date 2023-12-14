@@ -531,13 +531,13 @@
                                 <!--begin::Card toolbar-->
                                 <div class="card-toolbar">
                                     <!--begin::Filter-->
-                                    <button type="button" class="btn btn-sm btn-flex btn-light-primary"
+                                    <a href="/fleet/vehicles/add"><button type="button" class="btn btn-sm btn-flex btn-light-primary"
                                         data-bs-toggle="modal" {{--data-bs-target="#kt_modal_add_payment"--}}>
                                         <i class="ki-duotone ki-plus-square fs-3">
                                             <span class="path1"></span>
                                             <span class="path2"></span>
                                             <span class="path3"></span>
-                                        </i>Add Fleet</button>
+                                        </i>Add Fleet</button></a>
                                     <!--end::Filter-->
                                 </div>
                                 <!--end::Card toolbar-->
