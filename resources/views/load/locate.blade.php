@@ -165,20 +165,17 @@
             <!--end::Sidebar-->
             <!--begin::Content-->
             <div class="flex-lg-row-fluid ms-lg-15">
-
                 <!--end:::Tabs-->
                 <!--begin:::Tab content-->
                 <div class="tab-content" id="myTabContent">
                     <!--begin:::Tab pane-->
                     <div class="tab-pane fade show active" id="kt_ecommerce_customer_overview" role="tabpanel">
-
                         <div class="card pt-4 mb-6 mb-xl-9">
-
                             <!--begin::Card body-->
                             <div class="card-body pt-0 pb-5">
                                 <iframe
                                     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d4046755.8932582396!2d-1.0304069499999997!3d7.904465449999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sgh!4v1702587371599!5m2!1sen!2sgh"
-                                    width="800" height="800" style="border:0;" allowfullscreen="" loading="lazy"
+                                    width="100%" height="800" style="border:0;" allowfullscreen="true" loading="lazy"
                                     referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
                             <!--end::Card body-->
@@ -186,7 +183,6 @@
                         <!--end::Card-->
                     </div>
                     <!--end:::Tab pane-->
-
                 </div>
                 <!--end:::Tab content-->
             </div>

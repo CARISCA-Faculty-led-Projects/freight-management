@@ -228,16 +228,14 @@
                     </div>
                     <!--end:Menu item-->
                     <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
+                    <!-- <div class="menu-item">
                         <a class="menu-link" href="/load/offer-a-deal">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
                             <span class="menu-title">Offer a deal</span>
                         </a>
-                        <!--end:Menu link-->
-                    </div>
+                    </div> -->
                     <!--end:Menu item-->
                     <!--begin:Menu item-->
                     <div class="menu-item">

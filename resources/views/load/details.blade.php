@@ -593,6 +593,16 @@
 													</div>
 												</div>
 												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col">
+													<div class="card card-dashed flex-center min-w-175px my-3 p-6">
+														<span class="fs-4 fw-semibold text-success pb-1 px-2">Distance</span>
+														<span class="fs-lg-2tx fw-bold d-flex justify-content-center">
+															<span data-kt-countup="true">250KM</span>
+														</span>
+													</div>
+												</div>
+												<!--end::Col-->
 										
 											</div>
 											<!--end::Stats-->

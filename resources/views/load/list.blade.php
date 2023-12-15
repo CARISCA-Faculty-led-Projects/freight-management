@@ -327,7 +327,7 @@
                                 <span class="badge badge-dark">Fragile</span>
                             </td>
                             <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                <a href="/apps/ecommerce/sales/details"
+                                <a data-bs-toggle="modal" data-bs-target="#kt_modal_bidding"
                                     class="text-gray-800 text-hover-primary fw-bold">drtee.pdf</a>
                             </td>
 
@@ -361,7 +361,7 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/load/bid" class="menu-link px-3">Assign</a>
+                                        <a class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_bidding">Assign</a>
                                     </div>
                                     <!--end::Menu item-->
 
@@ -486,4 +486,5 @@
 <!--end::Body-->
 
 </html>
+@include('partials.modals.assign_load_to_driver')
 @endsection
