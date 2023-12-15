@@ -2,9 +2,6 @@
 @section('content')
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
-
-
-
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
@@ -266,7 +263,7 @@
                         </div>
                         <!-- end::Actions-->
                         <!-- begin::Action-->
-                        <a href="/apps/invoices/create" class="btn btn-primary my-1">Initiate Payment</a>
+                        <a data-bs-toggle="modal" data-bs-target="#kt_modal_adjust_balance" class="btn btn-primary my-1">Initiate Payment</a>
                         <!-- end::Action-->
                     </div>
                     <!-- end::Footer-->
@@ -282,4 +279,5 @@
 <!--end::Content-->
 </div>
 <!--end::Content wrapper-->
+@include('partials.modals.initiate_payment')
 @endsection
