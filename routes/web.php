@@ -151,6 +151,12 @@ Route::get('/senders/overview', function () {
 Route::get('/senders/list', function () {
     return view('senders.list');
 });
+Route::get('/senders/add', function () {
+    return view('senders.add');
+});
+Route::get('/senders/edit', function () {
+    return view('senders.edit');
+});
 Route::get('/senders/billing', function () {
     return view('senders.biling');
 });

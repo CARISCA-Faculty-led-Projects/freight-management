@@ -318,6 +318,18 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
+                        <a class="menu-link" href="/senders/add">
+                            <span class="menu-bullet">
+                                <span class="bullet bullet-dot"></span>
+                            </span>
+                            <span class="menu-title">Add</span>
+                        </a>
+                        <!--end:Menu link-->
+                    </div>
+                    <!--end:Menu item-->
+                    <!--begin:Menu item-->
+                    <div class="menu-item">
+                        <!--begin:Menu link-->
                         <a class="menu-link" href="/senders/list">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
@@ -327,37 +339,27 @@
                         <!--end:Menu link-->
                     </div>
                     <!--end:Menu item-->
-                    <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
+                    <!-- <div class="menu-item pt-5">
                         <div class="menu-content">
                             <span class="menu-heading fw-bold text-uppercase fs-7">Customers</span>
                         </div>
-                        <!--end:Menu content-->
                     </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
                     <div class="menu-item">
-                        <!--begin:Menu link-->
                         <a class="menu-link" href="/customers/overview">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
                             <span class="menu-title">Overview</span>
                         </a>
-                        <!--end:Menu link-->
                     </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
                     <div class="menu-item">
-                        <!--begin:Menu link-->
                         <a class="menu-link" href="/customers/list">
                             <span class="menu-bullet">
                                 <span class="bullet bullet-dot"></span>
                             </span>
                             <span class="menu-title">List</span>
                         </a>
-                        <!--end:Menu link-->
-                    </div>
+                    </div> -->
                     <!--end:Menu item-->
                     <!--begin:Menu item-->
                     <div class="menu-item pt-5">
