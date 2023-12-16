@@ -351,7 +351,7 @@
 
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/load/offer-a-deal" class="menu-link px-3">Bid</a>
+                                        <a class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_bidding">Bid</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -361,7 +361,7 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_bidding">Assign</a>
+                                        <a class="menu-link px-3" data-bs-toggle="modal" data-bs-target="#kt_modal_assign">Assign</a>
                                     </div>
                                     <!--end::Menu item-->
 
@@ -486,5 +486,6 @@
 <!--end::Body-->
 
 </html>
+@include('partials.modals.bid')
 @include('partials.modals.assign_load_to_driver')
 @endsection

@@ -1,5 +1,5 @@
 <!--begin::Modal - New Target-->
-<div class="modal fade" id="kt_modal_add_shipment" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="kt_modal_bidding" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
@@ -19,14 +19,14 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <!--begin:Form-->
-                <form id="kt_modal_add_shipment_form" class="form" action="#">
+                <form id="kt_modal_bidding_form" class="form" action="#">
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
-                        <h1 class="mb-3">Add Shipment</h1>
+                        <h1 class="mb-3">Bid</h1>
                         <!--end::Title-->
                         <!--begin::Description-->
-                        <div class="text-muted fw-semibold fs-5">Details after discussion with sender, please check
+                        <div class="text-muted fw-semibold fs-5">Details after discussion with sender, but without assigning to a driver. please check
                             <a href="#" class="fw-bold link-primary">Bidding Guidelines</a>.</div>
                         <!--end::Description-->
                     </div>
@@ -55,80 +55,8 @@
                         <!--end::Select2-->
                     </div>
                     <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="fv-row mb-8">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Load</span>
-                            <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
-                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                            </span>
-                        </label>
-                        <!--end::Label-->
-                        <!--begin::Select2-->
-                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                            data-placeholder="Select an organization" name="currency_type">
-                            <option value=""></option>
-                            <option value="dollar" selected="selected">#8990</option>
-                            <option value="crypto">#8899</option>
-                        </select>
-                        <!--end::Select2-->
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="fv-row mb-8">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Assigned Organization</span>
-                            <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
-                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                            </span>
-                        </label>
-                        <!--end::Label-->
-                        <!--begin::Select2-->
-                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                            data-placeholder="Select an organization" name="currency_type">
-                            <option value=""></option>
-                            <option value="dollar" selected="selected">Jess Fleet Mangement Inc</option>
-                            <option value="crypto">TopTier Trucks Co</option>
-                            <option value="crypto">RiverDale Fleet Systems</option>
-                            <option value="crypto">Delivery Reel Inc</option>
-                        </select>
-                        <!--end::Select2-->
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="fv-row mb-8">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Select a driver</span>
-                            <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
-                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                            </span>
-                        </label>
-                        <!--end::Label-->
-                        <!--begin::Select2-->
-                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                            data-placeholder="Select an organization" name="currency_type">
-                            <option value=""></option>
-                            <option value="dollar" selected="selected">#898 - Jesse Anim</option>
-                            <option value="crypto">#44 - Michael</option>
-                        </select>
-                        <!--end::Select2-->
-                    </div>
-                    <!--end::Input group-->
+                    
+                    
                     <div class="d-flex flex-column mb-8 fv-row">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">

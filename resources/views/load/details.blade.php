@@ -179,10 +179,10 @@
                     </li>
                     <!--end:::Tab item-->
                     <!--begin:::Tab item-->
-                    <li class="nav-item">
+                    <!-- <li class="nav-item">
                         <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
                             href="#kt_ecommerce_payment_information">Payment Information</a>
-                    </li>
+                    </li> -->
                     <!--end:::Tab item-->
                 </ul>
                 <!--end:::Tabs-->

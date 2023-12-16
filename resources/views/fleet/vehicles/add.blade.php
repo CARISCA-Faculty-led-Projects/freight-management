@@ -324,8 +324,8 @@
                                         <span class="path7"></span>
                                     </i>
                                     <div class="text-white fw-bold fs-2 mb-2 mt-5">Jess Fleet Management Inc</div>
-                                    <div class="fw-semibold text-white">All vehicle details will be populated into Jess
-                                        Fleet Management Inc</div>
+                                    <div class="fw-semibold text-white">This vehicle will be added into Jess
+                                        Fleet Management Inc's fleet</div>
                                 </div>
                                 <!--end::Body-->
                             </a>

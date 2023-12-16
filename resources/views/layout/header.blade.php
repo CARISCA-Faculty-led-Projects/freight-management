@@ -48,7 +48,7 @@
                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                         class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
-                        <a href="/">
+                        <a href="/shipments/list">
                             <span class="menu-link">
                                 <span class="menu-title">Shipment Board</span>
                                 <span class="menu-arrow d-lg-none"></span>
@@ -62,7 +62,7 @@
                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                         class="menu-item here show menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
-                        <a href="/">
+                        <a href="/load/list">
                             <span class="menu-link">
                                 <span class="menu-title">Load Board</span>
                                 <span class="menu-arrow d-lg-none"></span>
@@ -71,21 +71,17 @@
                         <!--end:Menu link-->
                     </div>
                     <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
+                    <!-- <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                         class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-                        <!--begin:Menu link-->
                         <span class="menu-link">
                             <span class="menu-title">Locate</span>
                             <span class="menu-arrow d-lg-none"></span>
                         </span>
-                        <!--end:Menu link-->
-                        <!--begin:Menu sub-->
+                      
                         <div
                             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown px-lg-2 py-lg-4 w-lg-250px">
-                            <!--begin:Menu item-->
                             <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
                                 data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
-                                <!--begin:Menu link-->
                                 <span class="menu-link">
                                     <span class="menu-icon">
                                         <i class="ki-duotone ki-rocket fs-2">
@@ -95,12 +91,9 @@
                                     </span>
                                     <span class="menu-title">All Drivers</span>
                                 </span>
-                                <!--end:Menu link-->
                             </div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu item-->
+                          
                             <div class="menu-item">
-                                <!--begin:Menu link-->
                                 <a class="menu-link" href="/apps/calendar">
                                     <span class="menu-icon">
                                         <i class="ki-duotone ki-calendar-8 fs-2">
@@ -114,12 +107,9 @@
                                     </span>
                                     <span class="menu-title">All Loads</span>
                                 </a>
-                                <!--end:Menu link-->
                             </div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu item-->
+                           
                             <div class="menu-item">
-                                <!--begin:Menu link-->
                                 <a class="menu-link" href="/apps/calendar">
                                     <span class="menu-icon">
                                         <i class="ki-duotone ki-calendar-8 fs-2">
@@ -133,21 +123,18 @@
                                     </span>
                                     <span class="menu-title">All Shipments</span>
                                 </a>
-                                <!--end:Menu link-->
                             </div>
-                            <!--end:Menu item-->
                         </div>
-                        <!--end:Menu sub-->
-                    </div>
+                    </div> -->
                     <!--end:Menu item-->
                     <!--begin:Menu item-->
                     <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
                         class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
                         <!--begin:Menu link-->
-                        <span class="menu-link">
+                        <a href="/fleet/overview"><span class="menu-link">
                             <span class="menu-title">Fleet</span>
                             <span class="menu-arrow d-lg-none"></span>
-                        </span>
+                        </span></a>
                         <!--end:Menu link-->
                        
                     </div>

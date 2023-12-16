@@ -1,5 +1,5 @@
 <!--begin::Modal - New Target-->
-<div class="modal fade" id="kt_modal_bidding" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="kt_modal_assign" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
@@ -32,6 +32,29 @@
                     </div>
                     <!--end::Heading-->
                     <!--begin::Input group-->
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-8">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                            <span class="required">Load</span>
+                            <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
+                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                            </span>
+                        </label>
+                        <!--end::Label-->
+                        <!--begin::Select2-->
+                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                            data-placeholder="Select an organization" name="currency_type">
+                            <option value=""></option>
+                            <option value="dollar" selected="selected">#45454</option>
+                        </select>
+                        <!--end::Select2-->
+                    </div>
+                    <!--end::Input group-->
                     <!--begin::Input group-->
                     <div class="fv-row mb-8">
                         <!--begin::Label-->

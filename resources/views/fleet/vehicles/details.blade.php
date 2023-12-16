@@ -202,7 +202,8 @@
                                     <h4 class="text-gray-900 fw-bold">Unassigned Truck!</h4>
                                     <div class="fs-6 text-gray-700">Nissan Almero Giant X88 has not been assigned to any
                                         driver
-                                        <a href="#" class="fw-bold">Assign</a>.</div>
+                                        <a class="fw-bold" data-bs-toggle="modal"
+                                data-bs-target="#kt_modal_assign">Assign</a>.</div>
                                 </div>
                                 <!--end::Content-->
                             </div>
@@ -254,7 +255,7 @@
                                             <span class="path2"></span>
                                             <span class="path3"></span>
                                         </i>
-                                        <div class="text-white fw-bold fs-2 mt-5">Unassigned</div>
+                                        <div class="text-white fw-bold fs-2 mt-5">Unassigned to load</div>
                                         <div class="fw-semibold text-white">-</div>
                                     </div>
                                     <!--end::Body-->
@@ -915,4 +916,5 @@
 <!--end::Body-->
 
 </html>
+@include('partials.modals.assign_load_to_driver')
 @endsection

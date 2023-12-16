@@ -1,5 +1,5 @@
 <!--begin::Modal - New Target-->
-<div class="modal fade" id="kt_modal_add_shipment" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="kt_modal_add_maintenance_schedule" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog modal-dialog-centered mw-650px">
         <!--begin::Modal content-->
@@ -19,15 +19,15 @@
             <!--begin::Modal body-->
             <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                 <!--begin:Form-->
-                <form id="kt_modal_add_shipment_form" class="form" action="#">
+                <form id="kt_modal_add_maintenance_schedule_form" class="form" action="#">
                     <!--begin::Heading-->
                     <div class="mb-13 text-center">
                         <!--begin::Title-->
-                        <h1 class="mb-3">Add Shipment</h1>
+                        <h1 class="mb-3">Add Maintenance Schedule</h1>
                         <!--end::Title-->
                         <!--begin::Description-->
-                        <div class="text-muted fw-semibold fs-5">Details after discussion with sender, please check
-                            <a href="#" class="fw-bold link-primary">Bidding Guidelines</a>.</div>
+                        <div class="text-muted fw-semibold fs-5">Vehicles undergoing maintenance should be made known to us for planning and load distribution, please check
+                            <a href="#" class="fw-bold link-primary">Maintenance Guidelines</a>.</div>
                         <!--end::Description-->
                     </div>
                     <!--end::Heading-->
@@ -36,7 +36,7 @@
                     <div class="fv-row mb-8">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Sender</span>
+                            <span class="required">Organization</span>
                             <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
                                 <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                     <span class="path1"></span>
@@ -50,7 +50,7 @@
                         <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
                             data-placeholder="Select an organization" name="currency_type">
                             <option value=""></option>
-                            <option value="dollar" selected="selected">Jesse Anim</option>
+                            <option value="dollar" selected="selected">Jess Fleet Mangement Inc</option>
                         </select>
                         <!--end::Select2-->
                     </div>
@@ -59,7 +59,7 @@
                     <div class="fv-row mb-8">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Load</span>
+                            <span class="required">Vehicle</span>
                             <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
                                 <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                     <span class="path1"></span>
@@ -83,7 +83,7 @@
                     <div class="fv-row mb-8">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Assigned Organization</span>
+                            <span class="required">Status</span>
                             <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
                                 <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                     <span class="path1"></span>
@@ -97,10 +97,9 @@
                         <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
                             data-placeholder="Select an organization" name="currency_type">
                             <option value=""></option>
-                            <option value="dollar" selected="selected">Jess Fleet Mangement Inc</option>
-                            <option value="crypto">TopTier Trucks Co</option>
-                            <option value="crypto">RiverDale Fleet Systems</option>
-                            <option value="crypto">Delivery Reel Inc</option>
+                            <option value="dollar" selected="selected">Scheduled</option>
+                            <option value="crypto">In progress</option>
+                            <option value="crypto">Completed</option>
                         </select>
                         <!--end::Select2-->
                     </div>
@@ -109,7 +108,7 @@
                     <div class="fv-row mb-8">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Select a driver</span>
+                            <span class="required">Select a service provider</span>
                             <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
                                 <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                     <span class="path1"></span>
@@ -122,17 +121,42 @@
                         <!--begin::Select2-->
                         <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
                             data-placeholder="Select an organization" name="currency_type">
-                            <option value=""></option>
-                            <option value="dollar" selected="selected">#898 - Jesse Anim</option>
-                            <option value="crypto">#44 - Michael</option>
+                            <option value="">Craftman Mechanics</option>
+                            <option value="dollar" selected="selected">	AutoPro Services</option>
+                        </select>
+                        <!--end::Select2-->
+                    </div>
+
+                    <!--begin::Input group-->
+                    <div class="fv-row mb-8">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                            <span class="required">Select a frequency</span>
+                            <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
+                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                            </span>
+                        </label>
+                        <!--end::Label-->
+                        <!--begin::Select2-->
+                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                            data-placeholder="Select an organization" name="currency_type">
+                            <option value="">Unplanned</option>
+                            <option value="dollar" selected="selected">Every week</option>
+                            <option value="dollar" selected="selected">Every 2 weeks</option>
+                            <option value="dollar" selected="selected">Every month</option>
                         </select>
                         <!--end::Select2-->
                     </div>
                     <!--end::Input group-->
+                    <!--end::Input group-->
                     <div class="d-flex flex-column mb-8 fv-row">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Agreed Amount (GHS)</span>
+                            <span class="required">Scheduled Date</span>
                             <span class="ms-1" data-bs-toggle="tooltip" title="Specify the bid amount to place in.">
                                 <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                     <span class="path1"></span>
@@ -142,50 +166,19 @@
                             </span>
                         </label>
                         <!--end::Label-->
-                        <!--begin::Bid options-->
-                        <div class="d-flex flex-stack gap-5 mb-3">
-                            <button type="button" class="btn btn-light-primary w-100"
-                                data-kt-modal-bidding="option">1000</button>
-                            <button type="button" class="btn btn-light-primary w-100"
-                                data-kt-modal-bidding="option">5000</button>
-                            <button type="button" class="btn btn-light-primary w-100"
-                                data-kt-modal-bidding="option">1000</button>
-                        </div>
-                        <!--begin::Bid options-->
-                        <input type="text" class="form-control form-control-solid" placeholder="Enter Bid Amount"
+                    
+                        <input type="date" class="form-control form-control-solid" placeholder="Enter Bid Amount"
                             name="bid_amount" />
                     </div>
                     <!--end::Input group-->
-                      <!--begin::Input group-->
-                      <div class="fv-row mb-8">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Payment method</span>
-                            <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
-                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                            </span>
-                        </label>
-                        <!--end::Label-->
-                        <!--begin::Select2-->
-                        <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                            data-placeholder="Select an organization" name="currency_type">
-                            <option value=""></option>
-                            <option value="dollar" selected="selected">*******45 - Jesse Anim</option>
-                            <option value="crypto">********90 - Jesse Anim</option>
-                        </select>
-                        <!--end::Select2-->
-                    </div>
-                    <!--end::Input group-->
+                    
                     <!--begin::Notice-->
+                    
                     <!--end::Input group-->
                     <div class="d-flex flex-column mb-8 fv-row">
                         <!--begin::Label-->
                         <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Pickup date</span>
+                            <span class="required">Amount</span>
                             <span class="ms-1" data-bs-toggle="tooltip" title="Specify the bid amount to place in.">
                                 <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                     <span class="path1"></span>
@@ -196,26 +189,7 @@
                         </label>
                         <!--end::Label-->
                 
-                        <input type="date" class="form-control form-control-solid" placeholder="12/04/2023"
-                            name="bid_amount" />
-                    </div>
-                    <!--end::Input group-->
-                    <!--end::Input group-->
-                    <div class="d-flex flex-column mb-8 fv-row">
-                        <!--begin::Label-->
-                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                            <span class="required">Dropoff date</span>
-                            <span class="ms-1" data-bs-toggle="tooltip" title="Specify the bid amount to place in.">
-                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                    <span class="path3"></span>
-                                </i>
-                            </span>
-                        </label>
-                        <!--end::Label-->
-                
-                        <input type="date" class="form-control form-control-solid" placeholder="12/04/2023"
+                        <input type="text" class="form-control form-control-solid" placeholder="2000"
                             name="bid_amount" />
                     </div>
                     <!--end::Input group-->

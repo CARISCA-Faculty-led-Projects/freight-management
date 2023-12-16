@@ -2,20 +2,20 @@
 @section('content')
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
-<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
+    <!--begin::Toolbar-->
+    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Drivers</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Add Driver</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="/" class="text-muted text-hover-primary">Home</a>
+                        <a href="/index" class="text-muted text-hover-primary">Home</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -25,7 +25,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="/fleet/drivers" class="text-muted text-hover-primary">Drivers</a>
+                        <a href="/fleet/drivers/drivers" class="text-muted text-hover-primary">Driver</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -34,7 +34,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Details</li>
+                    <li class="breadcrumb-item text-muted">Add</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -42,336 +42,1064 @@
             <!--end::Page title-->
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
-                <!--begin::Secondary button-->
-                <a href="/apps/customers/list"
-                    class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Load Board</a>
-                <!--end::Secondary button-->
+
                 <!--begin::Primary button-->
-                <a href="/organization/add" class="btn btn-sm fw-bold btn-primary">Fleet Mangement</a>
+                <a href="/fleet/drivers" class="btn btn-sm fw-bold btn-primary">Browse Drivers</a>
                 <!--end::Primary button-->
-                <!--begin::Secondary button-->
-                <a href="/organization/list"
-                    class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                    Organizations</a>
-                <!--end::Secondary button-->
             </div>
             <!--end::Actions-->
         </div>
         <!--end::Toolbar container-->
     </div>
-    <!--begin::Content container-->
+    <!--end::Toolbar-->
     <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-xxl">
-        <!--begin::Navbar-->
-        <div class="card mb-5 mb-xl-10">
-            <div class="card-body pt-9 pb-0">
-                <!--begin::Details-->
-                <div class="d-flex flex-wrap flex-sm-nowrap">
-                    <!--begin: Pic-->
-                    <div class="me-7 mb-4">
-                        <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                            <img src="../../assets/media/avatars/300-1.jpg" alt="image" />
-                            <div
-                                class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px">
+        <!--begin::Form-->
+        <form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
+            data-kt-redirect="/apps/ecommerce/catalog/products">
+            <!--begin::Aside column-->
+            <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
+                <!--begin::Thumbnail settings-->
+                <div class="card card-flush py-4">
+                    <!--begin::Card header-->
+                    <div class="card-header">
+                        <!--begin::Card title-->
+                        <div class="card-title">
+                            <h2>Image</h2>
+                        </div>
+                        <!--end::Card title-->
+                    </div>
+                    <!--end::Card header-->
+                    <!--begin::Card body-->
+                    <div class="card-body text-center pt-0">
+                        <!--begin::Image input-->
+                        <!--begin::Image input placeholder-->
+                        <style>
+                            .image-input-placeholder {
+                                background-image: url('assets/media/svg/files/blank-image.svg');
+                            }
+
+                            [data-bs-theme="dark"] .image-input-placeholder {
+                                background-image: url('assets/media/svg/files/blank-image-dark.svg');
+                            }
+
+                        </style>
+                        <!--end::Image input placeholder-->
+                        <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
+                            data-kt-image-input="true">
+                            <!--begin::Preview existing avatar-->
+                            <div class="image-input-wrapper w-150px h-150px"></div>
+                            <!--end::Preview existing avatar-->
+                            <!--begin::Label-->
+                            <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="change" data-bs-toggle="tooltip" title="Change avatar">
+                                <i class="ki-duotone ki-pencil fs-7">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                                <!--begin::Inputs-->
+                                <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                <input type="hidden" name="avatar_remove" />
+                                <!--end::Inputs-->
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::Cancel-->
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="cancel" data-bs-toggle="tooltip" title="Cancel avatar">
+                                <i class="ki-duotone ki-cross fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <!--end::Cancel-->
+                            <!--begin::Remove-->
+                            <span class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"
+                                data-kt-image-input-action="remove" data-bs-toggle="tooltip" title="Remove avatar">
+                                <i class="ki-duotone ki-cross fs-2">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                </i>
+                            </span>
+                            <!--end::Remove-->
+                        </div>
+                        <!--end::Image input-->
+                        <!--begin::Description-->
+                        <div class="text-muted fs-7">Set the image of the Driver. Only *.png, *.jpg and *.jpeg image
+                            files are accepted</div>
+                        <!--end::Description-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Thumbnail settings-->
+                <!--begin::Status-->
+                <div class="card card-flush py-4">
+                    <!--begin::Card header-->
+                    <div class="card-header">
+                        <!--begin::Card title-->
+                        <div class="card-title">
+                            <h2>Status</h2>
+                        </div>
+                        <!--end::Card title-->
+                        <!--begin::Card toolbar-->
+                        <div class="card-toolbar">
+                            <div class="rounded-circle bg-success w-15px h-15px" id="kt_ecommerce_add_product_status">
                             </div>
                         </div>
+                        <!--begin::Card toolbar-->
                     </div>
-                    <!--end::Pic-->
-                    <!--begin::Info-->
-                    <div class="flex-grow-1">
-                        <!--begin::Title-->
-                        <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
-                            <!--begin::User-->
-                            <div class="d-flex flex-column">
-                                <!--begin::Name-->
-                                <div class="d-flex align-items-center mb-2">
-                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">Emma Smith</a>
-                                    <a href="#">
-                                        <i class="ki-duotone ki-verify fs-1 text-primary">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </a>
-                                </div>
-                                <!--end::Name-->
-                                <!--begin::Info-->
-                                <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
-                                    <a href="#"
-                                        class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
-                                        <i class="ki-duotone ki-profile-circle fs-4 me-1">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                        </i>Jess Fleet Management Inc</a>
-                                    <a href="#"
-                                        class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
-                                        <i class="ki-duotone ki-geolocation fs-4 me-1">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>Kumasi, Ghana</a>
-                                    <a href="#" class="d-flex align-items-center text-gray-400 text-hover-primary mb-2">
-                                        <i class="ki-duotone ki-sms fs-4 me-1">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>email@kt.com</a>
-                                </div>
-                                <!--end::Info-->
+                    <!--end::Card header-->
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Select2-->
+                        <select class="form-select mb-2" data-control="select2" data-hide-search="true"
+                            data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                            <option></option>
+                            <option value="published" selected="selected">Pending</option>
+                            <option value="draft">Approved</option>
+                        </select>
+                        <!--end::Select2-->
+                        <!--begin::Description-->
+                        <div class="text-muted fs-7">Set the product status.</div>
+                        <!--end::Description-->
+                        <!--begin::Datepicker-->
+                        <div class="d-none mt-10">
+                            <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select publishing
+                                date and time</label>
+                            <input class="form-control" id="kt_ecommerce_add_product_status_datepicker"
+                                placeholder="Pick date & time" />
+                        </div>
+                        <!--end::Datepicker-->
+                    </div>
+                    <!--end::Card body-->
+                </div>
+                <!--end::Status-->
+                <!--begin::Template settings-->
+                <div class="card card-flush py-4">
+                    <!--begin::Card header-->
+                    <div class="card-header">
+                        <!--begin::Card title-->
+                        <div class="card-title">
+                            <h2>Load Preferences</h2>
+                        </div>
+                        <!--end::Card title-->
+                    </div>
+                    <!--end::Card header-->
+                    <!--begin::Card body-->
+                    <div class="card-body pt-0">
+                        <!--begin::Select store template-->
+                        <label for="kt_ecommerce_add_organization_store_template" class="form-label">Select as many as
+                            apply</label>
+                        <!--end::Select store template-->
+
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-center mb-8 mt-5">
+                            <!--begin::Bullet-->
+                            <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
+                            <!--end::Bullet-->
+                            <!--begin::Checkbox-->
+                            <div class="form-check form-check-custom form-check-solid mx-5">
+                                <input class="form-check-input" type="checkbox" value="" />
                             </div>
-                            <!--end::User-->
-                            <!--begin::Actions-->
-                            <div class="d-flex my-4">
-                                {{--<a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
-                                    <i class="ki-duotone ki-check fs-3 d-none"></i>
-                                    <!--begin::Indicator label-->
-                                    <span class="indicator-label">Message</span>
-                                    <!--end::Indicator label-->
-                                    <!--begin::Indicator progress-->
-                                    <span class="indicator-progress">Please wait...
-                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                    <!--end::Indicator progress-->
-                                </a>--}}
-                                {{--<a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
-                                    data-bs-target="#kt_modal_offer_a_deal">Hire Me</a>--}}
-                                <!--begin::Menu-->
-                                <div class="me-0">
-                                    <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary"
-                                        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                        <i class="ki-solid ki-dots-horizontal fs-2x me-1"></i>
-                                    </button>
-                                    <!--begin::Menu 3-->
-                                    <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3"
-                                        data-kt-menu="true">
-                                        <!--begin::Heading-->
-                                        <div class="menu-item px-3">
-                                            <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments
+                            <!--end::Checkbox-->
+                            <!--begin::Description-->
+                            <div class="flex-grow-1">
+                                <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">General Cargo</a>
+                            </div>
+                        </div>
+                        <!--end:Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-center mb-8 mt-5">
+                            <!--begin::Bullet-->
+                            <!-- <span class="bullet bullet-vertical h-40px bg-success"></span> -->
+                            <!--end::Bullet-->
+                            <!--begin::Checkbox-->
+                            <div class="form-check form-check-custom form-check-solid mx-5">
+                                <input class="form-check-input" type="checkbox" value="" />
+                            </div>
+                            <!--end::Checkbox-->
+                            <!--begin::Description-->
+                            <div class="flex-grow-1">
+                                <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Refrigerated Goods</a>
+                            </div>
+                        </div>
+                        <!--end:Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-center mb-8 mt-5">
+                            <!--begin::Bullet-->
+                            <!-- <span class="bullet bullet-vertical h-40px bg-danger"></span> -->
+                            <!--end::Bullet-->
+                            <!--begin::Checkbox-->
+                            <div class="form-check form-check-custom form-check-solid mx-5">
+                                <input class="form-check-input" type="checkbox" value="" />
+                            </div>
+                            <!--end::Checkbox-->
+                            <!--begin::Description-->
+                            <div class="flex-grow-1">
+                                <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Harzardous
+                                    Materials</a>
+                            </div>
+                        </div>
+                        <!--end:Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-center mb-8 mt-5">
+                            <!--begin::Bullet-->
+                            <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
+                            <!--end::Bullet-->
+                            <!--begin::Checkbox-->
+                            <div class="form-check form-check-custom form-check-solid mx-5">
+                                <input class="form-check-input" type="checkbox" value="" />
+                            </div>
+                            <!--end::Checkbox-->
+                            <!--begin::Description-->
+                            <div class="flex-grow-1">
+                                <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Bulk Cargo</a>
+                            </div>
+                        </div>
+                        <!--end:Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-center mb-8 mt-5">
+                            <!--begin::Bullet-->
+                            <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
+                            <!--end::Bullet-->
+                            <!--begin::Checkbox-->
+                            <div class="form-check form-check-custom form-check-solid mx-5">
+                                <input class="form-check-input" type="checkbox" value="" />
+                            </div>
+                            <!--end::Checkbox-->
+                            <!--begin::Description-->
+                            <div class="flex-grow-1">
+                                <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Overweight Cargo</a>
+                            </div>
+                        </div>
+                        <!--end:Item-->
+                        <!--begin::Item-->
+                        <div class="d-flex align-items-center mb-8 mt-5">
+                            <!--begin::Bullet-->
+                            <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
+                            <!--end::Bullet-->
+                            <!--begin::Checkbox-->
+                            <div class="form-check form-check-custom form-check-solid mx-5">
+                                <input class="form-check-input" type="checkbox" value="" />
+                            </div>
+                            <!--end::Checkbox-->
+                            <!--begin::Description-->
+                            <div class="flex-grow-1">
+                                <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Automobile
+                                    Tranport</a>
+                            </div>
+                        </div>
+                        <!--end:Item-->
+                        <!--begin::Form group-->
+                        <div class="form-group mt-5">
+                            <button type="button" data-repeater-create="" class="btn btn-sm btn-light-primary"
+                                data-bs-toggle="modal" data-bs-target="#kt_modal_add_org_pref">
+                                <i class="ki-duotone ki-plus fs-2"></i>Add new preference</button>
+                        </div>
+                        <!--end::Form group-->
+                        <!--begin::Description-->
+                        <div class="text-muted fs-7 mt-5">These specify which goods your company can transport</div>
+                        <!--end::Description-->
+                    </div>
+                    <!--end::Card body-->
+
+                </div>
+                <!--end::Template settings-->
+
+            </div>
+            <!--end::Aside column-->
+            <!--begin::Main column-->
+            <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                <!--begin:::Tabs-->
+                <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
+                    <!--begin:::Tab item-->
+                    <li class="nav-item">
+                        <a class="nav-link text-active-primary pb-4 active" data-bs-toggle="tab"
+                            href="#kt_ecommerce_add_product_general">General</a>
+                    </li>
+                    <!--end:::Tab item-->
+                    <!--begin:::Tab item-->
+                    <li class="nav-item">
+                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                            href="#kt_ecommerce_add_product_advanced">Re-embursement Account</a>
+                    </li>
+                    <!--end:::Tab item-->
+                </ul>
+                <!--end:::Tabs-->
+                <!--begin::Tab content-->
+                <div class="tab-content">
+                    <!--begin::Tab pane-->
+                    <div class="tab-pane fade show active" id="kt_ecommerce_add_product_general" role="tab-panel">
+                        <div class="d-flex flex-column gap-7 gap-lg-10">
+                            <!--begin::General options-->
+                            <div class="card card-flush py-4">
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>General</h2>
+                                    </div>
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!-- <div class="mb-10 fv-row">
+                                        <label class="required form-label">Organization</label>
+
+                                        <select class="form-select mb-2" data-control="select2" data-hide-search="true"
+                                            data-placeholder="Select an option"
+                                            id="kt_ecommerce_add_product_status_select">
+                                            <option></option>
+                                            <option value="published" selected="selected">Individual
+                                            <option value="published">Jess Fleet Mangement Inc
+                                            </option>
+                                            <option value="draft"> TopTier Trucks Co</option>
+                                        </select>
+                                        <div class="text-muted fs-7">Set the organization the Driver is affiliated to.
+                                        </div>
+                                        <div class="d-none mt-10">
+                                            <label for="kt_ecommerce_add_product_status_datepicker"
+                                                class="form-label">Select publishing
+                                                date and time</label>
+                                            <input class="form-control" id="kt_ecommerce_add_product_status_datepicker"
+                                                placeholder="Pick date & time" />
+                                        </div>
+                                    </div> -->
+                                    <!--end::Card body-->
+                                    <div class="mb-10 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Driver Name</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" name="product_name" class="form-control mb-2"
+                                            placeholder="Driver name" value="" />
+                                        <!--end::Input-->
+                                        <!--begin::Description-->
+                                        <div class="text-muted fs-7">A product name is required and recommended to be
+                                            unique.</div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Tax-->
+                                    <div class="d-flex flex-wrap gap-5">
+                                        <!--begin::Input group-->
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <label class="required form-label">Driver Phone</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input type="text" name="product_name" class="form-control mb-2"
+                                                placeholder="Driver name" value="" />
+                                            <!--end::Input-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">A product name is required and recommended to
+                                                be
+                                                unique.</div>
+                                            <!--end::Description-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="fv-row w-100 flex-md-root">
+                                            <!--begin::Label-->
+                                            <label class="required form-label">Driver Email</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <input type="text" name="product_name" class="form-control mb-2"
+                                                placeholder="Driver name" value="" />
+                                            <!--end::Input-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">A product name is required and recommended to
+                                                be
+                                                unique.</div>
+                                        </div>
+                                        <!--end::Input group-->
+                                    </div>
+                                    <!--end:Tax-->
+                                    <!--end::Card body-->
+                                    <div class="mb-10 fv-row mt-10">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Physical Address</label>
+                                        <!--end::Label-->
+                                        <!--begin::Input-->
+                                        <input type="text" name="product_name" class="form-control mb-2"
+                                            placeholder="Physical address" value="" />
+                                        <!--end::Input-->
+                                        <!--begin::Description-->
+                                        <div class="text-muted fs-7">A physical address is required.</div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="mt-10">
+                                        <!--begin::Label-->
+                                        <label class="form-label">About</label>
+                                        <!--end::Label-->
+                                        <!--begin::Editor-->
+                                        <div id="kt_ecommerce_add_product_description"
+                                            name="kt_ecommerce_add_product_description" class="min-h-200px mb-2"></div>
+                                        <!--end::Editor-->
+                                        <!--begin::Description-->
+                                        <div class="text-muted fs-7">Write something small about the Driver.</div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Card header-->
+                            </div>
+                            <!--end::General options-->
+                            <!--begin::Media-->
+                            <div class="card card-flush py-4">
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>National ID / Drivers Licence</h2>
+                                    </div>
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Input group-->
+                                    <div class="fv-row mb-2">
+                                        <!--begin::Dropzone-->
+                                        <div class="dropzone" id="kt_ecommerce_add_product_media">
+                                            <!--begin::Message-->
+                                            <div class="dz-message needsclick">
+                                                <!--begin::Icon-->
+                                                <i class="ki-duotone ki-file-up text-primary fs-3x">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i>
+                                                <!--end::Icon-->
+                                                <!--begin::Info-->
+                                                <div class="ms-4">
+                                                    <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or click
+                                                        to upload.</h3>
+                                                    <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
+                                                        files</span>
+                                                </div>
+                                                <!--end::Info-->
                                             </div>
                                         </div>
-                                        <!--end::Heading-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3">Create Invoice</a>
-                                        </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link flex-stack px-3">Create Payment
-                                                <span class="ms-2" data-bs-toggle="tooltip"
-                                                    title="Specify a target name for future usage and reference">
-                                                    <i class="ki-duotone ki-information fs-6">
+                                        <!--end::Dropzone-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Upload a national ID to help us verify the identity of
+                                        the Driver</div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Card header-->
+                            </div>
+                            <!--end::Media-->
+                            <!--begin::Card-->
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2>Account Details</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0 pb-5">
+                                    <!--begin::Table wrapper-->
+                                    <div class="table-responsive">
+                                        <!--begin::Table-->
+                                        <table class="table align-middle table-row-dashed gy-5"
+                                            id="kt_table_users_login_session">
+                                            <!--begin::Table body-->
+                                            <tbody class="fs-6 fw-semibold text-gray-600">
+                                                <tr>
+                                                    <td>Email</td>
+                                                    <td>Driver@gmail.com</td>
+                                                    <td class="text-end">
+                                                        <button type="button"
+                                                            class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#kt_modal_update_phone">
+                                                            <i class="ki-duotone ki-pencil fs-3">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Password</td>
+                                                    <td>******</td>
+                                                    <td class="text-end">
+                                                        <button type="button"
+                                                            class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
+                                                            data-bs-toggle="modal"
+                                                            data-bs-target="#kt_modal_update_password">
+                                                            <i class="ki-duotone ki-pencil fs-3">
+                                                                <span class="path1"></span>
+                                                                <span class="path2"></span>
+                                                            </i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                            <!--end::Table body-->
+                                        </table>
+                                        <!--end::Table-->
+                                    </div>
+                                    <!--end::Table wrapper-->
+                                </div>
+                                <!--end::Card body-->
+                            </div>
+                            <!--end::Card-->
+                        </div>
+                    </div>
+                    <!--end::Tab pane-->
+                    <!--begin::Tab pane-->
+                    <div class="tab-pane fade" id="kt_ecommerce_add_product_advanced" role="tab-panel">
+                        <div class="d-flex flex-column gap-7 gap-lg-10">
+                            <!--begin::Card-->
+                            <div class="card pt-4 mb-6 mb-xl-9">
+                                <!--begin::Card header-->
+                                <div class="card-header border-0">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2 class="fw-bold mb-0">Re-embursement Accounts</h2>
+                                    </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <a href="#" class="btn btn-sm btn-flex btn-light-primary" data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_new_card">
+                                            <i class="ki-duotone ki-plus-square fs-3">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                            </i>Add new account</a>
+                                    </div>
+                                    <!--end::Card toolbar-->
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div id="kt_customer_view_payment_method" class="card-body pt-0">
+                                    <!--begin::Option-->
+                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                        <!--begin::Header-->
+                                        <div class="py-3 d-flex flex-stack flex-wrap">
+                                            <!--begin::Toggle-->
+                                            <div class="d-flex align-items-center collapsible rotate"
+                                                data-bs-toggle="collapse" href="#kt_customer_view_payment_method_1"
+                                                role="button" aria-expanded="false"
+                                                aria-controls="kt_customer_view_payment_method_1">
+                                                <!--begin::Arrow-->
+                                                <div class="me-3 rotate-90">
+                                                    <i class="ki-duotone ki-right fs-3"></i>
+                                                </div>
+                                                <!--end::Arrow-->
+                                                <!--begin::Logo-->
+                                                <img src="assets/media/svg/card-logos/mastercard.svg"
+                                                    class="w-40px me-3" alt="" />
+                                                <!--end::Logo-->
+                                                <!--begin::Summary-->
+                                                <div class="me-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-gray-800 fw-bold">Mastercard</div>
+                                                        <div class="badge badge-light-primary ms-5">Primary</div>
+                                                    </div>
+                                                    <div class="text-muted">Expires Dec 2024</div>
+                                                </div>
+                                                <!--end::Summary-->
+                                            </div>
+                                            <!--end::Toggle-->
+                                            <!--begin::Toolbar-->
+                                            <div class="d-flex my-3 ms-9">
+                                                <!--begin::Edit-->
+                                                <a href="#"
+                                                    class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                                                    data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                                    <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+                                                        <i class="ki-duotone ki-pencil fs-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Edit-->
+                                                <!--begin::Delete-->
+                                                <a href="#"
+                                                    class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                                                    data-bs-toggle="tooltip" title="Delete"
+                                                    data-kt-customer-payment-method="delete">
+                                                    <i class="ki-duotone ki-trash fs-3">
                                                         <span class="path1"></span>
                                                         <span class="path2"></span>
                                                         <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
                                                     </i>
-                                                </span></a>
+                                                </a>
+                                                <!--end::Delete-->
+                                                <!--begin::More-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px"
+                                                    data-bs-toggle="tooltip" title="More Options"
+                                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                    <i class="ki-duotone ki-setting-3 fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--begin::Menu-->
+                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3"
+                                                    data-kt-menu="true">
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="#" class="menu-link px-3"
+                                                            data-kt-payment-mehtod-action="set_as_primary">Set as
+                                                            Primary</a>
+                                                    </div>
+                                                    <!--end::Menu item-->
+                                                </div>
+                                                <!--end::Menu-->
+                                                <!--end::More-->
+                                            </div>
+                                            <!--end::Toolbar-->
                                         </div>
-                                        <!--end::Menu item-->
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3">
-                                            <a href="#" class="menu-link px-3">Generate Bill</a>
+                                        <!--end::Header-->
+                                        <!--begin::Body-->
+                                        <div id="kt_customer_view_payment_method_1" class="collapse show fs-6 ps-10"
+                                            data-bs-parent="#kt_customer_view_payment_method">
+                                            <!--begin::Details-->
+                                            <div class="d-flex flex-wrap py-5">
+                                                <!--begin::Col-->
+                                                <div class="flex-equal me-5">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Name</td>
+                                                            <td class="text-gray-800">Emma Smith</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Number</td>
+                                                            <td class="text-gray-800">**** 8322</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Expires</td>
+                                                            <td class="text-gray-800">12/2024</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Type</td>
+                                                            <td class="text-gray-800">Mastercard credit card</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Issuer</td>
+                                                            <td class="text-gray-800">VICBANK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">ID</td>
+                                                            <td class="text-gray-800">id_4325df90sdf8</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="flex-equal">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Billing address
+                                                            </td>
+                                                            <td class="text-gray-800">AU</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Phone</td>
+                                                            <td class="text-gray-800">No phone provided</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Email</td>
+                                                            <td class="text-gray-800">
+                                                                <a href="#"
+                                                                    class="text-gray-900 text-hover-primary">smith@kpmg.com</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Origin</td>
+                                                            <td class="text-gray-800">Australia
+                                                                <div class="symbol symbol-20px symbol-circle ms-2">
+                                                                    <img src="assets/media/flags/australia.svg" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">CVC check</td>
+                                                            <td class="text-gray-800">Passed
+                                                                <i class="ki-duotone ki-check-circle fs-2 text-success">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                            </div>
+                                            <!--end::Details-->
                                         </div>
-                                        <!--end::Menu item-->
-                                        
-                                        <!--begin::Menu item-->
-                                        <div class="menu-item px-3 my-1">
-                                            <a href="#" class="menu-link px-3">Settings</a>
-                                        </div>
-                                        <!--end::Menu item-->
+                                        <!--end::Body-->
                                     </div>
-                                    <!--end::Menu 3-->
+                                    <!--end::Option-->
+                                    <div class="separator separator-dashed"></div>
+                                    <!--begin::Option-->
+                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                        <!--begin::Header-->
+                                        <div class="py-3 d-flex flex-stack flex-wrap">
+                                            <!--begin::Toggle-->
+                                            <div class="d-flex align-items-center collapsible collapsed rotate"
+                                                data-bs-toggle="collapse" href="#kt_customer_view_payment_method_2"
+                                                role="button" aria-expanded="false"
+                                                aria-controls="kt_customer_view_payment_method_2">
+                                                <!--begin::Arrow-->
+                                                <div class="me-3 rotate-90">
+                                                    <i class="ki-duotone ki-right fs-3"></i>
+                                                </div>
+                                                <!--end::Arrow-->
+                                                <!--begin::Logo-->
+                                                <img src="assets/media/svg/card-logos/visa.svg" class="w-40px me-3"
+                                                    alt="" />
+                                                <!--end::Logo-->
+                                                <!--begin::Summary-->
+                                                <div class="me-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-gray-800 fw-bold">Visa</div>
+                                                    </div>
+                                                    <div class="text-muted">Expires Feb 2022</div>
+                                                </div>
+                                                <!--end::Summary-->
+                                            </div>
+                                            <!--end::Toggle-->
+                                            <!--begin::Toolbar-->
+                                            <div class="d-flex my-3 ms-9">
+                                                <!--begin::Edit-->
+                                                <a href="#"
+                                                    class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                                                    data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                                    <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+                                                        <i class="ki-duotone ki-pencil fs-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Edit-->
+                                                <!--begin::Delete-->
+                                                <a href="#"
+                                                    class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                                                    data-bs-toggle="tooltip" title="Delete"
+                                                    data-kt-customer-payment-method="delete">
+                                                    <i class="ki-duotone ki-trash fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--end::Delete-->
+                                                <!--begin::More-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px"
+                                                    data-bs-toggle="tooltip" title="More Options"
+                                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                    <i class="ki-duotone ki-setting-3 fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--begin::Menu-->
+                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3"
+                                                    data-kt-menu="true">
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="#" class="menu-link px-3"
+                                                            data-kt-payment-mehtod-action="set_as_primary">Set as
+                                                            Primary</a>
+                                                    </div>
+                                                    <!--end::Menu item-->
+                                                </div>
+                                                <!--end::Menu-->
+                                                <!--end::More-->
+                                            </div>
+                                            <!--end::Toolbar-->
+                                        </div>
+                                        <!--end::Header-->
+                                        <!--begin::Body-->
+                                        <div id="kt_customer_view_payment_method_2" class="collapse fs-6 ps-10"
+                                            data-bs-parent="#kt_customer_view_payment_method">
+                                            <!--begin::Details-->
+                                            <div class="d-flex flex-wrap py-5">
+                                                <!--begin::Col-->
+                                                <div class="flex-equal me-5">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Name</td>
+                                                            <td class="text-gray-800">Melody Macy</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Number</td>
+                                                            <td class="text-gray-800">**** 5359</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Expires</td>
+                                                            <td class="text-gray-800">02/2022</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Type</td>
+                                                            <td class="text-gray-800">Visa credit card</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Issuer</td>
+                                                            <td class="text-gray-800">ENBANK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">ID</td>
+                                                            <td class="text-gray-800">id_w2r84jdy723</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="flex-equal">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Billing address
+                                                            </td>
+                                                            <td class="text-gray-800">UK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Phone</td>
+                                                            <td class="text-gray-800">No phone provided</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Email</td>
+                                                            <td class="text-gray-800">
+                                                                <a href="#"
+                                                                    class="text-gray-900 text-hover-primary">melody@altbox.com</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Origin</td>
+                                                            <td class="text-gray-800">United Kingdom
+                                                                <div class="symbol symbol-20px symbol-circle ms-2">
+                                                                    <img src="assets/media/flags/united-kingdom.svg" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">CVC check</td>
+                                                            <td class="text-gray-800">Passed
+                                                                <i class="ki-duotone ki-check fs-2 text-success"></i>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                            </div>
+                                            <!--end::Details-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Option-->
+                                    <div class="separator separator-dashed"></div>
+                                    <!--begin::Option-->
+                                    <div class="py-0" data-kt-customer-payment-method="row">
+                                        <!--begin::Header-->
+                                        <div class="py-3 d-flex flex-stack flex-wrap">
+                                            <!--begin::Toggle-->
+                                            <div class="d-flex align-items-center collapsible collapsed rotate"
+                                                data-bs-toggle="collapse" href="#kt_customer_view_payment_method_3"
+                                                role="button" aria-expanded="false"
+                                                aria-controls="kt_customer_view_payment_method_3">
+                                                <!--begin::Arrow-->
+                                                <div class="me-3 rotate-90">
+                                                    <i class="ki-duotone ki-right fs-3"></i>
+                                                </div>
+                                                <!--end::Arrow-->
+                                                <!--begin::Logo-->
+                                                <img src="assets/media/svg/card-logos/american-express.svg"
+                                                    class="w-40px me-3" alt="" />
+                                                <!--end::Logo-->
+                                                <!--begin::Summary-->
+                                                <div class="me-3">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="text-gray-800 fw-bold">American Express</div>
+                                                        <div class="badge badge-light-danger ms-5">Expired</div>
+                                                    </div>
+                                                    <div class="text-muted">Expires Aug 2021</div>
+                                                </div>
+                                                <!--end::Summary-->
+                                            </div>
+                                            <!--end::Toggle-->
+                                            <!--begin::Toolbar-->
+                                            <div class="d-flex my-3 ms-9">
+                                                <!--begin::Edit-->
+                                                <a href="#"
+                                                    class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                                                    data-bs-toggle="modal" data-bs-target="#kt_modal_new_card">
+                                                    <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit">
+                                                        <i class="ki-duotone ki-pencil fs-3">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                    </span>
+                                                </a>
+                                                <!--end::Edit-->
+                                                <!--begin::Delete-->
+                                                <a href="#"
+                                                    class="btn btn-icon btn-active-light-primary w-30px h-30px me-3"
+                                                    data-bs-toggle="tooltip" title="Delete"
+                                                    data-kt-customer-payment-method="delete">
+                                                    <i class="ki-duotone ki-trash fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--end::Delete-->
+                                                <!--begin::More-->
+                                                <a href="#" class="btn btn-icon btn-active-light-primary w-30px h-30px"
+                                                    data-bs-toggle="tooltip" title="More Options"
+                                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                    <i class="ki-duotone ki-setting-3 fs-3">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                        <span class="path3"></span>
+                                                        <span class="path4"></span>
+                                                        <span class="path5"></span>
+                                                    </i>
+                                                </a>
+                                                <!--begin::Menu-->
+                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-150px py-3"
+                                                    data-kt-menu="true">
+                                                    <!--begin::Menu item-->
+                                                    <div class="menu-item px-3">
+                                                        <a href="#" class="menu-link px-3"
+                                                            data-kt-payment-mehtod-action="set_as_primary">Set as
+                                                            Primary</a>
+                                                    </div>
+                                                    <!--end::Menu item-->
+                                                </div>
+                                                <!--end::Menu-->
+                                                <!--end::More-->
+                                            </div>
+                                            <!--end::Toolbar-->
+                                        </div>
+                                        <!--end::Header-->
+                                        <!--begin::Body-->
+                                        <div id="kt_customer_view_payment_method_3" class="collapse fs-6 ps-10"
+                                            data-bs-parent="#kt_customer_view_payment_method">
+                                            <!--begin::Details-->
+                                            <div class="d-flex flex-wrap py-5">
+                                                <!--begin::Col-->
+                                                <div class="flex-equal me-5">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Name</td>
+                                                            <td class="text-gray-800">Max Smith</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Number</td>
+                                                            <td class="text-gray-800">**** 4437</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Expires</td>
+                                                            <td class="text-gray-800">08/2021</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Type</td>
+                                                            <td class="text-gray-800">American express credit card</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Issuer</td>
+                                                            <td class="text-gray-800">USABANK</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">ID</td>
+                                                            <td class="text-gray-800">id_89457jcje63</td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                                <!--begin::Col-->
+                                                <div class="flex-equal">
+                                                    <table class="table table-flush fw-semibold gy-1">
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Billing address
+                                                            </td>
+                                                            <td class="text-gray-800">US</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Phone</td>
+                                                            <td class="text-gray-800">No phone provided</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Email</td>
+                                                            <td class="text-gray-800">
+                                                                <a href="#"
+                                                                    class="text-gray-900 text-hover-primary">max@kt.com</a>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">Origin</td>
+                                                            <td class="text-gray-800">United States of America
+                                                                <div class="symbol symbol-20px symbol-circle ms-2">
+                                                                    <img src="assets/media/flags/united-states.svg" />
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="text-muted min-w-125px w-125px">CVC check</td>
+                                                            <td class="text-gray-800">Failed
+                                                                <i class="ki-duotone ki-cross fs-2 text-danger">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i></td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                                <!--end::Col-->
+                                            </div>
+                                            <!--end::Details-->
+                                        </div>
+                                        <!--end::Body-->
+                                    </div>
+                                    <!--end::Option-->
                                 </div>
-                                <!--end::Menu-->
+                                <!--end::Card body-->
                             </div>
-                            <!--end::Actions-->
+                            <!--end::Card-->
+
+
                         </div>
-                        <!--end::Title-->
-                        <!--begin::Stats-->
-                        <div class="d-flex flex-wrap flex-stack">
-                            <!--begin::Wrapper-->
-                            <div class="d-flex flex-column flex-grow-1 pe-8">
-                                <!--begin::Stats-->
-                                <div class="d-flex flex-wrap">
-                                    <!--begin::Stat-->
-                                    <div
-                                        class="border border-gray-300 border-dashed rounded min-w-150px py-3 px-4 me-6 mb-3">
-                                        <!--begin::Number-->
-                                        <div class="d-flex align-items-center">
-                                            <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            <div class="fs-2 fw-bold" data-kt-countup="true"
-                                                data-kt-countup-value="4500" data-kt-countup-prefix="GHS">0</div>
-                                        </div>
-                                        <!--end::Number-->
-                                        <!--begin::Label-->
-                                        <div class="fw-semibold fs-6 text-gray-400">Earnings</div>
-                                        <!--end::Label-->
-                                    </div>
-                                    <!--end::Stat-->
-                                    <!--begin::Stat-->
-                                    <div
-                                        class="border border-gray-300 border-dashed rounded min-w-150px py-3 px-4 me-6 mb-3">
-                                        <!--begin::Number-->
-                                        <div class="d-flex align-items-center">
-                                            <i class="ki-duotone ki-arrow-down fs-3 text-danger me-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            <div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="80">
-                                                0</div>
-                                        </div>
-                                        <!--end::Number-->
-                                        <!--begin::Label-->
-                                        <div class="fw-semibold fs-6 text-gray-400">Trips</div>
-                                        <!--end::Label-->
-                                    </div>
-                                    <!--end::Stat-->
-                                    <!--begin::Stat-->
-                                    <div
-                                        class="border border-gray-300 border-dashed rounded min-w-150px py-3 px-4 me-6 mb-3">
-                                        <!--begin::Number-->
-                                        <div class="d-flex align-items-center">
-                                            <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            <div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="60"
-                                                data-kt-countup-prefix="%">0</div>
-                                        </div>
-                                        <!--end::Number-->
-                                        <!--begin::Label-->
-                                        <div class="fw-semibold fs-6 text-gray-400">Success Rate</div>
-                                        <!--end::Label-->
-                                    </div>
-                                    <!--end::Stat-->
-                                </div>
-                                <!--end::Stats-->
-                            </div>
-                            <!--end::Wrapper-->
-                            
-                        </div>
-                        <!--end::Stats-->
                     </div>
-                    <!--end::Info-->
+                    <!--end::Tab pane-->
                 </div>
-                <!--end::Details-->
-                {{--@include('partials.general.drivers.menu')--}}
-                 <!--begin::Navs-->
- <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bold">
-     <!--begin::Nav item-->
-     <li class="nav-item mt-2">
-         <a class="nav-link text-active-primary ms-0 me-10 py-5" href="/fleet/drivers/details">Personal
-             Information</a>
-     </li>
-     <!--end::Nav item-->
-     <!--begin::Nav item-->
-     <li class="nav-item mt-2">
-         <a class="nav-link text-active-primary ms-0 me-10 py-5" href="/fleet/drivers/shipment_history">Shipment
-             History</a>
-     </li>
-     <!--end::Nav item-->
-     <!--begin::Nav item-->
-     <li class="nav-item mt-2">
-         <a class="nav-link text-active-primary ms-0 me-10 py-5 active" href="/fleet/drivers/driving_info">Driving Information</a>
-     </li>
-     <!--end::Nav item-->
-     <!--begin::Nav item-->
-     <!-- <li class="nav-item mt-2">
-         <a class="nav-link text-active-primary ms-0 me-10 py-5" href="/fleet/drivers/payment_info">Payment Information</a>
-     </li> -->
-     <!--end::Nav item-->
-     <!--begin::Nav item-->
-     <li class="nav-item mt-2">
-         <a class="nav-link text-active-primary ms-0 me-10 py-5" href="/fleet/drivers/payment_history">Re-embursement History</a>
-     </li>
-     <!--end::Nav item-->
-
- </ul>
- <!--begin::Navs-->
-
-
+                <!--end::Tab content-->
+                <div class="d-flex justify-content-end">
+                    <!--begin::Button-->
+                    <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
+                        class="btn btn-light me-5">Cancel</a>
+                    <!--end::Button-->
+                    <!--begin::Button-->
+                    <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
+                        <span class="indicator-label">Save Changes</span>
+                        <span class="indicator-progress">Please wait...
+                            <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                    </button>
+                    <!--end::Button-->
+                </div>
             </div>
-        </div>
-        <!--end::Navbar-->
-        <!--begin::details View-->
-        <div class="card mb-5 mb-xl-10" id="kt_profile_details_view">
-            <!--begin::Card header-->
-            <div class="card-header cursor-pointer">
-                <!--begin::Card title-->
-                <div class="card-title m-0">
-                    <h3 class="fw-bold m-0">Driving Information</h3>
-                </div>
-                <!--end::Card title-->
-                <!--begin::Action-->
-                <a href="" class="btn btn-sm btn-primary align-self-center">Edit Driver</a>
-                <!--end::Action-->
-            </div>
-            <!--begin::Card header-->
-            <!--begin::Card body-->
-            <div class="card-body p-9">
-                <!--begin::Row-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Licence #</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">JE4544-8</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Row-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Licence Expiry</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8 fv-row">
-                        <span class="fw-semibold text-gray-800 fs-6">10th December, 2023</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Licence Class</label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8 fv-row">
-                        <span class="fw-semibold text-gray-800 fs-6">B</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                <!--begin::Input group-->
-                <div class="row mb-7">
-                    <!--begin::Label-->
-                    <label class="col-lg-4 fw-semibold text-muted">Licence Document
-                        <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
-                            <i class="ki-duotone ki-information fs-7">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                            </i>
-                        </span></label>
-                    <!--end::Label-->
-                    <!--begin::Col-->
-                    <div class="col-lg-8 d-flex align-items-center">
-                        <span class="fw-bold fs-6 text-gray-800 me-2">document.pdf</span>
-                        <span class="badge badge-success">Verified</span>
-                    </div>
-                    <!--end::Col-->
-                </div>
-                <!--end::Input group-->
-                
-               
-            </div>
-            <!--end::Card body-->
-        </div>
-        <!--end::details View-->
-    
+            <!--end::Main column-->
+        </form>
+        <!--end::Form-->
     </div>
     <!--end::Content container-->
 </div>
@@ -448,7 +1176,7 @@
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                                        <img src="../assets/media/avatars/300-14.jpg" alt="img" />
+                                        <img src="assets/media/avatars/300-14.jpg" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -474,12 +1202,12 @@
                                     <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px pe-2">
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="../assets/media/avatars/300-2.jpg" alt="img" />
+                                            <img src="assets/media/avatars/300-2.jpg" alt="img" />
                                         </div>
                                         <!--end::User-->
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="../assets/media/avatars/300-14.jpg" alt="img" />
+                                            <img src="assets/media/avatars/300-14.jpg" alt="img" />
                                         </div>
                                         <!--end::User-->
                                         <!--begin::User-->
@@ -518,7 +1246,7 @@
                                     <div class="symbol-group symbol-hover flex-nowrap flex-grow-1 min-w-100px">
                                         <!--begin::User-->
                                         <div class="symbol symbol-circle symbol-25px">
-                                            <img src="../assets/media/avatars/300-20.jpg" alt="img" />
+                                            <img src="assets/media/avatars/300-20.jpg" alt="img" />
                                         </div>
                                         <!--end::User-->
                                         <!--begin::User-->
@@ -577,7 +1305,7 @@
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Alan Nilson">
-                                        <img src="../assets/media/avatars/300-1.jpg" alt="img" />
+                                        <img src="assets/media/avatars/300-1.jpg" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -622,7 +1350,7 @@
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Jan Hummer">
-                                        <img src="../assets/media/avatars/300-23.jpg" alt="img" />
+                                        <img src="assets/media/avatars/300-23.jpg" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -636,7 +1364,7 @@
                                     <!--begin::Item-->
                                     <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                                         <!--begin::Icon-->
-                                        <img alt="" class="w-30px me-3" src="../assets/media/svg/files/pdf.svg" />
+                                        <img alt="" class="w-30px me-3" src="assets/media/svg/files/pdf.svg" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-semibold">
@@ -655,7 +1383,7 @@
                                     <div class="d-flex flex-aligns-center pe-10 pe-lg-20">
                                         <!--begin::Icon-->
                                         <img alt="/apps/projects/project" class="w-30px me-3"
-                                            src="../assets/media/svg/files/doc.svg" />
+                                            src="assets/media/svg/files/doc.svg" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-semibold">
@@ -674,7 +1402,7 @@
                                     <div class="d-flex flex-aligns-center">
                                         <!--begin::Icon-->
                                         <img alt="/apps/projects/project" class="w-30px me-3"
-                                            src="../assets/media/svg/files/css.svg" />
+                                            src="assets/media/svg/files/css.svg" />
                                         <!--end::Icon-->
                                         <!--begin::Info-->
                                         <div class="ms-1 fw-semibold">
@@ -728,7 +1456,7 @@
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Nina Nilson">
-                                        <img src="../assets/media/avatars/300-14.jpg" alt="img" />
+                                        <img src="assets/media/avatars/300-14.jpg" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -769,7 +1497,7 @@
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Marcus Dotson">
-                                        <img src="../assets/media/avatars/300-2.jpg" alt="img" />
+                                        <img src="assets/media/avatars/300-2.jpg" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -785,7 +1513,7 @@
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
                                             <img alt="img" class="rounded w-150px"
-                                                src="../assets/media/stock/600x400/img-29.jpg" />
+                                                src="assets/media/stock/600x400/img-29.jpg" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -800,7 +1528,7 @@
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
                                             <img alt="img" class="rounded w-150px"
-                                                src="../assets/media/stock/600x400/img-31.jpg" />
+                                                src="assets/media/stock/600x400/img-31.jpg" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -815,7 +1543,7 @@
                                         <!--begin::Image-->
                                         <div class="overlay-wrapper">
                                             <img alt="img" class="rounded w-150px"
-                                                src="../assets/media/stock/600x400/img-40.jpg" />
+                                                src="assets/media/stock/600x400/img-40.jpg" />
                                         </div>
                                         <!--end::Image-->
                                         <!--begin::Link-->
@@ -906,7 +1634,7 @@
                                     <!--begin::User-->
                                     <div class="symbol symbol-circle symbol-25px" data-bs-toggle="tooltip"
                                         data-bs-boundary="window" data-bs-placement="top" title="Robert Rich">
-                                        <img src="../assets/media/avatars/300-4.jpg" alt="img" />
+                                        <img src="assets/media/avatars/300-4.jpg" alt="img" />
                                     </div>
                                     <!--end::User-->
                                 </div>
@@ -1138,7 +1866,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details-->
@@ -1172,7 +1900,7 @@
                             <!--end::Details-->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -1194,7 +1922,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details-->
@@ -1227,7 +1955,7 @@
                             <!--end::Details-->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -1249,7 +1977,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details-->
@@ -1283,7 +2011,7 @@
                             <!--end::Details-->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -1304,7 +2032,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details-->
@@ -1338,7 +2066,7 @@
                             <!--end::Details-->
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
                             </div>
                             <!--end::Avatar-->
                         </div>
@@ -1359,7 +2087,7 @@
                         <div class="d-flex align-items-center mb-2">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-35px symbol-circle">
-                                <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Details-->
@@ -1473,7 +2201,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="../assets/media/stock/600x400/img-1.jpg" alt="" />
+                    <img src="assets/media/stock/600x400/img-1.jpg" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1509,7 +2237,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="../assets/media/stock/600x400/img-3.jpg" alt="" />
+                    <img src="assets/media/stock/600x400/img-3.jpg" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1545,7 +2273,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="../assets/media/stock/600x400/img-8.jpg" alt="" />
+                    <img src="assets/media/stock/600x400/img-8.jpg" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1581,7 +2309,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="../assets/media/stock/600x400/img-26.jpg" alt="" />
+                    <img src="assets/media/stock/600x400/img-26.jpg" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1617,7 +2345,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="../assets/media/stock/600x400/img-21.jpg" alt="" />
+                    <img src="assets/media/stock/600x400/img-21.jpg" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1653,7 +2381,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="../assets/media/stock/600x400/img-34.jpg" alt="" />
+                    <img src="assets/media/stock/600x400/img-34.jpg" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1689,7 +2417,7 @@
                 <!--end::Wrapper-->
                 <!--begin::Pic-->
                 <div class="symbol symbol-70px symbol-2by3 flex-shrink-0">
-                    <img src="../assets/media/stock/600x400/img-27.jpg" alt="" />
+                    <img src="assets/media/stock/600x400/img-27.jpg" alt="" />
                 </div>
                 <!--end::Pic-->
             </div>
@@ -1959,7 +2687,7 @@
                                         <!--end::Item-->
                                         <!--begin::Item-->
                                         <div class="d-flex align-items-center mb-7">
-                                            <span class="fw-semibold fs-5 text-muted flex-grow-1">Drivering
+                                            <span class="fw-semibold fs-5 text-muted flex-grow-1">Accounting
                                                 Module</span>
                                             <i class="ki-duotone ki-cross-circle fs-1">
                                                 <span class="path1"></span>
@@ -2044,7 +2772,7 @@
                                         <!--end::Item-->
                                         <!--begin::Item-->
                                         <div class="d-flex align-items-center mb-7">
-                                            <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Drivering
+                                            <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting
                                                 Module</span>
                                             <i class="ki-duotone ki-check-circle fs-1 text-success">
                                                 <span class="path1"></span>
@@ -2128,7 +2856,7 @@
                                         <!--end::Item-->
                                         <!--begin::Item-->
                                         <div class="d-flex align-items-center mb-7">
-                                            <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Drivering
+                                            <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting
                                                 Module</span>
                                             <i class="ki-duotone ki-check-circle fs-1 text-success">
                                                 <span class="path1"></span>
@@ -2212,7 +2940,7 @@
                                         <!--end::Item-->
                                         <!--begin::Item-->
                                         <div class="d-flex align-items-center mb-7">
-                                            <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Drivering
+                                            <span class="fw-semibold fs-5 text-gray-700 flex-grow-1">Accounting
                                                 Module</span>
                                             <i class="ki-duotone ki-check-circle fs-1 text-success">
                                                 <span class="path1"></span>
@@ -2877,11 +3605,10 @@
                                             <!--end::Input-->
                                             <!--begin::Card logos-->
                                             <div class="position-absolute translate-middle-y top-50 end-0 me-5">
-                                                <img src="../assets/media/svg/card-logos/visa.svg" alt=""
+                                                <img src="assets/media/svg/card-logos/visa.svg" alt="" class="h-25px" />
+                                                <img src="assets/media/svg/card-logos/mastercard.svg" alt=""
                                                     class="h-25px" />
-                                                <img src="../assets/media/svg/card-logos/mastercard.svg" alt=""
-                                                    class="h-25px" />
-                                                <img src="../assets/media/svg/card-logos/american-express.svg" alt=""
+                                                <img src="assets/media/svg/card-logos/american-express.svg" alt=""
                                                     class="h-25px" />
                                             </div>
                                             <!--end::Card logos-->
@@ -3013,7 +3740,7 @@
                                     <!--end::Description-->
                                     <!--begin::Illustration-->
                                     <div class="text-center px-4 py-15">
-                                        <img src="../assets/media/illustrations/sketchy-1/9.png" alt=""
+                                        <img src="assets/media/illustrations/sketchy-1/9.png" alt=""
                                             class="mw-100 mh-300px" />
                                     </div>
                                     <!--end::Illustration-->
@@ -3069,485 +3796,6 @@
     <!--end::Modal dialog-->
 </div>
 <!--end::Modal - Create App-->
-<!--begin::Modal - Offer A Deal-->
-<div class="modal fade" id="kt_modal_offer_a_deal" tabindex="-1" aria-hidden="true">
-    <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-1000px">
-        <!--begin::Modal content-->
-        <div class="modal-content">
-            <!--begin::Modal header-->
-            <div class="modal-header py-7 d-flex justify-content-between">
-                <!--begin::Modal title-->
-                <h2>Offer a Deal</h2>
-                <!--end::Modal title-->
-                <!--begin::Close-->
-                <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-                    <i class="ki-duotone ki-cross fs-1">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>
-                </div>
-                <!--end::Close-->
-            </div>
-            <!--begin::Modal header-->
-            <!--begin::Modal body-->
-            <div class="modal-body scroll-y m-5">
-                <!--begin::Stepper-->
-                <div class="stepper stepper-links d-flex flex-column" id="kt_modal_offer_a_deal_stepper">
-                    <!--begin::Nav-->
-                    <div class="stepper-nav justify-content-center py-2">
-                        <!--begin::Step 1-->
-                        <div class="stepper-item me-5 me-md-15 current" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Deal Type</h3>
-                        </div>
-                        <!--end::Step 1-->
-                        <!--begin::Step 2-->
-                        <div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Deal Details</h3>
-                        </div>
-                        <!--end::Step 2-->
-                        <!--begin::Step 3-->
-                        <div class="stepper-item me-5 me-md-15" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Finance Settings</h3>
-                        </div>
-                        <!--end::Step 3-->
-                        <!--begin::Step 4-->
-                        <div class="stepper-item" data-kt-stepper-element="nav">
-                            <h3 class="stepper-title">Completed</h3>
-                        </div>
-                        <!--end::Step 4-->
-                    </div>
-                    <!--end::Nav-->
-                    <!--begin::Form-->
-                    <form class="mx-auto mw-500px w-100 pt-15 pb-10" novalidate="novalidate"
-                        id="kt_modal_offer_a_deal_form">
-                        <!--begin::Type-->
-                        <div class="current" data-kt-stepper-element="content">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="mb-13">
-                                    <!--begin::Title-->
-                                    <h2 class="mb-3">Deal Type</h2>
-                                    <!--end::Title-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fw-semibold fs-5">If you need more info, please check out
-                                        <a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Heading-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-15" data-kt-buttons="true">
-                                    <!--begin::Option-->
-                                    <label
-                                        class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6 mb-6 active">
-                                        <!--begin::Input-->
-                                        <input class="btn-check" type="radio" checked="checked" name="offer_type"
-                                            value="1" />
-                                        <!--end::Input-->
-                                        <!--begin::Label-->
-                                        <span class="d-flex">
-                                            <!--begin::Icon-->
-                                            <i class="ki-duotone ki-profile-circle fs-3hx">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                            <!--end::Icon-->
-                                            <!--begin::Info-->
-                                            <span class="ms-4">
-                                                <span class="fs-3 fw-bold text-gray-900 mb-2 d-block">Personal
-                                                    Deal</span>
-                                                <span class="fw-semibold fs-4 text-muted">If you need more info, please
-                                                    check it out</span>
-                                            </span>
-                                            <!--end::Info-->
-                                        </span>
-                                        <!--end::Label-->
-                                    </label>
-                                    <!--end::Option-->
-                                    <!--begin::Option-->
-                                    <label
-                                        class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6">
-                                        <!--begin::Input-->
-                                        <input class="btn-check" type="radio" name="offer_type" value="2" />
-                                        <!--end::Input-->
-                                        <!--begin::Label-->
-                                        <span class="d-flex">
-                                            <!--begin::Icon-->
-                                            <i class="ki-duotone ki-element-11 fs-3hx">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                                <span class="path4"></span>
-                                            </i>
-                                            <!--end::Icon-->
-                                            <!--begin::Info-->
-                                            <span class="ms-4">
-                                                <span class="fs-3 fw-bold text-gray-900 mb-2 d-block">Corporate
-                                                    Deal</span>
-                                                <span class="fw-semibold fs-4 text-muted">Create corporate account to
-                                                    manage users</span>
-                                            </span>
-                                            <!--end::Info-->
-                                        </span>
-                                        <!--end::Label-->
-                                    </label>
-                                    <!--end::Option-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Actions-->
-                                <div class="d-flex justify-content-end">
-                                    <button type="button" class="btn btn-lg btn-primary" data-kt-element="type-next">
-                                        <span class="indicator-label">Offer Details</span>
-                                        <span class="indicator-progress">Please wait...
-                                            <span
-                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                    </button>
-                                </div>
-                                <!--end::Actions-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        <!--end::Type-->
-                        <!--begin::Details-->
-                        <div data-kt-stepper-element="content">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="mb-13">
-                                    <!--begin::Title-->
-                                    <h2 class="mb-3">Deal Details</h2>
-                                    <!--end::Title-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fw-semibold fs-5">If you need more info, please check out
-                                        <a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Heading-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-8">
-                                    <!--begin::Label-->
-                                    <label class="required fs-6 fw-semibold mb-2">Customer</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <select class="form-select form-select-solid" data-control="select2"
-                                        data-placeholder="Select an option" name="details_customer">
-                                        <option></option>
-                                        <option value="1" selected="selected">Keenthemes</option>
-                                        <option value="2">CRM App</option>
-                                    </select>
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-8">
-                                    <!--begin::Label-->
-                                    <label class="required fs-6 fw-semibold mb-2">Deal Title</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <input type="text" class="form-control form-control-solid"
-                                        placeholder="Enter Deal Title" name="details_title"
-                                        value="Marketing Campaign" />
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-8">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Deal Description</label>
-                                    <!--end::Label-->
-                                    <!--begin::Label-->
-                                    <textarea class="form-control form-control-solid" rows="3"
-                                        placeholder="Enter Deal Description"
-                                        name="details_description">Experience share market at your fingertips with TICK PRO stock investment mobile trading app</textarea>
-                                    <!--end::Label-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-8">
-                                    <label class="required fs-6 fw-semibold mb-2">Activation Date</label>
-                                    <div class="position-relative d-flex align-items-center">
-                                        <!--begin::Icon-->
-                                        <i class="ki-duotone ki-calendar-8 fs-2 position-absolute mx-4">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                            <span class="path6"></span>
-                                        </i>
-                                        <!--end::Icon-->
-                                        <!--begin::Datepicker-->
-                                        <input class="form-control form-control-solid ps-12"
-                                            placeholder="Pick date range" name="details_activation_date" />
-                                        <!--end::Datepicker-->
-                                    </div>
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-15">
-                                    <!--begin::Wrapper-->
-                                    <div class="d-flex flex-stack">
-                                        <!--begin::Label-->
-                                        <div class="me-5">
-                                            <label class="required fs-6 fw-semibold">Notifications</label>
-                                            <div class="fs-7 fw-semibold text-muted">Allow Notifications by Phone or
-                                                Email</div>
-                                        </div>
-                                        <!--end::Label-->
-                                        <!--begin::Checkboxes-->
-                                        <div class="d-flex">
-                                            <!--begin::Checkbox-->
-                                            <label class="form-check form-check-custom form-check-solid me-10">
-                                                <!--begin::Input-->
-                                                <input class="form-check-input h-20px w-20px" type="checkbox"
-                                                    value="email" name="details_notifications[]" />
-                                                <!--end::Input-->
-                                                <!--begin::Label-->
-                                                <span class="form-check-label fw-semibold">Email</span>
-                                                <!--end::Label-->
-                                            </label>
-                                            <!--end::Checkbox-->
-                                            <!--begin::Checkbox-->
-                                            <label class="form-check form-check-custom form-check-solid">
-                                                <!--begin::Input-->
-                                                <input class="form-check-input h-20px w-20px" type="checkbox"
-                                                    value="phone" checked="checked" name="details_notifications[]" />
-                                                <!--end::Input-->
-                                                <!--begin::Label-->
-                                                <span class="form-check-label fw-semibold">Phone</span>
-                                                <!--end::Label-->
-                                            </label>
-                                            <!--end::Checkbox-->
-                                        </div>
-                                        <!--end::Checkboxes-->
-                                    </div>
-                                    <!--begin::Wrapper-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Actions-->
-                                <div class="d-flex flex-stack">
-                                    <button type="button" class="btn btn-lg btn-light me-3"
-                                        data-kt-element="details-previous">Deal Type</button>
-                                    <button type="button" class="btn btn-lg btn-primary" data-kt-element="details-next">
-                                        <span class="indicator-label">Financing</span>
-                                        <span class="indicator-progress">Please wait...
-                                            <span
-                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                    </button>
-                                </div>
-                                <!--end::Actions-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        <!--end::Details-->
-                        <!--begin::Budget-->
-                        <div data-kt-stepper-element="content">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="mb-13">
-                                    <!--begin::Title-->
-                                    <h2 class="mb-3">Finance</h2>
-                                    <!--end::Title-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fw-semibold fs-5">If you need more info, please check out
-                                        <a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Heading-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-8">
-                                    <!--begin::Label-->
-                                    <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                                        <span class="required">Setup Budget</span>
-                                        <span class="ms-1" data-bs-toggle="popover" data-bs-trigger="hover"
-                                            data-bs-html="true"
-                                            data-bs-content="&lt;div class=&#039;p-4 rounded bg-light&#039;&gt; &lt;div class=&#039;d-flex flex-stack text-muted mb-4&#039;&gt; &lt;i class=&quot;ki-duotone ki-bank fs-3 me-3&quot;&gt;&lt;span class=&quot;path1&quot;&gt;&lt;/span&gt;&lt;span class=&quot;path2&quot;&gt;&lt;/span&gt;&lt;/i&gt; &lt;div class=&#039;fw-bold&#039;&gt;INCBANK **** 1245 STATEMENT&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack fw-semibold text-gray-600&#039;&gt; &lt;div&gt;Amount&lt;/div&gt; &lt;div&gt;Transaction&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;separator separator-dashed my-2&#039;&gt;&lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-dark fw-bold mb-2&#039;&gt; &lt;div&gt;USD345.00&lt;/div&gt; &lt;div&gt;KEENTHEMES*&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-muted mb-2&#039;&gt; &lt;div&gt;USD75.00&lt;/div&gt; &lt;div&gt;Hosting fee&lt;/div&gt; &lt;/div&gt; &lt;div class=&#039;d-flex flex-stack text-muted&#039;&gt; &lt;div&gt;USD3,950.00&lt;/div&gt; &lt;div&gt;Payrol&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;">
-                                            <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                        </span>
-                                    </label>
-                                    <!--end::Label-->
-                                    <!--begin::Dialer-->
-                                    <div class="position-relative w-lg-250px" id="kt_modal_finance_setup"
-                                        data-kt-dialer="true" data-kt-dialer-min="50" data-kt-dialer-max="50000"
-                                        data-kt-dialer-step="100" data-kt-dialer-prefix="$" data-kt-dialer-decimals="2">
-                                        <!--begin::Decrease control-->
-                                        <button type="button"
-                                            class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 start-0"
-                                            data-kt-dialer-control="decrease">
-                                            <i class="ki-duotone ki-minus-circle fs-1">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                        </button>
-                                        <!--end::Decrease control-->
-                                        <!--begin::Input control-->
-                                        <input type="text" class="form-control form-control-solid border-0 ps-12"
-                                            data-kt-dialer-control="input" placeholder="Amount" name="finance_setup"
-                                            readonly="readonly" value="$50" />
-                                        <!--end::Input control-->
-                                        <!--begin::Increase control-->
-                                        <button type="button"
-                                            class="btn btn-icon btn-active-color-gray-700 position-absolute translate-middle-y top-50 end-0"
-                                            data-kt-dialer-control="increase">
-                                            <i class="ki-duotone ki-plus-circle fs-1">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                        </button>
-                                        <!--end::Increase control-->
-                                    </div>
-                                    <!--end::Dialer-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-8">
-                                    <!--begin::Label-->
-                                    <label class="fs-6 fw-semibold mb-2">Budget Usage</label>
-                                    <!--end::Label-->
-                                    <!--begin::Row-->
-                                    <div class="row g-9" data-kt-buttons="true"
-                                        data-kt-buttons-target="[data-kt-button='true']">
-                                        <!--begin::Col-->
-                                        <div class="col-md-6 col-lg-12 col-xxl-6">
-                                            <!--begin::Option-->
-                                            <label
-                                                class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6"
-                                                data-kt-button="true">
-                                                <!--begin::Radio-->
-                                                <span
-                                                    class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                                    <input class="form-check-input" type="radio" name="finance_usage"
-                                                        value="1" checked="checked" />
-                                                </span>
-                                                <!--end::Radio-->
-                                                <!--begin::Info-->
-                                                <span class="ms-5">
-                                                    <span class="fs-4 fw-bold text-gray-800 mb-2 d-block">Precise
-                                                        Usage</span>
-                                                    <span class="fw-semibold fs-7 text-gray-600">Withdraw money to your
-                                                        bank account per transaction under $50,000 budget</span>
-                                                </span>
-                                                <!--end::Info-->
-                                            </label>
-                                            <!--end::Option-->
-                                        </div>
-                                        <!--end::Col-->
-                                        <!--begin::Col-->
-                                        <div class="col-md-6 col-lg-12 col-xxl-6">
-                                            <!--begin::Option-->
-                                            <label
-                                                class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6"
-                                                data-kt-button="true">
-                                                <!--begin::Radio-->
-                                                <span
-                                                    class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
-                                                    <input class="form-check-input" type="radio" name="finance_usage"
-                                                        value="2" />
-                                                </span>
-                                                <!--end::Radio-->
-                                                <!--begin::Info-->
-                                                <span class="ms-5">
-                                                    <span class="fs-4 fw-bold text-gray-800 mb-2 d-block">Extreme
-                                                        Usage</span>
-                                                    <span class="fw-semibold fs-7 text-gray-600">Withdraw money to your
-                                                        bank account per transaction under $50,000 budget</span>
-                                                </span>
-                                                <!--end::Info-->
-                                            </label>
-                                            <!--end::Option-->
-                                        </div>
-                                        <!--end::Col-->
-                                    </div>
-                                    <!--end::Row-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-15">
-                                    <!--begin::Wrapper-->
-                                    <div class="d-flex flex-stack">
-                                        <!--begin::Label-->
-                                        <div class="me-5">
-                                            <label class="fs-6 fw-semibold">Allow Changes in Budget</label>
-                                            <div class="fs-7 fw-semibold text-muted">If you need more info, please check
-                                                budget planning</div>
-                                        </div>
-                                        <!--end::Label-->
-                                        <!--begin::Switch-->
-                                        <label class="form-check form-switch form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="1"
-                                                name="finance_allow" checked="checked" />
-                                            <span class="form-check-label fw-semibold text-muted">Allowed</span>
-                                        </label>
-                                        <!--end::Switch-->
-                                    </div>
-                                    <!--end::Wrapper-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Actions-->
-                                <div class="d-flex flex-stack">
-                                    <button type="button" class="btn btn-lg btn-light me-3"
-                                        data-kt-element="finance-previous">Project Settings</button>
-                                    <button type="button" class="btn btn-lg btn-primary" data-kt-element="finance-next">
-                                        <span class="indicator-label">Build Team</span>
-                                        <span class="indicator-progress">Please wait...
-                                            <span
-                                                class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                    </button>
-                                </div>
-                                <!--end::Actions-->
-                            </div>
-                            <!--end::Wrapper-->
-                        </div>
-                        <!--end::Budget-->
-                        <!--begin::Complete-->
-                        <div data-kt-stepper-element="content">
-                            <!--begin::Wrapper-->
-                            <div class="w-100">
-                                <!--begin::Heading-->
-                                <div class="mb-13">
-                                    <!--begin::Title-->
-                                    <h2 class="mb-3">Deal Created!</h2>
-                                    <!--end::Title-->
-                                    <!--begin::Description-->
-                                    <div class="text-muted fw-semibold fs-5">If you need more info, please check out
-                                        <a href="#" class="link-primary fw-bold">FAQ Page</a>.</div>
-                                    <!--end::Description-->
-                                </div>
-                                <!--end::Heading-->
-                                <!--begin::Actions-->
-                                <div class="d-flex flex-center pb-20">
-                                    <button type="button" class="btn btn-lg btn-light me-3"
-                                        data-kt-element="complete-start">Create New Deal</button>
-                                    <a href="#" class="btn btn-lg btn-primary" data-bs-toggle="tooltip"
-                                        title="Coming Soon">View Deal</a>
-                                </div>
-                                <!--end::Actions-->
-                                <!--begin::Illustration-->
-                                <div class="text-center px-4">
-                                    <img src="../assets/media/illustrations/sketchy-1/20.png" alt=""
-                                        class="mw-100 mh-300px" />
-                                </div>
-                                <!--end::Illustration-->
-                            </div>
-                        </div>
-                        <!--end::Complete-->
-                    </form>
-                    <!--end::Form-->
-                </div>
-                <!--end::Stepper-->
-            </div>
-            <!--begin::Modal body-->
-        </div>
-    </div>
-</div>
-<!--end::Modal - Offer A Deal-->
 <!--begin::Modal - Users Search-->
 <div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
@@ -3626,7 +3874,7 @@
                                     class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle me-5">
-                                        <img alt="Pic" src="../assets/media/avatars/300-6.jpg" />
+                                        <img alt="Pic" src="assets/media/avatars/300-6.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Info-->
@@ -3658,7 +3906,7 @@
                                     class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle me-5">
-                                        <img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+                                        <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Info-->
@@ -3674,7 +3922,7 @@
                                     class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle me-5">
-                                        <img alt="Pic" src="../assets/media/avatars/300-5.jpg" />
+                                        <img alt="Pic" src="assets/media/avatars/300-5.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Info-->
@@ -3690,7 +3938,7 @@
                                     class="d-flex align-items-center p-3 rounded bg-state-light bg-state-opacity-50 mb-1">
                                     <!--begin::Avatar-->
                                     <div class="symbol symbol-35px symbol-circle me-5">
-                                        <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                        <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                                     </div>
                                     <!--end::Avatar-->
                                     <!--begin::Info-->
@@ -3722,7 +3970,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-6.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-6.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -3803,7 +4051,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -3843,7 +4091,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-5.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-5.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -3883,7 +4131,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -3965,7 +4213,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-9.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-9.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -4088,7 +4336,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-23.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-23.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -4168,7 +4416,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-12.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-12.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -4249,7 +4497,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-13.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-13.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -4330,7 +4578,7 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <img alt="Pic" src="../assets/media/avatars/300-21.jpg" />
+                                            <img alt="Pic" src="assets/media/avatars/300-21.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
@@ -4370,15 +4618,14 @@
                                         <!--end::Checkbox-->
                                         <!--begin::Avatar-->
                                         <div class="symbol symbol-35px symbol-circle">
-                                            <span
-                                                class="symbol-label bg-light-success text-success fw-semibold">L</span>
+                                            <img alt="Pic" src="assets/media/avatars/300-6.jpg" />
                                         </div>
                                         <!--end::Avatar-->
                                         <!--begin::Details-->
                                         <div class="ms-5">
-                                            <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy
-                                                Kunic</a>
-                                            <div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+                                            <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Emma
+                                                Smith</a>
+                                            <div class="fw-semibold text-muted">smith@kpmg.com</div>
                                         </div>
                                         <!--end::Details-->
                                     </div>
@@ -4417,7 +4664,7 @@
                             <!--end::Message-->
                             <!--begin::Illustration-->
                             <div class="text-center px-5">
-                                <img src="../assets/media/illustrations/sketchy-1/1.png" alt=""
+                                <img src="assets/media/illustrations/sketchy-1/1.png" alt=""
                                     class="w-100 h-200px h-sm-325px" />
                             </div>
                             <!--end::Illustration-->
@@ -4468,7 +4715,7 @@
                 <!--end::Heading-->
                 <!--begin::Google Contacts Invite-->
                 <div class="btn btn-light-primary fw-bold w-100 mb-8">
-                    <img alt="Logo" src="../assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite
+                    <img alt="Logo" src="assets/media/svg/brand-logos/google-icon.svg" class="h-20px me-3" />Invite
                     Gmail Contacts</div>
                 <!--end::Google Contacts Invite-->
                 <!--begin::Separator-->
@@ -4493,7 +4740,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-6.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-6.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4553,7 +4800,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-1.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-1.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4582,7 +4829,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-5.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-5.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4611,7 +4858,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-25.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4670,7 +4917,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-9.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-9.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4759,7 +5006,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-23.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-23.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4818,7 +5065,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-12.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-12.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4877,7 +5124,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-13.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-13.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4937,7 +5184,7 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <img alt="Pic" src="../assets/media/avatars/300-21.jpg" />
+                                    <img alt="Pic" src="assets/media/avatars/300-21.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
@@ -4967,14 +5214,13 @@
                             <div class="d-flex align-items-center">
                                 <!--begin::Avatar-->
                                 <div class="symbol symbol-35px symbol-circle">
-                                    <span class="symbol-label bg-light-danger text-danger fw-semibold">O</span>
+                                    <img alt="Pic" src="assets/media/avatars/300-25.jpg" />
                                 </div>
                                 <!--end::Avatar-->
                                 <!--begin::Details-->
                                 <div class="ms-5">
-                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Olivia
-                                        Wild</a>
-                                    <div class="fw-semibold text-muted">olivia@corpmail.com</div>
+                                    <a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Brian Cox</a>
+                                    <div class="fw-semibold text-muted">brian@exchange.com</div>
                                 </div>
                                 <!--end::Details-->
                             </div>
@@ -5022,33 +5268,30 @@
 <!--end::Modals-->
 <!--begin::Javascript-->
 <script>
-    var hostUrl = "../assets/";
+    var hostUrl = "assets/";
 
 </script>
 <!--begin::Global Javascript Bundle(mandatory for all pages)-->
-<script src="../assets/plugins/global/plugins.bundle.js"></script>
-<script src="../assets/js/scripts.bundle.js"></script>
+<script src="assets/plugins/global/plugins.bundle.js"></script>
+<script src="assets/js/scripts.bundle.js"></script>
 <!--end::Global Javascript Bundle-->
 <!--begin::Vendors Javascript(used for this page only)-->
-<script src="../assets/plugins/custom/datatables/datatables.bundle.js"></script>
+<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
+<script src="assets/plugins/custom/formrepeater/formrepeater.bundle.js"></script>
 <!--end::Vendors Javascript-->
 <!--begin::Custom Javascript(used for this page only)-->
-<script src="../assets/js/custom/pages/user-profile/general.js"></script>
-<script src="../assets/js/widgets.bundle.js"></script>
-<script src="../assets/js/custom/widgets.js"></script>
-<script src="../assets/js/custom/apps/chat/chat.js"></script>
-<script src="../assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-<script src="../assets/js/custom/utilities/modals/create-app.js"></script>
-<script src="../assets/js/custom/utilities/modals/offer-a-deal/type.js"></script>
-<script src="../assets/js/custom/utilities/modals/offer-a-deal/details.js"></script>
-<script src="../assets/js/custom/utilities/modals/offer-a-deal/finance.js"></script>
-<script src="../assets/js/custom/utilities/modals/offer-a-deal/complete.js"></script>
-<script src="../assets/js/custom/utilities/modals/offer-a-deal/main.js"></script>
-<script src="../assets/js/custom/utilities/modals/users-search.js"></script>
+<script src="assets/js/custom/apps/ecommerce/catalog/save-product.js"></script>
+<script src="assets/js/widgets.bundle.js"></script>
+<script src="assets/js/custom/widgets.js"></script>
+<script src="assets/js/custom/apps/chat/chat.js"></script>
+<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
+<script src="assets/js/custom/utilities/modals/create-app.js"></script>
+<script src="assets/js/custom/utilities/modals/users-search.js"></script>
 <!--end::Custom Javascript-->
 <!--end::Javascript-->
 </body>
 <!--end::Body-->
 
 </html>
+@include('partials.modals.add_payment_method')
 @endsection

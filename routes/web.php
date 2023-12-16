@@ -61,6 +61,9 @@ Route::get('/fleet/vehicles/edit', function () {
 Route::get('/fleet/drivers', function () {
     return view('fleet.drivers.drivers');
 });
+Route::get('/fleet/drivers/add', function () {
+    return view('fleet.drivers.add');
+});
 Route::get('/fleet/drivers/details', function () {
     return view('fleet.drivers.details');
 });
@@ -179,6 +182,9 @@ Route::get('/customers/billing', function () {
 
 Route::get('/shipments/overview', function () {
     return view('shipments.overview');
+});
+Route::get('/shipments/add', function () {
+    return view('shipments.add');
 });
 Route::get('/shipments/list', function () {
     return view('shipments.list');

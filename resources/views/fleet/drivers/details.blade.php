@@ -121,7 +121,7 @@
                             <!--end::User-->
                             <!--begin::Actions-->
                             <div class="d-flex my-4">
-                                <a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
+                                {{--<a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
                                     <i class="ki-duotone ki-check fs-3 d-none"></i>
                                     <!--begin::Indicator label-->
                                     <span class="indicator-label">Message</span>
@@ -130,7 +130,7 @@
                                     <span class="indicator-progress">Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                     <!--end::Indicator progress-->
-                                </a>
+                                </a>--}}
                                 {{--<a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
                                     data-bs-target="#kt_modal_offer_a_deal">Hire Me</a>--}}
                                 <!--begin::Menu-->
@@ -270,7 +270,7 @@
                 </div>
                 <!--end::Card title-->
                 <!--begin::Action-->
-                <a href="" class="btn btn-sm btn-primary align-self-center">Edit Driver</a>
+                <a href="/fleet/drivers/edit" class="btn btn-sm btn-primary align-self-center">Edit Driver</a>
                 <!--end::Action-->
             </div>
             <!--begin::Card header-->

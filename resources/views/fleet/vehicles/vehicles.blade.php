@@ -25,7 +25,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="/organization/overview" class="text-muted text-hover-primary">Vehicles</a>
+                        <a href="/fleet/vehicles" class="text-muted text-hover-primary">Vehicles</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -43,11 +43,11 @@
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin::Secondary button-->
-                <a href="/apps/customers/list"
+                <a href="/load/list"
                     class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Load Board</a>
                 <!--end::Secondary button-->
                 <!--begin::Primary button-->
-                <a href="/organization/add" class="btn btn-sm fw-bold btn-primary">Fleet Mangement</a>
+                <a href="/fleet/overview" class="btn btn-sm fw-bold btn-primary">Fleet Mangement</a>
                 <!--end::Primary button-->
                 <!--begin::Secondary button-->
                 <a href="/organization/list"
@@ -244,7 +244,7 @@
                             <td>10 Tons</td>
                             <td><i class="badge badge-warning">Onroute</i></td>
                             <td>
-                               Mr.
+                                Mr.
                                 Jonathan Dan
                             </td>
                             <td>19 Oct 2024</td>
@@ -264,6 +264,17 @@
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a href="/fleet/vehicles/edit" class="menu-link px-3">Edit</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a href="/fleet/vehicles/locate" class="menu-link px-3">Locate</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a class="menu-link px-3" data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_add_maintenance_schedule">Maintenance</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -304,12 +315,18 @@
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/apps/customers/view" class="menu-link px-3">View</a>
+                                        <a href="/fleet/vehicles/details" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/apps/customers/view" class="menu-link px-3">Edit</a>
+                                        <a href="/fleet/vehicles/edit" class="menu-link px-3">Edit</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a class="menu-link px-3" data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_add_maintenance_schedule">Maintenance</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -350,12 +367,18 @@
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/apps/customers/view" class="menu-link px-3">View</a>
+                                        <a href="/fleet/vehicles/details" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/apps/customers/view" class="menu-link px-3">Edit</a>
+                                        <a href="/fleet/vehicles/edit" class="menu-link px-3">Edit</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                    <!--begin::Menu item-->
+                                    <div class="menu-item px-3">
+                                        <a class="menu-link px-3" data-bs-toggle="modal"
+                                            data-bs-target="#kt_modal_add_maintenance_schedule">Maintenance</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -386,3 +409,4 @@
 @endsection
 @extends('partials.modals.export_vehicles_as')
 @extends('partials.modals.add_vehicle')
+@extends('partials.modals.add_maintenance_schedule')

@@ -89,8 +89,8 @@
                                     <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
                                         <th class="p-0 pb-3 min-w-105px text-start">ID</th>
                                         <th class="p-0 pb-3 min-w-100px text-end">Sender</th>
-                                        <th class="p-0 pb-3 min-w-100px text-end">Status</th>
                                         <th class="p-0 pb-3 min-w-100px text-end">Broker</th>
+                                        <th class="p-0 pb-3 min-w-100px text-end">Status</th>
                                         <th class="p-0 pb-3 min-w-125px text-end">Load #</th>
                                         <th class="p-0 pb-3 min-w-100px text-end">Sender Budget</th>
                                         <th class="p-0 pb-3 min-w-100px text-end">Agreed Prize</th>
