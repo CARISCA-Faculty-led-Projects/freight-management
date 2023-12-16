@@ -43,7 +43,8 @@
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin::Secondary button-->
-                <a href="/brokers/add" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Add
+                <a href="/brokers/add"
+                    class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Add
                     Broker</a>
                 <!--end::Secondary button-->
                 <!--begin::Primary button-->
