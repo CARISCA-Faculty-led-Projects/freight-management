@@ -227,6 +227,7 @@
                         </tr>
                     </thead>
                     <tbody class="text-gray-600 fw-semibold">
+                        @foreach ($organizations as $organization)
                         <tr>
                             <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -234,7 +235,7 @@
                                 </div>
                             </td>
                             <td>
-                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Jess Fleet Mangement Inc</a>
+                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">{{$organization->name}}</a>
                             </td>
                             <td>
                                 <div class="badge badge-light-success">Active</div><div class="badge badge-light-danger">Unverified</div>
@@ -243,7 +244,7 @@
                                 <div class="badge badge-light">Auto-debit</div>
                             </td>
                             <td>3</td>
-                            <td>Ghana, Greater Accra</td>
+                            <td>{{$organization->country}}, {{$organization->region}}</td>
                             <td class="text-end">
                                 <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
@@ -271,142 +272,11 @@
                                 <!--end::Menu-->
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" />
-                                </div>
-                            </td>
-                            <td>
-                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">TopTier Trucks Co</a>
-                            </td>
-                            <td>
-							<div class="badge badge-light-danger">Suspended</div><div class="badge badge-light-success">Verified</div>
-                            </td>
-                            <td>
-                                <div class="badge badge-light">Manual - Credit Card</div>
-                            </td>
-                            <td>10</td>
-                            <td>Ghana, Kumasi</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                    <i class="ki-duotone ki-down fs-5 m-0"></i></a>
-                                <!--begin::Menu-->
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/organization/details" class="menu-link px-3">View</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="#" data-kt-subscriptions-table-filter="delete_row"
-                                            class="menu-link px-3">Delete</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" />
-                                </div>
-                            </td>
-                            <td>
-                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">RiverDale Fleet Systems</a>
-                            </td>
-                            <td>
-                                <div class="badge badge-light-success">Active</div><div class="badge badge-light-success">Verified</div>
-                            </td>
-                            <td>
-                                <div class="badge badge-light">Manual - Cash</div>
-                            </td>
-                            <td>5</td>
-                            <td>Ghana, Tema</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                    <i class="ki-duotone ki-down fs-5 m-0"></i></a>
-                                <!--begin::Menu-->
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="#" data-kt-subscriptions-table-filter="delete_row"
-                                            class="menu-link px-3">Delete</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" />
-                                </div>
-                            </td>
-                            <td>
-                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Delivery Reel Inc</a>
-                            </td>
-                            <td>
-                                <div class="badge badge-light-danger">Suspended</div>
-                                <div class="badge badge-light-danger">Unverified</div>
-                            </td>
-                            <td>
-                                <div class="badge badge-light">Manual - Paypal</div>
-                            </td>
-                            <td>20</td>
-                            <td>Nigeria, Igbo State</td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-light btn-active-light-primary btn-sm"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                    <i class="ki-duotone ki-down fs-5 m-0"></i></a>
-                                <!--begin::Menu-->
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/apps/subscriptions/add" class="menu-link px-3">View</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="#" data-kt-subscriptions-table-filter="delete_row"
-                                            class="menu-link px-3">Delete</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                            </td>
-                        </tr>
-                       
-                        
-                       
+                        @endforeach
+
+
+
+
                     </tbody>
                 </table>
                 <!--end::Table-->

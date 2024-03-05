@@ -82,6 +82,7 @@
         @include('layout.scripts')
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->
+        @livewireScripts
 	</body>
 	<!--end::Body-->
 </html>

@@ -1,11 +1,18 @@
 <?php
 
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Livewire\AddDriver;
+use App\Http\Livewire\Organization\AddOrganization;
+use App\Http\Livewire\AddVehicle;
+use App\Http\Livewire\Organisation;
+use App\Http\Livewire\ViewOrganisations;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sail\SailServiceProvider;
 
 // ACTUAL ROUTES
 Route::get('/', function () {
     return view('dashboards.index');
+    // return view('livewire.organisation');
 });
 
 
@@ -13,122 +20,120 @@ Route::get('/shipments/schedule', function () {
     return view('shipments.schedule');
 });
 
-
-Route::get('/organization/overview', function () {
-    return view('organization.overview');
-});
-Route::get('/organization/add', function () {
-    return view('organization.add-organization');
-});
-Route::get('/organization/list', function () {
-    return view('organization.list');
-});
-Route::get('/organization/details', function () {
-    return view('organization.details');
-});
-Route::get('/organization/edit', function () {
-    return view('organization.edit-organization');
-});
-Route::get('/organization/invoices/add', function () {
-    return view('organization.invoices.add');
-});
-Route::get('/organization/invoices/view', function () {
-    return view('organization.invoices.view');
+Route::prefix('organization')->group(function(){
+    Route::get('overview', ViewOrganisations::class);
+    Route::get('add', AddOrganization::class);
+    Route::get('list',[ OrganizationsController::class,'index']);
+    Route::get('details', function () {
+        return view('organization.details');
+    });
+    Route::get('edit', function () {
+        return view('organization.edit-organization');
+    });
+    Route::get('invoices/add', function () {
+        return view('organization.invoices.add');
+    });
+    Route::get('invoices/view', function () {
+        return view('organization.invoices.view');
+    });
 });
 
 
-Route::get('/fleet/overview', function () {
+
+Route::prefix('fleet')->group(function(){
+Route::get('overview', function () {
     return view('fleet.overview');
 });
-Route::get('/fleet/locate', function () {
+Route::get('locate', function () {
     return view('fleet.locate');
 });
-Route::get('/fleet/vehicles', function () {
+Route::get('vehicles', function () {
     return view('fleet.vehicles.vehicles');
 });
-Route::get('/fleet/vehicles/details', function () {
+Route::get('vehicles/details', function () {
     return view('fleet.vehicles.details');
 });
-Route::get('/fleet/vehicles/locate', function () {
+Route::get('vehicles/locate', function () {
     return view('fleet.vehicles.locate');
 });
-Route::get('/fleet/vehicles/add', function () {
-    return view('fleet.vehicles.add');
-});
-Route::get('/fleet/vehicles/edit', function () {
+Route::get('vehicles/add', AddVehicle::class);
+Route::get('vehicles/edit', function () {
     return view('fleet.vehicles.edit');
 });
-Route::get('/fleet/drivers', function () {
+Route::get('drivers', function () {
     return view('fleet.drivers.drivers');
 });
-Route::get('/fleet/drivers/add', function () {
-    return view('fleet.drivers.add');
-});
-Route::get('/fleet/drivers/details', function () {
+Route::get('drivers/add', AddDriver::class);
+Route::get('drivers/details', function () {
     return view('fleet.drivers.details');
 });
-Route::get('/fleet/drivers/locate', function () {
+Route::get('drivers/locate', function () {
     return view('fleet.drivers.locate');
 });
-Route::get('/fleet/drivers/edit', function () {
+Route::get('drivers/edit', function () {
     return view('fleet.drivers.edit');
 });
-Route::get('/fleet/drivers/shipment_history', function () {
+Route::get('drivers/shipment_history', function () {
     return view('fleet.drivers.shipment_history');
 });
-Route::get('/fleet/drivers/driving_info', function () {
+Route::get('drivers/driving_info', function () {
     return view('fleet.drivers.driving_info');
 });
-Route::get('/fleet/drivers/payment_info', function () {
+Route::get('drivers/payment_info', function () {
     return view('fleet.drivers.payment_info');
 });
-Route::get('/fleet/drivers/payment_history', function () {
+Route::get('drivers/payment_history', function () {
     return view('fleet.drivers.payment_history');
 });
-Route::get('/fleet/maintenance', function () {
+Route::get('maintenance', function () {
     return view('fleet.maintenance');
 });
 
+});
 
-Route::get('/load/overview', function () {
+Route::prefix('load')->group(function(){
+Route::get('overview', function () {
     return view('load.overview');
 });
-Route::get('/load/list', function () {
+Route::get('list', function () {
     return view('load.list');
 });
-Route::get('/load/add', function () {
+Route::get('add', function () {
     return view('load.add');
 });
-Route::get('/load/edit', function () {
+Route::get('edit', function () {
     return view('load.edit');
 });
-Route::get('/load/details', function () {
+Route::get('details', function () {
     return view('load.details');
 });
-Route::get('/load/bids', function () {
+Route::get('bids', function () {
     return view('load.bids');
 });
-Route::get('/load/locate', function () {
+Route::get('locate', function () {
     return view('load.locate');
 });
-Route::get('/load/documents', function () {
+Route::get('documents', function () {
     return view('load.documents');
 });
-Route::get('/load/offer-a-deal', function () {
+Route::get('offer-a-deal', function () {
     return view('load.offer-a-deal');
 });
-Route::get('/load/add-deal', function () {
+Route::get('add-deal', function () {
     return view('load.add-deal');
 });
-Route::get('/load/invoices/create', function () {
+Route::get('invoices/create', function () {
     return view('load.invoices.create');
 });
-Route::get('/load/invoices/edit', function () {
+Route::get('invoices/edit', function () {
     return view('load.invoices.edit');
 });
-Route::get('/load/invoices/view', function () {
+Route::get('invoices/view', function () {
     return view('load.invoices.view');
 });
+
+});
+
 
 
 Route::get('/brokers/overview', function () {
@@ -237,14 +242,14 @@ Route::get('/analytics/users', function () {
 // LAYOUTS
 Route::get('/layouts/light-header', function () {
     return view('layouts.light-header');
-}); 
+});
 Route::get('/layouts/light-sidebar', function () {
     return view('layouts.light-sidebar');
-}); 
+});
 Route::get('/layouts/dark-sidebar', function () {
     return view('layouts.dark-sidebar');
-}); 
+});
 Route::get('/layouts/dark-header', function () {
     return view('layouts.dark-header');
-}); 
+});
 // LAYOUTS ENDS HERE

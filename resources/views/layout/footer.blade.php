@@ -1,6 +1,6 @@
-<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
-    <!--begin::Container-->
-    <div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+<div id="kt_app_footer" class="app-footer">
+    <!--begin::Footer container-->
+    <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
         <!--begin::Copyright-->
         <div class="text-dark order-2 order-md-1">
             <span class="text-muted fw-semibold me-1">2023&copy;</span>
@@ -21,5 +21,5 @@
         </ul>
         <!--end::Menu-->
     </div>
-    <!--end::Container-->
+    <!--end::Footer container-->
 </div>

@@ -16,6 +16,9 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             UsersSeeder::class,
+            LoadtypesSeeder::class,
+            VehicleCategorySeeder::class,
+            VehicleSubCategorySeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();
