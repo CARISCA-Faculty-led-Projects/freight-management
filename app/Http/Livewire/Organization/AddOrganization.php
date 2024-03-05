@@ -39,11 +39,13 @@ class AddOrganization extends Component
     public $routes_counter = 1;
     public $org_routes = [];
 
-    private function setMask(){
+    private function setMask()
+    {
         $this->mask = Str::orderedUuid();
     }
 
-    public function addRoute(){
+    public function addRoute()
+    {
         $this->routes_counter++;
     }
 
@@ -82,14 +84,13 @@ class AddOrganization extends Component
     public function general()
     {
         $this->setMask();
-        // dd($this->org_name);
-        $org_image = uniqid().'.'.$this->org_image->getClientOriginalExtension();
-        $regdoc = uniqid().'.'.$this->org_reg_docs->getClientOriginalExtension();
-        $insdoc = uniqid().'.'.$this->org_ins_docs->getClientOriginalExtension();
-        $this->org_image->storeAs( 'logos', $org_image);
-        $this->org_reg_docs->storeAs( 'org_registration', $regdoc);
-        $this->org_ins_docs->storeAs( 'org_insurance', $insdoc);
 
+        $org_image = uniqid() . '.' . $this->org_image->getClientOriginalExtension();
+        $regdoc = uniqid() . '.' . $this->org_reg_docs->getClientOriginalExtension();
+        $insdoc = uniqid() . '.' . $this->org_ins_docs->getClientOriginalExtension();
+        $this->org_image->storeAs('logos', $org_image, 'real_public');
+        $this->org_reg_docs->storeAs('org_registration', $regdoc, 'real_public');
+        $this->org_ins_docs->storeAs('org_insurance', $insdoc, 'real_public');
 
         $org_id = DB::table('organizations')->insertGetId([
             'image' => $org_image,
@@ -104,6 +105,9 @@ class AddOrganization extends Component
             'registration_docs' => $regdoc,
             'insurance_docs' => $insdoc,
             'mask' => $this->mask,
+            'account_id' => "ID-" . generateAccNumber(),
+            "tax_id" => "TX-" . generateTaxnNumber(),
+            'status' => "Pending",
             'created_at' => Carbon::now()->toDateTimeString()
 
         ]);
@@ -112,7 +116,7 @@ class AddOrganization extends Component
             'account_id' => $this->mask,
             'account_type' => 'Organization',
             'email' => $this->org_email,
-            'password'=> Hash::make($this->password),
+            'password' => Hash::make($this->password),
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
@@ -121,11 +125,13 @@ class AddOrganization extends Component
         $this->activate('routes');
     }
 
-    public function routes(){
-
-        foreach($this->org_routes as $route){
+    public function routes()
+    {
+        $getOrgMask = DB::table('organizations')->where("id", $this->mask)->pluck('mask')->first();
+        // dd($getOrgMask);
+        foreach ($this->org_routes as $route) {
             DB::table('routes')->insert([
-                'organization_id'=> $this->mask,
+                'organization_id' => $getOrgMask,
                 'origin' => $route['origin'],
                 'destination' => $route['dest'],
                 'created_at' => Carbon::now()->toDateTimeString()

@@ -10,7 +10,7 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Jess Fleet Mangement Inc</h1>
+                    {{$org_details->name}}</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -45,7 +45,7 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Jess Fleet Management Inc</li>
+                    <li class="breadcrumb-item text-muted">{{$org_details->name}}</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -80,14 +80,16 @@
                         <div class="d-flex flex-center flex-column mb-5">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-100px symbol-circle mb-7">
-                                <img src="../../assets/media/avatars/300-1.jpg" alt="image" />
+                                <img src="{{asset('logos/'.$org_details->image)}}" alt="image" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Name-->
-                            <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">Jess Fleet Management Inc</a>
+                            <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">{{$org_details->name}}</a>
                             <!--end::Name-->
                             <!--begin::Position-->
-                            <div class="fs-5 fw-semibold text-muted mb-6">AutoMobile Transport</div>
+                            @foreach (json_decode($org_details->load_type) as $load_type)
+                            <div class="fs-5 fw-semibold text-muted mb-6">{{$load_type}}</div>
+                            @endforeach
                             <!--end::Position-->
                             <!--begin::Info-->
                             <div class="d-flex flex-wrap flex-center">
@@ -154,37 +156,38 @@
                                 <!--begin::Badge-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Account ID</div>
-                                <div class="text-gray-600">ID-45453423</div>
+                                <div class="text-gray-600">{{$org_details->account_id}}</div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Phone number</div>
                                 <div class="text-gray-600">
-                                    <a href="#" class="text-gray-600 text-hover-primary">+233 268977129</a>
+                                    <a href="#" class="text-gray-600 text-hover-primary">{{$org_details->phone}}</a>
                                 </div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Organization Email</div>
                                 <div class="text-gray-600">
-                                    <a href="#" class="text-gray-600 text-hover-primary">info@keenthemes.com</a>
+                                    <a href="#" class="text-gray-600 text-hover-primary">{{$org_details->email}}</a>
                                 </div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Physical Address</div>
-                                <div class="text-gray-600">101 Collin Street,
-                                    <br />Melbourne 3000 VIC
-                                    <br />Ghana</div>
+                                <div class="text-gray-600">{{$org_details->address}}</div>
+                                    {{-- <div class="text-gray-600">101 Collin Street,
+                                        <br />Melbourne 3000 VIC
+                                        <br />Ghana</div> --}}
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Region</div>
-                                <div class="text-gray-600">Greater Accra Region</div>
+                                <div class="text-gray-600">{{$org_details->region}}</div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Country</div>
-                                <div class="text-gray-600">Ghana</div>
+                                <div class="text-gray-600">{{$org_details->country}}</div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Tax ID</div>
-                                <div class="text-gray-600">TX-8674</div>
+                                <div class="text-gray-600">{{$org_details->tax_id}}</div>
                                 <!--begin::Details item-->
                             </div>
                         </div>
@@ -214,7 +217,8 @@
                             <div class="d-flex flex-stack flex-grow-1">
                                 <!--begin::Content-->
                                 <div class="fw-semibold">
-                                    <div class="fs-6 text-gray-700">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum modi voluptatibus laborum maxime, a culpa eveniet perferendis sunt soluta. Enim modi accusantium facilis veritatis tempora placeat provident, ut necessitatibus inventore.
+                                    <div class="fs-6 text-gray-700">
+                                        {{$org_details->description}}
                                         <!-- <a href="#" class="me-1">privacy policy</a>and
                                         <a href="#">terms of use</a>. -->
 									</div>
@@ -224,7 +228,7 @@
                             <!--end::Wrapper-->
                         </div>
                         <!--end::Notice-->
-                        
+
                     </div>
                     <!--end::Card body-->
                 </div>
@@ -395,7 +399,7 @@
 																		</i>Business Registration
 																	</div>
 																	</td>
-																	
+
 																</tr>
 																<tr>
 																	<td class="text-muted">
@@ -407,10 +411,10 @@
 																			<span class="path4"></span>
 																			<span class="path5"></span>
 																		</i>Insurance
-																		
+
 																	</div>
 																	</td>
-																	
+
 																</tr>
 																<tr>
 																	<td class="text-muted">
@@ -419,7 +423,7 @@
 																			<span class="path1"></span>
 																			<span class="path2"></span>
 																		</i>Other
-																		
+
 																	</div>
 																	</td>
 																</tr>
@@ -445,47 +449,7 @@
 														<!--begin::Table-->
 														<table class="table align-middle table-row-bordered mb-0 fs-6 gy-5 min-w-300px">
 															<tbody class="fw-semibold text-gray-600">
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-calendar fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i>Kumasi</div>
-																	</td>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone flaticon2-fast-next fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i><=>
-																	</div>
-																	</td>
-																	
-																	<td class="fw-bold text-end">Accra</td>
-																</tr>
-																
-																<tr>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone ki-wallet fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																			<span class="path3"></span>
-																			<span class="path4"></span>
-																		</i>Amankro, Eastern Region</div>
-																	</td>
-																	<td class="text-muted">
-																		<div class="d-flex align-items-center">
-																		<i class="ki-duotone flaticon2-fast-next fs-2 me-2">
-																			<span class="path1"></span>
-																			<span class="path2"></span>
-																		</i><=>
-																	</div>
-																	</td>
-																	
-																	<td class="fw-bold text-end">Kumasi</td>
-																</tr>
+                                                                @foreach ($org_routes as $route)
 																<tr>
 																	<td class="text-muted">
 																		<div class="d-flex align-items-center">
@@ -495,7 +459,7 @@
 																			<span class="path3"></span>
 																			<span class="path4"></span>
 																			<span class="path5"></span>
-																		</i>Asieguo Asamankese</div>
+																		</i>{{$route->origin}}</div>
 																	</td>
 																	<td class="text-muted">
 																		<div class="d-flex align-items-center">
@@ -505,9 +469,11 @@
 																		</i><=>
 																	</div>
 																	</td>
-																	
-																	<td class="fw-bold text-end">Ho</td>
+
+																	<td class="fw-bold text-end">{{$route->destination}}</td>
 																</tr>
+                                                                @endforeach
+
 															</tbody>
 														</table>
 														<!--end::Table-->
@@ -516,7 +482,7 @@
 												<!--end::Card body-->
 											</div>
 											<!--end::Order details-->
-										
+
 											<!--begin::Documents-->
 										</div>
 										<!--end::Order summary-->
@@ -564,7 +530,7 @@
                                             <td>
                                                 <a href="#" class="text-gray-600 text-hover-primary mb-1">FlatBed Truck</a>
                                             </td>
-                                           
+
                                             <td>
                                                 <span class="badge badge-light-warning">Onroute</span>
                                             </td>
@@ -671,14 +637,14 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Card-->
-                
-                     
+
+
                     </div>
                     <!--end:::Tab pane-->
                     <!--begin:::Tab pane-->
                     <div class="tab-pane fade" id="kt_customer_view_overview_events_and_logs_tab" role="tabpanel">
 
-					
+
 <!--begin::Card-->
 <div class="card pt-2 mb-6 mb-xl-9">
                             <!--begin::Card header-->
@@ -783,9 +749,9 @@
 														<!--end::Menu-->
 													</td>
                                                 </tr>
-                                   
-                                      
-                                          
+
+
+
                                                 <tr>
                                                     <td>
                                                         <a href="#"
@@ -820,9 +786,9 @@
 														<!--end::Menu-->
 													</td>
                                                 </tr>
-                                   
-                                      
-                                          
+
+
+
                                                 <tr>
                                                     <td>
                                                         <a href="#"
@@ -861,7 +827,7 @@
 														</div>
 														<!--end::Menu-->
 													</td>
-                                                   
+
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -928,8 +894,8 @@
                                                             class="btn btn-sm btn-light btn-active-light-primary">Download</button>
                                                     </td>
                                                 </tr>
-                                     
-                                
+
+
                                                 <tr>
                                                     <td>
                                                         <a href="#"
@@ -1010,8 +976,8 @@
                                                             class="btn btn-sm btn-light btn-active-light-primary">Download</button>
                                                     </td>
                                                 </tr>
-                             
-                                         
+
+
                                             </tbody>
                                         </table>
                                         <!--end::Table-->
@@ -1047,9 +1013,9 @@
                                                             class="btn btn-sm btn-light btn-active-light-primary">Download</button>
                                                     </td>
                                                 </tr>
-                                               
-                                     
-                                                
+
+
+
                                                 <tr>
                                                     <td>
                                                         <a href="#"
@@ -1621,7 +1587,7 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Card-->
-                    
+
                         <!--begin::Statements-->
                         <div class="card mb-6 mb-xl-9">
                             <!--begin::Header-->
@@ -1690,7 +1656,7 @@
                                                             class="btn btn-sm btn-light btn-active-light-primary">Download</button>
                                                     </td>
                                                 </tr>
-                     
+
                                                 <tr>
                                                     <td>Jan 04, 2021</td>
                                                     <td>
@@ -2600,7 +2566,7 @@
             <!--end::Modal dialog-->
         </div>
         <!--end::Modal - New Card-->
-      
+
         <!--begin::Modal - New Address-->
         <div class="modal fade" id="kt_modal_update_customer" tabindex="-1" aria-hidden="true">
             <!--begin::Modal dialog-->

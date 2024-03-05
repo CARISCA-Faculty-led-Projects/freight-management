@@ -2,7 +2,9 @@
 /node_modules
 /public/build
 /public/hot
-/public/storage
+/public/logos
+/public/org_insurance
+/public/org_registration
 /storage/*.key
 /vendor
 .env

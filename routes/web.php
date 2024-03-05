@@ -23,9 +23,9 @@ Route::get('/shipments/schedule', function () {
 Route::prefix('organization')->group(function(){
     Route::get('overview', ViewOrganisations::class);
     Route::get('add', AddOrganization::class);
-    Route::get('list',[ OrganizationsController::class,'index']);
-    Route::get('details', function () {
-        return view('organization.details');
+    Route::controller(OrganizationsController::class)->group(function(){
+        Route::get('list','index');
+        Route::get('{organization}/details','details')->name('org.details');
     });
     Route::get('edit', function () {
         return view('organization.edit-organization');

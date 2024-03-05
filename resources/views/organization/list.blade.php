@@ -254,7 +254,7 @@
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/organization/details" class="menu-link px-3">View</a>
+                                        <a href="{{route('org.details',$organization->id)}}" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
