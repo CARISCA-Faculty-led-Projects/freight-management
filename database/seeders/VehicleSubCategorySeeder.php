@@ -13,7 +13,7 @@ class VehicleSubCategorySeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('vehicle_categories')->insert([
+        DB::table('vehicle_sub_categories')->insert([
             ['name'=>'Box Truck'],
             ['name'=>'Refrigerated Truck']
         ]);

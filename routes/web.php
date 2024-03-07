@@ -1,9 +1,9 @@
 <?php
 
 use App\Http\Controllers\OrganizationsController;
-use App\Http\Livewire\AddDriver;
+use App\Http\Livewire\Driver\AddDriver;
 use App\Http\Livewire\Organization\AddOrganization;
-use App\Http\Livewire\AddVehicle;
+use App\Http\Livewire\Vehicle\AddVehicle;
 use App\Http\Livewire\Organisation;
 use App\Http\Livewire\ViewOrganisations;
 use Illuminate\Support\Facades\Route;

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('vehicles', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('organisation_id');
-            $table->string('driver_id');
+            $table->foreignUuid('organization_id')->nullable();
+            $table->string('driver_id')->nullable();
             $table->string('owner_id')->nullable();
             $table->string('image');
             $table->string('load_type');
@@ -24,19 +24,20 @@ return new class extends Migration
             $table->string('model');
             $table->string('year');
             $table->string('color');
+            $table->string('mask');
             $table->string('gps');
             $table->string('engine_type');
             $table->string('transmission');
             $table->string('fuel_consumption');
             $table->string('axle_type');
-            $table->string('weight');
-            $table->string('max_load_weight');
-            $table->string('width');
-            $table->string('height');
-            $table->string('length');
-            $table->string('owners_documents');
-            $table->string('road_worth_documents');
-            $table->string('insurance_documents');
+            $table->string('weight')->nullable();
+            $table->string('max_load_weight')->nullable();
+            $table->string('width')->nullable();
+            $table->string('height')->nullable();
+            $table->string('length')->nullable();
+            $table->string('owners_documents')->nullable();
+            $table->string('road_worth_documents')->nullable();
+            $table->string('insurance_documents')->nullable();
             $table->timestamps();
         });
     }

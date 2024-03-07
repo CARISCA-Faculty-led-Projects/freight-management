@@ -1,4 +1,3 @@
-
 <div class="">
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -96,7 +95,13 @@
                                 <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                     data-kt-image-input="true">
                                     <!--begin::Preview existing avatar-->
-                                    <div class="image-input-wrapper w-150px h-150px"></div>
+                                    @if ($image)
+                                        <div class="">
+                                            <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                                        </div>
+                                    @else
+                                        <div class="image-input-wrapper w-150px h-150px"></div>
+                                    @endif
                                     <!--end::Preview existing avatar-->
                                     <!--begin::Label-->
                                     <label
@@ -108,7 +113,7 @@
                                             <span class="path2"></span>
                                         </i>
                                         <!--begin::Inputs-->
-                                        <input type="file" wire:model="avatar" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -164,118 +169,31 @@
                                     many as
                                     apply</label>
                                 <!--end::Select store template-->
-
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" type="checkbox" value="" />
+                                @foreach ($this->loads() as $load)
+                                    <div class="d-flex align-items-center mb-8 mt-5">
+                                        <!--begin::Bullet-->
+                                        <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input" wire:model="load_type" type="checkbox"
+                                                value="{{ $load->name }}" />
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <!--begin::Description-->
+                                        <div class="flex-grow-1">
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-bold fs-6">{{ $load->name }}</a>
+                                        </div>
                                     </div>
-                                    <!--end::Checkbox-->
-                                    <!--begin::Description-->
-                                    <div class="flex-grow-1">
-                                        <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">General
-                                            Cargo</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-success"></span> -->
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" type="checkbox" value="" />
-                                    </div>
-                                    <!--end::Checkbox-->
-                                    <!--begin::Description-->
-                                    <div class="flex-grow-1">
-                                        <a href="#"
-                                            class="text-gray-800 text-hover-primary fw-bold fs-6">Refrigerated Goods</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-danger"></span> -->
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" type="checkbox" value="" />
-                                    </div>
-                                    <!--end::Checkbox-->
-                                    <!--begin::Description-->
-                                    <div class="flex-grow-1">
-                                        <a href="#"
-                                            class="text-gray-800 text-hover-primary fw-bold fs-6">Harzardous
-                                            Materials</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" type="checkbox" value="" />
-                                    </div>
-                                    <!--end::Checkbox-->
-                                    <!--begin::Description-->
-                                    <div class="flex-grow-1">
-                                        <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Bulk
-                                            Cargo</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" type="checkbox" value="" />
-                                    </div>
-                                    <!--end::Checkbox-->
-                                    <!--begin::Description-->
-                                    <div class="flex-grow-1">
-                                        <a href="#"
-                                            class="text-gray-800 text-hover-primary fw-bold fs-6">Overweight Cargo</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" type="checkbox" value="" />
-                                    </div>
-                                    <!--end::Checkbox-->
-                                    <!--begin::Description-->
-                                    <div class="flex-grow-1">
-                                        <a href="#"
-                                            class="text-gray-800 text-hover-primary fw-bold fs-6">Automobile
-                                            Tranport</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
+                                @endforeach
                                 <!--begin::Form group-->
-                                <div class="form-group mt-5">
+                                {{-- <div class="form-group mt-5">
                                     <button type="button" data-repeater-create=""
                                         class="btn btn-sm btn-light-primary" data-bs-toggle="modal"
                                         data-bs-target="#kt_modal_add_org_pref">
                                         <i class="ki-duotone ki-plus fs-2"></i>Add new preference</button>
-                                </div>
+                                </div> --}}
                                 <!--end::Form group-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7 mt-5">These specify which goods your company can transport
@@ -310,14 +228,7 @@
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4 {{ $driver ? 'active' : '' }}"
-                                wire:click="activate('driver')" data-bs-toggle="tab"
-                                href="#kt_ecommerce_add_driver">Driver</a>
-                        </li>
-                        <!--end:::Tab item-->
-                        <!--begin:::Tab item-->
-                        <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4 {{ $documents ? 'active' : '' }}"
+                            <a class="nav-link text-active-primary pb-4 {{ $doc_page ? 'active' : '' }}"
                                 wire:click="activate('documents')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_add_documents">Documents</a>
                         </li>
@@ -374,21 +285,21 @@
                                                     <!--end::Label-->
                                                     <!--begin::Select2-->
                                                     @php
-                                                        $data = [1,2,3,4];
+                                                        $data = [1, 2, 3, 4];
                                                     @endphp
-                                                    <select class="form-select mb-2" wire:model="organisation_id"
+                                                    <select class="form-select mb-2" wire:model="organization_id"
                                                         data-control="select2" data-hide-search="true"
                                                         data-placeholder="Select an option">
                                                         <option></option>
-                                                        @foreach ($data as  $dat)
-                                                        <option value="0">{{$dat}}</option>
-
+                                                        @foreach ($this->olist() as $org)
+                                                            <option value="{{ $org->mask }}">{{ $org->name }}
+                                                            </option>
                                                         @endforeach
-                                                        <option value="0">TopTier Trucks Co</option>
-                                                        <option value="0">RiverDale Fleet Systems</option>
                                                     </select>
                                                     <!--end::Select2-->
                                                     <!--begin::Description-->
+                                                    {{-- {{$organizations_list}} --}}
+
                                                     <div class="text-muted fs-7">Set the organization who owns the
                                                         vehicle.
                                                     </div>
@@ -408,16 +319,10 @@
                                                     data-control="select2" data-hide-search="true"
                                                     data-placeholder="Select an option">
                                                     <option></option>
-                                                    <option value="0">Trucks</option>
-                                                    <option value="0">Trailers</option>
-                                                    <option value="0">Specialized Vehicles</option>
-                                                    <option value="0">Vans</option>
-                                                    <option value="0">Buses</option>
-                                                    <option value="0">Specialty Vehicles</option>
-                                                    <option value="0">Intermodal Vehicles</option>
-                                                    <option value="0">Motorbike</option>
-                                                    <option value="0">Tri-cycle</option>
-                                                    <option value="0">Airfreight Containers</option>
+                                                    @foreach ($this->vcat() as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                                 <!--end::Select2-->
                                                 <!--begin::Description-->
@@ -437,8 +342,10 @@
                                                     data-control="select2" data-hide-search="true"
                                                     data-placeholder="Select an option">
                                                     <option></option>
-                                                    <option value="0">Box Truck</option>
-                                                    <option value="0">Refrigerated Truck</option>
+                                                    @foreach ($this->vsubcat() as $category)
+                                                        <option value="{{ $category->id }}">{{ $category->name }}
+                                                        </option>
+                                                    @endforeach
 
                                                 </select>
                                                 <!--end::Select2-->
@@ -456,16 +363,9 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Make</label>
                                                     <!--end::Label-->
-                                                    <!--begin::Select2-->
-                                                    <select class="form-select mb-2" wire:model="make"
-                                                        data-control="select2" data-hide-search="true"
-                                                        data-placeholder="Select an option">
-                                                        <option></option>
-                                                        <option value="0">Nissan</option>
-                                                        <option value="1">tATA</option>
-                                                        <option value="2">Ford</option>
-                                                    </select>
-                                                    <!--end::Select2-->
+                                                    <input type="text" class="form-control" wire:model="make"
+                                                        min="1990" max="2024" id="">
+
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the make of the vehicle.</div>
                                                     <!--end::Description-->
@@ -476,15 +376,7 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Model</label>
                                                     <!--end::Label-->
-                                                    <!--begin::Select2-->
-                                                    <select class="form-select mb-2" wire:model="model"
-                                                        data-control="select2" data-hide-search="true"
-                                                        data-placeholder="Select an option">
-                                                        <option></option>
-                                                        <option value="0">Almaro Giant X</option>
-                                                        <option value="1">Vission V88X</option>
-                                                    </select>
-                                                    <!--end::Select2-->
+                                                    <input type="text" class="form-control" wire:model="model">
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the model of the vehicle.</div>
                                                     <!--end::Description-->
@@ -500,16 +392,8 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Year</label>
                                                     <!--end::Label-->
-                                                    <!--begin::Select2-->
-                                                    <select class="form-select mb-2" wire:model="year"
-                                                        data-control="select2" data-hide-search="true"
-                                                        data-placeholder="Select an option">
-                                                        <option></option>
-                                                        <option value="0">2019</option>
-                                                        <option value="1">2020</option>
-                                                        <option value="2">2021</option>
-                                                    </select>
-                                                    <!--end::Select2-->
+                                                    <input type="number" class="form-control" wire:model="year"
+                                                        min="1990" max="2024" id="">
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the year the vehicle was
                                                         manufactured.
@@ -522,16 +406,9 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Color</label>
                                                     <!--end::Label-->
-                                                    <!--begin::Select2-->
-                                                    <select class="form-select mb-2" wire:model="color"
-                                                        data-control="select2" data-hide-search="true"
-                                                        data-placeholder="Select an option">
-                                                        <option></option>
-                                                        <option value="0">Green</option>
-                                                        <option value="1">Red</option>
-                                                        <option value="1">Black</option>
-                                                    </select>
-                                                    <!--end::Select2-->
+                                                    <input type="text" wire:model="color" id=""
+                                                        class="form-control">
+
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the vehicle current color.</div>
                                                     <!--end::Description-->
@@ -637,8 +514,8 @@
                                                     data-control="select2" data-hide-search="true"
                                                     data-placeholder="Select an option">
                                                     <option></option>
-                                                    <option value="0">Diesel</option>
-                                                    <option value="1">Petrol</option>
+                                                    <option value="Diesel">Diesel</option>
+                                                    <option value="Petrol">Petrol</option>
                                                 </select>
                                                 <!--end::Select2-->
                                                 <!--begin::Description-->
@@ -725,7 +602,8 @@
                                                     <label class="required form-label">Fuel Consumption</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" wire:model="fuel_consumption" class="form-control mb-2" value="" />
+                                                    <input type="text" wire:model="fuel_consumption"
+                                                        class="form-control mb-2" value="" />
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the fuel consumption.</div>
@@ -738,7 +616,8 @@
                                                     <label class="form-label">Axle Configuration (eg. 6x4)</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" wire:model="axle_type" class="form-control mb-2" value="" />
+                                                    <input type="text" wire:model="axle_type"
+                                                        class="form-control mb-2" value="" />
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the axle type.</div>
@@ -791,8 +670,8 @@
                                                 <label class="required form-label">Name</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" wire:model="owner_name" class="form-control mb-2"
-                                                    placeholder="Name" value="" />
+                                                <input type="text" wire:model="owner.name"
+                                                    class="form-control mb-2" placeholder="Name" value="" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter the owner's name.</div>
@@ -805,8 +684,8 @@
                                                 <label class="required form-label">Email</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" wire:model="owner_email" class="form-control mb-2"
-                                                    placeholder="Email" value="" />
+                                                <input type="text" wire:model="owner.email"
+                                                    class="form-control mb-2" placeholder="Email" value="" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter the owner's email.</div>
@@ -820,11 +699,12 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <div class="d-flex gap-3">
-                                                    <input type="number" wire:model="owner_phone" class="form-control mb-2"
-                                                        placeholder="Phone" value="" />
+                                                    <input type="number" wire:model="owner.phone"
+                                                        class="form-control mb-2" placeholder="Phone"
+                                                        value="" />
 
-                                                    <input type="number" wire:model="owner_address" class="form-control mb-2"
-                                                        placeholder="Address" />
+                                                    <input type="number" wire:model="owner.address"
+                                                        class="form-control mb-2" placeholder="Address" />
                                                 </div>
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
@@ -839,7 +719,8 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <div class="form-check form-check-custom form-check-solid mb-2">
-                                                    <input class="form-check-input" wire:model="org_owned" type="checkbox" value="Yes" />
+                                                    <input class="form-check-input" wire:model="org_owned"
+                                                        type="checkbox" value="Yes" />
                                                     <label class="form-check-label">Yes</label>
                                                 </div>
                                                 <!--end::Input-->
@@ -876,18 +757,19 @@
                                                     <div class="form-group">
                                                         <div data-repeater-list="kt_ecommerce_add_product_options"
                                                             class="d-flex flex-column gap-3">
-                                                            <div data-repeater-item=""
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                <!--begin::Input-->
-                                                                <input type="text"
-                                                                    class="form-control mw-100 w-200px"
-                                                                    wire:model="product_option_value" placeholder="From" />
-                                                                <!--end::Input-->
-                                                                <=>
+                                                            @for ($i = 0; $i < $routes_counter; $i++)
+                                                                <div data-repeater-item=""
+                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
+
                                                                     <!--begin::Input-->
                                                                     <input type="text"
-                                                                        class="form-control mw-100 w-200px"
-                                                                        wire:model="product_option_value"
+                                                                        class="form-control mw-100 w-300px"
+                                                                        wire:model="veh_routes.{{ $i }}.origin"
+                                                                        placeholder="From" />
+
+                                                                    <input type="text"
+                                                                        class="form-control mw-100 w-300px"
+                                                                        wire:model="veh_routes.{{ $i }}.dest"
                                                                         placeholder="To" />
                                                                     <!--end::Input-->
                                                                     <button type="button" data-repeater-delete=""
@@ -897,13 +779,14 @@
                                                                             <span class="path2"></span>
                                                                         </i>
                                                                     </button>
-                                                            </div>
+                                                                </div>
+                                                            @endfor
                                                         </div>
                                                     </div>
                                                     <!--end::Form group-->
                                                     <!--begin::Form group-->
                                                     <div class="form-group mt-5">
-                                                        <button type="button" data-repeater-create=""
+                                                        <button type="button" wire:click="addRoute"
                                                             class="btn btn-sm btn-light-primary">
                                                             <i class="ki-duotone ki-plus fs-2"></i>Add another
                                                             route</button>
@@ -1021,93 +904,8 @@
                             </div>
                             <!--end::Tab pane-->
                         </form>
-                        <form wire:submit.prevent="driver" method="post" class="{{ $driver ? '' : 'd-none' }}">
-                            <div class="tab-pane fade {{ $driver ? 'show active' : '' }}"
-                                id="kt_ecommerce_add_driver" role="tab-panel">
-                                <div class="d-flex flex-column gap-7 gap-lg-10">
-                                    <!--begin::Meta options-->
-                                    <div class="card card-flush py-4">
-                                        <!--begin::Card header-->
-                                        <div class="card-header">
-                                            <div class="card-title">
-                                                <h2>Driver</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Card header-->
-                                        <!--begin::Card body-->
-                                        <div class="card-body pt-0">
-                                            <!--begin::Input group-->
-                                            <div class="mb-10">
-                                                <!--begin::Label-->
-                                                <label class="form-label">Name</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control mb-2" wire:model="meta_title"
-                                                    placeholder="Name" />
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">Set a meta tag title. Recommended to be
-                                                    simple and
-                                                    precise keywords.</div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="mb-10">
-                                                <!--begin::Label-->
-                                                <label class="form-label">Phone</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control mb-2" wire:model="meta_title"
-                                                    placeholder="Phone" />
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">Set a meta tag title. Recommended to be
-                                                    simple and
-                                                    precise keywords.</div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="mb-10">
-                                                <!--begin::Label-->
-                                                <label class="form-label">Email</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" class="form-control mb-2" wire:model="meta_title"
-                                                    placeholder="Email" />
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">Set a meta tag title. Recommended to be
-                                                    simple and
-                                                    precise keywords.</div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
-
-                                        </div>
-                                        <!--end::Card header-->
-                                    </div>
-                                    <!--end::Meta options-->
-                                </div>
-                            </div>
-                    </div>
-                    <div class="{{ $driver ? 'd-flex' : 'd-none' }} justify-content-end">
-                        <!--begin::Button-->
-                        <a href="/apps/ecommerce/catalog/organizations" id="kt_ecommerce_add_organization_cancel"
-                            class="btn btn-light me-5">Cancel</a>
-                        <!--end::Button-->
-                        <!--begin::Button-->
-                        <button type="submit" id="kt_ecommerce_add_organization_submit" class="btn btn-primary">
-                            <span class="indicator-label">Save Changes</span>
-                            <span class="indicator-progress">Please wait...
-                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                        </button>
-                        <!--end::Button-->
-                    </div>
-                    </form>
-                    <form wire:submit.prevent="documents" method="post" class="{{ $documents ? '' : 'd-none' }}">
-                        <div class="tab-pane fade {{ $documents ? 'show active' : '' }}"
+                    <form wire:submit.prevent="documents" method="post" class="{{ $doc_page ? '' : 'd-none' }}">
+                        <div class="tab-pane fade {{ $doc_page ? 'show active' : '' }}"
                             id="kt_ecommerce_add_documents" role="tab-panel">
                             <div class="d-flex flex-column gap-7 gap-lg-10">
 
@@ -1135,12 +933,12 @@
                                                     </i>
                                                     <!--end::Icon-->
                                                     <!--begin::Info-->
+                                                    <input type="file" wire:model="documents.owners_documents"
+                                                        id="" class="form-control">
                                                     <div class="ms-4">
-                                                        <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
+                                                        <h5 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
                                                             click
-                                                            to upload.</h3>
-                                                        <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
-                                                            files</span>
+                                                            to upload.</h5>
                                                     </div>
                                                     <!--end::Info-->
                                                 </div>
@@ -1149,7 +947,7 @@
                                         </div>
                                         <!--end::Input group-->
                                         <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set the product media gallery.</div>
+                                        <div class="text-muted fs-7">Add owners documents.</div>
                                         <!--end::Description-->
                                     </div>
                                     <!--end::Card header-->
@@ -1179,6 +977,8 @@
                                                     </i>
                                                     <!--end::Icon-->
                                                     <!--begin::Info-->
+                                                    <input type="file" wire:model="documents.road_worth_documents"
+                                                        id="" class="form-control">
                                                     <div class="ms-4">
                                                         <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
                                                             click
@@ -1223,6 +1023,8 @@
                                                     </i>
                                                     <!--end::Icon-->
                                                     <!--begin::Info-->
+                                                    <input type="file" wire:click="documents.insurance_documents"
+                                                        id="" class="form-control">
                                                     <div class="ms-4">
                                                         <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
                                                             click
@@ -1243,54 +1045,11 @@
                                     <!--end::Card header-->
                                 </div>
                                 <!--end::Media-->
-                                <!--begin::Media-->
-                                <div class="card card-flush py-4">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Drivers Licence</h2>
-                                        </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row mb-2">
-                                            <!--begin::Dropzone-->
-                                            <div class="dropzone" id="kt_ecommerce_add_product_media">
-                                                <!--begin::Message-->
-                                                <div class="dz-message needsclick">
-                                                    <!--begin::Icon-->
-                                                    <i class="ki-duotone ki-file-up text-primary fs-3x">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Info-->
-                                                    <div class="ms-4">
-                                                        <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
-                                                            click
-                                                            to upload.</h3>
-                                                        <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
-                                                            files</span>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
-                                            </div>
-                                            <!--end::Dropzone-->
-                                        </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set the product media gallery.</div>
-                                        <!--end::Description-->
-                                    </div>
-                                    <!--end::Card header-->
-                                </div>
-                                <!--end::Media-->
+                               
 
                             </div>
                         </div>
-                        <div class="{{ $documents ? 'd-flex' : 'd-none' }} justify-content-end">
+                        <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end">
                             <!--begin::Button-->
                             <a href="/apps/ecommerce/catalog/organizations" id="kt_ecommerce_add_organization_cancel"
                                 class="btn btn-light me-5">Cancel</a>
@@ -1314,14 +1073,14 @@
         <!--end::Form-->
     </div>
     <!--end::Content container-->
-</div>
-<!--end::Content-->
-<!--end::Content wrapper-->
+    <!--end::Content-->
+    <!--end::Content wrapper-->
 
-<!--begin::Scrolltop-->
-<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-    <i class="ki-duotone ki-arrow-up">
-        <span class="path1"></span>
-        <span class="path2"></span>
-    </i>
+    <!--begin::Scrolltop-->
+    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+        <i class="ki-duotone ki-arrow-up">
+            <span class="path1"></span>
+            <span class="path2"></span>
+        </i>
+    </div>
 </div>

@@ -11,9 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('load_types', function (Blueprint $table) {
+        Schema::create('vehicle_routes', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->foreignUuid('vehicle_id');
+            $table->string('origin');
+            $table->string('destination');
+            $table->timestamps();
         });
     }
 
@@ -22,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('load_types');
+        Schema::dropIfExists('vehicle_routes');
     }
 };
