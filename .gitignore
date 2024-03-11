@@ -3,6 +3,7 @@
 /public/build
 /public/hot
 /public/logos
+/public/storage
 /public/org_insurance
 /public/org_registration
 /storage/*.key

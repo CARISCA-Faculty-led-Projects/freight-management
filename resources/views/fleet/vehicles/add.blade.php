@@ -170,7 +170,7 @@
                                     apply</label>
                                 <!--end::Select store template-->
                                 @foreach ($this->loads() as $load)
-                                    <div class="d-flex align-items-center mb-8 mt-5">
+                                    <div class="d-flex align-items-center mb-8 mt-5" wire:key="loads-{{ $load->id }}">
                                         <!--begin::Bullet-->
                                         <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
                                         <!--end::Bullet-->
@@ -292,7 +292,7 @@
                                                         data-placeholder="Select an option">
                                                         <option></option>
                                                         @foreach ($this->olist() as $org)
-                                                            <option value="{{ $org->mask }}">{{ $org->name }}
+                                                            <option value="{{ $org->mask }}" wire:key="org-{{ $org->mask }}"> {{ $org->name }}
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -320,7 +320,7 @@
                                                     data-placeholder="Select an option">
                                                     <option></option>
                                                     @foreach ($this->vcat() as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}
+                                                        <option value="{{ $category->id }}" wire:key="cate-{{ $category->id }}">{{ $category->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -343,7 +343,7 @@
                                                     data-placeholder="Select an option">
                                                     <option></option>
                                                     @foreach ($this->vsubcat() as $category)
-                                                        <option value="{{ $category->id }}">{{ $category->name }}
+                                                        <option value="{{ $category->id }}" wire:key="subcat-{{ $category->id }}">{{ $category->name }}
                                                         </option>
                                                     @endforeach
 
@@ -759,7 +759,7 @@
                                                             class="d-flex flex-column gap-3">
                                                             @for ($i = 0; $i < $routes_counter; $i++)
                                                                 <div data-repeater-item=""
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                                    class="form-group d-flex flex-wrap align-items-center gap-5" wire:key="routes-{{ $i }}">
 
                                                                     <!--begin::Input-->
                                                                     <input type="text"
@@ -888,7 +888,7 @@
 
                                 </div>
                             </div>
-                            <div class="{{ $others ? 'd-flex' : 'd-none' }} justify-content-end">
+                            <div class="{{ $others ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
                                 <a href="/apps/ecommerce/catalog/organizations"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
@@ -936,7 +936,7 @@
                                                     <input type="file" wire:model="documents.owners_documents"
                                                         id="" class="form-control">
                                                     <div class="ms-4">
-                                                        <h5 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
+                                                        <h5 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here or
                                                             click
                                                             to upload.</h5>
                                                     </div>
@@ -980,11 +980,10 @@
                                                     <input type="file" wire:model="documents.road_worth_documents"
                                                         id="" class="form-control">
                                                     <div class="ms-4">
-                                                        <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
+                                                        <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here or
                                                             click
                                                             to upload.</h3>
-                                                        <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
-                                                            files</span>
+
                                                     </div>
                                                     <!--end::Info-->
                                                 </div>
@@ -1023,14 +1022,14 @@
                                                     </i>
                                                     <!--end::Icon-->
                                                     <!--begin::Info-->
-                                                    <input type="file" wire:click="documents.insurance_documents"
-                                                        id="" class="form-control">
+
+                                                    <input type="file" wire:model="documents.insurance"
+                                                    id="" class="form-control">
                                                     <div class="ms-4">
-                                                        <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here or
+                                                        <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here or
                                                             click
                                                             to upload.</h3>
-                                                        <span class="fs-7 fw-semibold text-gray-400">Upload up to 10
-                                                            files</span>
+
                                                     </div>
                                                     <!--end::Info-->
                                                 </div>
@@ -1045,11 +1044,11 @@
                                     <!--end::Card header-->
                                 </div>
                                 <!--end::Media-->
-                               
+
 
                             </div>
                         </div>
-                        <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end">
+                        <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                             <!--begin::Button-->
                             <a href="/apps/ecommerce/catalog/organizations" id="kt_ecommerce_add_organization_cancel"
                                 class="btn btn-light me-5">Cancel</a>

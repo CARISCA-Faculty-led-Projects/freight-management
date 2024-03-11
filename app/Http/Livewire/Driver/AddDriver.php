@@ -3,6 +3,8 @@
 namespace App\Http\Livewire\Driver;
 
 use Livewire\Component;
+use Livewire\Attributes\Computed;
+use Illuminate\Support\Facades\DB;
 
 class AddDriver extends Component
 {
@@ -11,17 +13,17 @@ class AddDriver extends Component
     public $payment = false;
 
     // Fields
+    public $driver;
     public $image;
-    public $name;
-    public $phone;
-    public $email;
-    public $address;
-    public $description;
-    public $status;
-    public $license_number;
-    public $license_image;
-    public $mask;
-    public $password;
+    // public $phone;
+    // public $email;
+    // public $address;
+    // public $description;
+    // public $status;
+    // public $license_number;
+    // public $license_image;
+    // public $mask;
+    // public $password;
 
 
 
@@ -36,8 +38,18 @@ class AddDriver extends Component
         }
     }
 
+    #[Computed]
+    public function loads()
+    {
+        return DB::table('load_types')->get(['id', 'name']);
+    }
+
     public function general()
     {
+        $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+        $this->driver->image->storeAs('drivers', $imagename, 'real_public');
+
+        DB::table('drivers')->insert($this->driver);
     }
 
     public function render()

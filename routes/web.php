@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\OrganizationsController;
+use App\Http\Controllers\VehiclesController;
 use App\Http\Livewire\Driver\AddDriver;
 use App\Http\Livewire\Organization\AddOrganization;
 use App\Http\Livewire\Vehicle\AddVehicle;
 use App\Http\Livewire\Organisation;
+use App\Http\Livewire\Organization\UpdateOrganization;
 use App\Http\Livewire\ViewOrganisations;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sail\SailServiceProvider;
@@ -26,10 +28,9 @@ Route::prefix('organization')->group(function(){
     Route::controller(OrganizationsController::class)->group(function(){
         Route::get('list','index');
         Route::get('{organization}/details','details')->name('org.details');
+        Route::get('{organization}/delete','destroy')->name('org.delete');
     });
-    Route::get('edit', function () {
-        return view('organization.edit-organization');
-    });
+    Route::get('edit/{mask}', UpdateOrganization::class)->name('org.edit');
     Route::get('invoices/add', function () {
         return view('organization.invoices.add');
     });
@@ -41,15 +42,16 @@ Route::prefix('organization')->group(function(){
 
 
 Route::prefix('fleet')->group(function(){
+    Route::controller(VehiclesController::class)->group(function(){
+        Route::get('vehicles', 'index');
+    });
 Route::get('overview', function () {
     return view('fleet.overview');
 });
 Route::get('locate', function () {
     return view('fleet.locate');
 });
-Route::get('vehicles', function () {
-    return view('fleet.vehicles.vehicles');
-});
+
 Route::get('vehicles/details', function () {
     return view('fleet.vehicles.details');
 });

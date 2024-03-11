@@ -55,7 +55,7 @@ class AddVehicle extends Component
 
     public $driver_details;
 
-    public $vehicle_id = 1;
+    public $vehicle_id;
     public $documents;
     // public $owner_name;
     // public $owner_email;
@@ -80,10 +80,6 @@ class AddVehicle extends Component
             $this->general = false;
             $this->others = true;
             $this->doc_page = false;
-        } else if ($tab == 'driver') {
-            $this->general = false;
-            $this->others = false;
-            $this->doc_page = false;
         } else if ($tab == 'documents') {
             $this->general = false;
             $this->others = false;
@@ -91,16 +87,12 @@ class AddVehicle extends Component
         }
     }
 
-    public function mount(){
-        $this->activate('others');
-    }
-
     public function general()
     {
         $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
         $this->image->storeAs('vehicles', $imagename, 'real_public');
 
-       $vehicle = DB::table('vehicles')->insertGetId([
+        $vehicle = DB::table('vehicles')->insertGetId([
             'image' => $imagename,
             'organization_id' => $this->organization_id,
             'load_type' => json_encode($this->load_type),
@@ -111,24 +103,25 @@ class AddVehicle extends Component
             'year' => $this->year,
             'color' => $this->color,
             'gps' => $this->gps,
-            'mask'=> Str::orderedUuid(),
+            'mask' => Str::orderedUuid(),
             'engine_type' => $this->engine_type,
             'transmission' => $this->transmission,
             'fuel_consumption' => $this->fuel_consumption,
             'axle_type' => $this->axle_type
         ]);
 
-        $this->vehicle_id = $vehicle; 
+        $this->vehicle_id = $vehicle;
 
         $this->activate('others');
     }
 
-    public function others(){  
-        $vehicleMask = DB::table('vehicles')->where('id',$this->vehicle_id)->pluck('mask')->first();
+    public function others()
+    {
+        $vehicleMask = DB::table('vehicles')->where('id', $this->vehicle_id)->pluck('mask')->first();
         $this->owner['vehicle_id'] = $vehicleMask;
         $owner = DB::table('vehicle_owners')->insertGetId($this->owner);
 
-        DB::table('vehicles')->where('mask',$vehicleMask)->update(['owner_id'=>$owner]);
+        DB::table('vehicles')->where('mask', $vehicleMask)->update(['owner_id' => $owner]);
 
         foreach ($this->veh_routes as $route) {
             DB::table('vehicle_routes')->insert([
@@ -139,35 +132,53 @@ class AddVehicle extends Component
             ]);
         }
 
-        $this->activate('driver');
+        $this->activate('documents');
     }
 
-    #[Computed] 
-    public function olist(){
-        return DB::table('organizations')->select('mask','name')->get();
-    }
-    #[Computed]
-    public function vcat(){
-        return DB::table('vehicle_categories')->get(['id','name']);
-    }
-    #[Computed]
-    public function vsubcat(){
-        return DB::table('vehicle_sub_categories')->get(['id','name']);
-    }
-    #[Computed]
-    public function loads(){
-        return DB::table('load_types')->get(['id','name']);
+    public function documents()
+    {
+        $owners = uniqid() . '.' . $this->documents['owners_documents']->getClientOriginalExtension();
+        $this->documents['owners_documents']->storeAs('vehicles', $owners, 'real_public');
+
+        $roadworth = uniqid() . '.' . $this->documents['road_worth_documents']->getClientOriginalExtension();
+        $this->documents['road_worth_documents']->storeAs('vehicles', $roadworth, 'real_public');
+
+        $insurance = uniqid() . '.' . $this->documents['insurance']->getClientOriginalExtension();
+        $this->documents['insurance']->storeAs('vehicles', $insurance, 'real_public');
+
+
+        DB::table('vehicles')->where('mask',$this->owner['vehicle_id'])->update([
+            'owners_documents' => $owners,
+            'road_worth_documents' => $roadworth,
+            'insurance_documents'=> $insurance,
+            'updated_at' => Carbon::now()->toDateTimeString()
+        ]);
+
+        return redirect()->to('/fleet/vehicles');
+
     }
 
-    
 
-    // public function mount(){
-    //     // $this->organizations_list = DB::table('organizations')->select('id','name')->get();
-    //     // dd($this->organizations_list);
-    //     // $this->vehicle_categories = DB::table('vehicle_categories')->get(['id','name']);
-    //     // $this->vehicle_subcategories = DB::table('vehicle_sub_categories')->get(['id','name']);
-    //     // $this->load_types = DB::table('load_types')->get(['id','name']);
-    // }
+    #[Computed]
+    public function olist()
+    {
+        return DB::table('organizations')->select('mask', 'name')->get();
+    }
+    #[Computed]
+    public function vcat()
+    {
+        return DB::table('vehicle_categories')->get(['id', 'name']);
+    }
+    #[Computed]
+    public function vsubcat()
+    {
+        return DB::table('vehicle_sub_categories')->get(['id', 'name']);
+    }
+    #[Computed]
+    public function loads()
+    {
+        return DB::table('load_types')->get(['id', 'name']);
+    }
 
     public function render()
     {

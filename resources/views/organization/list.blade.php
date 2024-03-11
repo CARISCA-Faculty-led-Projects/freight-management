@@ -259,12 +259,12 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/apps/subscriptions/add" class="menu-link px-3">Edit</a>
+                                        <a href="{{route('org.edit',$organization->mask)}}" class="menu-link px-3">Edit</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="#" data-kt-subscriptions-table-filter="delete_row"
+                                        <a href="{{route('org.delete',$organization->mask)}}" data-kt-subscriptions-table-filter="delete_row"
                                             class="menu-link px-3">Delete</a>
                                     </div>
                                     <!--end::Menu item-->

@@ -87,7 +87,13 @@
                             <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                 data-kt-image-input="true">
                                 <!--begin::Preview existing avatar-->
-                                <div class="image-input-wrapper w-150px h-150px"></div>
+                                @if ($image)
+                                    <div class="">
+                                        <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                                    </div>
+                                @else
+                                    <div class="image-input-wrapper w-150px h-150px"></div>
+                                @endif
                                 <!--end::Preview existing avatar-->
                                 <!--begin::Label-->
                                 <label
@@ -154,11 +160,11 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" data-control="select2" data-hide-search="true"
+                            <select class="form-select mb-2" data-control="select2" data-hide-search="true" wire:model="driver.status"
                                 data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
                                 <option></option>
-                                <option value="published" selected="selected">Pending</option>
-                                <option value="draft">Approved</option>
+                                <option value="Pending" selected="selected">Pending</option>
+                                <option value="Approved">Approved</option>
                             </select>
                             <!--end::Select2-->
                             <!--begin::Description-->
@@ -196,7 +202,8 @@
                                 apply</label>
                             <!--end::Select store template-->
 
-                            <!--begin::Item-->
+                            @foreach ($this->loads() as $load)
+ <!--begin::Item-->
                             <div class="d-flex align-items-center mb-8 mt-5">
                                 <!--begin::Bullet-->
                                 <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
@@ -208,96 +215,13 @@
                                 <!--end::Checkbox-->
                                 <!--begin::Description-->
                                 <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">General
-                                        Cargo</a>
+                                    <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">{{$load->name}}</a>
                                 </div>
                             </div>
                             <!--end:Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-8 mt-5">
-                                <!--begin::Bullet-->
-                                <!-- <span class="bullet bullet-vertical h-40px bg-success"></span> -->
-                                <!--end::Bullet-->
-                                <!--begin::Checkbox-->
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input" type="checkbox" value="" />
-                                </div>
-                                <!--end::Checkbox-->
-                                <!--begin::Description-->
-                                <div class="flex-grow-1">
-                                    <a href="#"
-                                        class="text-gray-800 text-hover-primary fw-bold fs-6">Refrigerated Goods</a>
-                                </div>
-                            </div>
-                            <!--end:Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-8 mt-5">
-                                <!--begin::Bullet-->
-                                <!-- <span class="bullet bullet-vertical h-40px bg-danger"></span> -->
-                                <!--end::Bullet-->
-                                <!--begin::Checkbox-->
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input" type="checkbox" value="" />
-                                </div>
-                                <!--end::Checkbox-->
-                                <!--begin::Description-->
-                                <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Harzardous
-                                        Materials</a>
-                                </div>
-                            </div>
-                            <!--end:Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-8 mt-5">
-                                <!--begin::Bullet-->
-                                <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
-                                <!--end::Bullet-->
-                                <!--begin::Checkbox-->
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input" type="checkbox" value="" />
-                                </div>
-                                <!--end::Checkbox-->
-                                <!--begin::Description-->
-                                <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Bulk
-                                        Cargo</a>
-                                </div>
-                            </div>
-                            <!--end:Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-8 mt-5">
-                                <!--begin::Bullet-->
-                                <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
-                                <!--end::Bullet-->
-                                <!--begin::Checkbox-->
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input" type="checkbox" value="" />
-                                </div>
-                                <!--end::Checkbox-->
-                                <!--begin::Description-->
-                                <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Overweight
-                                        Cargo</a>
-                                </div>
-                            </div>
-                            <!--end:Item-->
-                            <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-8 mt-5">
-                                <!--begin::Bullet-->
-                                <!-- <span class="bullet bullet-vertical h-40px bg-warning"></span> -->
-                                <!--end::Bullet-->
-                                <!--begin::Checkbox-->
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input" type="checkbox" value="" />
-                                </div>
-                                <!--end::Checkbox-->
-                                <!--begin::Description-->
-                                <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">Automobile
-                                        Tranport</a>
-                                </div>
-                            </div>
-                            <!--end:Item-->
+                            @endforeach
+
+
                             <!--begin::Form group-->
                             <div class="form-group mt-5">
                                 <button type="button" data-repeater-create="" class="btn btn-sm btn-light-primary"
@@ -323,13 +247,15 @@
                     <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
                         <!--begin:::Tab item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4 {{$general ? "active": ''}}"  wire:click="activate('general')" data-bs-toggle="tab"
+                            <a class="nav-link text-active-primary pb-4 {{ $general ? 'active' : '' }}"
+                                wire:click="activate('general')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_add_product_general">General</a>
                         </li>
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
                         <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4 {{$payment ? "active": ''}}"  wire:click="activate('payment')" data-bs-toggle="tab"
+                            <a class="nav-link text-active-primary pb-4 {{ $payment ? 'active' : '' }}"
+                                wire:click="activate('payment')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_add_product_advanced">Re-embursement Account</a>
                         </li>
                         <!--end:::Tab item-->
@@ -381,14 +307,11 @@
                                                 <label class="required form-label">Driver Name</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" name="product_name" class="form-control mb-2"
+                                                <input type="text" wire:model="driver.name" class="form-control mb-2"
                                                     placeholder="Driver name" value="" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
-                                                <div class="text-muted fs-7">A product name is required and recommended
-                                                    to
-                                                    be
-                                                    unique.</div>
+                                                <div class="text-muted fs-7">Enter driver's name</div>
                                                 <!--end::Description-->
                                             </div>
                                             <!--end::Input group-->
@@ -399,16 +322,12 @@
                                                     <label class="required form-label">Driver Phone</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" name="product_name"
-                                                        class="form-control mb-2" placeholder="Driver name"
+                                                    <input type="tel" wire:model="driver.phone"
+                                                        class="form-control mb-2" placeholder="+233XXXXXXXXXX"
                                                         value="" />
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
-                                                    <div class="text-muted fs-7">A product name is required and
-                                                        recommended
-                                                        to
-                                                        be
-                                                        unique.</div>
+                                                    <div class="text-muted fs-7">Enter driver's phone number</div>
                                                     <!--end::Description-->
                                                 </div>
                                                 <!--end::Input group-->
@@ -418,7 +337,7 @@
                                                     <label class="required form-label">Driver Email</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" name="product_name"
+                                                    <input type="text" wire:model="driver.email"product_name"
                                                         class="form-control mb-2" placeholder="Driver name"
                                                         value="" />
                                                     <!--end::Input-->
@@ -433,17 +352,32 @@
                                             </div>
                                             <!--end:Tax-->
                                             <!--end::Card body-->
-                                            <div class="mb-10 fv-row mt-10">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Physical Address</label>
-                                                <!--end::Label-->
-                                                <!--begin::Input-->
-                                                <input type="text" name="product_name" class="form-control mb-2"
-                                                    placeholder="Physical address" value="" />
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">A physical address is required.</div>
-                                                <!--end::Description-->
+                                            <div class="d-flex flex-wrap gap-5 mb-10">
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="required form-label">Physical Address</label>
+                                                    <!--end::Label-->
+                                                    <input type="text" class="form-control" wire:model="driver.address"
+                                                        min="1990" max="2024" id="">
+
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Set the address of the driver.</div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Input group-->
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="required form-label">License number</label>
+                                                    <!--end::Label-->
+                                                    <input type="text" class="form-control" wire:model="driver.license_number ">
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Set the model of the vehicle.</div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Input group-->
+
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
@@ -452,10 +386,11 @@
                                                 <label class="form-label">About</label>
                                                 <!--end::Label-->
                                                 <!--begin::Editor-->
-                                                <div id="kt_ecommerce_add_product_description"
+                                                <textarea wire.model="driver.description" id="" class="form-control" cols="10" rows="3"></textarea>
+                                                {{-- <div id="kt_ecommerce_add_product_description"
                                                     name="kt_ecommerce_add_product_description"
                                                     class="min-h-200px mb-2">
-                                                </div>
+                                                </div> --}}
                                                 <!--end::Editor-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Write something small about the Driver.
@@ -472,7 +407,7 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>National ID / Drivers Licence</h2>
+                                                <h2>Drivers Licence</h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -491,14 +426,12 @@
                                                         </i>
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
+                                                        <input type="file" wire:click="driver.license_image" id="" class="form-control">
                                                         <div class="ms-4">
-                                                            <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here
+                                                            <h5 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here
                                                                 or
                                                                 click
-                                                                to upload.</h3>
-                                                            <span class="fs-7 fw-semibold text-gray-400">Upload up to
-                                                                10
-                                                                files</span>
+                                                                to upload.</h5>
                                                         </div>
                                                         <!--end::Info-->
                                                     </div>
@@ -507,7 +440,7 @@
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Description-->
-                                            <div class="text-muted fs-7">Upload a national ID to help us verify the
+                                            <div class="text-muted fs-7">Upload a drivers license to help us verify the
                                                 identity of
                                                 the Driver</div>
                                             <!--end::Description-->
@@ -537,7 +470,7 @@
                                                     <tbody class="fs-6 fw-semibold text-gray-600">
                                                         <tr>
                                                             <td>Email</td>
-                                                            <td>Driver@gmail.com</td>
+                                                            <td><input type="email" wire:model="driver.email" id="" class="form-control"></td>
                                                             <td class="text-end">
                                                                 <button type="button"
                                                                     class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
@@ -552,7 +485,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Password</td>
-                                                            <td>******</td>
+                                                            <td><input type="password" wire:model="driver.password" class="form-control" id=""></td>
                                                             <td class="text-end">
                                                                 <button type="button"
                                                                     class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
@@ -595,7 +528,8 @@
                         <!--begin::Tab pane-->
                         <form wire:submit.prevent="general" method="post" class="{{ $payment ? '' : 'd-none' }}">
 
-                            <div class="tab-pane fade {{$payment ? "show active" : ""}}" id="kt_ecommerce_add_product_advanced" role="tab-panel">
+                            <div class="tab-pane fade {{ $payment ? 'show active' : '' }}"
+                                id="kt_ecommerce_add_product_advanced" role="tab-panel">
                                 <div class="d-flex flex-column gap-7 gap-lg-10">
                                     <!--begin::Card-->
                                     <div class="card pt-4 mb-6 mb-xl-9">
@@ -1195,7 +1129,7 @@
                                 </div>
                             </div>
                             <!--end::Tab pane-->
-                            <div class="{{$payment ? "d-flex" : "d-none"}} justify-content-end">
+                            <div class="{{ $payment ? 'd-flex' : 'd-none' }} justify-content-end">
                                 <!--begin::Button-->
                                 <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
                                     class="btn btn-light me-5">Cancel</a>
@@ -1232,6 +1166,5 @@
         </i>
     </div>
     <!--end::Scrolltop-->
+    {{-- @include('partials.modals.add_payment_method') --}}
 </div>
-
-@include('partials.modals.add_payment_method')

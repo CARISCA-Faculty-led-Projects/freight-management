@@ -20,4 +20,11 @@ class OrganizationsController extends Controller
 
         return view('organization.details',compact('org_details','org_routes'));
     }
+
+    public function destroy($org){
+        DB::table('organizations')->where('mask',$org)->delete();
+        DB::table('routes')->where('organization_id',$org)->delete();
+
+        return redirect()->back()->with('success',"Organization deleted successfully");
+    }
 }
