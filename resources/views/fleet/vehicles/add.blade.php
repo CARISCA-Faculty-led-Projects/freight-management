@@ -632,7 +632,7 @@
                                     <!--end::Pricing-->
                                 </div>
                             </div>
-                            <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end">
+                            <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
                                 <a href="/apps/ecommerce/catalog/organizations"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>

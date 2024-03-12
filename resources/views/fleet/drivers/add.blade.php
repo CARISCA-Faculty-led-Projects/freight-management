@@ -55,7 +55,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
             <!--begin::Form-->
-            <form id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
+            <form wire:submit.prevent="general" method="post" id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
                 data-kt-redirect="/apps/ecommerce/catalog/products">
                 <!--begin::Aside column-->
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -104,7 +104,7 @@
                                         <span class="path2"></span>
                                     </i>
                                     <!--begin::Inputs-->
-                                    <input type="file" name="avatar" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="avatar_remove" />
                                     <!--end::Inputs-->
                                 </label>
@@ -160,8 +160,9 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" data-control="select2" data-hide-search="true" wire:model="driver.status"
-                                data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select">
+                            <select class="form-select mb-2" data-control="select2" data-hide-search="true"
+                                wire:model="driver.status" data-placeholder="Select an option"
+                                id="kt_ecommerce_add_product_status_select">
                                 <option></option>
                                 <option value="Pending" selected="selected">Pending</option>
                                 <option value="Approved">Approved</option>
@@ -203,22 +204,23 @@
                             <!--end::Select store template-->
 
                             @foreach ($this->loads() as $load)
- <!--begin::Item-->
-                            <div class="d-flex align-items-center mb-8 mt-5">
-                                <!--begin::Bullet-->
-                                <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
-                                <!--end::Bullet-->
-                                <!--begin::Checkbox-->
-                                <div class="form-check form-check-custom form-check-solid mx-5">
-                                    <input class="form-check-input" type="checkbox" value="" />
+                                <!--begin::Item-->
+                                <div class="d-flex align-items-center mb-8 mt-5">
+                                    <!--begin::Bullet-->
+                                    <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
+                                    <!--end::Bullet-->
+                                    <!--begin::Checkbox-->
+                                    <div class="form-check form-check-custom form-check-solid mx-5">
+                                        <input class="form-check-input" wire:model="load_type" type="checkbox" value="{{$load->name}}" />
+                                    </div>
+                                    <!--end::Checkbox-->
+                                    <!--begin::Description-->
+                                    <div class="flex-grow-1">
+                                        <a href="#"
+                                            class="text-gray-800 text-hover-primary fw-bold fs-6">{{ $load->name }}</a>
+                                    </div>
                                 </div>
-                                <!--end::Checkbox-->
-                                <!--begin::Description-->
-                                <div class="flex-grow-1">
-                                    <a href="#" class="text-gray-800 text-hover-primary fw-bold fs-6">{{$load->name}}</a>
-                                </div>
-                            </div>
-                            <!--end:Item-->
+                                <!--end:Item-->
                             @endforeach
 
 
@@ -264,7 +266,7 @@
                     <!--begin::Tab content-->
                     <div class="tab-content">
                         <!--begin::Tab pane-->
-                        <form wire:submit.prevent="general" method="post" class="{{ $general ? '' : 'd-none' }}">
+                        <form wire:submit.prevent="general" method="post" class="{{ $general ? '' : 'd-none' }}" enctype="multipart/form-data">
                             <div class="tab-pane fade {{ $general ? 'show active' : '' }}"
                                 id="kt_ecommerce_add_product_general" role="tab-panel">
                                 <div class="d-flex flex-column gap-7 gap-lg-10">
@@ -307,8 +309,9 @@
                                                 <label class="required form-label">Driver Name</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
-                                                <input type="text" wire:model="driver.name" class="form-control mb-2"
-                                                    placeholder="Driver name" value="" />
+                                                <input type="text" wire:model="driver.name"
+                                                    class="form-control mb-2" placeholder="Driver name"
+                                                    value="" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter driver's name</div>
@@ -337,7 +340,7 @@
                                                     <label class="required form-label">Driver Email</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" wire:model="driver.email"product_name"
+                                                    <input type="text" wire:model="driver.email"
                                                         class="form-control mb-2" placeholder="Driver name"
                                                         value="" />
                                                     <!--end::Input-->
@@ -358,8 +361,9 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Physical Address</label>
                                                     <!--end::Label-->
-                                                    <input type="text" class="form-control" wire:model="driver.address"
-                                                        min="1990" max="2024" id="">
+                                                    <input type="text" class="form-control"
+                                                        wire:model="driver.address" min="1990" max="2024"
+                                                        id="">
 
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the address of the driver.</div>
@@ -371,7 +375,8 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">License number</label>
                                                     <!--end::Label-->
-                                                    <input type="text" class="form-control" wire:model="driver.license_number ">
+                                                    <input type="text" class="form-control"
+                                                        wire:model="driver.license_number">
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the model of the vehicle.</div>
                                                     <!--end::Description-->
@@ -426,7 +431,8 @@
                                                         </i>
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
-                                                        <input type="file" wire:click="driver.license_image" id="" class="form-control">
+                                                        <input type="file" wire:model="driver.license_image"
+                                                            id="" class="form-control">
                                                         <div class="ms-4">
                                                             <h5 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here
                                                                 or
@@ -470,7 +476,8 @@
                                                     <tbody class="fs-6 fw-semibold text-gray-600">
                                                         <tr>
                                                             <td>Email</td>
-                                                            <td><input type="email" wire:model="driver.email" id="" class="form-control"></td>
+                                                            <td><input type="email" wire:model="driver.email"
+                                                                    id="" class="form-control"></td>
                                                             <td class="text-end">
                                                                 <button type="button"
                                                                     class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
@@ -485,7 +492,8 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Password</td>
-                                                            <td><input type="password" wire:model="driver.password" class="form-control" id=""></td>
+                                                            <td><input type="password" wire:model="driver.password"
+                                                                    class="form-control" id=""></td>
                                                             <td class="text-end">
                                                                 <button type="button"
                                                                     class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
@@ -510,7 +518,7 @@
                                     <!--end::Card-->
                                 </div>
                             </div>
-                            <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end">
+                            <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
                                 <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
                                     class="btn btn-light me-5">Cancel</a>
@@ -526,7 +534,7 @@
                         </form>
                         <!--end::Tab pane-->
                         <!--begin::Tab pane-->
-                        <form wire:submit.prevent="general" method="post" class="{{ $payment ? '' : 'd-none' }}">
+                        <form wire:submit.prevent="payment" method="post" class="{{ $payment ? '' : 'd-none' }}">
 
                             <div class="tab-pane fade {{ $payment ? 'show active' : '' }}"
                                 id="kt_ecommerce_add_product_advanced" role="tab-panel">
@@ -1129,7 +1137,7 @@
                                 </div>
                             </div>
                             <!--end::Tab pane-->
-                            <div class="{{ $payment ? 'd-flex' : 'd-none' }} justify-content-end">
+                            <div class="{{ $payment ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
                                 <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
                                     class="btn btn-light me-5">Cancel</a>

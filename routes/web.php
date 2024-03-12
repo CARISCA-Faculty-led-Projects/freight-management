@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DriversController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\VehiclesController;
 use App\Http\Livewire\Driver\AddDriver;
@@ -62,8 +63,9 @@ Route::get('vehicles/add', AddVehicle::class);
 Route::get('vehicles/edit', function () {
     return view('fleet.vehicles.edit');
 });
-Route::get('drivers', function () {
-    return view('fleet.drivers.drivers');
+
+Route::controller(DriversController::class)->group(function(){
+    Route::get('drivers', 'index');
 });
 Route::get('drivers/add', AddDriver::class);
 Route::get('drivers/details', function () {
