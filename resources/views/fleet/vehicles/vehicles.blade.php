@@ -216,7 +216,7 @@
                                         data-kt-check-target="#kt_customers_table .form-check-input" value="1" />
                                 </div>
                             </th>
-                            <th class="min-w-125px">Organization</th>
+                            {{-- <th class="min-w-125px">Organization</th> --}}
                             <th class="min-w-125px">Make</th>
                             <th class="min-w-125px">Model</th>
                             {{-- <th class="min-w-125px">Licence Plate #</th> --}}
@@ -237,9 +237,9 @@
                                     <input class="form-check-input" type="checkbox" value="1" />
                                 </div>
                             </td>
-                            <td>
+                            {{-- <td>
                                 <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">{{$vehicle->organization}}</a>
-                            </td>
+                            </td> --}}
                             <td>
                                 {{$vehicle->make}}
                             </td>
@@ -268,12 +268,12 @@
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/fleet/vehicles/details" class="menu-link px-3">View</a>
+                                        <a href="{{route("vehicles.view",$vehicle->mask)}}" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/fleet/vehicles/edit" class="menu-link px-3">Edit</a>
+                                        <a href="{{route("vehicles.edit",$vehicle->mask)}}" class="menu-link px-3">Edit</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -290,7 +290,7 @@
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
                                         <a href="{{route("vehicles.delete",$vehicle->mask)}}" class="menu-link px-3"
-                                            data-kt-customer-table-filter="delete_row">Delete</a>
+                                            >Delete</a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>

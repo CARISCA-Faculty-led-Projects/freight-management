@@ -44,8 +44,12 @@ Route::prefix('organization')->group(function () {
 
 Route::prefix('fleet')->group(function () {
     Route::controller(VehiclesController::class)->group(function () {
-        Route::get('vehicles', 'index');
-        Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
+        Route::prefix('vehicles')->group(function(){
+            Route::get('/', 'index');
+            Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
+            Route::get('{vehicle}/edit', 'edit')->name('vehicles.edit');
+            Route::get('{vehicles}/details', 'details')->name('vehicles.view');
+        });
     });
     Route::get('overview', function () {
         return view('fleet.overview');
@@ -54,26 +58,21 @@ Route::prefix('fleet')->group(function () {
         return view('fleet.locate');
     });
 
-    Route::get('vehicles/details', function () {
-        return view('fleet.vehicles.details');
-    });
+
     Route::get('vehicles/locate', function () {
         return view('fleet.vehicles.locate');
     });
     Route::get('vehicles/add', AddVehicle::class);
-    Route::get('vehicles/edit', function () {
-        return view('fleet.vehicles.edit');
-    });
+
 
     Route::prefix('drivers')->group(function () {
         Route::controller(DriversController::class)->group(function () {
             Route::get('/', 'index');
             Route::get('{driver}/delete', 'delete')->name('drivers.delete');
+            Route::get('{driver}/details', 'details')->name('drivers.delete');
         });
         Route::get('add', AddDriver::class);
-        Route::get('details', function () {
-            return view('fleet.drivers.details');
-        });
+
         Route::get('locate', function () {
             return view('fleet.drivers.locate');
         });

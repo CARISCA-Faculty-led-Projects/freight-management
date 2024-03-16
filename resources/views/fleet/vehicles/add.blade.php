@@ -243,7 +243,7 @@
                                 id="kt_ecommerce_add_product_general" role="tab-panel">
                                 <div class="col-xl-12">
                                     <!--begin::Statistics Widget 5-->
-                                    <a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
+                                    {{-- <a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
                                         <!--begin::Body-->
                                         <div class="card-body">
                                             <i class="ki-duotone ki-cheque text-white fs-2x ms-n1">
@@ -261,7 +261,7 @@
                                                 Fleet Management Inc's fleet</div>
                                         </div>
                                         <!--end::Body-->
-                                    </a>
+                                    </a> --}}
                                     <!--end::Statistics Widget 5-->
                                 </div>
                                 <div class="d-flex flex-column gap-7 gap-lg-10">
@@ -281,13 +281,11 @@
                                                 <!--begin::Input group-->
                                                 <div class="fv-row w-100 flex-md-root">
                                                     <!--begin::Label-->
-                                                    <label class="required form-label">Organization</label>
+                                                    {{-- <label class="required form-label">Organization</label> --}}
                                                     <!--end::Label-->
                                                     <!--begin::Select2-->
-                                                    @php
-                                                        $data = [1, 2, 3, 4];
-                                                    @endphp
-                                                    <select class="form-select mb-2" wire:model="organization_id"
+
+                                                    {{-- <select class="form-select mb-2" wire:model="organization_id"
                                                         data-control="select2" data-hide-search="true"
                                                         data-placeholder="Select an option">
                                                         <option></option>
@@ -295,14 +293,14 @@
                                                             <option value="{{ $org->mask }}" wire:key="org-{{ $org->mask }}"> {{ $org->name }}
                                                             </option>
                                                         @endforeach
-                                                    </select>
+                                                    </select> --}}
                                                     <!--end::Select2-->
                                                     <!--begin::Description-->
                                                     {{-- {{$organizations_list}} --}}
 
-                                                    <div class="text-muted fs-7">Set the organization who owns the
+                                                    {{-- <div class="text-muted fs-7">Set the organization who owns the
                                                         vehicle.
-                                                    </div>
+                                                    </div> --}}
                                                     <!--end::Description-->
                                                 </div>
                                                 <!--end::Input group-->

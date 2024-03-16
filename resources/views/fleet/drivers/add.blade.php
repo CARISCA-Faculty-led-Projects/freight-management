@@ -225,11 +225,11 @@
 
 
                             <!--begin::Form group-->
-                            <div class="form-group mt-5">
+                            {{-- <div class="form-group mt-5">
                                 <button type="button" data-repeater-create="" class="btn btn-sm btn-light-primary"
                                     data-bs-toggle="modal" data-bs-target="#kt_modal_add_org_pref">
                                     <i class="ki-duotone ki-plus fs-2"></i>Add new preference</button>
-                            </div>
+                            </div> --}}
                             <!--end::Form group-->
                             <!--begin::Description-->
                             <div class="text-muted fs-7 mt-5">These specify which goods your company can transport

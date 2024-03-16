@@ -94,7 +94,6 @@ class AddVehicle extends Component
 
         $vehicle = DB::table('vehicles')->insertGetId([
             'image' => $imagename,
-            'organization_id' => $this->organization_id,
             'load_type' => json_encode($this->load_type),
             'vehicle_category_id' => $this->vehicle_category_id,
             'vehicle_subcategory_id' => $this->vehicle_subcategory_id,

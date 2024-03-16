@@ -265,7 +265,7 @@
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/fleet/drivers/details" class="menu-link px-3">View</a>
+                                        <a href="{{route('drivers.view',$driver->mask)}}" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -280,8 +280,8 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-kt-customer-table-filter="delete_row">Delete</a>
+                                        <a href="{{route('drivers.delete',$driver->mask)}}" class="menu-link px-3"
+                                            >Delete</a>
                                     </div>
                                     <!--end::Menu item-->
                                 </div>
