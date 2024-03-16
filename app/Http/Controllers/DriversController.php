@@ -12,4 +12,11 @@ class DriversController extends Controller
         $drivers = DB::table('drivers')->get();
         return view('fleet.drivers.drivers',compact('drivers'));
     }
+
+    public function delete($mask){
+        DB::table('drivers')->where('mask',$mask)->delete();
+        // DB::table('vehicle_routes')->where('vehicle_id',$mask)->delete();
+
+        return redirect()->back()->with('success','Vehicle deleted successfully');
+    }
 }

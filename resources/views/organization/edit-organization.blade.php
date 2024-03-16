@@ -252,16 +252,12 @@
                                 @foreach ($this->loads() as $load)
                                 <!--begin::Item-->
                                 <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
-                                    <!--end::Bullet-->
                                     <!--begin::Checkbox-->
                                     <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" wire:model="org_load_type"  type="checkbox" checked="{{in_array($load->name,json_decode($this->org['load_type'])) ? "checked": ''}}"
+                                        <input class="form-check-input" wire:model="org.load_type"  type="checkbox" {{in_array($load->name,$this->org['load_type']) ? "checked": ''}}
                                             value="{{$load->name}}" />
                                     </div>
                                     <!--end::Checkbox-->
-                                    <!--begin::Description-->
                                     <div class="flex-grow-1">
                                         <a href="#"
                                             class="text-gray-800 text-hover-primary fw-bold fs-6">{{$load->name}}</a>

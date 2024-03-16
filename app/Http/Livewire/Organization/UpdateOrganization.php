@@ -23,13 +23,14 @@ class UpdateOrganization extends Component
 
     // Fields General
     public $org = [
-        'name' => "Nie"
+        'load_type' => []
     ];
     public $image;
-    public $mask = '9b7c8b3e-22a1-48f9-920d-e964e67dde63';
+    // public $mask = '9b7c8b3e-22a1-48f9-920d-e964e67dde63';
+    public $mask;
     // public $org_country;
     // public $org_region;
-    public $org_load_type = [];
+    public $org_load_type;
     public $org_name;
     // public $org_desc;
     // public $org_email;
@@ -46,8 +47,8 @@ class UpdateOrganization extends Component
 
     public function addRoute()
     {
-        $this->routes_counter+=1;
-        $this->routes_counter-=1;
+        $this->routes_counter += 1;
+        $this->routes_counter -= 1;
     }
 
     public function activate($tab)
@@ -144,15 +145,25 @@ class UpdateOrganization extends Component
 
     }
 
+    public function mount($mask)
+    {
+        $this->mask = $mask;
+    }
+
     public function render()
     {
         // Organization details
         $org_dets = DB::table('organizations')->where("mask", $this->mask)->first();
 
         foreach ($org_dets as $key => $dets) {
-            $this->org[$key] = $dets;
+            if ($key == "load_type") {
+                $this->org[$key] = json_decode($dets);
+                // $this->org_load_type = json_decode($dets);
+            } else {
+                $this->org[$key] = $dets;
+            }
         }
-
+        //  dd($this->org);
         $org_rou = DB::table('routes')->where("organization_id", $this->mask)->get();
         // $this->routes_counter = count($org_rou);
         // array_push($this->org_routes,$org_rou);
