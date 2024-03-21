@@ -252,9 +252,16 @@
                                 @foreach ($this->loads() as $load)
                                 <!--begin::Item-->
                                 <div class="d-flex align-items-center mb-8 mt-5">
+                                     <!--begin::Bullet-->
+                                     @if (in_array($load->name,$this->org_load_list))
+                                     <span class="bullet bullet-vertical h-20px bg-primary"></span>
+                                     @else
+                                     <span class="bullet bullet-vertical h-20px bg-white"></span>
+                                     @endif
+                                    <!--end::Bullet-->
                                     <!--begin::Checkbox-->
                                     <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" wire:model="org.load_type"  type="checkbox" {{in_array($load->name,$this->org['load_type']) ? "checked": ''}}
+                                        <input class="form-check-input" wire:model="org_load_type" wire:key="{{$load->id}}"  type="checkbox"
                                             value="{{$load->name}}" />
                                     </div>
                                     <!--end::Checkbox-->
@@ -371,6 +378,17 @@
                                                     visibility.</div>
                                                 <!--end::Description-->
                                             </div>
+                                            <div class="mt-4">
+                                                <!--begin::Label-->
+                                                <label class="form-label">Tax Number</label>
+                                                <!--end::Label-->
+                                                <!--begin::Editor-->
+                                                <input class="form-control" type="text" wire:model="org.tax_id" class="min-h-200px mb-2">
+                                                <!--end::Editor-->
+                                                <!--begin::Description-->
+                                                <div class="text-muted fs-7">Enter tax identification for organization</div>
+                                                <!--end::Description-->
+                                            </div>
                                             <!--end::Input group-->
                                         </div>
                                         <!--end::Card header-->
@@ -444,7 +462,7 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Business Registration Documents</h2>
+                                                <h2>Business Registration Documents <small>{{$this->org['registration_docs'] ? "Uploaded" : "Unavailable"}}</small></h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -453,7 +471,7 @@
                                             <!--begin::Input group-->
                                             <div class="fv-row mb-2">
                                                 <!--begin::Dropzone-->
-                                                <input type="file" wire:model="org.ins_docs" id=""
+                                                <input type="file" wire:model="org.registration_docs" id=""
                                                     class="form-control">
                                                 {{-- <div class="dropzone" id="kt_ecommerce_add_organization_media">
                                                     <!--begin::Message-->
@@ -493,7 +511,7 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Insurance Documents</h2>
+                                                <h2>Insurance Documents <small>{{$this->org['insurance_docs'] ? "Uploaded" : "Unavailable"}}</small></h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -502,7 +520,7 @@
                                             <!--begin::Input group-->
                                             <div class="fv-row mb-2">
                                                 <!--begin::Dropzone-->
-                                                <input type="file" wire:model="org.reg_docs" id=""
+                                                <input type="file" wire:model="org.insurance_docs" id=""
                                                     class="form-control">
                                                 {{-- <div class="dropzone" id="kt_ecommerce_add_organization_media">
                                                     <!--begin::Message-->
@@ -577,19 +595,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Password</td>
-                                                            <td><input type="password" wire:model="password"
-                                                                    id="" class="form-control"></td>
-                                                            <td class="text-end">
-                                                                <button type="button"
-                                                                    class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
-                                                                    data-bs-toggle="modal"
-                                                                    data-bs-target="#kt_modal_update_password">
-                                                                    <i class="ki-duotone ki-pencil fs-3">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                    </i>
-                                                                </button>
-                                                            </td>
+                                                            <td><button type="button"
+                                                                class="btn btn-icon btn-warning w-150px h-30px ms-auto">
+                                                               Reset Password
+                                                            </button></td>
+
                                                         </tr>
                                                     </tbody>
                                                     <!--end::Table body-->
@@ -611,7 +621,7 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
+                                    <span class="indicator-label">Update Changes</span>
                                     <span class="indicator-progress">Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
@@ -648,7 +658,6 @@
                                                     <div class="form-group">
                                                         <div data-repeater-list="kt_ecommerce_add_organization_options"
                                                             class="d-flex flex-column gap-3">
-                                                            {{$routes_counter}}
                                                             @for ($i=0;$i<$routes_counter;$i++)
                                                             <div data-repeater-item=""
                                                                 class="form-group d-flex flex-wrap align-items-center gap-5">
@@ -919,7 +928,7 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
+                                    <span class="indicator-label">Update Changes</span>
                                     <span class="indicator-progress">Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
@@ -1416,7 +1425,7 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
+                                    <span class="indicator-label">Update Changes</span>
                                     <span class="indicator-progress">Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
@@ -1904,10 +1913,6 @@
                                     <!--end::Card body-->
                                 </div>
                                 <!--end::Payment method-->
-
-
-
-
                             </div>
                             <div class="{{ $payin ? 'd-flex' : 'd-none' }} justify-content-end">
                                 <!--begin::Button-->
@@ -1917,7 +1922,7 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
+                                    <span class="indicator-label">Update Changes</span>
                                     <span class="indicator-progress">Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>

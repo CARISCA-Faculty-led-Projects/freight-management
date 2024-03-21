@@ -355,7 +355,7 @@
                                             </div>
                                             <!--end:Tax-->
                                             <!--end::Card body-->
-                                            <div class="d-flex flex-wrap gap-5 mb-10">
+                                            <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
                                                 <!--begin::Input group-->
                                                 <div class="fv-row w-100 flex-md-root">
                                                     <!--begin::Label-->
@@ -363,6 +363,18 @@
                                                     <!--end::Label-->
                                                     <input type="text" class="form-control"
                                                         wire:model="driver.address" min="1990" max="2024"
+                                                        id="">
+
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Set the address of the driver.</div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="required form-label">Date of Birth</label>
+                                                    <!--end::Label-->
+                                                    <input type="text" class="form-control"
+                                                        wire:model="driver.dob" min="1990" max="2024"
                                                         id="">
 
                                                     <!--begin::Description-->

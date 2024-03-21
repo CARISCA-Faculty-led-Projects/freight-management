@@ -69,7 +69,7 @@ Route::prefix('fleet')->group(function () {
         Route::controller(DriversController::class)->group(function () {
             Route::get('/', 'index');
             Route::get('{driver}/delete', 'delete')->name('drivers.delete');
-            Route::get('{driver}/details', 'details')->name('drivers.delete');
+            Route::get('{driver}/details', 'details')->name('drivers.view');
         });
         Route::get('add', AddDriver::class);
 

@@ -70,7 +70,7 @@
                     <!--begin: Pic-->
                     <div class="me-7 mb-4">
                         <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                            <img src="../../assets/media/avatars/300-1.jpg" alt="image" />
+                            <img src="{{asset(public_path('storage/drivers/'.$driver->image))}}" alt="image" />
                             <div
                                 class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px">
                             </div>
@@ -85,8 +85,7 @@
                             <div class="d-flex flex-column">
                                 <!--begin::Name-->
                                 <div class="d-flex align-items-center mb-2">
-                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">Emma
-                                        Smith</a>
+                                    <a href="#" class="text-gray-900 text-hover-primary fs-2 fw-bold me-1">{{$driver->name}}</a>
                                     <a href="#">
                                         <i class="ki-duotone ki-verify fs-1 text-primary">
                                             <span class="path1"></span>
@@ -283,7 +282,7 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
-                        <span class="fw-bold fs-6 text-gray-800">Max Smith</span>
+                        <span class="fw-bold fs-6 text-gray-800">{{$driver->name}}</span>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -295,7 +294,7 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8 fv-row">
-                        <span class="fw-semibold text-gray-800 fs-6">Jess Fleet Management Inc</span>
+                        <span class="fw-semibold text-gray-800 fs-6">{{$driver->organization_id ? "Available" : "Unavailable"}}</span>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -314,7 +313,7 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8 d-flex align-items-center">
-                        <span class="fw-bold fs-6 text-gray-800 me-2">044 3276 454 935</span>
+                        <span class="fw-bold fs-6 text-gray-800 me-2">{{$driver->phone}}</span>
                         <span class="badge badge-success">Verified</span>
                     </div>
                     <!--end::Col-->
@@ -327,7 +326,7 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
-                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">address@gmail.com</a>
+                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{$driver->email}}</a>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -339,8 +338,7 @@
                     <!--end::Label-->
                     <!--begin::Col-->
                     <div class="col-lg-8">
-                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">101 Collin
-                            Street,</br>Melbourne 3000 VIC,</br> Ghana</a>
+                        <a href="#" class="fw-semibold fs-6 text-gray-800 text-hover-primary">{{$driver->address}}</a>
                     </div>
                     <!--end::Col-->
                 </div>
@@ -532,7 +530,7 @@
 													<!--end::Action-->
 												</div>
 												<!--end::Password-->
-												
+
 											</div>
 											<!--end::Card body-->
 										</div>
