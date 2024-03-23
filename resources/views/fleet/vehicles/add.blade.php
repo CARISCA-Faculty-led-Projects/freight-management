@@ -170,7 +170,8 @@
                                     apply</label>
                                 <!--end::Select store template-->
                                 @foreach ($this->loads() as $load)
-                                    <div class="d-flex align-items-center mb-8 mt-5" wire:key="loads-{{ $load->id }}">
+                                    <div class="d-flex align-items-center mb-8 mt-5"
+                                        wire:key="loads-{{ $load->id }}">
                                         <!--begin::Bullet-->
                                         <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
                                         <!--end::Bullet-->
@@ -318,7 +319,8 @@
                                                     data-placeholder="Select an option">
                                                     <option></option>
                                                     @foreach ($this->vcat() as $category)
-                                                        <option value="{{ $category->id }}" wire:key="cate-{{ $category->id }}">{{ $category->name }}
+                                                        <option value="{{ $category->id }}"
+                                                            wire:key="cate-{{ $category->id }}">{{ $category->name }}
                                                         </option>
                                                     @endforeach
                                                 </select>
@@ -341,7 +343,9 @@
                                                     data-placeholder="Select an option">
                                                     <option></option>
                                                     @foreach ($this->vsubcat() as $category)
-                                                        <option value="{{ $category->id }}" wire:key="subcat-{{ $category->id }}">{{ $category->name }}
+                                                        <option value="{{ $category->id }}"
+                                                            wire:key="subcat-{{ $category->id }}">
+                                                            {{ $category->name }}
                                                         </option>
                                                     @endforeach
 
@@ -755,10 +759,10 @@
                                                     <div class="form-group">
                                                         <div data-repeater-list="kt_ecommerce_add_product_options"
                                                             class="d-flex flex-column gap-3">
-                                                            @for ($i = 0; $i < $routes_counter; $i++)
-                                                                <div data-repeater-item=""
-                                                                    class="form-group d-flex flex-wrap align-items-center gap-5" wire:key="routes-{{ $i }}">
-
+                                                            <div
+                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                                @for ($i = 0; $i < $routes_counter; $i++)
+                                                                    {{-- <div class="form-group d-flex flex-wrap align-items-center gap-5" wire:key="routes-{{ $i }}"> --}}
                                                                     <!--begin::Input-->
                                                                     <input type="text"
                                                                         class="form-control mw-100 w-300px"
@@ -777,115 +781,111 @@
                                                                             <span class="path2"></span>
                                                                         </i>
                                                                     </button>
-                                                                </div>
-                                                            @endfor
+                                                                @endfor
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <!--end::Form group-->
-                                                    <!--begin::Form group-->
-                                                    <div class="form-group mt-5">
-                                                        <button type="button" wire:click="addRoute"
-                                                            class="btn btn-sm btn-light-primary">
-                                                            <i class="ki-duotone ki-plus fs-2"></i>Add another
-                                                            route</button>
                                                     </div>
                                                     <!--end::Form group-->
                                                 </div>
                                                 <!--end::Repeater-->
                                             </div>
-                                            <!--end::Input group-->
+                                            <!--end::Form group-->
+                                            <!--begin::Form group-->
+                                            <div class="form-group mt-5">
+                                                <button type="button" wire:click="addRoute"
+                                                    class="btn btn-sm btn-light-primary">
+                                                    <i class="ki-duotone ki-plus fs-2"></i>Add another
+                                                    route</button>
+                                            </div>
+                                            <!--end::Form group-->
                                         </div>
-                                        <!--end::Card header-->
+                                        <!--end::Card body-->
+                                        <!--end::Repeater-->
                                     </div>
                                     <!--end::Variations-->
-                                    <!--begin::Shipping-->
-                                    <div class="card card-flush py-4">
-                                        <!--begin::Card header-->
-                                        <div class="card-header">
-                                            <div class="card-title">
-                                                <h2>Dimensions & Weight</h2>
-                                            </div>
-                                        </div>
-                                        <!--end::Card header-->
-                                        <!--begin::Card body-->
-                                        <div class="card-body pt-0">
-                                            <!--begin::Input group-->
-                                            <div class="fv-row">
-                                                <!--begin::Input-->
-                                                <div class="form-check form-check-custom form-check-solid mb-2">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        id="kt_ecommerce_add_product_shipping_checkbox"
-                                                        value="1" />
-                                                    <label class="form-check-label">Specify weight & height
-                                                        dimensions</label>
-                                                </div>
-                                                <!--end::Input-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">Set if the vehicle can take some weight
-                                                    Physical products may require shipping.</div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Shipping form-->
-                                            <div id="kt_ecommerce_add_product_shipping" class="d-none mt-10">
-
-                                                <!--begin::Input group-->
-                                                <div class="fv-row">
-                                                    <!--begin::Label-->
-                                                    <label class="form-label">Weight</label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
-                                                        <input type="number" wire:model="width"
-                                                            class="form-control mb-2" placeholder="Vehicle Weight"
-                                                            value="" />
-                                                        <input type="number" wire:model="height"
-                                                            class="form-control mb-2" placeholder="Max Load Weight"
-                                                            value="" />
-
-                                                    </div>
-                                                    <!--end::Input-->
-                                                    <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Enter the product dimensions in
-                                                        centimeters
-                                                        (cm).</div>
-                                                    <!--end::Description-->
-                                                </div>
-                                                <!--end::Input group-->
-                                                <!--begin::Input group-->
-                                                <div class="fv-row mt-5">
-                                                    <!--begin::Label-->
-                                                    <label class="form-label">Dimension</label>
-                                                    <!--end::Label-->
-                                                    <!--begin::Input-->
-                                                    <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
-                                                        <input type="number" wire:model="width"
-                                                            class="form-control mb-2" placeholder="Width (w)"
-                                                            value="" />
-                                                        <input type="number" wire:model="height"
-                                                            class="form-control mb-2" placeholder="Height (h)"
-                                                            value="" />
-                                                        <input type="number" wire:model="length"
-                                                            class="form-control mb-2" placeholder="Lengtn (l)"
-                                                            value="" />
-                                                    </div>
-                                                    <!--end::Input-->
-                                                    <!--begin::Description-->
-                                                    <div class="text-muted fs-7">Enter the product dimensions in
-                                                        centimeters
-                                                        (cm).</div>
-                                                    <!--end::Description-->
-                                                </div>
-                                                <!--end::Input group-->
-                                            </div>
-                                            <!--end::Shipping form-->
-                                        </div>
-                                        <!--end::Card header-->
-                                    </div>
-                                    <!--end::Shipping-->
-
+                                    <!--end::Input group-->
                                 </div>
+                                <!--end::Card header-->
                             </div>
+                            <!--end::Variations-->
+                            <!--begin::Shipping-->
+                            <div class="card card-flush py-4">
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>Dimensions & Weight</h2>
+                                    </div>
+                                </div>
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Input group-->
+                                    <div class="fv-row">
+                                        <!--begin::Input-->
+                                        <div class="form-check form-check-custom form-check-solid mb-2">
+                                            <input class="form-check-input" type="checkbox"
+                                                id="kt_ecommerce_add_product_shipping_checkbox" value="1" />
+                                            <label class="form-check-label">Specify weight & height
+                                                dimensions</label>
+                                        </div>
+                                        <!--end::Input-->
+                                        <!--begin::Description-->
+                                        <div class="text-muted fs-7">Set if the vehicle can take some weight
+                                            Physical products may require shipping.</div>
+                                        <!--end::Description-->
+                                    </div>
+                                    <!--end::Input group-->
+                                    <!--begin::Shipping form-->
+                                    <div id="kt_ecommerce_add_product_shipping" class="d-none mt-10">
+                                        <!--begin::Input group-->
+                                        <div class="fv-row">
+                                            <!--begin::Label-->
+                                            <label class="form-label">Weight</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
+                                                <input type="number" wire:model="width" class="form-control mb-2"
+                                                    placeholder="Vehicle Weight" value="" />
+                                                <input type="number" wire:model="height" class="form-control mb-2"
+                                                    placeholder="Max Load Weight" value="" />
+
+                                            </div>
+                                            <!--end::Input-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">Enter the product dimensions in
+                                                centimeters
+                                                (cm).</div>
+                                            <!--end::Description-->
+                                        </div>
+                                        <!--end::Input group-->
+                                        <!--begin::Input group-->
+                                        <div class="fv-row mt-5">
+                                            <!--begin::Label-->
+                                            <label class="form-label">Dimension</label>
+                                            <!--end::Label-->
+                                            <!--begin::Input-->
+                                            <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
+                                                <input type="number" wire:model="width" class="form-control mb-2"
+                                                    placeholder="Width (w)" value="" />
+                                                <input type="number" wire:model="height" class="form-control mb-2"
+                                                    placeholder="Height (h)" value="" />
+                                                <input type="number" wire:model="length" class="form-control mb-2"
+                                                    placeholder="Lengtn (l)" value="" />
+                                            </div>
+                                            <!--end::Input-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">Enter the product dimensions in
+                                                centimeters
+                                                (cm).</div>
+                                            <!--end::Description-->
+                                        </div>
+                                        <!--end::Input group-->
+                                    </div>
+                                    <!--end::Shipping form-->
+                                </div>
+                                <!--end::Card header-->
+                            </div>
+                            <!--end::Shipping-->
                             <div class="{{ $others ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
                                 <a href="/apps/ecommerce/catalog/organizations"
@@ -902,182 +902,192 @@
                             </div>
                             <!--end::Tab pane-->
                         </form>
-                    <form wire:submit.prevent="documents" method="post" class="{{ $doc_page ? '' : 'd-none' }}">
-                        <div class="tab-pane fade {{ $doc_page ? 'show active' : '' }}"
-                            id="kt_ecommerce_add_documents" role="tab-panel">
-                            <div class="d-flex flex-column gap-7 gap-lg-10">
+                        <form wire:submit.prevent="documents" method="post" class="{{ $doc_page ? '' : 'd-none' }}">
+                            <div class="tab-pane fade {{ $doc_page ? 'show active' : '' }}"
+                                id="kt_ecommerce_add_documents" role="tab-panel">
+                                <div class="d-flex flex-column gap-7 gap-lg-10">
 
-                                <!--begin::Media-->
-                                <div class="card card-flush py-4">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Vehicle Owners Documents</h2>
-                                        </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row mb-2">
-                                            <!--begin::Dropzone-->
-                                            <div class="dropzone" id="kt_ecommerce_add_product_media">
-                                                <!--begin::Message-->
-                                                <div class="dz-message needsclick">
-                                                    <!--begin::Icon-->
-                                                    <i class="ki-duotone ki-file-up text-primary fs-3x">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Info-->
-                                                    <input type="file" wire:model="documents.owners_documents"
-                                                        id="" class="form-control">
-                                                    <div class="ms-4">
-                                                        <h5 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here or
-                                                            click
-                                                            to upload.</h5>
-                                                    </div>
-                                                    <!--end::Info-->
-                                                </div>
+                                    <!--begin::Media-->
+                                    <div class="card card-flush py-4">
+                                        <!--begin::Card header-->
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h2>Vehicle Owners Documents</h2>
                                             </div>
-                                            <!--end::Dropzone-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Add owners documents.</div>
-                                        <!--end::Description-->
-                                    </div>
-                                    <!--end::Card header-->
-                                </div>
-                                <!--end::Media-->
-                                <!--begin::Media-->
-                                <div class="card card-flush py-4">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Road Worthy Documents</h2>
-                                        </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row mb-2">
-                                            <!--begin::Dropzone-->
-                                            <div class="dropzone" id="kt_ecommerce_add_product_media">
-                                                <!--begin::Message-->
-                                                <div class="dz-message needsclick">
-                                                    <!--begin::Icon-->
-                                                    <i class="ki-duotone ki-file-up text-primary fs-3x">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Info-->
-                                                    <input type="file" wire:model="documents.road_worth_documents"
-                                                        id="" class="form-control">
-                                                    <div class="ms-4">
-                                                        <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here or
-                                                            click
-                                                            to upload.</h3>
-
+                                        <!--end::Card header-->
+                                        <!--begin::Card body-->
+                                        <div class="card-body pt-0">
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-2">
+                                                <!--begin::Dropzone-->
+                                                <div class="dropzone" id="kt_ecommerce_add_product_media">
+                                                    <!--begin::Message-->
+                                                    <div class="dz-message needsclick">
+                                                        <!--begin::Icon-->
+                                                        <i class="ki-duotone ki-file-up text-primary fs-3x">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <input type="file" wire:model="documents.owners_documents"
+                                                            id="" class="form-control">
+                                                        <div class="ms-4">
+                                                            <h5 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
+                                                                or
+                                                                click
+                                                                to upload.</h5>
+                                                        </div>
+                                                        <!--end::Info-->
                                                     </div>
-                                                    <!--end::Info-->
                                                 </div>
+                                                <!--end::Dropzone-->
                                             </div>
-                                            <!--end::Dropzone-->
+                                            <!--end::Input group-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">Add owners documents.</div>
+                                            <!--end::Description-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set the product media gallery.</div>
-                                        <!--end::Description-->
+                                        <!--end::Card header-->
                                     </div>
-                                    <!--end::Card header-->
-                                </div>
-                                <!--end::Media-->
-                                <!--begin::Media-->
-                                <div class="card card-flush py-4">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Insurance Documents</h2>
+                                    <!--end::Media-->
+                                    <!--begin::Media-->
+                                    <div class="card card-flush py-4">
+                                        <!--begin::Card header-->
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h2>Road Worthy Documents</h2>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <!--begin::Input group-->
-                                        <div class="fv-row mb-2">
-                                            <!--begin::Dropzone-->
-                                            <div class="dropzone" id="kt_ecommerce_add_product_media">
-                                                <!--begin::Message-->
-                                                <div class="dz-message needsclick">
-                                                    <!--begin::Icon-->
-                                                    <i class="ki-duotone ki-file-up text-primary fs-3x">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i>
-                                                    <!--end::Icon-->
-                                                    <!--begin::Info-->
+                                        <!--end::Card header-->
+                                        <!--begin::Card body-->
+                                        <div class="card-body pt-0">
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-2">
+                                                <!--begin::Dropzone-->
+                                                <div class="dropzone" id="kt_ecommerce_add_product_media">
+                                                    <!--begin::Message-->
+                                                    <div class="dz-message needsclick">
+                                                        <!--begin::Icon-->
+                                                        <i class="ki-duotone ki-file-up text-primary fs-3x">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+                                                        <input type="file"
+                                                            wire:model="documents.road_worth_documents" id=""
+                                                            class="form-control">
+                                                        <div class="ms-4">
+                                                            <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
+                                                                or
+                                                                click
+                                                                to upload.</h3>
 
-                                                    <input type="file" wire:model="documents.insurance"
-                                                    id="" class="form-control">
-                                                    <div class="ms-4">
-                                                        <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here or
-                                                            click
-                                                            to upload.</h3>
-
+                                                        </div>
+                                                        <!--end::Info-->
                                                     </div>
-                                                    <!--end::Info-->
                                                 </div>
+                                                <!--end::Dropzone-->
                                             </div>
-                                            <!--end::Dropzone-->
+                                            <!--end::Input group-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">Set the product media gallery.</div>
+                                            <!--end::Description-->
                                         </div>
-                                        <!--end::Input group-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set the product media gallery.</div>
-                                        <!--end::Description-->
+                                        <!--end::Card header-->
                                     </div>
-                                    <!--end::Card header-->
+                                    <!--end::Media-->
+                                    <!--begin::Media-->
+                                    <div class="card card-flush py-4">
+                                        <!--begin::Card header-->
+                                        <div class="card-header">
+                                            <div class="card-title">
+                                                <h2>Insurance Documents</h2>
+                                            </div>
+                                        </div>
+                                        <!--end::Card header-->
+                                        <!--begin::Card body-->
+                                        <div class="card-body pt-0">
+                                            <!--begin::Input group-->
+                                            <div class="fv-row mb-2">
+                                                <!--begin::Dropzone-->
+                                                <div class="dropzone" id="kt_ecommerce_add_product_media">
+                                                    <!--begin::Message-->
+                                                    <div class="dz-message needsclick">
+                                                        <!--begin::Icon-->
+                                                        <i class="ki-duotone ki-file-up text-primary fs-3x">
+                                                            <span class="path1"></span>
+                                                            <span class="path2"></span>
+                                                        </i>
+                                                        <!--end::Icon-->
+                                                        <!--begin::Info-->
+
+                                                        <input type="file" wire:model="documents.insurance"
+                                                            id="" class="form-control">
+                                                        <div class="ms-4">
+                                                            <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
+                                                                or
+                                                                click
+                                                                to upload.</h3>
+
+                                                        </div>
+                                                        <!--end::Info-->
+                                                    </div>
+                                                </div>
+                                                <!--end::Dropzone-->
+                                            </div>
+                                            <!--end::Input group-->
+                                            <!--begin::Description-->
+                                            <div class="text-muted fs-7">Set the product media gallery.</div>
+                                            <!--end::Description-->
+                                        </div>
+                                        <!--end::Card header-->
+                                    </div>
+                                    <!--end::Media-->
+
+
                                 </div>
-                                <!--end::Media-->
-
-
                             </div>
-                        </div>
-                        <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
-                            <!--begin::Button-->
-                            <a href="/apps/ecommerce/catalog/organizations" id="kt_ecommerce_add_organization_cancel"
-                                class="btn btn-light me-5">Cancel</a>
-                            <!--end::Button-->
-                            <!--begin::Button-->
-                            <button type="submit" id="kt_ecommerce_add_organization_submit" class="btn btn-primary">
-                                <span class="indicator-label">Save Changes</span>
-                                <span class="indicator-progress">Please wait...
-                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                            </button>
-                            <!--end::Button-->
-                        </div>
-                    </form>
-                    <!--end::Tab pane-->
-
+                            <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
+                                <!--begin::Button-->
+                                <a href="/apps/ecommerce/catalog/organizations"
+                                    id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
+                                <!--end::Button-->
+                                <!--begin::Button-->
+                                <button type="submit" id="kt_ecommerce_add_organization_submit"
+                                    class="btn btn-primary">
+                                    <span class="indicator-label">Save Changes</span>
+                                    <span class="indicator-progress">Please wait...
+                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                                </button>
+                                <!--end::Button-->
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <!--end::Tab content-->
-            </div>
-            <!--end::Main column-->
-        </div>
-        <!--end::Form-->
-    </div>
-    <!--end::Content container-->
-    <!--end::Content-->
-    <!--end::Content wrapper-->
 
-    <!--begin::Scrolltop-->
-    <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-        <i class="ki-duotone ki-arrow-up">
-            <span class="path1"></span>
-            <span class="path2"></span>
-        </i>
+
+            </div> <!--just added-->
+            <!--end::Tab pane-->
+
+        </div>
+        <!--end::Tab content-->
     </div>
+    <!--end::Main column-->
+</div>
+<!--end::Form-->
+</div>
+<!--end::Content container-->
+<!--end::Content-->
+<!--end::Content wrapper-->
+
+<!--begin::Scrolltop-->
+<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+    <i class="ki-duotone ki-arrow-up">
+        <span class="path1"></span>
+        <span class="path2"></span>
+    </i>
+</div>
 </div>

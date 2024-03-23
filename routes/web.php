@@ -8,6 +8,7 @@ use App\Http\Livewire\Organization\AddOrganization;
 use App\Http\Livewire\Vehicle\AddVehicle;
 use App\Http\Livewire\Organisation;
 use App\Http\Livewire\Organization\UpdateOrganization;
+use App\Http\Livewire\Vehicle\UpdateVehicle;
 use App\Http\Livewire\ViewOrganisations;
 use Illuminate\Support\Facades\Route;
 use Laravel\Sail\SailServiceProvider;
@@ -43,13 +44,13 @@ Route::prefix('organization')->group(function () {
 
 
 Route::prefix('fleet')->group(function () {
-    Route::controller(VehiclesController::class)->group(function () {
-        Route::prefix('vehicles')->group(function(){
+    Route::prefix('vehicles')->group(function(){
+            Route::controller(VehiclesController::class)->group(function () {
             Route::get('/', 'index');
             Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
-            Route::get('{vehicle}/edit', 'edit')->name('vehicles.edit');
             Route::get('{vehicles}/details', 'details')->name('vehicles.view');
         });
+        Route::get('{mask}/edit', UpdateVehicle::class)->name('vehicles.edit');
     });
     Route::get('overview', function () {
         return view('fleet.overview');

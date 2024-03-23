@@ -144,7 +144,7 @@ class UpdateOrganization extends Component
 
     public function routes()
     {
-        // dd($this->org_routes);
+        // dd($this->org_routes);   
         foreach ($this->org_routes as $route) {
             if (array_key_exists('id', $route)) {
                 DB::table('routes')->where('organization_id', $this->org['mask'])->where('id', $route['id'])->update([

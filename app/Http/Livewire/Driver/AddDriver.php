@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AddDriver extends Component
 {
@@ -50,6 +51,15 @@ class AddDriver extends Component
 
     public function general()
     {
+        $validated = Validator::make($this->driver, [
+            'email' => 'required',
+            'name' => 'required'
+        ]);
+
+        if ($validated->fails()) {
+            dd($validated->errors());
+            // return $this->validationResponse($validated->errors());
+        }
         $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
         $this->image->storeAs('drivers', $imagename, 'real_public');
 

@@ -8,6 +8,7 @@ use Livewire\WithFileUploads;
 use Illuminate\Support\Carbon;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class AddVehicle extends Component
 {
@@ -62,6 +63,12 @@ class AddVehicle extends Component
     // public $owner_phone;
     // public $owner_address;
 
+    protected $rules = [
+        'name' => 'required',
+        'email' => 'required',
+
+    ];
+
     public $routes_counter = 1;
     public $veh_routes = [];
 
@@ -77,6 +84,7 @@ class AddVehicle extends Component
             $this->others = false;
             $this->doc_page = false;
         } else if ($tab == 'others') {
+            dd('here');
             $this->general = false;
             $this->others = true;
             $this->doc_page = false;
@@ -87,8 +95,12 @@ class AddVehicle extends Component
         }
     }
 
+
     public function general()
     {
+        // $this->validate();
+
+
         $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
         $this->image->storeAs('vehicles', $imagename, 'real_public');
 

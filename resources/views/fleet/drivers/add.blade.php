@@ -104,7 +104,7 @@
                                         <span class="path2"></span>
                                     </i>
                                     <!--begin::Inputs-->
-                                    <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" wire:model="image" accept=".png, .jpg, .jpeg"  required/>
                                     <input type="hidden" name="avatar_remove" />
                                     <!--end::Inputs-->
                                 </label>
@@ -134,6 +134,7 @@
                             <!--begin::Description-->
                             <div class="text-muted fs-7">Set the image of the Driver. Only *.png, *.jpg and *.jpeg image
                                 files are accepted</div>
+                                {{-- @error('image') <span class="text-danger">{{ $message }}</span> @enderror --}}
                             <!--end::Description-->
                         </div>
                         <!--end::Card body-->
@@ -162,7 +163,7 @@
                             <!--begin::Select2-->
                             <select class="form-select mb-2" data-control="select2" data-hide-search="true"
                                 wire:model="driver.status" data-placeholder="Select an option"
-                                id="kt_ecommerce_add_product_status_select">
+                                id="kt_ecommerce_add_product_status_select" required>
                                 <option></option>
                                 <option value="Pending" selected="selected">Pending</option>
                                 <option value="Approved">Approved</option>
@@ -342,7 +343,7 @@
                                                     <!--begin::Input-->
                                                     <input type="text" wire:model="driver.email"
                                                         class="form-control mb-2" placeholder="Driver name"
-                                                        value="" />
+                                                        value="" required />
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">A product name is required and
@@ -373,9 +374,8 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Date of Birth</label>
                                                     <!--end::Label-->
-                                                    <input type="text" class="form-control"
-                                                        wire:model="driver.dob" min="1990" max="2024"
-                                                        id="">
+                                                    <input type="date" class="form-control"
+                                                        wire:model="driver.dob" id="">
 
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the address of the driver.</div>
