@@ -624,7 +624,7 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
                                     <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
@@ -655,7 +655,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="text" wire:model="owner.name"
-                                                    class="form-control mb-2" placeholder="Name" value="" />
+                                                    class="form-control mb-2" placeholder="Name" value="" required />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter the owner's name.</div>
@@ -669,7 +669,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="text" wire:model="owner.email"
-                                                    class="form-control mb-2" placeholder="Email" value="" />
+                                                    class="form-control mb-2" placeholder="Email" value="" required/>
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter the owner's email.</div>
@@ -688,7 +688,7 @@
                                                         value="" />
 
                                                     <input type="text" wire:model="owner.address"
-                                                        class="form-control mb-2" placeholder="Address" />
+                                                        class="form-control mb-2" placeholder="Address" required/>
                                                 </div>
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
@@ -743,27 +743,28 @@
                                                             class="d-flex flex-column gap-3">
                                                             <div
                                                                 class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                @for ($i = 0; $i < $routes_counter; $i++)
-                                                                    {{-- <div class="form-group d-flex flex-wrap align-items-center gap-5" wire:key="routes-{{ $i }}"> --}}
-                                                                    <!--begin::Input-->
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-300px"
-                                                                        wire:model="veh_routes.{{ $i }}.origin"
-                                                                        placeholder="From" />
+                                                                @for ($i=0;$i<count($this->veh_routes);$i++)
+                                                                    <div data-repeater-item=""
+                                                                        class="form-group d-flex flex-wrap align-items-center gap-5">
 
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-300px"
-                                                                        wire:model="veh_routes.{{ $i }}.dest"
-                                                                        placeholder="To" />
-                                                                    <!--end::Input-->
-                                                                    <button type="button" data-repeater-delete=""
-                                                                        class="btn btn-sm btn-icon btn-light-danger">
-                                                                        <i class="ki-duotone ki-cross fs-1">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </button>
-                                                                @endfor
+                                                                        <!--begin::Input-->
+                                                                        <input type="text"
+                                                                            class="form-control mw-100 w-300px"
+                                                                            wire:model="veh_routes.{{$i}}.origin" placeholder="From" required/>
+
+                                                                        <input type="text"
+                                                                            class="form-control mw-100 w-300px"
+                                                                            wire:model="veh_routes.{{$i}}.dest" placeholder="To" required/>
+                                                                        <!--end::Input-->
+                                                                        <button type="button" data-repeater-delete="" wire:click="delRoute({{$i}})"
+                                                                            class="btn btn-sm btn-icon btn-light-danger">
+                                                                            <i class="ki-duotone ki-cross fs-1">
+                                                                                <span class="path1"></span>
+                                                                                <span class="path2"></span>
+                                                                            </i>
+                                                                        </button>
+                                                                    </div>
+                                                                    @endfor
                                                             </div>
                                                         </div>
                                                     </div>
@@ -774,7 +775,7 @@
                                             <!--end::Form group-->
                                             <!--begin::Form group-->
                                             <div class="form-group mt-5">
-                                                <button type="button" wire:click="addRoute"
+                                                <button type="button" wire:click="addRoute({{count($this->veh_routes)+1}})"
                                                     class="btn btn-sm btn-light-primary">
                                                     <i class="ki-duotone ki-plus fs-2"></i>Add another
                                                     route</button>
@@ -876,7 +877,7 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
                                     <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
@@ -914,7 +915,7 @@
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
                                                         <input type="file" wire:model="documents.owners_documents"
-                                                            id="" class="form-control">
+                                                            id="" class="form-control" required>
                                                         <div class="ms-4">
                                                             <h5 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
                                                                 or
@@ -960,7 +961,7 @@
                                                         <!--begin::Info-->
                                                         <input type="file"
                                                             wire:model="documents.road_worth_documents" id=""
-                                                            class="form-control">
+                                                            class="form-control" required>
                                                         <div class="ms-4">
                                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
                                                                 or
@@ -1007,7 +1008,7 @@
                                                         <!--begin::Info-->
 
                                                         <input type="file" wire:model="documents.insurance"
-                                                            id="" class="form-control">
+                                                            id="" class="form-control" required>
                                                         <div class="ms-4">
                                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
                                                                 or
@@ -1040,7 +1041,7 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
                                     <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>

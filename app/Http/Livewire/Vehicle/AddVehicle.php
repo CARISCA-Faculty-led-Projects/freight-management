@@ -78,10 +78,15 @@ class AddVehicle extends Component
     public $routes_counter = 1;
     public $veh_routes = [];
 
-    public function addRoute()
+    public function addRoute($num)
     {
-        $this->routes_counter++;
+        array_push($this->veh_routes,$num);
     }
+
+    public function delRoute($route){
+        array_splice($this->veh_routes,$route,1);
+    }
+
 
     public function activate($tab)
     {
@@ -90,7 +95,6 @@ class AddVehicle extends Component
             $this->others = false;
             $this->doc_page = false;
         } else if ($tab == 'others') {
-            dd('here');
             $this->general = false;
             $this->others = true;
             $this->doc_page = false;
@@ -107,28 +111,27 @@ class AddVehicle extends Component
 
         Validator::make($this->vehicle,[
             'image' => 'required|mimes:jpg,png,jpeg',
-            'registration_docs'=> 'required|mimes:pdf',
-            'insurance_docs'=> 'required|mimes:pdf',
         ])->validate();
 
-        $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
-        $this->image->storeAs('vehicles', $imagename, 'real_public');
+        $imagename = uniqid() . '.' . $this->vehicle['image']->getClientOriginalExtension();
+        $this->vehicle['image']->storeAs('vehicles', $imagename, 'real_public');
+
 
         $vehicle = DB::table('vehicles')->insertGetId([
             'image' => $imagename,
-            'load_type' => json_encode($this->load_type),
-            'vehicle_category_id' => $this->vehicle_category_id,
-            'vehicle_subcategory_id' => $this->vehicle_subcategory_id,
-            'make' => $this->make,
-            'model' => $this->model,
-            'year' => $this->year,
-            'color' => $this->color,
-            'gps' => $this->gps,
+            'load_type' => json_encode($this->vehicle['load_type']),
+            'vehicle_category_id' => $this->vehicle['vehicle_category_id'],
+            'vehicle_subcategory_id' => $this->vehicle['vehicle_subcategory_id'],
+            'make' => $this->vehicle['make'],
+            'model' => $this->vehicle['model'],
+            'year' => $this->vehicle['year'],
+            'color' => $this->vehicle['color'],
+            'gps' => $this->vehicle['gps'],
             'mask' => Str::orderedUuid(),
-            'engine_type' => $this->engine_type,
-            'transmission' => $this->transmission,
-            'fuel_consumption' => $this->fuel_consumption,
-            'axle_type' => $this->axle_type
+            'engine_type' => $this->vehicle['engine_type'],
+            'transmission' => $this->vehicle['transmission'],
+            'fuel_consumption' => $this->vehicle['fuel_consumption'],
+            'axle_type' => $this->vehicle['axle_type']
         ]);
 
         $this->vehicle_id = $vehicle;
