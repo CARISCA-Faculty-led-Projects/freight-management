@@ -28,7 +28,7 @@ Route::prefix('organization')->group(function () {
     Route::get('overview', ViewOrganisations::class);
     Route::get('add', AddOrganization::class);
     Route::controller(OrganizationsController::class)->group(function () {
-        Route::get('list', 'index');
+        Route::get('list', 'index')->name('organization');
         Route::get('{organization}/details', 'details')->name('org.details');
         Route::get('{organization}/delete', 'destroy')->name('org.delete');
     });
@@ -46,7 +46,7 @@ Route::prefix('organization')->group(function () {
 Route::prefix('fleet')->group(function () {
     Route::prefix('vehicles')->group(function(){
             Route::controller(VehiclesController::class)->group(function () {
-            Route::get('/', 'index');
+            Route::get('/', 'index')->name('vehicles');
             Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
             Route::get('{vehicles}/details', 'details')->name('vehicles.view');
         });
@@ -68,7 +68,7 @@ Route::prefix('fleet')->group(function () {
 
     Route::prefix('drivers')->group(function () {
         Route::controller(DriversController::class)->group(function () {
-            Route::get('/', 'index');
+            Route::get('/', 'index')->name('drivers');
             Route::get('{driver}/delete', 'delete')->name('drivers.delete');
             Route::get('{driver}/details', 'details')->name('drivers.view');
         });

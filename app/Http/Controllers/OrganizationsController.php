@@ -14,7 +14,7 @@ class OrganizationsController extends Controller
     }
 
     public function details($organization){
-        $org_details = DB::table('organizations')->where('id',$organization)->first();
+        $org_details = DB::table('organizations')->where('mask',$organization)->first();
 
         $org_routes = DB::table('routes')->where('organization_id',$organization)->get();
 

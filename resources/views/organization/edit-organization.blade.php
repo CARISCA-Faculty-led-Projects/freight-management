@@ -101,7 +101,7 @@
                                         <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
                                     </div>
                                     @else
-                                    <img class="w-150px h-150px" src="{{asset('logos/'.$this->org['image'])}}" alt="image" />
+                                    <img class="w-150px h-150px" src="{{asset('storage/logos/'.$this->org['image'])}}" alt="image" />
                                     @endif
                                     <!--end::Preview existing avatar-->
                                     <!--begin::Label-->
@@ -114,7 +114,7 @@
                                             <span class="path2"></span>
                                         </i>
                                         <!--begin::Inputs-->
-                                        <input type="file" wire:model="org.image" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -353,7 +353,7 @@
                                                 <!--begin::Input-->
 
                                                 <input type="text" wire:model="org.name" class="form-control mb-2"
-                                                    placeholder="Organization name" value="org.name"  />
+                                                    placeholder="Organization name" value=""  />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">A organization name is required and
@@ -471,9 +471,7 @@
                                             <!--begin::Input group-->
                                             <div class="fv-row mb-2">
                                                 <!--begin::Dropzone-->
-                                                <input type="file" wire:model="org.registration_docs" id=""
-                                                    class="form-control">
-                                                {{-- <div class="dropzone" id="kt_ecommerce_add_organization_media">
+                                                <div class="dropzone" id="kt_ecommerce_add_product_media">
                                                     <!--begin::Message-->
                                                     <div class="dz-message needsclick">
                                                         <!--begin::Icon-->
@@ -483,20 +481,23 @@
                                                         </i>
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
+                                                        <input type="file" wire:model="org.registration_docs"
+                                                            id="" class="form-control">
                                                         <div class="ms-4">
-                                                            <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here
+                                                            <h5 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
                                                                 or
                                                                 click
-                                                                to upload.</h3>
-                                                            <span class="fs-7 fw-semibold text-gray-400">Upload up to
-                                                                10
-                                                                files</span>
+                                                                to upload.</h5>
                                                         </div>
                                                         <!--end::Info-->
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                                 <!--end::Dropzone-->
                                             </div>
+                                            <!--end::Input group-->
+                                            @error('registration_docs')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             <!--end::Input group-->
                                             <!--begin::Description-->
                                             <div class="text-muted fs-7">Upload the business registration documents
@@ -520,9 +521,7 @@
                                             <!--begin::Input group-->
                                             <div class="fv-row mb-2">
                                                 <!--begin::Dropzone-->
-                                                <input type="file" wire:model="org.insurance_docs" id=""
-                                                    class="form-control">
-                                                {{-- <div class="dropzone" id="kt_ecommerce_add_organization_media">
+                                                <div class="dropzone" id="kt_ecommerce_add_product_media">
                                                     <!--begin::Message-->
                                                     <div class="dz-message needsclick">
                                                         <!--begin::Icon-->
@@ -532,20 +531,23 @@
                                                         </i>
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
+                                                        <input type="file" wire:model="org.insurance_docs"
+                                                            id="" class="form-control">
                                                         <div class="ms-4">
-                                                            <h3 class="fs-5 fw-bold text-gray-900 mb-1">Drop files here
+                                                            <h5 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
                                                                 or
                                                                 click
-                                                                to upload.</h3>
-                                                            <span class="fs-7 fw-semibold text-gray-400">Upload up to
-                                                                10
-                                                                files</span>
+                                                                to upload.</h5>
                                                         </div>
                                                         <!--end::Info-->
                                                     </div>
-                                                </div> --}}
+                                                </div>
                                                 <!--end::Dropzone-->
                                             </div>
+                                            <!--end::Input group-->
+                                            @error('insurance_docs')
+                                            <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             <!--end::Input group-->
                                             <!--begin::Description-->
                                             <div class="text-muted fs-7">Uploads documents about insurance coverage on
@@ -581,7 +583,7 @@
                                                             <td>Email</td>
                                                             <td><input type="email" wire:model="org.email"
                                                                     id="" class="form-control"></td>
-                                                            <td class="text-end">
+                                                            {{-- <td class="text-end">
                                                                 <button type="button"
                                                                     class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
                                                                     data-bs-toggle="modal"
@@ -591,7 +593,7 @@
                                                                         <span class="path2"></span>
                                                                     </i>
                                                                 </button>
-                                                            </td>
+                                                            </td> --}}
                                                         </tr>
                                                         <tr>
                                                             <td>Password</td>
@@ -621,8 +623,8 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Update Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -658,7 +660,7 @@
                                                     <div class="form-group">
                                                         <div data-repeater-list="kt_ecommerce_add_organization_options"
                                                             class="d-flex flex-column gap-3">
-                                                            @for ($i=0;$i<$routes_counter;$i++)
+                                                            @for ($i=0;$i<count($this->org_routes);$i++)
                                                             <div data-repeater-item=""
                                                                 class="form-group d-flex flex-wrap align-items-center gap-5">
 
@@ -703,7 +705,7 @@
                                                     <!--end::Form group-->
                                                     <!--begin::Form group-->
                                                     <div class="form-group mt-5">
-                                                        <button type="button" wire:click="addRoute"
+                                                        <button type="button" wire:click="addRoute({{count($this->org_routes)+1}})"
                                                             class="btn btn-sm btn-light-primary">
                                                             <i class="ki-duotone ki-plus fs-2"></i>Add another
                                                             route</button>
@@ -928,8 +930,8 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Update Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -1425,8 +1427,8 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Update Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -1922,8 +1924,8 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Update Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->

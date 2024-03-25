@@ -80,7 +80,7 @@
                         <div class="d-flex flex-center flex-column mb-5">
                             <!--begin::Avatar-->
                             <div class="symbol symbol-100px symbol-circle mb-7">
-                                <img src="{{asset('logos/'.$org_details->image)}}" alt="image" />
+                                <img src="{{asset('storage/logos/'.$org_details->image)}}" alt="image" />
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Name-->

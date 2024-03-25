@@ -95,9 +95,9 @@
                                 <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                     data-kt-image-input="true">
                                     <!--begin::Preview existing avatar-->
-                                    @if ($image)
+                                    @if ($vehicle['image'])
                                         <div class="">
-                                            <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                                            <img class="w-150px h-150px" src="{{ $vehicle['image']->temporaryUrl() }}">
                                         </div>
                                     @else
                                         <div class="image-input-wrapper w-150px h-150px"></div>
@@ -113,7 +113,7 @@
                                             <span class="path2"></span>
                                         </i>
                                         <!--begin::Inputs-->
-                                        <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" wire:model="vehicle.image" accept=".png, .jpg, .jpeg" required/>
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -145,6 +145,10 @@
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set the vehicle image. Only *.png, *.jpg and *.jpeg image
                                     files are accepted</div>
+
+                                @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                 <!--end::Description-->
                             </div>
                             <!--end::Card body-->
@@ -177,7 +181,7 @@
                                         <!--end::Bullet-->
                                         <!--begin::Checkbox-->
                                         <div class="form-check form-check-custom form-check-solid mx-5">
-                                            <input class="form-check-input" wire:model="load_type" type="checkbox"
+                                            <input class="form-check-input" wire:model="vehicle.load_type" type="checkbox"
                                                 value="{{ $load->name }}" />
                                         </div>
                                         <!--end::Checkbox-->
@@ -282,27 +286,6 @@
                                                 <!--begin::Input group-->
                                                 <div class="fv-row w-100 flex-md-root">
                                                     <!--begin::Label-->
-                                                    {{-- <label class="required form-label">Organization</label> --}}
-                                                    <!--end::Label-->
-                                                    <!--begin::Select2-->
-
-                                                    {{-- <select class="form-select mb-2" wire:model="organization_id"
-                                                        data-control="select2" data-hide-search="true"
-                                                        data-placeholder="Select an option">
-                                                        <option></option>
-                                                        @foreach ($this->olist() as $org)
-                                                            <option value="{{ $org->mask }}" wire:key="org-{{ $org->mask }}"> {{ $org->name }}
-                                                            </option>
-                                                        @endforeach
-                                                    </select> --}}
-                                                    <!--end::Select2-->
-                                                    <!--begin::Description-->
-                                                    {{-- {{$organizations_list}} --}}
-
-                                                    {{-- <div class="text-muted fs-7">Set the organization who owns the
-                                                        vehicle.
-                                                    </div> --}}
-                                                    <!--end::Description-->
                                                 </div>
                                                 <!--end::Input group-->
 
@@ -314,9 +297,9 @@
                                                 <label class="required form-label">Vehicle Category</label>
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
-                                                <select class="form-select mb-2" wire:model="vehicle_category_id"
+                                                <select class="form-select mb-2" wire:model="vehicle.vehicle_category_id"
                                                     data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Select an option">
+                                                    data-placeholder="Select an option" required>
                                                     <option></option>
                                                     @foreach ($this->vcat() as $category)
                                                         <option value="{{ $category->id }}"
@@ -338,7 +321,7 @@
                                                 <label class="required form-label">Vehicle Sub Category</label>
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
-                                                <select class="form-select mb-2" wire:model="vehicle_subcategory_id"
+                                                <select class="form-select mb-2" wire:model="vehicle.vehicle_subcategory_id"
                                                     data-control="select2" data-hide-search="true"
                                                     data-placeholder="Select an option">
                                                     <option></option>
@@ -365,8 +348,8 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Make</label>
                                                     <!--end::Label-->
-                                                    <input type="text" class="form-control" wire:model="make"
-                                                        min="1990" max="2024" id="">
+                                                    <input type="text" class="form-control" wire:model="vehicle.make"
+                                                        min="1990" max="2024" id="" required>
 
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the make of the vehicle.</div>
@@ -378,7 +361,7 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Model</label>
                                                     <!--end::Label-->
-                                                    <input type="text" class="form-control" wire:model="model">
+                                                    <input type="text" class="form-control" wire:model="vehicle.model" required>
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the model of the vehicle.</div>
                                                     <!--end::Description-->
@@ -394,8 +377,8 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Year</label>
                                                     <!--end::Label-->
-                                                    <input type="number" class="form-control" wire:model="year"
-                                                        min="1990" max="2024" id="">
+                                                    <input type="number" class="form-control" wire:model="vehicle.year"
+                                                        min="1990" max="2024" id="" required>
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the year the vehicle was
                                                         manufactured.
@@ -408,8 +391,8 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Color</label>
                                                     <!--end::Label-->
-                                                    <input type="text" wire:model="color" id=""
-                                                        class="form-control">
+                                                    <input type="text" wire:model="vehicle.color" id=""
+                                                        class="form-control" required>
 
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the vehicle current color.</div>
@@ -441,14 +424,14 @@
                                                     <div class="col">
                                                         <!--begin::Option-->
                                                         <label
-                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6"
+                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary {{ $vehicle['gps'] == 'No' ? 'active' : '' }} d-flex text-start p-6"
                                                             data-kt-button="true">
                                                             <!--begin::Radio-->
                                                             <span
                                                                 class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
                                                                 <input class="form-check-input" type="radio"
-                                                                    wire:model="gps" value="No"
-                                                                    checked="checked" />
+                                                                    wire:model="vehicle.gps" value="No"
+                                                                    {{ $vehicle['gps'] == 'No' ? 'checked' : '' }} required />
                                                             </span>
                                                             <!--end::Radio-->
                                                             <!--begin::Info-->
@@ -466,13 +449,13 @@
                                                     <div class="col">
                                                         <!--begin::Option-->
                                                         <label
-                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6"
+                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary {{ $vehicle['gps'] == 'Yes' ? 'active' : '' }} d-flex text-start p-6"
                                                             data-kt-button="true">
                                                             <!--begin::Radio-->
                                                             <span
                                                                 class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
                                                                 <input class="form-check-input" type="radio"
-                                                                    wire:model="gps" value="Yes" />
+                                                                    wire:model="vehicle.gps" value="Yes" {{ $vehicle['gps'] == 'Yes' ? 'checked' : '' }}/>
                                                             </span>
                                                             <!--end::Radio-->
                                                             <!--begin::Info-->
@@ -494,7 +477,6 @@
                                     </div>
                                     <!--end::General options-->
 
-
                                     <!--begin::Pricing-->
                                     <div class="card card-flush py-4">
                                         <!--begin::Card header-->
@@ -512,9 +494,9 @@
                                                 <label class="required form-label">Engine Type</label>
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
-                                                <select class="form-select mb-2" wire:model="engine_type"
+                                                <select class="form-select mb-2" wire:model="vehicle.engine_type"
                                                     data-control="select2" data-hide-search="true"
-                                                    data-placeholder="Select an option">
+                                                    data-placeholder="Select an option" required>
                                                     <option></option>
                                                     <option value="Diesel">Diesel</option>
                                                     <option value="Petrol">Petrol</option>
@@ -546,14 +528,14 @@
                                                     <div class="col">
                                                         <!--begin::Option-->
                                                         <label
-                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary active d-flex text-start p-6"
+                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary {{ $vehicle['transmission'] == 'Manual' ? 'active' : '' }} d-flex text-start p-6"
                                                             data-kt-button="true">
                                                             <!--begin::Radio-->
                                                             <span
                                                                 class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
                                                                 <input class="form-check-input" type="radio"
-                                                                    wire:model="transmission" value="Manual"
-                                                                    checked="checked" />
+                                                                    wire:model="vehicle.transmission" value="Manual"
+                                                                    {{ $vehicle['transmission'] == 'Manual' ? 'checked' : '' }} required/>
                                                             </span>
                                                             <!--end::Radio-->
                                                             <!--begin::Info-->
@@ -571,13 +553,13 @@
                                                     <div class="col">
                                                         <!--begin::Option-->
                                                         <label
-                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary d-flex text-start p-6"
+                                                            class="btn btn-outline btn-outline-dashed btn-active-light-primary {{ $vehicle['transmission'] == 'Automatic' ? 'active' : '' }} d-flex text-start p-6"
                                                             data-kt-button="true">
                                                             <!--begin::Radio-->
                                                             <span
                                                                 class="form-check form-check-custom form-check-solid form-check-sm align-items-start mt-1">
                                                                 <input class="form-check-input" type="radio"
-                                                                    wire:model="transmission" value="Automatic" />
+                                                                    wire:model="vehicle.transmission" value="Automatic" {{ $vehicle['transmission'] == 'Automatic' ? 'checked' : '' }}  required/>
                                                             </span>
                                                             <!--end::Radio-->
                                                             <!--begin::Info-->
@@ -604,8 +586,8 @@
                                                     <label class="required form-label">Fuel Consumption</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" wire:model="fuel_consumption"
-                                                        class="form-control mb-2" value="" />
+                                                    <input type="text" wire:model="vehicle.fuel_consumption"
+                                                        class="form-control mb-2" value="" required/>
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the fuel consumption.</div>
@@ -618,7 +600,7 @@
                                                     <label class="form-label">Axle Configuration (eg. 6x4)</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" wire:model="axle_type"
+                                                    <input type="text" wire:model="vehicle.axle_type"
                                                         class="form-control mb-2" value="" />
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
@@ -636,14 +618,14 @@
                             </div>
                             <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/organizations"
+                                <a href="{{route('vehicles')}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -701,11 +683,11 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <div class="d-flex gap-3">
-                                                    <input type="number" wire:model="owner.phone"
+                                                    <input type="tel" wire:model="owner.phone"
                                                         class="form-control mb-2" placeholder="Phone"
                                                         value="" />
 
-                                                    <input type="number" wire:model="owner.address"
+                                                    <input type="text" wire:model="owner.address"
                                                         class="form-control mb-2" placeholder="Address" />
                                                 </div>
                                                 <!--end::Input-->
@@ -888,14 +870,14 @@
                             <!--end::Shipping-->
                             <div class="{{ $others ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/organizations"
+                                <a href="{{route('vehicles')}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -1052,14 +1034,14 @@
                             </div>
                             <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/organizations"
+                                <a href="{{route('vehicles')}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Update Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->

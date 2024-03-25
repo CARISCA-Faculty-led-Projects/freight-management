@@ -30,30 +30,14 @@ class UpdateOrganization extends Component
         'load_type' => []
     ];
     public $image;
-    // public $mask = '9b7c8b3e-22a1-48f9-920d-e964e67dde63';
     public $mask;
-    // public $org_country;
-    // public $org_region;
     public $org_load_type = [];
     public $org_load_list = [];
     public $org_name;
-    // public $org_desc;
-    // public $org_email;
-    // public $org_phone;
-    // public $org_address;
-    // public $org_reg_docs;
-    // public $org_ins_docs;
-    // public $password;
-    // public $mask;
 
     // Fields Routes
     public $routes_counter = 1;
     public $org_routes = [];
-
-    public function addRoute()
-    {
-        $this->routes_counter += 1;
-    }
 
     public function activate($tab)
     {
@@ -79,6 +63,16 @@ class UpdateOrganization extends Component
             $this->payin = true;
         }
     }
+
+    public function addRoute($num)
+    {
+        array_push($this->org_routes,$num);
+    }
+
+    public function delRoute($route){
+        array_splice($this->org_routes,$route,1);
+    }
+
 
     #[Computed]
     public function loads()
@@ -106,15 +100,16 @@ class UpdateOrganization extends Component
 
     public function general()
     {
+        
         if ($this->org_load_type != []) {
             $this->org['load_type'] = json_encode($this->org_load_type);
         }
 
         // dd($this->org);
 
-        if (is_file($this->org['image'])) {
-            $org_image = uniqid() . '.' . $this->org['image']->getClientOriginalExtension();
-            $this->org['image']->storeAs('logos', $org_image, 'real_public');
+        if (is_file($this->image)) {
+            $org_image = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->storeAs('logos', $org_image, 'real_public');
             $this->org['image'] = $org_image;
         }
 
@@ -175,22 +170,16 @@ class UpdateOrganization extends Component
 
         foreach ($org_dets as $key => $dets) {
             if ($key == "load_type") {
-                // $this->org[$key] = json_decode($dets);
+
                 $this->org_load_list = json_decode($dets);
             } else {
                 $this->org[$key] = $dets;
             }
         }
-        //  dd($this->org);
+
         $org_rou = DB::table('routes')->where("organization_id", $this->mask)->get();
-        // $this->routes_counter = count($org_rou);
-        // array_push($this->org_routes,$org_rou);
         for ($a = 0; $a < count($org_rou); $a++) {
-            // dd($org_rou[$a]);
-            // $this->routes_counter = 0;
             $this->org_routes[$a] = $org_rou[$a];
-            $this->routes_counter += $a;
-            // $this->addRoute();
         }
     }
 

@@ -55,8 +55,8 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
             <!--begin::Form-->
-            <form wire:submit.prevent="general" method="post" id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
-                data-kt-redirect="/apps/ecommerce/catalog/products">
+            <form wire:submit.prevent="general" method="post" id="kt_ecommerce_add_product_form"
+                class="form d-flex flex-column flex-lg-row" data-kt-redirect="/apps/ecommerce/catalog/products">
                 <!--begin::Aside column-->
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                     <!--begin::Thumbnail settings-->
@@ -87,9 +87,9 @@
                             <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                 data-kt-image-input="true">
                                 <!--begin::Preview existing avatar-->
-                                @if ($image)
+                                @if ($driver['image'])
                                     <div class="">
-                                        <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                                        <img class="w-150px h-150px" src="{{ $driver['image']->temporaryUrl() }}">
                                     </div>
                                 @else
                                     <div class="image-input-wrapper w-150px h-150px"></div>
@@ -104,7 +104,7 @@
                                         <span class="path2"></span>
                                     </i>
                                     <!--begin::Inputs-->
-                                    <input type="file" wire:model="image" accept=".png, .jpg, .jpeg"  required/>
+                                    <input type="file" wire:model="driver.image" accept=".png, .jpg, .jpeg" required />
                                     <input type="hidden" name="avatar_remove" />
                                     <!--end::Inputs-->
                                 </label>
@@ -134,7 +134,9 @@
                             <!--begin::Description-->
                             <div class="text-muted fs-7">Set the image of the Driver. Only *.png, *.jpg and *.jpeg image
                                 files are accepted</div>
-                                {{-- @error('image') <span class="text-danger">{{ $message }}</span> @enderror --}}
+                            @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <!--end::Description-->
                         </div>
                         <!--end::Card body-->
@@ -212,7 +214,8 @@
                                     <!--end::Bullet-->
                                     <!--begin::Checkbox-->
                                     <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" wire:model="load_type" type="checkbox" value="{{$load->name}}" />
+                                        <input class="form-check-input" wire:model="load_type" type="checkbox"
+                                            value="{{ $load->name }}" />
                                     </div>
                                     <!--end::Checkbox-->
                                     <!--begin::Description-->
@@ -232,6 +235,9 @@
                                     <i class="ki-duotone ki-plus fs-2"></i>Add new preference</button>
                             </div> --}}
                             <!--end::Form group-->
+                            @error('load_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <!--begin::Description-->
                             <div class="text-muted fs-7 mt-5">These specify which goods your company can transport
                             </div>
@@ -267,7 +273,8 @@
                     <!--begin::Tab content-->
                     <div class="tab-content">
                         <!--begin::Tab pane-->
-                        <form wire:submit.prevent="general" method="post" class="{{ $general ? '' : 'd-none' }}" enctype="multipart/form-data">
+                        <form wire:submit.prevent="general" method="post" class="{{ $general ? '' : 'd-none' }}"
+                            enctype="multipart/form-data">
                             <div class="tab-pane fade {{ $general ? 'show active' : '' }}"
                                 id="kt_ecommerce_add_product_general" role="tab-panel">
                                 <div class="d-flex flex-column gap-7 gap-lg-10">
@@ -312,8 +319,12 @@
                                                 <!--begin::Input-->
                                                 <input type="text" wire:model="driver.name"
                                                     class="form-control mb-2" placeholder="Driver name"
-                                                    value="" />
+                                                    value="" required />
                                                 <!--end::Input-->
+                                                @error('name')
+                                                    <span class="text-danger">{{ $message }}</span>
+                                                @enderror
+
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter driver's name</div>
                                                 <!--end::Description-->
@@ -330,6 +341,10 @@
                                                         class="form-control mb-2" placeholder="+233XXXXXXXXXX"
                                                         value="" />
                                                     <!--end::Input-->
+                                                    @error('phone')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Enter driver's phone number</div>
                                                     <!--end::Description-->
@@ -341,10 +356,14 @@
                                                     <label class="required form-label">Driver Email</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input type="text" wire:model="driver.email"
+                                                    <input type="email" wire:model="driver.email"
                                                         class="form-control mb-2" placeholder="Driver name"
                                                         value="" required />
                                                     <!--end::Input-->
+                                                    @error('email')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">A product name is required and
                                                         recommended
@@ -365,6 +384,9 @@
                                                     <input type="text" class="form-control"
                                                         wire:model="driver.address" min="1990" max="2024"
                                                         id="">
+                                                    @error('address')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
 
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the address of the driver.</div>
@@ -376,6 +398,9 @@
                                                     <!--end::Label-->
                                                     <input type="date" class="form-control"
                                                         wire:model="driver.dob" id="">
+                                                    @error('dob')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
 
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the address of the driver.</div>
@@ -390,6 +415,10 @@
                                                     <input type="text" class="form-control"
                                                         wire:model="driver.license_number">
                                                     <!--begin::Description-->
+                                                    @error('license_number')
+                                                        <span class="text-danger">{{ $message }}</span>
+                                                    @enderror
+
                                                     <div class="text-muted fs-7">Set the model of the vehicle.</div>
                                                     <!--end::Description-->
                                                 </div>
@@ -457,6 +486,9 @@
                                                 <!--end::Dropzone-->
                                             </div>
                                             <!--end::Input group-->
+                                            @error('license_image')
+                                                <span class="text-danger">{{ $message }}</span>
+                                            @enderror
                                             <!--begin::Description-->
                                             <div class="text-muted fs-7">Upload a drivers license to help us verify the
                                                 identity of
@@ -532,13 +564,13 @@
                             </div>
                             <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
+                                <a href="{{route('drivers')}}" id="kt_ecommerce_add_product_cancel"
                                     class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->

@@ -17,7 +17,10 @@ class AddDriver extends Component
     public $payment = false;
 
     // Fields
-    public $driver;
+    public $driver = [
+        'image' => null,
+        'license_image' => null,
+    ];
     public $load_type = [];
     public $image;
     // public $phone;
@@ -53,15 +56,19 @@ class AddDriver extends Component
     {
         $validated = Validator::make($this->driver, [
             'email' => 'required',
-            'name' => 'required'
-        ]);
+            'name' => 'required',
+            'license_image'=> 'required|mimes:png,jpg,jpeg',
+            'image'=> 'required|mimes:png,jpg,jpeg',
+            'load_type' => 'array'
+        ])->validate();
 
-        if ($validated->fails()) {
-            dd($validated->errors());
-            // return $this->validationResponse($validated->errors());
-        }
-        $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
-        $this->image->storeAs('drivers', $imagename, 'real_public');
+        // if ($validated->fails()) {
+        //     dd($validated->errors());
+        //     // return $this->validationResponse($validated->errors());
+        // }
+        // dd($this->driver);
+        $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
+        $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
 
         $imagename = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
         $this->driver['license_image']->storeAs('drivers', $imagename, 'real_public');

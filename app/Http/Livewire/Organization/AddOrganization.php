@@ -2,13 +2,14 @@
 
 namespace App\Http\Livewire\Organization;
 
-use GuzzleHttp\Psr7\Request;
 use Livewire\Component;
 use Illuminate\Support\Str;
+use GuzzleHttp\Psr7\Request;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AddOrganization extends Component
 {
@@ -21,22 +22,15 @@ class AddOrganization extends Component
     public $payin = false;
 
     // Fields General
-    public $org_image;
-    public $org_country;
-    public $org_region;
-    public $org_load_type = [];
-    public $org_name;
-    public $org_desc;
-    public $org_email;
-    public $org_phone;
-    public $org_address;
-    public $org_reg_docs;
-    public $org_ins_docs;
-    public $password;
+    public $org =[
+        'image'=> null,
+        'registration_docs' => null,
+        'insurance_docs' => null,
+        'load_type' => []
+    ] ;
     public $mask;
 
     // Fields Routes
-    public $routes_counter = 1;
     public $org_routes = [];
 
     private function setMask()
@@ -44,16 +38,13 @@ class AddOrganization extends Component
         $this->mask = Str::orderedUuid();
     }
 
-    public function addRoute()
+    public function addRoute($num)
     {
-        $this->routes_counter++;
+        array_push($this->org_routes,$num);
     }
 
-    public function increment()
-
-    {
-
-        $this->count++;
+    public function delRoute($route){
+        array_splice($this->org_routes,$route,1);
     }
 
     public function activate($tab)
@@ -83,31 +74,45 @@ class AddOrganization extends Component
 
     public function general()
     {
+        $validated = Validator::make($this->org,[
+            'image' => 'required|mimes:jpg,png,jpeg',
+            'email' => 'required',
+            'name' => 'required',
+            'registration_docs'=> 'required|mimes:pdf',
+            'insurance_docs'=> 'required|mimes:pdf',
+            'load_type' => 'array'
+        ])->validate();
+
         $this->setMask();
 
-        $org_image = uniqid() . '.' . $this->org_image->getClientOriginalExtension();
-        $regdoc = uniqid() . '.' . $this->org_reg_docs->getClientOriginalExtension();
-        $insdoc = uniqid() . '.' . $this->org_ins_docs->getClientOriginalExtension();
-        $this->org_image->storeAs('logos', $org_image, 'real_public');
-        $this->org_reg_docs->storeAs('org_registration', $regdoc, 'real_public');
-        $this->org_ins_docs->storeAs('org_insurance', $insdoc, 'real_public');
+        $org_image = uniqid() . '.' . $this->org['image']->getClientOriginalExtension();
+        $regdoc = uniqid() . '.' . $this->org['registration_docs']->getClientOriginalExtension();
+        $insdoc = uniqid() . '.' . $this->org['insurance_docs']->getClientOriginalExtension();
+        $this->org['image']->storeAs('logos', $org_image, 'real_public');
+        $this->org['registration_docs']->storeAs('org_registration', $regdoc, 'real_public');
+        $this->org['insurance_docs']->storeAs('org_insurance', $insdoc, 'real_public');
+
+        $this->org['mask'] = $this->mask;
+        $this->org['account_id'] = "ID-" . generateAccNumber();
+        $this->org['created_at'] = Carbon::now()->toDateTimeString();
+
 
         $org_id = DB::table('organizations')->insertGetId([
             'image' => $org_image,
-            'country' => $this->org_country,
-            'region' => $this->org_region,
-            'load_type' => json_encode($this->org_load_type),
-            'name' => $this->org_name,
-            'description' => $this->org_desc,
-            'email' => $this->org_email,
-            'phone' => $this->org_phone,
-            'address' => $this->org_address,
-            'registration_docs' => $regdoc,
-            'insurance_docs' => $insdoc,
+            'country' => $this->org['country'],
+            'region' => $this->org['region'],
+            'load_type' => json_encode($this->org['load_type']),
+            'name' => $this->org['name'],
+            'description' => $this->org['description'],
+            'email' => $this->org['email'],
+            'phone' => $this->org['phone'],
+            'address' => $this->org['address'],
+            'registration_docs' => $this->org['registration_docs'],
+            'insurance_docs' => $this->org['insurance_docs'],
             'mask' => $this->mask,
-            'account_id' => "ID-" . generateAccNumber(),
-            "tax_id" => "TX-" . generateTaxnNumber(),
-            'status' => "Pending",
+            'account_id' => $this->org['account_id'],
+            "tax_id" => $this->org['tax_id'],
+            'status' => "Approved",
             'created_at' => Carbon::now()->toDateTimeString()
 
         ]);
@@ -115,14 +120,20 @@ class AddOrganization extends Component
         DB::table('users')->insert([
             'account_id' => $this->mask,
             'account_type' => 'Organization',
-            'email' => $this->org_email,
-            'password' => Hash::make($this->password),
-            'created_at' => Carbon::now()->toDateTimeString()
+            'email' => $this->org['email'],
+            'password' => Hash::make($this->org['password']),
+            'created_at' => $this->org['created_at']
         ]);
 
         $this->mask = $org_id;
 
         $this->activate('routes');
+    }
+
+    #[Computed]
+    public function loads()
+    {
+        return DB::table('load_types')->get(['id', 'name']);
     }
 
     public function routes()

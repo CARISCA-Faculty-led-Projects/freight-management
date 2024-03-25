@@ -29,6 +29,12 @@ class AddVehicle extends Component
     public $driver_id;
     public $image;
     public $load_type = [];
+    public $vehicle = [
+        'gps' => 'No',
+        'transmission' => "Manual",
+        'image' => null,
+        'load_type'=> []
+    ];
     public $vehicle_category_id;
     public $vehicle_subcategory_id;
     public $make;
@@ -98,8 +104,12 @@ class AddVehicle extends Component
 
     public function general()
     {
-        // $this->validate();
 
+        Validator::make($this->vehicle,[
+            'image' => 'required|mimes:jpg,png,jpeg',
+            'registration_docs'=> 'required|mimes:pdf',
+            'insurance_docs'=> 'required|mimes:pdf',
+        ])->validate();
 
         $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
         $this->image->storeAs('vehicles', $imagename, 'real_public');
