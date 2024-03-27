@@ -659,14 +659,14 @@
                             <!--end::Shipping-->
                             <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/organizations"
-                                    id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
-                                <!--end::Button-->
-                                <!--begin::Button-->
-                                <button type="submit" id="kt_ecommerce_add_organization_submit"
-                                    class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                <a href="{{route("organizations")}}"
+                                id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
+                            <!--end::Button-->
+                            <!--begin::Button-->
+                            <button type="submit" id="kt_ecommerce_add_organization_submit"
+                                class="btn btn-primary">
+                                <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -782,27 +782,28 @@
                                                             class="d-flex flex-column gap-3">
                                                             <div
                                                                 class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                @for ($i = 0; $i < $routes_counter; $i++)
-                                                                    {{-- <div class="form-group d-flex flex-wrap align-items-center gap-5" wire:key="routes-{{ $i }}"> --}}
-                                                                    <!--begin::Input-->
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-300px"
-                                                                        wire:model="veh_routes.{{ $i }}.origin"
-                                                                        placeholder="From" />
+                                                                @for ($i=0;$i<count($this->veh_routes);$i++)
+                                                                    <div data-repeater-item=""
+                                                                        class="form-group d-flex flex-wrap align-items-center gap-5">
 
-                                                                    <input type="text"
-                                                                        class="form-control mw-100 w-300px"
-                                                                        wire:model="veh_routes.{{ $i }}.destination"
-                                                                        placeholder="To" />
-                                                                    <!--end::Input-->
-                                                                    <button type="button" data-repeater-delete=""
-                                                                        class="btn btn-sm btn-icon btn-light-danger">
-                                                                        <i class="ki-duotone ki-cross fs-1">
-                                                                            <span class="path1"></span>
-                                                                            <span class="path2"></span>
-                                                                        </i>
-                                                                    </button>
-                                                                @endfor
+                                                                        <!--begin::Input-->
+                                                                        <input type="text"
+                                                                            class="form-control mw-100 w-300px"
+                                                                            wire:model="veh_routes.{{$i}}.origin" placeholder="From" required/>
+
+                                                                        <input type="text"
+                                                                            class="form-control mw-100 w-300px"
+                                                                            wire:model="veh_routes.{{$i}}.destination" placeholder="To" required/>
+                                                                        <!--end::Input-->
+                                                                        <button type="button" data-repeater-delete="" wire:click="delRoute({{$i}})"
+                                                                            class="btn btn-sm btn-icon btn-light-danger">
+                                                                            <i class="ki-duotone ki-cross fs-1">
+                                                                                <span class="path1"></span>
+                                                                                <span class="path2"></span>
+                                                                            </i>
+                                                                        </button>
+                                                                    </div>
+                                                                    @endfor
                                                             </div>
                                                         </div>
                                                     </div>
@@ -813,7 +814,7 @@
                                             <!--end::Form group-->
                                             <!--begin::Form group-->
                                             <div class="form-group mt-5">
-                                                <button type="button" wire:click="addRoute"
+                                                <button type="button" wire:click="addRoute({{count($this->veh_routes)+1}})"
                                                     class="btn btn-sm btn-light-primary">
                                                     <i class="ki-duotone ki-plus fs-2"></i>Add another
                                                     route</button>
@@ -909,14 +910,14 @@
                             <!--end::Shipping-->
                             <div class="{{ $others ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/organizations"
+                                <a href="{{route("organizations")}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -962,7 +963,7 @@
                                                                     or
                                                                     click
                                                                     to upload.</h3>
-    
+
                                                             </div>
                                                             <div wire:loading wire:target="documents.owners_documents" class="ms-4">
                                                                 <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
@@ -1014,7 +1015,7 @@
                                                                     or
                                                                     click
                                                                     to upload.</h3>
-    
+
                                                             </div>
                                                             <div wire:loading wire:target="documents.road_worth_documents" class="ms-4">
                                                                 <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
@@ -1091,14 +1092,14 @@
                             </div>
                             <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/organizations"
-                                    id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
-                                <!--end::Button-->
-                                <!--begin::Button-->
-                                <button type="submit" id="kt_ecommerce_add_organization_submit"
-                                    class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                <a href="{{route("organizations")}}"
+                                id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
+                            <!--end::Button-->
+                            <!--begin::Button-->
+                            <button type="submit" id="kt_ecommerce_add_organization_submit"
+                                class="btn btn-primary">
+                                <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->

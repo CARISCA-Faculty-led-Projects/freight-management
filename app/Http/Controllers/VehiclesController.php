@@ -47,4 +47,14 @@ class VehiclesController extends Controller
 
         return view('fleet.vehicles.details', compact('vehicle', "vehicle_routes", 'vehicle_owner','organization','driver'));
     }
+
+    public function maintenance_logs($vehicle){
+
+        return view('fleet.vehicles.maintenance.view',compact('vehicle'));
+    }
+
+    public function add_maintenance(){
+
+        return view('fleet.vehicles.maintenance.add');
+    }
 }

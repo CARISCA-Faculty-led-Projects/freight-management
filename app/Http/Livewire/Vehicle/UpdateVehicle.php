@@ -15,9 +15,9 @@ class UpdateVehicle extends Component
     use WithFileUploads;
 
     // Tabs
-    public $general = false;
+    public $general = true;
     public $others = false;
-    public $doc_page = true;
+    public $doc_page = false;
 
     // public $org_list;
     // public $vehicle_categories_list;
@@ -46,10 +46,15 @@ class UpdateVehicle extends Component
     public $routes_counter = 1;
     public $veh_routes = [];
 
-    public function addRoute()
+    public function addRoute($num)
     {
-        $this->routes_counter++;
+        array_push($this->veh_routes,$num);
     }
+
+    public function delRoute($route){
+        array_splice($this->veh_routes,$route,1);
+    }
+
 
     public function activate($tab)
     {
@@ -70,7 +75,6 @@ class UpdateVehicle extends Component
 
     public function general()
     {
-        // dd($this->vehicle);
         if (is_file($this->vehicle['image'])) {
             $imagename = uniqid() . '.' . $this->vehicle['image']->getClientOriginalExtension();
             $this->image->storeAs('vehicles', $imagename, 'real_public');
@@ -123,7 +127,7 @@ class UpdateVehicle extends Component
             $this->vehicle['road_worth_documents'] = $owners;
         }
 
-        if($this->vehicle['insurance_documents']){
+        if(is_file($this->vehicle['insurance_documents'])){
             $insurance = uniqid() . '.' . $this->vehicle['insurance_documents']->getClientOriginalExtension();
             $this->vehicle['insurance_documents']->storeAs('vehicles', $insurance, 'real_public');
             $this->vehicle['insurance_documents'] = $insurance;
@@ -167,10 +171,12 @@ class UpdateVehicle extends Component
         $vehicle = DB::table('vehicles')->where('mask', $mask)->first();
 
         $vroutes = DB::table('vehicle_routes')->where('vehicle_id', $vehicle->mask)->get();
+        for ($a = 0; $a < count($vroutes); $a++) {
+            $this->veh_routes[$a] = $vroutes[$a];
+        }
         $vowners = DB::table('vehicle_owners')->where('vehicle_id', $vehicle->mask)->first();
         // dd($vroutes);
         $this->vehicle = (array)$vehicle;
-        $this->veh_routes = $vroutes;
         $this->routes_counter = count($vroutes);
         $this->owner = (array)$vowners;
     }

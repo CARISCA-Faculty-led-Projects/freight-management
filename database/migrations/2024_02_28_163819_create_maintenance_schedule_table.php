@@ -13,8 +13,7 @@ return new class extends Migration
     {
         Schema::create('maintenance_schedule', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('organisation_id');
-            $table->string('vehicle_id');
+            $table->foreignUuid('vehicle_id');
             $table->string('status');
             $table->string('task');
             $table->date('date');

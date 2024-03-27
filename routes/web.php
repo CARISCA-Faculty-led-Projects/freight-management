@@ -4,6 +4,7 @@ use App\Http\Controllers\DriversController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\VehiclesController;
 use App\Http\Livewire\Driver\AddDriver;
+use App\Http\Livewire\Driver\UpdateDriver;
 use App\Http\Livewire\Organization\AddOrganization;
 use App\Http\Livewire\Vehicle\AddVehicle;
 use App\Http\Livewire\Organisation;
@@ -28,7 +29,7 @@ Route::prefix('organization')->group(function () {
     Route::get('overview', ViewOrganisations::class);
     Route::get('add', AddOrganization::class);
     Route::controller(OrganizationsController::class)->group(function () {
-        Route::get('list', 'index')->name('organization');
+        Route::get('list', 'index')->name('organizations');
         Route::get('{organization}/details', 'details')->name('org.details');
         Route::get('{organization}/delete', 'destroy')->name('org.delete');
     });
@@ -44,12 +45,22 @@ Route::prefix('organization')->group(function () {
 
 
 Route::prefix('fleet')->group(function () {
-    Route::prefix('vehicles')->group(function(){
-            Route::controller(VehiclesController::class)->group(function () {
+    Route::prefix('vehicles')->group(function () {
+        Route::controller(VehiclesController::class)->group(function () {
             Route::get('/', 'index')->name('vehicles');
             Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
             Route::get('{vehicles}/details', 'details')->name('vehicles.view');
+            Route::get('locate', function () {
+                return view('fleet.vehicles.locate');
+            });
+            Route::prefix('maintenance')->group(function () {
+                Route::get('{vehicle}/list', 'maintenance_logs')->name('vehicle.maintenance_list');
+                Route::get('{vehicle}/add', 'add_maintenance')->name('vehicle.maintenance.add');
+                Route::post('{vehicle}/store', 'store_maintenance')->name('vehicle.maintenance.save');
+                Route::get('{vehicle}/delete', 'delete_maintenance')->name('vehicle.maintenance.delete');
+            });
         });
+        Route::get('add', AddVehicle::class);
         Route::get('{mask}/edit', UpdateVehicle::class)->name('vehicles.edit');
     });
     Route::get('overview', function () {
@@ -59,26 +70,17 @@ Route::prefix('fleet')->group(function () {
         return view('fleet.locate');
     });
 
-
-    Route::get('vehicles/locate', function () {
-        return view('fleet.vehicles.locate');
-    });
-    Route::get('vehicles/add', AddVehicle::class);
-
-
     Route::prefix('drivers')->group(function () {
         Route::controller(DriversController::class)->group(function () {
             Route::get('/', 'index')->name('drivers');
-            Route::get('{driver}/delete', 'delete')->name('drivers.delete');
+            Route::get('{driver}/delete', 'delete')->name('driver.delete');
             Route::get('{driver}/details', 'details')->name('drivers.view');
         });
         Route::get('add', AddDriver::class);
+        Route::get('{mask}/edit', UpdateDriver::class)->name('driver.edit');
 
         Route::get('locate', function () {
             return view('fleet.drivers.locate');
-        });
-        Route::get('edit', function () {
-            return view('fleet.drivers.edit');
         });
         Route::get('shipment_history', function () {
             return view('fleet.drivers.shipment_history');

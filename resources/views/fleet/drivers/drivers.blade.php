@@ -270,7 +270,7 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/fleet/drivers/edit" class="menu-link px-3">Edit</a>
+                                        <a href="{{route('driver.edit',$driver->mask)}}" class="menu-link px-3">Edit</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -280,7 +280,7 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="{{route('drivers.delete',$driver->mask)}}" class="menu-link px-3"
+                                        <a href="{{route('driver.delete',$driver->mask)}}" class="menu-link px-3"
                                             >Delete</a>
                                     </div>
                                     <!--end::Menu item-->

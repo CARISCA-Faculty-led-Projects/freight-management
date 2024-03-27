@@ -283,8 +283,7 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a class="menu-link px-3" data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_add_maintenance_schedule">Maintenance</a>
+                                        <a class="menu-link px-3" href="{{route("vehicle.maintenance_list",$vehicle->mask)}}">Maintenance</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
@@ -298,58 +297,6 @@
                             </td>
                         </tr>
                         @endforeach
-                        {{-- <tr>
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="1" />
-                                </div>
-                            </td>
-                            <td>
-                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">TopTier
-                                    Trucks Co</a>
-                            </td>
-                            <td>
-                                <a href="#" class="text-gray-600 text-hover-primary mb-1">GT 696 V</a>
-                            </td>
-                            <td>3 Tons</td>
-                            <td><i class="badge badge-danger">In Active</i></td>
-                            <td data-filter="american_express">
-                                Mrs. Benedicta Ansah</td>
-                            <td>23 Sep 2020</td>
-                            <td><i class="badge badge-danger">In Active</i></td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                <!--begin::Menu-->
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/fleet/vehicles/details" class="menu-link px-3">View</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/fleet/vehicles/edit" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a class="menu-link px-3" data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_add_maintenance_schedule">Maintenance</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-kt-customer-table-filter="delete_row">Delete</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                            </td>
-                        </tr> --}}
                     </tbody>
                 </table>
                 <!--end::Table-->
@@ -357,8 +304,6 @@
             <!--end::Card body-->
         </div>
         <!--end::Card-->
-
-
         <!--end::Modals-->
     </div>
     <!--end::Content container-->
