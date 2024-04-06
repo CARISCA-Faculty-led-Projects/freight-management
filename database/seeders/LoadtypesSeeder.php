@@ -20,6 +20,19 @@ class LoadtypesSeeder extends Seeder
             ['name'=>'Bulk Cargo'],
             ['name'=>'Overweight Cargo'],
             ['name'=>'Automobile Tranport'],
+            ['name'=>'Livestock Transport'],
+            ['name'=>'Perishable Goods'],
+            ['name'=>'Fragile Goods'],
+            ['name'=>'Construction Materials'],
+            ['name'=>'Retail Goods'],
+            ['name'=>'E-commerce Shipments'],
+            ['name'=>'Pharmaceuticals and Medical Supplies'],
+            ['name'=>'Agriculture Products'],
+            ['name'=>'Textiles and Apparel'],
+            ['name'=>'Electronics and Technology Products'],
+            ['name'=>'Furniture and Home Goods'],
+            ['name'=>'Waste and Recycling Materials'],
+            ['name'=>'Specialized Equipment'],
         ]);
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Database\Seeders\MaintenanceTasksSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,7 +19,8 @@ class DatabaseSeeder extends Seeder
             // UsersSeeder::class,
             LoadtypesSeeder::class,
             VehicleCategorySeeder::class,
-            VehicleSubCategorySeeder::class
+            VehicleSubCategorySeeder::class,
+            MaintenanceTasksSeeder::class
         ]);
 
         // \App\Models\User::factory(10)->create();

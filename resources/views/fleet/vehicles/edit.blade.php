@@ -321,8 +321,20 @@
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
                                         <div class="card-body pt-0">
+                                            <div class="fv-row w-100 flex-md-root mb-10">
+                                                <!--begin::Label-->
+                                                <label class="required form-label">Vehicle Number</label>
+                                                <!--end::Label-->
+                                                <!--begin::Select2-->
+                                               <input type="text" wire:model="vehicle.number" class="text form-control" placeholder="GT-5466-22">
+                                                <!--end::Select2-->
+                                                <!--begin::Description-->
+                                                <div class="text-muted fs-7">Enter vehicle license plate number</div>
+                                                <!--end::Description-->
+                                            </div>  
                                             <!--begin::Input group-->
-                                            <div class="mb-10 fv-row mt-5">
+                                            <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
+                                            <div class="fv-row w-100 flex-md-root">
                                                 <!--begin::Label-->
                                                 <label class="required form-label">Vehicle Category</label>
                                                 <!--end::Label-->
@@ -346,7 +358,7 @@
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
-                                            <div class="mb-10 fv-row mt-5">
+                                            <div class="fv-row w-100 flex-md-root">
                                                 <!--begin::Label-->
                                                 <label class="required form-label">Vehicle Sub Category</label>
                                                 <!--end::Label-->
@@ -369,6 +381,7 @@
                                                 <!--end::Description-->
                                             </div>
                                             <!--end::Input group-->
+                                            </div>
                                             <!--begin::Tax-->
                                             <div class="d-flex flex-wrap gap-5 mb-10">
                                                 <!--begin::Input group-->
@@ -659,7 +672,7 @@
                             <!--end::Shipping-->
                             <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="{{route("organizations")}}"
+                                <a href="{{route("vehicles")}}"
                                 id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                             <!--end::Button-->
                             <!--begin::Button-->
@@ -910,7 +923,7 @@
                             <!--end::Shipping-->
                             <div class="{{ $others ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="{{route("organizations")}}"
+                                <a href="{{route("vehicles")}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
@@ -1092,7 +1105,7 @@
                             </div>
                             <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="{{route("organizations")}}"
+                                <a href="{{route("vehicles")}}"
                                 id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                             <!--end::Button-->
                             <!--begin::Button-->

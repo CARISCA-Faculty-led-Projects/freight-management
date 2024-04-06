@@ -53,4 +53,20 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function org_register(){
+
+    }
+
+    public function driver_register(){
+
+    }
+
+    public function sender_register(){
+
+    }
+
+    public function broker_register(){
+        
+    }
 }

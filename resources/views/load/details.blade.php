@@ -36,7 +36,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted"> <a href="/index"
-                            class="text-muted text-hover-primary">#4544</a></li>
+                            class="text-muted text-hover-primary">num</a></li>
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item">
@@ -207,7 +207,7 @@
             <div class="row g-5 g-xl-8">
                 <div class="col-xl-3">
                     <!--begin::Statistics Widget 5-->
-                    <a href="#" class="card bg-success hoverable card-xl-stretch mb-xl-8">
+                    <a href="#" class="card {{$load->status == "Pending" ? "bg-primary" : "bg-success"}} hoverable card-xl-stretch mb-xl-8">
                         <!--begin::Body-->
                         <div class="card-body">
                             <i class="ki-duotone ki-basket text-white fs-2x ms-n1">
@@ -216,8 +216,8 @@
                                 <span class="path3"></span>
                                 <span class="path4"></span>
                             </i>
-                            <div class="text-white fw-bold fs-2 mb-2 mt-5">Approved</div>
-                            <div class="fw-semibold text-white">This order has been approved
+                            <div class="text-white fw-bold fs-2 mb-2 mt-5">{{$load->status}}</div>
+                            <div class="fw-semibold text-white">This order {{$load->status == "Pending" ? "is pending" : "has been approved"}}
                             </div>
                         </div>
                         <!--end::Body-->
@@ -325,7 +325,7 @@
                                                                 <span class="path2"></span>
                                                             </i>Date Added</div>
                                                     </td>
-                                                    <td class="fw-bold text-end">22/03/2023</td>
+                                                    <td class="fw-bold text-end">{{date('D, d/m/Y',strtotime($load->created_at))}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-muted">
@@ -335,8 +335,7 @@
                                                                 <span class="path2"></span>
                                                             </i>Category</div>
                                                     </td>
-                                                    <td class="fw-bold text-end">Refrigerated
-                                                        Goods</td>
+                                                    <td class="fw-bold text-end">{{$load->load_type}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-muted">
@@ -346,7 +345,7 @@
                                                                 <span class="path2"></span>
                                                             </i>Quantity</div>
                                                     </td>
-                                                    <td class="fw-bold text-end">1 container
+                                                    <td class="fw-bold text-end">{{$load->quantity}}
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -357,7 +356,7 @@
                                                                 <span class="path2"></span>
                                                             </i>Weight</div>
                                                     </td>
-                                                    <td class="fw-bold text-end">40 Tons</td>
+                                                    <td class="fw-bold text-end">{{$load->weight}}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="text-muted">
@@ -367,7 +366,7 @@
                                                                 <span class="path2"></span>
                                                             </i>Dimensions (l*b*h)</div>
                                                     </td>
-                                                    <td class="fw-bold text-end">300*300*300
+                                                    <td class="fw-bold text-end">{{$load->length}}*{{$load->breadth}}*{{$load->height}}
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -378,9 +377,13 @@
                                                                 <span class="path2"></span>
                                                             </i>Handling</div>
                                                     </td>
-                                                    <td class="fw-bold text-end"><span
-                                                            class="badge badge-dark">Hazardous</span>
-                                                        <span class="badge badge-dark">Fragile</span>
+                                                    <td class="fw-bold text-end">
+                                                        @php
+                                                        $handling = explode(',', $load->handling);
+                                                    @endphp
+                                                    @foreach ($handling as $item)
+                                                    <span class="badge badge-dark">{{$item}}</span>
+                                                    @endforeach
                                                     </td>
                                                 </tr>
                                                 <tr>
@@ -534,10 +537,8 @@
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
-                                <div class="card-body pt-0">Unit 1/23 Hastings Road,
-                                    <br />Melbourne 3000,
-                                    <br />Victoria,
-                                    <br />Australia.</div>
+                                <div class="card-body pt-0">
+                                   {{$load->pickup_address  }}</div>
                                 <!--end::Card body-->
                             </div>
                             <!--end::Payment address-->
@@ -558,10 +559,8 @@
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
-                                <div class="card-body pt-0">Unit 1/23 Hastings Road,
-                                    <br />Melbourne 3000,
-                                    <br />Victoria,
-                                    <br />Australia.</div>
+                                <div class="card-body pt-0">
+                                   {{$load->dropoff_address}}</div>
                                 <!--end::Card body-->
                             </div>
                             <!--end::Shipping address-->
@@ -572,7 +571,7 @@
 										<!--begin::Body-->
 										<div class="card-body py-10">
 											<h2 class="mb-9">Prizing</h2>
-										
+
 											<!--begin::Stats-->
 											<div class="row">
 												<!--begin::Col-->
@@ -603,7 +602,7 @@
 													</div>
 												</div>
 												<!--end::Col-->
-										
+
 											</div>
 											<!--end::Stats-->
 											<!--begin::Info-->
@@ -873,6 +872,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="fw-semibold text-gray-600">
+                                            @foreach ($subload as $load)
                                             <tr>
                                                 <td>
                                                     <div class="d-flex align-items-center">
@@ -886,44 +886,19 @@
                                                         <!--begin::Title-->
                                                         <div class="ms-5">
                                                             <a href="/apps/ecommerce/catalog/edit-product"
-                                                                class="fw-bold text-gray-600 text-hover-primary">Product
-                                                                1</a>
+                                                                class="fw-bold text-gray-600 text-hover-primary">{{$load->name}}</a>
                                                             <div class="fs-7 text-muted">
-                                                                Category: Electronics</div>
+                                                                Category: {{$load->load_type}}</div>
                                                         </div>
                                                         <!--end::Title-->
                                                     </div>
                                                 </td>
                                                 <td class="text-end">04726008</td>
-                                                <td class="text-end">2000</td>
-                                                <td class="text-end">GHS 120.00</td>
-                                                <td class="text-end">GHS 240,000.00</td>
+                                                <td class="text-end">{{$load->quantity}}</td>
+                                                <td class="text-end">GHS {{$load->value}}</td>
+                                                <td class="text-end">GHS {{$load->quantity * $load->value}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
-                                                        <!--begin::Thumbnail-->
-                                                        <a href="/apps/ecommerce/catalog/edit-product"
-                                                            class="symbol symbol-50px">
-                                                            <span class="symbol-label"
-                                                                style="background-image:url(assets/media//stock/ecommerce/100.png);"></span>
-                                                        </a>
-                                                        <!--end::Thumbnail-->
-                                                        <!--begin::Title-->
-                                                        <div class="ms-5">
-                                                            <a href="/apps/ecommerce/catalog/edit-product"
-                                                                class="fw-bold text-gray-600 text-hover-primary">Footwear</a>
-                                                            <div class="fs-7 text-muted">
-                                                                Category: Clothing</div>
-                                                        </div>
-                                                        <!--end::Title-->
-                                                    </div>
-                                                </td>
-                                                <td class="text-end">03745004</td>
-                                                <td class="text-end">1000</td>
-                                                <td class="text-end">GHS 24.00</td>
-                                                <td class="text-end">GHS 24,000.00</td>
-                                            </tr>
+                                            @endforeach
                                             <tr>
                                                 <td colspan="4" class="text-end">Subtotal</td>
                                                 <td class="text-end">GHS 264,000.00</td>

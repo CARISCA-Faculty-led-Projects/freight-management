@@ -1,18 +1,79 @@
 <?php
-
-use App\Http\Controllers\DriversController;
-use App\Http\Controllers\OrganizationsController;
-use App\Http\Controllers\VehiclesController;
-use App\Http\Livewire\Driver\AddDriver;
-use App\Http\Livewire\Driver\UpdateDriver;
-use App\Http\Livewire\Organization\AddOrganization;
-use App\Http\Livewire\Vehicle\AddVehicle;
-use App\Http\Livewire\Organisation;
-use App\Http\Livewire\Organization\UpdateOrganization;
-use App\Http\Livewire\Vehicle\UpdateVehicle;
-use App\Http\Livewire\ViewOrganisations;
+use App\Http\Livewire\Load\AddLoad;
 use Illuminate\Support\Facades\Route;
-use Laravel\Sail\SailServiceProvider;
+use App\Http\Livewire\Load\UpdateLoad;
+use App\Http\Livewire\Broker\AddBroker;
+use App\Http\Livewire\Driver\AddDriver;
+use App\Http\Livewire\Sender\AddSender;
+use App\Http\Livewire\ViewOrganisations;
+use App\Http\Controllers\LoadsController;
+use App\Http\Livewire\Vehicle\AddVehicle;
+use App\Http\Livewire\Driver\UpdateDriver;
+use App\Http\Controllers\DriversController;
+use App\Http\Controllers\VehiclesController;
+use App\Http\Livewire\Broker\RegisterBroker;
+use App\Http\Livewire\Driver\RegisterDriver;
+use App\Http\Livewire\Sender\RegisterSender;
+use App\Http\Livewire\Vehicle\UpdateVehicle;
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Livewire\Organization\AddOrganization;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Livewire\Organization\UpdateOrganization;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Livewire\Organization\RegisterOrganization;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+
+Route::middleware('guest')->group(function () {
+    Route::controller(AuthenticatedSessionController::class)->group(function () {
+        Route::get('login', 'index')->name('login');
+
+        Route::post('login', 'store');
+    });
+    Route::get('org-register', RegisterOrganization::class)->name('org.register');
+    Route::get('driver-register', RegisterDriver::class)->name('driver.register');
+    Route::get('sender-register', RegisterSender::class)->name('sender.register');
+    // Route::get('broker-register', RegisterBroker::class)->name('broker.register');
+
+    Route::post('register', [RegisteredUserController::class, 'store']);
+
+    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+        ->name('password.request');
+
+    Route::post('forgot-password', [PasswordResetLinkController::class, 'store'])
+        ->name('password.email');
+
+    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
+        ->name('password.reset');
+
+    Route::post('reset-password', [NewPasswordController::class, 'store'])
+        ->name('password.update');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
+        ->name('verification.notice');
+
+    Route::get('verify-email/{id}/{hash}', [VerifyEmailController::class, '__invoke'])
+        ->middleware(['signed', 'throttle:6,1'])
+        ->name('verification.verify');
+
+    Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])
+        ->middleware('throttle:6,1')
+        ->name('verification.send');
+
+    Route::get('confirm-password', [ConfirmablePasswordController::class, 'show'])
+        ->name('password.confirm');
+
+    Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->name('logout');
+});
 
 // ACTUAL ROUTES
 Route::get('/', function () {
@@ -56,6 +117,8 @@ Route::prefix('fleet')->group(function () {
             Route::prefix('maintenance')->group(function () {
                 Route::get('{vehicle}/list', 'maintenance_logs')->name('vehicle.maintenance_list');
                 Route::get('{vehicle}/add', 'add_maintenance')->name('vehicle.maintenance.add');
+                Route::get('{log}/edit', 'edit_maintenance')->name('vehicle.maintenance.edit');
+                Route::post('{log}/update', 'update_maintenance')->name('vehicle.maintenance.update');
                 Route::post('{vehicle}/store', 'store_maintenance')->name('vehicle.maintenance.save');
                 Route::get('{vehicle}/delete', 'delete_maintenance')->name('vehicle.maintenance.delete');
             });
@@ -95,27 +158,23 @@ Route::prefix('fleet')->group(function () {
             return view('fleet.drivers.payment_history');
         });
     });
-    Route::get('maintenance', function () {
-        return view('fleet.maintenance');
-    });
+    Route::get('maintenance', [VehiclesController::class, 'all_schedules'])->name('schedules.list');
 });
 
 Route::prefix('load')->group(function () {
     Route::get('overview', function () {
         return view('load.overview');
     });
-    Route::get('list', function () {
-        return view('load.list');
+
+    Route::controller(LoadsController::class)->group(function(){
+        Route::get('list','index')->name('loads');
+        Route::get('{load}/delete', 'delete')->name('loads.delete');
+        Route::get('{load}/details', 'details')->name('loads.details');
     });
-    Route::get('add', function () {
-        return view('load.add');
-    });
-    Route::get('edit', function () {
-        return view('load.edit');
-    });
-    Route::get('details', function () {
-        return view('load.details');
-    });
+    Route::get('add', AddLoad::class);
+    Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
+
+
     Route::get('bids', function () {
         return view('load.bids');
     });

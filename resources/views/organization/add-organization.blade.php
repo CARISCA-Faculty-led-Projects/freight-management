@@ -144,7 +144,7 @@
                                     <!--end::Remove-->
                                 </div>
                                 <!--end::Image input-->
-                              
+
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set the organization logo image. Only *.png, *.jpg and
                                     *.jpeg image
@@ -624,7 +624,7 @@
                             </div>
                             <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end">
                                 <!--begin::Button-->
-                                <a href="{{route('organization')}}"
+                                <a href="{{route('organizations')}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
@@ -913,7 +913,7 @@
                             </div>
                             <div class="{{ $routes ? 'd-flex' : 'd-none' }} justify-content-end">
                                 <!--begin::Button-->
-                                <a href="{{route('organization')}}"
+                                <a href="{{route('organizations')}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
@@ -1416,8 +1416,8 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -1904,10 +1904,6 @@
                                     <!--end::Card body-->
                                 </div>
                                 <!--end::Payment method-->
-
-
-
-
                             </div>
                             <div class="{{ $payin ? 'd-flex' : 'd-none' }} justify-content-end">
                                 <!--begin::Button-->
@@ -1917,8 +1913,8 @@
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
                                     class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->

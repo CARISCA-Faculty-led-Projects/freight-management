@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('task');
             $table->date('date');
             $table->string('provider');
+            $table->string('frequency');
             $table->double('cost');
             $table->date('next_visit');
             $table->timestamps();

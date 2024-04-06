@@ -15,11 +15,11 @@ class AuthenticatedSessionController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function index()
     {
-        addJavascriptFile('assets/js/custom/authentication/sign-in/general.js');
+        // addJavascriptFile('assets/js/custom/authentication/sign-in/general.js');
 
-        return view('pages.auth.login');
+        return view('auth.sign-in.basic');
     }
 
     /**

@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('sub_loads', function (Blueprint $table) {
             $table->id();
+            $table->string('load_id');
             $table->string('name');
-            $table->string('load_type_id');
+            $table->string('load_type');
             $table->string('quantity');
             $table->string('value');
             $table->timestamps();

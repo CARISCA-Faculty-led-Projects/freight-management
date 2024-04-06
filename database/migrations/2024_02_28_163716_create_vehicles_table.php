@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('owner_id')->nullable();
             $table->string('image');
             $table->string('load_type');
+            $table->string('number');
             $table->string('vehicle_category_id');
             $table->string('vehicle_subcategory_id');
             $table->string('make');

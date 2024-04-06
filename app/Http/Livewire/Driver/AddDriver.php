@@ -23,15 +23,7 @@ class AddDriver extends Component
     ];
     public $load_type = [];
     public $image;
-    // public $phone;
-    // public $email;
-    // public $address;
-    // public $description;
-    // public $status;
-    // public $license_number;
     public $license_image;
-    // public $mask;
-    // public $password;
 
 
 
@@ -70,11 +62,11 @@ class AddDriver extends Component
         $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
         $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
 
-        $imagename = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
+        $license = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
         $this->driver['license_image']->storeAs('drivers', $imagename, 'real_public');
 
         $this->driver['image'] = $imagename;
-        $this->driver['license_image'] = $imagename;
+        $this->driver['license_image'] = $license;
         $this->driver['load_type'] = json_encode($this->load_type);
         $this->driver['mask']= Str::orderedUuid();
         $driverid = DB::table('drivers')->insertGetId($this->driver);

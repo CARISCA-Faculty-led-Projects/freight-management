@@ -281,18 +281,22 @@
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
                                         <div class="card-body pt-0">
-                                            <!--begin::Tax-->
-                                            <div class="d-flex flex-wrap gap-5">
-                                                <!--begin::Input group-->
-                                                <div class="fv-row w-100 flex-md-root">
-                                                    <!--begin::Label-->
-                                                </div>
-                                                <!--end::Input group-->
-
-                                            </div>
+                                           
                                             <!--end:Tax-->
+                                             <div class="fv-row w-100 flex-md-root mb-10">
+                                                <!--begin::Label-->
+                                                <label class="required form-label">Vehicle Number</label>
+                                                <!--end::Label-->
+                                                <!--begin::Select2-->
+                                               <input type="text" wire:model="vehicle.number" class="text form-control" placeholder="GT-5466-22">
+                                                <!--end::Select2-->
+                                                <!--begin::Description-->
+                                                <div class="text-muted fs-7">Enter vehicle license plate number</div>
+                                                <!--end::Description-->
+                                            </div>
+                                            <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
                                             <!--begin::Input group-->
-                                            <div class="mb-10 fv-row mt-5">
+                                            <div class="fv-row w-100 flex-md-root">
                                                 <!--begin::Label-->
                                                 <label class="required form-label">Vehicle Category</label>
                                                 <!--end::Label-->
@@ -316,7 +320,7 @@
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
-                                            <div class="mb-10 fv-row mt-5">
+                                            <div class="fv-row w-100 flex-md-root">
                                                 <!--begin::Label-->
                                                 <label class="required form-label">Vehicle Sub Category</label>
                                                 <!--end::Label-->
@@ -339,6 +343,7 @@
                                                     recommended to
                                                     describe your vehicle as much as possible</div>
                                                 <!--end::Description-->
+                                            </div>
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Tax-->

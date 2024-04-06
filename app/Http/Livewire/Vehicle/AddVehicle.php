@@ -83,10 +83,7 @@ class AddVehicle extends Component
         array_push($this->veh_routes,$num);
     }
 
-    public function delRoute($route){
-        array_splice($this->veh_routes,$route,1);
-    }
-
+   
 
     public function activate($tab)
     {
@@ -111,6 +108,7 @@ class AddVehicle extends Component
 
         Validator::make($this->vehicle,[
             'image' => 'required|mimes:jpg,png,jpeg',
+            'number' => 'required',
         ])->validate();
 
         $imagename = uniqid() . '.' . $this->vehicle['image']->getClientOriginalExtension();
@@ -124,6 +122,7 @@ class AddVehicle extends Component
             'vehicle_subcategory_id' => $this->vehicle['vehicle_subcategory_id'],
             'make' => $this->vehicle['make'],
             'model' => $this->vehicle['model'],
+            'number' => $this->vehicle['number'],
             'year' => $this->vehicle['year'],
             'color' => $this->vehicle['color'],
             'gps' => $this->vehicle['gps'],

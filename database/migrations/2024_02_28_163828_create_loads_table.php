@@ -19,15 +19,16 @@ return new class extends Migration
             $table->longText('description');
             $table->double('budget');
             $table->integer('quantity');
+            $table->integer('length');
             $table->double('weight');
             $table->double('height');
             $table->double('breadth');
             $table->string('handling');
             $table->string('pickup_address');
             $table->string('dropoff_address');
-            $table->string('sub_load_id');
-            $table->string('approval_status');
             $table->string('insurance_docs');
+            $table->string('mask');
+            $table->string('status');
             $table->string('other_docs');
             $table->timestamps();
         });
