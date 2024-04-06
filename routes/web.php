@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Livewire\Load\AddLoad;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Load\UpdateLoad;
@@ -29,14 +31,16 @@ use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
 Route::middleware('guest')->group(function () {
-    Route::controller(AuthenticatedSessionController::class)->group(function () {
-        Route::get('login', 'index')->name('login');
+    Route::controller(AuthController::class)->group(function () {
+        Route::get('login', 'login')->name('login');
+        Route::get('register', 'register')->name('registergit ');
 
         Route::post('login', 'store');
     });
-    Route::get('org-register', RegisterOrganization::class)->name('org.register');
-    Route::get('driver-register', RegisterDriver::class)->name('driver.register');
-    Route::get('sender-register', RegisterSender::class)->name('sender.register');
+    // Route::get('register', RegisterOrganization::class)->name('org.register');
+    // Route::get('login', RegisterOrganization::class)->name('org.register');
+    // Route::get('driver-register', RegisterDriver::class)->name('driver.register');
+    // Route::get('sender-register', RegisterSender::class)->name('sender.register');
     // Route::get('broker-register', RegisterBroker::class)->name('broker.register');
 
     Route::post('register', [RegisteredUserController::class, 'store']);

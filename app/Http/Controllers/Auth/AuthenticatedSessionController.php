@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
     {
         // addJavascriptFile('assets/js/custom/authentication/sign-in/general.js');
 
-        return view('auth.sign-in.basic');
+        return view('auth.login');
     }
 
     /**
