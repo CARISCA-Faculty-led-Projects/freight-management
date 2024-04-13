@@ -13,14 +13,14 @@ return new class extends Migration
     {
         Schema::create('brokers', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
-            $table->foreignUuid('organisation_id');
+            $table->string('image')->nullable();
+            $table->foreignUuid('organisation_id')->nullable();
             $table->string('name');
             $table->string('phone');
-            $table->string('address');
-            $table->string('load_type_id');
+            $table->string('address')->nullable();
+            $table->string('load_type_id')->nullable();
             $table->longText('description')->nullable();
-            $table->string('status');
+            $table->string('status')->nullable();
             $table->string('national_id')->nullable();
             $table->string('mask');
             $table->string('email');

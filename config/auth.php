@@ -1,5 +1,11 @@
 <?php
 
+use App\Models\User;
+use App\Models\Broker;
+use App\Models\Driver;
+use App\Models\Sender;
+use App\Models\Organization;
+
 return [
 
     /*
@@ -40,6 +46,22 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'organizations' =>[
+            'driver' => 'session',
+            'provider' => 'organizations'
+        ],
+        'senders' =>[
+            'driver' => 'session',
+            'provider' => 'senders'
+        ],
+        'brokers' =>[
+            'driver' => 'session',
+            'provider' => 'brokers'
+        ],
+        'drivers' =>[
+            'driver' => 'session',
+            'provider' => 'drivers'
+        ]
     ],
 
     /*
@@ -64,6 +86,22 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'organizations' =>[
+            'driver' => 'eloquent',
+            'model' => Organization::class
+        ],
+        'senders' =>[
+            'driver' => 'eloquent',
+            'model' => Sender::class
+        ],
+        'brokers' =>[
+            'driver' => 'eloquent',
+            'model' => Broker::class
+        ],
+        'drivers' =>[
+            'driver' => 'eloquent',
+            'model' => Driver::class
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

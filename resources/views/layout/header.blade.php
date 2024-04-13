@@ -77,7 +77,7 @@
                             <span class="menu-title">Locate</span>
                             <span class="menu-arrow d-lg-none"></span>
                         </span>
-                      
+
                         <div
                             class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown px-lg-2 py-lg-4 w-lg-250px">
                             <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
@@ -92,7 +92,7 @@
                                     <span class="menu-title">All Drivers</span>
                                 </span>
                             </div>
-                          
+
                             <div class="menu-item">
                                 <a class="menu-link" href="/apps/calendar">
                                     <span class="menu-icon">
@@ -108,7 +108,7 @@
                                     <span class="menu-title">All Loads</span>
                                 </a>
                             </div>
-                           
+
                             <div class="menu-item">
                                 <a class="menu-link" href="/apps/calendar">
                                     <span class="menu-icon">
@@ -136,10 +136,10 @@
                             <span class="menu-arrow d-lg-none"></span>
                         </span></a>
                         <!--end:Menu link-->
-                       
+
                     </div>
                     <!--end:Menu item-->
-                
+
                 </div>
                 <!--end::Menu-->
             </div>
@@ -1714,7 +1714,7 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="/authentication/layouts/corporate/sign-in" class="menu-link px-5">Sign Out</a>
+                            <a href="{{route('signout')}}" class="menu-link px-5">Sign Out</a>
                         </div>
                         <!--end::Menu item-->
                     </div>

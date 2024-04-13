@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class OrganizationsController extends Controller
 {
+
+    public function overview(){
+        return view('organization.overview');
+    }
+    
     public function index(){
         $organizations = DB::table('organizations')->get();
-
         return view('organization.list',compact('organizations'));
     }
 
