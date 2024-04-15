@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends('layout.roles.driver')
 
 @section('content')
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -8,22 +8,13 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Organization</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
+                    Welcome, Driver</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">
-                        <a href="/index" class="text-muted text-hover-primary">Home</a>
-                    </li>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item">
-                        <span class="bullet bg-gray-400 w-5px h-2px"></span>
-                    </li>
-                    <!--end::Item-->
-                    <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Organizations</li>
+                    <li class="breadcrumb-item text-muted">Home</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -32,19 +23,18 @@
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin::Secondary button-->
-                <a href="/apps/customers/list"
-                    class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Add Customer</a>
+                <a href="/" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
+                    Shipments</a>
                 <!--end::Secondary button-->
                 <!--begin::Primary button-->
-                <a href="/organization/add" class="btn btn-sm fw-bold btn-primary">New Organization</a>
+                <a href="/" class="btn btn-sm fw-bold btn-primary">Track Shipments</a>
                 <!--end::Primary button-->
             </div>
             <!--end::Actions-->
         </div>
         <!--end::Toolbar container-->
+        <!--begin::Content container-->
     </div>
-
-    <!--begin::Content container-->
     <div id="kt_app_content_container" class="app-container container-xxl">
         <!--begin::Row-->
         <div class="row gy-5 g-xl-10">
@@ -59,7 +49,7 @@
                             <!--begin::Title-->
                             <h1 class="fw-semibold text-gray-800 text-center lh-lg">Quick form to
                                 <br />
-                                <span class="fw-bolder">Bid a New Organization</span></h1>
+                                <span class="fw-bolder">Bid a New Shipment</span></h1>
                             <!--end::Title-->
                             <!--begin::Illustration-->
                             <div class="py-10 text-center">
@@ -146,7 +136,8 @@
                                     <!--begin::Chart-->
                                     <div class="d-flex me-7 me-xxl-10">
                                         <div id="kt_card_widget_10_chart" class="min-h-auto"
-                                            style="height: 78px; width: 78px" data-kt-size="78" data-kt-line="11"></div>
+                                            style="height: 78px; width: 78px" data-kt-size="78" data-kt-line="11">
+                                        </div>
                                     </div>
                                     <!--end::Chart-->
                                     <!--begin::Labels-->
@@ -157,11 +148,12 @@
                                             <div class="bullet w-8px h-6px rounded-2 bg-success me-3"></div>
                                             <!--end::Bullet-->
                                             <!--begin::Label-->
-                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Used Truck freight
-                                            </div>
+                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Used Truck
+                                                freight</div>
                                             <!--end::Label-->
                                             <!--begin::Separator-->
-                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
+                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2">
+                                            </div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
                                             <div class="ms-auto fw-bolder text-gray-700 text-end">45%</div>
@@ -174,11 +166,12 @@
                                             <div class="bullet w-8px h-6px rounded-2 bg-primary me-3"></div>
                                             <!--end::Bullet-->
                                             <!--begin::Label-->
-                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Used Ship freight
-                                            </div>
+                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Used Ship
+                                                freight</div>
                                             <!--end::Label-->
                                             <!--begin::Separator-->
-                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
+                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2">
+                                            </div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
                                             <div class="ms-auto fw-bolder text-gray-700 text-end">21%</div>
@@ -192,11 +185,12 @@
                                                 style="background-color: #E4E6EF"></div>
                                             <!--end::Bullet-->
                                             <!--begin::Label-->
-                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Used Plane freight
-                                            </div>
+                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Used Plane
+                                                freight</div>
                                             <!--end::Label-->
                                             <!--begin::Separator-->
-                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
+                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2">
+                                            </div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
                                             <div class="ms-auto fw-bolder text-gray-700 text-end">34%</div>
@@ -231,7 +225,7 @@
                                     </div>
                                     <!--end::Statistics-->
                                     <!--begin::Description-->
-                                    <span class="fs-6 fw-semibold text-gray-400">Total Organizations</span>
+                                    <span class="fs-6 fw-semibold text-gray-400">Total Shipments</span>
                                     <!--end::Description-->
                                 </div>
                                 <!--end::Statistics-->
@@ -252,7 +246,8 @@
                                     <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">604</span>
                                     <!--end::Amount-->
                                     <!--begin::Subtitle-->
-                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">New Customers This Month</span>
+                                    <span class="text-gray-400 pt-1 fw-semibold fs-6">New Customers This
+                                        Month</span>
                                     <!--end::Subtitle-->
                                 </div>
                                 <!--end::Title-->
@@ -317,8 +312,8 @@
                     <div class="card-header pt-7">
                         <!--begin::Title-->
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label fw-bold text-gray-800">Organization History</span>
-                            <span class="text-gray-400 mt-1 fw-semibold fs-6">59 Active Organizations</span>
+                            <span class="card-label fw-bold text-gray-800">Shipment History</span>
+                            <span class="text-gray-400 mt-1 fw-semibold fs-6">59 Active Shipments</span>
                         </h3>
                         <!--end::Title-->
                         <!--begin::Toolbar-->
@@ -461,8 +456,8 @@
                                             <!--begin::Timeline content-->
                                             <div class="timeline-content m-0">
                                                 <!--begin::Title-->
-                                                <span class="fs-6 text-gray-400 fw-semibold d-block">Hektor Container
-                                                    Hotel</span>
+                                                <span class="fs-6 text-gray-400 fw-semibold d-block">Hektor
+                                                    Container Hotel</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
                                                 <span class="fs-6 fw-bold text-gray-800">Tallin, EST</span>
@@ -529,7 +524,8 @@
                                                     Rotterdam</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
-                                                <span class="fs-6 fw-bold text-gray-800">Rotterdam, Netherlands</span>
+                                                <span class="fs-6 fw-bold text-gray-800">Rotterdam,
+                                                    Netherlands</span>
                                                 <!--end::Title-->
                                             </div>
                                             <!--end::Timeline content-->
@@ -587,7 +583,8 @@
                                         <!--begin::Section-->
                                         <div class="d-flex align-items-center flex-row-fluid flex-wrap">
                                             <div class="flex-grow-1 me-2">
-                                                <a href="#" class="text-gray-400 fs-6 fw-semibold">Delivery Freight</a>
+                                                <a href="#" class="text-gray-400 fs-6 fw-semibold">Delivery
+                                                    Freight</a>
                                                 <span class="text-gray-800 fw-bold d-block fs-4">#5635-342808</span>
                                             </div>
                                             <span
@@ -700,7 +697,8 @@
                                             <!--begin::Timeline content-->
                                             <div class="timeline-content m-0">
                                                 <!--begin::Title-->
-                                                <span class="fs-6 text-gray-400 fw-semibold d-block">KLM Cargo</span>
+                                                <span class="fs-6 text-gray-400 fw-semibold d-block">KLM
+                                                    Cargo</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
                                                 <span class="fs-6 fw-bold text-gray-800">Schipol Airport,
@@ -789,7 +787,8 @@
                                             <!--begin::Timeline content-->
                                             <div class="timeline-content m-0">
                                                 <!--begin::Title-->
-                                                <span class="fs-6 text-gray-400 fw-semibold d-block">KLM Cargo</span>
+                                                <span class="fs-6 text-gray-400 fw-semibold d-block">KLM
+                                                    Cargo</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
                                                 <span class="fs-6 fw-bold text-gray-800">Schipol Airport,
@@ -884,7 +883,8 @@
                                                     Rotterdam</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
-                                                <span class="fs-6 fw-bold text-gray-800">Rotterdam, Netherlands</span>
+                                                <span class="fs-6 fw-bold text-gray-800">Rotterdam,
+                                                    Netherlands</span>
                                                 <!--end::Title-->
                                             </div>
                                             <!--end::Timeline content-->
@@ -1081,8 +1081,8 @@
                                             <!--begin::Timeline content-->
                                             <div class="timeline-content m-0">
                                                 <!--begin::Title-->
-                                                <span class="fs-6 text-gray-400 fw-semibold d-block">Hektor Container
-                                                    Hotel</span>
+                                                <span class="fs-6 text-gray-400 fw-semibold d-block">Hektor
+                                                    Container Hotel</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
                                                 <span class="fs-6 fw-bold text-gray-800">Tallin, EST</span>
@@ -1231,7 +1231,8 @@
                                             <!--begin::Timeline content-->
                                             <div class="timeline-content m-0">
                                                 <!--begin::Title-->
-                                                <span class="fs-6 text-gray-400 fw-semibold d-block">KLM Cargo</span>
+                                                <span class="fs-6 text-gray-400 fw-semibold d-block">KLM
+                                                    Cargo</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
                                                 <span class="fs-6 fw-bold text-gray-800">Schipol Airport,
@@ -1346,8 +1347,8 @@
                                             <!--begin::Timeline content-->
                                             <div class="timeline-content m-0">
                                                 <!--begin::Title-->
-                                                <span class="fs-6 text-gray-400 fw-semibold d-block">Hektor Container
-                                                    Hotel</span>
+                                                <span class="fs-6 text-gray-400 fw-semibold d-block">Hektor
+                                                    Container Hotel</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
                                                 <span class="fs-6 fw-bold text-gray-800">Tallin, EST</span>
@@ -1414,7 +1415,8 @@
                                                     Rotterdam</span>
                                                 <!--end::Title-->
                                                 <!--begin::Title-->
-                                                <span class="fs-6 fw-bold text-gray-800">Rotterdam, Netherlands</span>
+                                                <span class="fs-6 fw-bold text-gray-800">Rotterdam,
+                                                    Netherlands</span>
                                                 <!--end::Title-->
                                             </div>
                                             <!--end::Timeline content-->
@@ -1477,7 +1479,8 @@
                                 <!--end::Title-->
                                 <!--begin::Toolbar-->
                                 <div class="card-toolbar">
-                                    <a href="/apps/ecommerce/sales/listing" class="btn btn-sm btn-light">View All</a>
+                                    <a href="/apps/ecommerce/sales/listing" class="btn btn-sm btn-light">View
+                                        All</a>
                                 </div>
                                 <!--end::Toolbar-->
                             </div>
@@ -1506,7 +1509,8 @@
                                 <!--end::Title-->
                                 <!--begin::Toolbar-->
                                 <div class="card-toolbar">
-                                    <a href="/apps/ecommerce/sales/listing" class="btn btn-sm btn-light">View All</a>
+                                    <a href="/apps/ecommerce/sales/listing" class="btn btn-sm btn-light">View
+                                        All</a>
                                 </div>
                                 <!--end::Toolbar-->
                             </div>

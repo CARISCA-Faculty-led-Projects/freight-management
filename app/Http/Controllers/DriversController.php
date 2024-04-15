@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\DB;
 
 class DriversController extends Controller
 {
+    public function overview(){
+
+        return view('fleet.drivers.overview');
+    }
+
     public function index()
     {
 

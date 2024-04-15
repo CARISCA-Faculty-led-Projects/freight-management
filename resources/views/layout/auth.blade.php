@@ -19,7 +19,7 @@ License: For each use you must have a valid license purchased only from above li
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <title>Open HTML Pro- Bootstrap 5 HTML & Laravel Multipurpose Admin Dashboard Theme - Open HTML Pro by KeenThemes
+    <title>Fleet Management System :: Login
     </title>
     <meta charset="utf-8" />
     <meta name="description"

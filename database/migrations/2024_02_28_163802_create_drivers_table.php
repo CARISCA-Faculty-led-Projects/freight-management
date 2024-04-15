@@ -13,14 +13,16 @@ return new class extends Migration
     {
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
-            $table->string('image');
+            $table->foreignUuid('organization_id')->nullable();
+            $table->string('image')->nullable();
             $table->string('name');
             $table->string('phone');
-            $table->string('address');
+            $table->string('address')->nullable();
             $table->longText('description')->nullable();
-            $table->string('status');
-            $table->string('license_number');
-            $table->string('license_image');
+            $table->text('load_type')->nullable();
+            $table->string('status')->nullable();
+            $table->string('license_number')->nullable();
+            $table->string('license_image')->nullable();
             $table->string('mask');
             $table->string('email');
             $table->string('password');
