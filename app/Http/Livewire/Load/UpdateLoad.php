@@ -35,12 +35,14 @@ class UpdateLoad extends Component
         array_splice($this->subload, $num, 1);
     }
 
-
-
-    #[Computed]
     public function loads()
     {
         return DB::table('load_types')->get(['id', 'name']);
+    }
+
+    public function senders()
+    {
+        return DB::table('senders')->get(['mask', 'name']);
     }
 
     public function general()
@@ -102,6 +104,6 @@ class UpdateLoad extends Component
 
     public function render()
     {
-        return view('load.edit')->extends('layout.app')->section('content');
+        return view('load.edit')->extends('layout.roles.organization')->section('content');
     }
 }

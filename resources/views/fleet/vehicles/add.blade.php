@@ -919,7 +919,7 @@
                                                         </i>
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
-                                                        <input type="file" wire:model="documents.owners_documents"
+                                                        <input type="file" wire:model="owners_documents"
                                                             id="" class="form-control" required>
                                                         <div class="ms-4">
                                                             <h5 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
@@ -965,7 +965,7 @@
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
                                                         <input type="file"
-                                                            wire:model="documents.road_worth_documents" id=""
+                                                            wire:model="road_worth_documents" id=""
                                                             class="form-control" required>
                                                         <div class="ms-4">
                                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here
@@ -1012,7 +1012,7 @@
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
 
-                                                        <input type="file" wire:model="documents.insurance"
+                                                        <input type="file" wire:model="insurance_documents"
                                                             id="" class="form-control" required>
                                                         <div class="ms-4">
                                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files here

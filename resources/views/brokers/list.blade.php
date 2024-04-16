@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.organization')
 @section('content')
 
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -127,12 +127,6 @@
                     <!--end::Menu 1-->
                 </div>
                 <!--end::Filter menu-->
-                <!--begin::Secondary button-->
-                <!--end::Secondary button-->
-                <!--begin::Primary button-->
-                <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#kt_modal_create_app">Create</a>
-                <!--end::Primary button-->
             </div>
             <!--end::Actions-->
         </div>
@@ -589,56 +583,4 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
-</div>
-<!--end::Content wrapper-->
-
-</div>
-<!--end:::Main-->
-</div>
-<!--end::Wrapper-->
-</div>
-<!--end::Page-->
-</div>
-<!--end::App-->
-
-<!--end::Drawers-->
-<!--begin::Scrolltop-->
-<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
-    <i class="ki-duotone ki-arrow-up">
-        <span class="path1"></span>
-        <span class="path2"></span>
-    </i>
-</div>
-<!--end::Scrolltop-->
-
-<!--end::Modals-->
-<!--begin::Javascript-->
-<script>
-    var hostUrl = "assets/";
-
-</script>
-<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-<script src="assets/plugins/global/plugins.bundle.js"></script>
-<script src="assets/js/scripts.bundle.js"></script>
-<!--end::Global Javascript Bundle-->
-<!--begin::Vendors Javascript(used for this page only)-->
-<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-<!--end::Vendors Javascript-->
-<!--begin::Custom Javascript(used for this page only)-->
-<script src="assets/js/custom/apps/customers/list/export.js"></script>
-<script src="assets/js/custom/apps/customers/list/list.js"></script>
-<script src="assets/js/custom/apps/customers/add.js"></script>
-<script src="assets/js/widgets.bundle.js"></script>
-<script src="assets/js/custom/widgets.js"></script>
-<script src="assets/js/custom/apps/chat/chat.js"></script>
-<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-<!--end::Custom Javascript-->
-<!--end::Javascript-->
-</body>
-<!--end::Body-->
-
-</html>
-
 @endsection

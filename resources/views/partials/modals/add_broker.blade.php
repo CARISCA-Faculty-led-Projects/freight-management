@@ -5,7 +5,7 @@
         <!--begin::Modal content-->
         <div class="modal-content">
             <!--begin::Form-->
-            <form class="form" action="#" id="kt_modal_add_customer_form" data-kt-redirect="/apps/customers/list">
+            <form class="form" action="{{route('broker.save')}}" method="POST" id="kt_modal_add_customer_form">
                 <!--begin::Modal header-->
                 <div class="modal-header" id="kt_modal_add_customer_header">
                     <!--begin::Modal title-->
@@ -18,7 +18,7 @@
                             <span class="path2"></span>
                         </i>
                     </div>
-                    <!--end::Close-->
+                    <!--end::Close-->`
                 </div>
                 <!--end::Modal header-->
                 <!--begin::Modal body-->
@@ -29,31 +29,6 @@
                         data-kt-scroll-dependencies="#kt_modal_add_customer_header"
                         data-kt-scroll-wrappers="#kt_modal_add_customer_scroll" data-kt-scroll-offset="300px">
 
-                        <!--begin::Input group-->
-                        <div class="d-flex flex-column mb-7 fv-row">
-                            <!--begin::Label-->
-                            <label class="fs-6 fw-semibold mb-2">
-                                <span class="required">Organization</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Country of origination">
-                                    <i class="ki-duotone ki-information fs-7">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                    </i>
-                                </span>
-                            </label>
-                            <!--end::Label-->
-                            <!--begin::Input-->
-                            <select name="country" aria-label="Select a Country" data-control="select2"
-                                data-placeholder="Select an organization" data-dropdown-parent="#kt_modal_add_customer"
-                                class="form-select form-select-solid fw-bold">
-                                <option value="">Select an organization...</option>
-                                <option value="AF">Individual</option>
-                                <option value="AF">	Jess Fleet Mangement Inc</option>
-                                
-                            </select>
-                            <!--end::Input-->
-                        </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="fv-row mb-7">
@@ -61,8 +36,8 @@
                             <label class="required fs-6 fw-semibold mb-2">Name</label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <input type="text" class="form-control form-control-solid" placeholder="" name="name"
-                                value="Sean Bean" />
+                            <input type="text" class="form-control form-control-solid" placeholder="Enter a name" name="name"
+                                />
                             <!--end::Input-->
                         </div>
                         <!--end::Input group-->
@@ -71,7 +46,7 @@
                             <!--begin::Label-->
                             <label class="fs-6 fw-semibold mb-2">
                                 <span class="required">Phone</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Email address must be active">
+                                <span class="ms-1" data-bs-toggle="tooltip" title="Phone number must be active">
                                     <i class="ki-duotone ki-information fs-7">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -81,8 +56,8 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <input type="email" class="form-control form-control-solid" placeholder="" name="email"
-                                value="0265555454" />
+                            <input type="tel" class="form-control form-control-solid" placeholder="" name="phone"
+                                value="02x xxx xxxx" />
                             <!--end::Input-->
                         </div>
                         <!--end::Input group-->
@@ -101,8 +76,8 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <input type="email" class="form-control form-control-solid" placeholder="" name="email"
-                                value="sean@dellito.com" />
+                            <input type="email" class="form-control form-control-solid" placeholder="Enter your email" name="email"
+                                value="" />
                             <!--end::Input-->
                         </div>
                         <!--end::Input group-->
@@ -121,12 +96,11 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Input-->
-                            <select name="country" aria-label="Select a Country" data-control="select2"
+                            <select name="status" aria-label="Select a Country" data-control="select2"
                                 data-placeholder="Select a status" data-dropdown-parent="#kt_modal_add_customer"
                                 class="form-select form-select-solid fw-bold">
-                                <option value="P" selected='selected' default='default'>Pending</option>
-                                <option value="AF">Approved</option>
-                                
+                                <option value="Pending">Pending</option>
+                                <option value="Approved">Approved</option>
                             </select>
                             <!--end::Input-->
                         </div>
@@ -136,7 +110,7 @@
                 </div>
                 <!--end::Modal body-->
                 <!--begin::Modal footer-->
-                <div class="modal-footer flex-center">
+                <div  class="modal-footer flex-center">
                     <!--begin::Button-->
                     <button type="reset" id="kt_modal_add_customer_cancel" class="btn btn-light me-3">Discard</button>
                     <!--end::Button-->

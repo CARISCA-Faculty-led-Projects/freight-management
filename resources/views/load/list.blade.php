@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.organization')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -260,10 +260,6 @@
 
                                     <span class="badge badge-dark">Fragile</span>
                                 </td>
-                                <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                    <a href="/apps/ecommerce/sales/details"
-                                        class="text-gray-800 text-hover-primary fw-bold">document.pdf</a>
-                                </td>
 
                                 <td class="text-end">
                                     <a href="#"
@@ -335,10 +331,6 @@
                                 <td data-kt-ecommerce-order-filter="order_id" class="text-end">
 
                                     <span class="badge badge-dark">Fragile</span>
-                                </td>
-                                <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                    <a data-bs-toggle="modal" data-bs-target="#kt_modal_bidding"
-                                        class="text-gray-800 text-hover-primary fw-bold">drtee.pdf</a>
                                 </td>
 
                                 <td class="text-end">
@@ -417,10 +409,6 @@
                                 <td data-kt-ecommerce-order-filter="order_id" class="text-end">
 
                                     <span class="badge badge-dark">Hazardous</span>
-                                </td>
-                                <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                    <a href="/apps/ecommerce/sales/details"
-                                        class="text-gray-800 text-hover-primary fw-bold">instructions.pdf</a>
                                 </td>
                                 <td class="text-end">
                                     <a href="#"

@@ -76,7 +76,7 @@ Organization
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="/fleet/vehicles">
+                    <a class="menu-link" href="{{route('vehicles')}}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
@@ -88,7 +88,7 @@ Organization
                 <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
-                    <a class="menu-link" href="/fleet/drivers">
+                    <a class="menu-link" href="{{route('drivers')}}">
                         <span class="menu-bullet">
                             <span class="bullet bullet-dot"></span>
                         </span>
@@ -164,7 +164,7 @@ Organization
                     </a>
                 </div> -->
                 <!--end:Menu item-->
-                <!--begin:Menu item-->
+                {{-- <!--begin:Menu item-->
                 <div class="menu-item">
                     <!--begin:Menu link-->
                     <a class="menu-link" href="/load/documents">
@@ -175,7 +175,7 @@ Organization
                     </a>
                     <!--end:Menu link-->
                 </div>
-                <!--begin:Menu item-->
+                <!--begin:Menu item--> --}}
                 <!--begin:Menu item-->
                 <div class="menu-item pt-5">
                     <!--begin:Menu content-->
@@ -593,114 +593,7 @@ Organization
                     <!--end:Menu sub-->
                 </div>
                 <!--end:Menu item-->
-                dfd
-
-
-                 <!--begin:Menu item-->
-                 <div class="menu-item pt-5">
-                    <!--begin:Menu content-->
-                    <div class="menu-content">
-                        <span class="menu-heading fw-bold text-uppercase fs-7">Analytics</span>
-                    </div>
-                    <!--end:Menu content-->
-                </div>
-                <!--end:Menu item-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/overview">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Overview</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/fleet">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Fleet Analytics</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/load">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Load Analytics</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/shipment">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Shipment Analytics</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/sales">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Payment & Sales Analytics</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/brokers">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Broker Analytics</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/users">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">User Analytics</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
-                <!--begin:Menu item-->
-                <div class="menu-item">
-                    <!--begin:Menu link-->
-                    <a class="menu-link" href="/analytics/security">
-                        <span class="menu-bullet">
-                            <span class="bullet bullet-dot"></span>
-                        </span>
-                        <span class="menu-title">Security Analytics</span>
-                    </a>
-                    <!--end:Menu link-->
-                </div>
-                <!--begin:Menu link-->
+                
             </div>
         </div>
         <!--end::Menu-->

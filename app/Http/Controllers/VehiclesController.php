@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class VehiclesController extends Controller
@@ -13,7 +14,7 @@ class VehiclesController extends Controller
 
     public function index()
     {
-        $vehicles = DB::table('vehicles')
+        $vehicles = DB::table('vehicles')->where("organization_id",Auth::user()->mask)
             ->join('vehicle_owners', 'vehicle_owners.id', 'vehicles.owner_id')
             ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps', 'vehicle_owners.name as owner', 'vehicles.gps', 'vehicles.mask','vehicles.number')
             ->get();
@@ -130,8 +131,8 @@ class VehiclesController extends Controller
     }
 
     public function all_schedules(){
-        // $veh = DB::table('vehicles')->where("mask",$vehicle)->first();
-        $logs = DB::table('maintenance_schedule')
+        $veh = DB::table('vehicles')->where('organization_id',Auth::user()->mask)->pluck('mask')->toArray();
+        $logs = DB::table('maintenance_schedule')->whereIn('vehicle_id',$veh)
         ->join('vehicles','vehicles.mask','maintenance_schedule.vehicle_id')
         ->select('maintenance_schedule.*','vehicles.number')
         ->get();

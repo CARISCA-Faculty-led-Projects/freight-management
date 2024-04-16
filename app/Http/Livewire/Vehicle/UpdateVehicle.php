@@ -183,6 +183,6 @@ class UpdateVehicle extends Component
 
     public function render()
     {
-        return view('fleet.vehicles.edit')->extends('layout.app')->section('content');
+        return view('fleet.vehicles.edit')->extends('layout.roles.organization')->section('content');
     }
 }

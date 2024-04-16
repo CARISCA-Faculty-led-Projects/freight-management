@@ -49,8 +49,8 @@ class AddDriver extends Component
         $validated = Validator::make($this->driver, [
             'email' => 'required',
             'name' => 'required',
-            'license_image'=> 'required|mimes:png,jpg,jpeg',
-            'image'=> 'required|mimes:png,jpg,jpeg',
+            'license_image' => 'required|mimes:png,jpg,jpeg',
+            'image' => 'required|mimes:png,jpg,jpeg',
             'load_type' => 'array'
         ])->validate();
 
@@ -68,20 +68,21 @@ class AddDriver extends Component
         $this->driver['image'] = $imagename;
         $this->driver['license_image'] = $license;
         $this->driver['load_type'] = json_encode($this->load_type);
-        $this->driver['mask']= Str::orderedUuid();
+        $this->driver['mask'] = Str::orderedUuid();
+        $this->driver['organization_id'] = whichUser()->mask;
+
         $driverid = DB::table('drivers')->insertGetId($this->driver);
 
         // $this->activate('payment');
-        return redirect()->to('/fleet/drivers');
-
+        return redirect(route("drivers"));
     }
 
-    public function payment(){
-
+    public function payment()
+    {
     }
 
     public function render()
     {
-        return view('fleet.drivers.add')->extends('layout.app')->section('content');
+        return view('fleet.drivers.add')->extends('layout.roles.organization')->section('content');
     }
 }

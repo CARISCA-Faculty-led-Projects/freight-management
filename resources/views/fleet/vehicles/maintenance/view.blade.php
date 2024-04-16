@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.organization')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">

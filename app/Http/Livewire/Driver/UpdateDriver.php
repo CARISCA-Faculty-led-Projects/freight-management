@@ -82,6 +82,6 @@ class UpdateDriver extends Component
 
     public function render()
     {
-        return view('fleet.drivers.edit')->extends('layout.app')->section('content');
+        return view('fleet.drivers.edit')->extends('layout.role.organization')->section('content');
     }
 }

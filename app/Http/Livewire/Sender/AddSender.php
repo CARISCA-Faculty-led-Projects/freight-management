@@ -82,6 +82,6 @@ class AddSender extends Component
 
     public function render()
     {
-        return view('auth.register.driver')->extends('layout.auth')->section('content');
+        return view('auth.register.driver')->extends('layout.roles.organization')->section('content');
     }
 }

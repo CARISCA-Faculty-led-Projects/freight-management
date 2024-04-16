@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
@@ -117,6 +118,7 @@ class AddVehicle extends Component
 
         $vehicle = DB::table('vehicles')->insertGetId([
             'image' => $imagename,
+            'organization_id' => Auth::user()->mask,
             'load_type' => json_encode($this->vehicle['load_type']),
             'vehicle_category_id' => $this->vehicle['vehicle_category_id'],
             'vehicle_subcategory_id' => $this->vehicle['vehicle_subcategory_id'],
@@ -160,11 +162,12 @@ class AddVehicle extends Component
 
     public function documents()
     {
+        // dd($this->documents);
         $owners = uniqid() . '.' . $this->documents['owners_documents']->getClientOriginalExtension();
         $this->documents['owners_documents']->storeAs('vehicles', $owners, 'real_public');
 
-        $roadworth = uniqid() . '.' . $this->documents['road_worth_documents']->getClientOriginalExtension();
-        $this->documents['road_worth_documents']->storeAs('vehicles', $roadworth, 'real_public');
+        $roadworth = uniqid() . '.' . $this->road_worth_documents->getClientOriginalExtension();
+        $this->road_worth_documents->storeAs('vehicles', $roadworth, 'real_public');
 
         $insurance = uniqid() . '.' . $this->documents['insurance']->getClientOriginalExtension();
         $this->documents['insurance']->storeAs('vehicles', $insurance, 'real_public');
@@ -172,7 +175,7 @@ class AddVehicle extends Component
 
         DB::table('vehicles')->where('mask',$this->owner['vehicle_id'])->update([
             'owners_documents' => $owners,
-            'road_worth_documents' => $roadworth,
+            'road_worth_documents' => $insurance,
             'insurance_documents'=> $insurance,
             'updated_at' => Carbon::now()->toDateTimeString()
         ]);
@@ -205,6 +208,6 @@ class AddVehicle extends Component
 
     public function render()
     {
-        return view('fleet.vehicles.add')->extends('layout.app')->section('content');
+        return view('fleet.vehicles.add')->extends('layout.roles.organization')->section('content');
     }
 }

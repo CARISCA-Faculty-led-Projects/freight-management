@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.organization')
 @section('content')
 <!--begin::Content-->
 <!--begin::Content-->

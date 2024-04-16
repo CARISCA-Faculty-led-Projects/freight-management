@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.organization')
 @section('content')
     <!--begin::Modal - New Target-->
     <div class="container mt-5 d-flex justify-content-center" id="kt_modal_add_maintenance_schedule" tabindex="-1"

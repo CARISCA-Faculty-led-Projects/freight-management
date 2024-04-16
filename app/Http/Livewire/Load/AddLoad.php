@@ -42,14 +42,19 @@ class AddLoad extends Component
         return DB::table('load_types')->get(['id', 'name']);
     }
 
+    public function senders()
+    {
+        return DB::table('senders')->get(['mask', 'name']);
+    }
+
     public function general()
     {
-        dd($this->load);
+        // dd($this->load);
         // dd($this->subload);
         $this->load['image'] = $this->image;
         $validated = Validator::make($this->load, [
             'sender_id' => 'required',
-            'length' => 'required',
+            'length' => 'required|numeric',
             'weight' => 'required|numeric',
             'height' => 'required|numeric',
             'status' => 'required',
@@ -93,6 +98,6 @@ class AddLoad extends Component
 
     public function render()
     {
-        return view('load.add')->extends('layout.app')->section('content');
+        return view('load.add')->extends('layout.roles.organization')->section('content');
     }
 }

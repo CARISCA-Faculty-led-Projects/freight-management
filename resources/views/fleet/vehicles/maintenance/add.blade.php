@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.organization')
 @section('content')
     <!--begin::Modal - New Target-->
     <div class="container mt-5 d-flex justify-content-center" id="kt_modal_add_maintenance_schedule" tabindex="-1"
@@ -217,8 +217,8 @@
                         <!--end::Notice-->
                         <!--begin::Actions-->
                         <div class="text-center">
-                            <button type="reset" class="btn btn-light me-3"
-                                data-kt-modal-action-type="cancel">Cancel</button>
+                            <a  href="{{route('vehicle.maintenance_list',$vehicle)}}" class="btn btn-light me-3"
+                                data-kt-modal-action-type="cancel">Cancel</a>
                             <button type="submit" class="btn btn-primary" data-kt-modal-action-type="submit">
                                 <span class="indicator-label">Submit</span>
                                 <span class="indicator-progress">Please wait...

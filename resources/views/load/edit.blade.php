@@ -248,15 +248,10 @@
                                 <select class="form-select mb-2" wire:model="load.sender_id" data-control="select2"
                                     data-hide-search="true" data-placeholder="Select a sender"
                                     id="kt_ecommerce_add_category_store_template">
-                                    <option></option>
-                                    <option value="default" selected="selected">Jonathan Adomako - +23389898989
-                                    </option>
-                                    <option value="general_cargo">Jesse Anim - +233268977129
-                                    </option>
-                                    <option value="refrigerated_goods">Sandra Ashton - +23367656788
-                                    </option>
-
-
+                                    <option>--select--</option>
+                                    @foreach ($this->senders() as $sender)
+                                    <option value="{{$sender->mask}}" {{$sender->mask == $this->load['sender_id'] ? "selected":""}}>{{$sender->name}}</option>
+                                    @endforeach
                                 </select>
                                 <!--end::Select2-->
                                 @error('sender_id')

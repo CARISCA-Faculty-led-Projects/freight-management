@@ -113,7 +113,7 @@ Route::middleware(['auth.general'])->group(function () {
                 Route::get('{driver}/delete', 'delete')->name('driver.delete');
                 Route::get('{driver}/details', 'details')->name('drivers.view');
             });
-            Route::get('add', AddDriver::class);
+            Route::get('add', AddDriver::class)->name('driver.add');
             Route::get('{mask}/edit', UpdateDriver::class)->name('driver.edit');
 
             Route::get('locate', function () {
@@ -132,6 +132,41 @@ Route::middleware(['auth.general'])->group(function () {
                 return view('fleet.drivers.payment_history');
             });
         });
+
+        Route::prefix('fleet')->group(function () {
+            Route::prefix('vehicles')->group(function () {
+                Route::controller(VehiclesController::class)->group(function () {
+                    Route::get('/', 'index')->name('vehicles');
+                    Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
+                    Route::get('{vehicles}/details', 'details')->name('vehicles.view');
+                    Route::get('locate', function () {
+                        return view('fleet.vehicles.locate');
+                    });
+                    Route::prefix('maintenance')->group(function () {
+                        Route::get('{vehicle}/list', 'maintenance_logs')->name('vehicle.maintenance_list');
+                        Route::get('{vehicle}/add', 'add_maintenance')->name('vehicle.maintenance.add');
+                        Route::get('{log}/edit', 'edit_maintenance')->name('vehicle.maintenance.edit');
+                        Route::post('{log}/update', 'update_maintenance')->name('vehicle.maintenance.update');
+                        Route::post('{vehicle}/store', 'store_maintenance')->name('vehicle.maintenance.save');
+                        Route::get('{vehicle}/delete', 'delete_maintenance')->name('vehicle.maintenance.delete');
+                    });
+                });
+                Route::get('add', AddVehicle::class);
+                Route::get('{mask}/edit', UpdateVehicle::class)->name('vehicles.edit');
+            });
+            Route::get('overview', function () {
+                return view('fleet.overview');
+            });
+            Route::get('locate', function () {
+                return view('fleet.locate');
+            });
+
+
+            Route::get('maintenance', [VehiclesController::class, 'all_schedules'])->name('schedules.list');
+        });
+
+        Route::get('/brokers/list',[BrokersController::class,'list'])->name('broker.list');
+        Route::post('/broker/save',[BrokersController::class,'store'])->name('broker.save');
     });
 
     Route::middleware('auth:drivers')->group(function(){
@@ -162,37 +197,7 @@ Route::middleware(['auth.general'])->group(function () {
         return view('shipments.schedule');
     });
 
-    Route::prefix('fleet')->group(function () {
-        Route::prefix('vehicles')->group(function () {
-            Route::controller(VehiclesController::class)->group(function () {
-                Route::get('/', 'index')->name('vehicles');
-                Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
-                Route::get('{vehicles}/details', 'details')->name('vehicles.view');
-                Route::get('locate', function () {
-                    return view('fleet.vehicles.locate');
-                });
-                Route::prefix('maintenance')->group(function () {
-                    Route::get('{vehicle}/list', 'maintenance_logs')->name('vehicle.maintenance_list');
-                    Route::get('{vehicle}/add', 'add_maintenance')->name('vehicle.maintenance.add');
-                    Route::get('{log}/edit', 'edit_maintenance')->name('vehicle.maintenance.edit');
-                    Route::post('{log}/update', 'update_maintenance')->name('vehicle.maintenance.update');
-                    Route::post('{vehicle}/store', 'store_maintenance')->name('vehicle.maintenance.save');
-                    Route::get('{vehicle}/delete', 'delete_maintenance')->name('vehicle.maintenance.delete');
-                });
-            });
-            Route::get('add', AddVehicle::class);
-            Route::get('{mask}/edit', UpdateVehicle::class)->name('vehicles.edit');
-        });
-        Route::get('overview', function () {
-            return view('fleet.overview');
-        });
-        Route::get('locate', function () {
-            return view('fleet.locate');
-        });
 
-
-        Route::get('maintenance', [VehiclesController::class, 'all_schedules'])->name('schedules.list');
-    });
 
     Route::prefix('load')->group(function () {
         Route::get('overview', function () {
@@ -242,9 +247,7 @@ Route::middleware(['auth.general'])->group(function () {
     Route::get('/brokers/add', function () {
         return view('brokers.add');
     });
-    Route::get('/brokers/list', function () {
-        return view('brokers.list');
-    });
+
     Route::get('/brokers/edit', function () {
         return view('brokers.edit');
     });
