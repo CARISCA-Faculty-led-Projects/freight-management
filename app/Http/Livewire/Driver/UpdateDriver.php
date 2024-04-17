@@ -66,7 +66,7 @@ class UpdateDriver extends Component
         DB::table('drivers')->where('mask', $this->driver['mask'])->update($this->driver);
 
         // $this->activate('payment');
-        return redirect()->to('/fleet/drivers');
+        return redirect(route('drivers'));
     }
 
     public function payment()
@@ -82,6 +82,6 @@ class UpdateDriver extends Component
 
     public function render()
     {
-        return view('fleet.drivers.edit')->extends('layout.role.organization')->section('content');
+        return view('fleet.drivers.edit')->extends('layout.roles.organization')->section('content');
     }
 }

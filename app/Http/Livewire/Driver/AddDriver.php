@@ -49,7 +49,7 @@ class AddDriver extends Component
         $validated = Validator::make($this->driver, [
             'email' => 'required',
             'name' => 'required',
-            'license_image' => 'required|mimes:png,jpg,jpeg',
+            'license_image' => 'required|mimes:png,jpg,jpeg,pdf',
             'image' => 'required|mimes:png,jpg,jpeg',
             'load_type' => 'array'
         ])->validate();
