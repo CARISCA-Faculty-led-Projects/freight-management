@@ -6,6 +6,7 @@
         <div class="modal-content">
             <!--begin::Form-->
             <form class="form" action="{{route('broker.save')}}" method="POST" id="kt_modal_add_customer_form">
+                @csrf
                 <!--begin::Modal header-->
                 <div class="modal-header" id="kt_modal_add_customer_header">
                     <!--begin::Modal title-->

@@ -60,10 +60,10 @@ class AddSender extends Component
         // }
         // dd($this->driver);
         $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
-        $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
+        $this->driver['image']->storeAs('logos', $imagename, 'real_public');
 
         $license = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
-        $this->driver['license_image']->storeAs('drivers', $imagename, 'real_public');
+        $this->driver['license_image']->storeAs('senders', $imagename, 'real_public');
 
         $this->driver['image'] = $imagename;
         $this->driver['license_image'] = $license;

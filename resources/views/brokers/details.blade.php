@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.organization')
 @section('content')
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -176,7 +176,7 @@
                             </div>
                             <!--end::Avatar-->
                             <!--begin::Name-->
-                            <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">Max Smith</a>
+                            <a href="#" class="fs-3 text-gray-800 text-hover-primary fw-bold mb-1">{{$broker->name}}</a>
                             <!--end::Name-->
                             <!--begin::Position-->
                             <div class="fs-5 fw-semibold text-muted mb-6">Broker</div>
@@ -232,7 +232,7 @@
                                     <i class="ki-duotone ki-down fs-3"></i>
                                 </span></div>
                             <span data-bs-toggle="tooltip" data-bs-trigger="hover" title="Edit broker details">
-                                <a href="/brokers/edit" class="btn btn-sm btn-light-primary">Edit</a>
+                                <a href="{{route('broker.edit',$broker->mask)}}" class="btn btn-sm btn-light-primary">Edit</a>
                             </span>
                         </div>
                         <!--end::Details toggle-->
@@ -252,18 +252,16 @@
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Email</div>
                                 <div class="text-gray-600">
-                                    <a href="#" class="text-gray-600 text-hover-primary">info@keenthemes.com</a>
+                                    <a href="#" class="text-gray-600 text-hover-primary">{{$broker->email}}</a>
                                 </div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Physical Address</div>
-                                <div class="text-gray-600">101 Collin Street,
-                                    <br />Melbourne 3000 VIC
-                                    <br />Ghana</div>
+                                <div class="text-gray-600">{{$broker->address}}</div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Phone</div>
-                                <div class="text-gray-600">+233268977129</div>
+                                <div class="text-gray-600">{{$broker->phone}}</div>
                                 <!--begin::Details item-->
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Upcoming Invoice</div>
@@ -315,11 +313,11 @@
                             <div class="menu-item px-5">
                                 <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Payments</div>
                             </div>
-                           
+
                             <div class="menu-item px-5">
                                 <a href="#" class="menu-link px-5">Create invoice</a>
                             </div>
-                           
+
                             <div class="menu-item px-5">
                                 <a href="#" class="menu-link flex-stack px-5">Create payments
                                     <span class="ms-2" data-bs-toggle="tooltip"
@@ -331,7 +329,7 @@
                                         </i>
                                     </span></a>
                             </div>
-                           
+
                             <div class="menu-item px-5" data-kt-menu-trigger="hover"
                                 data-kt-menu-placement="left-start">
                                 <a href="#" class="menu-link px-5">
@@ -342,17 +340,17 @@
                                     <div class="menu-item px-3">
                                         <a href="#" class="menu-link px-5">Apps</a>
                                     </div>
-                                   
+
                                     <div class="menu-item px-3">
                                         <a href="#" class="menu-link px-5">Billing</a>
                                     </div>
-                                 
+
                                     <div class="menu-item px-3">
                                         <a href="#" class="menu-link px-5">Statements</a>
                                     </div>
-                                   
+
                                     <div class="separator my-2"></div>
-                                   
+
                                     <div class="menu-item px-3">
                                         <div class="menu-content px-3">
                                             <label class="form-check form-switch form-check-custom form-check-solid">
@@ -366,26 +364,26 @@
                                     </div>
                                 </div>
                             </div>
-                           
+
                             <div class="separator my-3"></div>
-                          
+
                             <div class="menu-item px-5">
                                 <div class="menu-content text-muted pb-2 px-5 fs-7 text-uppercase">Account</div>
                             </div>
-                           
+
                             <div class="menu-item px-5">
                                 <a href="#" class="menu-link px-5">Reports</a>
                             </div>
-                          
+
                             <div class="menu-item px-5 my-1">
                                 <a href="#" class="menu-link px-5">Account Settings</a>
                             </div>
-                           
+
                             <div class="menu-item px-5">
                                 <a href="#" class="menu-link text-danger px-5">Delete customer</a>
                             </div>
                         </div>
-                       
+
                     </li> -->
                 </ul>
                 <!--end:::Tabs-->
@@ -394,6 +392,8 @@
                     <!--begin:::Tab pane-->
                     <div class="tab-pane fade show active" id="kt_customer_view_overview_tab" role="tabpanel">
                         <!--begin::Card-->
+                        {{-- Condition to check if current user is super admin --}}
+                        @if (false)
                         <!--begin::Card-->
                         <div class="card pt-4 mb-6 mb-xl-9">
                             <!--begin::Card header-->
@@ -426,6 +426,7 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Card-->
+                        @endif
                         <div class="card pt-4 mb-6 mb-xl-9">
                             <!--begin::Card header-->
                             <div class="card-header border-0">
@@ -1646,17 +1647,6 @@
     <!--end::Content container-->
 </div>
 <!--end::Content-->
-</div>
-<!--end::Content wrapper-->
-
-</div>
-<!--end:::Main-->
-</div>
-<!--end::Wrapper-->
-</div>
-<!--end::Page-->
-</div>
-<!--end::App-->
 
 <!--begin::Scrolltop-->
 <div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
@@ -1666,40 +1656,6 @@
     </i>
 </div>
 <!--end::Scrolltop-->
-
-<!--begin::Javascript-->
-<script>
-    var hostUrl = "assets/";
-
-</script>
-<!--begin::Global Javascript Bundle(mandatory for all pages)-->
-<script src="assets/plugins/global/plugins.bundle.js"></script>
-<script src="assets/js/scripts.bundle.js"></script>
-<!--end::Global Javascript Bundle-->
-<!--begin::Vendors Javascript(used for this page only)-->
-<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
-<!--end::Vendors Javascript-->
-<!--begin::Custom Javascript(used for this page only)-->
-<script src="assets/js/custom/apps/customers/view/add-payment.js"></script>
-<script src="assets/js/custom/apps/customers/view/adjust-balance.js"></script>
-<script src="assets/js/custom/apps/customers/view/invoices.js"></script>
-<script src="assets/js/custom/apps/customers/view/payment-method.js"></script>
-<script src="assets/js/custom/apps/customers/view/payment-table.js"></script>
-<script src="assets/js/custom/apps/customers/view/statement.js"></script>
-<script src="assets/js/custom/apps/customers/update.js"></script>
-<script src="assets/js/widgets.bundle.js"></script>
-<script src="assets/js/custom/widgets.js"></script>
-<script src="assets/js/custom/apps/chat/chat.js"></script>
-<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
-<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-<script src="assets/js/custom/utilities/modals/new-card.js"></script>
-<script src="assets/js/custom/utilities/modals/users-search.js"></script>
-<!--end::Custom Javascript-->
-<!--end::Javascript-->
-</body>
-<!--end::Body-->
-
-</html>
 @include('partials.modals.reassign_broker')
 @include('partials.modals.add_shipment')
 @include('partials.modals.payout_broker')

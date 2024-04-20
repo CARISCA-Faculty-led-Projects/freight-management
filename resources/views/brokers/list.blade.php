@@ -291,16 +291,16 @@
                                 </div>
                             </th>
                             <th class="min-w-125px">ID</th>
-                            <th class="min-w-125px">status</th>
                             <th class="min-w-125px">Name</th>
                             <th class="min-w-125px">Email</th>
                             <th class="min-w-125px">Phone</th>
-                            <th class="min-w-125px">Company</th>
+                            <th class="min-w-125px">Status</th>
                             <th class="min-w-125px">Last login</th>
                             <th class="text-end min-w-70px">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-gray-600">
+                        @foreach ($brokers as $broker)
                         <tr>
                             <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -308,22 +308,20 @@
                                 </div>
                             </td>
                             <td>
-                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">8989</a>
+                                {{$loop->iteration}}
+                            </td>
+
+                            <td>
+                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">{{$broker->name}}</a>
                             </td>
                             <td>
-                                <span class="badge badge-success">Approved</span> | <span
-                                    class="badge badge-success">Online</span>
+                                <a href="#" class="text-gray-600 text-hover-primary mb-1">{{$broker->email}}</a>
                             </td>
+                            <td data-filter="mastercard">{{$broker->phone}}</td>
                             <td>
-                                <a href="/apps/customers/view" class="text-gray-800 text-hover-primary mb-1">Emma
-                                    Smith</a>
+                                <span class="badge badge-success">Approved</span>
                             </td>
-                            <td>
-                                <a href="#" class="text-gray-600 text-hover-primary mb-1">smith@kpmg.com</a>
-                            </td>
-                            <td data-filter="mastercard">+233268977129</td>
-                            <td data-filter="mastercard">Jess Fleet Mangement Inc</td>
-                            <td>14 Dec 2020, 8:43 pm</td>
+                            <td>-</td>
                             <td class="text-end">
                                 <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
@@ -333,17 +331,22 @@
                                     data-kt-menu="true">
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/brokers/details" class="menu-link px-3">View</a>
+                                        <a href="{{route("broker.view",$broker->mask)}}" class="menu-link px-3">View</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="/brokers/edit" class="menu-link px-3">Edit</a>
+                                        <a href="{{route('broker.update',$broker->mask)}}" class="menu-link px-3">Edit</a>
+                                    </div>
+                                    <!--end::Menu item-->
+                                     <!--begin::Menu item-->
+                                     <div class="menu-item px-3">
+                                        <a href="{{route('broker.update',$broker->mask)}}" class="menu-link px-3">Login</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
+                                        <a href="{{route('broker.delete',$broker->mask)}}" onclick="return confirm('Comfirm you want to delete broker?')" class="menu-link px-3"
                                             data-kt-customer-table-filter="delete_row">Delete</a>
                                     </div>
                                     <!--end::Menu item-->
@@ -351,8 +354,9 @@
                                 <!--end::Menu-->
                             </td>
                         </tr>
+                        @endforeach
                         <!-- Broker Entry 2 -->
-                        <tr>
+                        {{-- <tr>
                             <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
                                     <input class="form-check-input" type="checkbox" value="2" />
@@ -451,13 +455,7 @@
                                 </div>
                                 <!--end::Menu-->
                             </td>
-                        </tr>
-
-                        <!-- Broker Entry 5 -->
-                        <tr>
-                            <!-- Repeat similar structure as above with unique data -->
-                        </tr>
-
+                        </tr> --}}
 
 
                     </tbody>

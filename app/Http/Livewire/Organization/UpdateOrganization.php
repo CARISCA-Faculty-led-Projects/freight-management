@@ -100,7 +100,7 @@ class UpdateOrganization extends Component
 
     public function general()
     {
-        
+
         if ($this->org_load_type != []) {
             $this->org['load_type'] = json_encode($this->org_load_type);
         }
@@ -129,17 +129,13 @@ class UpdateOrganization extends Component
         $this->org['updated_at'] = Carbon::now()->toDateTimeString();
         DB::table('organizations')->where('mask', $this->org['mask'])->update($this->org);
 
-        DB::table('users')->where('account_id', $this->org['mask'])->update([
-            'email' => $this->org['email'],
-            'updated_at' => $this->org['updated_at']
-        ]);
 
         $this->activate('routes');
     }
 
     public function routes()
     {
-        // dd($this->org_routes);   
+        // dd($this->org_routes);
         foreach ($this->org_routes as $route) {
             if (array_key_exists('id', $route)) {
                 DB::table('routes')->where('organization_id', $this->org['mask'])->where('id', $route['id'])->update([
@@ -157,7 +153,7 @@ class UpdateOrganization extends Component
             }
         }
 
-        return redirect()->to('/organization/list');
+        return redirect(route('org.overview'))->with('success','Profile Update successful');
         // $this->activate('subscription');
 
     }
@@ -188,6 +184,6 @@ class UpdateOrganization extends Component
 
 
 
-        return view('organization.edit-organization')->extends('layout.app')->section('content');
+        return view('organization.edit-organization')->extends('layout.roles.organization')->section('content');
     }
 }

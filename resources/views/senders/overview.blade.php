@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.sender')
 
 @section('content')
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -40,17 +40,6 @@
                 <!--end::Breadcrumb-->
             </div>
             <!--end::Page title-->
-            <!--begin::Actions-->
-            <div class="d-flex align-items-center gap-2 gap-lg-3">
-                <!--begin::Secondary button-->
-                <!-- <a href="" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Track
-                    Loads</a> -->
-                <!--end::Secondary button-->
-                <!--begin::Primary button-->
-                <a href="/senders/list" class="btn btn-sm fw-bold btn-primary">Browse Senders</a>
-                <!--end::Primary button-->
-            </div>
-            <!--end::Actions-->
         </div>
         <!--end::Toolbar container-->
     </div>
