@@ -164,13 +164,13 @@ class AddVehicle extends Component
     {
         // dd($this->documents);
         $owners = uniqid() . '.' . $this->owners_documents->getClientOriginalExtension();
-        $this->documents['owners_documents']->storeAs('vehicles', $owners, 'real_public');
+        $this->owners_documents->storeAs('vehicles', $owners, 'real_public');
 
         $roadworth = uniqid() . '.' . $this->road_worth_documents->getClientOriginalExtension();
         $this->road_worth_documents->storeAs('vehicles', $roadworth, 'real_public');
 
         $insurance = uniqid() . '.' . $this->insurance_documents->getClientOriginalExtension();
-        $this->documents['insurance']->storeAs('vehicles', $insurance, 'real_public');
+        $this->insurance_documents->storeAs('vehicles', $insurance, 'real_public');
 
 
         DB::table('vehicles')->where('mask',$this->owner['vehicle_id'])->update([
