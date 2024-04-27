@@ -432,7 +432,7 @@
                                                 <label class="form-label">About</label>
                                                 <!--end::Label-->
                                                 <!--begin::Editor-->
-                                                <textarea wire.model="driver.description" id="" class="form-control" cols="10" rows="3"></textarea>
+                                                <textarea wire:model="driver.description" id="" class="form-control" cols="10" rows="3"></textarea>
                                                 {{-- <div id="kt_ecommerce_add_product_description"
                                                     name="kt_ecommerce_add_product_description"
                                                     class="min-h-200px mb-2">

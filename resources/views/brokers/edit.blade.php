@@ -89,7 +89,13 @@
                         <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                             data-kt-image-input="true">
                             <!--begin::Preview existing avatar-->
-                            <div class="image-input-wrapper w-150px h-150px"></div>
+                            @if ($image)
+                            <div class="">
+                                <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                            </div>
+                            @else
+                            <img class="w-150px h-150px" src="{{asset('storage/logos/'.$this->broker['image'])}}" alt="image" />
+                            @endif
                             <!--end::Preview existing avatar-->
                             <!--begin::Label-->
                             <label class="btn btn-icon btn-circle btn-active-color-primary w-25px h-25px bg-body shadow"

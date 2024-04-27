@@ -54,11 +54,6 @@ class AddDriver extends Component
             'load_type' => 'array'
         ])->validate();
 
-        // if ($validated->fails()) {
-        //     dd($validated->errors());
-        //     // return $this->validationResponse($validated->errors());
-        // }
-        // dd($this->driver);
         $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
         $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
 

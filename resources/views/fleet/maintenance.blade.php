@@ -40,22 +40,6 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Secondary button-->
-                    <a href="/apps/customers/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Load Board</a>
-                    <!--end::Secondary button-->
-                    <!--begin::Primary button-->
-                    <a href="/organization/add" class="btn btn-sm fw-bold btn-primary">Fleet Mangement</a>
-                    <!--end::Primary button-->
-                    <!--begin::Secondary button-->
-                    <a href="/organization/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                        Organizations</a>
-                    <!--end::Secondary button-->
-                </div>
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
         </div>

@@ -48,9 +48,7 @@ class UpdateDriver extends Component
     public function general()
     {
 
-        // dd($this->driver);
-
-        if (is_file($this->driver['image'])) {
+        if (is_file($this->image)) {
             $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
             $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
             $this->driver['image'] = $imagename;

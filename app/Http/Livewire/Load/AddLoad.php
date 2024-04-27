@@ -64,7 +64,7 @@ class AddLoad extends Component
             'other_docs'=> 'required|mimes:pdf,docx,doc',
         ])->validate();
 
-        $load_id = uniqid();
+        $load_id = generateNumber();
 
         $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
         $this->load['image']->storeAs('loads', $imagename, 'real_public');

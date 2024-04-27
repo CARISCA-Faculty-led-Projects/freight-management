@@ -260,8 +260,9 @@
                             </i>Export</button>
                         <!--end::Export-->
                         <!--begin::Add customer-->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#kt_modal_add_customer">Add Broker</button>
+                        <a href="{{route('broker.add')}}" class="btn btn-primary">Add Broker</a>
+                        {{-- <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#kt_modal_add_customer">Add Broker</button> --}}
                         <!--end::Add customer-->
                     </div>
                     <!--end::Toolbar-->

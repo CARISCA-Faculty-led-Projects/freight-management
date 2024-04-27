@@ -20,7 +20,16 @@ function generateTaxnNumber(){
     return $code;
 }
 
+function generateNumber(){
+    $code = 0;
+    do {
+        $code = mt_rand(0000, 9999);
+    } while (strlen($code) < 6);
+    return $code;
+}
+
 function whichUser(){
+    // dd(Auth::user());
     $user = session('user_id') == null ? Auth::user()->mask : session('user_id');
     $guard = 'web';
 

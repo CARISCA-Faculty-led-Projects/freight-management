@@ -31,6 +31,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\ShipmentsController;
 use App\Http\Livewire\Sender\UpdateSender;
 
 Route::middleware('guest')->group(function () {
@@ -88,6 +89,7 @@ Route::middleware(['auth.general'])->group(function () {
 //     // return view('livewire.organisation');
 // });
 
+// Auth: organization start
 Route::middleware('auth:organizations')->group(function () {
     Route::prefix('organization')->group(function () {
         Route::get('add', AddOrganization::class);
@@ -173,7 +175,68 @@ Route::middleware('auth:organizations')->group(function () {
     Route::get('/brokers/{broker}/delete', [BrokersController::class, 'delete'])->name('broker.delete');
     Route::get('/brokers/overview', [BrokersController::class, 'dashboard'])->name('brokers.stats');
     Route::post('/broker/save', [BrokersController::class, 'store'])->name('broker.save');
+
+    Route::prefix('load')->group(function () {
+        Route::get('overview', function () {
+            return view('load.overview');
+        });
+
+        Route::controller(LoadsController::class)->group(function () {
+            Route::get('list', 'index')->name('loads');
+            Route::get('{load}/delete', 'delete')->name('loads.delete');
+            Route::get('{load}/details', 'details')->name('loads.details');
+        });
+        Route::get('add', AddLoad::class);
+        Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
+
+
+        Route::get('bids', function () {
+            return view('load.bids');
+        });
+        Route::get('locate', function () {
+            return view('load.locate');
+        });
+        Route::get('documents', function () {
+            return view('load.documents');
+        });
+        Route::get('offer-a-deal', function () {
+            return view('load.offer-a-deal');
+        });
+        Route::get('add-deal', function () {
+            return view('load.add-deal');
+        });
+        Route::get('invoices/create', function () {
+            return view('load.invoices.create');
+        });
+        Route::get('invoices/edit', function () {
+            return view('load.invoices.edit');
+        });
+        Route::get('invoices/view', function () {
+            return view('load.invoices.view');
+        });
+    });
+
+    // Shipments start
+Route::controller(ShipmentsController::class)->group(function(){
+
+    Route::get('/shipments/schedule', "schedule");
+    Route::get('/shipments/list','list');
+    Route::post('/shipments/save','store')->name('shipments.save');
+    Route::get('/shipments/add', 'add');
 });
+    Route::get('/shipments/overview', function () {
+        return view('shipments.overview');
+    });
+    Route::get('/shipments/details', function () {
+        return view('shipments.details');
+    });
+    Route::get('/shipments/tracking', function () {
+        return view('shipments.tracking');
+    });
+
+    // shipments end
+});
+// Auth organization end
 
 Route::middleware('auth:drivers')->group(function () {
     Route::controller(DriversController::class)->group(function () {
@@ -214,52 +277,6 @@ Route::middleware('auth:brokers')->group(function () {
 // });
 
 
-Route::get('/shipments/schedule', function () {
-    return view('shipments.schedule');
-});
-
-
-
-Route::prefix('load')->group(function () {
-    Route::get('overview', function () {
-        return view('load.overview');
-    });
-
-    Route::controller(LoadsController::class)->group(function () {
-        Route::get('list', 'index')->name('loads');
-        Route::get('{load}/delete', 'delete')->name('loads.delete');
-        Route::get('{load}/details', 'details')->name('loads.details');
-    });
-    Route::get('add', AddLoad::class);
-    Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
-
-
-    Route::get('bids', function () {
-        return view('load.bids');
-    });
-    Route::get('locate', function () {
-        return view('load.locate');
-    });
-    Route::get('documents', function () {
-        return view('load.documents');
-    });
-    Route::get('offer-a-deal', function () {
-        return view('load.offer-a-deal');
-    });
-    Route::get('add-deal', function () {
-        return view('load.add-deal');
-    });
-    Route::get('invoices/create', function () {
-        return view('load.invoices.create');
-    });
-    Route::get('invoices/edit', function () {
-        return view('load.invoices.edit');
-    });
-    Route::get('invoices/view', function () {
-        return view('load.invoices.view');
-    });
-});
-
 
 Route::get('/customers/overview', function () {
     return view('customers.overview');
@@ -274,21 +291,7 @@ Route::get('/customers/billing', function () {
     return view('customers.biling');
 });
 
-Route::get('/shipments/overview', function () {
-    return view('shipments.overview');
-});
-Route::get('/shipments/add', function () {
-    return view('shipments.add');
-});
-Route::get('/shipments/list', function () {
-    return view('shipments.list');
-});
-Route::get('/shipments/details', function () {
-    return view('shipments.details');
-});
-Route::get('/shipments/tracking', function () {
-    return view('shipments.tracking');
-});
+
 
 
 Route::get('/support/overview', function () {
