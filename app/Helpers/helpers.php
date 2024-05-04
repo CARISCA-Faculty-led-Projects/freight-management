@@ -12,7 +12,8 @@ function generateAccNumber()
     return $code;
 }
 
-function generateTaxnNumber(){
+function generateTaxnNumber()
+{
     $code = 0;
     do {
         $code = mt_rand(0000, 9999);
@@ -20,23 +21,35 @@ function generateTaxnNumber(){
     return $code;
 }
 
-function generateNumber(){
+function generateNumber()
+{
     $code = 0;
     do {
-        $code = mt_rand(0000, 9999);
+        $code = mt_rand(000000, 999900);
     } while (strlen($code) < 6);
     return $code;
 }
 
-function whichUser(){
+function whichUser()
+{
     // dd(Auth::user());
-    $user = session('user_id') == null ? Auth::user()->mask : session('user_id');
-    $guard = 'web';
 
-    if(auth()->guard()->name != "web"){
-        $guard = auth()->guard()->name;
+    $guards = array_keys(config('auth.guards'));
+    foreach ($guards as $guard) {
+        if (Auth::guard($guard)->check() && session('user_id') != null) {
+            $level = DB::table($guard != 'web' ? $guard : "users")->where('mask', session('user_id'))->first();
+            return $level;
+        }else if(Auth::guard($guard)->check()){
+            return Auth::guard($guard)->user();
+        }
     }
+    // $user = session('user_id') == null ? Auth::user()->mask : session('user_id');
+    // $guard = 'web';
 
-    $level = DB::table($guard != 'web' ? $guard :"users")->where('mask',$user)->first();
-    return $level;
+    // if (auth()->guard()->name != "web") {
+    //     $guard = auth()->guard()->name;
+    // }
+
+    // $level = DB::table($guard != 'web' ? $guard : "users")->where('mask', $user)->first();
+    // return $level;
 }

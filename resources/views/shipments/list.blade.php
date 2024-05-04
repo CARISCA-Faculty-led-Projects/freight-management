@@ -138,8 +138,7 @@
                 <!--begin::Secondary button-->
                 <!--end::Secondary button-->
                 <!--begin::Primary button-->
-                <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                    data-bs-target="#kt_modal_add_shipment">Add Shipment</a>
+                <a href="{{route("shipments.add")}}" class="btn btn-sm fw-bold btn-primary">Add Shipment</a>
                 <!--end::Primary button-->
             </div>
             <!--end::Actions-->
@@ -256,6 +255,7 @@
                         </tr>
                     </thead>
                     <tbody class="fw-semibold text-gray-600">
+                        @foreach ($shipments as $shipment)
                         <tr>
                             <td>
                                 <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -264,7 +264,7 @@
                             </td>
                             <td data-kt-ecommerce-order-filter="order_id">
                                 <a href="/apps/ecommerce/sales/details"
-                                    class="text-gray-800 text-hover-primary fw-bold">#332</a>
+                                    class="text-gray-800 text-hover-primary fw-bold">{{$shipment->mask}}</a>
                             </td>
                             <td>Refrigerated Goods</td>
                             <td class="text-end pe-0" data-order="Delivering">
@@ -338,6 +338,7 @@
                                 <!--end::Menu-->
                             </td>
                         </tr>
+                        @endforeach
                         <!-- Row 4 -->
                         <tr>
                             <td>
@@ -419,185 +420,6 @@
                                 <!--end::Menu-->
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="2" />
-                                </div>
-                            </td>
-                            <td data-kt-ecommerce-order-filter="order_id">
-                                <a href="/apps/ecommerce/sales/details"
-                                    class="text-gray-800 text-hover-primary fw-bold">#222</a>
-                            </td>
-                            <td>Electronics</td>
-                            <td class="text-end pe-0" data-order="Pending">
-                                <!--begin::Badges-->
-                                <div class="badge badge-light-danger">Unassigned</div>
-                                <!--end::Badges-->
-                            </td>
-                            <td class="text-end pe-0">
-                                <span class="fw-bold">5 units, 10 Tons, 20*40*30</span>
-                            </td>
-                            <td class="text-end">Tema Port, Accra</td>
-                            <td class="text-end">Victoria Avenue, Nigeria</td>
-
-                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                <a href="/apps/ecommerce/sales/details"
-                                    class="text-gray-800 text-hover-primary fw-bold">-</a>
-                            </td>
-                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                <a href="/apps/ecommerce/sales/details"
-                                    class="text-gray-800 text-hover-primary fw-bold">-</a>
-                            </td>
-                            <td class="text-end" data-order="2023-03-20">
-                                <span class="fw-bold">-</span>
-                            </td>
-                            <td class="text-end" data-order="2023-03-20">
-                                <span class="fw-bold">-</span>
-                            </td>
-                            <td class="text-end" data-order="2023-03-25">
-                                <span class="fw-bold">-</span>
-                            </td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                <!--begin::Menu-->
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/details" class="menu-link px-3">View</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/edit" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/locate" class="menu-link px-3">Locate</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a class="menu-link px-3" data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_bidding">Bid</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/create-invoice" class="menu-link px-3">Invoice</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a class="menu-link px-3" data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_assign">Assign</a>
-                                    </div>
-                                    <!--end::Menu item-->
-
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-kt-ecommerce-order-filter="delete_row">Delete</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                            </td>
-                        </tr>
-                        <!-- Row 3 -->
-                        <tr>
-                            <td>
-                                <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="3" />
-                                </div>
-                            </td>
-                            <td data-kt-ecommerce-order-filter="order_id">
-                                <a href="/apps/ecommerce/sales/details"
-                                    class="text-gray-800 text-hover-primary fw-bold">#900</a>
-                            </td>
-                            <td>Furniture</td>
-                            <td class="text-end pe-0" data-order="In Transit">
-                                <!--begin::Badges-->
-                                <div class="badge badge-light-danger">Unassigned</div>
-                                <!--end::Badges-->
-                            </td>
-                            <td class="text-end pe-0">
-                                <span class="fw-bold">3 units, 15 Tons, 25*45*35</span>
-                            </td>
-                            <td class="text-end">Koforidua, Eastern Region</td>
-                            <td class="text-end">Tema, Community 5, Accra</td>
-                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                <a href="/apps/ecommerce/sales/details"
-                                    class="text-gray-800 text-hover-primary fw-bold">-</a>
-                            </td>
-                            <td data-kt-ecommerce-order-filter="order_id" class="text-end">
-                                <a href="/apps/ecommerce/sales/details"
-                                    class="text-gray-800 text-hover-primary fw-bold">-</a>
-                            </td>
-                            <td class="text-end" data-order="2023-03-22">
-                                <span class="fw-bold">-</span>
-                            </td>
-                            <td class="text-end" data-order="2023-03-22">
-                                <span class="fw-bold">-</span>
-                            </td>
-                            <td class="text-end" data-order="2023-03-28">
-                                <span class="fw-bold">-</span>
-                            </td>
-                            <td class="text-end">
-                                <a href="#" class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
-                                    data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
-                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
-                                <!--begin::Menu-->
-                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
-                                    data-kt-menu="true">
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/details" class="menu-link px-3">View</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/edit" class="menu-link px-3">Edit</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/locate" class="menu-link px-3">Locate</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a class="menu-link px-3" data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_bidding">Bid</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="/load/create-invoice" class="menu-link px-3">Invoice</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a class="menu-link px-3" data-bs-toggle="modal"
-                                            data-bs-target="#kt_modal_assign">Assign</a>
-                                    </div>
-                                    <!--end::Menu item-->
-
-                                    <!--begin::Menu item-->
-                                    <div class="menu-item px-3">
-                                        <a href="#" class="menu-link px-3"
-                                            data-kt-ecommerce-order-filter="delete_row">Delete</a>
-                                    </div>
-                                    <!--end::Menu item-->
-                                </div>
-                                <!--end::Menu-->
-                            </td>
-                        </tr>
-
                     </tbody>
                 </table>
                 <!--end::Table-->

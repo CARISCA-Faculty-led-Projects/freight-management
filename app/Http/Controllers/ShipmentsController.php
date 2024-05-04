@@ -19,7 +19,8 @@ class ShipmentsController extends Controller
 
     public function list()
     {
-        return view('shipments.list');
+        $shipments = DB::table('shipments')->where('organisation_id',whichUser()->mask)->get();
+        return view('shipments.list',compact('shipments'));
     }
 
     public function add()
@@ -40,12 +41,13 @@ class ShipmentsController extends Controller
         Validator::make($request->all(), ['sender_id' => 'required', 'load_type' => 'required', 'driver_id' => 'required', 'amount' => 'required'])->validate();
 
         $request['created_at'] = Carbon::now()->toDateTimeString();
-        $request['mask'] = Str::orderedUuid();
+        $request['mask'] = generateNumber();
         $request['organisation_id'] = whichUser()->mask;
 
+        $request['loads'] = json_encode($request->loads);
+// dd($request->all());
+        DB::table('shipments')->insert($request->except(['_token','condition_label','conditions','condition_equals','condition_type']));
 
-        DB::table('shipments')->insert($request->except(['_token','condition_label','condition_type']));
-
-        return back()->with('success', 'Shipments details saved');
+        return redirect(route('shipments.list'))->with('success', 'Shipments details saved');
     }
 }

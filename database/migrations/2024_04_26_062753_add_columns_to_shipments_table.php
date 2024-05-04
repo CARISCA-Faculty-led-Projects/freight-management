@@ -14,8 +14,10 @@ return new class extends Migration
         Schema::table('shipments', function (Blueprint $table) {
             $table->string('pickup_address')->nullable();
             $table->string('dropoff_address')->nullable();
+            $table->uuid('mask');
             $table->string('approval_status');
             $table->string('payment_status');
+            $table->text('loads');
             $table->string('shipment_status');
             $table->dropColumn('load_id');
             $table->string('load_type');

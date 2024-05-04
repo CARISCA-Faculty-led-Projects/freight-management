@@ -49,8 +49,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form method="POST" class="d-flex flex-column flex-lg-row"
-                action="{{ route('shipments.save') }}">
+            <form method="POST" class="d-flex flex-column flex-lg-row" action="{{ route('shipments.save') }}">
                 @csrf
                 <!--begin::Aside column-->
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -223,8 +222,9 @@
                                 <label class="required form-label">Sender</label>
                                 <!--end::Label-->
                                 <!--begin::Select2-->
-                                <select class="form-select mb-2" name="sender_id" data-control="select2" data-hide-search="true"
-                                    data-placeholder="Select a sender" id="kt_ecommerce_add_category_store_template">
+                                <select class="form-select mb-2" name="sender_id" data-control="select2"
+                                    data-hide-search="true" data-placeholder="Select a sender"
+                                    id="kt_ecommerce_add_category_store_template">
                                     <option>--select--</option>
                                     @foreach ($senders as $sender)
                                         <option value="{{ $sender->mask }}">
@@ -244,7 +244,7 @@
                                 <!--begin::Label-->
                                 <label class="required form-label">Load</label>
                                 <!--end::Label-->
-                                <!--begin::Select2-->
+                                {{-- <!--begin::Select2-->
                                 <select class="form-select mb-2" name="load_type" data-control="select2" data-hide-search="true"
                                     data-placeholder="Select a sender" id="kt_ecommerce_add_category_store_template">
                                     <option></option>
@@ -252,7 +252,70 @@
                                         <option value="{{ $load->mask }}">{{ $load->mask }}</option>
                                     @endforeach
                                 </select>
-                                <!--end::Select2-->
+                                <!--end::Select2--> --}}
+                                <!--begin::Table-->
+                                <div class="" style="height: 200px; overflow:auto;">
+                                    <table class="table align-middle table-row-dashed fs-6 gy-5"
+                                        id="kt_ecommerce_sales_table">
+                                        <thead>
+                                            <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                                <th class="w-10px pe-2">
+                                                    <div
+                                                        class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                                                        <input class="form-check-input" type="checkbox" data-kt-check="true"
+                                                            data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
+                                                            value="1" />
+                                                    </div>
+                                                </th>
+                                                <th class="min-w-105px">#</th>
+                                                <th class="min-w-105px">Category</th>
+                                                <th class="text-end min-w-70px">Status</th>
+                                                <th class="text-end min-w-70px">Size</th>
+                                                <th class="text-end min-w-70px">Pickup</th>
+                                                <th class="text-end min-w-70px">Dropoff</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="fw-semibold text-gray-600">
+                                            @foreach ($loads as $load)
+                                                <tr>
+                                                    <td>
+                                                        <div
+                                                            class="form-check form-check-sm form-check-custom form-check-solid">
+                                                            <input class="form-check-input" type="checkbox" name="loads[]" value="{{ $load->mask }}" />
+                                                        </div>
+                                                    </td>
+                                                    <td>{{ $load->mask }}</td>
+                                                    <td>{{ $load->load_type }}</td>
+                                                    <td class="text-end pe-0">
+                                                        <!--begin::Badges-->
+                                                        <div
+                                                            class="badge @if ($load->status == 'Approved') badge-light-primary
+                                                        @elseif($load->status == 'Pending')
+                                                        badge-light-warning
+                                                        @elseif($load->status == 'Rejected')
+                                                        badge-light-danger
+                                                        @elseif($load->status == 'Paid')
+                                                        badge-light-success
+                                                        @else
+                                                        badge-light-primary @endif">
+                                                            {{ $load->status }}</div>
+                                                        <!--end::Badges-->
+                                                    </td>
+                                                    <td class="text-end pe-0">
+                                                        <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
+                                                            {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
+                                                    </td>
+                                                    <td class="text-end">{{ $load->pickup_address }}</td>
+                                                    <td class="text-end">{{ $load->dropoff_address }}</td>
+
+
+                                                </tr>
+                                            @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!--end::Table-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">A load is required and
                                     recommended to be unique.</div>
@@ -265,8 +328,9 @@
                                 <label class="required form-label">Driver</label>
                                 <!--end::Label-->
                                 <!--begin::Select2-->
-                                <select class="form-select mb-2" name="driver_id" data-control="select2" data-hide-search="true"
-                                    data-placeholder="Select a sender" id="kt_ecommerce_add_category_store_template">
+                                <select class="form-select mb-2" name="driver_id" data-control="select2"
+                                    data-hide-search="true" data-placeholder="Select a sender"
+                                    id="kt_ecommerce_add_category_store_template">
                                     <option></option>
                                     @foreach ($drivers as $driver)
                                         <option value="{{ $driver->mask }}">{{ $driver->name }}
@@ -449,8 +513,8 @@
                                     <label class="form-label">Handling Options</label>
                                     <!--end::Label-->
                                     <!--begin::Editor-->
-                                    <input id="kt_ecommerce_add_category_meta_keywords"
-                                        name="handling" class="form-control mb-2" />
+                                    <input id="kt_ecommerce_add_category_meta_keywords" name="handling"
+                                        class="form-control mb-2" />
                                     <!--end::Editor-->
                                     <!--begin::Description-->
                                     <div class="text-muted fs-7">Set a list of keywords that the
@@ -465,236 +529,6 @@
                         </div>
                         <!--end::Meta options-->
 
-                        <!--begin::Automation-->
-                        <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>Load Breakdown</h2>
-                                </div>
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-
-                                <!--begin::Input group-->
-                                <div class="mt-5">
-                                    <!--begin::Label-->
-                                    <label class="form-label">Indicate all the items in your load if
-                                        they are more than one</label>
-                                    <!--end::Label-->
-                                    <!--begin::Conditions-->
-                                    <div class="d-flex flex-wrap align-items-center text-gray-600 gap-5 mb-7">
-                                        <span>Save items for future use:</span>
-                                        <div class="form-check form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="radio" name="conditions"
-                                                value="" id="all_conditions" checked="checked" />
-                                            <label class="form-check-label" for="all_conditions">Yes</label>
-                                        </div>
-
-                                        <div class="form-check form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="radio" name="conditions"
-                                                value="" id="any_conditions" />
-                                            <label class="form-check-label" for="any_conditions">No</label>
-                                        </div>
-                                    </div>
-                                    <!--end::Conditions-->
-                                    <!--begin::Repeater-->
-                                    <div id="kt_ecommerce_add_category_conditions">
-                                        <!--begin::Form group-->
-                                        <div class="form-group">
-                                            <div data-repeater-list="kt_ecommerce_add_category_conditions"
-                                                class="d-flex flex-column gap-3">
-                                                <div data-repeater-item=""
-                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                    <!--begin::Select2-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" class="form-control mw-100 w-200px"
-                                                        name="condition_label" placeholder="Item Name" />
-                                                    <!--end::Input-->
-                                                    <div class="w-100 w-md-200px">
-                                                        <select class="form-select" name="condition_type"
-                                                            data-placeholder="Select an option"
-                                                            data-kt-ecommerce-catalog-add-category="condition_type">
-                                                            <option value="general_cargo" selected="selected">General
-                                                                Cargo
-                                                            </option>
-                                                            <option value="refrigerated_goods">
-                                                                Refrigerated Goods</option>
-                                                            <option value="hazardous_materials">
-                                                                Hazardous Materials</option>
-                                                            <option value="bulk_cargo">Bulk Cargo
-                                                            </option>
-                                                            <option value="flatbed_loads">Flatbed Loads
-                                                            </option>
-                                                            <option value="overweight_cargo">Overweight
-                                                                Cargo</option>
-                                                            <option value="automobile_transport">
-                                                                Automobile Transport</option>
-                                                            <option value="livestock_transport">
-                                                                Livestock Transport</option>
-                                                            <option value="perishable_goods">Perishable
-                                                                Goods</option>
-                                                            <option value="fragile_goods">Fragile Goods
-                                                            </option>
-                                                            <option value="construction_materials">
-                                                                Construction Materials
-                                                            </option>
-                                                            <option value="retail_goods">Retail Goods
-                                                            </option>
-                                                            <option value="e_commerce_shipments">
-                                                                E-commerce Shipments</option>
-                                                            <option value="pharmaceuticals_and_medical_supplies">
-                                                                Pharmaceuticals
-                                                                and Medical Supplies</option>
-                                                            <option value="agriculture_products">
-                                                                Agriculture Products</option>
-                                                            <option value="textiles_and_apparel">
-                                                                Textiles and Apparel</option>
-                                                            <option value="electronics_and_technology_products">
-                                                                Electronics and
-                                                                Technology Products</option>
-                                                            <option value="furniture_and_home_goods">
-                                                                Furniture and Home Goods
-                                                            </option>
-                                                            <option value="waste_and_recycling_materials">
-                                                                Waste and Recycling
-                                                                Materials</option>
-                                                            <option value="specialized_equipment">
-                                                                Specialized Equipment</option>
-                                                        </select>
-                                                    </div>
-                                                    <!--end::Select2-->
-                                                    <!--begin::Input-->
-
-                                                    <input type="number" class="form-control mw-100 w-100px"
-                                                        name="condition_label" placeholder="Quantity" />
-                                                    <!--end::Input-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" class="form-control mw-100 w-200px"
-                                                        name="condition_label" placeholder="Value eg. 120.00" />
-                                                    <!--end::Input-->
-                                                    <!--begin::Button-->
-                                                    <button type="button" data-repeater-delete=""
-                                                        class="btn btn-sm btn-icon btn-light-danger">
-                                                        <i class="ki-duotone ki-cross fs-2">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                        </i>
-                                                    </button>
-                                                    <!--end::Button-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!--end::Form group-->
-                                        <!--begin::Form group-->
-                                        <div class="form-group mt-5">
-                                            <!--begin::Button-->
-                                            <button type="button" data-repeater-create=""
-                                                class="btn btn-sm btn-light-primary">
-                                                <i class="ki-duotone ki-plus fs-2"></i>Add another
-                                                condition</button>
-                                            <!--end::Button-->
-                                        </div>
-                                        <!--end::Form group-->
-                                    </div>
-                                    <!--end::Repeater-->
-                                </div>
-                                <!--end::Input group-->
-                            </div>
-                            <!--end::Card header-->
-                        </div>
-                        <!--end::Automation-->
-                        <!--begin::Media-->
-                        <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>Insurance Documents</h2>
-                                </div>
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-2">
-                                    <!--begin::Dropzone-->
-                                    <div class="dropzone" id="kt_ecommerce_add_organization_media">
-                                        <!--begin::Message-->
-                                        <div class="dz-message needsclick">
-                                            <!--begin::Icon-->
-                                            <i class="ki-duotone ki-file-up text-primary fs-3x">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            <!--end::Icon-->
-                                            <input type="file" name="insurance_docs" id=""
-                                                class="form-control">
-                                            <!--begin::Info-->
-                                            <div class="ms-4">
-                                                <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files
-                                                    here or click
-                                                    to upload.</h3>
-                                            </div>
-                                            <!--end::Info-->
-                                        </div>
-                                    </div>
-                                    <!--end::Dropzone-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">Upload the shipment insurance documents
-                                    here.</div>
-                                <!--end::Description-->
-                            </div>
-                            <!--end::Card header-->
-                        </div>
-                        <!--end::Media-->
-                        <!--begin::Media-->
-                        <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>Other Relevant Documents</h2>
-                                </div>
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Input group-->
-                                <div class="fv-row mb-2">
-                                    <!--begin::Dropzone-->
-                                    <div class="dropzone" id="kt_ecommerce_add_organization_media">
-                                        <!--begin::Message-->
-                                        <div class="dz-message needsclick">
-                                            <!--begin::Icon-->
-                                            <i class="ki-duotone ki-file-up text-primary fs-3x">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                            </i>
-                                            <!--end::Icon-->
-                                            <input type="file" name="other_docs" id="" class="form-control">
-                                            <!--begin::Info-->
-                                            <div class="ms-4">
-                                                <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files
-                                                    here or click
-                                                    to upload.</h3>
-
-                                            </div>
-                                            <!--end::Info-->
-                                        </div>
-                                    </div>
-                                    <!--end::Dropzone-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">Upload the other relevant documents here.
-                                </div>
-                                <!--end::Description-->
-                            </div>
-                            <!--end::Card header-->
-                        </div>
-                        <!--end::Media-->
                         <!--begin::Automation-->
                         <div class="card card-flush py-4">
                             <!--begin::Card header-->
@@ -718,8 +552,8 @@
                                         <!--begin::Radio-->
                                         <div class="form-check form-check-custom form-check-solid">
                                             <!--begin::Input-->
-                                            <input class="form-check-input me-3" name="load_assignment_method" type="radio"
-                                                value="0" id="kt_ecommerce_add_category_automation_0"
+                                            <input class="form-check-input me-3" name="load_assignment_method"
+                                                type="radio" value="0" id="kt_ecommerce_add_category_automation_0"
                                                 checked='checked' />
                                             <!--end::Input-->
                                             <!--begin::Label-->
@@ -740,8 +574,9 @@
                                         <!--begin::Radio-->
                                         <div class="form-check form-check-custom form-check-solid">
                                             <!--begin::Input-->
-                                            <input class="form-check-input me-3" name="load_assignment_method" type="radio"
-                                                value="0" id="kt_ecommerce_add_category_automation_0" />
+                                            <input class="form-check-input me-3" name="load_assignment_method"
+                                                type="radio" value="0"
+                                                id="kt_ecommerce_add_category_automation_0" />
                                             <!--end::Input-->
                                             <!--begin::Label-->
                                             <label class="form-check-label" for="kt_ecommerce_add_category_automation_0">
@@ -763,8 +598,9 @@
                                         <!--begin::Radio-->
                                         <div class="form-check form-check-custom form-check-solid">
                                             <!--begin::Input-->
-                                            <input class="form-check-input me-3" name="load_assignment_method" type="radio"
-                                                value="1" id="kt_ecommerce_add_category_automation_1" />
+                                            <input class="form-check-input me-3" name="load_assignment_method"
+                                                type="radio" value="1"
+                                                id="kt_ecommerce_add_category_automation_1" />
                                             <!--end::Input-->
                                             <!--begin::Label-->
                                             <label class="form-check-label" for="kt_ecommerce_add_category_automation_1">
@@ -783,7 +619,7 @@
                                 </div>
                                 <!--end::Input group-->
                                 <!--begin::Input group-->
-                                <div class="d-none mt-10" data-kt-ecommerce-catalog-add-category="auto-options">
+                                <div class=" mt-10" data-kt-ecommerce-catalog-add-category="auto-options">
                                     <!--begin::Label-->
                                     <label class="form-label">Manual settings</label>
                                     <!--end::Label-->
@@ -848,8 +684,8 @@
                                                     <!--end::Select2-->
                                                     <!--begin::Input-->
                                                     <!-- <input type="text"
-                                                                                class="form-control mw-100 w-200px"
-                                                                                name="condition_label" placeholder="Agreed Prize" /> -->
+                                                                                    class="form-control mw-100 w-200px"
+                                                                                    name="condition_label" placeholder="Agreed Prize" /> -->
                                                     <!--end::Input-->
                                                     <!--begin::Button-->
                                                     <button type="button" data-repeater-delete=""
@@ -866,11 +702,11 @@
                                         <!--end::Form group-->
                                         <!--begin::Form group-->
                                         <!-- <div class="form-group mt-5">
-                                                                    <button type="button" data-repeater-create=""
-                                                                        class="btn btn-sm btn-light-primary">
-                                                                        <i class="ki-duotone ki-plus fs-2"></i>Add another
-                                                                        condition</button>
-                                                                </div> -->
+                                                                        <button type="button" data-repeater-create=""
+                                                                            class="btn btn-sm btn-light-primary">
+                                                                            <i class="ki-duotone ki-plus fs-2"></i>Add another
+                                                                            condition</button>
+                                                                    </div> -->
                                         <!--end::Form group-->
                                     </div>
                                     <!--end::Repeater-->
