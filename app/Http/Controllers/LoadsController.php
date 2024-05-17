@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Reflector;
 
 class LoadsController extends Controller
 {
@@ -41,6 +42,22 @@ class LoadsController extends Controller
 
         $loads = DB::table('loads')->where('sender_id',Auth::user()->mask)->get();
 
-        return view('load.list',compact('loads'));
+        return view('load.senders.list',compact('loads'));
+    }
+
+    public function board(){
+        $loads = DB::table('loads')->get();
+
+        return view('load.board',compact('loads'));
+    }
+
+    public function completed($load){
+        DB::table('loads')->where('sender_id',whichUser()->mask)->where('mask',$load)->update(['completed'=>1]);
+
+        return redirect()->back()->with('success',"Load marked as completed");
+    }
+
+    public function brokerLoadAssign(Request $request){
+        dd($request->all());
     }
 }

@@ -19,6 +19,7 @@ class GeneralAuth
          $guards = array_keys(config('auth.guards'));
         foreach($guards as $guard){
             if(Auth::guard($guard)->check()){
+                // dd($guard);
                 return $next($request);
             }
         }

@@ -32,6 +32,8 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\ShipmentsController;
+use App\Http\Livewire\Load\LoadBoard;
+use App\Http\Livewire\Load\SenderAddLoad;
 use App\Http\Livewire\Sender\UpdateSender;
 
 Route::middleware('guest')->group(function () {
@@ -81,6 +83,7 @@ Route::middleware(['auth.general'])->group(function () {
 
     Route::get('logout', [AuthController::class, 'destroy'])
         ->name('signout');
+
 });
 
 // ACTUAL ROUTES
@@ -97,6 +100,7 @@ Route::middleware(['auth:organizations', 'auth:brokers'])->group(function () {
     });
     Route::get('add', AddLoad::class);
     Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
+
 });
 
 // Auth: organization start
@@ -183,7 +187,6 @@ Route::middleware('auth:organizations')->group(function () {
     Route::get('/brokers/{broker}/edit', [BrokersController::class, 'edit'])->name('broker.edit');
     Route::get('/brokers/{broker}/view', [BrokersController::class, 'show'])->name('broker.view');
     Route::get('/brokers/{broker}/delete', [BrokersController::class, 'delete'])->name('broker.delete');
-    Route::get('/brokers/overview', [BrokersController::class, 'dashboard'])->name('brokers.stats');
     Route::post('/broker/save', [BrokersController::class, 'store'])->name('broker.save');
 
     Route::prefix('load')->group(function () {
@@ -199,6 +202,8 @@ Route::middleware('auth:organizations')->group(function () {
         });
         Route::get('add', AddLoad::class);
         Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
+    Route::get('loads/board',[LoadsController::class,'board'])->name('load.board');
+
 
 
         Route::get('bids', function () {
@@ -278,21 +283,22 @@ Route::middleware('auth:senders')->group(function () {
         Route::prefix('load')->group(function () {
             Route::get('overview', function () {
                 return view('load.overview');
-            })->name('broker.load.overview');
+            })->name('sender.loads.overview');
 
             // Loads
             Route::controller(LoadsController::class)->group(function () {
-                Route::get('list', 'index')->name('sender.loads');
+                Route::get('list', 's_index')->name('sender.loads');
                 Route::get('{load}/delete', 'delete')->name('sender.loads.delete');
                 Route::get('{load}/details', 'details')->name('sender.loads.details');
+                Route::get('{load}/completed', 'completed')->name('sender.loads.complete');
             });
-            Route::get('add', AddLoad::class);
-            Route::get('{load_id}/edit', UpdateLoad::class)->name('sender.loads.edit');
+            Route::get('add', SenderAddLoad::class)->name('sender.load.add');
+            Route::get('{load_id}/edit', UpdateLoad::class)->name('sender.load.edit');
 
 
             Route::get('bids', function () {
                 return view('load.bids');
-            });
+            })->name('sender.load.bid');
             Route::get('locate', function () {
                 return view('load.locate');
             });
@@ -321,10 +327,17 @@ Route::middleware('auth:senders')->group(function () {
 Route::middleware('auth:brokers')->group(function () {
     Route::prefix('brokers')->group(function () {
         Route::controller(BrokersController::class)->group(function () {
-            Route::get('brokers/overview', 'overview')->name('broker.overview');
+            Route::get('overview', 'overview')->name('broker.overview');
+        });
+        Route::prefix('loads')->group(function(){
+            Route::controller(LoadsController::class)->group(function(){
+                Route::post('assign','brokerLoadAssign')->name('broker.loads.assign');
+            });
         });
 
     });
+    Route::get('loads/board',LoadBoard::class)->name('load.board');
+
 });
 
 // Route::middleware('auth:')->group(function(){

@@ -25,8 +25,8 @@ function generateNumber()
 {
     $code = 0;
     do {
-        $code = mt_rand(000000, 999900);
-    } while (strlen($code) < 6);
+        $code = mt_rand(00000000, 99990000);
+    } while (strlen($code) < 8);
     return $code;
 }
 

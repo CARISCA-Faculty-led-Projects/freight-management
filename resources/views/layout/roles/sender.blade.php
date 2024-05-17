@@ -49,15 +49,15 @@
                                         class="path4"></span></i></span><span class="menu-title">Loads</span><span
                                 class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
                         <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/overview"><span
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{route('sender.loads.overview')}}"><span
                                         class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                                         class="menu-title">Overview</span></a><!--end:Menu link--></div>
                             <!--end:Menu item--><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/list"><span
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{route('sender.loads')}}"><span
                                         class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                                         class="menu-title">List</span></a><!--end:Menu link--></div>
                             <!--end:Menu item--><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/bids"><span
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{route('sender.load.bid')}}"><span
                                         class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                                         class="menu-title">Bid</span></a><!--end:Menu link--></div>
                             <!--end:Menu item-->

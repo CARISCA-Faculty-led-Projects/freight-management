@@ -11956,7 +11956,6 @@ textarea.form-control-lg {
 .opacity-100 {
   opacity: 1 !important;
 }
-
 .opacity-100-hover:hover {
   opacity: 1 !important;
 }
@@ -49977,4 +49976,13 @@ body,
   [data-kt-app-layout=dark-header] .app-header .page-heading {
     color: #ffffff !important;
   }
+}
+
+.select2-container{
+    width: 25% !important;
+}
+
+.select2-selection{
+    width: 95% !important;
+    height: 48px !important;
 }

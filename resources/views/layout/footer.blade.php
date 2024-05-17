@@ -23,3 +23,10 @@
     </div>
     <!--end::Footer container-->
 </div>
+<script>
+    $(document).ready(function() {
+        // alert('ready');
+    $('.js-example-basic-single').select2();
+    $('.js-example-basic-multiple').select2();
+});
+</script>

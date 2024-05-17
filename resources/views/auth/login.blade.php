@@ -13,8 +13,7 @@
             <div class="w-lg-600px p-10 p-lg-15 mx-auto">
 
                 <!--begin::Form-->
-                <form class="form w-100"
-                    action="{{route('authenticate')}}" method="POST">
+                <form class="form w-100" action="{{ route('authenticate') }}" method="POST">
                     @csrf
                     <!--begin::Heading-->
                     <div class="mb-10 text-center mb-4">
@@ -26,7 +25,7 @@
                     </div>
                     <!--end::Heading-->
                     <!--begin::Input group-->
-                    <div class="row fv-row mb-7">
+                    <div class="row fv-row mb-5">
                         <div class="mb-5">
                             <label class="form-label fw-bold text-gray-900 fs-6">Select account type</label>
                             <select name="type" id="" class="form-control" required>
@@ -48,13 +47,13 @@
                         <!--end::Separator-->
                     </div>
                     <!--end::Input group-->
-
+                    @include('includes.alerts')
                     <!--begin::Input group-->
                     <div class="fv-row mb-7">
                         <label class="form-label fw-bold text-gray-900 fs-6">Email</label>
                         <input class="form-control form-control-lg form-control-solid" type="email" placeholder=""
                             name="email" autocomplete="off" />
-                            @error('email')
+                        @error('email')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>
@@ -81,8 +80,8 @@
                             </div>
                             <!--end::Input wrapper-->
                             @error('password')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <!--end::Wrapper-->
 

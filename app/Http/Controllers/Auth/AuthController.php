@@ -54,7 +54,7 @@ class AuthController extends Controller
                 return redirect(route("driver.overview"));
             }
         } else {
-            dd('error somewhere');
+           return redirect()->back()->with("error","Email / Password incorrect or different account type selected");
         }
     }
 

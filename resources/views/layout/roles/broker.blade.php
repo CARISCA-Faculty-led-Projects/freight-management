@@ -54,7 +54,9 @@ Broker
                                     class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                                     class="menu-title">Bid</span></a><!--end:Menu link--></div>
                         <!--end:Menu item-->
-
+                        <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{route('load.board')}}"><span
+                            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                            class="menu-title">Board</span></a><!--end:Menu link--></div>
                     </div><!--end:Menu sub-->
                 </div><!--end:Menu item-->
 
