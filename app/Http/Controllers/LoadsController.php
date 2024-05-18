@@ -9,55 +9,66 @@ use Reflector;
 
 class LoadsController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         $loads = DB::table('loads')->get();
 
-        return view('load.list',compact('loads'));
+        return view('load.list', compact('loads'));
     }
 
 
-    public function edit(){
+    public function edit()
+    {
         return view('load.edit');
     }
 
-    public function delete($load_id){
+    public function delete($load_id)
+    {
 
-        DB::table('loads')->where('mask',$load_id)->delete();
-        DB::table('sub_loads')->where('load_id',$load_id)->delete();
+        DB::table('loads')->where('mask', $load_id)->delete();
+        DB::table('sub_loads')->where('load_id', $load_id)->delete();
 
-        return back()->with('success',"Load Deleted");
-
+        return back()->with('success', "Load Deleted");
     }
 
-    public function details($load_id){
-        $load = DB::table('loads')->where('mask',$load_id)->first();
-        $subload = DB::table('sub_loads')->where('load_id',$load_id)->get();
+    public function details($load_id)
+    {
+        $load = DB::table('loads')->where('mask', $load_id)->first();
+        $subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
 
-        return view('load.details',compact('load','subload'));
+        return view('load.details', compact('load', 'subload'));
     }
 
     // Sender
-    public function s_index(){
+    public function s_index()
+    {
 
-        $loads = DB::table('loads')->where('sender_id',Auth::user()->mask)->get();
+        $loads = DB::table('loads')->where('sender_id', Auth::user()->mask)->get();
 
-        return view('load.senders.list',compact('loads'));
+        return view('load.senders.list', compact('loads'));
     }
 
-    public function board(){
-        $loads = DB::table('loads')->get();
+    public function board()
+    {
+        $loads = DB::table('loads')->join('senders','senders.mask','loads.sender_id')->select('senders.name','loads.*')->orderByDesc('created_at')->get();
 
-        return view('load.board',compact('loads'));
+        return view('organization.loads.board', compact('loads'));
     }
 
-    public function completed($load){
-        DB::table('loads')->where('sender_id',whichUser()->mask)->where('mask',$load)->update(['completed'=>1]);
+    public function completed($load)
+    {
+        DB::table('loads')->where('sender_id', whichUser()->mask)->where('mask', $load)->update(['completed' => 1]);
 
-        return redirect()->back()->with('success',"Load marked as completed");
+        return redirect()->back()->with('success', "Load marked as completed");
     }
 
-    public function brokerLoadAssign(Request $request){
-        dd($request->all());
+    public function brokerLoadAssign(Request $request)
+    {
+        foreach ($request->loads as $load) {
+            DB::table("loads")->where('mask', $load)->where('shipment_status',"Unassigned")->update(['organization_id' => $request->organization_id,'org_assigned_by'=> whichUser()->mask]);
+        }
+
+        return back()->with('success',"Loads assigned successfully");
     }
 }

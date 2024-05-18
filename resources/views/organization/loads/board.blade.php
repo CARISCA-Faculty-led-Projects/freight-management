@@ -1,3 +1,6 @@
+    @extends('layout.roles.organization')
+    @section('content')
+
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -78,7 +81,7 @@
                         <!--end::Flatpickr-->
                         <div class="w-100 mw-150px">
                             <!--begin::Select2-->
-                            <select class="form-select form-select-solid w-55" data-control="select2" data-hide-search="true"
+                            <select class="form-select form-select-solid w-55" data-hide-search="true"
                                 data-placeholder="Status" data-kt-ecommerce-order-filter="status">
                                 <option></option>
                                 <option value="all">All</option>
@@ -114,7 +117,7 @@
                 </div>
                 <!--end::Card header-->
                 <!--begin::Card body-->
-                <form action="{{ route('broker.loads.assign') }}" method="post">
+                <form action="{{ route('shipment.create') }}" method="post">
                     @csrf
                     <div class="card-body pt-0" style="height: 50vh; overflow:auto">
                         <!--begin::Table-->
@@ -131,18 +134,17 @@
                                     <th class="min-w-105px">#</th>
                                     <th class="min-w-105px">Category</th>
                                     <th class="min-w-105px">Sender</th>
-                                    <th class="min-w-105px">Organization</th>
                                     <th class="text-end min-w-70px">Status</th>
                                     <th class="text-end min-w-70px">Shipment Status</th>
                                     <th class="text-end min-w-100px">Size</th>
                                     <th class="text-end min-w-100px">Pickup</th>
                                     <th class="text-end min-w-100px">Dropoff</th>
                                     <th class="text-end min-w-100px">Handling</th>
-                                    <th class="text-end min-w-100px">Actions</th>
+                                    {{-- <th class="text-end min-w-100px">Actions</th> --}}
                                 </tr>
                             </thead>
                             <tbody class="fw-semibold text-gray-600">
-                                @foreach ($this->loads as $load)
+                                @foreach ($loads as $load)
                                     <tr>
                                         <td>
                                             <div class="form-check form-check-sm form-check-custom form-check-solid">
@@ -153,7 +155,6 @@
                                         <td>{{ $load->mask }}</td>
                                         <td>{{ $load->load_type }}</td>
                                         <td>{{ $load->name }}</td>
-                                        <td class=" badge badge-light-danger">{{ $load->organization }}</td>
                                         {{-- <td class="@if ($load->organization == 'Unassigned') badge badge-light-danger @endif badge badge-light-danger">{{ $load->organization }}</td> --}}
                                         <td class="text-end pe-0">
                                             <!--begin::Badges-->
@@ -206,7 +207,7 @@
                                                 <span class="badge badge-dark">{{ $item }}</span>
                                             @endforeach
                                         </td>
-                                        <td class="text-end">
+                                        {{-- <td class="text-end">
                                             <a href="#"
                                                 class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
                                                 data-kt-menu-trigger="click"
@@ -246,27 +247,17 @@
                                                 <!--end::Menu item-->
                                             </div>
                                             <!--end::Menu-->
-                                        </td>
+                                        </td> --}}
                                     </tr>
                                 @endforeach
-
                             </tbody>
                         </table>
                         <!--end::Table-->
                     </div>
                     <!--end::Card body-->
-                    <div class="card-footer">
-                        <h3 for="">Assign checked loads to organization</h3> <small class="text-danger">Loads will be reassigned if it has been already assigned to an organization</small>
-                        <div class="d-flex w-35" wire:ignore>
-                            <select name="organization_id" class="form-control js-example-basic-single w-25"
-                                id="">
-                                <option value="">--select--</option>
-                                @foreach ($this->getOrgs() as $org)
-                                    <option value="{{ $org->mask }}">{{ $org->name }}</option>
-                                @endforeach
-                            </select>
-                            <button type="submit" class="btn btn-warning ">Assign</button>
-                        </div>
+                    <div class="card-footer d-grid col-md-4">
+                        <button type="submit" class="btn btn-primary w-30">Create new shipment with checked loads</button>
+                        <small class="text-danger">Loads will be reassigned if shipment is not on route</small>
                     </div>
                 </form>
             </div>
@@ -274,3 +265,4 @@
         </div>
         <!--end::Content container-->
     </div>
+    @endsection

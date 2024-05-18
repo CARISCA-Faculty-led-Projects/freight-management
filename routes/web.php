@@ -83,7 +83,6 @@ Route::middleware(['auth.general'])->group(function () {
 
     Route::get('logout', [AuthController::class, 'destroy'])
         ->name('signout');
-
 });
 
 // ACTUAL ROUTES
@@ -100,7 +99,6 @@ Route::middleware(['auth:organizations', 'auth:brokers'])->group(function () {
     });
     Route::get('add', AddLoad::class);
     Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
-
 });
 
 // Auth: organization start
@@ -202,7 +200,8 @@ Route::middleware('auth:organizations')->group(function () {
         });
         Route::get('add', AddLoad::class);
         Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
-    Route::get('loads/board',[LoadsController::class,'board'])->name('load.board');
+        Route::get('s/board', [LoadsController::class, 'board'])->name('org.load.board');
+
 
 
 
@@ -234,11 +233,11 @@ Route::middleware('auth:organizations')->group(function () {
 
     // Shipments start
     Route::controller(ShipmentsController::class)->group(function () {
-
         Route::get('/shipments/schedule', "schedule");
         Route::get('/shipments/list', 'list')->name('shipments.list');
         Route::post('/shipments/save', 'store')->name('shipments.save');
         Route::get('/shipments/add', 'add')->name('shipments.add');
+        Route::post('/shipments/create', 'create')->name('shipment.create');
     });
     Route::get('/shipments/overview', function () {
         return view('shipments.overview');
@@ -329,15 +328,13 @@ Route::middleware('auth:brokers')->group(function () {
         Route::controller(BrokersController::class)->group(function () {
             Route::get('overview', 'overview')->name('broker.overview');
         });
-        Route::prefix('loads')->group(function(){
-            Route::controller(LoadsController::class)->group(function(){
-                Route::post('assign','brokerLoadAssign')->name('broker.loads.assign');
+        Route::prefix('loads')->group(function () {
+            Route::controller(LoadsController::class)->group(function () {
+                Route::post('assign', 'brokerLoadAssign')->name('broker.loads.assign');
             });
         });
-
     });
-    Route::get('loads/board',LoadBoard::class)->name('load.board');
-
+    Route::get('loads/board', LoadBoard::class)->name('load.board');
 });
 
 // Route::middleware('auth:')->group(function(){

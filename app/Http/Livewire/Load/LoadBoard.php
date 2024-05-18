@@ -16,7 +16,7 @@ class LoadBoard extends Component
         foreach($this->loads as $loads){
             if($loads->organization_id){
                 $organization = DB::table("organizations")->where('mask',$loads->organization_id)->first('name');
-                $loads['organization'] = $organization->name;
+                $loads->organization = $organization->name;
             }else{
                 $loads->organization = 'Unassigned';
             }
@@ -25,10 +25,11 @@ class LoadBoard extends Component
     }
 
     public function getOrgs(){
-        
+      return DB::table("organizations")->where('status','Approved')->get(['name','mask']);
+
     }
+
     public function qty(){
-        // $this->getLoads();
         $this->tot = count($this->loads);
     }
 

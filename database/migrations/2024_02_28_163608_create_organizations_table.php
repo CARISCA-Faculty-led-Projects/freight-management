@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('registration_docs')->nullable();
             $table->string('insurance_docs')->nullable();
             $table->string('mask');
-            $table->string('status')->nullable();
+            $table->string('status')->default('Pending');
             $table->string('tax_id')->nullable();
             $table->string('account_id')->nullable();
             $table->string('password');
