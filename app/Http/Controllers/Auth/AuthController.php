@@ -58,6 +58,23 @@ class AuthController extends Controller
         }
     }
 
+    public function adminLogin(){
+        return view('auth.admin-login');
+    }
+
+    public function adminAuthenticate(Request $request){
+
+        Validator::make($request->all(), ['email' => 'required|email', 'password' => 'required'])->validate();
+
+        if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
+
+                return redirect(route("admin.dashboard"));
+
+        } else {
+           return redirect()->back()->with("error","Email / Password incorrect or different account type selected");
+        }
+    }
+
     public function destroy(Request $request)
     {
         auth()->guard()->logout();

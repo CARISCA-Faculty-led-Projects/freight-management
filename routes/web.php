@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Livewire\Load\AddLoad;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Load\UpdateLoad;
@@ -32,6 +33,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\ShipmentsController;
+use App\Http\Livewire\Broker\CreateShipment;
 use App\Http\Livewire\Load\LoadBoard;
 use App\Http\Livewire\Load\SenderAddLoad;
 use App\Http\Livewire\Sender\UpdateSender;
@@ -39,6 +41,8 @@ use App\Http\Livewire\Sender\UpdateSender;
 Route::middleware('guest')->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/', 'login')->name('login');
+        Route::get('admin', 'adminLogin');
+        Route::post('admin', 'adminAuthenticate')->name('admin.login');
         Route::get('register', 'register')->name('register');
 
         Route::post('login', 'authenticate')->name('authenticate');
@@ -91,7 +95,14 @@ Route::middleware(['auth.general'])->group(function () {
 //     // return view('livewire.organisation');
 // });
 
-Route::middleware(['auth:organizations', 'auth:brokers'])->group(function () {
+Route::middleware('auth')->group(function () {
+
+    Route::controller(AdminController::class)->group(function () {
+        Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
+    });
+});
+
+Route::middleware(['auth:organizations', 'auth:brokers','auth:senders'])->group(function () {
     Route::controller(LoadsController::class)->group(function () {
         Route::get('list', 'index')->name('loads');
         Route::get('{load}/delete', 'delete')->name('loads.delete');
@@ -254,8 +265,22 @@ Route::middleware('auth:organizations')->group(function () {
 // Auth organization end
 
 Route::middleware('auth:drivers')->group(function () {
-    Route::controller(DriversController::class)->group(function () {
-        Route::get('driver/overview', 'overview')->name('driver.overview');
+    Route::prefix('driver')->group(function () {
+        Route::controller(DriversController::class)->group(function () {
+            Route::get('overview', 'overview')->name('driver.overview');
+            Route::get('shipments', 'shipments')->name('driver.shipments');
+            Route::get('profile', 'profile')->name('driver.profile');
+        });
+        Route::prefix('shipment')->group(function () {
+            Route::controller(ShipmentsController::class)->group(function () {
+                Route::get('{shipment}/start-shipment', 'start_delivery')->name('driver.start-delivery');
+                Route::get('{shipment}/loads', 'shipment_loads')->name('driver.shipment.loads.view');
+            });
+            Route::controller(LoadsController::class)->group(function(){
+                Route::get('{load}/details', 'details')->name('shipment.load.details');
+                Route::get('{load}/delivered', 'mark_delivered')->name('shipment.load.delivered');
+            });
+        });
     });
 });
 
@@ -333,6 +358,25 @@ Route::middleware('auth:brokers')->group(function () {
                 Route::post('assign', 'brokerLoadAssign')->name('broker.loads.assign');
             });
         });
+        Route::get('shipment/create', CreateShipment::class)->name('broker.shipment.create');
+        // Shipments start
+        Route::controller(ShipmentsController::class)->group(function () {
+            Route::get('/shipments/schedule', "schedule");
+            Route::get('/shipments/all', 'all_shipments')->name('broker.shipments.list');
+            Route::post('/shipments/save', 'store')->name('shipments.save');
+            Route::get('/shipments/add', 'add')->name('shipments.add');
+        });
+        Route::get('/shipments/overview', function () {
+            return view('shipments.overview');
+        });
+        Route::get('/shipments/details', function () {
+            return view('shipments.details');
+        });
+        Route::get('/shipments/tracking', function () {
+            return view('shipments.tracking');
+        });
+
+        // shipments end
     });
     Route::get('loads/board', LoadBoard::class)->name('load.board');
 });
@@ -410,3 +454,7 @@ Route::get('/layouts/dark-header', function () {
     return view('layouts.dark-header');
 });
 // LAYOUTS ENDS HERE
+
+Route::get('template', function () {
+    return view('emails.account-created');
+});

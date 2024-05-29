@@ -4,7 +4,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
             <!--begin::Toolbar container-->
-            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
@@ -45,7 +45,7 @@
         </div>
         <!--begin::Content container-->
         <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-xxl">
+        <div id="kt_app_content_container" class="app-container container-fluid">
             <!--begin::Products-->
             <div class="card card-flush">
                 <!--begin::Card header-->
@@ -80,7 +80,7 @@
                         <!--end::Flatpickr-->
                         <div class="w-100 mw-150px">
                             <!--begin::Select2-->
-                            <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                            <select class="form-select form-select-solid" data-hide-search="true"
                                 data-placeholder="Status" data-kt-ecommerce-order-filter="status">
                                 <option></option>
                                 <option value="all">All</option>
@@ -172,8 +172,8 @@
                                     <td class="text-end pe-0">
                                         <span class="fw-bold">{{$load->quantity}}, {{$load->weight}} KG, {{$load->length}}*{{$load->breadth}}*{{$load->height}}</span>
                                     </td>
-                                    <td class="text-end">{{ $load->pickup_address }}</td>
-                                    <td class="text-end">{{ $load->dropoff_address }}</td>
+                                    <td class="text-end">{{ json_decode($load->pickup_address)->name }}</td>
+                                    <td class="text-end">{{ json_decode($load->dropoff_address)->name }}</td>
                                     <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                         @php
                                             $handling = explode(',', $load->handling);
@@ -197,7 +197,7 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route("loads.edit",$load->mask)}}" class="menu-link px-3">Edit</a>
+                                                <a href="{{route("sender.load.edit",$load->mask)}}" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                              <!--begin::Menu item-->

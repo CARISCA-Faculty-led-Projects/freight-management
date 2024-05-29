@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends('layout.roles.driver')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -9,7 +9,7 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        Load Board</h1>
+                        Shipment #{{$shipment_id}} Loads</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -97,9 +97,7 @@
                             </select>
                             <!--end::Select2-->
                         </div>
-                        <!--begin::Add product-->
-                        <a href="/load/add" class="btn btn-primary">Add Load</a>
-                        <!--end::Add product-->
+                       
                     </div>
                     <!--end::Card toolbar-->
                 </div>
@@ -170,8 +168,7 @@
                                         <!--end::Badges-->
                                     </td>
                                     <td class="text-end pe-0">
-                                        <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
-                                            {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
+                                        <span class="fw-bold">{{$load->quantity}}, {{$load->weight}} KG, {{$load->length}}*{{$load->breadth}}*{{$load->height}}</span>
                                     </td>
                                     <td class="text-end">{{ $load->pickup_address }}</td>
                                     <td class="text-end">{{ $load->dropoff_address }}</td>
@@ -180,7 +177,7 @@
                                             $handling = explode(',', $load->handling);
                                         @endphp
                                         @foreach ($handling as $item)
-                                            <span class="badge badge-dark">{{ $item }}</span>
+                                        <span class="badge badge-dark">{{$item}}</span>
                                         @endforeach
                                     </td>
                                     <td class="text-end">
@@ -189,40 +186,22 @@
                                             data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                             <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
                                         <!--begin::Menu-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-200px py-4"
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('loads.details', $load->mask) }}"
-                                                    class="menu-link px-3">View</a>
+                                                <a href="{{route('shipment.load.details',$load->mask)}}" class="menu-link px-3">View</a>
                                             </div>
                                             <!--end::Menu item-->
-                                            @if ($load->completed != 1)
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="{{ route('loads.edit', $load->mask) }}"
-                                                        class="menu-link px-3">Edit</a>
-                                                </div>
-                                                <!--end::Menu item-->
-
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="{{ route('loads.delete', $load->mask) }}"
-                                                        onclick="return confirm('Confirm you want to delete load and subloads?')"
-                                                        class="menu-link px-3">Delete</a>
-                                                </div>
-                                                <!--end::Menu item-->
-                                            @endif
-
-                                            {{-- <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="/load/locate" class="menu-link px-3">Locate</a>
+                                              <!--begin::Menu item-->
+                                              <div class="menu-item px-3">
+                                                <a href="{{route('shipment.load.delivered',$load->mask)}}" class="menu-link px-3">Mark as delivered</a>
                                             </div>
-                                            <!--end::Menu item--> --}}
+                                            <!--end::Menu item-->
                                             <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
+                                            {{-- <div class="menu-item px-3">
                                                 <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
-                                            </div>
+                                            </div> --}}
                                             <!--end::Menu item-->
                                         </div>
                                         <!--end::Menu-->

@@ -19,8 +19,19 @@ class ShipmentsController extends Controller
 
     public function list()
     {
-        $shipments = DB::table('shipments')->where('organisation_id', whichUser()->mask)->get();
+        $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->get();
         return view('shipments.list', compact('shipments'));
+    }
+
+    public function all_shipments()
+    {
+        $shipments = DB::table('shipments')
+            ->join('organizations', 'organizations.mask', 'shipments.organization_id')
+            ->join('drivers', 'drivers.mask', 'shipments.driver_id')
+            ->select('shipments.*', 'organizations.name as organization', 'drivers.name as driver')
+            ->orderByDesc('created_at')
+            ->get();
+        return view('brokers.shipments.list', compact('shipments'));
     }
 
     public function add()
@@ -39,14 +50,14 @@ class ShipmentsController extends Controller
     {
         $loads = [];
 
-        foreach($request->loads as $load){
-            $tmpload = DB::table('loads')->where('mask',$load)->first();
-            array_push($loads,$tmpload);
+        foreach ($request->loads as $load) {
+            $tmpload = DB::table('loads')->where('mask', $load)->first();
+            array_push($loads, $tmpload);
         }
 
         $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->get(['name', 'phone', 'mask']);
 
-        return view('organization.loads.create-shipment', compact('loads', 'drivers'));
+        return view('brokers.create-shipment', compact('loads', 'drivers'));
     }
 
     public function store(Request $request)
@@ -62,5 +73,26 @@ class ShipmentsController extends Controller
         DB::table('shipments')->insert($request->except(['_token', 'condition_label', 'conditions', 'condition_equals', 'condition_type']));
 
         return redirect(route('shipments.list'))->with('success', 'Shipments details saved');
+    }
+
+    public function start_delivery($shipment)
+    {
+        DB::table('shipments')->where('mask', $shipment)->update(['shipment_status' => 'On route']);
+        // notify senders with load in shipment
+        return back()->with('success','Shipment delivery started');
+    }
+
+    public function shipment_loads($shipment_id){
+        $shipment = DB::table('shipments')->where('mask',$shipment_id)->first();
+
+        $shipment_loads = json_decode($shipment->loads);
+        $loads = [];
+
+        foreach($shipment_loads as $load){
+            $load = DB::table('loads')->where('mask',$load)->first();
+            array_push($loads,$load);
+        }
+
+        return view('fleet.drivers.shipment_loads',compact('loads','shipment_id'));
     }
 }

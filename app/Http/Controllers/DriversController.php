@@ -34,4 +34,14 @@ class DriversController extends Controller
 
         return view('fleet.drivers.details', compact('driver'));
     }
+
+    public function shipments(){
+        $shipments = DB::table('shipments')->where("driver_id",whichUser()->mask)->orderByDesc('created_at')->get();
+        return view('fleet.drivers.shipments',compact('shipments'));
+    }
+
+    public function profile(){
+        $driver = DB::table('drivers')->where('mask',whichUser()->mask)->first();
+        return view('fleet.drivers.driving_info',compact('driver'));
+    }
 }

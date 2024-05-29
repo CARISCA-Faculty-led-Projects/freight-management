@@ -1,5 +1,4 @@
-@extends('layout.roles.organization')
-@section('content')
+<div class="">
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
@@ -49,8 +48,8 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form method="POST" class="d-flex flex-column flex-lg-row" action="{{ route('shipments.save') }}">
-                @csrf
+            <form class="d-flex flex-column flex-lg-row" wire:submit.prevent="create_shipment">
+
                 <!--end::Aside column-->
                 <!--begin::Main column-->
                 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
@@ -88,13 +87,14 @@
                                                 <th class="w-10px pe-2">
                                                     <div
                                                         class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                                        <input class="form-check-input" type="checkbox" data-kt-check="true"
+                                                        <input class="form-check-input" type="checkbox"
+                                                            data-kt-check="true"
                                                             data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
                                                             value="1" />
                                                     </div>
                                                 </th>
-                                                <th class="min-w-105px">#</th>
-                                                <th class="min-w-105px">Category</th>
+                                                <th class="min-w-50px">#</th>
+                                                <th class="min-w-50px">Category</th>
                                                 <th class="text-end min-w-70px">Status</th>
                                                 <th class="text-end min-w-70px">Size</th>
                                                 <th class="text-end min-w-70px">Pickup</th>
@@ -102,37 +102,39 @@
                                             </tr>
                                         </thead>
                                         <tbody class="fw-semibold text-gray-600">
-                                            @foreach ($loads as $load)
+                                            @foreach ($this->loadsDets as $load)
                                                 <tr>
                                                     <td>
                                                         <div
                                                             class="form-check form-check-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox" name="loads[]" value="{{ $load->mask }}" />
+                                                            <input class="form-check-input" type="checkbox"
+                                                                name="loads[]" value="{{ $load['mask'] }}" />
                                                         </div>
                                                     </td>
-                                                    <td>{{ $load->mask }}</td>
-                                                    <td>{{ $load->load_type }}</td>
+                                                    <td>{{ $load['mask'] }}</td>
+                                                    <td>{{ $load['load_type'] }}</td>
                                                     <td class="text-end pe-0">
                                                         <!--begin::Badges-->
                                                         <div
-                                                            class="badge @if ($load->status == 'Approved') badge-light-primary
-                                                        @elseif($load->status == 'Pending')
+                                                            class="badge @if ($load['status'] == 'Approved') badge-light-primary
+                                                        @elseif($load['status'] == 'Pending')
                                                         badge-light-warning
-                                                        @elseif($load->status == 'Rejected')
+                                                        @elseif($load['status'] == 'Rejected')
                                                         badge-light-danger
-                                                        @elseif($load->status == 'Paid')
+                                                        @elseif($load['status'] == 'Paid')
                                                         badge-light-success
                                                         @else
                                                         badge-light-primary @endif">
-                                                            {{ $load->status }}</div>
+                                                            {{ $load['status'] }}</div>
                                                         <!--end::Badges-->
                                                     </td>
                                                     <td class="text-end pe-0">
-                                                        <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
-                                                            {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
+                                                        <span class="fw-bold">{{ $load['quantity'] }},
+                                                            {{ $load['weight'] }} KG,
+                                                            {{ $load['length'] }}*{{ $load['breadth'] }}*{{ $load['height'] }}</span>
                                                     </td>
-                                                    <td class="text-end">{{ $load->pickup_address }}</td>
-                                                    <td class="text-end">{{ $load->dropoff_address }}</td>
+                                                    <td class="text-end">{{ $load['pickup_address'] }}</td>
+                                                    <td class="text-end">{{ $load['dropoff_address'] }}</td>
 
 
                                                 </tr>
@@ -142,20 +144,15 @@
                                     </table>
                                 </div>
                                 <!--end::Table-->
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">A load is required and
-                                    recommended to be unique.</div>
-                                <!--end::Description-->
                             </div>
                             <!--end::Input group-->
-
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
                                 <label class="form-label">Shipment Description</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
-                                <textarea name="description" id="" cols="30" rows="10" class="form-control"></textarea>
+                                <textarea name="description" id="" cols="30" rows="6" class="form-control"></textarea>
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a description to the category for
@@ -185,7 +182,7 @@
                                 <!--begin::Background-->
                                 <div
                                     class="position-absolute top-0 end-0 bottom-0 opacity-10 d-flex align-items-center me-5">
-                                    <i class="ki-solid ki-two-credit-cart" style="font-size: 14em"></i>
+                                    <i class="ki-solid ki-delivery" style="font-size: 14em"></i>
                                 </div>
                                 <!--end::Background-->
                                 <!--begin::Card header-->
@@ -196,8 +193,20 @@
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
-                                <div class="card-body pt-0">
-                                    <textarea name="pickup_address" class="form-control" id="" cols="10" rows="5"></textarea>
+                                <div class="card-body pt-0 ">
+                                    <input type="text" wire:model.change="search_pickup" id=""
+                                        class="form-control"style="width: 40rem;">
+                                    <!--begin::Menu toggle-->
+                                    <select wire:model="pickup_address" id="" class="form-control mt-2"
+                                        style="width: 40rem;">
+                                        <option value="">--select location--</option>
+                                        @if ($this->pickup_list != [])
+
+                                        @foreach ($this->pickup_list as $pickup)
+                                            <option value="{{$pickup['place_id']}}">{{ $pickup['description'] }}</option>
+                                        @endforeach
+                                        @endif
+                                    </select>
                                 </div>
                                 <!--end::Card body-->
                             </div>
@@ -220,8 +229,17 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <textarea name="dropoff_address" class="form-control" id="" cols="10" rows="5"></textarea>
+                                    {{-- <textarea name="dropoff_address" class="form-control" id="" cols="10" rows="5"></textarea> --}}
+                                    <input type="text" wire:model.change="search_dropoff" id="" class="form-control"
+                                        style="width: 40rem;">
 
+                                    <select wire:model="dropoff_address" id="" class="form-control mt-2"
+                                        style="width: 40rem;">
+                                        <option value="">--select location--</option>
+                                        @foreach ($this->dropoff_list as $dropoff)
+                                            <option value="{{ $dropoff['place_id'] }}">{{ $dropoff['description'] }}</option>
+                                        @endforeach
+                                    </select>
                                     <!--end::Card body-->
                                 </div>
                                 <!--end::Shipping address-->
@@ -233,44 +251,46 @@
                             <!--begin::Card header-->
                             <div class="card-header">
                                 <div class="card-title">
-                                    <h2>Available drivers</h2> <a href="http://" class="btn btn-sm btn-primary ms-3">Look up</a>
+                                    <h2>Available drivers</h2> <a wire:click="check"
+                                        class="btn btn-sm btn-primary ms-3">Look
+                                        up</a>
                                 </div>
                             </div>
                             <!--end::Card header-->
                             <!--begin::Card body-->
                             <div class="card-body pt-0">
                                 <!--begin::Input group-->
-                         <div class="mb-10 py-4">
-                            <!--begin::Label-->
-                            <label class="required form-label">Driver</label>
-                            <!--end::Label-->
-                            <!--begin::Select2-->
-                            <select class="form-select mb-2" name="driver_id"
-                                data-hide-search="true" data-placeholder="Select a sender"
-                                id="kt_ecommerce_add_category_store_template">
-                                <option></option>
-                                @foreach ($drivers as $driver)
-                                    <option value="{{ $driver->mask }}">{{ $driver->name }}
-                                    </option>
-                                @endforeach
-                            </select>
-                            <!--end::Select2-->
-                        </div>
-                        <!--end::Input group-->
+                                <div class="mb-10 py-4">
+                                    <!--begin::Label-->
+                                    <label class="required form-label">Driver</label>
+                                    <!--end::Label-->
+                                    <!--begin::Select2-->
+                                    <select class="form-select mb-2" wire:model="driver_id" data-hide-search="true"
+                                        data-placeholder="Select a sender"
+                                        id="kt_ecommerce_add_category_store_template">
+                                        <option></option>
+                                        @foreach ($this->drivers as $driver)
+                                            <option value="{{ $driver->mask }}">{{ $driver->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <!--end::Select2-->
+                                </div>
+                                <!--end::Input group-->
                             </div>
                             <!--end::Card header-->
                         </div>
                         <!--end::Automation-->
 
-                        <div class="d-flex justify-content-end">
+                        <div class="d-flex justify-content-end me-5">
                             <!--begin::Button-->
                             <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
                                 class="btn btn-light me-5">Cancel</a>
                             <!--end::Button-->
                             <!--begin::Button-->
                             <button type="submit" id="kt_ecommerce_add_category_submit" class="btn btn-primary">
-                                <span class="indicator-label">Save Changes</span>
-                                <span class="indicator-progress">Please wait...
+                                <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                <span class="indicator-progress" wire:loading>Please wait...
                                     <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                             </button>
                             <!--end::Button-->
@@ -291,6 +311,6 @@
             <span class="path2"></span>
         </i>
     </div>
-    <!--end::Scrolltop-->
-    <!--end::Modals-->
-@endsection
+</div>
+<!--end::Scrolltop-->
+</div>

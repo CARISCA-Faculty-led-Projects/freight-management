@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Livewire\Broker\CreateShipment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -36,8 +37,10 @@ class LoadsController extends Controller
     {
         $load = DB::table('loads')->where('mask', $load_id)->first();
         $subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
+        $sender = DB::table('senders')->where('mask',$load->sender)->first();
+        $user = auth()->guard()->name;
 
-        return view('load.details', compact('load', 'subload'));
+        return view('load.details', compact('load', 'subload','user','sender'));
     }
 
     // Sender
@@ -69,6 +72,19 @@ class LoadsController extends Controller
             DB::table("loads")->where('mask', $load)->where('shipment_status',"Unassigned")->update(['organization_id' => $request->organization_id,'org_assigned_by'=> whichUser()->mask]);
         }
 
+        if($request->shipment == 'yes'){
+            // dd("her");
+            // return (new CreateShipment)->render($request);
+            return redirect(route('broker.shipment.create',$request->all()));
+            // return (new ShipmentsController)->create($request);
+        }
+
         return back()->with('success',"Loads assigned successfully");
+    }
+
+    public function mark_delivered($load_id){
+        DB::table('loads')->where('mask',$load_id)->update(['shipment_status'=>"Delivered"]);
+
+        return back()->with('success','Load marked as delivered');
     }
 }

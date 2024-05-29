@@ -92,14 +92,15 @@
                                 <!--begin::Preview existing avatar-->
                                 @if ($this->load['image'])
                                     <div class="">
-                                        <img class="w-150px h-150px" src="{{ asset('storage/loads/'.$this->load['image'])}}">
+                                        <img class="w-150px h-150px"
+                                            src="{{ asset('storage/loads/' . $this->load['image']) }}">
                                     </div>
                                 @elseif($this->image)
-                                <div class="">
-                                    <img class="w-150px h-150px" src="{{  $image->temporaryUrl()}}">
-                                </div>
+                                    <div class="">
+                                        <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                                    </div>
                                 @else
-                                <div class="image-input-wrapper w-150px h-150px"></div>
+                                    <div class="image-input-wrapper w-150px h-150px"></div>
                                 @endif
                                 <!--end::Preview existing avatar-->
                                 <!--begin::Label-->
@@ -143,50 +144,14 @@
                             <!--begin::Description-->
                             <div class="text-muted fs-7">Set the load image. Only *.png, *.jpg and
                                 *.jpeg image files are accepted</div>
-                                <!--end::Description-->
-                                @error('image')<span class="text-danger">{{$message}}</span>@enderror
+                            <!--end::Description-->
+                            @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <!--end::Card body-->
                     </div>
                     <!--end::Thumbnail settings-->
-                    <!--begin::Status-->
-                    <div class="card card-flush py-4">
-                        <!--begin::Card header-->
-                        <div class="card-header">
-                            <!--begin::Card title-->
-                            <div class="card-title">
-                                <h2>Approval Status</h2>
-                            </div>
-                            <!--end::Card title-->
-                            <!--begin::Card toolbar-->
-                            <div class="card-toolbar">
-                                <div class="rounded-circle bg-success w-15px h-15px"
-                                    id="kt_ecommerce_add_category_status">
-                                </div>
-                            </div>
-                            <!--begin::Card toolbar-->
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Select2-->
-                            <select class="form-select mb-2" data-control="select2"
-                                data-placeholder="Select an option" wire:model="load.status"
-                                id="kt_ecommerce_add_category_status_select">
-                                <option>--select--</option>
-                                <option value="Pending" {{$this->load['status'] == "Pending"? "selected" : ''}}>Pending</option>
-                                <option value="Approved" {{$this->load['status'] == "Approved"? "selected" : ''}}>Approved</option>
-                            </select>
-                            <!--end::Select2-->
-                            @error('status')<span class="text-danger">{{$message}}</span>@enderror
-
-                            <!--begin::Description-->
-                            <div class="text-muted fs-7">Set the approval status.</div>
-                            <!--end::Description-->
-                        </div>
-                        <!--end::Card body-->
-                    </div>
-                    <!--end::Status-->
                     <!--begin::Template settings-->
                     <div class="card card-flush py-4">
                         <!--begin::Card header-->
@@ -210,12 +175,14 @@
                                 id="kt_ecommerce_add_category_store_template">
                                 <option>--select--</option>
                                 @foreach ($this->loads() as $load)
-                                    <option value="{{ $load->name }}" >{{ $load->name }}
+                                    <option value="{{ $load->name }}">{{ $load->name }}
                                     </option>
                                 @endforeach
                             </select>
                             <!--end::Select2-->
-                            @error('load_type')<span class="text-danger">{{$message}}</span>@enderror
+                            @error('load_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <!--begin::Description-->
                             <div class="text-muted fs-7">Assign a template from your current theme
                                 to define how the category products are displayed.</div>
@@ -250,7 +217,9 @@
                                     id="kt_ecommerce_add_category_store_template">
                                     <option>--select--</option>
                                     @foreach ($this->senders() as $sender)
-                                    <option value="{{$sender->mask}}" {{$sender->mask == $this->load['sender_id'] ? "selected":""}}>{{$sender->name}}</option>
+                                        <option value="{{ $sender->mask }}"
+                                            {{ $sender->mask == $this->load['sender_id'] ? 'selected' : '' }}>
+                                            {{ $sender->name }}</option>
                                     @endforeach
                                 </select>
                                 <!--end::Select2-->
@@ -268,8 +237,8 @@
                                 <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea wire:model="load.description" class="min-h-200px mb-2 form-control" id="" cols="30"
-                                    rows="10"></textarea>
+                                <textarea wire:model="load.description" class="mb-2 form-control" id="" cols="30"
+                                    rows="3"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -435,15 +404,26 @@
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->
-                        <div class="card-body pt-0">
+                        <div class="row d-flex card-body pt-0">
                             <!--begin::Input group-->
-                            <div class="mb-10">
+                            <div class="mb-10 col-md-6">
                                 <!--begin::Label-->
-                                <label class="form-label">Billing Address</label>
+                                <label class="form-label">Pickup Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control mb-2" wire:model="load.pickup_address"
-                                    placeholder="eg. 1 Container" />
+                                <input type="text" wire:model.change="search_pickup" id=""
+                                    class="form-control">
+                                <!--begin::Menu toggle-->
+                                <select wire:model="pickup_address" id="" class="form-control mt-2">
+                                    <option value="">--select location--</option>
+                                    @if ($this->pickup_list != [])
+
+                                        @foreach ($this->pickup_list as $pickup)
+                                            <option value="{{ $pickup['place_id'] }}">{{ $pickup['description'] }}
+                                            </option>
+                                        @endforeach
+                                    @endif
+                                </select>
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a billing address. This is where
@@ -452,13 +432,22 @@
                             </div>
                             <!--end::Input group-->
                             <!--begin::Input group-->
-                            <div class="mb-10">
+                            <div class="mb-10 col-md-6">
                                 <!--begin::Label-->
-                                <label class="form-label">Shipping Address</label>
+                                <label class="form-label">Dropoff Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control mb-2" wire:model="load.dropoff_address"
-                                    placeholder="eg. 1 Container" />
+                                <input type="text" wire:model.change="search_dropoff" id=""
+                                    class="form-control">
+
+                                <select wire:model="dropoff_address" id="" class="form-control mt-2">
+                                    <option value="">--select location--</option>
+                                    @foreach ($this->dropoff_list as $dropoff)
+                                        <option value="{{ $dropoff['place_id'] }}">{{ $dropoff['description'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <!--end::Card body-->
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a shipping address. This is where
@@ -466,8 +455,6 @@
                                 <!--end::Description-->
                             </div>
                             <!--end::Input group-->
-
-
                         </div>
                         <!--end::Card header-->
                     </div>
@@ -528,7 +515,8 @@
                                                             data-kt-ecommerce-catalog-add-category="condition_type">
                                                             <option value="">--select category--</option>
                                                             @foreach ($this->loads() as $load)
-                                                            <option value="{{$load->name}}" selected="selected">{{$load->name}}</option>
+                                                                <option value="{{ $load->name }}"
+                                                                    selected="selected">{{ $load->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -581,7 +569,9 @@
                         <!--begin::Card header-->
                         <div class="card-header">
                             <div class="card-title">
-                                <h2>Insurance Documents <small>{{$this->load['insurance_docs'] ? "Uploaded" : "Unavailable"}}</small></h2>
+                                <h2>Insurance Documents
+                                    <small>{{ $this->load['insurance_docs'] ? 'Uploaded' : 'Unavailable' }}</small>
+                                </h2>
                             </div>
                         </div>
                         <!--end::Card header-->
@@ -610,7 +600,9 @@
                                         <!--end::Info-->
                                     </div>
                                 </div>
-                                @error('insurance_docs')<span class="text-danger">{{$message}}</span>@enderror
+                                @error('insurance_docs')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                 <!--end::Dropzone-->
                             </div>
                             <!--end::Input group-->
@@ -627,7 +619,9 @@
                         <!--begin::Card header-->
                         <div class="card-header">
                             <div class="card-title">
-                                <h2>Other Relevant Documents <small>{{$this->load['other_docs'] ? "Uploaded" : "Unavailable"}}</small></h2>
+                                <h2>Other Relevant Documents
+                                    <small>{{ $this->load['other_docs'] ? 'Uploaded' : 'Unavailable' }}</small>
+                                </h2>
                             </div>
                         </div>
                         <!--end::Card header-->
@@ -656,7 +650,9 @@
                                         <!--end::Info-->
                                     </div>
                                 </div>
-                                @error('other_docs')<span class="text-danger">{{$message}}</span>@enderror
+                                @error('other_docs')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
 
                                 <!--end::Dropzone-->
                             </div>

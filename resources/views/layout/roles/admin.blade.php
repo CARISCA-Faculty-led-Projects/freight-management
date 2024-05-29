@@ -1,14 +1,26 @@
-@section('content') 
-    <!--begin::sidebar menu-->
+@extends('layout.app')
+@section('role-name')
+    Admin
+@endsection
+
+{{-- @section('profile-link')
+{{route('org.profile',whichUser()->mask)}}
+@endsection --}}
+
+@section('profile-image')
+    {{asset('storage/logos/'.whichUser()->image)}}
+@endsection
+
+@section('sidebar')
     <div class="app-sidebar-menu overflow-hidden flex-column-fluid">
         <!--begin::Menu wrapper-->
-        <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper hover-scroll-overlay-y my-5"
-            data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-height="auto"
+        <div id="kt_app_sidebar_menu_wrapper" class="app-sidebar-wrapper hover-scroll-overlay-y my-5" data-kt-scroll="true"
+            data-kt-scroll-activate="true" data-kt-scroll-height="auto"
             data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer"
             data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true">
             <!--begin::Menu-->
-            <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
-                data-kt-menu="true" data-kt-menu-expand="false">
+            <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu" data-kt-menu="true"
+                data-kt-menu-expand="false">
                 <!--begin:Menu item-->
                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                     <!--begin:Menu item-->
@@ -48,153 +60,90 @@
                         <!--end:Menu link-->
                     </div>
                     <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Organization</span>
-                        </div>
-                        <!--end:Menu content-->
-                    </div>
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
+                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i></span><span class="menu-title">Organizations</span><span
+                                class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/fleet/overview"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="{{ route('vehicles') }}"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Pending</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="{{ route('drivers') }}"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Approved</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
+                            
+                        </div><!--end:Menu sub-->
+                    </div><!--end:Menu item-->
+                     <!--end:Menu item-->
+                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
+                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i></span><span class="menu-title">Fleet</span><span
+                                class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/fleet/overview"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="{{ route('vehicles') }}"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Vehicles</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="{{ route('drivers') }}"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Drivers</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
+                            <!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="/fleet/maintenance"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span class="menu-title">Maintenance
+                                        Schedule</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
+                        </div><!--end:Menu sub-->
+                    </div><!--end:Menu item-->
+
                     <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/organization/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
+                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i></span><span class="menu-title">Loads</span><span
+                                class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/overview"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/list"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">List</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/bids"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Bid</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
+                            <!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{route('org.load.board')}}"><span
+                                class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                class="menu-title">Board</span></a><!--end:Menu link--></div>
                     <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/organization/add">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Add</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/organization/list">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">List</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Fleet</span>
-                        </div>
-                        <!--end:Menu content-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/fleet/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/fleet/vehicles">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Vehicle</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/fleet/drivers">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Driver</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/fleet/maintenance">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Maintenance Schedule</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Loads</span>
-                        </div>
-                        <!--end:Menu content-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/load/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/load/list">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">List</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/load/bids">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Bid</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
+
+                        </div><!--end:Menu sub-->
+                    </div><!--end:Menu item-->
+
                     <!--begin:Menu item-->
                     <!-- <div class="menu-item">
                         <a class="menu-link" href="/load/offer-a-deal">
@@ -205,188 +154,73 @@
                         </a>
                     </div> -->
                     <!--end:Menu item-->
+                    {{-- <!--begin:Menu item-->
+                <div class="menu-item">
+                    <!--begin:Menu link-->
+                    <a class="menu-link" href="/load/documents">
+                        <span class="menu-bullet">
+                            <span class="bullet bullet-dot"></span>
+                        </span>
+                        <span class="menu-title">Documents</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--begin:Menu item--> --}}
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
+                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i></span><span class="menu-title">Brokers</span><span
+                                class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="/brokers/overview"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/brokers/add"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Add</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/brokers/list"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">List</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
+                        </div><!--end:Menu sub-->
+                    </div><!--end:Menu item-->
+
                     <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/load/documents">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Documents</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Brokers</span>
-                        </div>
-                        <!--end:Menu content-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/brokers/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/brokers/add">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Add</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/brokers/list">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">List</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Senders</span>
-                        </div>
-                        <!--end:Menu content-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/senders/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/senders/add">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Add</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/senders/list">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">List</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!-- <div class="menu-item pt-5">
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Customers</span>
-                        </div>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="/customers/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                    </div>
-                    <div class="menu-item">
-                        <a class="menu-link" href="/customers/list">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">List</span>
-                        </a>
-                    </div> -->
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Shipment</span>
-                        </div>
-                        <!--end:Menu content-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/shipments/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/shipments/add">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Add</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/shipments/list">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">List</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/shipments/tracking">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Tracking</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
+                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                        <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
+                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                        class="path2"></span><span class="path3"></span><span
+                                        class="path4"></span></i></span><span class="menu-title">Shipments</span><span
+                                class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
+                        <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="/shipments/overview"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/shipments/add"><span
+                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Add</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item--><!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="/shipments/list"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">List</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
+                            <!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="/shipments/tracking"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Tracking</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
+                        </div><!--end:Menu sub-->
+                    </div><!--end:Menu item-->
+
+                        <!--begin:Menu item-->
                     <div class="menu-item pt-5">
                         <!--begin:Menu content-->
                         <div class="menu-content">
@@ -679,210 +513,11 @@
                         <!--end:Menu sub-->
                     </div>
                     <!--end:Menu item-->
-                    dfd
 
-
-                     <!--begin:Menu item-->
-                     <div class="menu-item pt-5">
-                        <!--begin:Menu content-->
-                        <div class="menu-content">
-                            <span class="menu-heading fw-bold text-uppercase fs-7">Analytics</span>
-                        </div>
-                        <!--end:Menu content-->
-                    </div>
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/overview">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Overview</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/fleet">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Fleet Analytics</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/load">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Load Analytics</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/shipment">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Shipment Analytics</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/sales">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Payment & Sales Analytics</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/brokers">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Broker Analytics</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/users">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">User Analytics</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
-                    <!--begin:Menu item-->
-                    <div class="menu-item">
-                        <!--begin:Menu link-->
-                        <a class="menu-link" href="/analytics/security">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Security Analytics</span>
-                        </a>
-                        <!--end:Menu link-->
-                    </div>
-                    <!--begin:Menu link-->
                 </div>
-                <!--begin:Menu item-->
-                <div class="menu-item pt-5">
-                    <!--begin:Menu content-->
-                    <div class="menu-content">
-                        <span class="menu-heading fw-bold text-uppercase fs-7">Layouts</span>
-                    </div>
-                    <!--end:Menu content-->
-                </div>
-                <!--end:Menu item-->
-                <!--begin:Menu item-->
-                <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                    <!--begin:Menu link-->
-                    <span class="menu-link">
-                        <span class="menu-icon">
-                            <i class="ki-duotone ki-element-7 fs-2">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>
-                        </span>
-                        <span class="menu-title">Layout Options</span>
-                        <span class="menu-arrow"></span>
-                    </span>
-                    <!--end:Menu link-->
-                    <!--begin:Menu sub-->
-                    <div class="menu-sub menu-sub-accordion">
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/layouts/light-sidebar">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Light Sidebar</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/layouts/dark-sidebar">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Dark Sidebar</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/layouts/light-header">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Light Header</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-                        <!--begin:Menu item-->
-                        <div class="menu-item">
-                            <!--begin:Menu link-->
-                            <a class="menu-link" href="/layouts/dark-header">
-                                <span class="menu-bullet">
-                                    <span class="bullet bullet-dot"></span>
-                                </span>
-                                <span class="menu-title">Dark Header</span>
-                            </a>
-                            <!--end:Menu link-->
-                        </div>
-                        <!--end:Menu item-->
-                    </div>
-                    <!--end:Menu sub-->
-                </div>
-                <!--end:Menu item-->
             </div>
             <!--end::Menu-->
         </div>
         <!--end::Menu wrapper-->
     </div>
-    <!--end::sidebar menu-->
-    <!--begin::Footer-->
-    <div class="app-sidebar-footer flex-column-auto pt-2 pb-6 px-6" id="kt_app_sidebar_footer">
-        <a href="https://preview.keenthemes.com/html/metronic/docs"
-            class="btn btn-flex flex-center btn-custom btn-primary overflow-hidden text-nowrap px-0 h-40px w-100"
-            data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-dismiss-="click"
-            title="200+ in-house components and 3rd-party plugins">
-            <span class="btn-label">Docs & Components</span>
-            <i class="ki-duotone ki-document btn-icon fs-2 m-0">
-                <span class="path1"></span>
-                <span class="path2"></span>
-            </i>
-        </a>
-    </div>
-    <!--end::Footer-->
 @endsection

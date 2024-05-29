@@ -13,13 +13,10 @@ return new class extends Migration
     {
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('organisation_id');
-            $table->foreignUuid('sender_id');
+            $table->foreignUuid('organization_id');
             $table->foreignUuid('driver_id');
             $table->string('load_id');
             $table->longText('description')->nullable();
-            $table->string("amount");
-            $table->string('payment_method');
             $table->date('pickup_date');
             $table->date('dropoff_date');
             $table->timestamps();

@@ -23,6 +23,12 @@ class UpdateLoad extends Component
     public $image;
     public $subload = [];
     public $license_image;
+    public $pickup_address;
+    public $dropoff_address;
+    public $pickup_list = [];
+    public $dropoff_list = [];
+    public $search_pickup;
+    public $search_dropoff;
 
 
     public function addSubLoad($num)
@@ -75,35 +81,66 @@ class UpdateLoad extends Component
         }
 
         $this->load['updated_at'] = Carbon::now()->toDateTimeString();
-        DB::table('loads')->where('mask',$this->load['mask'])->update($this->load);
+        if ($this->pickup_address != null) {
+            $this->load['pickup_address'] = json_encode(getPlaceCoordinates($this->pickup_address));
+        }
+        if ($this->dropoff_address != null) {
+            $this->load['dropoff_address'] = json_encode(getPlaceCoordinates($this->dropoff_address));
+        }
+        DB::table('loads')->where('mask', $this->load['mask'])->update($this->load);
 
         foreach ($this->subload as $sload) {
             if (array_key_exists('id', $sload)) {
                 $this->subload['updated_at'] = Carbon::now()->toDateTimeString();
-                DB::table('sub_loads')->where('load_id',$sload['load_id'])->where('id', $sload['id'])->update($sload);
+                DB::table('sub_loads')->where('load_id', $sload['load_id'])->where('id', $sload['id'])->update($sload);
             } else {
                 $sload['load_id'] = $this->load['mask'];
                 $sload['created_at'] = Carbon::now()->toDateTimeString();
                 DB::table('sub_loads')->insert($sload);
             }
         }
-
-        return redirect(route('loads'));
+        if (whichUser()->getTable() == 'senders') {
+            return redirect(route('sender.loads'));
+        } else {
+            return redirect(route('loads'));
+        }
     }
 
     public function payment()
     {
     }
 
+    public function updated()
+    {
+        $this->search_pickup = $this->pickupSearch($this->search_pickup);
+        $this->search_dropoff = $this->dropoffSearch($this->search_dropoff);
+    }
+
+    public function pickupSearch($field)
+    {
+        $this->pickup_list = lookupLocation($field);
+        return $field;
+    }
+
+    public function dropoffSearch($field)
+    {
+        $this->dropoff_list = lookupLocation($field);
+        return $field;
+    }
+
     public function mount($load_id)
     {
-        $this->load = (array) DB::table('loads')->where('mask', $load_id)->first();
+        $this->load = (array) DB::table('loads')->where('mask', $load_id)->first(['image', 'organization_id', 'load_type', 'sender_id', 'description', 'budget', 'quantity', 'length', 'weight', 'height', 'breadth', 'handling', 'pickup_address', 'dropoff_address', 'insurance_docs','mask','status','payment_status','shipment_status','other_docs','completed','created_at']);
         $this->subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
         // dd($load_id);
     }
 
     public function render()
     {
-        return view('load.edit')->extends('layout.roles.organization')->section('content');
+        if (whichUser()->getTable() == 'senders') {
+            return view('load.edit')->extends('layout.roles.sender')->section('content');
+        } else {
+            return view('load.edit')->extends('layout.roles.organization')->section('content');
+        }
     }
 }

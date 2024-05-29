@@ -435,14 +435,14 @@
                             <!--begin::Input group-->
                             <div class="mb-10">
                                 <!--begin::Label-->
-                                <label class="form-label">Billing Address</label>
+                                <label class="form-label">Pickup Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control mb-2" wire:model="load.pickup_address"
                                     placeholder="eg. 1 Container" />
                                 <!--end::Input-->
                                 <!--begin::Description-->
-                                <div class="text-muted fs-7">Set a billing address. This is where
+                                <div class="text-muted fs-7">Set a pickup address. This is where
                                     the load will be picked up from</div>
                                 <!--end::Description-->
                             </div>
@@ -450,7 +450,7 @@
                             <!--begin::Input group-->
                             <div class="mb-10">
                                 <!--begin::Label-->
-                                <label class="form-label">Shipping Address</label>
+                                <label class="form-label">Drop-off Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" class="form-control mb-2" wire:model="load.dropoff_address"

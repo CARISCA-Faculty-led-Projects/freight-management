@@ -253,10 +253,16 @@
                             </tbody>
                         </table>
                         <!--end::Table-->
+
                     </div>
+
                     <!--end::Card body-->
                     <div class="card-footer">
                         <h3 for="">Assign checked loads to organization</h3> <small class="text-danger">Loads will be reassigned if it has been already assigned to an organization</small>
+                        <div class="d-flex mt-2 mb-3">
+                            <input type="checkbox" name="shipment" id="" class="me-2" value="yes">
+                            <label for="shipment">Create shipment after</label>
+                        </div>
                         <div class="d-flex w-35" wire:ignore>
                             <select name="organization_id" class="form-control js-example-basic-single w-25"
                                 id="">
