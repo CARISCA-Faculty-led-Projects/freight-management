@@ -36,6 +36,9 @@ class AuthController extends Controller
 
         DB::table($request->type)->insert($request->except(['_token', 'type', 'confirm-password']));
 
+        sendMail("Account Created", $request->email, "Your account has been created and pending review.");
+        sendAdminMessage("Account Created", "An account has been created. Log in to your dashboard and approve account");
+
         return redirect(route('login'))->with('success', 'Account created!');
     }
 
@@ -44,6 +47,8 @@ class AuthController extends Controller
         Validator::make($request->all(), ['email' => 'required|email', 'password' => 'required'])->validate();
 
         if (Auth::guard($request->type)->attempt(['email' => $request->email, 'password' => $request->password])) {
+            DB::table($request->type)->where('email', $request->email)->update(['last_login' => Carbon::now()->toDateTimeString()]);
+
             if ($request->type == "senders") {
                 return redirect(route("sender.overview"));
             } else if ($request->type == "organizations") {
@@ -54,34 +59,47 @@ class AuthController extends Controller
                 return redirect(route("driver.overview"));
             }
         } else {
-           return redirect()->back()->with("error","Email / Password incorrect or different account type selected");
+            return redirect()->back()->with("error", "Email / Password incorrect or different account type selected");
         }
     }
 
-    public function adminLogin(){
+    public function adminLogin()
+    {
         return view('auth.admin-login');
     }
 
-    public function adminAuthenticate(Request $request){
+    public function adminAuthenticate(Request $request)
+    {
 
         Validator::make($request->all(), ['email' => 'required|email', 'password' => 'required'])->validate();
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
-                return redirect(route("admin.dashboard"));
-
+            return redirect(route("admin.dashboard"));
         } else {
-           return redirect()->back()->with("error","Email / Password incorrect or different account type selected");
+            return redirect()->back()->with("error", "Email / Password incorrect or different account type selected");
         }
     }
 
     public function destroy(Request $request)
     {
-        auth()->guard()->logout();
+        if ($request->session()->has('old_user_id')) {
+            $user = DB::table(session('old_guard'))->where('mask', session('old_user_id'))->first(['id']);
+            Auth::guard(session('old_guard'))->loginUsingId($user->id);
 
-        $request->session()->flush();
+            if (session('old_guard') == 'organizations') {
+                $request->session()->forget(['old_guard', 'old_user_id', 'guard', 'user_id']);
 
-        // dd(auth()->guard());
-        return redirect(route('login'));
+                return redirect(route('org.overview'));
+            } else if (session('old_guard') == 'web') {
+                $request->session()->forget(['old_guard', 'old_user_id', 'guard', 'user_id']);
+
+                return redirect(route('admin.overview'));
+            }
+        } else {
+            auth()->guard()->logout();
+            $request->session()->flush();
+            return redirect(route('login'));
+        }
     }
 }

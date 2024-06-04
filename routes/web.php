@@ -98,7 +98,7 @@ Route::middleware(['auth.general'])->group(function () {
 Route::middleware('auth')->group(function () {
 
     Route::controller(AdminController::class)->group(function () {
-        Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
+        Route::get('/admin/dashboard', 'dashboard')->name('admin.overview');
     });
 });
 
@@ -197,6 +197,7 @@ Route::middleware('auth:organizations')->group(function () {
     Route::get('/brokers/{broker}/view', [BrokersController::class, 'show'])->name('broker.view');
     Route::get('/brokers/{broker}/delete', [BrokersController::class, 'delete'])->name('broker.delete');
     Route::post('/broker/save', [BrokersController::class, 'store'])->name('broker.save');
+    Route::get('/broker/{broker}/login', [BrokersController::class, 'loginAs'])->name('org.broker.login');
 
     Route::prefix('load')->group(function () {
         Route::get('overview', function () {

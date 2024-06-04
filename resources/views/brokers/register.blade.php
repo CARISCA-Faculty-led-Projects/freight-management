@@ -5,7 +5,7 @@
         <!--begin::Content-->
         <div class="d-flex flex-center flex-column flex-column-fluid">
             <!--begin::Wrapper-->
-            <div class="w-lg-600px p-10 p-lg-15 mx-auto">
+            <div class="card card-body w-lg-600px p-10 p-lg-15 mx-auto">
 
                 <!--begin::Form-->
                 <form class="form w-100" action="{{ route('broker.save') }}" method="POST" id="">
@@ -105,8 +105,8 @@
                     <div class="fv-row mb-5">
                         <label class="form-label fw-bold text-gray-900 fs-6">Confirm Password</label>
                         <input class="form-control form-control-lg form-control-solid" type="password" placeholder=""
-                            name="confirm-password" autocomplete="off" value="{{old('confirm-password')}}" />
-                        @error('confirm-password')
+                            name="confirm_password" autocomplete="off" value="{{old('confirm-password')}}" />
+                        @error('confirm_password')
                             <span class="text-danger">{{ $message }}</span>
                         @enderror
                     </div>

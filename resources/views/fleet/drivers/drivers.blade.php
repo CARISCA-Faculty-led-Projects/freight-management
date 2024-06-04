@@ -171,8 +171,7 @@
                             </i>Export</button>
                         <!--end::Export-->
                         <!--begin::Add customer-->
-                        <a href="{{route('driver.add')}}"><button type="button" class="btn btn-primary" {{--data-bs-toggle="modal"
-                            data-bs-target="#kt_modal_add_customer"--}}>Add Drivers</button></a>
+                        <a href="{{route('driver.add')}}"><button type="button" class="btn btn-primary">Add Driver</button></a>
                         <!--end::Add customer-->
                     </div>
                     <!--end::Toolbar-->

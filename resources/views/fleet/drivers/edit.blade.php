@@ -157,8 +157,8 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" data-control="select2" data-hide-search="true"
-                                data-placeholder="Select an option" wire:model="driver.status" id="kt_ecommerce_add_product_status_select">
+                            <select class="form-select mb-2"
+                                data-placeholder="Select an option" wire:model="driver.status" id="">
                                 <option></option>
                                 <option value="Pending" selected="selected">Pending</option>
                                 <option value="Approved">Approved</option>
@@ -180,7 +180,7 @@
                     </div>
                     <!--end::Status-->
                     <!--begin::Template settings-->
-                    <div class="card card-flush py-4">
+                    {{-- <div class="card card-flush py-4">
                         <!--begin::Card header-->
                         <div class="card-header">
                             <!--begin::Card title-->
@@ -228,7 +228,7 @@
                         </div>
                         <!--end::Card body-->
 
-                    </div>
+                    </div> --}}
                     <!--end::Template settings-->
 
                 </div>

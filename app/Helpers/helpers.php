@@ -37,14 +37,26 @@ function whichUser()
     // dd(Auth::user());
 
     $guards = array_keys(config('auth.guards'));
-    foreach ($guards as $guard) {
-        if (Auth::guard($guard)->check() && session('user_id') != null) {
-            $level = DB::table($guard != 'web' ? $guard : "users")->where('mask', session('user_id'))->first();
+    // dd(Auth::user()->mask);
+    // if(Auth::user()){
+
+    // }
+        if (session('guard') != null && session('user_id') != null) {
+            $level = Auth::guard(session('guard'))->user();
             return $level;
-        } else if (Auth::guard($guard)->check()) {
-            return Auth::guard($guard)->user();
+        } else {
+            return Auth::user();
         }
-    }
+
+    // foreach ($guards as $guard) {
+    //     if (session('guard') != null && session('user_id') != null) {
+    //         $level = DB::table($guard != 'web' ? $guard : "users")->where('mask', session('user_id'))->first();
+    //         dd($level);
+    //         return $level;
+    //     } else if (Auth::guard($guard)->check()) {
+    //         return Auth::guard($guard)->user();
+    //     }
+    // }
     // $user = session('user_id') == null ? Auth::user()->mask : session('user_id');
     // $guard = 'web';
 
@@ -87,10 +99,29 @@ function getPlaceCoordinates($place)
 
 function sendMail($subject, $email, $msg)
 {
-    Mail::send('emails.provider_notification', ["msg" => $msg], function ($message) use ($email) {
-        $message->to($email)->subject("PREMIUM DOCUMENTS REQUESTED")->from(env('MAIL_FROM_ADDRESS'), "SENDIN");
+    Mail::send('emails.general', ["msg" => $msg], function ($message) use ($email,$subject) {
+        $message->to($email)->subject($subject)->from(env('MAIL_FROM_ADDRESS'), "CARISCA");
     });
 }
+
+function sendAdminMessage($subject, $msg){
+    $users = DB::table('users')->get(['email']);
+    foreach($users as $user){
+        $email = $user->email;
+        Mail::send('emails.general', ["msg" => $msg], function ($message) use ($email,$subject) {
+            $message->to($email)->subject($subject)->from(env('MAIL_FROM_ADDRESS'), "CARISCA");
+        });
+    }
+}
+
+function sendAccCredentials($creds){
+    $email = $creds->email;
+
+    Mail::send('emails.acc-credentials', ["creds" => $creds], function ($message) use ($email) {
+        $message->to($email)->subject('Account Credentials')->from(env('MAIL_FROM_ADDRESS'), "CARISCA");
+    });
+}
+
 
 function sendRegisteredMail()
 {

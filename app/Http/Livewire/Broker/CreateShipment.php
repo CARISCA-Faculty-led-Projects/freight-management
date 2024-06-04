@@ -31,6 +31,8 @@ class CreateShipment extends Component
 
         $this->loads = $request->loads;
         $this->organization = $request->organization_id;
+        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
+
     }
 
     public function check()
@@ -81,7 +83,6 @@ class CreateShipment extends Component
                 array_push($this->loadsDets, $tmpload);
             }
         }
-        $this->drivers = DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
         // dd($drivers);
 
         return view('brokers.shipments.create-shipment')->extends('layout.roles.broker')->section('content');

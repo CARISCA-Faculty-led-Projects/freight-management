@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call([
-        //     // UsersSeeder::class,
-        //     LoadtypesSeeder::class,
-        //     VehicleCategorySeeder::class,
-        //     VehicleSubCategorySeeder::class,
-        //     MaintenanceTasksSeeder::class
-        // ]);
+        $this->call([
+            // UsersSeeder::class,
+            LoadtypesSeeder::class,
+            VehicleCategorySeeder::class,
+            VehicleSubCategorySeeder::class,
+            MaintenanceTasksSeeder::class
+        ]);
 
         User::create([
             'name'              => "Super admin",

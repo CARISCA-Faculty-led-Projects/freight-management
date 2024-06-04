@@ -37,7 +37,7 @@ class LoadsController extends Controller
     {
         $load = DB::table('loads')->where('mask', $load_id)->first();
         $subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
-        $sender = DB::table('senders')->where('mask',$load->sender)->first();
+        $sender = DB::table('senders')->where('mask',$load->sender_id)->first();
         $user = auth()->guard()->name;
 
         return view('load.details', compact('load', 'subload','user','sender'));
@@ -86,5 +86,6 @@ class LoadsController extends Controller
         DB::table('loads')->where('mask',$load_id)->update(['shipment_status'=>"Delivered"]);
 
         return back()->with('success','Load marked as delivered');
+
     }
 }

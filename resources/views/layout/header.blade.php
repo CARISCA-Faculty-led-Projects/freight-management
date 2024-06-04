@@ -71,73 +71,7 @@
                         <!--end:Menu link-->
                     </div>
                     <!--begin:Menu item-->
-                    <!-- <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
-                        class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-                        <span class="menu-link">
-                            <span class="menu-title">Locate</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
 
-                        <div
-                            class="menu-sub menu-sub-lg-down-accordion menu-sub-lg-dropdown px-lg-2 py-lg-4 w-lg-250px">
-                            <div data-kt-menu-trigger="{default:'click', lg: 'hover'}"
-                                data-kt-menu-placement="right-start" class="menu-item menu-lg-down-accordion">
-                                <span class="menu-link">
-                                    <span class="menu-icon">
-                                        <i class="ki-duotone ki-rocket fs-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                        </i>
-                                    </span>
-                                    <span class="menu-title">All Drivers</span>
-                                </span>
-                            </div>
-
-                            <div class="menu-item">
-                                <a class="menu-link" href="/apps/calendar">
-                                    <span class="menu-icon">
-                                        <i class="ki-duotone ki-calendar-8 fs-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                            <span class="path6"></span>
-                                        </i>
-                                    </span>
-                                    <span class="menu-title">All Loads</span>
-                                </a>
-                            </div>
-
-                            <div class="menu-item">
-                                <a class="menu-link" href="/apps/calendar">
-                                    <span class="menu-icon">
-                                        <i class="ki-duotone ki-calendar-8 fs-2">
-                                            <span class="path1"></span>
-                                            <span class="path2"></span>
-                                            <span class="path3"></span>
-                                            <span class="path4"></span>
-                                            <span class="path5"></span>
-                                            <span class="path6"></span>
-                                        </i>
-                                    </span>
-                                    <span class="menu-title">All Shipments</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div> -->
-                    <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start"
-                        class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
-                        <!--begin:Menu link-->
-                        <a href="/fleet/overview"><span class="menu-link">
-                            <span class="menu-title">Fleet</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span></a>
-                        <!--end:Menu link-->
-
-                    </div>
                     <!--end:Menu item-->
 
                 </div>

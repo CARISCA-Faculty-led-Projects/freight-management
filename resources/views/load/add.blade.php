@@ -352,11 +352,11 @@
                                 <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
                                     <div class="mb-10 flex-row-fluid position-relative">
                                         <!--begin::Label-->
-                                        <label class="form-label">Length</label>
+                                        <label class="form-label">Length (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="text" class="form-control mb-2" wire:model="load.length"
-                                            placeholder="eg. 1 Container" />
+                                        <input type="number" class="form-control mb-2" wire:model="load.length"
+                                            placeholder="eg. 12" />
                                         <!--end::Input-->
                                         @error('length')
                                             <span class="text-danger">{{ $message }}</span>
@@ -368,7 +368,7 @@
                                     <!--end::Input group-->
                                     <div class="mb-10 flex-row-fluid position-relative">
                                         <!--begin::Label-->
-                                        <label class="form-label">Breadth</label>
+                                        <label class="form-label">Breadth (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"

@@ -342,7 +342,7 @@
                                     <!--end::Menu item-->
                                      <!--begin::Menu item-->
                                      <div class="menu-item px-3">
-                                        <a href="{{route('broker.update',$broker->mask)}}" class="menu-link px-3">Login</a>
+                                        <a href="{{route('org.broker.login',$broker->mask)}}" class="menu-link px-3">Login</a>
                                     </div>
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->

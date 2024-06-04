@@ -13,7 +13,7 @@ License: For each use you must have a valid license purchased only from above li
 -->
 <html lang="en">
 	<!--begin::Head-->
-	<head><base href="../../"/>
+	<head><base href="../"/>
 		<title>Metronic - The World's #1 Selling Bootstrap Admin Template by Keenthemes</title>
 		<meta charset="utf-8" />
 		<meta name="description" content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
@@ -30,7 +30,7 @@ License: For each use you must have a valid license purchased only from above li
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
 		<!--end::Fonts-->
 		<!--begin::Vendor Stylesheets(used for this page only)-->
-		<link href="assets/plugins/custom/leaflet/leaflet.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
 		<link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css" />
 		<!--end::Vendor Stylesheets-->
 		<!--begin::Global Stylesheets Bundle(mandatory for all pages)-->
@@ -411,7 +411,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show">
+									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion me-0 me-lg-2">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-title">Pages</span>
@@ -427,7 +427,7 @@ License: For each use you must have a valid license purchased only from above li
 													<ul class="nav nav-stretch nav-line-tabs fw-bold fs-6 p-0 p-lg-10 flex-nowrap flex-grow-1">
 														<!--begin:Nav item-->
 														<li class="nav-item mx-lg-1">
-															<a class="nav-link py-3 py-lg-6 text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_pages">General</a>
+															<a class="nav-link py-3 py-lg-6 active text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_pages">General</a>
 														</li>
 														<!--end:Nav item-->
 														<!--begin:Nav item-->
@@ -442,7 +442,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--end:Nav item-->
 														<!--begin:Nav item-->
 														<li class="nav-item mx-lg-1">
-															<a class="nav-link py-3 py-lg-6 active text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_utilities">Utilities</a>
+															<a class="nav-link py-3 py-lg-6 text-active-primary" href="#" data-bs-toggle="tab" data-bs-target="#kt_app_header_menu_pages_utilities">Utilities</a>
 														</li>
 														<!--end:Nav item-->
 														<!--begin:Nav item-->
@@ -456,7 +456,7 @@ License: For each use you must have a valid license purchased only from above li
 												<!--begin:Tab content-->
 												<div class="tab-content py-4 py-lg-8 px-lg-7">
 													<!--begin:Tab pane-->
-													<div class="tab-pane w-lg-1000px" id="kt_app_header_menu_pages_pages">
+													<div class="tab-pane active w-lg-1000px" id="kt_app_header_menu_pages_pages">
 														<!--begin:Row-->
 														<div class="row">
 															<!--begin:Col-->
@@ -1236,7 +1236,7 @@ License: For each use you must have a valid license purchased only from above li
 													</div>
 													<!--end:Tab pane-->
 													<!--begin:Tab pane-->
-													<div class="tab-pane active w-lg-1000px" id="kt_app_header_menu_pages_utilities">
+													<div class="tab-pane w-lg-1000px" id="kt_app_header_menu_pages_utilities">
 														<!--begin:Row-->
 														<div class="row">
 															<!--begin:Col-->
@@ -1646,7 +1646,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
+									<div data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-placement="bottom-start" class="menu-item here show menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-title">Apps</span>
@@ -2802,7 +2802,7 @@ License: For each use you must have a valid license purchased only from above li
 											<!--begin:Menu item-->
 											<div class="menu-item">
 												<!--begin:Menu link-->
-												<a class="menu-link" href="/apps/calendar">
+												<a class="menu-link active" href="/apps/calendar">
 													<span class="menu-icon">
 														<i class="ki-duotone ki-calendar-8 fs-2">
 															<span class="path1"></span>
@@ -6190,7 +6190,7 @@ License: For each use you must have a valid license purchased only from above li
 									</div>
 									<!--end:Menu item-->
 									<!--begin:Menu item-->
-									<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+									<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 										<!--begin:Menu link-->
 										<span class="menu-link">
 											<span class="menu-icon">
@@ -6538,7 +6538,7 @@ License: For each use you must have a valid license purchased only from above li
 											</div>
 											<!--end:Menu item-->
 											<!--begin:Menu item-->
-											<div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
+											<div data-kt-menu-trigger="click" class="menu-item menu-accordion">
 												<!--begin:Menu link-->
 												<span class="menu-link">
 													<span class="menu-bullet">
@@ -6589,7 +6589,7 @@ License: For each use you must have a valid license purchased only from above li
 													<!--begin:Menu item-->
 													<div class="menu-item">
 														<!--begin:Menu link-->
-														<a class="menu-link active" href="/utilities/search/select-location">
+														<a class="menu-link" href="/utilities/search/select-location">
 															<span class="menu-bullet">
 																<span class="bullet bullet-dot"></span>
 															</span>
@@ -7983,7 +7983,7 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin:Menu item-->
 									<div class="menu-item">
 										<!--begin:Menu link-->
-										<a class="menu-link" href="/apps/calendar">
+										<a class="menu-link active" href="/apps/calendar">
 											<span class="menu-icon">
 												<i class="ki-duotone ki-calendar-8 fs-2">
 													<span class="path1"></span>
@@ -8259,33 +8259,8 @@ License: For each use you must have a valid license purchased only from above li
 									<!--begin::Page title-->
 									<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 										<!--begin::Title-->
-										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Select Location</h1>
+										<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Shipments</h1>
 										<!--end::Title-->
-										<!--begin::Breadcrumb-->
-										<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
-											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">
-												<a href="/index" class="text-muted text-hover-primary">Home</a>
-											</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item">
-												<span class="bullet bg-gray-400 w-5px h-2px"></span>
-											</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Utilities</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item">
-												<span class="bullet bg-gray-400 w-5px h-2px"></span>
-											</li>
-											<!--end::Item-->
-											<!--begin::Item-->
-											<li class="breadcrumb-item text-muted">Search</li>
-											<!--end::Item-->
-										</ul>
-										<!--end::Breadcrumb-->
 									</div>
 									<!--end::Page title-->
 									<!--begin::Actions-->
@@ -8300,7 +8275,7 @@ License: For each use you must have a valid license purchased only from above li
 											</i>Filter</a>
 											<!--end::Menu toggle-->
 											<!--begin::Menu 1-->
-											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac450047a5">
+											<div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_641ac46fe078c">
 												<!--begin::Header-->
 												<div class="px-7 py-5">
 													<div class="fs-5 text-dark fw-bold">Filter Options</div>
@@ -8318,7 +8293,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--end::Label-->
 														<!--begin::Input-->
 														<div>
-															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac450047a5" data-allow-clear="true">
+															<select class="form-select form-select-solid" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac46fe078c" data-allow-clear="true">
 																<option></option>
 																<option value="1">Approved</option>
 																<option value="2">Pending</option>
@@ -8380,7 +8355,7 @@ License: For each use you must have a valid license purchased only from above li
 										<!--begin::Secondary button-->
 										<!--end::Secondary button-->
 										<!--begin::Primary button-->
-										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Create</a>
+										<a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal" data-bs-target="#kt_modal_create_app">Add Shipment</a>
 										<!--end::Primary button-->
 									</div>
 									<!--end::Actions-->
@@ -8394,31 +8369,270 @@ License: For each use you must have a valid license purchased only from above li
 								<div id="kt_app_content_container" class="app-container container-xxl">
 									<!--begin::Card-->
 									<div class="card">
+										<!--begin::Card header-->
+										<div class="card-header">
+											<h2 class="card-title fw-bold">Schedule</h2>
+											<div class="card-toolbar">
+												<button class="btn btn-flex btn-primary" data-kt-calendar="add">
+												<i class="ki-duotone ki-plus fs-2"></i>Add Schedule</button>
+											</div>
+										</div>
+										<!--end::Card header-->
 										<!--begin::Card body-->
 										<div class="card-body">
-											<!--begin::Heading-->
-											<div class="card-px text-center pt-15 pb-15">
-												<!--begin::Title-->
-												<h2 class="fs-2x fw-bold mb-0">Select Location Modal Example</h2>
-												<!--end::Title-->
-												<!--begin::Description-->
-												<p class="text-gray-400 fs-4 fw-semibold py-7">Click on the below buttons to launch
-												<br />select location modal.</p>
-												<!--end::Description-->
-												<!--begin::Action-->
-												<a href="#" class="btn btn-primary er fs-6 px-8 py-4" data-bs-toggle="modal" data-bs-target="#kt_modal_select_location">Select Location</a>
-												<!--end::Action-->
-											</div>
-											<!--end::Heading-->
-											<!--begin::Illustration-->
-											<div class="text-center pb-15 px-5">
-												<img src="assets/media/illustrations/sketchy-1/8.png" alt="" class="mw-100 h-200px h-sm-325px" />
-											</div>
-											<!--end::Illustration-->
+											<!--begin::Calendar-->
+											<div id="kt_calendar_app"></div>
+											<!--end::Calendar-->
 										</div>
 										<!--end::Card body-->
 									</div>
 									<!--end::Card-->
+									<!--begin::Modals-->
+									<!--begin::Modal - New Product-->
+									<div class="modal fade" id="kt_modal_add_event" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Form-->
+												<form class="form" action="#" id="kt_modal_add_event_form">
+													<!--begin::Modal header-->
+													<div class="modal-header">
+														<!--begin::Modal title-->
+														<h2 class="fw-bold" data-kt-calendar="title">Add Event</h2>
+														<!--end::Modal title-->
+														<!--begin::Close-->
+														<div class="btn btn-icon btn-sm btn-active-icon-primary" id="kt_modal_add_event_close">
+															<i class="ki-duotone ki-cross fs-1">
+																<span class="path1"></span>
+																<span class="path2"></span>
+															</i>
+														</div>
+														<!--end::Close-->
+													</div>
+													<!--end::Modal header-->
+													<!--begin::Modal body-->
+													<div class="modal-body py-10 px-lg-17">
+														<!--begin::Input group-->
+														<div class="fv-row mb-9">
+															<!--begin::Label-->
+															<label class="fs-6 fw-semibold required mb-2">Event Name</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input type="text" class="form-control form-control-solid" placeholder="" name="calendar_event_name" />
+															<!--end::Input-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Input group-->
+														<div class="fv-row mb-9">
+															<!--begin::Label-->
+															<label class="fs-6 fw-semibold mb-2">Event Description</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input type="text" class="form-control form-control-solid" placeholder="" name="calendar_event_description" />
+															<!--end::Input-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Input group-->
+														<div class="fv-row mb-9">
+															<!--begin::Label-->
+															<label class="fs-6 fw-semibold mb-2">Event Location</label>
+															<!--end::Label-->
+															<!--begin::Input-->
+															<input type="text" class="form-control form-control-solid" placeholder="" name="calendar_event_location" />
+															<!--end::Input-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Input group-->
+														<div class="fv-row mb-9">
+															<!--begin::Checkbox-->
+															<label class="form-check form-check-custom form-check-solid">
+																<input class="form-check-input" type="checkbox" value="" id="kt_calendar_datepicker_allday" />
+																<span class="form-check-label fw-semibold" for="kt_calendar_datepicker_allday">All Day</span>
+															</label>
+															<!--end::Checkbox-->
+														</div>
+														<!--end::Input group-->
+														<!--begin::Input group-->
+														<div class="row row-cols-lg-2 g-10">
+															<div class="col">
+																<div class="fv-row mb-9">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">Event Start Date</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" name="calendar_event_start_date" placeholder="Pick a start date" id="kt_calendar_datepicker_start_date" />
+																	<!--end::Input-->
+																</div>
+															</div>
+															<div class="col" data-kt-calendar="datepicker">
+																<div class="fv-row mb-9">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">Event Start Time</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" name="calendar_event_start_time" placeholder="Pick a start time" id="kt_calendar_datepicker_start_time" />
+																	<!--end::Input-->
+																</div>
+															</div>
+														</div>
+														<!--end::Input group-->
+														<!--begin::Input group-->
+														<div class="row row-cols-lg-2 g-10">
+															<div class="col">
+																<div class="fv-row mb-9">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2 required">Event End Date</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" name="calendar_event_end_date" placeholder="Pick a end date" id="kt_calendar_datepicker_end_date" />
+																	<!--end::Input-->
+																</div>
+															</div>
+															<div class="col" data-kt-calendar="datepicker">
+																<div class="fv-row mb-9">
+																	<!--begin::Label-->
+																	<label class="fs-6 fw-semibold mb-2">Event End Time</label>
+																	<!--end::Label-->
+																	<!--begin::Input-->
+																	<input class="form-control form-control-solid" name="calendar_event_end_time" placeholder="Pick a end time" id="kt_calendar_datepicker_end_time" />
+																	<!--end::Input-->
+																</div>
+															</div>
+														</div>
+														<!--end::Input group-->
+													</div>
+													<!--end::Modal body-->
+													<!--begin::Modal footer-->
+													<div class="modal-footer flex-center">
+														<!--begin::Button-->
+														<button type="reset" id="kt_modal_add_event_cancel" class="btn btn-light me-3">Cancel</button>
+														<!--end::Button-->
+														<!--begin::Button-->
+														<button type="button" id="kt_modal_add_event_submit" class="btn btn-primary">
+															<span class="indicator-label">Submit</span>
+															<span class="indicator-progress">Please wait...
+															<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+														</button>
+														<!--end::Button-->
+													</div>
+													<!--end::Modal footer-->
+												</form>
+												<!--end::Form-->
+											</div>
+										</div>
+									</div>
+									<!--end::Modal - New Product-->
+									<!--begin::Modal - New Product-->
+									<div class="modal fade" id="kt_modal_view_event" tabindex="-1" aria-hidden="true">
+										<!--begin::Modal dialog-->
+										<div class="modal-dialog modal-dialog-centered mw-650px">
+											<!--begin::Modal content-->
+											<div class="modal-content">
+												<!--begin::Modal header-->
+												<div class="modal-header border-0 justify-content-end">
+													<!--begin::Edit-->
+													<div class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-primary me-2" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Edit Event" id="kt_modal_view_event_edit">
+														<i class="ki-duotone ki-pencil fs-2">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+													</div>
+													<!--end::Edit-->
+													<!--begin::Edit-->
+													<div class="btn btn-icon btn-sm btn-color-gray-400 btn-active-icon-danger me-2" data-bs-toggle="tooltip" data-bs-dismiss="click" title="Delete Event" id="kt_modal_view_event_delete">
+														<i class="ki-duotone ki-trash fs-2">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+															<span class="path4"></span>
+															<span class="path5"></span>
+														</i>
+													</div>
+													<!--end::Edit-->
+													<!--begin::Close-->
+													<div class="btn btn-icon btn-sm btn-color-gray-500 btn-active-icon-primary" data-bs-toggle="tooltip" title="Hide Event" data-bs-dismiss="modal">
+														<i class="ki-duotone ki-cross fs-2x">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+													</div>
+													<!--end::Close-->
+												</div>
+												<!--end::Modal header-->
+												<!--begin::Modal body-->
+												<div class="modal-body pt-0 pb-20 px-lg-17">
+													<!--begin::Row-->
+													<div class="d-flex">
+														<!--begin::Icon-->
+														<i class="ki-duotone ki-calendar-8 fs-1 text-muted me-5">
+															<span class="path1"></span>
+															<span class="path2"></span>
+															<span class="path3"></span>
+															<span class="path4"></span>
+															<span class="path5"></span>
+															<span class="path6"></span>
+														</i>
+														<!--end::Icon-->
+														<div class="mb-9">
+															<!--begin::Event name-->
+															<div class="d-flex align-items-center mb-2">
+																<span class="fs-3 fw-bold me-3" data-kt-calendar="event_name"></span>
+																<span class="badge badge-light-success" data-kt-calendar="all_day"></span>
+															</div>
+															<!--end::Event name-->
+															<!--begin::Event description-->
+															<div class="fs-6" data-kt-calendar="event_description"></div>
+															<!--end::Event description-->
+														</div>
+													</div>
+													<!--end::Row-->
+													<!--begin::Row-->
+													<div class="d-flex align-items-center mb-2">
+														<!--begin::Bullet-->
+														<span class="bullet bullet-dot h-10px w-10px bg-success ms-2 me-7"></span>
+														<!--end::Bullet-->
+														<!--begin::Event start date/time-->
+														<div class="fs-6">
+															<span class="fw-bold">Starts</span>
+															<span data-kt-calendar="event_start_date"></span>
+														</div>
+														<!--end::Event start date/time-->
+													</div>
+													<!--end::Row-->
+													<!--begin::Row-->
+													<div class="d-flex align-items-center mb-9">
+														<!--begin::Bullet-->
+														<span class="bullet bullet-dot h-10px w-10px bg-danger ms-2 me-7"></span>
+														<!--end::Bullet-->
+														<!--begin::Event end date/time-->
+														<div class="fs-6">
+															<span class="fw-bold">Ends</span>
+															<span data-kt-calendar="event_end_date"></span>
+														</div>
+														<!--end::Event end date/time-->
+													</div>
+													<!--end::Row-->
+													<!--begin::Row-->
+													<div class="d-flex align-items-center">
+														<!--begin::Icon-->
+														<i class="ki-duotone ki-geolocation fs-1 text-muted me-5">
+															<span class="path1"></span>
+															<span class="path2"></span>
+														</i>
+														<!--end::Icon-->
+														<!--begin::Event location-->
+														<div class="fs-6" data-kt-calendar="event_location"></div>
+														<!--end::Event location-->
+													</div>
+													<!--end::Row-->
+												</div>
+												<!--end::Modal body-->
+											</div>
+										</div>
+									</div>
+									<!--end::Modal - New Product-->
+									<!--end::Modals-->
 								</div>
 								<!--end::Content container-->
 							</div>
@@ -10966,44 +11180,6 @@ License: For each use you must have a valid license purchased only from above li
 			<!--end::Modal dialog-->
 		</div>
 		<!--end::Modal - Create App-->
-		<!--begin::Modal - Select Location-->
-		<div class="modal fade" id="kt_modal_select_location" tabindex="-1" aria-hidden="true">
-			<!--begin::Modal dialog-->
-			<div class="modal-dialog mw-1000px">
-				<!--begin::Modal content-->
-				<div class="modal-content">
-					<!--begin::Modal header-->
-					<div class="modal-header">
-						<!--begin::Title-->
-						<h2>Select Location</h2>
-						<!--end::Title-->
-						<!--begin::Close-->
-						<div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal">
-							<i class="ki-duotone ki-cross fs-1">
-								<span class="path1"></span>
-								<span class="path2"></span>
-							</i>
-						</div>
-						<!--end::Close-->
-					</div>
-					<!--end::Modal header-->
-					<!--begin::Modal body-->
-					<div class="modal-body">
-						<div id="kt_modal_select_location_map" class="w-100 rounded" style="height:450px"></div>
-					</div>
-					<!--end::Modal body-->
-					<!--begin::Modal footer-->
-					<div class="modal-footer d-flex justify-content-end">
-						<a href="#" class="btn btn-active-light me-5" data-bs-dismiss="modal">Cancel</a>
-						<button type="button" id="kt_modal_select_location_button" class="btn btn-primary" data-bs-dismiss="modal">Apply</button>
-					</div>
-					<!--end::Modal footer-->
-				</div>
-				<!--end::Modal content-->
-			</div>
-			<!--end::Modal dialog-->
-		</div>
-		<!--end::Modal - Select Location-->
 		<!--begin::Modal - Users Search-->
 		<div class="modal fade" id="kt_modal_users_search" tabindex="-1" aria-hidden="true">
 			<!--begin::Modal dialog-->
@@ -11740,13 +11916,13 @@ License: For each use you must have a valid license purchased only from above li
 												<!--end::Checkbox-->
 												<!--begin::Avatar-->
 												<div class="symbol symbol-35px symbol-circle">
-													<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
+													<img alt="Pic" src="assets/media/avatars/300-5.jpg" />
 												</div>
 												<!--end::Avatar-->
 												<!--begin::Details-->
 												<div class="ms-5">
-													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-													<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+													<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Sean Bean</a>
+													<div class="fw-semibold text-muted">sean@dellito.com</div>
 												</div>
 												<!--end::Details-->
 											</div>
@@ -12303,13 +12479,13 @@ License: For each use you must have a valid license purchased only from above li
 									<div class="d-flex align-items-center">
 										<!--begin::Avatar-->
 										<div class="symbol symbol-35px symbol-circle">
-											<span class="symbol-label bg-light-success text-success fw-semibold">L</span>
+											<span class="symbol-label bg-light-danger text-danger fw-semibold">M</span>
 										</div>
 										<!--end::Avatar-->
 										<!--begin::Details-->
 										<div class="ms-5">
-											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Lucy Kunic</a>
-											<div class="fw-semibold text-muted">lucy.m@fentech.com</div>
+											<a href="#" class="fs-5 fw-bold text-gray-900 text-hover-primary mb-2">Melody Macy</a>
+											<div class="fw-semibold text-muted">melody@altbox.com</div>
 										</div>
 										<!--end::Details-->
 									</div>
@@ -12361,16 +12537,16 @@ License: For each use you must have a valid license purchased only from above li
 		<script src="assets/js/scripts.bundle.js"></script>
 		<!--end::Global Javascript Bundle-->
 		<!--begin::Vendors Javascript(used for this page only)-->
-		<script src="assets/plugins/custom/leaflet/leaflet.bundle.js"></script>
+		<script src="assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 		<script src="assets/plugins/custom/datatables/datatables.bundle.js"></script>
 		<!--end::Vendors Javascript-->
 		<!--begin::Custom Javascript(used for this page only)-->
+		<script src="assets/js/custom/apps/calendar/calendar.js"></script>
 		<script src="assets/js/widgets.bundle.js"></script>
 		<script src="assets/js/custom/widgets.js"></script>
 		<script src="assets/js/custom/apps/chat/chat.js"></script>
 		<script src="assets/js/custom/utilities/modals/upgrade-plan.js"></script>
 		<script src="assets/js/custom/utilities/modals/create-app.js"></script>
-		<script src="assets/js/custom/utilities/modals/select-location.js"></script>
 		<script src="assets/js/custom/utilities/modals/users-search.js"></script>
 		<!--end::Custom Javascript-->
 		<!--end::Javascript-->

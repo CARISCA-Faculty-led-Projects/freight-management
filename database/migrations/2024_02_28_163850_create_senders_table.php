@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('mask');
             $table->string('email');
             $table->string('password');
+            $table->timestamp('last_login')->nullable();
             $table->timestamps();
         });
     }

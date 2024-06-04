@@ -84,7 +84,25 @@ class AddVehicle extends Component
         array_push($this->veh_routes,$num);
     }
 
-   
+    public function updated(){
+        $this->org_owned = $this->getOrg($this->org_owned);
+    }
+
+    public function getOrg($org) {
+        if($org){
+            $org = (array)DB::table('organizations')->where('mask',whichUser()->mask)->first(['name','phone','email','address']);
+
+            $this->owner = $org;
+
+        }else{
+            $this->owner = [];
+        }
+        return $org;
+
+
+    }
+
+
 
     public function activate($tab)
     {

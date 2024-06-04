@@ -39,7 +39,7 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                
+
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -573,7 +573,7 @@
                                                 <!--begin::Input group-->
                                                 <div class="fv-row w-100 flex-md-root">
                                                     <!--begin::Label-->
-                                                    <label class="required form-label">Fuel Consumption</label>
+                                                    <label class="required form-label">Fuel Consumption (Litres)</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
                                                     <input type="text" wire:model="vehicle.fuel_consumption"
@@ -694,7 +694,7 @@
                                                 <!--begin::Input-->
                                                 <div class="form-check form-check-custom form-check-solid mb-2">
                                                     <input class="form-check-input" wire:model="org_owned"
-                                                        type="checkbox" value="Yes" />
+                                                        type="checkbox" />
                                                     <label class="form-check-label">Yes</label>
                                                 </div>
                                                 <!--end::Input-->
@@ -792,28 +792,12 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <!--begin::Input group-->
-                                    <div class="fv-row">
-                                        <!--begin::Input-->
-                                        <div class="form-check form-check-custom form-check-solid mb-2">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="kt_ecommerce_add_product_shipping_checkbox" value="1" />
-                                            <label class="form-check-label">Specify weight & height
-                                                dimensions</label>
-                                        </div>
-                                        <!--end::Input-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set if the vehicle can take some weight
-                                            Physical products may require shipping.</div>
-                                        <!--end::Description-->
-                                    </div>
-                                    <!--end::Input group-->
-                                    <!--begin::Shipping form-->
-                                    <div id="kt_ecommerce_add_product_shipping" class="d-none mt-10">
+                                            <!--begin::Shipping form-->
+                                    <div id="kt_ecommerce_add_product_shipping" class=" mt-10">
                                         <!--begin::Input group-->
                                         <div class="fv-row">
                                             <!--begin::Label-->
-                                            <label class="form-label">Weight</label>
+                                            <label class="form-label">Weight (KG)</label>
                                             <!--end::Label-->
                                             <!--begin::Input-->
                                             <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
@@ -839,11 +823,11 @@
                                             <!--begin::Input-->
                                             <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
                                                 <input type="number" wire:model="width" class="form-control mb-2"
-                                                    placeholder="Width (w)" value="" />
+                                                    placeholder="Width (M)" value="" />
                                                 <input type="number" wire:model="height" class="form-control mb-2"
-                                                    placeholder="Height (h)" value="" />
+                                                    placeholder="Height (M)" value="" />
                                                 <input type="number" wire:model="length" class="form-control mb-2"
-                                                    placeholder="Lengtn (l)" value="" />
+                                                    placeholder="Length (M)" value="" />
                                             </div>
                                             <!--end::Input-->
                                             <!--begin::Description-->

@@ -188,7 +188,7 @@
                     </div>
                     <!--end::Status-->
                     <!--begin::Template settings-->
-                    <div class="card card-flush py-4">
+                    {{-- <div class="card card-flush py-4">
                         <!--begin::Card header-->
                         <div class="card-header">
                             <!--begin::Card title-->
@@ -209,10 +209,6 @@
                             @foreach ($this->loads() as $load)
                                 <!--begin::Item-->
                                 <div class="d-flex align-items-center mb-8 mt-5">
-                                    <!--begin::Bullet-->
-                                    <!-- <span class="bullet bullet-vertical h-40px bg-primary"></span> -->
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
                                     <div class="form-check form-check-custom form-check-solid mx-5">
                                         <input class="form-check-input" wire:model="load_type" type="checkbox"
                                             value="{{ $load->name }}" />
@@ -226,15 +222,6 @@
                                 </div>
                                 <!--end:Item-->
                             @endforeach
-
-
-                            <!--begin::Form group-->
-                            {{-- <div class="form-group mt-5">
-                                <button type="button" data-repeater-create="" class="btn btn-sm btn-light-primary"
-                                    data-bs-toggle="modal" data-bs-target="#kt_modal_add_org_pref">
-                                    <i class="ki-duotone ki-plus fs-2"></i>Add new preference</button>
-                            </div> --}}
-                            <!--end::Form group-->
                             @error('load_type')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -245,7 +232,7 @@
                         </div>
                         <!--end::Card body-->
 
-                    </div>
+                    </div> --}}
                     <!--end::Template settings-->
 
                 </div>
