@@ -78,8 +78,8 @@
                         <!--end::Flatpickr-->
                         <div class="w-100 mw-150px">
                             <!--begin::Select2-->
-                            <select class="form-select form-select-solid w-55" data-control="select2" data-hide-search="true"
-                                data-placeholder="Status" data-kt-ecommerce-order-filter="status">
+                            <select class="form-select form-select-solid w-55" data-placeholder="Status"
+                                data-kt-ecommerce-order-filter="status">
                                 <option></option>
                                 <option value="all">All</option>
                                 <option value="Cancelled">Cancelled</option>
@@ -132,7 +132,7 @@
                                     <th class="min-w-105px">Category</th>
                                     <th class="min-w-105px">Sender</th>
                                     <th class="min-w-105px">Organization</th>
-                                    <th class="text-end min-w-70px">Status</th>
+                                    <th class="text-center min-w-70px">Status</th>
                                     <th class="text-end min-w-70px">Shipment Status</th>
                                     <th class="text-end min-w-100px">Size</th>
                                     <th class="text-end min-w-100px">Pickup</th>
@@ -153,9 +153,14 @@
                                         <td>{{ $load->mask }}</td>
                                         <td>{{ $load->load_type }}</td>
                                         <td>{{ $load->name }}</td>
-                                        <td class=" badge badge-light-danger">{{ $load->organization }}</td>
+                                        {{-- <td class="badge badge-light-danger">{{ $load->organization }}</td> --}}
+                                        <td class="text-center pe-0">
+                                            <div
+                                                class="@if ($load->organization == 'Unassigned')badge badge-light-warning @endif">
+                                                {{ $load->organization }}</div>
+                                        </td>
                                         {{-- <td class="@if ($load->organization == 'Unassigned') badge badge-light-danger @endif badge badge-light-danger">{{ $load->organization }}</td> --}}
-                                        <td class="text-end pe-0">
+                                        <td class="text-center pe-0">
                                             <!--begin::Badges-->
                                             <div
                                                 class="badge @if ($load->status == 'Approved') badge-light-primary
@@ -196,8 +201,8 @@
                                             <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
                                                 {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
                                         </td>
-                                        <td class="text-end">{{ $load->pickup_address }}</td>
-                                        <td class="text-end">{{ $load->dropoff_address }}</td>
+                                        <td class="text-end">{{ json_decode($load->pickup_address)->name }}</td>
+                                        <td class="text-end">{{ json_decode($load->dropoff_address)->name }}</td>
                                         <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                             @php
                                                 $handling = explode(',', $load->handling);
@@ -258,7 +263,8 @@
 
                     <!--end::Card body-->
                     <div class="card-footer">
-                        <h3 for="">Assign checked loads to organization</h3> <small class="text-danger">Loads will be reassigned if it has been already assigned to an organization</small>
+                        <h3 for="">Assign checked loads to organization</h3> <small class="text-danger">Loads
+                            will be reassigned if it has been already assigned to an organization</small>
                         <div class="d-flex mt-2 mb-3">
                             <input type="checkbox" name="shipment" id="" class="me-2" value="yes">
                             <label for="shipment">Create shipment after</label>

@@ -49,7 +49,7 @@
         @include('partials.activities')
 		<!--end::Activities drawer-->
 		<!--begin::Chat drawer-->
-        @include('partials.chat')
+        {{-- @include('partials.chat') --}}
 		<!--end::Chat drawer-->
 		<!--begin::Cart drawer-->
         @include('partials.cart')

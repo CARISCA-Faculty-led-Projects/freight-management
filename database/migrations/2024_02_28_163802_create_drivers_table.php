@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('phone');
             $table->string('address')->nullable();
             $table->longText('description')->nullable();
-            $table->text('load_type')->nullable();
+            $table->string('country')->nullable();
+            $table->string('region')->nullable();
             $table->string('status')->nullable();
             $table->string('license_number')->nullable();
             $table->string('license_image')->nullable();

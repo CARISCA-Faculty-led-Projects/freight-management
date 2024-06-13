@@ -42,6 +42,6 @@ class DriversController extends Controller
 
     public function profile(){
         $driver = DB::table('drivers')->where('mask',whichUser()->mask)->first();
-        return view('fleet.drivers.driving_info',compact('driver'));
+        return view('fleet.drivers.edit',compact('driver'));
     }
 }

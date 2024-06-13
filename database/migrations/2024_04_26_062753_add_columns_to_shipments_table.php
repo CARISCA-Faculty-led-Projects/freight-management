@@ -15,14 +15,9 @@ return new class extends Migration
             $table->string('pickup_address')->nullable();
             $table->string('dropoff_address')->nullable();
             $table->uuid('mask');
-            $table->string('approval_status');
+            $table->string('approval_status')->default("Approved");
             $table->text('loads');
             $table->string('shipment_status');
-            $table->dropColumn('load_id');
-            $table->string('load_type');
-            $table->string('quantity');
-            $table->string('weight');
-            $table->string('handling');
             $table->string('load_assignment_method')->default('Assign Later');
         });
     }

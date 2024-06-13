@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends( auth()->guard()->name == 'organizations' ?'layout.roles.organization' : 'layout.roles.broker')
 @section('content')
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">

@@ -1,4 +1,7 @@
-@extends('layout.roles.organization')
+{{-- @php
+    dd(auth()->guard()->name)
+@endphp --}}
+@extends( auth()->guard()->name == 'organizations' ?'layout.roles.organization' : 'layout.roles.broker')
 @section('content')
     <!--begin::Body-->
     <div class="d-flex flex-column flex-lg-row-fluid py-10">

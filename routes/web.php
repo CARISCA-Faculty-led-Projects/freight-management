@@ -1,25 +1,32 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use App\Http\Livewire\Load\AddLoad;
+use App\Http\Livewire\Load\LoadBoard;
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\Load\UpdateLoad;
 use App\Http\Livewire\Broker\AddBroker;
 use App\Http\Livewire\Driver\AddDriver;
 use App\Http\Livewire\Sender\AddSender;
 use App\Http\Livewire\ViewOrganisations;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoadsController;
+use App\Http\Livewire\Load\SenderAddLoad;
 use App\Http\Livewire\Vehicle\AddVehicle;
+use App\Http\Livewire\Broker\EditShipment;
+use App\Http\Livewire\Broker\UpdateBroker;
 use App\Http\Livewire\Driver\UpdateDriver;
+use App\Http\Livewire\Sender\UpdateSender;
 use App\Http\Controllers\BrokersController;
 use App\Http\Controllers\DriversController;
 use App\Http\Controllers\SendersController;
 use App\Http\Controllers\VehiclesController;
+use App\Http\Livewire\Broker\CreateShipment;
 use App\Http\Livewire\Broker\RegisterBroker;
 use App\Http\Livewire\Driver\RegisterDriver;
 use App\Http\Livewire\Sender\RegisterSender;
 use App\Http\Livewire\Vehicle\UpdateVehicle;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ShipmentsController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Livewire\Organization\AddOrganization;
 use App\Http\Controllers\Auth\NewPasswordController;
@@ -32,11 +39,6 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\ShipmentsController;
-use App\Http\Livewire\Broker\CreateShipment;
-use App\Http\Livewire\Load\LoadBoard;
-use App\Http\Livewire\Load\SenderAddLoad;
-use App\Http\Livewire\Sender\UpdateSender;
 
 Route::middleware('guest')->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -84,6 +86,8 @@ Route::middleware(['auth.general'])->group(function () {
         ->name('password.confirm');
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
+    Route::post('change_pass', [AuthController::class,'changePass'])->name('change_pass');
+
 
     Route::get('logout', [AuthController::class, 'destroy'])
         ->name('signout');
@@ -100,9 +104,20 @@ Route::middleware('auth')->group(function () {
     Route::controller(AdminController::class)->group(function () {
         Route::get('/admin/dashboard', 'dashboard')->name('admin.overview');
     });
+    // Shipments start
+    Route::controller(ShipmentsController::class)->group(function () {
+        Route::get('/shipments/schedule', "schedule");
+        Route::get('shipments/list', 'list')->name('shipments.list');
+        Route::post('shipments/save', 'store')->name('shipments.save');
+        Route::get('shipments/add', 'add')->name('shipments.add');
+        Route::post('shipments/create', 'create')->name('shipment.create');
+    });
+
+    // Brokers
+    Route::get('/brokers/list', [BrokersController::class, 'list'])->name('broker.list');
 });
 
-Route::middleware(['auth:organizations', 'auth:brokers','auth:senders'])->group(function () {
+Route::middleware(['auth:organizations', 'auth:brokers', 'auth:senders'])->group(function () {
     Route::controller(LoadsController::class)->group(function () {
         Route::get('list', 'index')->name('loads');
         Route::get('{load}/delete', 'delete')->name('loads.delete');
@@ -189,15 +204,16 @@ Route::middleware('auth:organizations')->group(function () {
         Route::get('maintenance', [VehiclesController::class, 'all_schedules'])->name('schedules.list');
     });
 
-    Route::get('/brokers/list', [BrokersController::class, 'list'])->name('broker.list');
-    Route::get('/brokers/add', [BrokersController::class, 'add'])->name('broker.add');
-    Route::get('/brokers/{broker}/update', [BrokersController::class, 'update'])->name('broker.update');
-    Route::post('/brokers/{broker}/update', [BrokersController::class, 'saveUpdate'])->name('broker.update');
-    Route::get('/brokers/{broker}/edit', [BrokersController::class, 'edit'])->name('broker.edit');
-    Route::get('/brokers/{broker}/view', [BrokersController::class, 'show'])->name('broker.view');
-    Route::get('/brokers/{broker}/delete', [BrokersController::class, 'delete'])->name('broker.delete');
-    Route::post('/broker/save', [BrokersController::class, 'store'])->name('broker.save');
-    Route::get('/broker/{broker}/login', [BrokersController::class, 'loginAs'])->name('org.broker.login');
+    Route::get('/organization/brokers/list', [BrokersController::class, 'list'])->name('org.broker.list');
+    Route::prefix('organzation/brokers',function(){
+        Route::get('add', [BrokersController::class, 'add'])->name('org.broker.add');
+        Route::post('{broker}/update', [BrokersController::class, 'saveUpdate'])->name('broker.update');
+        Route::get('{broker}/edit', [BrokersController::class, 'edit'])->name('org.broker.edit');
+        Route::get('{broker}/view', [BrokersController::class, 'show'])->name('broker.view');
+        Route::get('{broker}/delete', [BrokersController::class, 'delete'])->name('org.broker.delete');
+        Route::post('save', [BrokersController::class, 'store'])->name('org.broker.save');
+        Route::get('{broker}/login', [BrokersController::class, 'loginAs'])->name('org.broker.login');
+    });
 
     Route::prefix('load')->group(function () {
         Route::get('overview', function () {
@@ -245,11 +261,13 @@ Route::middleware('auth:organizations')->group(function () {
 
     // Shipments start
     Route::controller(ShipmentsController::class)->group(function () {
-        Route::get('/shipments/schedule', "schedule");
-        Route::get('/shipments/list', 'list')->name('shipments.list');
-        Route::post('/shipments/save', 'store')->name('shipments.save');
-        Route::get('/shipments/add', 'add')->name('shipments.add');
-        Route::post('/shipments/create', 'create')->name('shipment.create');
+        Route::prefix('organization', function () {
+            Route::get('shipments/schedule', "schedule")->name('orga.shipments.schedule');
+            Route::get('shipments/list', 'list')->name('org.shipments.list');
+            Route::post('shipments/save', 'store')->name('shipments.save');
+            Route::get('shipments/add', 'add')->name('shipments.add');
+            Route::post('shipments/create', 'create')->name('shipment.create');
+        });
     });
     Route::get('/shipments/overview', function () {
         return view('shipments.overview');
@@ -270,14 +288,14 @@ Route::middleware('auth:drivers')->group(function () {
         Route::controller(DriversController::class)->group(function () {
             Route::get('overview', 'overview')->name('driver.overview');
             Route::get('shipments', 'shipments')->name('driver.shipments');
-            Route::get('profile', 'profile')->name('driver.profile');
         });
+        Route::get('{mask}/profile', UpdateDriver::class)->name('driver.profile');
         Route::prefix('shipment')->group(function () {
             Route::controller(ShipmentsController::class)->group(function () {
                 Route::get('{shipment}/start-shipment', 'start_delivery')->name('driver.start-delivery');
                 Route::get('{shipment}/loads', 'shipment_loads')->name('driver.shipment.loads.view');
             });
-            Route::controller(LoadsController::class)->group(function(){
+            Route::controller(LoadsController::class)->group(function () {
                 Route::get('{load}/details', 'details')->name('shipment.load.details');
                 Route::get('{load}/delivered', 'mark_delivered')->name('shipment.load.delivered');
             });
@@ -287,7 +305,7 @@ Route::middleware('auth:drivers')->group(function () {
 
 Route::middleware('auth:senders')->group(function () {
     Route::prefix('senders')->group(function () {
-        Route::get('edit/{mask}', UpdateSender::class)->name('sender.profile');
+        Route::get('{mask}/profile', UpdateSender::class)->name('sender.profile');
 
         Route::controller(SendersController::class)->group(function () {
             Route::get('overview', 'overview')->name('sender.overview');
@@ -353,19 +371,26 @@ Route::middleware('auth:brokers')->group(function () {
     Route::prefix('brokers')->group(function () {
         Route::controller(BrokersController::class)->group(function () {
             Route::get('overview', 'overview')->name('broker.overview');
+            Route::get('{broker}/update', 'update')->name('broker.update');
+            Route::post('{broker}/update', 'saveUpdate')->name('broker.update');
+            // Route::get('{broker}/edit', 'edit')->name('broker.edit');
+            Route::get('{broker}/view', 'show')->name('broker.view');
         });
+        Route::get('{mask}/profile', UpdateBroker::class)->name('broker.profile');
         Route::prefix('loads')->group(function () {
             Route::controller(LoadsController::class)->group(function () {
                 Route::post('assign', 'brokerLoadAssign')->name('broker.loads.assign');
             });
         });
         Route::get('shipment/create', CreateShipment::class)->name('broker.shipment.create');
+        Route::get('shipment/{mask}/edit', EditShipment::class)->name('broker.shipment.edit');
         // Shipments start
         Route::controller(ShipmentsController::class)->group(function () {
             Route::get('/shipments/schedule', "schedule");
             Route::get('/shipments/all', 'all_shipments')->name('broker.shipments.list');
             Route::post('/shipments/save', 'store')->name('shipments.save');
             Route::get('/shipments/add', 'add')->name('shipments.add');
+            Route::get('/shipments/{shipment}/delete', 'delete')->name('broker.shipment.delete');
         });
         Route::get('/shipments/overview', function () {
             return view('shipments.overview');
@@ -456,6 +481,8 @@ Route::get('/layouts/dark-header', function () {
 });
 // LAYOUTS ENDS HERE
 
-Route::get('template', function () {
-    return view('emails.account-created');
+Route::middleware(['auth:brokers'])->group(function(){
+    Route::get('template', function () {
+        return view('partials.chat');
+    });
 });

@@ -61,7 +61,7 @@ class LoadsController extends Controller
 
     public function completed($load)
     {
-        DB::table('loads')->where('sender_id', whichUser()->mask)->where('mask', $load)->update(['completed' => 1]);
+        DB::table('loads')->where('sender_id', whichUser()->mask)->where('mask', $load)->update(['completed' => 1,'status'=>"Completed"]);
 
         return redirect()->back()->with('success', "Load marked as completed");
     }

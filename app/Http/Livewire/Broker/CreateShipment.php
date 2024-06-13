@@ -8,14 +8,16 @@ use Livewire\Component;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 use Spatie\LaravelIgnition\Recorders\DumpRecorder\DumpHandler;
 
 class CreateShipment extends Component
 {
     public $loads = [];
     public $loadsDets = [];
-    public $drivers = [];
+    public $drivers;
     public $driver_id;
+    public $description;
     public $count = 0;
     public $pickup_address;
     public $dropoff_address;
@@ -24,6 +26,7 @@ class CreateShipment extends Component
     public $search_pickup;
     public $search_dropoff;
     public $organization;
+    public $no_driver;
 
     public function mount(Request $request)
     {
@@ -32,7 +35,6 @@ class CreateShipment extends Component
         $this->loads = $request->loads;
         $this->organization = $request->organization_id;
         $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
-
     }
 
     public function check()
@@ -41,30 +43,60 @@ class CreateShipment extends Component
         return $this->pickup_address;
     }
 
-    public function updated(){
+    public function updated()
+    {
         $this->search_pickup = $this->pickupSearch($this->search_pickup);
         $this->search_dropoff = $this->dropoffSearch($this->search_dropoff);
     }
 
-    public function pickupSearch($field){
+    public function pickupSearch($field)
+    {
         $this->pickup_list = lookupLocation($field);
         return $field;
     }
 
-    public function dropoffSearch($field){
+    public function getDrivers()
+    {
+    }
+
+    public function dropoffSearch($field)
+    {
         $this->dropoff_list = lookupLocation($field);
         return $field;
     }
 
-    public function create_shipment(){
+    public function create_shipment()
+    {
         // dd($this->pickup_address);
+        if ($this->no_driver == "true") {
+            // Validator::make([$this->pickup_address, $this->dropoff_address], [
+            //     'pickup_address' => 'required',
+            //     'dropoff_address' => 'required',
+            // ], [
+            //     'pickup_address' => "Search and select a pickup address for the shipment",
+            //     'dropoff_address' => "Search and select a dropoff address for the shipment"
+            // ])->validate();
+
+        } else {
+            Validator::make([$this->pickup_address, $this->dropoff_address, $this->driver_id], [
+                'driver_id' => 'required',
+                'pickup_address' => 'required',
+                'dropoff_address' => 'required',
+            ], [
+                'driver_id' => "The driver is required",
+                'pickup_address' => "Search and select a pickup address for the shipment",
+                'dropoff_address' => "Search and select a dropoff address for the shipment"
+            ])->validate();
+        }
+
 
         DB::table('shipments')->insert([
             'organization_id' => $this->organization,
             'driver_id' => $this->driver_id,
+            'broker_id' => whichUser()->mask,
             'loads' => json_encode($this->loads),
-            'description' => "this->description",
-            'mask'=>Str::orderedUuid(),
+            'description' => $this->description,
+            'mask' => generateNumber(),
             'pickup_address' => json_encode(getPlaceCoordinates($this->pickup_address)),
             'dropoff_address' => json_encode(getPlaceCoordinates($this->dropoff_address)),
             'approval_status' => "Approved",
@@ -77,13 +109,15 @@ class CreateShipment extends Component
 
     public function render(Request $request)
     {
-        if($this->loads != null){
+        // $this->loadsDets = [];
+        if ($this->loads != null) {
             foreach ($this->loads as $load) {
                 $tmpload = (array)DB::table('loads')->where('mask', $load)->first();
                 array_push($this->loadsDets, $tmpload);
             }
         }
-        // dd($drivers);
+
+        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
 
         return view('brokers.shipments.create-shipment')->extends('layout.roles.broker')->section('content');
     }

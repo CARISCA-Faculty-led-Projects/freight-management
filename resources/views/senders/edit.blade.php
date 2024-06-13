@@ -85,15 +85,13 @@
                                 <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                     data-kt-image-input="true">
                                     <!--begin::Preview existing avatar-->
-                                    @if ($this->sender['image'])
-                                    <div class="">
-                                        <img class="w-150px h-150px" src="{{ $this->sender['image']->temporaryUrl() }}">
-                                    </div>
-                                    @elseif(!$this->sender['image'])
-                                    <img class="image-input-wrapper w-150px h-150px">
-
+                                    @if ($image)
+                                        <div class="">
+                                            <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                                        </div>
                                     @else
-                                    <img class="w-150px h-150px" src="{{asset('storage/logos/'.$this->sender['image'])}}" alt="image" />
+                                        <img class="w-150px h-150px"
+                                            src="{{ asset('storage/logos/' . $this->sender['image']) }}" alt="image" />
                                     @endif
                                     <!--end::Preview existing avatar-->
                                     <!--begin::Label-->
@@ -105,7 +103,7 @@
                                             <span class="path2"></span>
                                         </i>
                                         <!--begin::Inputs-->
-                                        <input type="file" wire:model="sender.image" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -140,58 +138,79 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Thumbnail settings-->
-                        <!--begin::Template settings-->
+                        <!--begin::Status-->
                         <div class="card card-flush py-4">
                             <!--begin::Card header-->
                             <div class="card-header">
                                 <!--begin::Card title-->
                                 <div class="card-title">
-                                    <h2>Load Preferences</h2>
+                                    <h2>Location</h2>
                                 </div>
                                 <!--end::Card title-->
+                                <!--begin::Card toolbar-->
+                                <div class="card-toolbar">
+                                    <div class="rounded-circle bg-success w-15px h-15px"
+                                        id="kt_ecommerce_add_broker_status">
+                                    </div>
+                                </div>
+                                <!--begin::Card toolbar-->
                             </div>
                             <!--end::Card header-->
                             <!--begin::Card body-->
                             <div class="card-body pt-0">
-                                <!--begin::Select store template-->
-                                <label for="kt_ecommerce_add_organization_store_template" class="form-label">Select as many
-                                    as
-                                    apply</label>
-                                <!--end::Select store template-->
-                                @foreach ($this->loads() as $load)
-                                    <!--begin::Item-->
-                                    <div class="d-flex align-items-center mb-8 mt-5">
-                                        <!--begin::Bullet-->
-                                        @if ($this->load_list != null && in_array($load->name, $this->load_list))
-                                            <span class="bullet bullet-vertical h-20px bg-primary"></span>
-                                        @else
-                                            <span class="bullet bullet-vertical h-20px bg-white"></span>
-                                        @endif
-                                        <!--end::Bullet-->
-                                        <!--begin::Checkbox-->
-                                        <div class="form-check form-check-custom form-check-solid mx-5">
-                                            <input class="form-check-input" wire:model="sender_load_type"
-                                                wire:key="{{ $load->id }}" type="checkbox"
-                                                value="{{ $load->name }}" />
-                                        </div>
-                                        <!--end::Checkbox-->
-                                        <div class="flex-grow-1">
-                                            <a href="#"
-                                                class="text-gray-800 text-hover-primary fw-bold fs-6">{{ $load->name }}</a>
-                                        </div>
-                                    </div>
-                                    <!--end:Item-->
-                                @endforeach
-                                
+                                <!--begin::Select2-->
+                                <label class="required form-label">Country</label>
+
+                                <select class="form-select mb-2" wire:model="sender.country" data-hide-search="true"
+                                    data-placeholder="Select an option" id="kt_ecommerce_add_broker_status_select">
+                                    <option></option>
+                                    <option value="Ghana" selected="selected">Ghana</option>
+
+                                </select>
+                                <!--end::Select2-->
                                 <!--begin::Description-->
-                                <div class="text-muted fs-7 mt-5">These specify which goods your company can transport
-                                </div>
+                                <div class="text-muted fs-7">Set the country of operation</div>
                                 <!--end::Description-->
+                                <!--begin::Datepicker-->
+                                <div class="d-none mt-10">
+                                    <label for="kt_ecommerce_add_broker_status_datepicker" class="form-label">Select
+                                        publishing
+                                        date and time</label>
+                                    <input class="form-control" id="kt_ecommerce_add_broker_status_datepicker"
+                                        placeholder="Pick date & time" />
+                                </div>
+                                <!--end::Datepicker-->
                             </div>
                             <!--end::Card body-->
-    
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Select2-->
+                                <label class="required form-label">Region</label>
+
+                                <select class="form-select mb-2" wire:model="sender.region" data-hide-search="true"
+                                    data-placeholder="Select an option" id="kt_ecommerce_add_broker_status_select">
+                                    <option></option>
+                                    <option value="Greater Accra" selected="selected">Greater Accra</option>
+                                    <option value="Ashanti Region">Ashanti Region</option>
+
+                                </select>
+                                <!--end::Select2-->
+                                <!--begin::Description-->
+                                <div class="text-muted fs-7">Set the region in Ghana of operation</div>
+                                <!--end::Description-->
+                                <!--begin::Datepicker-->
+                                <div class="d-none mt-10">
+                                    <label for="kt_ecommerce_add_broker_status_datepicker" class="form-label">Select
+                                        publishing
+                                        date and time</label>
+                                    <input class="form-control" id="kt_ecommerce_add_broker_status_datepicker"
+                                        placeholder="Pick date & time" />
+                                </div>
+                                <!--end::Datepicker-->
+                            </div>
+                            <!--end::Card body-->
                         </div>
-                        <!--end::Template settings-->
+                        <!--end::Status-->
     
                     </div>
                 </form>
@@ -352,7 +371,7 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>National ID</h2>
+                                                <h2>National ID <small> {{ $this->sender['national_id'] ? 'Uploaded' : 'Unavailable' }}</small></h2>
                                             </div>
                                         </div>
                                         <!--end::Card header-->

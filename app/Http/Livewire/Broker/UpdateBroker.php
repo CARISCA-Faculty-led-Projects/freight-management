@@ -2,12 +2,13 @@
 
 namespace App\Http\Livewire\Broker;
 
-use Illuminate\Support\Arr;
 use Livewire\Component;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class UpdateBroker extends Component
@@ -18,14 +19,16 @@ class UpdateBroker extends Component
     public $payment = false;
 
     // Fields
-    public $driver = [
+    public $broker = [
         'image' => null,
         'license_image' => null,
         'load_type' => []
     ];
     public $load_type = [];
     public $image;
-    public $license_image;
+    public $national_id;
+    public $password;
+    public $con_password;
 
 
     public function activate($tab)
@@ -47,41 +50,59 @@ class UpdateBroker extends Component
 
     public function general()
     {
+        Validator::make($this->broker, [
+            'image' => 'required|mimes:jpg,png,jpeg',
+            'email' => 'required',
+            'name' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'national_id' => 'required|mimes:pdf',
+        ])->validate();
 
-        // dd($this->driver);
 
-        if (is_file($this->driver['image'])) {
-            $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
-            $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
-            $this->driver['image'] = $imagename;
+        if (is_file($this->image)) {
+            $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->storeAs('brokers', $imagename, 'real_public');
+            $this->broker['image'] = $imagename;
         }
 
-        if (is_file($this->driver['license_image'])) {
-            $imagename = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
-            $this->driver['license_image']->storeAs('drivers', $imagename, 'real_public');
-            $this->driver['license_image'] = $imagename;
+        if (is_file($this->national_id)) {
+            $imagename = uniqid() . '.' . $this->national_id->getClientOriginalExtension();
+            $this->national_id->storeAs('brokers', $imagename, 'real_public');
+            $this->broker['national_id'] = $imagename;
         }
 
-        $this->driver['load_type'] = json_encode($this->load_type);
-        DB::table('drivers')->where('mask', $this->driver['mask'])->update($this->driver);
+        DB::table('brokers')->where('mask', $this->broker['mask'])->update($this->broker);
 
-        // $this->activate('payment');
-        return redirect(route('drivers'));
+        return redirect(route('broker.overview'));
     }
 
-    public function payment()
+    public function change_pass()
     {
+        // if($this->password == $this->con_password){
+
+        // }else{
+        //     return "Passwords do not match";
+        // }
+        // $validated = Validator::make([$this->password, $this->con_password], [
+        //     'password' => 'required',
+        //     'con_password' => 'required|same:password',
+        // ])->validate();
+
+        // dd($validated);
+
+        // return back()->with('success',"Password Updated");
+
     }
 
     public function mount($mask)
     {
-        $driver = DB::table('drivers')->where('mask', $mask)->first();
-
-        $this->driver = (array)$driver;
+        $broker = DB::table('brokers')->where('mask', $mask)->first();
+        $this->broker = (array)$broker;
     }
 
     public function render()
     {
-        return view('brokers.edit')->extends('layout.roles.organization')->section('content');
+        return view('brokers.edit')->extends(auth()->guard()->name == 'organizations' ? 'layout.roles.organization' : 'layout.roles.broker')->section('content');
     }
 }

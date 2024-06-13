@@ -170,8 +170,7 @@
                             </i>Export</button>
                         <!--end::Export-->
                         <!--begin::Add customer-->
-                        <a href="/fleet/vehicles/add"><button type="button" class="btn btn-primary" {{--data-bs-toggle="modal"
-                            data-bs-target="#kt_modal_add_customer"--}}>Add Vehicle</button></a>
+                        <a href="/fleet/vehicles/add"><button type="button" class="btn btn-primary">Add Vehicle</button></a>
                         <!--end::Add customer-->
                     </div>
                     <!--end::Toolbar-->

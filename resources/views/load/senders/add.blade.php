@@ -203,8 +203,8 @@
                                 <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea wire:model="load.description" class="min-h-200px mb-2 form-control" id="" cols="30"
-                                    rows="10"></textarea>
+                                <textarea wire:model="load.description" class=" mb-2 form-control" id="" cols="30"
+                                    rows="5"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -218,7 +218,7 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
-                                <label class="required form-label">Budget</label>
+                                <label class="required form-label">Budget (GHC)</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="number" class="form-control mb-2" wire:model="load.budget"
@@ -291,7 +291,7 @@
                                 <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
                                     <div class="mb-10 flex-row-fluid position-relative">
                                         <!--begin::Label-->
-                                        <label class="form-label">Length</label>
+                                        <label class="form-label">Length (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" class="form-control mb-2" wire:model="load.length"
@@ -307,7 +307,7 @@
                                     <!--end::Input group-->
                                     <div class="mb-10 flex-row-fluid position-relative">
                                         <!--begin::Label-->
-                                        <label class="form-label">Breadth</label>
+                                        <label class="form-label">Breadth (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"

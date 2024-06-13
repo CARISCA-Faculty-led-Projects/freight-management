@@ -15,7 +15,6 @@ class BrokersController extends Controller
 {
     public function overview()
     {
-
         return view('brokers.overview');
     }
 
@@ -46,11 +45,11 @@ class BrokersController extends Controller
         return view('brokers.register');
     }
 
-    public function update($broker)
+    public function edit($broker)
     {
         $broker = DB::table('brokers')->where('mask', $broker)->first();
 
-        return view('brokers.update', compact('broker'));
+        return view('brokers.edit', compact('broker'));
     }
 
     public function saveUpdate(Request $request, $broker)

@@ -2,8 +2,9 @@
 
 namespace App\Http\Livewire\Driver;
 
-use Illuminate\Support\Arr;
+use Carbon\Carbon;
 use Livewire\Component;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Computed;
@@ -49,8 +50,8 @@ class UpdateDriver extends Component
     {
 
         if (is_file($this->image)) {
-            $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
-            $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
+            $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->storeAs('logos', $imagename, 'real_public');
             $this->driver['image'] = $imagename;
         }
 
@@ -60,15 +61,11 @@ class UpdateDriver extends Component
             $this->driver['license_image'] = $imagename;
         }
 
-        $this->driver['load_type'] = json_encode($this->load_type);
+        $this->driver['updated_at'] = Carbon::now()->toDateTimeString();
         DB::table('drivers')->where('mask', $this->driver['mask'])->update($this->driver);
 
         // $this->activate('payment');
-        return redirect(route('drivers'));
-    }
-
-    public function payment()
-    {
+        return redirect(auth()->guard()->name == 'organizations' ? route('drivers') : route('driver.overview'));
     }
 
     public function mount($mask)
@@ -80,6 +77,6 @@ class UpdateDriver extends Component
 
     public function render()
     {
-        return view('fleet.drivers.edit')->extends('layout.roles.organization')->section('content');
+        return view('fleet.drivers.edit')->extends(auth()->guard()->name == 'organizations' ? 'layout.roles.organization' : 'layout.roles.driver')->section('content');
     }
 }

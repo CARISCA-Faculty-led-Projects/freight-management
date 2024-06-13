@@ -1,7 +1,14 @@
 @extends('layout.app')
-
 @section('role-name')
     Driver
+@endsection
+
+@section('profile-link')
+    {{ route('driver.profile', whichUser()->mask) }}
+@endsection
+
+@section('profile-image')
+    {{ asset('storage/logos/' . whichUser()->image) }}
 @endsection
 
 @section('sidebar')
@@ -19,7 +26,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="/">
+                        <a class="menu-link" href="{{route('driver.overview')}}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-home fs-2">
                                     <span class="path1"></span>
@@ -53,7 +60,7 @@
                     </div>
                     <!--end:Menu item-->
                     <!--begin:Menu item-->
-                    <div class="menu-item">
+                    {{-- <div class="menu-item">
                         <!--begin:Menu link-->
                         <a class="menu-link" href="{{route("driver.profile")}}">
                             <span class="menu-icon">
@@ -68,7 +75,7 @@
                             <span class="menu-title">My Profile</span>
                         </a>
                         <!--end:Menu link-->
-                    </div>
+                    </div> --}}
                     <!--end:Menu item-->
                      <!--begin:Menu item-->
                      <div class="menu-item">

@@ -55,7 +55,7 @@ class AddDriver extends Component
         ])->validate();
 
         $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
-        $this->driver['image']->storeAs('drivers', $imagename, 'real_public');
+        $this->driver['image']->storeAs('logos', $imagename, 'real_public');
 
         $license = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
         $this->driver['license_image']->storeAs('drivers', $imagename, 'real_public');

@@ -17,7 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('phone');
             $table->string('address')->nullable();
-            $table->text('load_type')->nullable();
+            $table->string('country')->nullable();
+            $table->string('region')->nullable();
             $table->longText('description')->nullable();
             $table->string('status')->nullable();
             $table->string('national_id')->nullable();

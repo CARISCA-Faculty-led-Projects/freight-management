@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('shipments', function (Blueprint $table) {
             $table->id();
             $table->foreignUuid('organization_id');
-            $table->foreignUuid('driver_id');
-            $table->string('load_id');
+            $table->foreignUuid('driver_id')->nullable();
+            $table->foreignUuid('broker_id')->nullable();
             $table->longText('description')->nullable();
-            $table->date('pickup_date');
-            $table->date('dropoff_date');
+            $table->date('pickup_date')->nullable();
+            $table->date('dropoff_date')->nullable();
             $table->timestamps();
         });
     }

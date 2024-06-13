@@ -1,3 +1,8 @@
+
+@extends('layout.roles.broker')
+
+@section('content')
+
 <div class="">
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -1120,3 +1125,4 @@
 </div>
 <!--end::Scrolltop-->
 </div>
+@endsection

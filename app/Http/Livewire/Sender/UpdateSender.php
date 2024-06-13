@@ -24,7 +24,7 @@ class UpdateSender extends Component
     public $load_list = [];
     public $sender_load_type = [];
     public $image;
-    public $license_image;
+    public $national_id;
 
 
 
@@ -50,17 +50,13 @@ class UpdateSender extends Component
         $validated = Validator::make($this->sender, [
             'email' => 'required',
             'name' => 'required',
-            'national_id' => 'required|mimes:png,jpg,jpeg,pdf',
+            'national_id' => 'required',
         ])->validate();
 
-        // if ($validated->fails()) {
-        //     dd($validated->errors());
-        //     // return $this->validationResponse($validated->errors());
-        // }
-        // dd($this->sender);
+
         if (is_file($this->image)) {
-            $imagename = uniqid() . '.' . $this->sender['image']->getClientOriginalExtension();
-            $this->sender['image']->storeAs('logos', $imagename, 'real_public');
+            $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->storeAs('logos', $imagename, 'real_public');
             $this->sender['image'] = $imagename;
         }
 
@@ -69,8 +65,6 @@ class UpdateSender extends Component
             $this->sender['national_id']->storeAs('senders', $imagename, 'real_public');
         }
 
-
-        $this->sender['load_type'] = json_encode($this->sender_load_type);
         DB::table('senders')->where('mask',$this->sender['mask'])->update($this->sender);
 
         // $this->activate('payment');

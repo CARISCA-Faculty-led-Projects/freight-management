@@ -133,8 +133,8 @@
                                                             {{ $load['weight'] }} KG,
                                                             {{ $load['length'] }}*{{ $load['breadth'] }}*{{ $load['height'] }}</span>
                                                     </td>
-                                                    <td class="text-end">{{ $load['pickup_address'] }}</td>
-                                                    <td class="text-end">{{ $load['dropoff_address'] }}</td>
+                                                    <td class="text-end">{{ json_decode($load['pickup_address'])->name }}</td>
+                                                    <td class="text-end">{{ json_decode($load['dropoff_address'])->name }}</td>
 
 
                                                 </tr>
@@ -152,7 +152,7 @@
                                 <label class="form-label">Shipment Description</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
-                                <textarea name="description" id="" cols="30" rows="6" class="form-control"></textarea>
+                                <textarea name="description" id="" cols="30" rows="4" class="form-control"></textarea>
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a description to the category for
@@ -188,7 +188,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Pickup Address</h2>
+                                        <h2>Pickup Address <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span></h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
@@ -197,7 +197,7 @@
                                     <input type="text" wire:model.change="search_pickup" id=""
                                         class="form-control"style="width: 40rem;">
                                     <!--begin::Menu toggle-->
-                                    <select wire:model="pickup_address" id="" class="form-control mt-2"
+                                    <select wire:model="pickup_address" id="" class="form-control mt-2 @error('pickup_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
                                         @if ($this->pickup_list != [])
@@ -207,6 +207,9 @@
                                         @endforeach
                                         @endif
                                     </select>
+                                    @error('pickup_address')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                 </div>
                                 <!--end::Card body-->
                             </div>
@@ -223,7 +226,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Drop-off Address</h2>
+                                        <h2>Drop-off Address <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span></h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
@@ -233,7 +236,7 @@
                                     <input type="text" wire:model.change="search_dropoff" id="" class="form-control"
                                         style="width: 40rem;">
 
-                                    <select wire:model="dropoff_address" id="" class="form-control mt-2"
+                                    <select wire:model="dropoff_address" id="" class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
                                         @foreach ($this->dropoff_list as $dropoff)
@@ -241,6 +244,9 @@
                                         @endforeach
                                     </select>
                                     <!--end::Card body-->
+                                    @error('dropoff_address')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                 </div>
                                 <!--end::Shipping address-->
                             </div>
@@ -265,7 +271,7 @@
                                     <label class="required form-label">Driver</label>
                                     <!--end::Label-->
                                     <!--begin::Select2-->
-                                    <select class="form-select mb-2" wire:model="driver_id" data-hide-search="true"
+                                    <select class="form-select mb-2 @error('driver_id')border-danger @enderror" wire:model="driver_id" data-hide-search="true"
                                         data-placeholder="Select a sender"
                                         id="kt_ecommerce_add_category_store_template">
                                         <option></option>
@@ -274,7 +280,14 @@
                                             </option>
                                         @endforeach
                                     </select>
+                                    @error('driver_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                     <!--end::Select2-->
+                                    <div class="">
+                                        <input type="checkbox" class="mt-3" wire:model="no_driver" id="" value="true">
+                                        <label for="">Assign driver later</label>
+                                    </div>
                                 </div>
                                 <!--end::Input group-->
                             </div>

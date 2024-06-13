@@ -83,10 +83,8 @@ class UpdateOrganization extends Component
     public function load_edit($state, $field)
     {
         if (in_array($field, $this->org['load_type'])) {
-            // array_push($this->org_load_type, $field);
             foreach ($this->org['load_type'] as $key => $load) {
                 if ($load == $field) {
-                    // dd("Key:".$key."/".$load."/".$field);
                     unset($this->org['load_type'][$key]);
                 }
             }
@@ -104,8 +102,6 @@ class UpdateOrganization extends Component
         if ($this->org_load_type != []) {
             $this->org['load_type'] = json_encode($this->org_load_type);
         }
-
-        // dd($this->org);
 
         if (is_file($this->image)) {
             $org_image = uniqid() . '.' . $this->image->getClientOriginalExtension();
@@ -129,13 +125,13 @@ class UpdateOrganization extends Component
         $this->org['updated_at'] = Carbon::now()->toDateTimeString();
         DB::table('organizations')->where('mask', $this->org['mask'])->update($this->org);
 
+        // $this->activate('routes');
+        return redirect(route('org.overview'))->with('success','Profile Update successful');
 
-        $this->activate('routes');
     }
 
     public function routes()
     {
-        // dd($this->org_routes);
         foreach ($this->org_routes as $route) {
             if (array_key_exists('id', $route)) {
                 DB::table('routes')->where('organization_id', $this->org['mask'])->where('id', $route['id'])->update([

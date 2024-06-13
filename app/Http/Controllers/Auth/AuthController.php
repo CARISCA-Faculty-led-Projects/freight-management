@@ -81,6 +81,15 @@ class AuthController extends Controller
         }
     }
 
+    public function changePass(Request $request){
+        Validator::make($request->all(), ['password' => 'required','con_password' => 'required|same:password'])->validate();
+
+        DB::table($request->type)->where('mask', $request->mask)->update(['password' => Hash::make($request->password)]);
+        
+        return back()->with('success',"Password changed successfully");
+
+    }
+
     public function destroy(Request $request)
     {
         if ($request->session()->has('old_user_id')) {

@@ -34,28 +34,12 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Add</li>
+                        <li class="breadcrumb-item text-muted">Edit</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Secondary button-->
-                    <a href="/apps/customers/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Load Board</a>
-                    <!--end::Secondary button-->
-                    <!--begin::Primary button-->
-                    <a href="/organization/add" class="btn btn-sm fw-bold btn-primary">Fleet Mangement</a>
-                    <!--end::Primary button-->
-                    <!--begin::Secondary button-->
-                    <a href="/organization/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                        Organizations</a>
-                    <!--end::Secondary button-->
-                </div>
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -63,7 +47,7 @@
         <div id="kt_app_content_container" class="app-container container-xxl">
             <!--begin::Form-->
             <div id="kt_ecommerce_add_organization_form" class="form d-flex flex-column flex-lg-row"
-                data-kt-redirect="/apps/ecommerce/catalog/organizations">
+                >
                 <!--begin::Aside column-->
                 <form wire:submit.prevent="general" method="post">
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -175,7 +159,7 @@
                                 <!--begin::Select2-->
                                 <label class="required form-label">Country</label>
 
-                                <select class="form-select mb-2" wire:model="org.country" data-control="select2"
+                                <select class="form-select mb-2" wire:model="org.country"
                                     data-hide-search="true" data-placeholder="Select an option"
                                     id="kt_ecommerce_add_organization_status_select">
                                     <option></option>
@@ -203,7 +187,7 @@
                                 <!--begin::Select2-->
                                 <label class="required form-label">Region</label>
 
-                                <select class="form-select mb-2" wire:model="org.region" data-control="select2"
+                                <select class="form-select mb-2" wire:model="org.region"
                                     data-hide-search="true" data-placeholder="Select an option"
                                     id="kt_ecommerce_add_organization_status_select">
                                     <option></option>
@@ -295,20 +279,20 @@
                 <!--begin::Main column-->
                 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                     <!--begin:::Tabs-->
-                    <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
+                    {{-- <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2"> --}}
                         <!--begin:::Tab item-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $general ? 'active' : '' }}"
                                 wire:click="activate('general')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_add_organization_general">General</a>
-                        </li>
+                        </li> --}}
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $routes ? 'active' : '' }}"
                                 wire:click="activate('routes')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_add_organization_advanced">Routes & Fleet</a>
-                        </li>
+                        </li> --}}
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
                         {{-- <li class="nav-item">
@@ -324,7 +308,7 @@
                                 href="#kt_ecommerce_payIn_account">Pay-In Account</a>
                         </li> --}}
                         <!--end:::Tab item-->
-                    </ul>
+                    {{-- </ul> --}}
                     <!--end:::Tabs-->
                     <!--begin::Tab content-->
                     <div class="tab-content">

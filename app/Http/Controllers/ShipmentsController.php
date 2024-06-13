@@ -25,12 +25,20 @@ class ShipmentsController extends Controller
 
     public function all_shipments()
     {
-        $shipments = DB::table('shipments')
+        $shipments = DB::table('shipments')->where('broker_id', whichUser()->mask)
             ->join('organizations', 'organizations.mask', 'shipments.organization_id')
-            ->join('drivers', 'drivers.mask', 'shipments.driver_id')
-            ->select('shipments.*', 'organizations.name as organization', 'drivers.name as driver')
+            ->select('shipments.*', 'organizations.name as organization')
             ->orderByDesc('created_at')
             ->get();
+
+        foreach ($shipments as $shipment) {
+            if ($shipment->driver_id != null) {
+                $driver = DB::table('drivers')->where('mask', $shipment->driver_id)->first();
+                $shipment->driver = $driver->name;
+            } else {
+                $shipment->driver = '';
+            }
+        }
         return view('brokers.shipments.list', compact('shipments'));
     }
 
@@ -79,20 +87,27 @@ class ShipmentsController extends Controller
     {
         DB::table('shipments')->where('mask', $shipment)->update(['shipment_status' => 'On route']);
         // notify senders with load in shipment
-        return back()->with('success','Shipment delivery started');
+        return back()->with('success', 'Shipment delivery started');
     }
 
-    public function shipment_loads($shipment_id){
-        $shipment = DB::table('shipments')->where('mask',$shipment_id)->first();
+    public function shipment_loads($shipment_id)
+    {
+        $shipment = DB::table('shipments')->where('mask', $shipment_id)->first();
 
         $shipment_loads = json_decode($shipment->loads);
         $loads = [];
 
-        foreach($shipment_loads as $load){
-            $load = DB::table('loads')->where('mask',$load)->first();
-            array_push($loads,$load);
+        foreach ($shipment_loads as $load) {
+            $load = DB::table('loads')->where('mask', $load)->first();
+            array_push($loads, $load);
         }
 
-        return view('fleet.drivers.shipment_loads',compact('loads','shipment_id'));
+        return view('fleet.drivers.shipment_loads', compact('loads', 'shipment_id'));
+    }
+
+    public function delete($mask){
+        DB::table('shipments')->where('mask',$mask)->delete();
+
+        return back()->with('success',"Shipment deleted Successfully");
     }
 }
