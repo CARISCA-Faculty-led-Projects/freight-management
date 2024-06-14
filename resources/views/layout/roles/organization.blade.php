@@ -42,9 +42,9 @@
                         <!--end:Menu link-->
                     </div>
                     <!--begin:Menu item-->
-                    <div class="menu-item">
+                    {{-- <div class="menu-item">
                         <!--begin:Menu link-->
-                        {{-- <a class="menu-link active" href="{{route('org.shipments.schedule')}}"> --}}
+                        <a class="menu-link active" href="{{route('org.shipments.schedule')}}">
                             <a class="menu-link active" href="#">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-calendar-8 fs-2">
@@ -59,7 +59,7 @@
                             <span class="menu-title">Schedule</span>
                         </a>
                         <!--end:Menu link-->
-                    </div>
+                    </div> --}}
                     <!--end:Menu item-->
                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
@@ -68,9 +68,6 @@
                                         class="path4"></span></i></span><span class="menu-title">Fleet</span><span
                                 class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
                         <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/fleet/overview"><span
-                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
                             <!--end:Menu item--><!--begin:Menu item-->
                             <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
                                     href="{{ route('vehicles') }}"><span class="menu-bullet"><span
@@ -99,9 +96,6 @@
                                         class="path4"></span></i></span><span class="menu-title">Loads</span><span
                                 class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
                         <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/overview"><span
-                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
                             <!--end:Menu item--><!--begin:Menu item-->
                             <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/bids"><span
                                         class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
@@ -138,58 +132,19 @@
                     <!--end:Menu link-->
                 </div>
                 <!--begin:Menu item--> --}}
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                        <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
+                    <div  class="menu-item">
+                        <!--begin:Menu link--><a href="{{route('org.broker.list')}}" class="menu-link"><span class="menu-icon"><i
                                     class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
                                         class="path2"></span><span class="path3"></span><span
-                                        class="path4"></span></i></span><span class="menu-title">Brokers</span><span
-                                class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
-                        <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
-                                    href="/brokers/overview"><span class="menu-bullet"><span
-                                            class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
-                            <!--end:Menu item--><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/brokers/add"><span
-                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Add</span></a><!--end:Menu link--></div>
-                            <!--end:Menu item--><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{route('org.broker.list')}}"><span
-                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">List</span></a><!--end:Menu link--></div>
-                            <!--end:Menu item-->
-                        </div><!--end:Menu sub-->
+                                        class="path4"></span></i></span><span class="menu-title">Brokers</span></a><!--end:Menu link-->
                     </div><!--end:Menu item-->
 
                     <!--begin:Menu item-->
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                        <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
+                    <div class="menu-item">
+                        <!--begin:Menu link--><a href="{{route('org.shipments.list')}}" class="menu-link"><span class="menu-icon"><i
                                     class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
                                         class="path2"></span><span class="path3"></span><span
-                                        class="path4"></span></i></span><span class="menu-title">Shipments</span><span
-                                class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
-                        <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
-                                    href="/shipments/overview"><span class="menu-bullet"><span
-                                            class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
-                            <!--end:Menu item--><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/shipments/add"><span
-                                        class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Add</span></a><!--end:Menu link--></div>
-                            <!--end:Menu item--><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
-                                    href="/shipments/list"><span class="menu-bullet"><span
-                                            class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">List</span></a><!--end:Menu link--></div>
-                            <!--end:Menu item-->
-                            <!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
-                                    href="/shipments/tracking"><span class="menu-bullet"><span
-                                            class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Tracking</span></a><!--end:Menu link--></div>
-                            <!--end:Menu item-->
-                        </div><!--end:Menu sub-->
+                                        class="path4"></span></i></span><span class="menu-title">Shipments</span></a><!--end:Menu link-->
                     </div><!--end:Menu item-->
                 </div>
             </div>

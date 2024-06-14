@@ -6,7 +6,7 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Add Shipment</h1>
+                    Create Shipment</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -84,15 +84,7 @@
                                         id="kt_ecommerce_sales_table">
                                         <thead>
                                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                                <th class="w-10px pe-2">
-                                                    <div
-                                                        class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            data-kt-check="true"
-                                                            data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
-                                                            value="1" />
-                                                    </div>
-                                                </th>
+
                                                 <th class="min-w-50px">#</th>
                                                 <th class="min-w-50px">Category</th>
                                                 <th class="text-end min-w-70px">Status</th>
@@ -104,13 +96,7 @@
                                         <tbody class="fw-semibold text-gray-600">
                                             @foreach ($this->loadsDets as $load)
                                                 <tr>
-                                                    <td>
-                                                        <div
-                                                            class="form-check form-check-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox"
-                                                                name="loads[]" value="{{ $load['mask'] }}" />
-                                                        </div>
-                                                    </td>
+                                                   
                                                     <td>{{ $load['mask'] }}</td>
                                                     <td>{{ $load['load_type'] }}</td>
                                                     <td class="text-end pe-0">

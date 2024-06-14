@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignUuid('organization_id')->nullable();
             $table->string('driver_id')->nullable();
             $table->string('owner_id')->nullable();
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->string('load_type');
             $table->string('number');
             $table->string('vehicle_category_id');

@@ -43,7 +43,7 @@
             <div class="d-flex align-items-center gap-2 gap-lg-3">
 
                 <!--begin::Primary button-->
-                <a href="/Drivers/list" class="btn btn-sm fw-bold btn-primary">Browse Drivers</a>
+                <a href="{{route('drivers')}}" class="btn btn-sm fw-bold btn-primary">Browse Drivers</a>
                 <!--end::Primary button-->
             </div>
             <!--end::Actions-->
@@ -212,14 +212,14 @@
                     </div>
                     <!--end::Status-->
                     <!--end::Status-->
-            
+
                 </div>
             </form>
             <!--end::Aside column-->
             <!--begin::Main column-->
             <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                 <!--begin:::Tabs-->
-                <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
+                {{-- <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
                     <!--begin:::Tab item-->
                     <li class="nav-item">
                         <a class="nav-link text-active-primary pb-4 {{ $general ? 'active' : '' }}"
@@ -234,7 +234,7 @@
                             href="#kt_ecommerce_add_product_advanced">Re-embursement Account</a>
                     </li>
                     <!--end:::Tab item-->
-                </ul>
+                </ul> --}}
                 <!--end:::Tabs-->
                 <!--begin::Tab content-->
                 <div class="tab-content">

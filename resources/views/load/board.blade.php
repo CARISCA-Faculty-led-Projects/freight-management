@@ -13,7 +13,7 @@
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/" class="text-muted text-hover-primary">Home</a>
+                            <span  class="text-muted text-hover-primary">Home</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -23,7 +23,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/fleet/drivers" class="text-muted text-hover-primary">Loads</a>
+                            <span class="text-muted text-hover-primary">Loads</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -114,7 +114,7 @@
                 </div>
                 <!--end::Card header-->
                 <!--begin::Card body-->
-                <form action="{{ route('broker.loads.assign') }}" method="post">
+                <form action="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.loads.assign' : "org.loads.assign") }}" method="post">
                     @csrf
                     <div class="card-body pt-0" style="height: 50vh; overflow:auto">
                         <!--begin::Table-->
@@ -153,10 +153,9 @@
                                         <td>{{ $load->mask }}</td>
                                         <td>{{ $load->load_type }}</td>
                                         <td>{{ $load->name }}</td>
-                                        {{-- <td class="badge badge-light-danger">{{ $load->organization }}</td> --}}
                                         <td class="text-center pe-0">
                                             <div
-                                                class="@if ($load->organization == 'Unassigned')badge badge-light-warning @endif">
+                                                class="@if ($load->organization == 'Unassigned') badge badge-light-warning @endif">
                                                 {{ $load->organization }}</div>
                                         </td>
                                         {{-- <td class="@if ($load->organization == 'Unassigned') badge badge-light-danger @endif badge badge-light-danger">{{ $load->organization }}</td> --}}
@@ -172,13 +171,14 @@
                                                     badge-light-success
                                                     @else
                                                     badge-light-primary @endif">
-                                                {{ $load->status }}</div> | <div
+                                                {{ $load->status }}</div>
+                                            {{-- | <div
                                                 class="badge @if ($load->payment_status == 'Unpaid') badge-light-warning text-dark
                                                     @elseif($load->payment_status == 'Paid')
                                                     badge-light-success
                                                     @else
                                                     badge-light-primary @endif">
-                                                {{ $load->payment_status }}</div>
+                                                {{ $load->payment_status }}</div> --}}
                                             <!--end::Badges-->
                                         </td>
                                         {{-- shipment status --}}
@@ -239,11 +239,7 @@
                                                         class="menu-link px-3">Delete</a>
                                                 </div>
                                                 <!--end::Menu item-->
-                                                <!--begin::Menu item-->
-                                                <div class="menu-item px-3">
-                                                    <a href="/load/locate" class="menu-link px-3">Locate</a>
-                                                </div>
-                                                <!--end::Menu item-->
+
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
                                                     <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
@@ -258,8 +254,10 @@
                             </tbody>
                         </table>
                         <!--end::Table-->
-
-                    </div>
+                        </div>
+                        @error('loads')
+                            <span class="text-danger pl-3">{{ $message }}</span>
+                        @enderror
 
                     <!--end::Card body-->
                     <div class="card-footer">

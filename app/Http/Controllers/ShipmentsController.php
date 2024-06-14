@@ -20,6 +20,15 @@ class ShipmentsController extends Controller
     public function list()
     {
         $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->get();
+        
+        foreach ($shipments as $shipment) {
+            if ($shipment->driver_id != null) {
+                $driver = DB::table('drivers')->where('mask', $shipment->driver_id)->first();
+                $shipment->driver = $driver->name;
+            } else {
+                $shipment->driver = '';
+            }
+        }
         return view('shipments.list', compact('shipments'));
     }
 

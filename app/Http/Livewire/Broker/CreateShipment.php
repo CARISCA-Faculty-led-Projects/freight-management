@@ -30,8 +30,6 @@ class CreateShipment extends Component
 
     public function mount(Request $request)
     {
-        // dd($request->all());
-
         $this->loads = $request->loads;
         $this->organization = $request->organization_id;
         $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
@@ -104,12 +102,12 @@ class CreateShipment extends Component
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
-        return redirect(route('load.board'));
+        return redirect(route(whichUser()->getTable() == 'brokers' ? 'load.board' : 'org.shipments.list'));
     }
 
     public function render(Request $request)
     {
-        // $this->loadsDets = [];
+        $this->loadsDets = [];
         if ($this->loads != null) {
             foreach ($this->loads as $load) {
                 $tmpload = (array)DB::table('loads')->where('mask', $load)->first();
@@ -119,6 +117,6 @@ class CreateShipment extends Component
 
         $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
 
-        return view('brokers.shipments.create-shipment')->extends('layout.roles.broker')->section('content');
+        return view('shipments.create-shipment')->extends(whichUser()->getTable == "brokers" ? 'layout.roles.broker' : 'layout.roles.organization')->section('content');
     }
 }

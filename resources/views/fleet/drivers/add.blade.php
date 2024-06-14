@@ -44,7 +44,7 @@
                 <div class="d-flex align-items-center gap-2 gap-lg-3">
 
                     <!--begin::Primary button-->
-                    <a href="/fleet/drivers" class="btn btn-sm fw-bold btn-primary">Browse Drivers</a>
+                    <a href="{{route('drivers')}}" class="btn btn-sm fw-bold btn-primary">Browse Drivers</a>
                     <!--end::Primary button-->
                 </div>
                 <!--end::Actions-->
@@ -163,7 +163,7 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" data-control="select2" data-hide-search="true"
+                            <select class="form-select mb-2" data-hide-search="true"
                                 wire:model="driver.status" data-placeholder="Select an option"
                                 id="kt_ecommerce_add_product_status_select" required>
                                 <option></option>
@@ -240,7 +240,7 @@
                 <!--begin::Main column-->
                 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                     <!--begin:::Tabs-->
-                    <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
+                    {{-- <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2">
                         <!--begin:::Tab item-->
                         <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $general ? 'active' : '' }}"
@@ -255,7 +255,7 @@
                                 href="#kt_ecommerce_add_product_advanced">Re-embursement Account</a>
                         </li>
                         <!--end:::Tab item-->
-                    </ul>
+                    </ul> --}}
                     <!--end:::Tabs-->
                     <!--begin::Tab content-->
                     <div class="tab-content">
@@ -279,7 +279,7 @@
                                             <!-- <div class="mb-10 fv-row">
                                                 <label class="required form-label">Organization</label>
 
-                                                <select class="form-select mb-2" data-control="select2" data-hide-search="true"
+                                                <select class="form-select mb-2" data-hide-search="true"
                                                     data-placeholder="Select an option"
                                                     id="kt_ecommerce_add_product_status_select">
                                                     <option></option>

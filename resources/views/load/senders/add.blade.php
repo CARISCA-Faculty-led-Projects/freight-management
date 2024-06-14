@@ -374,7 +374,7 @@
                             <!--begin::Input group-->
                             <div class="mb-10 col-md-6">
                                 <!--begin::Label-->
-                                <label class="form-label">Pickup Address</label>
+                                <label class="form-label">Pickup Address</label>  <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" wire:model.change="search_pickup" id=""
@@ -391,16 +391,13 @@
                                         @endif
                                     </select>
                                 <!--end::Input-->
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">Set a billing address. This is where
-                                    the load will be picked up from</div>
-                                <!--end::Description-->
+
                             </div>
                             <!--end::Input group-->
                             <!--begin::Input group-->
                             <div class="mb-10 col-md-6">
                                 <!--begin::Label-->
-                                <label class="form-label">Dropoff Address</label>
+                                <label class="form-label">Dropoff Address</label>  <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" wire:model.change="search_dropoff" id=""
@@ -416,10 +413,6 @@
                                 </select>
                                 <!--end::Card body-->
                                 <!--end::Input-->
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">Set a shipping address. This is where
-                                    the load will be dropped off</div>
-                                <!--end::Description-->
                             </div>
                             <!--end::Input group-->
                         </div>

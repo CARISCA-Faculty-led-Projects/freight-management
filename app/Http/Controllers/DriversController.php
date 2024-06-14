@@ -17,6 +17,15 @@ class DriversController extends Controller
     {
 
         $drivers = DB::table('drivers')->where('organization_id',whichUser()->mask)->get();
+
+        foreach($drivers as $driver){
+            $vehicle = DB::table('vehicles')->where('driver_id',$driver->mask)->first(['number']);
+            if($vehicle){
+                $driver->vehicle = $vehicle->number;
+            }else{
+                $driver->vehicle =null;
+            }
+        }
         return view('fleet.drivers.drivers', compact('drivers'));
     }
 

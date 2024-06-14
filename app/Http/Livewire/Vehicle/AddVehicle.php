@@ -34,7 +34,7 @@ class AddVehicle extends Component
         'gps' => 'No',
         'transmission' => "Manual",
         'image' => null,
-        'load_type'=> []
+        'load_type' => []
     ];
     public $vehicle_category_id;
     public $vehicle_subcategory_id;
@@ -55,7 +55,11 @@ class AddVehicle extends Component
     public $owners_documents;
     public $road_worth_documents;
     public $insurance_documents;
-    public $owner;
+    public $owner = [
+        'name' => null,
+        'email' => null,
+        'address' => null
+    ];
     public $owner_email;
     public $owner_phone;
     public $owner_address;
@@ -65,6 +69,7 @@ class AddVehicle extends Component
 
     public $vehicle_id;
     public $documents;
+    public $mask;
     // public $owner_name;
     // public $owner_email;
     // public $owner_phone;
@@ -81,25 +86,23 @@ class AddVehicle extends Component
 
     public function addRoute($num)
     {
-        array_push($this->veh_routes,$num);
+        array_push($this->veh_routes, $num);
     }
 
-    public function updated(){
-        $this->org_owned = $this->getOrg($this->org_owned);
+    public function updated()
+    {
+        // $this->org_owned = $this->getOrg($this->org_owned);
+        $this->resetValidation();
     }
 
-    public function getOrg($org) {
-        if($org){
-            $org = (array)DB::table('organizations')->where('mask',whichUser()->mask)->first(['name','phone','email','address']);
+    public function org_owned($event){
+        if ($event) {
+            $org = (array)DB::table('organizations')->where('mask', whichUser()->mask)->first(['name', 'phone', 'email', 'address']);
 
             $this->owner = $org;
-
-        }else{
+        } else  {
             $this->owner = [];
         }
-        return $org;
-
-
     }
 
 
@@ -125,14 +128,17 @@ class AddVehicle extends Component
     public function general()
     {
 
-        Validator::make($this->vehicle,[
-            'image' => 'required|mimes:jpg,png,jpeg',
+        Validator::make($this->vehicle, [
+            'image' => 'nullable|mimes:jpg,png,jpeg,webp',
             'number' => 'required',
-        ])->validate();
+            'load_type' => 'required'
+        ], ['load_type' => "Select loads the vehicle can take"])->validate();
 
-        $imagename = uniqid() . '.' . $this->vehicle['image']->getClientOriginalExtension();
-        $this->vehicle['image']->storeAs('vehicles', $imagename, 'real_public');
-
+        $imagename = null;
+        if ($this->vehicle['image'] != null) {
+            $imagename = uniqid() . '.' . $this->vehicle['image']->getClientOriginalExtension();
+            $this->vehicle['image']->storeAs('vehicles', $imagename, 'real_public');
+        }
 
         $vehicle = DB::table('vehicles')->insertGetId([
             'image' => $imagename,
@@ -160,15 +166,22 @@ class AddVehicle extends Component
 
     public function others()
     {
-        $vehicleMask = DB::table('vehicles')->where('id', $this->vehicle_id)->pluck('mask')->first();
-        $this->owner['vehicle_id'] = $vehicleMask;
+        $this->mask = DB::table('vehicles')->where('id', $this->vehicle_id)->pluck('mask')->first();
+        $this->owner['vehicle_id'] = $this->mask;
         $owner = DB::table('vehicle_owners')->insertGetId($this->owner);
 
-        DB::table('vehicles')->where('mask', $vehicleMask)->update(['owner_id' => $owner]);
+        DB::table('vehicles')->where('mask', $this->mask)->update([
+            'owner_id' => $owner,
+            'weight' => $this->weight,
+            'height' => $this->height,
+            'max_load_weight' => $this->max_load_weight,
+            'length' => $this->length,
+            'width' => $this->width,
+        ]);
 
         foreach ($this->veh_routes as $route) {
             DB::table('vehicle_routes')->insert([
-                'vehicle_id' => $vehicleMask,
+                'vehicle_id' => $this->mask,
                 'origin' => $route['origin'],
                 'destination' => $route['dest'],
                 'created_at' => Carbon::now()->toDateTimeString()
@@ -180,26 +193,40 @@ class AddVehicle extends Component
 
     public function documents()
     {
-        // dd($this->documents);
-        $owners = uniqid() . '.' . $this->owners_documents->getClientOriginalExtension();
-        $this->owners_documents->storeAs('vehicles', $owners, 'real_public');
+        Validator::make([$this->owners_documents, $this->road_worth_documents, $this->insurance_documents], [
+            'road_worth_documents' => 'nullable|mimes:pdf',
+            'insurance_documents' => 'nullable|mimes:pdf',
+            'owners_documents' => 'nullable|mimes:pdf',
+        ])->validate();
 
-        $roadworth = uniqid() . '.' . $this->road_worth_documents->getClientOriginalExtension();
-        $this->road_worth_documents->storeAs('vehicles', $roadworth, 'real_public');
+        $owners = null;
+        $insurance = null;
+        $roadworth = null;
 
-        $insurance = uniqid() . '.' . $this->insurance_documents->getClientOriginalExtension();
-        $this->insurance_documents->storeAs('vehicles', $insurance, 'real_public');
+        if (is_file($this->owners_documents)) {
+            $owners = uniqid() . '.' . $this->owners_documents->getClientOriginalExtension();
+            $this->owners_documents->storeAs('vehicles', $owners, 'real_public');
+        }
+
+        if (is_file($this->road_worth_documents)) {
+            $roadworth = uniqid() . '.' . $this->road_worth_documents->getClientOriginalExtension();
+            $this->road_worth_documents->storeAs('vehicles', $roadworth, 'real_public');
+        }
+
+        if (is_file($this->insurance_documents)) {
+            $insurance = uniqid() . '.' . $this->insurance_documents->getClientOriginalExtension();
+            $this->insurance_documents->storeAs('vehicles', $insurance, 'real_public');
+        }
 
 
-        DB::table('vehicles')->where('mask',$this->owner['vehicle_id'])->update([
+        DB::table('vehicles')->where('mask', $this->mask)->update([
             'owners_documents' => $owners,
-            'road_worth_documents' => $insurance,
-            'insurance_documents'=> $insurance,
+            'road_worth_documents' => $roadworth,
+            'insurance_documents' => $insurance,
             'updated_at' => Carbon::now()->toDateTimeString()
         ]);
 
-        return redirect()->to('/fleet/vehicles');
-
+        return redirect(route('vehicles'));
     }
 
 

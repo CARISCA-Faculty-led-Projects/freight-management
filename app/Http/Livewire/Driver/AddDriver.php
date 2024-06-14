@@ -62,7 +62,6 @@ class AddDriver extends Component
 
         $this->driver['image'] = $imagename;
         $this->driver['license_image'] = $license;
-        $this->driver['load_type'] = json_encode($this->load_type);
         $this->driver['mask'] = Str::orderedUuid();
         $this->driver['organization_id'] = whichUser()->mask;
 
@@ -70,6 +69,10 @@ class AddDriver extends Component
 
         // $this->activate('payment');
         return redirect(route("drivers"));
+    }
+
+    public function updated(){
+        $this->resetValidation();
     }
 
     public function payment()

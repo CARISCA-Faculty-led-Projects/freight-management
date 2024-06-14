@@ -6,13 +6,13 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Add Shipment</h1>
+                    Edit Shipment</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Home</span>
+                        <a href="/" class="text-muted text-hover-primary">Home</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -21,7 +21,7 @@
                     </li>
                     <!--end::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Shipment</span>
+                        <a href="/shipments/list" class="text-muted text-hover-primary">Shipment</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -30,7 +30,15 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Create</li>
+                    <li class="breadcrumb-item text-muted">{{'List'}}</li>
+                    <!--end::Item-->
+                     <!--begin::Item-->
+                     <li class="breadcrumb-item">
+                        <span class="bullet bg-gray-400 w-5px h-2px"></span>
+                    </li>
+                    <!--end::Item-->
+                    <!--begin::Item-->
+                    <li class="breadcrumb-item text-muted">Edit</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
@@ -48,7 +56,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form class="d-flex flex-column flex-lg-row" wire:submit.prevent="create_shipment">
+            <form class="d-flex flex-column flex-lg-row" wire:submit.prevent="edit_shipment">
 
                 <!--end::Aside column-->
                 <!--begin::Main column-->
@@ -152,7 +160,7 @@
                                 <label class="form-label">Shipment Description</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
-                                <textarea name="description" id="" cols="30" rows="4" class="form-control"></textarea>
+                                <textarea wire:model="description" id="" cols="30" rows="4" class="form-control"></textarea>
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a description to the category for
