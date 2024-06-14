@@ -60,6 +60,7 @@ class SenderAddLoad extends Component
             'insurance_docs' => 'required|mimes:pdf,docx,doc',
             'image' => 'required|mimes:png,jpg,jpeg',
             'other_docs' => 'required|mimes:pdf,docx,doc',
+            'handling' => 'required'
         ])->validate();
 
         $load_id = generateNumber();

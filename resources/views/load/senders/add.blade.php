@@ -203,8 +203,7 @@
                                 <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea wire:model="load.description" class=" mb-2 form-control" id="" cols="30"
-                                    rows="5"></textarea>
+                                <textarea wire:model="load.description" class=" mb-2 form-control" id="" cols="30" rows="5"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -354,6 +353,9 @@
                                     <code>,</code>between each keyword.
                                 </div>
                                 <!--end::Description-->
+                                @error('handling')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <!--end::Input group-->
                         </div>
@@ -374,22 +376,23 @@
                             <!--begin::Input group-->
                             <div class="mb-10 col-md-6">
                                 <!--begin::Label-->
-                                <label class="form-label">Pickup Address</label>  <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
+                                <label class="form-label">Pickup Address</label> <span
+                                    class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" wire:model.change="search_pickup" id=""
-                                        class="form-control">
-                                    <!--begin::Menu toggle-->
-                                    <select wire:model="pickup_address" id="" class="form-control mt-2"
-                                        >
-                                        <option value="">--select location--</option>
-                                        @if ($this->pickup_list != [])
+                                    class="form-control">
+                                <!--begin::Menu toggle-->
+                                <select wire:model="pickup_address" id="" class="form-control mt-2">
+                                    <option value="">--select location--</option>
+                                    @if ($this->pickup_list != [])
 
                                         @foreach ($this->pickup_list as $pickup)
-                                            <option value="{{$pickup['place_id']}}">{{ $pickup['description'] }}</option>
+                                            <option value="{{ $pickup['place_id'] }}">{{ $pickup['description'] }}
+                                            </option>
                                         @endforeach
-                                        @endif
-                                    </select>
+                                    @endif
+                                </select>
                                 <!--end::Input-->
 
                             </div>
@@ -397,14 +400,14 @@
                             <!--begin::Input group-->
                             <div class="mb-10 col-md-6">
                                 <!--begin::Label-->
-                                <label class="form-label">Dropoff Address</label>  <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
+                                <label class="form-label">Dropoff Address</label> <span
+                                    class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="text" wire:model.change="search_dropoff" id=""
-                                    class="form-control" >
+                                    class="form-control">
 
-                                <select wire:model="dropoff_address" id="" class="form-control mt-2"
-                                    >
+                                <select wire:model="dropoff_address" id="" class="form-control mt-2">
                                     <option value="">--select location--</option>
                                     @foreach ($this->dropoff_list as $dropoff)
                                         <option value="{{ $dropoff['place_id'] }}">{{ $dropoff['description'] }}
