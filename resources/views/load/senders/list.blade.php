@@ -80,8 +80,8 @@
                         <!--end::Flatpickr-->
                         <div class="w-100 mw-150px">
                             <!--begin::Select2-->
-                            <select class="form-select form-select-solid" data-hide-search="true"
-                                data-placeholder="Status" data-kt-ecommerce-order-filter="status">
+                            <select class="form-select form-select-solid" data-hide-search="true" data-placeholder="Status"
+                                data-kt-ecommerce-order-filter="status">
                                 <option></option>
                                 <option value="all">All</option>
                                 <option value="Cancelled">Cancelled</option>
@@ -98,7 +98,7 @@
                             <!--end::Select2-->
                         </div>
                         <!--begin::Add product-->
-                        <a href="{{route("sender.load.add")}}" class="btn btn-primary">Add Load</a>
+                        <a href="{{ route('sender.load.add') }}" class="btn btn-primary">Add Load</a>
                         <!--end::Add product-->
                     </div>
                     <!--end::Card toolbar-->
@@ -110,14 +110,7 @@
                     <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_sales_table">
                         <thead>
                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-                                <th class="w-10px pe-2">
-                                    <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                        <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                            data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
-                                            value="1" />
-                                    </div>
-                                </th>
-                                <th class="min-w-105px">#</th>
+                                <th class="min-w-105px">Load #</th>
                                 <th class="min-w-105px">Category</th>
                                 <th class="text-end min-w-70px">Status</th>
                                 <th class="text-end min-w-70px">Shipment Status</th>
@@ -131,11 +124,7 @@
                         <tbody class="fw-semibold text-gray-600">
                             @foreach ($loads as $load)
                                 <tr>
-                                    <td>
-                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="2" />
-                                        </div>
-                                    </td>
+
                                     <td>{{ $load->mask }}</td>
                                     <td>{{ $load->load_type }}</td>
                                     <td class="text-end pe-0">
@@ -170,7 +159,8 @@
                                         <!--end::Badges-->
                                     </td>
                                     <td class="text-end pe-0">
-                                        <span class="fw-bold">{{$load->quantity}}, {{$load->weight}} KG, {{$load->length}}*{{$load->breadth}}*{{$load->height}}</span>
+                                        <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
+                                            {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
                                     </td>
                                     <td class="text-end">{{ json_decode($load->pickup_address)->name }}</td>
                                     <td class="text-end">{{ json_decode($load->dropoff_address)->name }}</td>
@@ -179,7 +169,7 @@
                                             $handling = explode(',', $load->handling);
                                         @endphp
                                         @foreach ($handling as $item)
-                                        <span class="badge badge-dark">{{$item}}</span>
+                                            <span class="badge badge-dark">{{ $item }}</span>
                                         @endforeach
                                     </td>
                                     <td class="text-end">
@@ -192,19 +182,26 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route('loads.details',$load->mask)}}" class="menu-link px-3">View</a>
+                                                <a href="{{ route('sender.loads.details', $load->mask) }}"
+                                                    class="menu-link px-3">View</a>
                                             </div>
                                             <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="{{route("sender.load.edit",$load->mask)}}" class="menu-link px-3">Edit</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                             <!--begin::Menu item-->
-                                             <div class="menu-item px-3">
-                                                <a onclick="return confirm('Comfirming that the load details are complete?')" href="{{route("sender.loads.complete",$load->mask)}}" class="menu-link px-3">Mark as complete</a>
-                                            </div>
-                                            <!--end::Menu item-->
+                                            @if ($load->completed != 1)
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a href="{{ route('sender.load.edit', $load->mask) }}"
+                                                        class="menu-link px-3">Edit</a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a onclick="return confirm('Comfirming that the load details are complete?')"
+                                                        href="{{ route('sender.loads.complete', $load->mask) }}"
+                                                        class="menu-link px-3">Mark as complete</a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                            @endif
+
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a href="{{ route('loads.delete', $load->mask) }}"

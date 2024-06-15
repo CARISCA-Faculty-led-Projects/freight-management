@@ -41,7 +41,7 @@ class LoadsController extends Controller
         $sender = DB::table('senders')->where('mask', $load->sender_id)->first();
         $user = auth()->guard()->name;
 
-        return view('load.details', compact('load', 'subload', 'user', 'sender'));
+        return view('load.senders.details', compact('load', 'subload', 'user', 'sender'));
     }
 
     // Sender

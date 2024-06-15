@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class AddDriver extends Component
@@ -64,6 +65,7 @@ class AddDriver extends Component
         $this->driver['license_image'] = $license;
         $this->driver['mask'] = Str::orderedUuid();
         $this->driver['organization_id'] = whichUser()->mask;
+        $this->driver['password'] = Hash::make($this->driver['password']);
 
         $driverid = DB::table('drivers')->insertGetId($this->driver);
 

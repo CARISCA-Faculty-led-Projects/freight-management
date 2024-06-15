@@ -61,8 +61,8 @@ class UpdateSender extends Component
         }
 
         if(is_file($this->sender['national_id'])){
-            $license = uniqid() . '.' . $this->sender['license_image']->getClientOriginalExtension();
-            $this->sender['national_id']->storeAs('senders', $imagename, 'real_public');
+            $img = uniqid() . '.' . $this->sender['national_id']->getClientOriginalExtension();
+            $this->sender['national_id']->storeAs('senders', $img, 'real_public');
         }
 
         DB::table('senders')->where('mask',$this->sender['mask'])->update($this->sender);

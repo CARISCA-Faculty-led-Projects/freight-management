@@ -1,5 +1,5 @@
 {{-- @if ($user != 'organization') --}}
-@extends($user != 'organization' ? 'layout.roles.driver' : 'layout.roles.organization')
+@extends('layout.roles.sender')
 
 @section('content')
     <!--begin::Content-->
@@ -236,6 +236,34 @@
                                                             @endforeach
                                                         </td>
                                                     </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-calendar fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>Insurance documents
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                            <a href="{{('storage/loads/'.$load->insurance_docs)}}"
+                                                                class="text-gray-600 text-hover-primary" download>{{$load->insurance_docs}} </a>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-calendar fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>Other documents
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                            <a href="{{('storage/loads/'.$load->other_docs)}}"
+                                                                class="text-gray-600 text-hover-primary" download>{{$load->other_docs}}</a>
+                                                        </td>
+                                                    </tr>
                                                 </tbody>
                                             </table>
                                             <!--end::Table-->
@@ -449,225 +477,7 @@
                             </div> --}}
 
                             <!--end::Referral program-->
-                            <!--begin::Documents-->
-                            <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
-
-                                <div class="card card-flush py-4 flex-row-fluid">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Documents</h2>
-                                        </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <div class="table-responsive">
-                                            <!--begin::Table-->
-                                            <table class="table align-middle table-row-bLoaded mb-0 fs-6 gy-5 min-w-300px">
-                                                <tbody class="fw-semibold text-gray-600">
-                                                    <tr>
-                                                        <td class="text-muted">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-devices fs-2 me-2">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                    <span class="path3"></span>
-                                                                    <span class="path4"></span>
-                                                                    <span class="path5"></span>
-                                                                </i>Handling instructions
-                                                                <span class="ms-1" data-bs-toggle="tooltip"
-                                                                    title="View the invoice generated by this Load.">
-                                                                    <i
-                                                                        class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="fw-bold text-end">
-                                                            <a href="/apps/invoices/view/invoice-3"
-                                                                class="text-gray-600 text-hover-primary">handling.pdf</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-muted">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-truck fs-2 me-2">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                    <span class="path3"></span>
-                                                                    <span class="path4"></span>
-                                                                    <span class="path5"></span>
-                                                                </i>Shipping authorization
-                                                                <span class="ms-1" data-bs-toggle="tooltip"
-                                                                    title="View the shipping manifest generated by this Load.">
-                                                                    <i
-                                                                        class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="fw-bold text-end">
-                                                            <a href="#"
-                                                                class="text-gray-600 text-hover-primary">#SHP-0025410</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-muted">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-discount fs-2 me-2">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                </i>Insurance documentation
-                                                                <span class="ms-1" data-bs-toggle="tooltip"
-                                                                    title="Reward value earned by customer when purchasing this Load">
-                                                                    <i
-                                                                        class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="fw-bold text-end">insurance.pdf
-                                                        </td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!--end::Table-->
-                                        </div>
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Documents-->
-                                <div class="card card-flush py-4 flex-row-fluid">
-                                    <!--begin::Card header-->
-                                    <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Organization & Driver Details</h2>
-                                        </div>
-                                    </div>
-                                    <!--end::Card header-->
-                                    <!--begin::Card body-->
-                                    <div class="card-body pt-0">
-                                        <div class="table-responsive">
-                                            <!--begin::Table-->
-                                            <table class="table align-middle table-row-bLoaded mb-0 fs-6 gy-5 min-w-300px">
-                                                <tbody class="fw-semibold text-gray-600">
-                                                    <tr>
-
-                                                        <td class="text-muted">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-devices fs-2 me-2">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                    <span class="path3"></span>
-                                                                    <span class="path4"></span>
-                                                                    <span class="path5"></span>
-                                                                </i>Organization Name
-                                                                <span class="ms-1" data-bs-toggle="tooltip"
-                                                                    title="View the invoice generated by this Load.">
-                                                                    <i
-                                                                        class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="fw-bold text-end">
-                                                            <a href="/apps/invoices/view/invoice-3"
-                                                                class="text-gray-600 text-hover-primary">Jess
-                                                                Fleet Mangement Inc</a>
-                                                        </td>
-                                                    <tr>
-                                                        <td class="text-muted">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-truck fs-2 me-2">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                    <span class="path3"></span>
-                                                                    <span class="path4"></span>
-                                                                    <span class="path5"></span>
-                                                                </i>Licence #
-                                                                <span class="ms-1" data-bs-toggle="tooltip"
-                                                                    title="View the shipping manifest generated by this Load.">
-                                                                    <i
-                                                                        class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="fw-bold text-end">
-                                                            <a href="#"
-                                                                class="text-gray-600 text-hover-primary">#ORG-454543</a>
-                                                        </td>
-                                                    </tr>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-muted">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-discount fs-2 me-2">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                </i>Driver #
-                                                                <span class="ms-1" data-bs-toggle="tooltip"
-                                                                    title="Reward value earned by customer when purchasing this Load">
-                                                                    <i
-                                                                        class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="fw-bold text-end">
-                                                            <a href="#"
-                                                                class="text-gray-600 text-hover-primary">#4454</a>
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td class="text-muted">
-                                                            <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-discount fs-2 me-2">
-                                                                    <span class="path1"></span>
-                                                                    <span class="path2"></span>
-                                                                </i>Driver Name
-                                                                <span class="ms-1" data-bs-toggle="tooltip"
-                                                                    title="Reward value earned by customer when purchasing this Load">
-                                                                    <i
-                                                                        class="ki-duotone ki-information-5 text-gray-500 fs-6">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                        <span class="path3"></span>
-                                                                    </i>
-                                                                </span>
-                                                            </div>
-                                                        </td>
-                                                        <td class="fw-bold text-end">Jesse Anim</td>
-
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                            <!--end::Table-->
-                                        </div>
-                                    </div>
-                                    <!--end::Card body-->
-                                </div>
-                                <!--end::Documents-->
-                            </div>
+                            
                         </div>
                         <!--end::Loads-->
                     </div>

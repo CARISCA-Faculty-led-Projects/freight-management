@@ -5115,8 +5115,6 @@ var KTChartsWidget16 = (function () {
     };
 })();
 
-// sender load created stats
-
 // Webpack support
 if (typeof module !== "undefined") {
     module.exports = KTChartsWidget16;
@@ -5125,7 +5123,6 @@ if (typeof module !== "undefined") {
 // On document ready
 KTUtil.onDOMContentLoaded(function () {
     KTChartsWidget16.init();
-    SenderLoadsCreated.init();
 });
 
 "use strict";
