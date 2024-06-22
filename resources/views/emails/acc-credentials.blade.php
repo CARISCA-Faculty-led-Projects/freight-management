@@ -162,7 +162,7 @@
                                                                             style="color: rgb(61, 61, 61); font-family: Lato, Helvetica, Arial, sans-serif; font-size: 16px; line-height: 1.6; text-align: left;">
 
                                                                             <p>Your account has been created on {{env('APP_NAME')}}. Use the credentials below to access your account.</p>
-                                                                            <p>Url: <strong>{{env("APP_URL")}}</strong></p> <br>
+                                                                            <p>Url: <strong>{{env("APP_URL")}}</strong></p>
                                                                             <p>Username: <strong>{{$creds->email}}</strong></p>
                                                                             <p>Password: <strong>{{$creds->password}}</strong></p>
 

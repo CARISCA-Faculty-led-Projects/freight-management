@@ -28,6 +28,7 @@ class EditShipment extends Component
     public $organization;
     public $no_driver;
     public $mask;
+    public $shipment;
 
     public function mount($mask)
     {
@@ -44,7 +45,6 @@ class EditShipment extends Component
                 array_push($this->loadsDets, $tmpload);
             }
         }
-        $this->drivers = (object)DB::table('drivers')->where('organization_id', $shipment->organization_id)->get(['name', 'phone', 'mask']);
 
         // $this->loads = json_decode($shipment->loads);
         // $this->organization = $shipment->organization_id;
@@ -71,6 +71,8 @@ class EditShipment extends Component
 
     public function getDrivers()
     {
+       return DB::table('drivers')->where('organization_id', $this->organization)->get(['name', 'phone', 'mask']);
+
     }
 
     public function dropoffSearch($field)
@@ -79,9 +81,9 @@ class EditShipment extends Component
         return $field;
     }
 
-    public function Edit_shipment()
+    public function edit_shipment()
     {
-        // dd($this->pickup_address);
+        dd($this->pickup_address);
         if ($this->no_driver == "true") {
             // Validator::make([$this->pickup_address, $this->dropoff_address], [
             //     'pickup_address' => 'required',

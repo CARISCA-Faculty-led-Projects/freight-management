@@ -76,7 +76,7 @@
                         <!--begin::Filter-->
                         <div class="w-150px">
                             <!--begin::Select2-->
-                            <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                            <select class="form-select form-select-solid" data-hide-search="true"
                                 data-placeholder="Status" data-kt-ecommerce-order-filter="status">
                                 <option></option>
                                 <option value="all">All</option>

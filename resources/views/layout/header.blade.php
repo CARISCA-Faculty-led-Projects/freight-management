@@ -34,31 +34,8 @@
             <!--end::Menu wrapper-->
             <!--begin::Navbar-->
             <div class="app-navbar flex-shrink-0">
-                <!--begin::Search-->
-                <div class="app-navbar-item align-items-stretch ms-1 ms-md-3">
-                    <!--begin::Search-->
-                    <div id="kt_header_search" class="header-search d-flex align-items-stretch"
-                        data-kt-search-keypress="true" data-kt-search-min-length="2" data-kt-search-enter="enter"
-                        data-kt-search-layout="menu" data-kt-menu-trigger="auto" data-kt-menu-overflow="false"
-                        data-kt-menu-permanent="true" data-kt-menu-placement="bottom-end">
-                        <!--begin::Search toggle-->
-                        <div class="d-flex align-items-center" data-kt-search-element="toggle"
-                            id="kt_header_search_toggle">
-                            <div
-                                class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px">
-                                <i class="ki-duotone ki-magnifier fs-2 fs-lg-1">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </div>
-                        </div>
-                        <!--end::Search toggle-->
-                    </div>
-                    <!--end::Search-->
-                </div>
-                <!--end::Search-->
                 <!--begin::Activities-->
-                <div class="app-navbar-item ms-1 ms-md-3">
+                {{-- <div class="app-navbar-item ms-1 ms-md-3">
                     <!--begin::Drawer toggle-->
                     <div class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-30px h-30px w-md-40px h-md-40px"
                         id="kt_activities_toggle">
@@ -70,10 +47,10 @@
                         </i>
                     </div>
                     <!--end::Drawer toggle-->
-                </div>
+                </div> --}}
                 <!--end::Activities-->
-                  <!--begin::Chat-->
-                  <div class="d-flex align-items-center ms-2 ms-lg-3">
+                <!--begin::Chat-->
+                <div class="d-flex align-items-center ms-2 ms-lg-3">
                     <!--begin::Menu wrapper-->
                     <div class="btn btn-icon btn-active-light-primary position-relative w-35px h-35px w-md-40px h-md-40px"
                         id="kt_drawer_chat_toggle">
@@ -105,7 +82,8 @@
                             style="background-image:url('assets/media/misc/menu-header-bg.jpg')">
                             <!--begin::Title-->
                             <h3 class="text-white fw-semibold px-9 mt-10 mb-6">Notifications
-                                <span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
+                                <span class="fs-8 opacity-75 ps-3">24 reports</span>
+                            </h3>
                             <!--end::Title-->
                             <!--begin::Tabs-->
                             <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-semibold px-9">
@@ -177,7 +155,8 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">HR
+                                                <a href="#"
+                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">HR
                                                     Confidential</a>
                                                 <div class="text-gray-400 fs-7">Confidential staff documents</div>
                                             </div>
@@ -206,7 +185,8 @@
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
                                                 <a href="#"
-                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Company HR</a>
+                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Company
+                                                    HR</a>
                                                 <div class="text-gray-400 fs-7">Corporeate staff profiles</div>
                                             </div>
                                             <!--end::Title-->
@@ -290,7 +270,8 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Banner
+                                                <a href="#"
+                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Banner
                                                     Assets</a>
                                                 <div class="text-gray-400 fs-7">Collection of banner images</div>
                                             </div>
@@ -337,7 +318,8 @@
                                             <!--end::Symbol-->
                                             <!--begin::Title-->
                                             <div class="mb-0 me-2">
-                                                <a href="#" class="fs-6 text-gray-800 text-hover-primary fw-bold">Icon
+                                                <a href="#"
+                                                    class="fs-6 text-gray-800 text-hover-primary fw-bold">Icon
                                                     Assets</a>
                                                 <div class="text-gray-400 fs-7">Collection of SVG icons</div>
                                             </div>
@@ -378,7 +360,8 @@
                                         <!--end::Text-->
                                         <!--begin::Action-->
                                         <div class="text-center mt-5 mb-9">
-                                            <a href="#" class="btn btn-sm btn-primary px-6" data-bs-toggle="modal"
+                                            <a href="#" class="btn btn-sm btn-primary px-6"
+                                                data-bs-toggle="modal"
                                                 data-bs-target="#kt_modal_upgrade_plan">Upgrade</a>
                                         </div>
                                         <!--end::Action-->
@@ -442,7 +425,8 @@
                                             <span class="w-70px badge badge-light-success me-4">200 OK</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Payment
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">Payment
                                                 process</a>
                                             <!--end::Title-->
                                         </div>
@@ -460,7 +444,8 @@
                                             <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Search
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">Search
                                                 query</a>
                                             <!--end::Title-->
                                         </div>
@@ -496,7 +481,8 @@
                                             <span class="w-70px badge badge-light-success me-4">200 OK</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Database
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">Database
                                                 restore</a>
                                             <!--end::Title-->
                                         </div>
@@ -514,7 +500,8 @@
                                             <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">System
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">System
                                                 update</a>
                                             <!--end::Title-->
                                         </div>
@@ -532,7 +519,8 @@
                                             <span class="w-70px badge badge-light-warning me-4">300 WRN</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Server OS
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">Server OS
                                                 update</a>
                                             <!--end::Title-->
                                         </div>
@@ -568,7 +556,8 @@
                                             <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Refund
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">Refund
                                                 process</a>
                                             <!--end::Title-->
                                         </div>
@@ -586,7 +575,8 @@
                                             <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Withdrawal
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">Withdrawal
                                                 process</a>
                                             <!--end::Title-->
                                         </div>
@@ -604,7 +594,8 @@
                                             <span class="w-70px badge badge-light-danger me-4">500 ERR</span>
                                             <!--end::Code-->
                                             <!--begin::Title-->
-                                            <a href="#" class="text-gray-800 text-hover-primary fw-semibold">Mail
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-semibold">Mail
                                                 tasks</a>
                                             <!--end::Title-->
                                         </div>
@@ -666,7 +657,8 @@
                         data-kt-menu="true" data-kt-element="theme-mode-menu">
                         <!--begin::Menu item-->
                         <div class="menu-item px-3 my-0">
-                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="light">
+                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                data-kt-value="light">
                                 <span class="menu-icon" data-kt-element="icon">
                                     <i class="ki-duotone ki-night-day fs-2">
                                         <span class="path1"></span>
@@ -687,7 +679,8 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-3 my-0">
-                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
+                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                data-kt-value="dark">
                                 <span class="menu-icon" data-kt-element="icon">
                                     <i class="ki-duotone ki-moon fs-2">
                                         <span class="path1"></span>
@@ -700,7 +693,8 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-3 my-0">
-                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="system">
+                            <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                data-kt-value="system">
                                 <span class="menu-icon" data-kt-element="icon">
                                     <i class="ki-duotone ki-screen fs-2">
                                         <span class="path1"></span>
@@ -738,10 +732,11 @@
                                 <!--end::Avatar-->
                                 <!--begin::Username-->
                                 <div class="d-flex flex-column">
-                                    <div class="fw-bold d-flex align-items-center fs-5">{{whichUser()->name}}
+                                    <div class="fw-bold d-flex align-items-center fs-5">{{ whichUser()->name }}
                                         {{-- <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2">Pro</span> --}}
                                     </div>
-                                    <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">{{whichUser()->email}}</a>
+                                    <a href="#"
+                                        class="fw-semibold text-muted text-hover-primary fs-7">{{ whichUser()->email }}</a>
                                 </div>
                                 <!--end::Username-->
                             </div>
@@ -766,7 +761,7 @@
                         </div>
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
-                        <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                        {{-- <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
                             data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
                             <a href="#" class="menu-link px-5">
                                 <span class="menu-title">My Subscription</span>
@@ -817,67 +812,11 @@
                                 <!--end::Menu item-->
                             </div>
                             <!--end::Menu sub-->
-                        </div>
+                        </div> --}}
                         <!--end::Menu item-->
                         <!--begin::Menu separator-->
                         <div class="separator my-2"></div>
                         <!--end::Menu separator-->
-                        <!--begin::Menu item-->
-                        {{-- <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                            data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-                            <a href="#" class="menu-link px-5">
-                                <span class="menu-title position-relative">Language
-                                    <span
-                                        class="fs-8 rounded bg-light px-3 py-2 position-absolute translate-middle-y top-50 end-0">English
-                                        <img class="w-15px h-15px rounded-1 ms-2"
-                                            src="assets/media/flags/united-states.svg" alt="" /></span></span>
-                            </a>
-                            <!--begin::Menu sub-->
-                            <div class="menu-sub menu-sub-dropdown w-175px py-4">
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="/account/settings" class="menu-link d-flex px-5 active">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets/media/flags/united-states.svg" alt="" />
-                                        </span>English</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="/account/settings" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets/media/flags/spain.svg" alt="" />
-                                        </span>Spanish</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="/account/settings" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets/media/flags/germany.svg" alt="" />
-                                        </span>German</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="/account/settings" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets/media/flags/japan.svg" alt="" />
-                                        </span>Japanese</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-3">
-                                    <a href="/account/settings" class="menu-link d-flex px-5">
-                                        <span class="symbol symbol-20px me-4">
-                                            <img class="rounded-1" src="assets/media/flags/france.svg" alt="" />
-                                        </span>French</a>
-                                </div>
-                                <!--end::Menu item-->
-                            </div>
-                            <!--end::Menu sub-->
-                        </div> --}}
-                        <!--end::Menu item-->
                         <!--begin::Menu item-->
                         {{-- <div class="menu-item px-5 my-1">
                             <a href="/account/settings" class="menu-link px-5">Account Settings</a>
@@ -885,7 +824,13 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="{{route('signout')}}" class="menu-link px-5">Sign Out</a>
+                            <a href="{{ route('signout') }}" class="menu-link px-5">
+                                @if (session('user_id'))
+                                    Exit
+                                @else
+                                    Sign out
+                                @endif
+                            </a>
                         </div>
                         <!--end::Menu item-->
                     </div>

@@ -48,8 +48,8 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form class="d-flex flex-column flex-lg-row" wire:submit.prevent="create_shipment">
-
+            <form class="d-flex flex-column flex-lg-row" method="POST" action="{{ route('broker.shipment.save') }}">
+                @csrf
                 <!--end::Aside column-->
                 <!--begin::Main column-->
                 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
@@ -69,15 +69,7 @@
                                 <!--begin::Label-->
                                 <label class="required form-label">Selected Loads</label>
                                 <!--end::Label-->
-                                {{-- <!--begin::Select2-->
-                                <select class="form-select mb-2" name="load_type" data-control="select2" data-hide-search="true"
-                                    data-placeholder="Select a sender" id="kt_ecommerce_add_category_store_template">
-                                    <option></option>
-                                    @foreach ($loads as $load)
-                                        <option value="{{ $load->mask }}">{{ $load->mask }}</option>
-                                    @endforeach
-                                </select>
-                                <!--end::Select2--> --}}
+                              <input type="hidden" name="organization_id" value="{{$this->organization}}">
                                 <!--begin::Table-->
                                 <div class="" style="height: 200px; overflow:auto;">
                                     <table class="table align-middle table-row-dashed fs-6 gy-5"
@@ -96,7 +88,7 @@
                                         <tbody class="fw-semibold text-gray-600">
                                             @foreach ($this->loadsDets as $load)
                                                 <tr>
-                                                   
+                                                    <input type="hidden" name="loads[]" value="{{ $load['mask'] }}">
                                                     <td>{{ $load['mask'] }}</td>
                                                     <td>{{ $load['load_type'] }}</td>
                                                     <td class="text-end pe-0">
@@ -119,8 +111,10 @@
                                                             {{ $load['weight'] }} KG,
                                                             {{ $load['length'] }}*{{ $load['breadth'] }}*{{ $load['height'] }}</span>
                                                     </td>
-                                                    <td class="text-end">{{ json_decode($load['pickup_address'])->name }}</td>
-                                                    <td class="text-end">{{ json_decode($load['dropoff_address'])->name }}</td>
+                                                    <td class="text-end">
+                                                        {{ json_decode($load['pickup_address'])->name }}</td>
+                                                    <td class="text-end">
+                                                        {{ json_decode($load['dropoff_address'])->name }}</td>
 
 
                                                 </tr>
@@ -174,28 +168,23 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Pickup Address <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span></h2>
+                                        <h2>Pickup Address <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"
+                                                wire:loading></span></h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
-                                    <input type="text" wire:model.change="search_pickup" id=""
-                                        class="form-control"style="width: 40rem;">
                                     <!--begin::Menu toggle-->
-                                    <select wire:model="pickup_address" id="" class="form-control mt-2 @error('pickup_address')border-danger @enderror"
+                                    <select name="pickup_address" id="pickup_address"
+                                        class="form-control mt-2 @error('pickup_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
-                                        @if ($this->pickup_list != [])
-
-                                        @foreach ($this->pickup_list as $pickup)
-                                            <option value="{{$pickup['place_id']}}">{{ $pickup['description'] }}</option>
-                                        @endforeach
-                                        @endif
                                     </select>
                                     @error('pickup_address')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <!--end::Card body-->
                             </div>
@@ -212,27 +201,25 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Drop-off Address <span class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span></h2>
+                                        <h2>Drop-off Address <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"
+                                                wire:loading></span></h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    {{-- <textarea name="dropoff_address" class="form-control" id="" cols="10" rows="5"></textarea> --}}
-                                    <input type="text" wire:model.change="search_dropoff" id="" class="form-control"
-                                        style="width: 40rem;">
 
-                                    <select wire:model="dropoff_address" id="" class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
+                                    <select name="dropoff_address" id="dropoff_address"
+                                        class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
-                                        @foreach ($this->dropoff_list as $dropoff)
-                                            <option value="{{ $dropoff['place_id'] }}">{{ $dropoff['description'] }}</option>
-                                        @endforeach
+
                                     </select>
                                     <!--end::Card body-->
                                     @error('dropoff_address')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                 </div>
                                 <!--end::Shipping address-->
                             </div>
@@ -257,8 +244,8 @@
                                     <label class="required form-label">Driver</label>
                                     <!--end::Label-->
                                     <!--begin::Select2-->
-                                    <select class="form-select mb-2 @error('driver_id')border-danger @enderror" wire:model="driver_id" data-hide-search="true"
-                                        data-placeholder="Select a sender"
+                                    <select class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
+                                        name="driver_id" data-hide-search="true" data-placeholder="Select a sender"
                                         id="kt_ecommerce_add_category_store_template">
                                         <option></option>
                                         @foreach ($this->drivers as $driver)
@@ -267,11 +254,12 @@
                                         @endforeach
                                     </select>
                                     @error('driver_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
                                     <!--end::Select2-->
                                     <div class="">
-                                        <input type="checkbox" class="mt-3" wire:model="no_driver" id="" value="true">
+                                        <input type="checkbox" class="mt-3" name="no_driver" id=""
+                                            value="true">
                                         <label for="">Assign driver later</label>
                                     </div>
                                 </div>

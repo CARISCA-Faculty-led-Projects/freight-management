@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Livewire\Broker\CreateShipment;
+use Reflector;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
-use Reflector;
+use App\Http\Livewire\Broker\CreateShipment;
 
 class LoadsController extends Controller
 {
@@ -40,7 +41,7 @@ class LoadsController extends Controller
         $subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
         $sender = DB::table('senders')->where('mask', $load->sender_id)->first();
         $user = auth()->guard()->name;
-
+// dd($sender);
         return view('load.senders.details', compact('load', 'subload', 'user', 'sender'));
     }
 
@@ -99,6 +100,75 @@ class LoadsController extends Controller
         }
 
         return back()->with('success', "Loads assigned successfully");
+    }
+
+    public function add()
+    {
+        $loads = DB::table('load_types')->get(['id', 'name']);
+
+        $senders =  DB::table('senders')->get(['mask', 'name']);
+
+        $subload = [];
+
+        return view('load.add', compact('loads', 'senders','subload'));
+    }
+
+    public function store(Request $request)
+    {
+        // dd($request->all());
+        // dd($this->subload);
+        // $this->load['image'] = $this->image;
+        $validated = Validator::make($request->all(), [
+            'sender_id' => 'required',
+            'length' => 'required|numeric',
+            'weight' => 'required|numeric',
+            'height' => 'required|numeric',
+            'status' => 'required',
+            'breadth' => 'required|numeric',
+            'insurance_docs' => 'required|mimes:pdf,docx,doc',
+            'image' => 'required|mimes:png,jpg,jpeg',
+            'other_docs' => 'required|mimes:pdf,docx,doc',
+            'pickup_address' => 'required',
+            'dropoff_address' => 'required',
+        ])->validate();
+
+        $load_id = generateNumber();
+
+        $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
+        $request->image->storeAs('loads', $imagename, 'real_public');
+
+        $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
+        $request->insurance_docs->storeAs('loads', $ins, 'real_public');
+
+        $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
+        $request->other_docs->storeAs('loads', $oth, 'real_public');
+
+        $request['image'] = $imagename;
+        $request['insurance_docs'] = $ins;
+        $request['other_docs'] = $oth;
+        $request['mask'] = $load_id;
+        $request['created_at'] = Carbon::now()->toDateTimeString();
+        $request['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
+        $request['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
+
+        DB::table('loads')->insert($request->except(['subload', '_token']));
+
+        if ($request->has('subload')) {
+
+            foreach ($request->subload as $load) {
+                $load['load_id'] = $load_id;
+                $load['created_at'] = Carbon::now()->toDateTimeString();
+                DB::table('sub_loads')->insert($load);
+            }
+        }
+
+        return redirect(route('loads'));
+    }
+
+    public function location(Request $request)
+    {
+
+        return lookupLocation($request->search);
     }
 
     public function mark_delivered($load_id)

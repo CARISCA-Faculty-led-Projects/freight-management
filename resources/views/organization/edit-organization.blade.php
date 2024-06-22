@@ -15,7 +15,7 @@
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/" class="text-muted text-hover-primary">Home</a>
+                            <span class="text-muted text-hover-primary">Home</sp>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/organization/overview" class="text-muted text-hover-primary">Organization</a>
+                            <span class="text-muted text-hover-primary">Organization</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -46,8 +46,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
             <!--begin::Form-->
-            <div id="kt_ecommerce_add_organization_form" class="form d-flex flex-column flex-lg-row"
-                >
+            <div id="kt_ecommerce_add_organization_form" class="form d-flex flex-column flex-lg-row">
                 <!--begin::Aside column-->
                 <form wire:submit.prevent="general" method="post">
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -81,11 +80,12 @@
                                     <!--begin::Preview existing avatar-->
 
                                     @if ($image)
-                                    <div class="">
-                                        <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
-                                    </div>
+                                        <div class="">
+                                            <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
+                                        </div>
                                     @else
-                                    <img class="w-150px h-150px" src="{{asset('storage/logos/'.$this->org['image'])}}" alt="image" />
+                                        <img class="w-150px h-150px"
+                                            src="{{ asset('storage/logos/' . $this->org['image']) }}" alt="image" />
                                     @endif
                                     <!--end::Preview existing avatar-->
                                     <!--begin::Label-->
@@ -159,8 +159,8 @@
                                 <!--begin::Select2-->
                                 <label class="required form-label">Country</label>
 
-                                <select class="form-select mb-2" wire:model="org.country"
-                                    data-hide-search="true" data-placeholder="Select an option"
+                                <select class="form-select mb-2" wire:model="org.country" data-hide-search="true"
+                                    data-placeholder="Select an option"
                                     id="kt_ecommerce_add_organization_status_select">
                                     <option></option>
                                     <option value="Ghana" selected="selected">Ghana</option>
@@ -187,8 +187,8 @@
                                 <!--begin::Select2-->
                                 <label class="required form-label">Region</label>
 
-                                <select class="form-select mb-2" wire:model="org.region"
-                                    data-hide-search="true" data-placeholder="Select an option"
+                                <select class="form-select mb-2" wire:model="org.region" data-hide-search="true"
+                                    data-placeholder="Select an option"
                                     id="kt_ecommerce_add_organization_status_select">
                                     <option></option>
                                     <option value="Greater Accra" selected="selected">Greater Accra</option>
@@ -234,27 +234,28 @@
                                 <!--end::Select store template-->
 
                                 @foreach ($this->loads() as $load)
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                     <!--begin::Bullet-->
-                                     @if ($this->org_load_list != null &&  in_array($load->name,$this->org_load_list))
-                                     <span class="bullet bullet-vertical h-20px bg-primary"></span>
-                                     @else
-                                     <span class="bullet bullet-vertical h-20px bg-white"></span>
-                                     @endif
-                                    <!--end::Bullet-->
-                                    <!--begin::Checkbox-->
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" wire:model="org_load_type" wire:key="{{$load->id}}"  type="checkbox"
-                                            value="{{$load->name}}" />
+                                    <!--begin::Item-->
+                                    <div class="d-flex align-items-center mb-8 mt-5">
+                                        <!--begin::Bullet-->
+                                        @if ($this->org_load_list != null && in_array($load->name, $this->org_load_list))
+                                            <span class="bullet bullet-vertical h-20px bg-primary"></span>
+                                        @else
+                                            <span class="bullet bullet-vertical h-20px bg-white"></span>
+                                        @endif
+                                        <!--end::Bullet-->
+                                        <!--begin::Checkbox-->
+                                        <div class="form-check form-check-custom form-check-solid mx-5">
+                                            <input class="form-check-input" wire:model="org_load_type"
+                                                wire:key="{{ $load->id }}" type="checkbox"
+                                                value="{{ $load->name }}" />
+                                        </div>
+                                        <!--end::Checkbox-->
+                                        <div class="flex-grow-1">
+                                            <a href="#"
+                                                class="text-gray-800 text-hover-primary fw-bold fs-6">{{ $load->name }}</a>
+                                        </div>
                                     </div>
-                                    <!--end::Checkbox-->
-                                    <div class="flex-grow-1">
-                                        <a href="#"
-                                            class="text-gray-800 text-hover-primary fw-bold fs-6">{{$load->name}}</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
+                                    <!--end:Item-->
                                 @endforeach
                                 <!--begin::Form group-->
                                 {{-- <div class="form-group mt-5">
@@ -280,34 +281,34 @@
                 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
                     <!--begin:::Tabs-->
                     {{-- <ul class="nav nav-custom nav-tabs nav-line-tabs nav-line-tabs-2x border-0 fs-4 fw-semibold mb-n2"> --}}
-                        <!--begin:::Tab item-->
-                        {{-- <li class="nav-item">
+                    <!--begin:::Tab item-->
+                    {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $general ? 'active' : '' }}"
                                 wire:click="activate('general')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_add_organization_general">General</a>
                         </li> --}}
-                        <!--end:::Tab item-->
-                        <!--begin:::Tab item-->
-                        {{-- <li class="nav-item">
+                    <!--end:::Tab item-->
+                    <!--begin:::Tab item-->
+                    {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $routes ? 'active' : '' }}"
                                 wire:click="activate('routes')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_add_organization_advanced">Routes & Fleet</a>
                         </li> --}}
-                        <!--end:::Tab item-->
-                        <!--begin:::Tab item-->
-                        {{-- <li class="nav-item">
+                    <!--end:::Tab item-->
+                    <!--begin:::Tab item-->
+                    {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $subscription ? 'active' : '' }}"
                                 wire:click="activate('subscription')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_biling_and_shipping_info">Subscription Account</a>
                         </li> --}}
-                        <!--end:::Tab item-->
-                        <!--begin:::Tab item-->
-                        {{-- <li class="nav-item">
+                    <!--end:::Tab item-->
+                    <!--begin:::Tab item-->
+                    {{-- <li class="nav-item">
                             <a class="nav-link text-active-primary pb-4 {{ $payin ? 'active' : '' }}"
                                 wire:click="activate('payin')" data-bs-toggle="tab"
                                 href="#kt_ecommerce_payIn_account">Pay-In Account</a>
                         </li> --}}
-                        <!--end:::Tab item-->
+                    <!--end:::Tab item-->
                     {{-- </ul> --}}
                     <!--end:::Tabs-->
                     <!--begin::Tab content-->
@@ -337,7 +338,7 @@
                                                 <!--begin::Input-->
 
                                                 <input type="text" wire:model="org.name" class="form-control mb-2"
-                                                    placeholder="Organization name" value=""  />
+                                                    placeholder="Organization name" value="" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">A organization name is required and
@@ -367,10 +368,12 @@
                                                 <label class="form-label">Tax Number</label>
                                                 <!--end::Label-->
                                                 <!--begin::Editor-->
-                                                <input class="form-control" type="text" wire:model="org.tax_id" class="min-h-200px mb-2">
+                                                <input class="form-control" type="text" wire:model="org.tax_id"
+                                                    class="min-h-200px mb-2">
                                                 <!--end::Editor-->
                                                 <!--begin::Description-->
-                                                <div class="text-muted fs-7">Enter tax identification for organization</div>
+                                                <div class="text-muted fs-7">Enter tax identification for organization
+                                                </div>
                                                 <!--end::Description-->
                                             </div>
                                             <!--end::Input group-->
@@ -397,8 +400,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="email" wire:model="org.email"
-                                                    class="form-control mb-2" placeholder="Organization Email"
-                                                    />
+                                                    class="form-control mb-2" placeholder="Organization Email" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter the business Email.</div>
@@ -412,8 +414,8 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="tel" wire:model="org.phone"
-                                                    class="form-control mb-2" placeholder="Organization Phone number"
-                                                    />
+                                                    class="form-control mb-2"
+                                                    placeholder="Organization Phone number" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter the business phone number.</div>
@@ -427,8 +429,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <input type="text" wire:model="org.address"
-                                                    class="form-control mb-2" placeholder="Organization Address"
-                                                    />
+                                                    class="form-control mb-2" placeholder="Organization Address" />
                                                 <!--end::Input-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter the business address.</div>
@@ -446,7 +447,8 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Business Registration Documents <small>{{$this->org['registration_docs'] ? "Uploaded" : "Unavailable"}}</small></h2>
+                                                <h2>Business Registration Documents &nbsp;</h2> <a
+                                                    href="{{ asset('storage/org_registration/' . $this->org['registration_docs']) }}"><small>View</small></a>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -480,7 +482,7 @@
                                             </div>
                                             <!--end::Input group-->
                                             @error('registration_docs')
-                                            <span class="text-danger">{{ $message }}</span>
+                                                <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                             <!--end::Input group-->
                                             <!--begin::Description-->
@@ -496,7 +498,10 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Insurance Documents <small>{{$this->org['insurance_docs'] ? "Uploaded" : "Unavailable"}}</small></h2>
+                                                <h2>Insurance Documents &nbsp;
+                                                    
+                                                </h2><a
+                                                href="{{ asset('storage/org_insurance/' . $this->org['insurance_docs']) }}"><small>View</small></a>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -530,7 +535,7 @@
                                             </div>
                                             <!--end::Input group-->
                                             @error('insurance_docs')
-                                            <span class="text-danger">{{ $message }}</span>
+                                                <span class="text-danger">{{ $message }}</span>
                                             @enderror
                                             <!--end::Input group-->
                                             <!--begin::Description-->
@@ -581,10 +586,10 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Password</td>
-                                                            <td><button type="button"
-                                                                class="btn btn-icon btn-warning w-150px h-30px ms-auto">
-                                                               Reset Password
-                                                            </button></td>
+                                                            <td><button type="button" data-bs-target="#password_reset_modal" data-bs-toggle="modal"
+                                                                    class="btn btn-icon btn-warning w-150px h-30px ms-auto">
+                                                                    Reset Password
+                                                                </button></td>
 
                                                         </tr>
                                                     </tbody>
@@ -601,7 +606,7 @@
                             </div>
                             <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/organizations"
+                                <a href="{{route('org.overview')}}"
                                     id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
@@ -644,27 +649,28 @@
                                                     <div class="form-group">
                                                         <div data-repeater-list="kt_ecommerce_add_organization_options"
                                                             class="d-flex flex-column gap-3">
-                                                            @for ($i=0;$i<count($this->org_routes);$i++)
-                                                            <div data-repeater-item=""
-                                                                class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                            @for ($i = 0; $i < count($this->org_routes); $i++)
+                                                                <div data-repeater-item=""
+                                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
 
-                                                                <!--begin::Input-->
-                                                                <input type="text"
-                                                                    class="form-control mw-100 w-300px"
-                                                                    wire:model="org_routes.{{$i}}.origin" placeholder="From" />
+                                                                    <!--begin::Input-->
+                                                                    <input type="text"
+                                                                        class="form-control mw-100 w-300px"
+                                                                        wire:model="org_routes.{{ $i }}.origin"
+                                                                        placeholder="From" />
 
-                                                                <input type="text"
-                                                                    class="form-control mw-100 w-300px"
-                                                                    wire:model="org_routes.{{$i}}.destination" />
-                                                                <!--end::Input-->
-                                                                <button type="button" data-repeater-delete=""
-                                                                    class="btn btn-sm btn-icon btn-light-danger">
-                                                                    <i class="ki-duotone ki-cross fs-1">
-                                                                        <span class="path1"></span>
-                                                                        <span class="path2"></span>
-                                                                    </i>
-                                                                </button>
-                                                            </div>
+                                                                    <input type="text"
+                                                                        class="form-control mw-100 w-300px"
+                                                                        wire:model="org_routes.{{ $i }}.destination" />
+                                                                    <!--end::Input-->
+                                                                    <button type="button" data-repeater-delete=""
+                                                                        class="btn btn-sm btn-icon btn-light-danger">
+                                                                        <i class="ki-duotone ki-cross fs-1">
+                                                                            <span class="path1"></span>
+                                                                            <span class="path2"></span>
+                                                                        </i>
+                                                                    </button>
+                                                                </div>
                                                             @endfor
                                                             {{-- <div data-repeater-item=""
                                                                 class="form-group d-flex flex-wrap align-items-center gap-5">
@@ -689,7 +695,8 @@
                                                     <!--end::Form group-->
                                                     <!--begin::Form group-->
                                                     <div class="form-group mt-5">
-                                                        <button type="button" wire:click="addRoute({{count($this->org_routes)+1}})"
+                                                        <button type="button"
+                                                            wire:click="addRoute({{ count($this->org_routes) + 1 }})"
                                                             class="btn btn-sm btn-light-primary">
                                                             <i class="ki-duotone ki-plus fs-2"></i>Add another
                                                             route</button>
@@ -922,7 +929,8 @@
                             </div>
                         </form>
                         <!--end::Tab pane-->
-                        <form wire:submit.prevent="subscription" method="post" class="{{ $subscription ? '' : 'd-none' }}">
+                        <form wire:submit.prevent="subscription" method="post"
+                            class="{{ $subscription ? '' : 'd-none' }}">
                             <div class="tab-pane fade {{ $subscription ? 'show active' : '' }}"
                                 id="kt_ecommerce_biling_and_shipping_info" role="tab-panel">
                                 <!--begin::Notice-->
@@ -1926,7 +1934,10 @@
         <!--end::Content container-->
     </div>
     <!--end::Content-->
-    @include('partials.modals.add_payment_method')
+    @include('partials.modals.password_reset', [
+        'type' => whichUser()->getTable(),
+        'mask' => $this->org['mask'],
+    ])
     @include('partials.modals.add_org_preference')
     @include('partials.modals.add_vehicle')
 </div>

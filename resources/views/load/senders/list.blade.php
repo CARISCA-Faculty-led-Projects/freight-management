@@ -197,7 +197,7 @@
                                                 <div class="menu-item px-3">
                                                     <a onclick="return confirm('Comfirming that the load details are complete?')"
                                                         href="{{ route('sender.loads.complete', $load->mask) }}"
-                                                        class="menu-link px-3">Mark as complete</a>
+                                                        class="menu-link px-3">Publish</a>
                                                 </div>
                                                 <!--end::Menu item-->
                                             @endif

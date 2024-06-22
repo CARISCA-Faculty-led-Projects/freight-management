@@ -1,5 +1,4 @@
 <div>
-
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -327,8 +326,10 @@
                                         <div class="card-header">
                                             <div class="card-title">
                                                 <h2>National ID
-                                                    <small>{{ $this->broker['national_id'] ? 'Uploaded' : 'Unavailable' }}</small>
-                                                </h2>
+                                                </h2> &nbsp;
+                                                @if ($this->broker['national_id'])
+                                                <a class="text-muted" href="{{asset('storage/brokers/'.$this->broker['national_id'])}}">view</a>
+                                                @endif
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -444,5 +445,5 @@
         <!--end::Content container-->
     </div>
     <!--end::Content-->
-    @include('partials.modals.password_reset',['type'=>"drivers",'broker'=>$this->broker['mask']])
+    @include('partials.modals.password_reset',['type'=>"drivers",'mask'=>$this->broker['mask']])
 </div>

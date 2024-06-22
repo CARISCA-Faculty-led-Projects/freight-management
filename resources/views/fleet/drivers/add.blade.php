@@ -523,8 +523,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td>Password</td>
-                                                            <td><input type="password" wire:model="driver.password"
-                                                                    class="form-control" id=""></td>
+                                                            <td><span>Password is auto generated</span></td>
                                                             <td class="text-end">
                                                                 <button type="button"
                                                                     class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
@@ -556,7 +555,7 @@
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
-                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                    <span class="indicator-label" wire:loading.remove>Save</span>
                                     <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
@@ -1170,13 +1169,13 @@
                             <!--end::Tab pane-->
                             <div class="{{ $payment ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
+                                <a href="{{route('drivers')}}" id="kt_ecommerce_add_product_cancel"
                                     class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_product_submit" class="btn btn-primary">
-                                    <span class="indicator-label">Save Changes</span>
-                                    <span class="indicator-progress">Please wait...
+                                    <span class="indicator-label" wire:loading.remove>Save</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->

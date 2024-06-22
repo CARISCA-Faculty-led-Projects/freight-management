@@ -194,18 +194,11 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
-                                    <input type="text" wire:model.change="search_pickup" id=""
-                                        class="form-control"style="width: 40rem;">
+
                                     <!--begin::Menu toggle-->
-                                    <select wire:model="pickup_address" id="" class="form-control mt-2 @error('pickup_address')border-danger @enderror"
+                                    <select wire:model="pickup_address" id="pickup_address" class="form-control mt-2 @error('pickup_address')border-danger @enderror basic-select2"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
-                                        @if ($this->pickup_list != [])
-
-                                        @foreach ($this->pickup_list as $pickup)
-                                            <option value="{{$pickup['place_id']}}">{{ $pickup['description'] }}</option>
-                                        @endforeach
-                                        @endif
                                     </select>
                                     @error('pickup_address')
                                     <span class="text-danger">{{ $message }}</span>
@@ -232,16 +225,10 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    {{-- <textarea name="dropoff_address" class="form-control" id="" cols="10" rows="5"></textarea> --}}
-                                    <input type="text" wire:model.change="search_dropoff" id="" class="form-control"
-                                        style="width: 40rem;">
-
-                                    <select wire:model="dropoff_address" id="" class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
+                                    <select wire:model="dropoff_address" id="dropoff_address" class="form-control mt-2 @error('dropoff_address')border-danger @enderror basic-select2"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
-                                        @foreach ($this->dropoff_list as $dropoff)
-                                            <option value="{{ $dropoff['place_id'] }}">{{ $dropoff['description'] }}</option>
-                                        @endforeach
+
                                     </select>
                                     <!--end::Card body-->
                                     @error('dropoff_address')
@@ -271,11 +258,11 @@
                                     <label class="required form-label">Driver</label>
                                     <!--end::Label-->
                                     <!--begin::Select2-->
-                                    <select class="form-select mb-2 @error('driver_id')border-danger @enderror" wire:model="driver_id" data-hide-search="true"
+                                    <select class="form-select mb-2 @error('driver_id')border-danger @enderror basic-select2" wire:model="driver_id" data-hide-search="true"
                                         data-placeholder="Select a sender"
                                         id="kt_ecommerce_add_category_store_template">
                                         <option></option>
-                                        @foreach ($this->drivers as $driver)
+                                        @foreach ($this->getDrivers() as $driver)
                                             <option value="{{ $driver->mask }}">{{ $driver->name }}
                                             </option>
                                         @endforeach

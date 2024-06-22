@@ -20,7 +20,7 @@ class ShipmentsController extends Controller
     public function list()
     {
         $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->get();
-        
+
         foreach ($shipments as $shipment) {
             if ($shipment->driver_id != null) {
                 $driver = DB::table('drivers')->where('mask', $shipment->driver_id)->first();
@@ -63,19 +63,19 @@ class ShipmentsController extends Controller
         return view('shipments.add', compact('loads', 'load_types', 'senders', 'drivers'));
     }
 
-    public function create(Request $request)
-    {
-        $loads = [];
+    // public function create(Request $request)
+    // {
+    //     $loads = [];
 
-        foreach ($request->loads as $load) {
-            $tmpload = DB::table('loads')->where('mask', $load)->first();
-            array_push($loads, $tmpload);
-        }
+    //     foreach ($request->loads as $load) {
+    //         $tmpload = DB::table('loads')->where('mask', $load)->first();
+    //         array_push($loads, $tmpload);
+    //     }
 
-        $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->get(['name', 'phone', 'mask']);
+    //     $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->get(['name', 'phone', 'mask']);
 
-        return view('brokers.create-shipment', compact('loads', 'drivers'));
-    }
+    //     return view('brokers.create-shipment', compact('loads', 'drivers'));
+    // }
 
     public function store(Request $request)
     {
@@ -118,5 +118,44 @@ class ShipmentsController extends Controller
         DB::table('shipments')->where('mask',$mask)->delete();
 
         return back()->with('success',"Shipment deleted Successfully");
+    }
+
+    public function create(Request $request){
+        if ($request->no_driver == "true") {
+            // Validator::make([$this->pickup_address, $this->dropoff_address], [
+            //     'pickup_address' => 'required',
+            //     'dropoff_address' => 'required',
+            // ], [
+            //     'pickup_address' => "Search and select a pickup address for the shipment",
+            //     'dropoff_address' => "Search and select a dropoff address for the shipment"
+            // ])->validate();
+
+        } else {
+            Validator::make([$request->pickup_address, $request->dropoff_address, $request->driver_id], [
+                'driver_id' => 'required',
+                'pickup_address' => 'required',
+                'dropoff_address' => 'required',
+            ], [
+                'driver_id' => "The driver is required",
+                'pickup_address' => "Search and select a pickup address for the shipment",
+                'dropoff_address' => "Search and select a dropoff address for the shipment"
+            ])->validate();
+        }
+
+        DB::table('shipments')->insert([
+            'organization_id' => $request->organization_id,
+            'driver_id' => $request->driver_id,
+            'broker_id' => whichUser()->mask,
+            'loads' => json_encode($request->loads),
+            'description' => $request->description,
+            'mask' => generateNumber(),
+            'pickup_address' => json_encode(getPlaceCoordinates($request->pickup_address)),
+            'dropoff_address' => json_encode(getPlaceCoordinates($request->dropoff_address)),
+            'approval_status' => "Approved",
+            'shipment_status' => "Assigned",
+            'created_at' => Carbon::now()->toDateTimeString()
+        ]);
+
+        return redirect(route(whichUser()->getTable() == 'brokers' ? 'load.board' : 'org.shipments.list'));
     }
 }

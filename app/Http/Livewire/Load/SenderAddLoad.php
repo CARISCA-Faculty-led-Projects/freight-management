@@ -51,6 +51,8 @@ class SenderAddLoad extends Component
 
     public function general()
     {
+        dd($this->load);
+
         $this->load['image'] = $this->image;
         $validated = Validator::make($this->load, [
             'length' => 'required|numeric',
@@ -62,6 +64,7 @@ class SenderAddLoad extends Component
             'other_docs' => 'required|mimes:pdf,docx,doc',
             'handling' => 'required'
         ])->validate();
+
 
         $load_id = generateNumber();
 

@@ -40,8 +40,9 @@ class DriversController extends Controller
     public function details($mask)
     {
         $driver = DB::table('drivers')->where('mask', $mask)->first();
+        $org = DB::table('organizations')->where('mask',$driver->organization_id)->first();
 
-        return view('fleet.drivers.details', compact('driver'));
+        return view('fleet.drivers.details', compact('driver','org'));
     }
 
     public function shipments(){

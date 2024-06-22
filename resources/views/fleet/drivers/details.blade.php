@@ -1,4 +1,4 @@
-@extends('layout.roles.driver')
+@extends('layout.roles.organization')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -40,22 +40,6 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Secondary button-->
-                    <a href="/apps/customers/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Load Board</a>
-                    <!--end::Secondary button-->
-                    <!--begin::Primary button-->
-                    <a href="/organization/add" class="btn btn-sm fw-bold btn-primary">Fleet Mangement</a>
-                    <!--end::Primary button-->
-                    <!--begin::Secondary button-->
-                    <a href="/organization/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                        Organizations</a>
-                    <!--end::Secondary button-->
-                </div>
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -70,10 +54,10 @@
                         <!--begin: Pic-->
                         <div class="me-7 mb-4">
                             <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative">
-                                <img src="{{ asset('storage/drivers/' . $driver->image) }}" alt="image" />
-                                <div
+                                <img src="{{ asset('storage/logos/' . $driver->image) }}" alt="image" />
+                                {{-- <div
                                     class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px">
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                         <!--end::Pic-->
@@ -99,13 +83,6 @@
                                     <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
                                         <a href="#"
                                             class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
-                                            <i class="ki-duotone ki-profile-circle fs-4 me-1">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>{{ Auth::user()->name }}</a>
-                                        <a href="#"
-                                            class="d-flex align-items-center text-gray-400 text-hover-primary me-5 mb-2">
                                             <i class="ki-duotone ki-geolocation fs-4 me-1">
                                                 <span class="path1"></span>
                                                 <span class="path2"></span>
@@ -120,70 +97,6 @@
                                     <!--end::Info-->
                                 </div>
                                 <!--end::User-->
-                                <!--begin::Actions-->
-                                <div class="d-flex my-4">
-                                    {{-- <a href="#" class="btn btn-sm btn-light me-2" id="kt_user_follow_button">
-                                    <i class="ki-duotone ki-check fs-3 d-none"></i>
-                                    <!--begin::Indicator label-->
-                                    <span class="indicator-label">Message</span>
-                                    <!--end::Indicator label-->
-                                    <!--begin::Indicator progress-->
-                                    <span class="indicator-progress">Please wait...
-                                        <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                                    <!--end::Indicator progress-->
-                                </a> --}}
-                                    {{-- <a href="#" class="btn btn-sm btn-primary me-3" data-bs-toggle="modal"
-                                    data-bs-target="#kt_modal_offer_a_deal">Hire Me</a> --}}
-                                    <!--begin::Menu-->
-                                    <div class="me-0">
-                                        <button class="btn btn-sm btn-icon btn-bg-light btn-active-color-primary"
-                                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                                            <i class="ki-solid ki-dots-horizontal fs-2x me-1"></i>
-                                        </button>
-                                        <!--begin::Menu 3-->
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg-light-primary fw-semibold w-200px py-3"
-                                            data-kt-menu="true">
-                                            <!--begin::Heading-->
-                                            <div class="menu-item px-3">
-                                                <div class="menu-content text-muted pb-2 px-3 fs-7 text-uppercase">Payments
-                                                </div>
-                                            </div>
-                                            <!--end::Heading-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Create Invoice</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link flex-stack px-3">Create Payment
-                                                    <span class="ms-2" data-bs-toggle="tooltip"
-                                                        title="Specify a target name for future usage and reference">
-                                                        <i class="ki-duotone ki-information fs-6">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                            <span class="path3"></span>
-                                                        </i>
-                                                    </span></a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="#" class="menu-link px-3">Generate Bill</a>
-                                            </div>
-                                            <!--end::Menu item-->
-
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3 my-1">
-                                                <a href="#" class="menu-link px-3">Settings</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                        </div>
-                                        <!--end::Menu 3-->
-                                    </div>
-                                    <!--end::Menu-->
-                                </div>
-                                <!--end::Actions-->
                             </div>
                             <!--end::Title-->
                             <!--begin::Stats-->
@@ -197,10 +110,7 @@
                                             class="border border-gray-300 border-dashed rounded min-w-150px py-3 px-4 me-6 mb-3">
                                             <!--begin::Number-->
                                             <div class="d-flex align-items-center">
-                                                <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
+
                                                 <div class="fs-2 fw-bold" data-kt-countup="true"
                                                     data-kt-countup-value="4500" data-kt-countup-prefix="GHS">0</div>
                                             </div>
@@ -215,35 +125,13 @@
                                             class="border border-gray-300 border-dashed rounded min-w-150px py-3 px-4 me-6 mb-3">
                                             <!--begin::Number-->
                                             <div class="d-flex align-items-center">
-                                                <i class="ki-duotone ki-arrow-down fs-3 text-danger me-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                <div class="fs-2 fw-bold" data-kt-countup="true"
-                                                    data-kt-countup-value="80">
+                                               
+                                                <div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="80">
                                                     0</div>
                                             </div>
                                             <!--end::Number-->
                                             <!--begin::Label-->
                                             <div class="fw-semibold fs-6 text-gray-400">Trips</div>
-                                            <!--end::Label-->
-                                        </div>
-                                        <!--end::Stat-->
-                                        <!--begin::Stat-->
-                                        <div
-                                            class="border border-gray-300 border-dashed rounded min-w-150px py-3 px-4 me-6 mb-3">
-                                            <!--begin::Number-->
-                                            <div class="d-flex align-items-center">
-                                                <i class="ki-duotone ki-arrow-up fs-3 text-success me-2">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                </i>
-                                                <div class="fs-2 fw-bold" data-kt-countup="true"
-                                                    data-kt-countup-value="60" data-kt-countup-prefix="%">0</div>
-                                            </div>
-                                            <!--end::Number-->
-                                            <!--begin::Label-->
-                                            <div class="fw-semibold fs-6 text-gray-400">Success Rate</div>
                                             <!--end::Label-->
                                         </div>
                                         <!--end::Stat-->
@@ -258,7 +146,6 @@
                         <!--end::Info-->
                     </div>
                     <!--end::Details-->
-                    {{-- @include('partials.general.drivers.menu') --}}
                 </div>
             </div>
             <!--end::Navbar-->
@@ -272,7 +159,8 @@
                     </div>
                     <!--end::Card title-->
                     <!--begin::Action-->
-                    <a href="{{route('driver.edit',$driver->mask)}}" class="btn btn-sm btn-primary align-self-center">Edit Driver</a>
+                    <a href="{{ route('driver.edit', $driver->mask) }}" class="btn btn-sm btn-primary align-self-center">Edit
+                        Driver</a>
                     <!--end::Action-->
                 </div>
                 <!--begin::Card header-->
@@ -297,8 +185,7 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8 fv-row">
-                            <span
-                                class="fw-semibold text-gray-800 fs-6">{{ $driver->organization_id ? 'Available' : 'Unavailable' }}</span>
+                            <span class="fw-semibold text-gray-800 fs-6">{{ $org->name }}</span>
                         </div>
                         <!--end::Col-->
                     </div>
@@ -318,7 +205,6 @@
                         <!--begin::Col-->
                         <div class="col-lg-8 d-flex align-items-center">
                             <span class="fw-bold fs-6 text-gray-800 me-2">{{ $driver->phone }}</span>
-                            <span class="badge badge-success">Verified</span>
                         </div>
                         <!--end::Col-->
                     </div>
@@ -376,38 +262,13 @@
                         <!--end::Label-->
                         <!--begin::Col-->
                         <div class="col-lg-8">
-                            <span class="fw-bold fs-6 text-gray-800">Germany</span>
+                            <span class="fw-bold fs-6 text-gray-800">{{ $driver->country }}</span>
                         </div>
                         <!--end::Col-->
                     </div>
                     <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="row mb-7">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Communication</label>
-                        <!--end::Label-->
-                        <!--begin::Col-->
-                        <div class="col-lg-8">
-                            <span class="fw-bold fs-6 text-gray-800">Email, Phone</span>
-                        </div>
-                        <!--end::Col-->
-                    </div>
-                    <!--end::Input group-->
-                    <!--begin::Input group-->
-                    <div class="row mb-10">
-                        <!--begin::Label-->
-                        <label class="col-lg-4 fw-semibold text-muted">Allow Changes</label>
-                        <!--begin::Label-->
-                        <!--begin::Label-->
-                        <div class="col-lg-8">
-                            <span class="fw-semibold fs-6 text-gray-800">Yes</span>
-                        </div>
-                        <!--begin::Label-->
-                    </div>
-                    <!--end::Input group-->
-
                     <!--begin::Notice-->
-                    <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
+                    {{-- <div class="notice d-flex bg-light-warning rounded border-warning border border-dashed p-6">
                         <!--begin::Icon-->
                         <i class="ki-duotone ki-information fs-2tx text-warning me-4">
                             <span class="path1"></span>
@@ -427,7 +288,7 @@
                             <!--end::Content-->
                         </div>
                         <!--end::Wrapper-->
-                    </div>
+                    </div> --}}
                     <!--end::Notice-->
                 </div>
                 <!--end::Card body-->
@@ -455,44 +316,10 @@
                                 <div class="fw-semibold text-gray-600">{{ $driver->email }}</div>
                             </div>
                             <!--end::Label-->
-                            <!--begin::Edit-->
-                            <div id="kt_signin_email_edit" class="flex-row-fluid d-none">
-                                <!--begin::Form-->
-                                <form id="kt_signin_change_email" class="form" novalidate="novalidate">
-                                    <div class="row mb-6">
-                                        <div class="col-lg-6 mb-4 mb-lg-0">
-                                            <div class="fv-row mb-0">
-                                                <label for="emailaddress" class="form-label fs-6 fw-bold mb-3">Enter New
-                                                    Email Address</label>
-                                                <input type="email"
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    id="emailaddress" placeholder="Email Address" name="emailaddress"
-                                                    value="support@keenthemes.com" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="fv-row mb-0">
-                                                <label for="confirmemailpassword"
-                                                    class="form-label fs-6 fw-bold mb-3">Confirm Password</label>
-                                                <input type="password"
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    name="confirmemailpassword" id="confirmemailpassword" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex">
-                                        <button id="kt_signin_submit" type="button"
-                                            class="btn btn-primary me-2 px-6">Update Email</button>
-                                        <button id="kt_signin_cancel" type="button"
-                                            class="btn btn-color-gray-400 btn-active-light-primary px-6">Cancel</button>
-                                    </div>
-                                </form>
-                                <!--end::Form-->
-                            </div>
-                            <!--end::Edit-->
                             <!--begin::Action-->
                             <div id="kt_signin_email_button" class="ms-auto">
-                                <button class="btn btn-light btn-active-light-primary">Change Email</button>
+                                <a href="{{ route('driver.edit', $driver->mask) }}"
+                                    class="btn btn-light btn-active-light-primary">Change Email</a>
                             </div>
                             <!--end::Action-->
                         </div>
@@ -508,59 +335,14 @@
                                 <div class="fw-semibold text-gray-600">************</div>
                             </div>
                             <!--end::Label-->
-                            <!--begin::Edit-->
-                            <div id="kt_signin_password_edit" class="flex-row-fluid d-none">
-                                <!--begin::Form-->
-                                <form id="kt_signin_change_password" class="form" novalidate="novalidate">
-                                    <div class="row mb-1">
-                                        <div class="col-lg-4">
-                                            <div class="fv-row mb-0">
-                                                <label for="currentpassword" class="form-label fs-6 fw-bold mb-3">Current
-                                                    Password</label>
-                                                <input type="password"
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    name="currentpassword" id="currentpassword" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="fv-row mb-0">
-                                                <label for="newpassword" class="form-label fs-6 fw-bold mb-3">New
-                                                    Password</label>
-                                                <input type="password"
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    name="newpassword" id="newpassword" />
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-4">
-                                            <div class="fv-row mb-0">
-                                                <label for="confirmpassword" class="form-label fs-6 fw-bold mb-3">Confirm
-                                                    New Password</label>
-                                                <input type="password"
-                                                    class="form-control form-control-lg form-control-solid"
-                                                    name="confirmpassword" id="confirmpassword" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-text mb-5">Password must be at least 8 character and contain symbols
-                                    </div>
-                                    <div class="d-flex">
-                                        <button id="kt_password_submit" type="button"
-                                            class="btn btn-primary me-2 px-6">Update Password</button>
-                                        <button id="kt_password_cancel" type="button"
-                                            class="btn btn-color-gray-400 btn-active-light-primary px-6">Cancel</button>
-                                    </div>
-                                </form>
-                                <!--end::Form-->
-                            </div>
-                            <!--end::Edit-->
                             <!--begin::Action-->
                             <div id="kt_signin_password_button" class="ms-auto">
-                                <button class="btn btn-light btn-active-light-primary">Reset Password</button>
+                                <a href="{{ route('driver.edit', $driver->mask) }}"
+                                    class="btn btn-light btn-active-light-primary">Reset Password</a>
                             </div>
                             <!--end::Action-->
                         </div>
                         <!--end::Password-->
-
                     </div>
                     <!--end::Card body-->
                 </div>

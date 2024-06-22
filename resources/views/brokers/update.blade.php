@@ -1,6 +1,3 @@
-{{-- @php
-    dd(auth()->guard()->name)
-@endphp --}}
 @extends( auth()->guard()->name == 'organizations' ?'layout.roles.organization' : 'layout.roles.broker')
 @section('content')
     <!--begin::Body-->
@@ -11,7 +8,7 @@
             <div class="card card-body w-lg-600px p-10 p-lg-15 mx-auto">
 
                 <!--begin::Form-->
-                <form class="form w-100" action="{{ route('broker.update',$broker->mask) }}" method="POST" id="">
+                <form class="form w-100" action="{{ route('org.broker.update',$broker->mask) }}" method="POST" id="">
                     @csrf
                     <!--begin::Heading-->
                     <div class="mb-10 text-center mb-4">
@@ -60,7 +57,6 @@
                     <!--end::Input group-->
                     <!--begin::Actions-->
                     <div class="text-center">
-                        <button class="btn btn-danger" onclick="return confirm('confirm you want to reset password?')">Reset Password</button>
                         <button type="submit" id="kt_sign_up_submit" class="btn btn-lg btn-primary">
                             <span class="indicator-label">
                                Update

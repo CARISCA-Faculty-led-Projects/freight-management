@@ -13,7 +13,7 @@
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <span  class="text-muted text-hover-primary">Home</span>
+                            <span class="text-muted text-hover-primary">Home</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -56,69 +56,43 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-ecommerce-order-filter="search"
-                                class="form-control form-control-solid w-250px ps-12" placeholder="Search Load by id" />
+                            <input type="text" data-kt-ecommerce-order-filter="search" id="dtaSearch"
+                                class="form-control form-control-solid w-250px ps-12" placeholder="Search Load" />
                         </div>
                         <!--end::Search-->
                     </div>
                     <!--end::Card title-->
                     <!--begin::Card toolbar-->
                     <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                        <!--begin::Flatpickr-->
-                        <div class="input-group w-250px">
-                            <input class="form-control form-control-solid rounded rounded-end-0"
-                                placeholder="Pick date range" id="kt_ecommerce_sales_flatpickr" />
-                            <button class="btn btn-icon btn-light" id="kt_ecommerce_sales_flatpickr_clear">
-                                <i class="ki-duotone ki-cross fs-2">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </button>
-                        </div>
-                        <!--end::Flatpickr-->
-                        <div class="w-100 mw-150px">
+                        {{-- <div class="w-100 mw-150px">
                             <!--begin::Select2-->
-                            <select class="form-select form-select-solid w-55" data-placeholder="Status"
-                                data-kt-ecommerce-order-filter="status">
+                            <select class="form-select form-select-solid w-55" id="orgAssigned"
+                                data-placeholder="Status" data-kt-ecommerce-order-filter="status">
                                 <option></option>
                                 <option value="all">All</option>
-                                <option value="Cancelled">Cancelled</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Denied">Denied</option>
-                                <option value="Expired">Expired</option>
-                                <option value="Failed">Failed</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Processing">Processing</option>
-                                <option value="Refunded">Refunded</option>
-                                <option value="Delivered">Delivered</option>
-                                <option value="Delivering">Delivering</option>
+                                <option value="Assigned">Assigned</option>
+                                <option value="Unassigned">Unassigned</option>
                             </select>
                             <!--end::Select2-->
-                        </div>
+                        </div> --}}
                         <!--begin::Add product-->
-
-                        {{-- <a wire:click="getLoads" class="btn btn-primary"> <span class="indicator-label"
-                                wire:loading.remove>Get Loads</span>
-                            <span class="indicator-progress" wire:loading>Please wait...
-                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></a> --}}
+                        @if (whichUser()->getTable() == 'organizations')
+                        <a href="{{route('org.load.add')}}" class="btn btn-primary"> <span class="indicator-label">Add load</span></a>
+                        @endif
 
                         <!--end::Add product-->
-                        <!--begin::Add product-->
-                        {{-- <a  wire:poll.10s='qty' class="btn btn-primary"> <span class="indicator-label" wire:loading.remove>{{$this->tot}}</span>
-                            <span class="indicator-progress" wire:loading>Please wait...
-                                <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></a> --}}
-                        <!--end::Add product-->
-
                     </div>
                     <!--end::Card toolbar-->
                 </div>
                 <!--end::Card header-->
                 <!--begin::Card body-->
-                <form action="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.loads.assign' : "org.loads.assign") }}" method="post">
+                <form
+                    action="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.loads.assign' : 'org.loads.assign') }}"
+                    method="post">
                     @csrf
                     <div class="card-body pt-0" style="height: 50vh; overflow:auto">
                         <!--begin::Table-->
-                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_sales_table">
+                        <table class="table align-middle table-row-dashed fs-6 gy-5" id="loads_table">
                             <thead>
                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                     <th class="w-10px pe-2">
@@ -128,7 +102,7 @@
                                                 value="1" />
                                         </div>
                                     </th>
-                                    <th class="min-w-105px">#</th>
+                                    <th class="min-w-150px">#</th>
                                     <th class="min-w-105px">Category</th>
                                     <th class="min-w-105px">Sender</th>
                                     <th class="min-w-105px">Organization</th>
@@ -153,7 +127,7 @@
                                         <td>{{ $load->mask }}</td>
                                         <td>{{ $load->load_type }}</td>
                                         <td>{{ $load->name }}</td>
-                                        <td class="text-center pe-0">
+                                        <td id="orgStat" class="text-center pe-0">
                                             <div
                                                 class="@if ($load->organization == 'Unassigned') badge badge-light-warning @endif">
                                                 {{ $load->organization }}</div>
@@ -214,8 +188,7 @@
                                         <td class="text-end">
                                             <a href="#"
                                                 class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
-                                                data-kt-menu-trigger="click"
-                                                data-kt-menu-placement="bottom-end">Actions
+                                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
                                                 <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
                                             <!--begin::Menu-->
                                             <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
@@ -254,10 +227,10 @@
                             </tbody>
                         </table>
                         <!--end::Table-->
-                        </div>
-                        @error('loads')
-                            <span class="text-danger pl-3">{{ $message }}</span>
-                        @enderror
+                    </div>
+                    @error('loads')
+                        <span class="text-danger pl-3">{{ $message }}</span>
+                    @enderror
 
                     <!--end::Card body-->
                     <div class="card-footer">
@@ -268,7 +241,7 @@
                             <label for="shipment">Create shipment after</label>
                         </div>
                         <div class="d-flex w-35" wire:ignore>
-                            <select name="organization_id" class="form-control js-example-basic-single w-25"
+                            <select name="organization_id" class="form-control basic-select2 w-25"
                                 id="">
                                 <option value="">--select--</option>
                                 @foreach ($this->getOrgs() as $org)
@@ -283,4 +256,5 @@
             <!--end::Products-->
         </div>
         <!--end::Content container-->
+
     </div>

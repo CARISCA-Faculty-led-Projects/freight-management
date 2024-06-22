@@ -51,12 +51,10 @@ class UpdateBroker extends Component
     public function general()
     {
         Validator::make($this->broker, [
-            'image' => 'required|mimes:jpg,png,jpeg',
             'email' => 'required',
             'name' => 'required',
             'address' => 'required',
             'phone' => 'required',
-            'national_id' => 'required|mimes:pdf',
         ])->validate();
 
 

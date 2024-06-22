@@ -16,8 +16,18 @@ class VehiclesController extends Controller
     {
         $vehicles = DB::table('vehicles')->where("organization_id",Auth::user()->mask)
             ->join('vehicle_owners', 'vehicle_owners.id', 'vehicles.owner_id')
-            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps', 'vehicle_owners.name as owner', 'vehicles.gps', 'vehicles.mask','vehicles.number')
+            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps','vehicles.driver_id', 'vehicle_owners.name as owner', 'vehicles.gps', 'vehicles.mask','vehicles.number')
             ->get();
+
+        foreach($vehicles as $vehicle){
+            if($vehicle->driver_id){
+                $driver = DB::table('drivers')->where('mask',$vehicle->driver_id)->pluck('name')->first();
+                $vehicle->driver = $driver;
+            }else{
+                $vehicle->driver = null;
+
+            }
+        }
         return view('fleet.vehicles.vehicles', compact('vehicles'));
     }
 
@@ -46,7 +56,7 @@ class VehiclesController extends Controller
         $vehicle_owner = $vehicle->organization_id ? DB::table('organizations')->where("mask",$vehicle->organization_id)->first() : DB::table('vehicle_owners')->where('vehicle_id', $mask)->first();
 
         $organization = null;
-        $driver = null;
+        $driver = DB::table('drivers')->where('mask',$vehicle->driver_id)->first();
 
         return view('fleet.vehicles.details', compact('vehicle', "vehicle_routes", 'vehicle_owner','organization','driver'));
     }
@@ -73,22 +83,28 @@ class VehiclesController extends Controller
         'amount' => 'required|numeric'
         ])->validate();
 
-        // if ($validated->fails()) {
-        //     dd($validated->errors());
-        //     // return $this->validationResponse($validated->errors());
-        // }
-        // dd(Carbon::parse($request->date)->add('1 month')->toDate());
+        $date = Carbon::parse($request->date)->toDateString();
+
+
         DB::table('maintenance_schedule')->insert([
             'vehicle_id' => $vehicle,
             'status' => $request->status,
             'task' => $request->task,
             'provider' => $request->provider,
             'frequency' => $request->frequency,
-            'date' => Carbon::parse($request->date)->toDateString(),
+            'date' => $date,
             'cost'=> $request->amount,
             'next_visit' => Carbon::parse($request->date)->add($request->frequency)->toDateString(),
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
+
+        $veh = DB::table('vehicles')->where('mask',$vehicle)->first();
+
+        if($veh->driver_id){
+            $driver = DB::table('drivers')->where('mask',$veh->driver_id)->first();
+            $msg = "Your vehicle has been assigned for maintenance on ".$date;
+            sendMail("Maintenance Schedule",$driver->email,$msg);
+        }
 
         return redirect(route('vehicle.maintenance_list',$vehicle))->with('success','Schedule added');
     }

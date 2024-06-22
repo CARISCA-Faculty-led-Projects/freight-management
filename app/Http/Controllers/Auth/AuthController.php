@@ -28,11 +28,12 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-        Validator::make($request->all(), ['name' => 'required', 'email' => 'required|email', 'phone' => 'required', 'password' => 'required', 'confirm-password' => 'required|same:password'], ['confirm-password' => "Password fields do not match"])->validate();
+        Validator::make($request->all(), ['name' => 'required', 'email' => 'required|email|unique:'.$request->type, 'phone' => 'required', 'password' => 'required', 'confirm-password' => 'required|same:password'], ['confirm-password' => "Password fields do not match"])->validate();
 
         $request['password'] = Hash::make($request->password);
         $request['created_at'] = Carbon::now()->toDateTimeString();
         $request['mask'] = Str::orderedUuid();
+        $request['status']="Approved";
 
         DB::table($request->type)->insert($request->except(['_token', 'type', 'confirm-password']));
 
@@ -85,7 +86,7 @@ class AuthController extends Controller
         Validator::make($request->all(), ['password' => 'required','con_password' => 'required|same:password'])->validate();
 
         DB::table($request->type)->where('mask', $request->mask)->update(['password' => Hash::make($request->password)]);
-        
+
         return back()->with('success',"Password changed successfully");
 
     }

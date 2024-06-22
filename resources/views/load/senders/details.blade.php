@@ -1,5 +1,5 @@
 {{-- @if ($user != 'organization') --}}
-@extends('layout.roles.sender')
+@extends(whichUser()->getTable() == 'senders' ? 'layout.roles.sender' : 'layout.roles.organization')
 
 @section('content')
     <!--begin::Content-->
@@ -77,9 +77,9 @@
                         <!--end:::Tab item-->
                         <!--begin:::Tab item-->
                         <!-- <li class="nav-item">
-                                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
-                                            href="#kt_ecommerce_payment_information">Payment Information</a>
-                                    </li> -->
+                                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                                                href="#kt_ecommerce_payment_information">Payment Information</a>
+                                        </li> -->
                         <!--end:::Tab item-->
                     </ul>
                     <!--end:::Tabs-->
@@ -246,8 +246,9 @@
                                                             </div>
                                                         </td>
                                                         <td class="fw-bold text-end">
-                                                            <a href="{{('storage/loads/'.$load->insurance_docs)}}"
-                                                                class="text-gray-600 text-hover-primary" download>{{$load->insurance_docs}} </a>
+                                                            <a href="{{ 'storage/loads/' . $load->insurance_docs }}"
+                                                                class="text-gray-600 text-hover-primary"
+                                                                download>{{ $load->insurance_docs }} </a>
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -260,8 +261,9 @@
                                                             </div>
                                                         </td>
                                                         <td class="fw-bold text-end">
-                                                            <a href="{{('storage/loads/'.$load->other_docs)}}"
-                                                                class="text-gray-600 text-hover-primary" download>{{$load->other_docs}}</a>
+                                                            <a href="{{ 'storage/loads/' . $load->other_docs }}"
+                                                                class="text-gray-600 text-hover-primary"
+                                                                download>{{ $load->other_docs }}</a>
                                                         </td>
                                                     </tr>
                                                 </tbody>
@@ -477,7 +479,7 @@
                             </div> --}}
 
                             <!--end::Referral program-->
-                            
+
                         </div>
                         <!--end::Loads-->
                     </div>

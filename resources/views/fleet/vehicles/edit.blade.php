@@ -39,22 +39,6 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Secondary button-->
-                    <a href="/apps/customers/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Load Board</a>
-                    <!--end::Secondary button-->
-                    <!--begin::Primary button-->
-                    <a href="/organization/add" class="btn btn-sm fw-bold btn-primary">Fleet Mangement</a>
-                    <!--end::Primary button-->
-                    <!--begin::Secondary button-->
-                    <a href="/organization/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                        Organizations</a>
-                    <!--end::Secondary button-->
-                </div>
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
         </div>
@@ -62,8 +46,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
             <!--begin::Form-->
-            <div id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
-                data-kt-redirect="/apps/ecommerce/catalog/products">
+            <div id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row">
                 <!--begin::Aside column-->
                 <form wire:submit.prevent="general" method="post">
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -152,6 +135,37 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Thumbnail settings-->
+                         <!--begin::Template settings-->
+                         <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <!--begin::Card title-->
+                                <div class="card-title">
+                                    <h2>Assign Driver</h2>
+                                </div>
+                                <!--end::Card title-->
+                            </div>
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="card-body pt-0">
+                                <!--begin::Select store template-->
+
+                               <select wire:model="vehicle.driver_id" class="form-control" id="">
+                                <option value="">--select--</option>
+                                @foreach ($this->drivers() as $driver)
+                                <option value="{{$driver->mask}}">{{$driver->name}}</option>
+                                @endforeach
+                               </select>
+
+                               <!--begin::Description-->
+                               <div class="text-muted fs-7 mt-5">Assign available driver to vehicle
+                            </div>
+                            <!--end::Description-->
+                            </div>
+                            <!--end::Card body-->
+
+                        </div>
+                        <!--end::Template settings-->
 
                         <!--begin::Template settings-->
                         <div class="card card-flush py-4">
@@ -196,13 +210,7 @@
                                     </div>
                                     <!--end:Item-->
                                 @endforeach
-                                <!--begin::Form group-->
-                                {{-- <div class="form-group mt-5">
-                            <button type="button" data-repeater-create="" class="btn btn-sm btn-light-primary"
-                                data-bs-toggle="modal" data-bs-target="#kt_modal_add_org_pref">
-                                <i class="ki-duotone ki-plus fs-2"></i>Add new preference</button>
-                        </div> --}}
-                                <!--end::Form group-->
+
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7 mt-5">These specify which goods your company can transport
                                 </div>
@@ -251,64 +259,6 @@
                         <form wire:submit.prevent="general" method="post" class="{{ $general ? '' : 'd-none' }}">
                             <div class="tab-pane fade {{ $general ? 'show active' : '' }}"
                                 id="kt_ecommerce_add_product_general" role="tab-panel">
-                                <div class="row">
-                                    <div class="col-xl-6">
-                                        <!--begin::Statistics Widget 5-->
-                                        <a href="#" class="card bg-dark hoverable card-xl-stretch mb-xl-8">
-                                            <!--begin::Body-->
-                                            <div class="card-body">
-                                                <i class="ki-duotone ki-cheque text-white fs-2x ms-n1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                    <span class="path4"></span>
-                                                    <span class="path5"></span>
-                                                    <span class="path6"></span>
-                                                    <span class="path7"></span>
-                                                </i>
-                                                <div class="text-white fw-bold fs-2 mb-2 mt-5">
-                                                    {{-- {{ $vehicle['make'] . ' ' . $vehicle['model'] }}  --}}
-                                                </div>
-                                                <div class="fw-semibold text-white">Currently Editing</div>
-                                            </div>
-                                            <!--end::Body-->
-                                        </a>
-                                        <!--end::Statistics Widget 5-->
-                                    </div>
-                                    <div class="col-xl-6">
-                                        <!--begin::Statistics Widget 5-->
-                                        <a href="#" class="card bg-primary hoverable card-xl-stretch mb-xl-8">
-                                            <!--begin::Body-->
-                                            <div class="card-body">
-                                                <i class="ki-duotone ki-cheque text-white fs-2x ms-n1">
-                                                    <span class="path1"></span>
-                                                    <span class="path2"></span>
-                                                    <span class="path3"></span>
-                                                    <span class="path4"></span>
-                                                    <span class="path5"></span>
-                                                    <span class="path6"></span>
-                                                    <span class="path7"></span>
-                                                </i>
-                                                @if ($vehicle['organization_id'] == null)
-                                                    <div class="text-white fw-bold fs-2 mb-2 mt-5">No organization
-                                                        assigned</div>
-                                                    <div class="fw-semibold text-white">Details will be populated into
-                                                        no organization</div>
-                                                @else
-                                                    <div class="text-white fw-bold fs-2 mb-2 mt-5">Jess Fleet
-                                                        Management Inc</div>
-                                                    <div class="fw-semibold text-white">Details will be populated into
-                                                        Jess
-                                                        Fleet Management Inc</div>
-                                                @endif
-                                            </div>
-                                            <!--end::Body-->
-                                        </a>
-                                        <!--end::Statistics Widget 5-->
-                                    </div>
-
-                                </div>
-
                                 <div class="d-flex flex-column gap-7 gap-lg-10">
                                     <!--begin::General options-->
                                     <div class="card card-flush py-4">
@@ -331,7 +281,7 @@
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter vehicle license plate number</div>
                                                 <!--end::Description-->
-                                            </div>  
+                                            </div>
                                             <!--begin::Input group-->
                                             <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
                                             <div class="fv-row w-100 flex-md-root">
@@ -340,9 +290,9 @@
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
                                                 <select class="form-select mb-2" wire:model="vehicle.category"
-                                                    data-control="select2" data-hide-search="true"
+                                                     data-hide-search="true"
                                                     data-placeholder="Select an option">
-                                                    <option></option>
+                                                    <option>--select--</option>
                                                     @foreach ($this->vcat() as $cat)
                                                         <option value="{{ $cat->id }}"
                                                             {{ $vehicle['vehicle_category_id'] == $cat->id ? 'selected' : '' }}>
@@ -364,7 +314,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
                                                 <select class="form-select mb-2" wire:model="vehicle.sub_category_id"
-                                                    data-control="select2" data-hide-search="true"
+                                                     data-hide-search="true"
                                                     data-placeholder="Select an option">
                                                     <option></option>
                                                     @foreach ($this->vsubcat() as $cat)
@@ -542,7 +492,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
                                                 <select class="form-select mb-2" wire:model="vehicle.engine_type"
-                                                    data-control="select2" data-hide-search="true"
+                                                     data-hide-search="true"
                                                     data-placeholder="Select an option">
                                                     <option></option>
                                                     <option value="Diesel"
@@ -854,65 +804,35 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <!--begin::Input group-->
-                                    <div class="fv-row">
-                                        <!--begin::Input-->
-                                        <div class="form-check form-check-custom form-check-solid mb-2">
-                                            <input class="form-check-input" type="checkbox"
-                                                id="kt_ecommerce_add_product_shipping_checkbox" value="1" />
-                                            <label class="form-check-label">Specify weight & height
-                                                dimensions</label>
-                                        </div>
-                                        <!--end::Input-->
-                                        <!--begin::Description-->
-                                        <div class="text-muted fs-7">Set if the vehicle can take some weight
-                                            Physical products may require shipping.</div>
-                                        <!--end::Description-->
-                                    </div>
-                                    <!--end::Input group-->
                                     <!--begin::Shipping form-->
-                                    <div id="kt_ecommerce_add_product_shipping" class="d-none mt-10">
+                                    <div id="kt_ecommerce_add_product_shipping" class="mt-3">
                                         <!--begin::Input group-->
                                         <div class="fv-row">
-                                            <!--begin::Label-->
-                                            <label class="form-label">Weight</label>
-                                            <!--end::Label-->
+
                                             <!--begin::Input-->
                                             <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
-                                                <input type="number" wire:model="width" class="form-control mb-2"
-                                                    placeholder="Vehicle Weight" value="" />
-                                                <input type="number" wire:model="height" class="form-control mb-2"
-                                                    placeholder="Max Load Weight" value="" />
+                                                <input type="number" wire:model="vehicle.weight" class="form-control mb-2"
+                                                    placeholder="Vehicle Weight (KG)" value="" />
+                                                <input type="number" wire:model="vehicle.max_load_weight" class="form-control mb-2"
+                                                    placeholder="Max Load Weight (KG)" value="" />
 
                                             </div>
                                             <!--end::Input-->
-                                            <!--begin::Description-->
-                                            <div class="text-muted fs-7">Enter the product dimensions in
-                                                centimeters
-                                                (cm).</div>
-                                            <!--end::Description-->
+
                                         </div>
                                         <!--end::Input group-->
                                         <!--begin::Input group-->
                                         <div class="fv-row mt-5">
-                                            <!--begin::Label-->
-                                            <label class="form-label">Dimension</label>
-                                            <!--end::Label-->
                                             <!--begin::Input-->
                                             <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
-                                                <input type="number" wire:model="width" class="form-control mb-2"
-                                                    placeholder="Width (w)" value="" />
-                                                <input type="number" wire:model="height" class="form-control mb-2"
-                                                    placeholder="Height (h)" value="" />
-                                                <input type="number" wire:model="length" class="form-control mb-2"
-                                                    placeholder="Lengtn (l)" value="" />
+                                                <input type="number" wire:model="vehicle.width" class="form-control mb-2"
+                                                    placeholder="Width (M)" value="" />
+                                                <input type="number" wire:model="vehicle.height" class="form-control mb-2"
+                                                    placeholder="Height (M)" value="" />
+                                                <input type="number" wire:model="vehicle.length" class="form-control mb-2"
+                                                    placeholder="Length (M)" value="" />
                                             </div>
                                             <!--end::Input-->
-                                            <!--begin::Description-->
-                                            <div class="text-muted fs-7">Enter the product dimensions in
-                                                centimeters
-                                                (cm).</div>
-                                            <!--end::Description-->
                                         </div>
                                         <!--end::Input group-->
                                     </div>
@@ -948,9 +868,11 @@
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
-                                                <h2>Vehicle Owners Documents
-                                                    <small>{{ $this->vehicle['owners_documents'] ? 'Uploaded' : 'Unavailable' }}</small>
+                                                <h2>Vehicle Owners Documents &nbsp;
                                                 </h2>
+                                                @if ($this->vehicle['owners_documents'])
+                                                <a href="{{asset('storage/vehicles/'.$this->vehicle['owners_documents'])}}"> <small>View</small> </a>
+                                                @endif
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -969,16 +891,16 @@
                                                         </i>
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
-                                                        <input type="file" wire:model="documents.owners_documents"
+                                                        <input type="file" wire:model="owners_documents"
                                                             id="" class="form-control">
-                                                            <div wire:loading.remove wire:target="documents.owners_documents" class="ms-4">
+                                                            <div wire:loading.remove wire:target="owners_documents" class="ms-4">
                                                                 <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
                                                                     or
                                                                     click
                                                                     to upload.</h3>
 
                                                             </div>
-                                                            <div wire:loading wire:target="documents.owners_documents" class="ms-4">
+                                                            <div wire:loading wire:target="owners_documents" class="ms-4">
                                                                 <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
                                                             </div>
                                                         <!--end::Info-->
@@ -987,9 +909,6 @@
                                                 <!--end::Dropzone-->
                                             </div>
                                             <!--end::Input group-->
-                                            <!--begin::Description-->
-                                            <div class="text-muted fs-7">Add owners documents.</div>
-                                            <!--end::Description-->
                                         </div>
                                         <!--end::Card header-->
                                     </div>
@@ -1000,8 +919,10 @@
                                         <div class="card-header">
                                             <div class="card-title">
                                                 <h2>Road Worthy Documents
-                                                    <small>{{ $this->vehicle['road_worth_documents'] ? 'Uploaded' : 'Unavailable' }}</small>
-                                                </h2>
+                                                </h2> &nbsp;
+                                                @if ($this->vehicle['road_worth_documents'])
+                                                <a href="{{asset('storage/vehicles/'.$this->vehicle['road_worth_documents'])}}"> <small>View</small> </a>
+                                                @endif
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -1023,14 +944,14 @@
                                                         <input type="file"
                                                             wire:model="documents.road_worth_documents" id=""
                                                             class="form-control">
-                                                            <div wire:loading.remove wire:target="documents.road_worth_documents" class="ms-4">
+                                                            <div wire:loading.remove wire:target="road_worth_documents" class="ms-4">
                                                                 <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
                                                                     or
                                                                     click
                                                                     to upload.</h3>
 
                                                             </div>
-                                                            <div wire:loading wire:target="documents.road_worth_documents" class="ms-4">
+                                                            <div wire:loading wire:target="road_worth_documents" class="ms-4">
                                                                 <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
                                                             </div>
                                                         <!--end::Info-->
@@ -1039,9 +960,7 @@
                                                 <!--end::Dropzone-->
                                             </div>
                                             <!--end::Input group-->
-                                            <!--begin::Description-->
-                                            <div class="text-muted fs-7">Set the product media gallery.</div>
-                                            <!--end::Description-->
+
                                         </div>
                                         <!--end::Card header-->
                                     </div>
@@ -1052,8 +971,10 @@
                                         <div class="card-header">
                                             <div class="card-title">
                                                 <h2>Insurance Documents
-                                                    <small>{{ $this->vehicle['insurance_documents'] ? 'Uploaded' : 'Unavailable' }}</small>
-                                                </h2>
+                                                </h2> &nbsp;
+                                                @if ($this->vehicle['insurance_documents'])
+                                                <a href="{{asset('storage/vehicles/'.$this->vehicle['insurance_documents'])}}"> <small>View</small> </a>
+                                                @endif
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -1072,16 +993,16 @@
                                                         </i>
                                                         <!--end::Icon-->
                                                         <!--begin::Info-->
-                                                        <input type="file" wire:model="documents.insurance"
+                                                        <input type="file" wire:model="insurance_documents"
                                                             id="" class="form-control">
-                                                        <div wire:loading.remove wire:target="documents.insurance" class="ms-4">
+                                                        <div wire:loading.remove wire:target="insurance_documents" class="ms-4">
                                                             <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
                                                                 or
                                                                 click
                                                                 to upload.</h3>
 
                                                         </div>
-                                                        <div wire:loading wire:target="documents.insurance" class="ms-4">
+                                                        <div wire:loading wire:target="insurance_documents" class="ms-4">
                                                             <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
                                                         </div>
 
@@ -1092,9 +1013,7 @@
                                                 <!--end::Dropzone-->
                                             </div>
                                             <!--end::Input group-->
-                                            <!--begin::Description-->
-                                            <div class="text-muted fs-7">Set the product media gallery.</div>
-                                            <!--end::Description-->
+
                                         </div>
                                         <!--end::Card header-->
                                     </div>

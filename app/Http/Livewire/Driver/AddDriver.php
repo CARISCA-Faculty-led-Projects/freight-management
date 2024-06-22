@@ -48,12 +48,14 @@ class AddDriver extends Component
     public function general()
     {
         $validated = Validator::make($this->driver, [
-            'email' => 'required',
+            'email' => 'required|email|unique:drivers',
             'name' => 'required',
             'license_image' => 'required|mimes:png,jpg,jpeg,pdf',
             'image' => 'required|mimes:png,jpg,jpeg',
             'load_type' => 'array'
         ])->validate();
+
+        $pass = Str::random(8);
 
         $imagename = uniqid() . '.' . $this->driver['image']->getClientOriginalExtension();
         $this->driver['image']->storeAs('logos', $imagename, 'real_public');
@@ -65,7 +67,10 @@ class AddDriver extends Component
         $this->driver['license_image'] = $license;
         $this->driver['mask'] = Str::orderedUuid();
         $this->driver['organization_id'] = whichUser()->mask;
-        $this->driver['password'] = Hash::make($this->driver['password']);
+        $this->driver['password'] = Hash::make($pass);
+
+        $creds = (object)['email' => $this->driver['email'], 'password' => $pass];
+        sendAccCredentials($creds);
 
         $driverid = DB::table('drivers')->insertGetId($this->driver);
 

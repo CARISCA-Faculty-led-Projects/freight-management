@@ -104,21 +104,21 @@ class UpdateOrganization extends Component
         }
 
         if (is_file($this->image)) {
-            $org_image = uniqid() . '.' . $this->image->getClientOriginalExtension();
-            $this->image->storeAs('logos', $org_image, 'real_public');
-            $this->org['image'] = $org_image;
+            $image = uniqid() . '.' . $this->image->getClientOriginalExtension();
+            $this->image->storeAs('logos', $image, 'real_public');
+            $this->org['image'] = $image;
         }
 
         if (is_file($this->org['insurance_docs'])) {
-            $org_image = uniqid() . '.' . $this->org['insurance_docs']->getClientOriginalExtension();
-            $this->org['insurance_docs']->storeAs('org_insurance', $org_image, 'real_public');
-            $this->org['insurance_docs'] = $org_image;
+            $ins = uniqid() . '.' . $this->org['insurance_docs']->getClientOriginalExtension();
+            $this->org['insurance_docs']->storeAs('org_insurance', $ins, 'real_public');
+            $this->org['insurance_docs'] = $ins;
         }
 
         if (is_file($this->org['registration_docs'])) {
-            $org_image = uniqid() . '.' . $this->org['registration_docs']->getClientOriginalExtension();
-            $this->org['registration_docs']->storeAs('org_registration', $org_image, 'real_public');
-            $this->org['registration_docs'] = $org_image;
+            $regs = uniqid() . '.' . $this->org['registration_docs']->getClientOriginalExtension();
+            $this->org['registration_docs']->storeAs('org_registration', $regs, 'real_public');
+            $this->org['registration_docs'] = $regs;
         }
 
 

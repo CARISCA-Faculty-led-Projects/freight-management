@@ -37,7 +37,10 @@ class UpdateVehicle extends Component
     public $driver_details;
 
     public $vehicle_id;
-    public $documents;
+    public $owners_documents;
+    public $road_worth_documents;
+    public $insurance_documents;
+    public $drivers;
     // public $owner_name;
     // public $owner_email;
     // public $owner_phone;
@@ -94,6 +97,15 @@ class UpdateVehicle extends Component
     {
         DB::table('vehicle_owners')->where('vehicle_id', $this->vehicle['mask'])->where('id', $this->owner['id'])->update($this->owner);
 
+        DB::table('vehicles')->where('mask', $this->vehicle['mask'])->update([
+            'weight' => $this->vehicle['weight'],
+            'height' => $this->vehicle['height'],
+            'width' => $this->vehicle['width'],
+            'length' => $this->vehicle['length'],
+            'max_load_weight' => $this->vehicle['max_load_weight'],
+        ]);
+
+
         foreach ($this->veh_routes as $route) {
             if (array_key_exists('id', $route)) {
                 DB::table('vehicle_routes')->where('vehicle_id', $this->vehicle['mask'])->where('id', $route['id'])->update([
@@ -115,24 +127,26 @@ class UpdateVehicle extends Component
 
     public function documents()
     {
-        if(is_file($this->vehicle['owners_documents'])){
-            $owners = uniqid() . '.' . $this->vehicle['owners_documents']->getClientOriginalExtension();
-            $this->vehicle['owners_documents']->storeAs('vehicles', $owners, 'real_public');
+        if(is_file($this->owners_documents)){
+            unlink('storage/vehicles/'.$this->vehicle['owners_documents']);
+            $owners = uniqid() . '.' . $this->owners_documents->getClientOriginalExtension();
+            $this->owners_documents->storeAs('vehicles', $owners, 'real_public');
             $this->vehicle['owners_documents'] = $owners;
         }
 
-        if(is_file($this->vehicle['road_worth_documents'])){
-            $roadworth = uniqid() . '.' . $this->vehicle['road_worth_documents']->getClientOriginalExtension();
-            $this->vehicle['road_worth_documents']->storeAs('vehicles', $roadworth, 'real_public');
-            $this->vehicle['road_worth_documents'] = $owners;
+        if(is_file($this->road_worth_documents)){
+            unlink('storage/vehicles/'.$this->vehicle['road_worth_documents']);
+            $roadworth = uniqid() . '.' . $this->road_worth_documents->getClientOriginalExtension();
+            $this->road_worth_documents->storeAs('vehicles', $roadworth, 'real_public');
+            $this->vehicle['road_worth_documents'] = $roadworth;
         }
 
-        if(is_file($this->vehicle['insurance_documents'])){
-            $insurance = uniqid() . '.' . $this->vehicle['insurance_documents']->getClientOriginalExtension();
-            $this->vehicle['insurance_documents']->storeAs('vehicles', $insurance, 'real_public');
+        if(is_file($this->insurance_documents)){
+            unlink('storage/vehicles/'.$this->vehicle['insurance_documents']);
+            $insurance = uniqid() . '.' . $this->insurance_documents->getClientOriginalExtension();
+            $this->insurance_documents->storeAs('vehicles', $insurance, 'real_public');
             $this->vehicle['insurance_documents'] = $insurance;
         }
-
 
         DB::table('vehicles')->where('mask', $this->vehicle['mask'])->update([
             'owners_documents' => $this->vehicle['owners_documents'],
@@ -166,9 +180,18 @@ class UpdateVehicle extends Component
         return DB::table('load_types')->get(['id', 'name']);
     }
 
+    public function drivers(){
+        return DB::table('drivers')->where('organization_id',$this->vehicle['organization_id'])->get();
+
+    }
+
     public function mount($mask)
     {
         $vehicle = DB::table('vehicles')->where('mask', $mask)->first();
+
+        $assigned_vehicles = DB::table('vehicles')->where('organization_id',$vehicle->organization_id)->pluck('driver_id')->toArray();
+
+        // dd($drivers);
 
         $vroutes = DB::table('vehicle_routes')->where('vehicle_id', $vehicle->mask)->get();
         for ($a = 0; $a < count($vroutes); $a++) {

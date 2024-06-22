@@ -1,4 +1,4 @@
-<div class="">
+<div class="" >
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -379,19 +379,9 @@
                                 <label class="form-label">Pickup Address</label> <span
                                     class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
                                 <!--end::Label-->
-                                <!--begin::Input-->
-                                <input type="text" wire:model.change="search_pickup" id=""
-                                    class="form-control">
                                 <!--begin::Menu toggle-->
-                                <select wire:model="pickup_address" id="" class="form-control mt-2">
+                                <select wire:model="load.pickup_address" id="pickup_address" class="form-control mt-2">
                                     <option value="">--select location--</option>
-                                    @if ($this->pickup_list != [])
-
-                                        @foreach ($this->pickup_list as $pickup)
-                                            <option value="{{ $pickup['place_id'] }}">{{ $pickup['description'] }}
-                                            </option>
-                                        @endforeach
-                                    @endif
                                 </select>
                                 <!--end::Input-->
 
@@ -403,16 +393,9 @@
                                 <label class="form-label">Dropoff Address</label> <span
                                     class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
                                 <!--end::Label-->
-                                <!--begin::Input-->
-                                <input type="text" wire:model.change="search_dropoff" id=""
-                                    class="form-control">
 
-                                <select wire:model="dropoff_address" id="" class="form-control mt-2">
+                                <select wire:model="load.dropoff_address" id="dropoff_address" class="form-control mt-2">
                                     <option value="">--select location--</option>
-                                    @foreach ($this->dropoff_list as $dropoff)
-                                        <option value="{{ $dropoff['place_id'] }}">{{ $dropoff['description'] }}
-                                        </option>
-                                    @endforeach
                                 </select>
                                 <!--end::Card body-->
                                 <!--end::Input-->
@@ -652,4 +635,64 @@
         </i>
     </div>
     <!--end::Scrolltop-->
+    <style>
+        .select2-container {
+            width: 105% !important;
+        }
+    </style>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(e) {
+  console.log("Example page has loaded!");
+});
+        $('document').ready(function() {
+            $('#pickup_address').select2({
+                ajax: {
+                    url: 'api/location/search',
+                    data: function(params) {
+                        var query = {
+                            search: params.term
+                        }
+                        return query;
+                    },
+                    processResults: function(data) {
+                        var results = [];
+                        data.forEach(element => {
+                            results.push({
+                                id: element.place_id,
+                                text: element.description
+                            });
+                        });
+                        return {
+                            results: results
+                        };
+                    }
+                }
+            });
+
+            $('#dropoff_address').select2({
+                ajax: {
+                    url: 'api/location/search',
+                    data: function(params) {
+                        var query = {
+                            search: params.term
+                        }
+                        return query;
+                    },
+                    processResults: function(data) {
+                        var results = [];
+                        data.forEach(element => {
+                            results.push({
+                                id: element.place_id,
+                                text: element.description
+                            });
+                        });
+                        return {
+                            results: results
+                        };
+                    }
+                }
+            });
+        })
+    </script>
 </div>

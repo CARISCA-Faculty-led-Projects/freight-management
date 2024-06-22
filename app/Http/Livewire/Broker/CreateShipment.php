@@ -65,7 +65,7 @@ class CreateShipment extends Component
 
     public function create_shipment()
     {
-        // dd($this->pickup_address);
+        dd($this->pickup_address);
         if ($this->no_driver == "true") {
             // Validator::make([$this->pickup_address, $this->dropoff_address], [
             //     'pickup_address' => 'required',

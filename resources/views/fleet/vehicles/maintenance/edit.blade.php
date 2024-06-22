@@ -53,7 +53,7 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('status') ? 'border-danger' : ''}} form-select-solid" data-control="select2" data-hide-search="true"
+                            <select class="form-select {{$errors->has('status') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
                                 data-placeholder="Select status" name="status" required>
                                 <option value=""></option>
                                 <option value="Scheduled" {{$log->status == "Scheduled" ? "selected" : ''}} >Scheduled</option>
@@ -81,7 +81,7 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('task') ? 'border-danger' : ''}} form-select-solid" data-control="select2" data-hide-search="true"
+                            <select class="form-select {{$errors->has('task') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
                                 data-placeholder="Select a task" name="task" required>
                                 <option value="">--select--</option>
                                 @foreach ($tasks as $task)
@@ -109,7 +109,7 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('provider') ? 'border-danger' : ''}} form-select-solid" data-control="select2" data-hide-search="true"
+                            <select class="form-select {{$errors->has('provider') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
                                 data-placeholder="Select a service provider" name="provider" required>
                                 <option value="">--select--</option>
                                 <option value="Craftman Mechanics">Craftman Mechanics</option>
@@ -136,7 +136,7 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('frequency') ? 'border-danger' : ''}} form-select-solid" data-control="select2" data-hide-search="true"
+                            <select class="form-select {{$errors->has('frequency') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
                                 data-placeholder="Select an frequency" name="frequency" required>
                                 <option value="">Unplanned</option>
                                 <option value="1 week" {{$log->frequency == '1 week' ? "selected" : ''}}>Every week</option>

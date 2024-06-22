@@ -34,38 +34,13 @@ function generateNumber()
 
 function whichUser()
 {
-    // dd(Auth::user());
-
     $guards = array_keys(config('auth.guards'));
-    // dd(Auth::user()->mask);
-    // if(Auth::user()){
-
-    // }
         if (session('guard') != null && session('user_id') != null) {
             $level = Auth::guard(session('guard'))->user();
             return $level;
         } else {
             return Auth::user();
         }
-
-    // foreach ($guards as $guard) {
-    //     if (session('guard') != null && session('user_id') != null) {
-    //         $level = DB::table($guard != 'web' ? $guard : "users")->where('mask', session('user_id'))->first();
-    //         dd($level);
-    //         return $level;
-    //     } else if (Auth::guard($guard)->check()) {
-    //         return Auth::guard($guard)->user();
-    //     }
-    // }
-    // $user = session('user_id') == null ? Auth::user()->mask : session('user_id');
-    // $guard = 'web';
-
-    // if (auth()->guard()->name != "web") {
-    //     $guard = auth()->guard()->name;
-    // }
-
-    // $level = DB::table($guard != 'web' ? $guard : "users")->where('mask', $user)->first();
-    // return $level;
 }
 
 function lookupLocation($location)

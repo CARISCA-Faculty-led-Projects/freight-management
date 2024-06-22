@@ -26,18 +26,20 @@ class BrokersController extends Controller
 
     public function store(Request $request)
     {
-        Validator::make($request->all(), ['name' => 'required', 'email' => 'required|email', 'phone' => 'required', 'password' => 'required', 'confirm_password' => 'required|same:password'])->validate();
+        Validator::make($request->all(), ['name' => 'required', 'email' => 'required|email|unique:brokers', 'phone' => 'required',])->validate();
 
+        $password = Str::random(8);
         $request['password'] = Hash::make($request->password);
         $request['created_at'] = Carbon::now()->toDateTimeString();
         $request['mask'] = Str::orderedUuid();
         $request['organisation_id'] = whichUser()->mask;
+        $request['password'] = $password;
 
-        DB::table('brokers')->insert($request->except(['_token', 'confirm_password']));
-        $creds = (object)['email' => $request->email, 'password' => $request->confirm_password];
+        DB::table('brokers')->insert($request->except(['_token']));
+        $creds = (object)['email' => $request->email, 'password' => $password];
         sendAccCredentials($creds);
 
-        return redirect(route('broker.list'))->with('success', 'Account created!');
+        return redirect(route('org.broker.list'))->with('success', 'Account created!');
     }
 
     public function add()
@@ -49,14 +51,14 @@ class BrokersController extends Controller
     {
         $broker = DB::table('brokers')->where('mask', $broker)->first();
 
-        return view('brokers.edit', compact('broker'));
+        return view('brokers.update', compact('broker'));
     }
 
     public function saveUpdate(Request $request, $broker)
     {
         DB::table('brokers')->where('mask', $broker)->update(['name' => $request->name, 'phone' => $request->phone, 'email' => $request->email]);
 
-        return redirect(route('broker.list'))->with('success', "Broker details updated!");
+        return redirect(route('org.broker.list'))->with('success', "Broker details updated!");
     }
 
 
@@ -65,7 +67,7 @@ class BrokersController extends Controller
 
         DB::table('brokers')->where('organisation_id', whichUser()->mask)->where('mask', $broker)->delete();
 
-        return redirect(route('broker.list'))->with('success', 'Account created!');
+        return redirect(route('org.broker.list'))->with('success', 'Account deleted!');
     }
 
     public function show($broker)
@@ -76,7 +78,6 @@ class BrokersController extends Controller
     }
 
     public function loginAs(Request $request,$broker){
-        // dd(Auth::user()->mask);
         $request->session()->put('old_user_id',Auth::user()->mask );
         $request->session()->put('old_guard', auth()->guard()->name );
         $request->session()->put('user_id', $broker);

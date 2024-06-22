@@ -4,7 +4,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
             <!--begin::Toolbar container-->
-            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
@@ -45,7 +45,7 @@
         </div>
         <!--begin::Content container-->
         <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-xxl">
+        <div id="kt_app_content_container" class="app-container container-fluid">
             <!--begin::Products-->
             <div class="card card-flush">
                 <!--begin::Card header-->
@@ -58,7 +58,7 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-ecommerce-order-filter="search"
+                            <input type="text" data-kt-ecommerce-order-filter="search" id="loadSearch"
                                 class="form-control form-control-solid w-250px ps-12" placeholder="Search Load" />
                         </div>
                         <!--end::Search-->
@@ -67,38 +67,8 @@
                     <!--begin::Card toolbar-->
                     <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                         <!--begin::Flatpickr-->
-                        <div class="input-group w-250px">
-                            <input class="form-control form-control-solid rounded rounded-end-0"
-                                placeholder="Pick date range" id="kt_ecommerce_sales_flatpickr" />
-                            <button class="btn btn-icon btn-light" id="kt_ecommerce_sales_flatpickr_clear">
-                                <i class="ki-duotone ki-cross fs-2">
-                                    <span class="path1"></span>
-                                    <span class="path2"></span>
-                                </i>
-                            </button>
-                        </div>
-                        <!--end::Flatpickr-->
-                        <div class="w-100 mw-150px">
-                            <!--begin::Select2-->
-                            <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
-                                data-placeholder="Status" data-kt-ecommerce-order-filter="status">
-                                <option></option>
-                                <option value="all">All</option>
-                                <option value="Cancelled">Cancelled</option>
-                                <option value="Completed">Completed</option>
-                                <option value="Denied">Denied</option>
-                                <option value="Expired">Expired</option>
-                                <option value="Failed">Failed</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Processing">Processing</option>
-                                <option value="Refunded">Refunded</option>
-                                <option value="Delivered">Delivered</option>
-                                <option value="Delivering">Delivering</option>
-                            </select>
-                            <!--end::Select2-->
-                        </div>
                         <!--begin::Add product-->
-                        <a href="/load/add" class="btn btn-primary">Add Load</a>
+                        <a href="{{route('org.load.add')}}" class="btn btn-primary">Add Load</a>
                         <!--end::Add product-->
                     </div>
                     <!--end::Card toolbar-->
@@ -173,14 +143,14 @@
                                         <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
                                             {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
                                     </td>
-                                    <td class="text-end">{{ $load->pickup_address }}</td>
-                                    <td class="text-end">{{ $load->dropoff_address }}</td>
+                                    <td class="text-end">{{ json_decode($load->pickup_address)->name }}</td>
+                                    <td class="text-end">{{ json_decode($load->dropoff_address)->name }}</td>
                                     <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                         @php
                                             $handling = explode(',', $load->handling);
                                         @endphp
                                         @foreach ($handling as $item)
-                                            <span class="badge badge-dark">{{ $item }}</span>
+                                            <span class="badge badge-dark ms-1 me-1">{{ $item }}</span>
                                         @endforeach
                                     </td>
                                     <td class="text-end">

@@ -39,26 +39,15 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Secondary button-->
-                    <a href="/shipments/list"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                        Shipments</a>
-                    <!--end::Secondary button-->
-                    <!--begin::Primary button-->
-                    <a href="/load/invoices/edit" class="btn btn-sm fw-bold btn-primary">Edit Invoice</a>
-                    <!--end::Primary button-->
-                </div>
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
             <!--begin::Content container-->
         </div>
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form wire:submit.prevent="general" id="kt_ecommerce_add_category_form"
-                class="form d-flex flex-column flex-lg-row">
+            <form wire:submit.prevent="general" id="kt_ecommerce_add_category_form" method="POST"
+                class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
+                @csrf
                 <!--begin::Aside column-->
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                     <!--begin::Thumbnail settings-->
@@ -90,13 +79,9 @@
                             <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                 data-kt-image-input="true">
                                 <!--begin::Preview existing avatar-->
-                                @if ($image)
-                                    <div class="">
-                                        <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
-                                    </div>
-                                @else
-                                    <div class="image-input-wrapper w-150px h-150px"></div>
-                                @endif
+
+                                <div class="image-input-wrapper w-150px h-150px"></div>
+
                                 <!--end::Preview existing avatar-->
                                 <!--begin::Label-->
                                 <label
@@ -109,7 +94,7 @@
                                     </i>
                                     <!--end::Icon-->
                                     <!--begin::Inputs-->
-                                    <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" name="image" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="" />
                                     <!--end::Inputs-->
                                 </label>
@@ -139,8 +124,10 @@
                             <!--begin::Description-->
                             <div class="text-muted fs-7">Set the load image. Only *.png, *.jpg and
                                 *.jpeg image files are accepted</div>
-                                <!--end::Description-->
-                                @error('image')<span class="text-danger">{{$message}}</span>@enderror
+                            <!--end::Description-->
+                            @error('image')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <!--end::Card body-->
                     </div>
@@ -151,7 +138,7 @@
                         <div class="card-header">
                             <!--begin::Card title-->
                             <div class="card-title">
-                                <h2>Approval Status</h2>
+                                <h2>Status</h2>
                             </div>
                             <!--end::Card title-->
                             <!--begin::Card toolbar-->
@@ -166,15 +153,16 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" data-control="select2" data-hide-search="true"
-                                data-placeholder="Select an option" wire:model="load.status"
-                                id="kt_ecommerce_add_category_status_select">
+                            <select class="form-select mb-2" data-hide-search="true" data-placeholder="Select an option"
+                                wire:model="load.status" id="kt_ecommerce_add_category_status_select">
                                 <option>--select--</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Approved">Approved</option>
+                                <option value="Draft">Draft</option>
+                                <option value="Completed">Completed</option>
                             </select>
                             <!--end::Select2-->
-                            @error('status')<span class="text-danger">{{$message}}</span>@enderror
+                            @error('status')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
 
                             <!--begin::Description-->
                             <div class="text-muted fs-7">Set the approval status.</div>
@@ -211,7 +199,9 @@
                                 @endforeach
                             </select>
                             <!--end::Select2-->
-                            @error('load_type')<span class="text-danger">{{$message}}</span>@enderror
+                            @error('load_type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                             <!--begin::Description-->
                             <div class="text-muted fs-7">Assign a template from your current theme
                                 to define how the category products are displayed.</div>
@@ -241,12 +231,12 @@
                                 <label class="required form-label">Sender</label>
                                 <!--end::Label-->
                                 <!--begin::Select2-->
-                                <select class="form-select mb-2" wire:model="load.sender_id" data-control="select2"
+                                <select class="form-select mb-2 js-example-basic-single w-200" wire:model="load.sender_id"
                                     data-hide-search="true" data-placeholder="Select a sender"
                                     id="kt_ecommerce_add_category_store_template">
                                     <option>--select--</option>
                                     @foreach ($this->senders() as $sender)
-                                    <option value="{{$sender->mask}}">{{$sender->name}}</option>
+                                        <option value="{{ $sender->mask }}">{{ $sender->name }}</option>
                                     @endforeach
                                 </select>
                                 <!--end::Select2-->
@@ -264,8 +254,7 @@
                                 <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea wire:model="load.description" class="min-h-200px mb-2 form-control" id="" cols="30"
-                                    rows="10"></textarea>
+                                <textarea wire:model="load.description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -431,15 +420,16 @@
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->
-                        <div class="card-body pt-0">
+                        <div class="d-flex card-body pt-0 justify-content-between">
                             <!--begin::Input group-->
-                            <div class="mb-10">
+                            <div class="mb-10 col-lg-5">
                                 <!--begin::Label-->
                                 <label class="form-label">Pickup Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control mb-2" wire:model="load.pickup_address"
-                                    placeholder="eg. 1 Container" />
+                                <select wire:model="load.pickup_address" class="form-control js-example-basic-single" id="pickup_address">
+                                    <option value="">--select--</option>
+                                </select>
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a pickup address. This is where
@@ -448,13 +438,16 @@
                             </div>
                             <!--end::Input group-->
                             <!--begin::Input group-->
-                            <div class="mb-10">
+                            <div class="mb-10 col-lg-5">
                                 <!--begin::Label-->
                                 <label class="form-label">Drop-off Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="text" class="form-control mb-2" wire:model="load.dropoff_address"
-                                    placeholder="eg. 1 Container" />
+                                <select wire:model="load.dropoff_address" class="form-control" id="dropoff_address">
+                                    <option value="">--select--</option>
+                                </select>
+                                {{-- <input type="text" class="form-control mb-2" wire:model="dropoff_address"
+                                    placeholder="eg. 1 Container" /> --}}
                                 <!--end::Input-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a shipping address. This is where
@@ -514,29 +507,30 @@
                                                     <!--begin::Select2-->
                                                     <!--begin::Input-->
                                                     <input type="text" class="form-control mw-100 w-200px"
-                                                        wire:model="subload.{{ $i }}.name"
+                                                        wire:model="load.subload.{{ $i }}.name"
                                                         placeholder="Item Name" />
                                                     <!--end::Input-->
                                                     <div class="w-100 w-md-200px">
                                                         <select class="form-select"
-                                                            wire:model="subload.{{ $i }}.load_type"
+                                                            wire:model="load.subload.{{ $i }}.load_type"
                                                             data-placeholder="Select an option"
                                                             data-kt-ecommerce-catalog-add-category="condition_type">
                                                             <option value="">--select category--</option>
                                                             @foreach ($this->loads() as $load)
-                                                            <option value="{{$load->name}}" selected="selected">{{$load->name}}</option>
+                                                                <option value="{{ $load->name }}"
+                                                                    selected="selected">{{ $load->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <!--end::Select2-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-100px"
-                                                        wire:model="subload.{{ $i }}.quantity"
+                                                        wire:model="load.subload.{{ $i }}.quantity"
                                                         placeholder="Quantity" />
                                                     <!--end::Input-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-200px"
-                                                        wire:model="subload.{{ $i }}.value"
+                                                        wire:model="load.subload.{{ $i }}.value"
                                                         placeholder="Value eg. 120.00" />
                                                     <!--end::Input-->
                                                     <!--begin::Button-->
@@ -606,7 +600,9 @@
                                         <!--end::Info-->
                                     </div>
                                 </div>
-                                @error('insurance_docs')<span class="text-danger">{{$message}}</span>@enderror
+                                @error('insurance_docs')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
                                 <!--end::Dropzone-->
                             </div>
                             <!--end::Input group-->
@@ -642,8 +638,7 @@
                                         </i>
                                         <!--end::Icon-->
                                         <!--begin::Info-->
-                                        <input type="file" wire:model="load.other_docs" class="form-control"
-                                            id="">
+                                        <input type="file" wire:model="load.other_docs" class="form-control" id="">
                                         <div class="ms-4">
                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files
                                                 here or click
@@ -652,7 +647,9 @@
                                         <!--end::Info-->
                                     </div>
                                 </div>
-                                @error('other_docs')<span class="text-danger">{{$message}}</span>@enderror
+                                @error('other_docs')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
 
                                 <!--end::Dropzone-->
                             </div>
@@ -693,4 +690,61 @@
         </i>
     </div>
     <!--end::Scrolltop-->
+    <style>
+        .select2-container {
+            width: 105% !important;
+        }
+    </style>
+
+    <script>
+        $('document').ready(function() {
+            $('#pickup_address').select2({
+                ajax: {
+                    url: 'api/location/search',
+                    data: function(params) {
+                        var query = {
+                            search: params.term
+                        }
+                        return query;
+                    },
+                    processResults: function(data) {
+                        var results = [];
+                        data.forEach(element => {
+                            results.push({
+                                id: element.place_id,
+                                text: element.description
+                            });
+                        });
+                        return {
+                            results: results
+                        };
+                    }
+                }
+            });
+
+            $('#dropoff_address').select2({
+                ajax: {
+                    url: 'api/location/search',
+                    data: function(params) {
+                        var query = {
+                            search: params.term
+                        }
+                        return query;
+                    },
+                    processResults: function(data) {
+                        var results = [];
+                        data.forEach(element => {
+                            results.push({
+                                id: element.place_id,
+                                text: element.description
+                            });
+                        });
+                        return {
+                            results: results
+                        };
+                    }
+                }
+            });
+        })
+    </script>
 </div>
