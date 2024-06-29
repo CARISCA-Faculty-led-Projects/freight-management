@@ -17,8 +17,11 @@ const app = createApp({});
 
 import ExampleComponent from './components/ExampleComponent.vue';
 import OrgAddLoadComponent from './components/OrgAddLoadComponent.vue';
+import ChatViewComponent from './components/ChatViewComponent.vue';
+
 app.component('example-component', ExampleComponent);
 app.component('org-add-load', OrgAddLoadComponent);
+app.component('chat-view-component',ChatViewComponent);
 
 /**
  * The following block of code may be used to automatically register your

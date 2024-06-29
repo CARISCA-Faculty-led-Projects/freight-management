@@ -27,7 +27,6 @@
 <script src="{{ asset('assets/js/custom/utilities/modals/upgrade-plan.js') }}"></script>
 <script src="{{ asset('assets/js/custom/utilities/modals/create-campaign.js') }}"></script>
 <script src="{{ asset('assets/js/custom/utilities/modals/bidding.js') }}"></script>
-<script src="{{ asset('assets/js/custom/utilities/modals/users-search.js') }}"></script>
 <script src="{{ asset('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js') }}"></script>
 <script src="{{ asset('assets/js/custom/apps/calendar/calendar.js') }}"></script>
 <!--begin::Vendors Javascript(used for this page only)-->

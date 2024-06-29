@@ -52,6 +52,7 @@
                 <!--begin::Chat-->
                 <div class="d-flex align-items-center ms-2 ms-lg-3">
                     <!--begin::Menu wrapper-->
+                    <a href="{{route('chats')}}">
                     <div class="btn btn-icon btn-active-light-primary position-relative w-35px h-35px w-md-40px h-md-40px"
                         id="kt_drawer_chat_toggle">
                         <i class="ki-duotone ki-message-text-2 fs-1"><span class="path1"></span><span
@@ -60,6 +61,7 @@
                             class="bullet bullet-dot bg-success h-6px w-6px position-absolute translate-middle top-0 start-50 animation-blink">
                         </span>
                     </div>
+                </a>
                     <!--end::Menu wrapper-->
                 </div>
                 <!--end::Chat-->
@@ -752,7 +754,7 @@
                         <!--end::Menu item-->
                         <!--begin::Menu item-->
                         <div class="menu-item px-5">
-                            <a href="/" class="menu-link px-5">
+                            <a href="{{route('chats')}}" class="menu-link px-5">
                                 <span class="menu-text">My Messages</span>
                                 <span class="menu-badge">
                                     <span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>

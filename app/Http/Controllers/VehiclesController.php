@@ -33,6 +33,11 @@ class VehiclesController extends Controller
 
     public function delete($vehicle)
     {
+        $veh = DB::table('vehicles')->where('mask',$vehicle)->first();
+        if($veh->image){
+            unlink('storage/vehicles/'.$veh->image);
+        }
+
         DB::table('vehicles')->where('mask', $vehicle)->delete();
         DB::table('vehicle_routes')->where('vehicle_id', $vehicle)->delete();
         DB::table('vehicle_owners')->where('vehicle_id', $vehicle)->delete();
@@ -70,8 +75,9 @@ class VehiclesController extends Controller
 
     public function add_maintenance($vehicle){
         $tasks = DB::table('maintenance_tasks')->pluck('name')->toArray();
+        $providers = DB::table('maintenance_providers')->get(['id','name']);
 
-        return view('fleet.vehicles.maintenance.add', compact('vehicle','tasks'));
+        return view('fleet.vehicles.maintenance.add', compact('vehicle','tasks','providers'));
     }
 
     public function store_maintenance(Request $request,$vehicle){
@@ -112,9 +118,9 @@ class VehiclesController extends Controller
     public function edit_maintenance($log_id){
         $log = DB::table('maintenance_schedule')->where('id',$log_id)->first();
         $tasks = DB::table('maintenance_tasks')->pluck('name')->toArray();
+        $providers = DB::table('maintenance_providers')->get(['id','name']);
 
-
-        return view('fleet.vehicles.maintenance.edit',compact('log','tasks'));
+        return view('fleet.vehicles.maintenance.edit',compact('log','tasks','providers'));
     }
 
     public function update_maintenance(Request $request,$log_id){
@@ -137,7 +143,7 @@ class VehiclesController extends Controller
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
-        return redirect(route('vehicle.maintenance_list',$request->mask))->with('success','Schedule added');
+        return redirect(route('vehicle.maintenance_list',$request->vehicle_id))->with('success','Schedule added');
     }
 
     public function delete_maintenance($log){

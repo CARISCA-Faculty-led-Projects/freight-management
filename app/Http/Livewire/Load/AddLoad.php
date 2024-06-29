@@ -56,7 +56,6 @@ class AddLoad extends Component
 
     public function general()
     {
-        dd($this->load);
 
         $this->load['image'] = $this->image;
         $validated = Validator::make($this->load, [
@@ -66,7 +65,7 @@ class AddLoad extends Component
             'breadth' => 'required|numeric',
             'insurance_docs' => 'required|mimes:pdf,docx,doc',
             'image' => 'required|mimes:png,jpg,jpeg',
-            'other_docs' => 'required|mimes:pdf,docx,doc',
+            // 'other_docs' => 'required|mimes:pdf,docx,doc',
             'handling' => 'required'
         ])->validate();
 

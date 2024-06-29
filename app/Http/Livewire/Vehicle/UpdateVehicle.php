@@ -78,7 +78,8 @@ class UpdateVehicle extends Component
 
     public function general()
     {
-        if (is_file($this->vehicle['image'])) {
+        if (is_file($this->image)) {
+            unlink('storage/vehicles/'.$this->vehicle['image']);
             $imagename = uniqid() . '.' . $this->vehicle['image']->getClientOriginalExtension();
             $this->image->storeAs('vehicles', $imagename, 'real_public');
             $this->vehicle['image'] = $imagename;
@@ -87,7 +88,7 @@ class UpdateVehicle extends Component
         if ($this->load_type != []) {
             $this->vehicle['load_type'] = json_encode($this->load_type);
         }
-
+// dd($this->vehicle);
         DB::table('vehicles')->where('mask', $this->vehicle['mask'])->update($this->vehicle);
 
         $this->activate('others');

@@ -32,15 +32,20 @@ function generateNumber()
     return $code;
 }
 
-function whichUser()
+function whichUser($guard = null)
 {
-    $guards = array_keys(config('auth.guards'));
+    if ($guard) {
+        $level = Auth::guard($guard)->user();
+        return $level;
+    } else {
+        $guards = array_keys(config('auth.guards'));
         if (session('guard') != null && session('user_id') != null) {
             $level = Auth::guard(session('guard'))->user();
             return $level;
         } else {
             return Auth::user();
         }
+    }
 }
 
 function lookupLocation($location)
@@ -58,7 +63,7 @@ function lookupLocation($location)
 function getPlaceCoordinates($place)
 {
     $location = [
-        'name'=> null,
+        'name' => null,
         'location' => null
     ];
 
@@ -70,28 +75,29 @@ function getPlaceCoordinates($place)
     } catch (Exception $e) {
         // return ['data'=>['status'=>'error','gateway_response'=>"Transaction not found"]];
         dd("No internet connection");
-
     }
 }
 
 function sendMail($subject, $email, $msg)
 {
-    Mail::send('emails.general', ["msg" => $msg], function ($message) use ($email,$subject) {
+    Mail::send('emails.general', ["msg" => $msg], function ($message) use ($email, $subject) {
         $message->to($email)->subject($subject)->from(env('MAIL_FROM_ADDRESS'), "CARISCA");
     });
 }
 
-function sendAdminMessage($subject, $msg){
+function sendAdminMessage($subject, $msg)
+{
     $users = DB::table('users')->get(['email']);
-    foreach($users as $user){
+    foreach ($users as $user) {
         $email = $user->email;
-        Mail::send('emails.general', ["msg" => $msg], function ($message) use ($email,$subject) {
+        Mail::send('emails.general', ["msg" => $msg], function ($message) use ($email, $subject) {
             $message->to($email)->subject($subject)->from(env('MAIL_FROM_ADDRESS'), "CARISCA");
         });
     }
 }
 
-function sendAccCredentials($creds){
+function sendAccCredentials($creds)
+{
     $email = $creds->email;
 
     Mail::send('emails.acc-credentials', ["creds" => $creds], function ($message) use ($email) {

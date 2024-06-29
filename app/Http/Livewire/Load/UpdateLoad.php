@@ -131,8 +131,7 @@ class UpdateLoad extends Component
     public function mount($load_id)
     {
         $this->load = (array) DB::table('loads')->where('mask', $load_id)->first(['image', 'organization_id', 'load_type', 'sender_id', 'description', 'budget', 'quantity', 'length', 'weight', 'height', 'breadth', 'handling', 'pickup_address', 'dropoff_address', 'insurance_docs','mask','status','payment_status','shipment_status','other_docs','completed','created_at']);
-        $this->subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
-        // dd($load_id);
+        $this->subload = (array) DB::table('sub_loads')->where('load_id', $load_id)->get()->toArray();
     }
 
     public function render()

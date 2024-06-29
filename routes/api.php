@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoadsController;
+use App\Http\Controllers\Api\ChatsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,8 +16,11 @@ use App\Http\Controllers\LoadsController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
-
-Route::get('location/search',[LoadsController::class,'location']);
+// Route::middleware('auth.general')->group(function () {
+    Route::prefix('v1')->group(function(){
+        Route::get('location/search',[LoadsController::class,'location']);
+        Route::controller(ChatsController::class)->group(function(){
+            Route::post('search-user','searchUser');
+        });
+    });
+// });

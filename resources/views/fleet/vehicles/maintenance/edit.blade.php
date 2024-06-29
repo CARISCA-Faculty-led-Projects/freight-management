@@ -22,7 +22,7 @@
                 <!--begin::Modal body-->
                 <div class=" scroll-y px-10 px-lg-15 pt-0">
                     <!--begin:Form-->
-                    <form action="{{ route('vehicle.maintenance.save', $log->vehicle_id) }}" method="POST"
+                    <form action="{{ route('vehicle.maintenance.update', $log->id) }}" method="POST"
                         id="kt_modal_add_maintenance_schedule_form" class="form">
                         @csrf
                         <!--begin::Heading-->
@@ -38,6 +38,7 @@
                             <!--end::Description-->
                         </div>
                         <!--end::Heading-->
+                        <input type="hidden" name="vehicle_id" value="{{$log->vehicle_id}}">
                         <!--begin::Input group-->
                         <div class="fv-row mb-8">
                             <!--begin::Label-->
@@ -52,6 +53,7 @@
                                 </span>
                             </label>
                             <!--end::Label-->
+
                             <!--begin::Select2-->
                             <select class="form-select {{$errors->has('status') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
                                 data-placeholder="Select status" name="status" required>
@@ -112,8 +114,9 @@
                             <select class="form-select {{$errors->has('provider') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
                                 data-placeholder="Select a service provider" name="provider" required>
                                 <option value="">--select--</option>
-                                <option value="Craftman Mechanics">Craftman Mechanics</option>
-                                <option value="AutoPro Services"> AutoPro Services</option>
+                                @foreach ($providers as $provider)
+                                <option value="{{$provider->name}}" {{$log->provider == $provider->name ? "selected" : ''}}>{{$provider->name}}</option>
+                                @endforeach
                             </select>
                             <!--end::Select2-->
                             @error('provider')
@@ -140,7 +143,7 @@
                                 data-placeholder="Select an frequency" name="frequency" required>
                                 <option value="">Unplanned</option>
                                 <option value="1 week" {{$log->frequency == '1 week' ? "selected" : ''}}>Every week</option>
-                                <option value="2 weeks" {{$log->frequency == '2 week' ? "selected" : ''}}>Every 2 weeks</option>
+                                <option value="2 weeks" {{$log->frequency == '2 weeks' ? "selected" : ''}}>Every 2 weeks</option>
                                 <option value="1 month" {{$log->frequency == '1 month' ? "selected" : ''}}>Every month</option>
                             </select>
                             <!--end::Select2-->
@@ -189,7 +192,7 @@
                             </label>
                             <!--end::Label-->
 
-                            <input type="number" class="form-control {{$errors->has('amount') ? 'border-danger' : ''}} form-control-solid" placeholder="2000" value="{{$log->cost}}"
+                            <input type="text" class="form-control {{$errors->has('amount') ? 'border-danger' : ''}} form-control-solid" placeholder="2000" value="{{$log->cost}}"
                                 name="amount" />
                             @error('amount')
                                 <span class="text-danger">{{ $message }}</span>

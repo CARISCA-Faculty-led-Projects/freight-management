@@ -41,7 +41,7 @@ class LoadsController extends Controller
         $subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
         $sender = DB::table('senders')->where('mask', $load->sender_id)->first();
         $user = auth()->guard()->name;
-// dd($sender);
+
         return view('load.senders.details', compact('load', 'subload', 'user', 'sender'));
     }
 
@@ -115,7 +115,6 @@ class LoadsController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         // dd($this->subload);
         // $this->load['image'] = $this->image;
         $validated = Validator::make($request->all(), [
@@ -124,15 +123,17 @@ class LoadsController extends Controller
             'weight' => 'required|numeric',
             'height' => 'required|numeric',
             'status' => 'required',
+            'budget' => 'required|numeric',
             'breadth' => 'required|numeric',
             'insurance_docs' => 'required|mimes:pdf,docx,doc',
             'image' => 'required|mimes:png,jpg,jpeg',
-            'other_docs' => 'required|mimes:pdf,docx,doc',
+            // 'other_docs' => 'required|mimes:pdf,docx,doc',
             'pickup_address' => 'required',
             'dropoff_address' => 'required',
         ])->validate();
 
         $load_id = generateNumber();
+        $oth = null;
 
         $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
         $request->image->storeAs('loads', $imagename, 'real_public');
@@ -140,18 +141,31 @@ class LoadsController extends Controller
         $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
         $request->insurance_docs->storeAs('loads', $ins, 'real_public');
 
-        $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
-        $request->other_docs->storeAs('loads', $oth, 'real_public');
+        if(is_file($request->other_docs)){
+            $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
+            $request->other_docs->storeAs('loads', $oth, 'real_public');
+        }
 
-        $request['image'] = $imagename;
-        $request['insurance_docs'] = $ins;
-        $request['other_docs'] = $oth;
-        $request['mask'] = $load_id;
-        $request['created_at'] = Carbon::now()->toDateTimeString();
-        $request['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
-        $request['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
+        $req['image'] = $imagename;
+        $req['insurance_docs'] = $ins;
+        $req['other_docs'] = $oth;
+        $req['mask'] = $load_id;
+        $req['status'] = $request->status;
+        $req['sender_id'] = $request->sender_id;
+        $req['load_type'] = $request->load_type;
+        $req['description'] = $request->description;
+        $req['quantity'] = $request->quantity;
+        $req['handling'] = $request->handling;
+        $req['weight'] = $request->weight;
+        $req['length'] = $request->length;
+        $req['breadth'] = $request->breadth;
+        $req['budget'] = $request->budget;
+        $req['height'] = $request->height;
+        $req['created_at'] = Carbon::now()->toDateTimeString();
+        $req['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
+        $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
 
-        DB::table('loads')->insert($request->except(['subload', '_token']));
+        DB::table('loads')->insert($req);
 
         if ($request->has('subload')) {
 
@@ -176,5 +190,79 @@ class LoadsController extends Controller
         DB::table('loads')->where('mask', $load_id)->update(['shipment_status' => "Delivered"]);
 
         return back()->with('success', 'Load marked as delivered');
+    }
+
+    public function update(Request $request,$load_id)
+    {
+// dd($request->all());
+        $validated = Validator::make($request->all(), [
+            'sender_id' => 'required',
+            'length' => 'required',
+            'weight' => 'required|numeric',
+            'height' => 'required|numeric',
+            'status' => 'required',
+            'breadth' => 'required|numeric',
+        ])->validate();
+
+        if (is_file($request->image)) {
+            $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->storeAs('loads', $imagename, 'real_public');
+            $req['image'] = $imagename;
+        }
+
+        if (is_file($request->insurance_docs)) {
+            $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
+            $request->insurance_docs->storeAs('loads', $ins, 'real_public');
+            $req['insurance_docs'] = $ins;
+        }
+
+        if (is_file($request->other_docs)) {
+            $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
+            $request->other_docs->storeAs('loads', $oth, 'real_public');
+            $req['other_docs'] = $oth;
+        }
+
+        $req['status'] = $request->status;
+        $req['sender_id'] = $request->sender_id;
+        $req['load_type'] = $request->load_type;
+        $req['description'] = $request->description;
+        $req['quantity'] = $request->quantity;
+        $req['handling'] = $request->handling;
+        $req['weight'] = $request->weight;
+        $req['length'] = $request->length;
+        $req['breadth'] = $request->breadth;
+        $req['budget'] = $request->budget;
+        $req['height'] = $request->height;
+        $req['updated_at'] = Carbon::now()->toDateTimeString();
+
+        // dd(gettype(json_decode($request->pickup_address)) == "NULL");
+        if(gettype(json_decode($request->pickup_address)) == "NULL"){
+            $req['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
+        }
+        if(gettype(json_decode($request->dropoff_address)) == "NULL"){
+            $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
+        }
+
+        DB::table('loads')->where('mask', $load_id)->update($req);
+
+        if($request->subload != null){
+            foreach ($request->subload as $sload) {
+                if (array_key_exists('id', $sload)) {
+                    $this->subload['updated_at'] = Carbon::now()->toDateTimeString();
+                    DB::table('sub_loads')->where('load_id', $sload['load_id'])->where('id', $sload['id'])->update($sload);
+                } else {
+                    dd($sload);
+                    $sload['load_id'] = $load_id;
+                    $sload['created_at'] = Carbon::now()->toDateTimeString();
+                    DB::table('sub_loads')->insert($sload);
+                }
+            }
+        }
+
+        if (whichUser()->getTable() == 'senders') {
+            return redirect(route('sender.loads'));
+        } else {
+            return redirect(route('loads'));
+        }
     }
 }

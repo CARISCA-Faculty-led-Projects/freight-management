@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             LoadtypesSeeder::class,
             VehicleCategorySeeder::class,
             VehicleSubCategorySeeder::class,
-            MaintenanceTasksSeeder::class
+            MaintenanceTasksSeeder::class,
+            MaintenanceProvidersSeeders::class
         ]);
 
         User::create([

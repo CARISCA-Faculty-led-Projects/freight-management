@@ -45,7 +45,7 @@
         </div>
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form wire:submit.prevent="general" id="kt_ecommerce_add_category_form" method="POST"
+            <form action="{{route('org.load.save')}}" id="kt_ecommerce_add_category_form" method="POST"
                 class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
                 @csrf
                 <!--begin::Aside column-->
@@ -154,7 +154,7 @@
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
                             <select class="form-select mb-2" data-hide-search="true" data-placeholder="Select an option"
-                                wire:model="load.status" id="kt_ecommerce_add_category_status_select">
+                                name="status" id="kt_ecommerce_add_category_status_select">
                                 <option>--select--</option>
                                 <option value="Draft">Draft</option>
                                 <option value="Completed">Completed</option>
@@ -189,7 +189,7 @@
                                 type</label>
                             <!--end::Select store template-->
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" wire:model="load.load_type" data-control="select2"
+                            <select class="form-select mb-2" name="load_type" data-control="select2"
                                 data-hide-search="true" data-placeholder="Select an option"
                                 id="kt_ecommerce_add_category_store_template">
                                 <option>--select--</option>
@@ -231,7 +231,7 @@
                                 <label class="required form-label">Sender</label>
                                 <!--end::Label-->
                                 <!--begin::Select2-->
-                                <select class="form-select mb-2 js-example-basic-single w-200" wire:model="load.sender_id"
+                                <select class="form-select mb-2 js-example-basic-single w-200" name="sender_id"
                                     data-hide-search="true" data-placeholder="Select a sender"
                                     id="kt_ecommerce_add_category_store_template">
                                     <option>--select--</option>
@@ -254,7 +254,7 @@
                                 <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea wire:model="load.description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4"></textarea>
+                                <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -271,7 +271,7 @@
                                 <label class="required form-label">Budget</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="number" class="form-control mb-2" wire:model="load.budget"
+                                <input type="number" class="form-control mb-2" name="budget"
                                     placeholder="eg. 500" />
                                 <!--end::Input-->
                                 @error('budget')
@@ -307,7 +307,7 @@
                                         <label class="form-label">Quantity</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" class="form-control mb-2" wire:model="load.quantity"
+                                        <input type="number" class="form-control mb-2" name="quantity"
                                             placeholder="eg. 1 Container" />
                                         <!--end::Input-->
                                         @error('quantity')
@@ -324,7 +324,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            wire:model="load.weight" placeholder="60" />
+                                            name="weight" placeholder="60" />
                                         <!--end::Input-->
                                         @error('weight')
                                             <span class="text-danger">{{ $message }}</span>
@@ -344,7 +344,7 @@
                                         <label class="form-label">Length (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" class="form-control mb-2" wire:model="load.length"
+                                        <input type="number" class="form-control mb-2" name="length"
                                             placeholder="eg. 12" />
                                         <!--end::Input-->
                                         @error('length')
@@ -361,7 +361,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            wire:model="load.breadth" placeholder="60" />
+                                            name="breadth" placeholder="60" />
                                         <!--end::Input-->
                                         @error('breadth')
                                             <span class="text-danger">{{ $message }}</span>
@@ -377,7 +377,7 @@
                                         <label class="form-label">Height (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" class="form-control mb-2" wire:model="load.height"
+                                        <input type="number" class="form-control mb-2" name="height"
                                             placeholder="60" />
                                         <!--end::Input-->
                                         <!--begin::Description-->
@@ -395,7 +395,7 @@
                                 <label class="form-label">Handling Options</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
-                                <input id="kt_ecommerce_add_category_meta_keywords" wire:model="load.handling"
+                                <input id="kt_ecommerce_add_category_meta_keywords" name="handling"
                                     class="form-control mb-2" />
                                 <!--end::Editor-->
                                 <!--begin::Description-->
@@ -427,7 +427,7 @@
                                 <label class="form-label">Pickup Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <select wire:model="load.pickup_address" class="form-control js-example-basic-single" id="pickup_address">
+                                <select name="pickup_address" class="form-control basic-select2" id="pickup_address">
                                     <option value="">--select--</option>
                                 </select>
                                 <!--end::Input-->
@@ -443,7 +443,7 @@
                                 <label class="form-label">Drop-off Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <select wire:model="load.dropoff_address" class="form-control" id="dropoff_address">
+                                <select name="dropoff_address" class="form-control basic-select2" id="dropoff_address">
                                     <option value="">--select--</option>
                                 </select>
                                 {{-- <input type="text" class="form-control mb-2" wire:model="dropoff_address"
@@ -507,12 +507,12 @@
                                                     <!--begin::Select2-->
                                                     <!--begin::Input-->
                                                     <input type="text" class="form-control mw-100 w-200px"
-                                                        wire:model="load.subload.{{ $i }}.name"
+                                                        name="subload[{{ $i }}][name]"
                                                         placeholder="Item Name" />
                                                     <!--end::Input-->
                                                     <div class="w-100 w-md-200px">
                                                         <select class="form-select"
-                                                            wire:model="load.subload.{{ $i }}.load_type"
+                                                            name="subload[{{ $i }}][load_type]"
                                                             data-placeholder="Select an option"
                                                             data-kt-ecommerce-catalog-add-category="condition_type">
                                                             <option value="">--select category--</option>
@@ -525,12 +525,12 @@
                                                     <!--end::Select2-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-100px"
-                                                        wire:model="load.subload.{{ $i }}.quantity"
+                                                        name="subload[{{ $i }}][quantity]"
                                                         placeholder="Quantity" />
                                                     <!--end::Input-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-200px"
-                                                        wire:model="load.subload.{{ $i }}.value"
+                                                        name="subload[{{ $i }}][value]"
                                                         placeholder="Value eg. 120.00" />
                                                     <!--end::Input-->
                                                     <!--begin::Button-->
@@ -590,7 +590,7 @@
                                         </i>
                                         <!--end::Icon-->
                                         <!--begin::Info-->
-                                        <input type="file" wire:model="load.insurance_docs" id=""
+                                        <input type="file" name="insurance_docs" id=""
                                             class="form-control">
                                         <div class="ms-4">
                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files
@@ -638,7 +638,7 @@
                                         </i>
                                         <!--end::Icon-->
                                         <!--begin::Info-->
-                                        <input type="file" wire:model="load.other_docs" class="form-control" id="">
+                                        <input type="file" name="other_docs" class="form-control" id="">
                                         <div class="ms-4">
                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files
                                                 here or click
@@ -696,11 +696,11 @@
         }
     </style>
 
-    <script>
+    {{-- <script>
         $('document').ready(function() {
             $('#pickup_address').select2({
                 ajax: {
-                    url: 'api/location/search',
+                    url: 'api/v1/location/search',
                     data: function(params) {
                         var query = {
                             search: params.term
@@ -724,7 +724,7 @@
 
             $('#dropoff_address').select2({
                 ajax: {
-                    url: 'api/location/search',
+                    url: 'api/v1/location/search',
                     data: function(params) {
                         var query = {
                             search: params.term
@@ -746,5 +746,5 @@
                 }
             });
         })
-    </script>
+    </script> --}}
 </div>

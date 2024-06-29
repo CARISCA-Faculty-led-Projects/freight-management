@@ -39,6 +39,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\ChatsController;
 
 Route::middleware('guest')->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -70,7 +71,7 @@ Route::middleware('guest')->group(function () {
         ->name('password.update');
 });
 
-Route::middleware(['auth.general'])->group(function () {
+Route::group(['auth:drivers','auth:senders','auth:organizations','auth:brokers'],function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
         ->name('verification.notice');
 
@@ -87,7 +88,10 @@ Route::middleware(['auth.general'])->group(function () {
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
     Route::post('change_pass', [AuthController::class, 'changePass'])->name('change_pass');
-
+    Route::controller(ChatsController::class)->group(function(){
+        Route::post('search-user','searchUser');
+        Route::get('user-chats','userMessages');
+    });
 
     Route::get('logout', [AuthController::class, 'destroy'])
         ->name('signout');
@@ -183,9 +187,9 @@ Route::middleware('auth:organizations')->group(function () {
             Route::get('list', [BrokersController::class, 'list'])->name('org.broker.list');
             Route::get('add', [BrokersController::class, 'add'])->name('broker.add');
             Route::post('{broker}/update', [BrokersController::class, 'saveUpdate'])->name('org.broker.update');
-            Route::get('{broker}/edit', [BrokersController::class, 'edit'])->name('broker.edit');
-            Route::get('{mask}/profile',)->name('broker.profile');
-            Route::get('{broker}/view', [BrokersController::class, 'show'])->name('broker.view');
+            Route::get('{broker}/edit', [BrokersController::class, 'edit'])->name('org.broker.edit');
+            // Route::get('{mask}/profile',[BrokersController::class, 'edit'])->name('org.broker.profile');
+            // Route::get('{broker}/view', [BrokersController::class, 'show'])->name('org.broker.view');
             Route::get('{broker}/delete', [BrokersController::class, 'delete'])->name('broker.delete');
             Route::post('save', [BrokersController::class, 'store'])->name('broker.save');
             Route::get('{broker}/login', [BrokersController::class, 'loginAs'])->name('org.broker.login');
@@ -202,6 +206,7 @@ Route::middleware('auth:organizations')->group(function () {
                 Route::get('{load}/details', 'details')->name('loads.details');
                 Route::post('assign', 'orgLoadAssign')->name('org.loads.assign');
                 Route::post('save', 'store')->name('org.load.save');
+                Route::post('{load}/edit', 'update')->name('org.load.update');
             });
             Route::get('add', AddLoad::class)->name('org.load.add');
             Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
@@ -276,6 +281,7 @@ Route::middleware('auth:organizations')->group(function () {
         Route::get('shipment/create', CreateShipment::class)->name('org.shipment.create');
         Route::get('shipment/{mask}/edit', EditShipment::class)->name('org.shipment.edit');
     });
+
     Route::get('/shipments/overview', function () {
         return view('shipments.overview');
     });
@@ -285,11 +291,13 @@ Route::middleware('auth:organizations')->group(function () {
     Route::get('/shipments/tracking', function () {
         return view('shipments.tracking');
     });
-
     // shipments end
+
+    Route::get('chats',[ChatsController::class,'index'])->name('chats');
 });
 // Auth organization end
 
+// Auth drivers start
 Route::middleware('auth:drivers')->group(function () {
     Route::prefix('driver')->group(function () {
         Route::controller(DriversController::class)->group(function () {
@@ -309,7 +317,9 @@ Route::middleware('auth:drivers')->group(function () {
         });
     });
 });
+// Auth drivers end
 
+// Auth senders start
 Route::middleware('auth:senders')->group(function () {
     Route::prefix('senders')->group(function () {
         Route::get('{mask}/profile', UpdateSender::class)->name('sender.profile');
@@ -373,7 +383,9 @@ Route::middleware('auth:senders')->group(function () {
         });
     });
 });
+// Auth senders end
 
+// Auth brokers start
 Route::middleware('auth:brokers')->group(function () {
     Route::prefix('brokers')->group(function () {
         Route::controller(BrokersController::class)->group(function () {
@@ -414,6 +426,7 @@ Route::middleware('auth:brokers')->group(function () {
     });
     Route::get('loads/board', LoadBoard::class)->name('load.board');
 });
+// Auth brokers end
 
 // Route::middleware('auth:')->group(function(){
 
@@ -497,7 +510,7 @@ Route::middleware(['auth:brokers'])->group(function () {
 
 Route::middleware(['auth:organizations'])->group(function () {
     Route::get('test',function(){
-        return view('home');
+        return view('chat');
     });
 });
 

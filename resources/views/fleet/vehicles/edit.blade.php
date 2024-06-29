@@ -98,7 +98,7 @@
                                             <span class="path2"></span>
                                         </i>
                                         <!--begin::Inputs-->
-                                        <input type="file" wire:model="vehicle.image" accept=".png, .jpg, .jpeg" />
+                                        <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
                                         <input type="hidden" name="avatar_remove" />
                                         <!--end::Inputs-->
                                     </label>
@@ -135,8 +135,8 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Thumbnail settings-->
-                         <!--begin::Template settings-->
-                         <div class="card card-flush py-4">
+                        <!--begin::Template settings-->
+                        <div class="card card-flush py-4">
                             <!--begin::Card header-->
                             <div class="card-header">
                                 <!--begin::Card title-->
@@ -150,17 +150,17 @@
                             <div class="card-body pt-0">
                                 <!--begin::Select store template-->
 
-                               <select wire:model="vehicle.driver_id" class="form-control" id="">
-                                <option value="">--select--</option>
-                                @foreach ($this->drivers() as $driver)
-                                <option value="{{$driver->mask}}">{{$driver->name}}</option>
-                                @endforeach
-                               </select>
+                                <select wire:model="vehicle.driver_id" class="form-control" id="">
+                                    <option value="">--select--</option>
+                                    @foreach ($this->drivers() as $driver)
+                                        <option value="{{ $driver->mask }}">{{ $driver->name }}</option>
+                                    @endforeach
+                                </select>
 
-                               <!--begin::Description-->
-                               <div class="text-muted fs-7 mt-5">Assign available driver to vehicle
-                            </div>
-                            <!--end::Description-->
+                                <!--begin::Description-->
+                                <div class="text-muted fs-7 mt-5">Assign available driver to vehicle
+                                </div>
+                                <!--end::Description-->
                             </div>
                             <!--end::Card body-->
 
@@ -185,31 +185,33 @@
                                     many as
                                     apply</label>
                                 <!--end::Select store template-->
+                                <div class="" style="height: 45rem; overflow:auto;">
+                                    @foreach ($this->loads() as $load)
+                                        <!--begin::Item-->
+                                        <div class="d-flex align-items-center mb-8 mt-5">
+                                            <!--begin::Bullet-->
+                                            @if (in_array($load->name, json_decode($this->vehicle['load_type'])))
+                                                <span class="bullet bullet-vertical h-20px bg-primary"></span>
+                                            @else
+                                                <span class="bullet bullet-vertical h-20px bg-white"></span>
+                                            @endif
+                                            <!--end::Bullet-->
+                                            <!--begin::Checkbox-->
+                                            <div class="form-check form-check-custom form-check-solid mx-5">
+                                                <input class="form-check-input" wire:model="load_type"
+                                                    wire:key="{{ $load->id }}" type="checkbox"
+                                                    value="{{ $load->name }}" />
+                                            </div>
+                                            <!--end::Checkbox-->
+                                            <div class="flex-grow-1">
+                                                <a href="#"
+                                                    class="text-gray-800 text-hover-primary fw-bold fs-6">{{ $load->name }}</a>
+                                            </div>
+                                        </div>
+                                        <!--end:Item-->
+                                    @endforeach
+                                </div>
 
-                                @foreach ($this->loads() as $load)
-                                    <!--begin::Item-->
-                                    <div class="d-flex align-items-center mb-8 mt-5">
-                                        <!--begin::Bullet-->
-                                        @if (in_array($load->name, json_decode($this->vehicle['load_type'])))
-                                            <span class="bullet bullet-vertical h-20px bg-primary"></span>
-                                        @else
-                                            <span class="bullet bullet-vertical h-20px bg-white"></span>
-                                        @endif
-                                        <!--end::Bullet-->
-                                        <!--begin::Checkbox-->
-                                        <div class="form-check form-check-custom form-check-solid mx-5">
-                                            <input class="form-check-input" wire:model="load_type"
-                                                wire:key="{{ $load->id }}" type="checkbox"
-                                                value="{{ $load->name }}" />
-                                        </div>
-                                        <!--end::Checkbox-->
-                                        <div class="flex-grow-1">
-                                            <a href="#"
-                                                class="text-gray-800 text-hover-primary fw-bold fs-6">{{ $load->name }}</a>
-                                        </div>
-                                    </div>
-                                    <!--end:Item-->
-                                @endforeach
 
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7 mt-5">These specify which goods your company can transport
@@ -276,7 +278,8 @@
                                                 <label class="required form-label">Vehicle Number</label>
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
-                                               <input type="text" wire:model="vehicle.number" class="text form-control" placeholder="GT-5466-22">
+                                                <input type="text" wire:model="vehicle.number"
+                                                    class="text form-control" placeholder="GT-5466-22">
                                                 <!--end::Select2-->
                                                 <!--begin::Description-->
                                                 <div class="text-muted fs-7">Enter vehicle license plate number</div>
@@ -284,53 +287,52 @@
                                             </div>
                                             <!--begin::Input group-->
                                             <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
-                                            <div class="fv-row w-100 flex-md-root">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Vehicle Category</label>
-                                                <!--end::Label-->
-                                                <!--begin::Select2-->
-                                                <select class="form-select mb-2" wire:model="vehicle.category"
-                                                     data-hide-search="true"
-                                                    data-placeholder="Select an option">
-                                                    <option>--select--</option>
-                                                    @foreach ($this->vcat() as $cat)
-                                                        <option value="{{ $cat->id }}"
-                                                            {{ $vehicle['vehicle_category_id'] == $cat->id ? 'selected' : '' }}>
-                                                            {{ $cat->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <!--end::Select2-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">A vehicle category is required and
-                                                    recommended to
-                                                    describe your vehicle as much as possible</div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
-                                            <!--begin::Input group-->
-                                            <div class="fv-row w-100 flex-md-root">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Vehicle Sub Category</label>
-                                                <!--end::Label-->
-                                                <!--begin::Select2-->
-                                                <select class="form-select mb-2" wire:model="vehicle.sub_category_id"
-                                                     data-hide-search="true"
-                                                    data-placeholder="Select an option">
-                                                    <option></option>
-                                                    @foreach ($this->vsubcat() as $cat)
-                                                        <option value="{{ $cat->id }}"
-                                                            {{ $vehicle['vehicle_subcategory_id'] == $cat->id ? 'selected' : '' }}>
-                                                            {{ $cat->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <!--end::Select2-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">A vehicle sub category is required and
-                                                    recommended to
-                                                    describe your vehicle as much as possible</div>
-                                                <!--end::Description-->
-                                            </div>
-                                            <!--end::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="required form-label">Vehicle Category</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Select2-->
+                                                    <select class="form-select mb-2" wire:model="vehicle.vehicle_category_id"
+                                                        data-hide-search="true" data-placeholder="Select an option">
+                                                        <option>--select--</option>
+                                                        @foreach ($this->vcat() as $cat)
+                                                            <option value="{{ $cat->id }}"
+                                                                {{ $vehicle['vehicle_category_id'] == $cat->id ? 'selected' : '' }}>
+                                                                {{ $cat->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <!--end::Select2-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">A vehicle category is required and
+                                                        recommended to
+                                                        describe your vehicle as much as possible</div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Input group-->
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="required form-label">Vehicle Sub Category</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Select2-->
+                                                    <select class="form-select mb-2"
+                                                        wire:model="vehicle.vehicle_subcategory_id" data-hide-search="true"
+                                                        data-placeholder="Select an option">
+                                                        <option></option>
+                                                        @foreach ($this->vsubcat() as $cat)
+                                                            <option value="{{ $cat->id }}"
+                                                                {{ $vehicle['vehicle_subcategory_id'] == $cat->id ? 'selected' : '' }}>
+                                                                {{ $cat->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                    <!--end::Select2-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">A vehicle sub category is required and
+                                                        recommended to
+                                                        describe your vehicle as much as possible</div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Input group-->
                                             </div>
                                             <!--begin::Tax-->
                                             <div class="d-flex flex-wrap gap-5 mb-10">
@@ -492,8 +494,7 @@
                                                 <!--end::Label-->
                                                 <!--begin::Select2-->
                                                 <select class="form-select mb-2" wire:model="vehicle.engine_type"
-                                                     data-hide-search="true"
-                                                    data-placeholder="Select an option">
+                                                    data-hide-search="true" data-placeholder="Select an option">
                                                     <option></option>
                                                     <option value="Diesel"
                                                         {{ $vehicle['engine_type'] == 'Diesel' ? 'selected' : '' }}>
@@ -622,14 +623,14 @@
                             <!--end::Shipping-->
                             <div class="{{ $general ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="{{route("vehicles")}}"
-                                id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
-                            <!--end::Button-->
-                            <!--begin::Button-->
-                            <button type="submit" id="kt_ecommerce_add_organization_submit"
-                                class="btn btn-primary">
-                                <span class="indicator-label" wire:loading.remove>Save Changes</span>
-                                <span class="indicator-progress" wire:loading>Please wait...
+                                <a href="{{ route('vehicles') }}" id="kt_ecommerce_add_organization_cancel"
+                                    class="btn btn-light me-5">Cancel</a>
+                                <!--end::Button-->
+                                <!--begin::Button-->
+                                <button type="submit" id="kt_ecommerce_add_organization_submit"
+                                    class="btn btn-primary">
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->
@@ -745,20 +746,23 @@
                                                             class="d-flex flex-column gap-3">
                                                             <div
                                                                 class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                                @for ($i=0;$i<count($this->veh_routes);$i++)
+                                                                @for ($i = 0; $i < count($this->veh_routes); $i++)
                                                                     <div data-repeater-item=""
                                                                         class="form-group d-flex flex-wrap align-items-center gap-5">
 
                                                                         <!--begin::Input-->
                                                                         <input type="text"
                                                                             class="form-control mw-100 w-300px"
-                                                                            wire:model="veh_routes.{{$i}}.origin" placeholder="From" required/>
+                                                                            wire:model="veh_routes.{{ $i }}.origin"
+                                                                            placeholder="From" required />
 
                                                                         <input type="text"
                                                                             class="form-control mw-100 w-300px"
-                                                                            wire:model="veh_routes.{{$i}}.destination" placeholder="To" required/>
+                                                                            wire:model="veh_routes.{{ $i }}.destination"
+                                                                            placeholder="To" required />
                                                                         <!--end::Input-->
-                                                                        <button type="button" data-repeater-delete="" wire:click="delRoute({{$i}})"
+                                                                        <button type="button" data-repeater-delete=""
+                                                                            wire:click="delRoute({{ $i }})"
                                                                             class="btn btn-sm btn-icon btn-light-danger">
                                                                             <i class="ki-duotone ki-cross fs-1">
                                                                                 <span class="path1"></span>
@@ -766,7 +770,7 @@
                                                                             </i>
                                                                         </button>
                                                                     </div>
-                                                                    @endfor
+                                                                @endfor
                                                             </div>
                                                         </div>
                                                     </div>
@@ -777,7 +781,8 @@
                                             <!--end::Form group-->
                                             <!--begin::Form group-->
                                             <div class="form-group mt-5">
-                                                <button type="button" wire:click="addRoute({{count($this->veh_routes)+1}})"
+                                                <button type="button"
+                                                    wire:click="addRoute({{ count($this->veh_routes) + 1 }})"
                                                     class="btn btn-sm btn-light-primary">
                                                     <i class="ki-duotone ki-plus fs-2"></i>Add another
                                                     route</button>
@@ -811,10 +816,12 @@
 
                                             <!--begin::Input-->
                                             <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
-                                                <input type="number" wire:model="vehicle.weight" class="form-control mb-2"
-                                                    placeholder="Vehicle Weight (KG)" value="" />
-                                                <input type="number" wire:model="vehicle.max_load_weight" class="form-control mb-2"
-                                                    placeholder="Max Load Weight (KG)" value="" />
+                                                <input type="number" wire:model="vehicle.weight"
+                                                    class="form-control mb-2" placeholder="Vehicle Weight (KG)"
+                                                    value="" />
+                                                <input type="number" wire:model="vehicle.max_load_weight"
+                                                    class="form-control mb-2" placeholder="Max Load Weight (KG)"
+                                                    value="" />
 
                                             </div>
                                             <!--end::Input-->
@@ -825,12 +832,15 @@
                                         <div class="fv-row mt-5">
                                             <!--begin::Input-->
                                             <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
-                                                <input type="number" wire:model="vehicle.width" class="form-control mb-2"
-                                                    placeholder="Width (M)" value="" />
-                                                <input type="number" wire:model="vehicle.height" class="form-control mb-2"
-                                                    placeholder="Height (M)" value="" />
-                                                <input type="number" wire:model="vehicle.length" class="form-control mb-2"
-                                                    placeholder="Length (M)" value="" />
+                                                <input type="number" wire:model="vehicle.width"
+                                                    class="form-control mb-2" placeholder="Width (M)"
+                                                    value="" />
+                                                <input type="number" wire:model="vehicle.height"
+                                                    class="form-control mb-2" placeholder="Height (M)"
+                                                    value="" />
+                                                <input type="number" wire:model="vehicle.length"
+                                                    class="form-control mb-2" placeholder="Length (M)"
+                                                    value="" />
                                             </div>
                                             <!--end::Input-->
                                         </div>
@@ -843,8 +853,8 @@
                             <!--end::Shipping-->
                             <div class="{{ $others ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="{{route("vehicles")}}"
-                                    id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
+                                <a href="{{ route('vehicles') }}" id="kt_ecommerce_add_organization_cancel"
+                                    class="btn btn-light me-5">Cancel</a>
                                 <!--end::Button-->
                                 <!--begin::Button-->
                                 <button type="submit" id="kt_ecommerce_add_organization_submit"
@@ -871,7 +881,9 @@
                                                 <h2>Vehicle Owners Documents &nbsp;
                                                 </h2>
                                                 @if ($this->vehicle['owners_documents'])
-                                                <a href="{{asset('storage/vehicles/'.$this->vehicle['owners_documents'])}}"> <small>View</small> </a>
+                                                    <a
+                                                        href="{{ asset('storage/vehicles/' . $this->vehicle['owners_documents']) }}">
+                                                        <small>View</small> </a>
                                                 @endif
                                             </div>
                                         </div>
@@ -893,16 +905,19 @@
                                                         <!--begin::Info-->
                                                         <input type="file" wire:model="owners_documents"
                                                             id="" class="form-control">
-                                                            <div wire:loading.remove wire:target="owners_documents" class="ms-4">
-                                                                <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
-                                                                    or
-                                                                    click
-                                                                    to upload.</h3>
+                                                        <div wire:loading.remove wire:target="owners_documents"
+                                                            class="ms-4">
+                                                            <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
+                                                                or
+                                                                click
+                                                                to upload.</h3>
 
-                                                            </div>
-                                                            <div wire:loading wire:target="owners_documents" class="ms-4">
-                                                                <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
-                                                            </div>
+                                                        </div>
+                                                        <div wire:loading wire:target="owners_documents"
+                                                            class="ms-4">
+                                                            <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...
+                                                            </h3>
+                                                        </div>
                                                         <!--end::Info-->
                                                     </div>
                                                 </div>
@@ -921,7 +936,9 @@
                                                 <h2>Road Worthy Documents
                                                 </h2> &nbsp;
                                                 @if ($this->vehicle['road_worth_documents'])
-                                                <a href="{{asset('storage/vehicles/'.$this->vehicle['road_worth_documents'])}}"> <small>View</small> </a>
+                                                    <a
+                                                        href="{{ asset('storage/vehicles/' . $this->vehicle['road_worth_documents']) }}">
+                                                        <small>View</small> </a>
                                                 @endif
                                             </div>
                                         </div>
@@ -944,16 +961,19 @@
                                                         <input type="file"
                                                             wire:model="documents.road_worth_documents" id=""
                                                             class="form-control">
-                                                            <div wire:loading.remove wire:target="road_worth_documents" class="ms-4">
-                                                                <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
-                                                                    or
-                                                                    click
-                                                                    to upload.</h3>
+                                                        <div wire:loading.remove wire:target="road_worth_documents"
+                                                            class="ms-4">
+                                                            <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
+                                                                or
+                                                                click
+                                                                to upload.</h3>
 
-                                                            </div>
-                                                            <div wire:loading wire:target="road_worth_documents" class="ms-4">
-                                                                <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
-                                                            </div>
+                                                        </div>
+                                                        <div wire:loading wire:target="road_worth_documents"
+                                                            class="ms-4">
+                                                            <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...
+                                                            </h3>
+                                                        </div>
                                                         <!--end::Info-->
                                                     </div>
                                                 </div>
@@ -973,7 +993,9 @@
                                                 <h2>Insurance Documents
                                                 </h2> &nbsp;
                                                 @if ($this->vehicle['insurance_documents'])
-                                                <a href="{{asset('storage/vehicles/'.$this->vehicle['insurance_documents'])}}"> <small>View</small> </a>
+                                                    <a
+                                                        href="{{ asset('storage/vehicles/' . $this->vehicle['insurance_documents']) }}">
+                                                        <small>View</small> </a>
                                                 @endif
                                             </div>
                                         </div>
@@ -995,15 +1017,18 @@
                                                         <!--begin::Info-->
                                                         <input type="file" wire:model="insurance_documents"
                                                             id="" class="form-control">
-                                                        <div wire:loading.remove wire:target="insurance_documents" class="ms-4">
+                                                        <div wire:loading.remove wire:target="insurance_documents"
+                                                            class="ms-4">
                                                             <h3 class="fs-7 fw-bold text-gray-900 mt-1">Drop files here
                                                                 or
                                                                 click
                                                                 to upload.</h3>
 
                                                         </div>
-                                                        <div wire:loading wire:target="insurance_documents" class="ms-4">
-                                                            <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...</h3>
+                                                        <div wire:loading wire:target="insurance_documents"
+                                                            class="ms-4">
+                                                            <h3 class="fs-5 fw-bold text-gray-900 mt-3">Uploading...
+                                                            </h3>
                                                         </div>
 
                                                         <!--end::Info-->
@@ -1024,14 +1049,14 @@
                             </div>
                             <div class="{{ $doc_page ? 'd-flex' : 'd-none' }} justify-content-end mt-5">
                                 <!--begin::Button-->
-                                <a href="{{route("vehicles")}}"
-                                id="kt_ecommerce_add_organization_cancel" class="btn btn-light me-5">Cancel</a>
-                            <!--end::Button-->
-                            <!--begin::Button-->
-                            <button type="submit" id="kt_ecommerce_add_organization_submit"
-                                class="btn btn-primary">
-                                <span class="indicator-label" wire:loading.remove>Save Changes</span>
-                                <span class="indicator-progress" wire:loading>Please wait...
+                                <a href="{{ route('vehicles') }}" id="kt_ecommerce_add_organization_cancel"
+                                    class="btn btn-light me-5">Cancel</a>
+                                <!--end::Button-->
+                                <!--begin::Button-->
+                                <button type="submit" id="kt_ecommerce_add_organization_submit"
+                                    class="btn btn-primary">
+                                    <span class="indicator-label" wire:loading.remove>Save Changes</span>
+                                    <span class="indicator-progress" wire:loading>Please wait...
                                         <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
                                 </button>
                                 <!--end::Button-->

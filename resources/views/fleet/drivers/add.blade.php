@@ -172,14 +172,79 @@
                             </select>
                             <!--end::Select2-->
                             <!--begin::Description-->
-                            <div class="text-muted fs-7">Set the product status.</div>
+                            <div class="text-muted fs-7">Set the driver status.</div>
+                            <!--end::Description-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                    <!--end::Status-->
+                    <!--begin::Template settings-->
+                     <!--begin::Status-->
+                     <div class="card card-flush py-4">
+                        <!--begin::Card header-->
+                        <div class="card-header">
+                            <!--begin::Card title-->
+                            <div class="card-title">
+                                <h2>Location</h2>
+                            </div>
+                            <!--end::Card title-->
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar">
+                                <div class="rounded-circle bg-success w-15px h-15px"
+                                    id="kt_ecommerce_add_broker_status">
+                                </div>
+                            </div>
+                            <!--begin::Card toolbar-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <!--begin::Select2-->
+                            <label class="required form-label">Country</label>
+
+                            <select class="form-select mb-2" wire:model="driver.country" data-hide-search="true"
+                                data-placeholder="Select an option" id="kt_ecommerce_add_broker_status_select">
+                                <option></option>
+                                <option value="Ghana" selected="selected">Ghana</option>
+
+                            </select>
+                            <!--end::Select2-->
+                            <!--begin::Description-->
+                            <div class="text-muted fs-7">Set the country of operation</div>
                             <!--end::Description-->
                             <!--begin::Datepicker-->
                             <div class="d-none mt-10">
-                                <label for="kt_ecommerce_add_product_status_datepicker" class="form-label">Select
+                                <label for="kt_ecommerce_add_broker_status_datepicker" class="form-label">Select
                                     publishing
                                     date and time</label>
-                                <input class="form-control" id="kt_ecommerce_add_product_status_datepicker"
+                                <input class="form-control" id="kt_ecommerce_add_broker_status_datepicker"
+                                    placeholder="Pick date & time" />
+                            </div>
+                            <!--end::Datepicker-->
+                        </div>
+                        <!--end::Card body-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <!--begin::Select2-->
+                            <label class="required form-label">Region</label>
+
+                            <select class="form-select mb-2" wire:model="driver.region" data-hide-search="true"
+                                data-placeholder="Select an option" id="kt_ecommerce_add_broker_status_select">
+                                <option></option>
+                                <option value="Greater Accra" selected="selected">Greater Accra</option>
+                                <option value="Ashanti Region">Ashanti Region</option>
+
+                            </select>
+                            <!--end::Select2-->
+                            <!--begin::Description-->
+                            <div class="text-muted fs-7">Set the region in Ghana of operation</div>
+                            <!--end::Description-->
+                            <!--begin::Datepicker-->
+                            <div class="d-none mt-10">
+                                <label for="kt_ecommerce_add_broker_status_datepicker" class="form-label">Select
+                                    publishing
+                                    date and time</label>
+                                <input class="form-control" id="kt_ecommerce_add_broker_status_datepicker"
                                     placeholder="Pick date & time" />
                             </div>
                             <!--end::Datepicker-->
@@ -187,52 +252,6 @@
                         <!--end::Card body-->
                     </div>
                     <!--end::Status-->
-                    <!--begin::Template settings-->
-                    {{-- <div class="card card-flush py-4">
-                        <!--begin::Card header-->
-                        <div class="card-header">
-                            <!--begin::Card title-->
-                            <div class="card-title">
-                                <h2>Load Preferences</h2>
-                            </div>
-                            <!--end::Card title-->
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
-                            <!--begin::Select store template-->
-                            <label for="kt_ecommerce_add_organization_store_template" class="form-label">Select as many
-                                as
-                                apply</label>
-                            <!--end::Select store template-->
-
-                            @foreach ($this->loads() as $load)
-                                <!--begin::Item-->
-                                <div class="d-flex align-items-center mb-8 mt-5">
-                                    <div class="form-check form-check-custom form-check-solid mx-5">
-                                        <input class="form-check-input" wire:model="load_type" type="checkbox"
-                                            value="{{ $load->name }}" />
-                                    </div>
-                                    <!--end::Checkbox-->
-                                    <!--begin::Description-->
-                                    <div class="flex-grow-1">
-                                        <a href="#"
-                                            class="text-gray-800 text-hover-primary fw-bold fs-6">{{ $load->name }}</a>
-                                    </div>
-                                </div>
-                                <!--end:Item-->
-                            @endforeach
-                            @error('load_type')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                            <!--begin::Description-->
-                            <div class="text-muted fs-7 mt-5">These specify which goods your company can transport
-                            </div>
-                            <!--end::Description-->
-                        </div>
-                        <!--end::Card body-->
-
-                    </div> --}}
                     <!--end::Template settings-->
 
                 </div>
@@ -344,7 +363,7 @@
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
                                                     <input type="email" wire:model="driver.email"
-                                                        class="form-control mb-2" placeholder="Driver name"
+                                                        class="form-control mb-2" placeholder="Driver email"
                                                         value="" required />
                                                     <!--end::Input-->
                                                     @error('email')
