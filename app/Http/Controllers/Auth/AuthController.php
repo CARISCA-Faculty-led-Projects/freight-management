@@ -28,12 +28,12 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
-        Validator::make($request->all(), ['name' => 'required', 'email' => 'required|email|unique:'.$request->type, 'phone' => 'required', 'password' => 'required', 'confirm-password' => 'required|same:password'], ['confirm-password' => "Password fields do not match"])->validate();
+        Validator::make($request->all(), ['name' => 'required', 'email' => 'required|email|unique:' . $request->type, 'phone' => 'required', 'password' => 'required', 'confirm-password' => 'required|same:password'], ['confirm-password' => "Password fields do not match"])->validate();
 
         $request['password'] = Hash::make($request->password);
         $request['created_at'] = Carbon::now()->toDateTimeString();
         $request['mask'] = Str::orderedUuid();
-        $request['status']="Approved";
+        $request['status'] = "Approved";
 
         DB::table($request->type)->insert($request->except(['_token', 'type', 'confirm-password']));
 
@@ -82,13 +82,26 @@ class AuthController extends Controller
         }
     }
 
-    public function changePass(Request $request){
-        Validator::make($request->all(), ['password' => 'required','con_password' => 'required|same:password'])->validate();
+    public function changePass(Request $request)
+    {
+        Validator::make($request->all(), ['password' => 'required', 'con_password' => 'required|same:password'])->validate();
 
-        DB::table($request->type)->where('mask', $request->mask)->update(['password' => Hash::make($request->password)]);
+        DB::table($request->type)->where('mask', $request->user)->update(['password' => Hash::make($request->password)]);
 
-        return back()->with('success',"Password changed successfully");
+        return back()->with('success', "Password changed successfully");
+    }
 
+    public function resetPass(Request $request)
+    {
+        $new = Str::random(6);
+
+        $user = DB::table($request->type)->where('mask', $request->user);
+
+        $msg = "Your password has been changed. Your new password is " . $new;
+        
+        sendMail("Password Reset", $user->first()->email, $msg);
+        $user->update(['password' => Hash::make($new)]);
+        return back()->with('success', "Password reset successful");
     }
 
     public function destroy(Request $request)

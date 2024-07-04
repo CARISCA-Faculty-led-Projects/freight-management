@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends(auth()->guard()->name == 'drivers' ? 'layout.roles.driver' : 'layout.roles.organization')
 @section('content')
     <!--begin::Modal - New Target-->
     <div class="container mt-5 d-flex justify-content-center" id="kt_modal_add_maintenance_schedule" tabindex="-1"
@@ -22,8 +22,9 @@
                 <!--begin::Modal body-->
                 <div class=" scroll-y px-10 px-lg-15 pt-0">
                     <!--begin:Form-->
-                    <form action="{{ route('vehicle.maintenance.update', $log->id) }}" method="POST"
-                        id="kt_modal_add_maintenance_schedule_form" class="form">
+                    <form
+                        action="{{ route(auth()->guard()->name == 'drivers' ? 'driver.vehicle.maintenance.update' : 'vehicle.maintenance.update', $log->id) }}"
+                        method="POST" id="kt_modal_add_maintenance_schedule_form" class="form">
                         @csrf
                         <!--begin::Heading-->
                         <div class="mb-13 text-center">
@@ -38,7 +39,7 @@
                             <!--end::Description-->
                         </div>
                         <!--end::Heading-->
-                        <input type="hidden" name="vehicle_id" value="{{$log->vehicle_id}}">
+                        <input type="hidden" name="vehicle_id" value="{{ $log->vehicle_id }}">
                         <!--begin::Input group-->
                         <div class="fv-row mb-8">
                             <!--begin::Label-->
@@ -55,12 +56,16 @@
                             <!--end::Label-->
 
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('status') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
-                                data-placeholder="Select status" name="status" required>
+                            <select
+                                class="form-select {{ $errors->has('status') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select status" name="status" required>
                                 <option value=""></option>
-                                <option value="Scheduled" {{$log->status == "Scheduled" ? "selected" : ''}} >Scheduled</option>
-                                <option value="In progress" {{$log->status == "In progress" ? "selected" : ''}}>In progress</option>
-                                <option value="Completed" {{$log->status == "Completed" ? "selected" : ''}}>Completed</option>
+                                <option value="Scheduled" {{ $log->status == 'Scheduled' ? 'selected' : '' }}>Scheduled
+                                </option>
+                                <option value="In progress" {{ $log->status == 'In progress' ? 'selected' : '' }}>In
+                                    progress</option>
+                                <option value="Completed" {{ $log->status == 'Completed' ? 'selected' : '' }}>Completed
+                                </option>
                             </select>
                             <!--end::Select2-->
                             @error('status')
@@ -68,8 +73,8 @@
                             @enderror
                         </div>
                         <!--end::Input group-->
-                         <!--begin::Input group-->
-                         <div class="fv-row mb-8">
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-8">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                                 <span class="required">Task</span>
@@ -83,11 +88,12 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('task') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
-                                data-placeholder="Select a task" name="task" required>
+                            <select class="form-select {{ $errors->has('task') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select a task" name="task" required>
                                 <option value="">--select--</option>
                                 @foreach ($tasks as $task)
-                                <option value="{{$task}}" {{$log->task == $task ? "selected" : ''}}>{{$task}}</option>
+                                    <option value="{{ $task }}" {{ $log->task == $task ? 'selected' : '' }}>
+                                        {{ $task }}</option>
                                 @endforeach
                             </select>
                             <!--end::Select2-->
@@ -111,11 +117,15 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('provider') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
-                                data-placeholder="Select a service provider" name="provider" required>
+                            <select
+                                class="form-select {{ $errors->has('provider') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select a service provider" name="provider"
+                                required>
                                 <option value="">--select--</option>
                                 @foreach ($providers as $provider)
-                                <option value="{{$provider->name}}" {{$log->provider == $provider->name ? "selected" : ''}}>{{$provider->name}}</option>
+                                    <option value="{{ $provider->name }}"
+                                        {{ $log->provider == $provider->name ? 'selected' : '' }}>{{ $provider->name }}
+                                    </option>
                                 @endforeach
                             </select>
                             <!--end::Select2-->
@@ -139,12 +149,16 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('frequency') ? 'border-danger' : ''}} form-select-solid"  data-hide-search="true"
-                                data-placeholder="Select an frequency" name="frequency" required>
+                            <select
+                                class="form-select {{ $errors->has('frequency') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select an frequency" name="frequency" required>
                                 <option value="">Unplanned</option>
-                                <option value="1 week" {{$log->frequency == '1 week' ? "selected" : ''}}>Every week</option>
-                                <option value="2 weeks" {{$log->frequency == '2 weeks' ? "selected" : ''}}>Every 2 weeks</option>
-                                <option value="1 month" {{$log->frequency == '1 month' ? "selected" : ''}}>Every month</option>
+                                <option value="1 week" {{ $log->frequency == '1 week' ? 'selected' : '' }}>Every week
+                                </option>
+                                <option value="2 weeks" {{ $log->frequency == '2 weeks' ? 'selected' : '' }}>Every 2 weeks
+                                </option>
+                                <option value="1 month" {{ $log->frequency == '1 month' ? 'selected' : '' }}>Every month
+                                </option>
                             </select>
                             <!--end::Select2-->
                             @error('frequency')
@@ -167,9 +181,10 @@
                             </label>
                             <!--end::Label-->
 
-                            <input type="date" class="form-control {{$errors->has('date') ? 'border-danger' : ''}} form-control-solid" name="date" value="{{$log->date}}"
-                                required />
-                                @error('date')
+                            <input type="date"
+                                class="form-control {{ $errors->has('date') ? 'border-danger' : '' }} form-control-solid"
+                                name="date" value="{{ $log->date }}" required />
+                            @error('date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -182,7 +197,8 @@
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                                 <span class="required">Amount</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Specify the bid amount to place in.">
+                                <span class="ms-1" data-bs-toggle="tooltip"
+                                    title="Specify the bid amount to place in.">
                                     <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -192,8 +208,9 @@
                             </label>
                             <!--end::Label-->
 
-                            <input type="text" class="form-control {{$errors->has('amount') ? 'border-danger' : ''}} form-control-solid" placeholder="2000" value="{{$log->cost}}"
-                                name="amount" />
+                            <input type="text"
+                                class="form-control {{ $errors->has('amount') ? 'border-danger' : '' }} form-control-solid"
+                                placeholder="2000" value="{{ $log->cost }}" name="amount" />
                             @error('amount')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -201,8 +218,8 @@
                         <!--end::Input group-->
                         <!--begin::Actions-->
                         <div class="text-center">
-                            <a href="{{route('vehicle.maintenance_list',$log->vehicle_id)}}" class="btn btn-light me-3"
-                                data-kt-modal-action-type="cancel">Cancel</a>
+                            <a href="{{ route(auth()->guard()->name == 'drivers' ? 'driver.vehicle.maintenance' : 'vehicle.maintenance_list', $log->vehicle_id) }}"
+                                class="btn btn-light me-3" data-kt-modal-action-type="cancel">Cancel</a>
                             <button type="submit" class="btn btn-primary" data-kt-modal-action-type="submit">
                                 <span class="indicator-label">Submit</span>
                                 <span class="indicator-progress">Please wait...

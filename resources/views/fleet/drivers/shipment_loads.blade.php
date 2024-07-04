@@ -97,7 +97,7 @@
                             </select>
                             <!--end::Select2-->
                         </div>
-                       
+
                     </div>
                     <!--end::Card toolbar-->
                 </div>
@@ -117,8 +117,6 @@
                                 </th>
                                 <th class="min-w-105px">#</th>
                                 <th class="min-w-105px">Category</th>
-                                <th class="text-end min-w-70px">Status</th>
-                                <th class="text-end min-w-70px">Shipment Status</th>
                                 <th class="text-end min-w-100px">Size</th>
                                 <th class="text-end min-w-100px">Pickup</th>
                                 <th class="text-end min-w-100px">Dropoff</th>
@@ -137,41 +135,10 @@
                                     <td>{{ $load->mask }}</td>
                                     <td>{{ $load->load_type }}</td>
                                     <td class="text-end pe-0">
-                                        <!--begin::Badges-->
-                                        <div
-                                            class="badge @if ($load->status == 'Approved') badge-light-primary
-                                                    @elseif($load->status == 'Pending')
-                                                    badge-light-warning
-                                                    @elseif($load->status == 'Rejected')
-                                                    badge-light-danger
-                                                    @elseif($load->status == 'Paid')
-                                                    badge-light-success
-                                                    @else
-                                                    badge-light-primary @endif">
-                                            {{ $load->status }}</div>
-                                        <!--end::Badges-->
-                                    </td>
-                                    {{-- shipment status --}}
-                                    <td class="text-end pe-0">
-                                        <!--begin::Badges-->
-                                        <div
-                                            class="badge @if ($load->shipment_status == 'Approved') badge-light-primary
-                                                    @elseif($load->shipment_status == 'On route')
-                                                    badge-light-warning
-                                                    @elseif($load->shipment_status == 'Unassigned')
-                                                    badge-light-danger
-                                                    @elseif($load->shipment_status == 'Delivered')
-                                                    badge-light-success
-                                                    @else
-                                                    badge-light-primary @endif">
-                                            {{ $load->shipment_status }}</div>
-                                        <!--end::Badges-->
-                                    </td>
-                                    <td class="text-end pe-0">
                                         <span class="fw-bold">{{$load->quantity}}, {{$load->weight}} KG, {{$load->length}}*{{$load->breadth}}*{{$load->height}}</span>
                                     </td>
-                                    <td class="text-end">{{ $load->pickup_address }}</td>
-                                    <td class="text-end">{{ $load->dropoff_address }}</td>
+                                    <td class="text-end">{{ json_decode($load->pickup_address)->name }}</td>
+                                    <td class="text-end">{{ json_decode($load->dropoff_address)->name }}</td>
                                     <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                         @php
                                             $handling = explode(',', $load->handling);

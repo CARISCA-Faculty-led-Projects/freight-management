@@ -287,7 +287,7 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route('broker.shipment.edit',$shipment->mask)}}" class="menu-link px-3">Edit</a>
+                                                <a href="{{route(whichUser()->getTable == "brokers" ? 'broker.shipment.edit' : 'org.shipment.edit',$shipment->mask)}}" class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
@@ -302,7 +302,7 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route('broker.shipment.delete',$shipment->mask)}}" onclick="return confirm('Confirm you want to delete shipment?');" class="menu-link px-3"
+                                                <a href="{{route(whichUser()->getTable == "brokers" ? 'broker.shipment.delete':'org.shipment.delete',$shipment->mask)}}" onclick="return confirm('Confirm you want to delete shipment?');" class="menu-link px-3"
                                                     data-kt-ecommerce-order-filter="delete_row">Delete</a>
                                             </div>
                                             <!--end::Menu item-->

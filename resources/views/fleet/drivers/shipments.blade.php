@@ -39,104 +39,6 @@
                 <!--end::Breadcrumb-->
             </div>
             <!--end::Page title-->
-            <!--begin::Actions-->
-            <div class="d-flex align-items-center gap-2 gap-lg-3">
-                <!--begin::Filter menu-->
-                <div class="m-0">
-                    <!--begin::Menu toggle-->
-                    <a href="#" class="btn btn-sm btn-flex bg-body btn-color-gray-700 btn-active-color-primary fw-bold"
-                        data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                        <i class="ki-duotone ki-filter fs-6 text-muted me-1">
-                            <span class="path1"></span>
-                            <span class="path2"></span>
-                        </i>Filter</a>
-                    <!--end::Menu toggle-->
-                    <!--begin::Menu 1-->
-                    <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
-                        id="kt_menu_641ac417f0d97">
-                        <!--begin::Header-->
-                        <div class="px-7 py-5">
-                            <div class="fs-5 text-dark fw-bold">Filter Options</div>
-                        </div>
-                        <!--end::Header-->
-                        <!--begin::Menu separator-->
-                        <div class="separator border-gray-200"></div>
-                        <!--end::Menu separator-->
-                        <!--begin::Form-->
-                        <div class="px-7 py-5">
-                            <!--begin::Input group-->
-                            <div class="mb-10">
-                                <!--begin::Label-->
-                                <label class="form-label fw-semibold">Status:</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <div>
-                                    <select class="form-select form-select-solid" data-kt-select2="true"
-                                        data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac417f0d97"
-                                        data-allow-clear="true">
-                                        <option></option>
-                                        <option value="1">Approved</option>
-                                        <option value="2">Pending</option>
-                                        <option value="2">In Process</option>
-                                        <option value="2">Rejected</option>
-                                    </select>
-                                </div>
-                                <!--end::Input-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="mb-10">
-                                <!--begin::Label-->
-                                <label class="form-label fw-semibold">Member Type:</label>
-                                <!--end::Label-->
-                                <!--begin::Options-->
-                                <div class="d-flex">
-                                    <!--begin::Options-->
-                                    <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                        <input class="form-check-input" type="checkbox" value="1" />
-                                        <span class="form-check-label">Author</span>
-                                    </label>
-                                    <!--end::Options-->
-                                    <!--begin::Options-->
-                                    <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="2" checked="checked" />
-                                        <span class="form-check-label">Customer</span>
-                                    </label>
-                                    <!--end::Options-->
-                                </div>
-                                <!--end::Options-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="mb-10">
-                                <!--begin::Label-->
-                                <label class="form-label fw-semibold">Notifications:</label>
-                                <!--end::Label-->
-                                <!--begin::Switch-->
-                                <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                    <input class="form-check-input" type="checkbox" value="" name="notifications"
-                                        checked="checked" />
-                                    <label class="form-check-label">Enabled</label>
-                                </div>
-                                <!--end::Switch-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Actions-->
-                            <div class="d-flex justify-content-end">
-                                <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
-                                    data-kt-menu-dismiss="true">Reset</button>
-                                <button type="submit" class="btn btn-sm btn-primary"
-                                    data-kt-menu-dismiss="true">Apply</button>
-                            </div>
-                            <!--end::Actions-->
-                        </div>
-                        <!--end::Form-->
-                    </div>
-                    <!--end::Menu 1-->
-                </div>
-                <!--end::Filter menu-->
-            </div>
-            <!--end::Actions-->
         </div>
         <!--end::Toolbar container-->
     </div>
@@ -150,14 +52,14 @@
                 <!--begin::Card title-->
                 <div class="card-title">
                     <!--begin::Search-->
-                    <div class="d-flex align-items-center position-relative my-1">
+                    {{-- <div class="d-flex align-items-center position-relative my-1">
                         <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
                             <span class="path1"></span>
                             <span class="path2"></span>
                         </i>
                         <input type="text" data-kt-ecommerce-order-filter="search"
-                            class="form-control form-control-solid w-250px ps-12" placeholder="Search Report" />
-                    </div>
+                            class="form-control form-control-solid w-250px ps-12" placeholder="Search Shipments" />
+                    </div> --}}
                     <!--end::Search-->
                     <!--begin::Export buttons-->
                     <div id="kt_ecommerce_report_shipping_export" class="d-none"></div>
@@ -165,7 +67,7 @@
                 </div>
                 <!--end::Card title-->
                 <!--begin::Card toolbar-->
-                <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                {{-- <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
                     <!--begin::Daterangepicker-->
                     <input class="form-control form-control-solid w-100 mw-250px" placeholder="Pick date range"
                         id="kt_ecommerce_report_shipping_daterangepicker" />
@@ -219,7 +121,7 @@
                     </div>
                     <!--end::Menu-->
                     <!--end::Export dropdown-->
-                </div>
+                </div> --}}
                 <!--end::Card toolbar-->
             </div>
             <!--end::Card header-->
@@ -274,8 +176,9 @@
                                     {{ $shipment->shipment_status }}</div>
                                 <!--end::Badges-->
                             </td>
-                            <td class="text-end"{{$shipment->pickup_address}}</td>
-                            <td class="text-end">Tema, Accra</td>
+
+                            <td class="text-end">{{json_decode($shipment->pickup_address)->name}}</td>
+                            <td class="text-end">{{json_decode($shipment->dropoff_address)->name}}</td>
 
 
                             <td class="text-end">

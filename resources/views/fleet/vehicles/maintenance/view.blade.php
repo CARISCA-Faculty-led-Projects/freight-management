@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends(auth()->guard()->name == "drivers" ? 'layout.roles.driver' : 'layout.roles.organization')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -15,7 +15,7 @@
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/" class="text-muted text-hover-primary">Home</a>
+                            <span class="text-muted text-hover-primary">Home</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -25,7 +25,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/fleet/drivers" class="text-muted text-hover-primary">Maintenance Schedule</a>
+                            <span class="text-muted text-hover-primary">Maintenance Schedule</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -73,21 +73,6 @@
                         <input class="form-control form-control-solid w-100 mw-250px" placeholder="Pick date range"
                             id="kt_ecommerce_report_shipping_daterangepicker" />
                         <!--end::Daterangepicker-->
-                        <!--begin::Filter-->
-                        <div class="w-150px">
-                            <!--begin::Select2-->
-                            <select class="form-select form-select-solid" data-hide-search="true"
-                                data-placeholder="Status" data-kt-ecommerce-order-filter="status">
-                                <option></option>
-                                <option value="all">All</option>
-                                <option value="Completed">Completed</option>
-                                <option value="In Transit">In Transit</option>
-                                <option value="Pending">Pending</option>
-                                <option value="Cancelled">Cancelled</option>
-                            </select>
-                            <!--end::Select2-->
-                        </div>
-                        <!--end::Filter-->
                         <!--begin::Export dropdown-->
                         <button type="button" class="btn btn-light-primary" data-kt-menu-trigger="click"
                             data-kt-menu-placement="bottom-end">
@@ -95,7 +80,7 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>Export Report</button>
-                        <a href="{{ route('vehicle.maintenance.add', $vehicle) }}" class="btn btn-primary"
+                        <a href="{{ route(auth()->guard()->name == "drivers" ? 'driver.vehicle.maintenance.add' : 'vehicle.maintenance.add', $vehicle) }}" class="btn btn-primary"
                             data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
                             <i class="ki-duotone ki-timer fs-2">
                                 <span class="path1"></span>
@@ -187,12 +172,12 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('vehicle.maintenance.edit', $schedule->id) }}"
+                                                <a href="{{ route(auth()->guard()->name == 'drivers' ?'driver.vehicle.maintenance.edit':'vehicle.maintenance.edit', $schedule->id) }}"
                                                     class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('vehicle.maintenance.delete', $schedule->id) }}"
+                                                <a href="{{ route(auth()->guard()->name == 'drivers' ? 'driver.vehicle.maintenance.delete': 'vehicle.maintenance.delete', $schedule->id) }}"
                                                     onclick="return confirm('Confirming you want to delete?');"
                                                     class="menu-link px-3">Delete</a>
                                             </div>

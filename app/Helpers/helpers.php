@@ -54,9 +54,9 @@ function lookupLocation($location)
         $response = Http::get('https://maps.googleapis.com/maps/api/place/autocomplete/json?components=country:gh&key=' . env('MAP_API') . '&input=' . $location)->throw()->json();
         return $response['predictions'];
     } catch (Exception $e) {
-        dd("No internet connection");
+        // dd("No internet connection");
         // return dd("No internet connection");
-        // dd($e->getMessage());
+        dd($e->getMessage());
     }
 }
 
@@ -73,8 +73,9 @@ function getPlaceCoordinates($place)
         $location['location'] = $response['result']['geometry']['location'];
         return $location;
     } catch (Exception $e) {
+        return $e->getMessage();
         // return ['data'=>['status'=>'error','gateway_response'=>"Transaction not found"]];
-        dd("No internet connection");
+        // dd($e->getMessage());
     }
 }
 

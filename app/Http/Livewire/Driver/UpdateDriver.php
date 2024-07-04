@@ -50,12 +50,17 @@ class UpdateDriver extends Component
     {
 
         if (is_file($this->image)) {
+            unlink('storage/logos/' . $this->driver['image']);
             $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('logos', $imagename, 'real_public');
             $this->driver['image'] = $imagename;
         }
 
         if (is_file($this->driver['license_image'])) {
+            $license = DB::table('drivers')->where('mask', $this->driver['mask'])->first(['license_image']);
+            if (file_exists('storage/drivers/' . $license->license_image)) {
+                unlink('storage/drivers/' . $license->license_image);
+            }
             $imagename = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
             $this->driver['license_image']->storeAs('drivers', $imagename, 'real_public');
             $this->driver['license_image'] = $imagename;

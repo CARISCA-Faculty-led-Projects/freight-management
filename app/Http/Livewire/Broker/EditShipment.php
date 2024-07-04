@@ -29,18 +29,20 @@ class EditShipment extends Component
     public $no_driver;
     public $mask;
     public $shipment;
+    public $driver;
 
     public function mount($mask)
     {
-        $shipment = DB::table('shipments')->where('mask', $mask)->first();
-        $this->description = $shipment->description;
-        $this->organization = $shipment->organization_id;
-        $this->search_pickup = json_decode($shipment->pickup_address)->name;
-        $this->search_dropoff = json_decode($shipment->dropoff_address)->name;
+        $this->shipment = (array)DB::table('shipments')->where('mask', $mask)->first();
+        // $this->description = $this->shipment->description;
+        // $this->organization = $this->shipment->organization_id;
+        // $this->pickup_address = json_decode($this->shipment->pickup_address)->name;
+        // $this->dropoff_address = json_decode($this->shipment->dropoff_address)->name;
+        $this->driver = (array)DB::table('drivers')->where('mask',$this->shipment['driver_id'])->first(['mask','name']);
 
 
-        if ($shipment->loads != null) {
-            foreach (json_decode($shipment->loads) as $load) {
+        if ($this->shipment['loads'] != null) {
+            foreach (json_decode($this->shipment['loads']) as $load) {
                 $tmpload = (array)DB::table('loads')->where('mask', $load)->first();
                 array_push($this->loadsDets, $tmpload);
             }
@@ -83,7 +85,7 @@ class EditShipment extends Component
 
     public function edit_shipment()
     {
-        dd($this->pickup_address);
+        // dd($this->pickup_address);
         if ($this->no_driver == "true") {
             // Validator::make([$this->pickup_address, $this->dropoff_address], [
             //     'pickup_address' => 'required',
@@ -124,6 +126,6 @@ class EditShipment extends Component
 
     public function render()
     {
-        return view('brokers.shipments.edit-shipment')->extends('layout.roles.broker')->section('content');
+        return view('shipments.edit-shipment')->extends(whichUser()->getTable == "brokers" ? 'layout.roles.broker' : 'layout.roles.organization')->section('content');
     }
 }

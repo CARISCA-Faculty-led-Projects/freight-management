@@ -45,7 +45,7 @@
         </div>
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form action="{{ route('org.load.update', $this->load['mask']) }}" id="kt_ecommerce_add_category_form"
+            <form action="{{ route(auth()->guard()->name == 'senders' ? "sender.load.update" :'org.load.update', $this->load['mask']) }}" id="kt_ecommerce_add_category_form"
                 method="POST" class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
                 @csrf
                 <!--begin::Aside column-->
@@ -510,10 +510,11 @@
                                                 <div data-repeater-item=""
                                                     class="form-group d-flex flex-wrap align-items-center gap-5">
                                                     <!--begin::Select2-->
+                                                    <input type="hidden" name="subload[{{ $i }}]['id']" value="{{$this->subload[$i]->id}}">
                                                     <!--begin::Input-->
                                                     <input type="text" class="form-control mw-100 w-200px"
                                                         name="subload[{{ $i }}][name]"
-                                                        placeholder="Item Name" value="{{(array)$this->subload[$i]['name']}}" />
+                                                        placeholder="Item Name" value="{{$this->subload[$i]->name}}" />
                                                     <!--end::Input-->
                                                     <div class="w-100 w-md-200px">
                                                         <select class="form-select"
@@ -522,7 +523,7 @@
                                                             data-kt-ecommerce-catalog-add-category="condition_type">
                                                             <option value="">--select category--</option>
                                                             @foreach ($this->loads() as $load)
-                                                                <option value="{{ $load->name }}"
+                                                                <option value="{{ $load->name }}" {{$this->subload[$i]->load_type == $load->name ? "selected" : ''}}
                                                                 >{{ $load->name }}</option>
                                                             @endforeach
                                                         </select>
@@ -531,12 +532,12 @@
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-100px"
                                                         name="subload[{{ $i }}][quantity]"
-                                                        placeholder="Quantity" />
+                                                        placeholder="Quantity"  value="{{$this->subload[$i]->quantity}}" />
                                                     <!--end::Input-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-200px"
                                                         name="subload[{{ $i }}][value]"
-                                                        placeholder="Value eg. 120.00" />
+                                                        placeholder="Value eg. 120.00"  value="{{$this->subload[$i]->value}}" />
                                                     <!--end::Input-->
                                                     <!--begin::Button-->
                                                     <button type="button"
@@ -552,12 +553,60 @@
                                             </div>
                                         </div>
                                     @endfor
+                                    @for ($i = 0; $i < count($this->fsubload); $i++)
+                                    <!--begin::Form group-->
+                                    <div class="form-group mb-4">
+                                        <div data-repeater-list="kt_ecommerce_add_category_conditions"
+                                            class="d-flex flex-column gap-3">
+                                            <div class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control mw-100 w-200px"
+                                                    name="fsubload[{{ $i }}][name]"
+                                                    placeholder="Item Name" value="{{$this->fsubload[$i]->name}}" />
+                                                <!--end::Input-->
+                                                <div class="w-100 w-md-200px">
+                                                    <select class="form-select"
+                                                        name="fsubload[{{ $i }}][load_type]"
+                                                        data-placeholder="Select an option"
+                                                        data-kt-ecommerce-catalog-add-category="condition_type">
+                                                        <option value="">--select category--</option>
+                                                        @foreach ($this->loads() as $load)
+                                                            <option value="{{ $load->name }}" {{$this->fsubload[$i]->load_type == $load->name ? "selected" : ''}}
+                                                            >{{ $load->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <!--end::Select2-->
+                                                <!--begin::Input-->
+                                                <input type="number" class="form-control mw-100 w-100px"
+                                                    name="fsubload[{{ $i }}][quantity]"
+                                                    placeholder="Quantity"  value="{{$this->fsubload[$i]->quantity}}" />
+                                                <!--end::Input-->
+                                                <!--begin::Input-->
+                                                <input type="number" class="form-control mw-100 w-200px"
+                                                    name="fsubload[{{ $i }}][value]"
+                                                    placeholder="Value eg. 120.00"  value="{{$this->fsubload[$i][value]}}" />
+                                                <!--end::Input-->
+                                                <!--begin::Button-->
+                                                <button type="button"
+                                                    wire:click="delSubLoad({{ $i }},'o')"
+                                                    class="btn btn-sm btn-icon btn-light-danger">
+                                                    <i class="ki-duotone ki-cross fs-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </button>
+                                                <!--end::Button-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endfor
                                     <!--end::Form group-->
                                     <!--begin::Form group-->
                                     <div class="form-group mt-5">
                                         <!--begin::Button-->
                                         <button type="button"
-                                            wire:click="addSubLoad({{ count($this->subload) + 1 }})"
+                                            wire:click="addSubLoad({{ count($this->fsubload) + 1 }})"
                                             class="btn btn-sm btn-light-primary">
                                             <i class="ki-duotone ki-plus fs-2"></i>Add another
                                             condition</button>

@@ -40,6 +40,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\ChatsController;
+use App\Http\Livewire\Load\SenderEditLoad;
 
 Route::middleware('guest')->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -71,7 +72,7 @@ Route::middleware('guest')->group(function () {
         ->name('password.update');
 });
 
-Route::group(['auth:drivers','auth:senders','auth:organizations','auth:brokers'],function () {
+Route::group(['auth:drivers', 'auth:senders', 'auth:organizations', 'auth:brokers'], function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
         ->name('verification.notice');
 
@@ -88,9 +89,10 @@ Route::group(['auth:drivers','auth:senders','auth:organizations','auth:brokers']
 
     Route::post('confirm-password', [ConfirmablePasswordController::class, 'store']);
     Route::post('change_pass', [AuthController::class, 'changePass'])->name('change_pass');
-    Route::controller(ChatsController::class)->group(function(){
-        Route::post('search-user','searchUser');
-        Route::get('user-chats','userMessages');
+    Route::post('reset_pass', [AuthController::class, 'resetPass'])->name('reset_pass');
+    Route::controller(ChatsController::class)->group(function () {
+        Route::post('search-user', 'searchUser');
+        Route::get('user-chats', 'userMessages');
     });
 
     Route::get('logout', [AuthController::class, 'destroy'])
@@ -133,23 +135,6 @@ Route::middleware(['auth:organizations', 'auth:brokers', 'auth:senders'])->group
 
 // Auth: organization start
 Route::middleware('auth:organizations')->group(function () {
-    Route::prefix('organization')->group(function () {
-        Route::get('add', AddOrganization::class);
-        Route::controller(OrganizationsController::class)->group(function () {
-            Route::get('overview', 'overview')->name('org.overview');
-            Route::get('list', 'index')->name('organizations');
-            Route::get('{organization}/details', 'details')->name('org.details');
-            Route::get('{organization}/delete', 'destroy')->name('org.delete');
-        });
-        Route::get('edit/{mask}', UpdateOrganization::class)->name('org.profile');
-        Route::get('invoices/add', function () {
-            return view('organization.invoices.add');
-        });
-        Route::get('invoices/view', function () {
-            return view('organization.invoices.view');
-        });
-    });
-
     Route::prefix('fleet')->group(function () {
         Route::prefix('vehicles')->group(function () {
             Route::controller(VehiclesController::class)->group(function () {
@@ -183,6 +168,20 @@ Route::middleware('auth:organizations')->group(function () {
     });
 
     Route::prefix('organization')->group(function () {
+        Route::get('add', AddOrganization::class);
+        Route::controller(OrganizationsController::class)->group(function () {
+            Route::get('overview', 'overview')->name('org.overview');
+            Route::get('list', 'index')->name('organizations');
+            Route::get('{organization}/details', 'details')->name('org.details');
+            Route::get('{organization}/delete', 'destroy')->name('org.delete');
+        });
+        Route::get('edit/{mask}', UpdateOrganization::class)->name('org.profile');
+        Route::get('invoices/add', function () {
+            return view('organization.invoices.add');
+        });
+        Route::get('invoices/view', function () {
+            return view('organization.invoices.view');
+        });
         Route::prefix('brokers')->group(function () {
             Route::get('list', [BrokersController::class, 'list'])->name('org.broker.list');
             Route::get('add', [BrokersController::class, 'add'])->name('broker.add');
@@ -263,24 +262,29 @@ Route::middleware('auth:organizations')->group(function () {
                 return view('fleet.drivers.payment_history');
             });
         });
+        // Shipment start
+        Route::controller(ShipmentsController::class)->group(function () {
+            Route::get('shipments/schedule', "schedule")->name('orga.shipments.schedule');
+            Route::get('shipments/list', 'list')->name('org.shipments.list');
+            // Route::post('shipments/save', 'store')->name('shipments.save');
+            Route::get('shipments/add', 'add')->name('shipments.add');
+            Route::get('shipments/{shipment}/delete', 'delete')->name('org.shipment.delete');
+            Route::post('shipment/save', 'create')->name('org.shipment.save');
+            Route::post('shipment/{shipment}/update', 'update')->name('org.shipment.update');
+
+            // Route::post('shipments/create', 'create')->name('shipment.create');
+            Route::get('active-shipment-coordinates','getShipmentCoordinates');
+        });
+        Route::get('shipment/create', CreateShipment::class)->name('org.shipment.create');
+        Route::get('shipment/{mask}/edit', EditShipment::class)->name('org.shipment.edit');
+        // Shipments end
     });
 
-    Route::get('organizations/loads/board', LoadBoard::class)->name('org.load.board');
+    Route::get('organization/loads/board', LoadBoard::class)->name('org.load.board');
 
 
 
     // Shipments start
-    Route::prefix('organization')->group(function () {
-        Route::controller(ShipmentsController::class)->group(function () {
-            Route::get('shipments/schedule', "schedule")->name('orga.shipments.schedule');
-            Route::get('shipments/list', 'list')->name('org.shipments.list');
-            Route::post('shipments/save', 'store')->name('shipments.save');
-            Route::get('shipments/add', 'add')->name('shipments.add');
-            // Route::post('shipments/create', 'create')->name('shipment.create');
-        });
-        Route::get('shipment/create', CreateShipment::class)->name('org.shipment.create');
-        Route::get('shipment/{mask}/edit', EditShipment::class)->name('org.shipment.edit');
-    });
 
     Route::get('/shipments/overview', function () {
         return view('shipments.overview');
@@ -293,7 +297,7 @@ Route::middleware('auth:organizations')->group(function () {
     });
     // shipments end
 
-    Route::get('chats',[ChatsController::class,'index'])->name('chats');
+    Route::get('chats', [ChatsController::class, 'index'])->name('chats');
 });
 // Auth organization end
 
@@ -304,6 +308,17 @@ Route::middleware('auth:drivers')->group(function () {
             Route::get('overview', 'overview')->name('driver.overview');
             Route::get('shipments', 'shipments')->name('driver.shipments');
         });
+        Route::controller(VehiclesController::class)->group(function () {
+            Route::get('vehicle/maintenance', 'driver_vehicle_maintenance')->name('driver.vehicle.maintenance');
+            Route::prefix('maintenance')->group(function () {
+                Route::get('{vehicle}/add', 'add_maintenance')->name('driver.vehicle.maintenance.add');
+                Route::get('{log}/edit', 'edit_maintenance')->name('driver.vehicle.maintenance.edit');
+                Route::post('{log}/update', 'update_maintenance')->name('driver.vehicle.maintenance.update');
+                Route::post('{vehicle}/store', 'store_maintenance')->name('driver.vehicle.maintenance.save');
+                Route::get('{vehicle}/delete', 'delete_maintenance')->name('driver.vehicle.maintenance.delete');
+            });
+        });
+
         Route::get('{mask}/profile', UpdateDriver::class)->name('driver.profile');
         Route::prefix('shipment')->group(function () {
             Route::controller(ShipmentsController::class)->group(function () {
@@ -351,9 +366,11 @@ Route::middleware('auth:senders')->group(function () {
                 Route::get('{load}/delete', 'delete')->name('sender.loads.delete');
                 Route::get('{load}/details', 'details')->name('sender.loads.details');
                 Route::get('{load}/completed', 'completed')->name('sender.loads.complete');
+                Route::post('add', 's_store')->name('sender.load.save');
+                Route::post('{load}/update', 'update')->name('sender.load.update');
             });
             Route::get('add', SenderAddLoad::class)->name('sender.load.add');
-            Route::get('{load_id}/edit', UpdateLoad::class)->name('sender.load.edit');
+            Route::get('{load_id}/edit', SenderEditLoad::class)->name('sender.load.edit');
 
 
             Route::get('bids', function () {
@@ -408,8 +425,7 @@ Route::middleware('auth:brokers')->group(function () {
             Route::get('/shipments/all', 'all_shipments')->name('broker.shipments.list');
             Route::get('shipment/create', CreateShipment::class)->name('broker.shipment.create');
             Route::post('shipment/save', 'create')->name('broker.shipment.save');
-            Route::post('/shipments/save', 'store')->name('shipments.save');
-            Route::get('/shipments/add', 'add')->name('shipments.add');
+            Route::post('shipment/{shipment}/update', 'update')->name('broker.shipment.update');
             Route::get('/shipments/{shipment}/delete', 'delete')->name('broker.shipment.delete');
         });
         Route::get('/shipments/overview', function () {
@@ -509,8 +525,7 @@ Route::middleware(['auth:brokers'])->group(function () {
 });
 
 Route::middleware(['auth:organizations'])->group(function () {
-    Route::get('test',function(){
+    Route::get('test', function () {
         return view('chat');
     });
 });
-

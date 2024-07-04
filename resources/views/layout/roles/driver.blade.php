@@ -80,7 +80,7 @@
                      <!--begin:Menu item-->
                      <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="#">
+                        <a class="menu-link" href="{{route('driver.vehicle.maintenance')}}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-element-plus fs-2">
                                     <span class="path1"></span>

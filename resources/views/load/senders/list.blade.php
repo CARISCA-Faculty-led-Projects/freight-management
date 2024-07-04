@@ -162,8 +162,9 @@
                                         <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
                                             {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
                                     </td>
-                                    <td class="text-end">{{ json_decode($load->pickup_address)->name }}</td>
-                                    <td class="text-end">{{ json_decode($load->dropoff_address)->name }}</td>
+                                   
+                                    <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
+                                    <td class="text-end">{{ $load->dropoff_address == null? '' :json_decode($load->dropoff_address)->name }}</td>
                                     <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                         @php
                                             $handling = explode(',', $load->handling);
@@ -186,7 +187,7 @@
                                                     class="menu-link px-3">View</a>
                                             </div>
                                             <!--end::Menu item-->
-                                            @if ($load->completed != 1)
+                                            @if ($load->status != "Completed")
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
                                                     <a href="{{ route('sender.load.edit', $load->mask) }}"
@@ -204,7 +205,7 @@
 
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('loads.delete', $load->mask) }}"
+                                                <a href="{{ route('sender.loads.delete', $load->mask) }}"
                                                     onclick="return confirm('Confirm you want to delete load and subloads?')"
                                                     class="menu-link px-3">Delete</a>
                                             </div>

@@ -255,14 +255,14 @@
                         <!--begin::Title-->
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label fw-bold text-dark">Active Drivers per month</span>
-                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying number of active drivers per month for this year</span>
+                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying number of active drivers per month
+                                for this year</span>
                         </h3>
                         <!--end::Title-->
                         <!--begin::Toolbar-->
                         <div class="card-toolbar">
                             <!--begin::Menu-->
-                            <button
-                                class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
+                            <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
                                 data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
                                 data-kt-menu-overflow="true">
                                 <i class="ki-duotone ki-dots-square fs-1 text-gray-300 me-n1">
@@ -308,8 +308,8 @@
                 <!--end::Chart widget 17-->
             </div>
             <!--end::Col-->
-             <!--begin::Col-->
-             <div class="col-xl-12 mt-5">
+            <!--begin::Col-->
+            <div class="col-xl-12 mt-5">
                 <!--begin::Chart widget 17-->
                 <div class="card card-flush h-xl-100">
                     <!--begin::Header-->
@@ -317,14 +317,14 @@
                         <!--begin::Title-->
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label fw-bold text-dark">Active Brokers per month</span>
-                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying number of active drivers per month for this year</span>
+                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying number of active drivers per month
+                                for this year</span>
                         </h3>
                         <!--end::Title-->
                         <!--begin::Toolbar-->
                         <div class="card-toolbar">
                             <!--begin::Menu-->
-                            <button
-                                class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
+                            <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
                                 data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
                                 data-kt-menu-overflow="true">
                                 <i class="ki-duotone ki-dots-square fs-1 text-gray-300 me-n1">
@@ -370,7 +370,64 @@
                 <!--end::Chart widget 17-->
             </div>
             <!--end::Col-->
+            <div class="col-xl-12 mt-5">
+                <div class="card card-flush p-3">
+                     <!--begin::Header-->
+                     <div class="card-header pt-7">
+                        <!--begin::Title-->
+                        <h3 class="card-title align-items-start flex-column">
+                            <span class="card-label fw-bold text-dark">Realtime shipments location</span>
+                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying realtime locations of all active shipments</span>
+                        </h3>
+                        <!--end::Title-->
+                        <!--begin::Toolbar-->
+                        <div class="card-toolbar">
+                            <!--begin::Menu-->
+                            <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
+                                data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+                                data-kt-menu-overflow="true">
+                                <i class="ki-duotone ki-dots-square fs-1 text-gray-300 me-n1">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                    <span class="path4"></span>
+                                </i>
+                            </button>
+                            <!--begin::Menu-->
+                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-100px py-4"
+                                data-kt-menu="true">
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a href="#" class="menu-link px-3">Remove</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a href="#" class="menu-link px-3">Mute</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
+                                <div class="menu-item px-3">
+                                    <a href="#" id="lnk" class="menu-link px-3">Settings</a>
+                                </div>
+                                <!--end::Menu item-->
+                            </div>
+                            <!--end::Menu-->
+                            <!--end::Menu-->
+                        </div>
+                        <!--end::Toolbar-->
+                    </div>
+                    <!--end::Header-->
+                    <div class="card-body">
+                        <div id="googleMap" style="width:100%;height:100rem;"></div>
+                    </div>
+
+                </div>
+            </div>
         </div>
         <!--end::Content container-->
     </div>
+    <script src="{{ asset('assets/js/organization.overview.js') }}"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>
 @endsection

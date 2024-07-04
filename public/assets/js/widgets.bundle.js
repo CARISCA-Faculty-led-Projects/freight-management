@@ -802,7 +802,6 @@ var TotalVehiclesChart = function () {
         }
 
         var height = parseInt(KTUtil.css(element, 'height'));
-        console.log('vehicle chart height: ' + height);
 
         var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
         var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
@@ -984,7 +983,6 @@ var TotalEarningsChart = function () {
         }
 
         var height = parseInt(KTUtil.css(element, 'height'));
-        console.log('earnings chart height: ' + height);
         var borderColor = KTUtil.getCssVariableValue('--bs-border-dashed-color');
         var baseColor = KTUtil.getCssVariableValue('--bs-gray-800');
         var lightColor = KTUtil.getCssVariableValue('--bs-success');
@@ -4701,8 +4699,5 @@ KTUtil.onDOMContentLoaded(function () {
 });
 
 
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    SenderLoadsCreated.init();
-});
+
 

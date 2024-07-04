@@ -14,18 +14,17 @@ class VehiclesController extends Controller
 
     public function index()
     {
-        $vehicles = DB::table('vehicles')->where("organization_id",Auth::user()->mask)
+        $vehicles = DB::table('vehicles')->where("organization_id", Auth::user()->mask)
             ->join('vehicle_owners', 'vehicle_owners.id', 'vehicles.owner_id')
-            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps','vehicles.driver_id', 'vehicle_owners.name as owner', 'vehicles.gps', 'vehicles.mask','vehicles.number')
+            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps', 'vehicles.driver_id', 'vehicle_owners.name as owner', 'vehicles.gps', 'vehicles.mask', 'vehicles.number')
             ->get();
 
-        foreach($vehicles as $vehicle){
-            if($vehicle->driver_id){
-                $driver = DB::table('drivers')->where('mask',$vehicle->driver_id)->pluck('name')->first();
+        foreach ($vehicles as $vehicle) {
+            if ($vehicle->driver_id) {
+                $driver = DB::table('drivers')->where('mask', $vehicle->driver_id)->pluck('name')->first();
                 $vehicle->driver = $driver;
-            }else{
+            } else {
                 $vehicle->driver = null;
-
             }
         }
         return view('fleet.vehicles.vehicles', compact('vehicles'));
@@ -33,9 +32,9 @@ class VehiclesController extends Controller
 
     public function delete($vehicle)
     {
-        $veh = DB::table('vehicles')->where('mask',$vehicle)->first();
-        if($veh->image){
-            unlink('storage/vehicles/'.$veh->image);
+        $veh = DB::table('vehicles')->where('mask', $vehicle)->first();
+        if ($veh->image) {
+            unlink('storage/vehicles/' . $veh->image);
         }
 
         DB::table('vehicles')->where('mask', $vehicle)->delete();
@@ -58,35 +57,38 @@ class VehiclesController extends Controller
     {
         $vehicle =  DB::table('vehicles')->where('mask', $mask)->first();
         $vehicle_routes = DB::table('vehicle_routes')->where('vehicle_id', $mask)->get();
-        $vehicle_owner = $vehicle->organization_id ? DB::table('organizations')->where("mask",$vehicle->organization_id)->first() : DB::table('vehicle_owners')->where('vehicle_id', $mask)->first();
+        $vehicle_owner = $vehicle->organization_id ? DB::table('organizations')->where("mask", $vehicle->organization_id)->first() : DB::table('vehicle_owners')->where('vehicle_id', $mask)->first();
 
         $organization = null;
-        $driver = DB::table('drivers')->where('mask',$vehicle->driver_id)->first();
+        $driver = DB::table('drivers')->where('mask', $vehicle->driver_id)->first();
 
-        return view('fleet.vehicles.details', compact('vehicle', "vehicle_routes", 'vehicle_owner','organization','driver'));
+        return view('fleet.vehicles.details', compact('vehicle', "vehicle_routes", 'vehicle_owner', 'organization', 'driver'));
     }
 
-    public function maintenance_logs($vehicle){
-        $veh = DB::table('vehicles')->where("mask",$vehicle)->first();
-        $logs = DB::table('maintenance_schedule')->where("vehicle_id",$vehicle)->get();
+    public function maintenance_logs($vehicle)
+    {
+        $veh = DB::table('vehicles')->where("mask", $vehicle)->first();
+        $logs = DB::table('maintenance_schedule')->where("vehicle_id", $vehicle)->get();
 
-        return view('fleet.vehicles.maintenance.view',compact('vehicle','veh','logs'));
+        return view('fleet.vehicles.maintenance.view', compact('vehicle', 'veh', 'logs'));
     }
 
-    public function add_maintenance($vehicle){
+    public function add_maintenance($vehicle)
+    {
         $tasks = DB::table('maintenance_tasks')->pluck('name')->toArray();
-        $providers = DB::table('maintenance_providers')->get(['id','name']);
+        $providers = DB::table('maintenance_providers')->get(['id', 'name']);
 
-        return view('fleet.vehicles.maintenance.add', compact('vehicle','tasks','providers'));
+        return view('fleet.vehicles.maintenance.add', compact('vehicle', 'tasks', 'providers'));
     }
 
-    public function store_maintenance(Request $request,$vehicle){
+    public function store_maintenance(Request $request, $vehicle)
+    {
         $validated = Validator::make($request->all(), [
-        'status' => 'required',
-        'provider' => 'required',
-        'frequency' => 'required',
-        'date' => 'required',
-        'amount' => 'required|numeric'
+            'status' => 'required',
+            'provider' => 'required',
+            'frequency' => 'required',
+            'date' => 'required',
+            'amount' => 'required|numeric'
         ])->validate();
 
         $date = Carbon::parse($request->date)->toDateString();
@@ -99,66 +101,81 @@ class VehiclesController extends Controller
             'provider' => $request->provider,
             'frequency' => $request->frequency,
             'date' => $date,
-            'cost'=> $request->amount,
+            'cost' => $request->amount,
             'next_visit' => Carbon::parse($request->date)->add($request->frequency)->toDateString(),
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
-        $veh = DB::table('vehicles')->where('mask',$vehicle)->first();
+        $veh = DB::table('vehicles')->where('mask', $vehicle)->first();
 
-        if($veh->driver_id){
-            $driver = DB::table('drivers')->where('mask',$veh->driver_id)->first();
-            $msg = "Your vehicle has been assigned for maintenance on ".$date;
-            sendMail("Maintenance Schedule",$driver->email,$msg);
+        if ($veh->driver_id) {
+            $driver = DB::table('drivers')->where('mask', $veh->driver_id)->first();
+            $msg = "Your vehicle has been assigned for maintenance on " . $date;
+            sendMail("Maintenance Schedule", $driver->email, $msg);
         }
 
-        return redirect(route('vehicle.maintenance_list',$vehicle))->with('success','Schedule added');
+        return redirect(route(auth()->guard()->name == 'drivers' ? 'driver.vehicle.maintenance' : 'vehicle.maintenance_list', $vehicle))->with('success', 'Schedule added');
     }
 
-    public function edit_maintenance($log_id){
-        $log = DB::table('maintenance_schedule')->where('id',$log_id)->first();
+    public function edit_maintenance($log_id)
+    {
+        $log = DB::table('maintenance_schedule')->where('id', $log_id)->first();
         $tasks = DB::table('maintenance_tasks')->pluck('name')->toArray();
-        $providers = DB::table('maintenance_providers')->get(['id','name']);
+        $providers = DB::table('maintenance_providers')->get(['id', 'name']);
 
-        return view('fleet.vehicles.maintenance.edit',compact('log','tasks','providers'));
+        return view('fleet.vehicles.maintenance.edit', compact('log', 'tasks', 'providers'));
     }
 
-    public function update_maintenance(Request $request,$log_id){
+    public function update_maintenance(Request $request, $log_id)
+    {
         $validated = Validator::make($request->all(), [
-        'status' => 'required',
-        'provider' => 'required',
-        'frequency' => 'required',
-        'date' => 'required',
-        'amount' => 'required|numeric'
+            'status' => 'required',
+            'provider' => 'required',
+            'frequency' => 'required',
+            'date' => 'required',
+            'amount' => 'required|numeric'
         ])->validate();
 
-        DB::table('maintenance_schedule')->where('id',$log_id)->update([
+        DB::table('maintenance_schedule')->where('id', $log_id)->update([
             'status' => $request->status,
             'task' => $request->task,
             'provider' => $request->provider,
             'frequency' => $request->frequency,
             'date' => Carbon::parse($request->date)->toDateString(),
-            'cost'=> $request->amount,
+            'cost' => $request->amount,
             'next_visit' => Carbon::parse($request->date)->add($request->frequency)->toDateString(),
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
-        return redirect(route('vehicle.maintenance_list',$request->vehicle_id))->with('success','Schedule added');
+        return redirect(route(auth()->guard()->name == 'drivers' ? 'driver.vehicle.maintenance' : 'vehicle.maintenance_list', $request->vehicle_id))->with('success', 'Schedule added');
     }
 
-    public function delete_maintenance($log){
-        DB::table('maintenance_schedule')->where('id',$log)->delete();
+    public function delete_maintenance($log)
+    {
+        DB::table('maintenance_schedule')->where('id', $log)->delete();
 
-        return back()->with('success',"Schedule deleted");
+        return back()->with('success', "Schedule deleted");
     }
 
-    public function all_schedules(){
-        $veh = DB::table('vehicles')->where('organization_id',Auth::user()->mask)->pluck('mask')->toArray();
-        $logs = DB::table('maintenance_schedule')->whereIn('vehicle_id',$veh)
-        ->join('vehicles','vehicles.mask','maintenance_schedule.vehicle_id')
-        ->select('maintenance_schedule.*','vehicles.number')
-        ->get();
+    public function all_schedules()
+    {
+        $veh = DB::table('vehicles')->where('organization_id', Auth::user()->mask)->pluck('mask')->toArray();
+        $logs = DB::table('maintenance_schedule')->whereIn('vehicle_id', $veh)
+            ->join('vehicles', 'vehicles.mask', 'maintenance_schedule.vehicle_id')
+            ->select('maintenance_schedule.*', 'vehicles.number')
+            ->get();
 
-        return view('fleet.maintenance',compact('logs'));
+        return view('fleet.maintenance', compact('logs'));
+    }
+
+    public function driver_vehicle_maintenance()
+    {
+        $veh = DB::table('vehicles')->where('driver_id', whichUser()->mask)->first();
+
+        $logs = DB::table('maintenance_schedule')->where("vehicle_id", $veh->mask)->get();
+
+        $vehicle = $veh->mask;
+
+        return view('fleet.vehicles.maintenance.view', compact('vehicle', 'veh', 'logs'));
     }
 }

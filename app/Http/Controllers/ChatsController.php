@@ -19,7 +19,7 @@ class ChatsController extends Controller
 
     public function searchUser(Request $request)
     {
-       dd(whichUser($request->header('guard')));
+    //    dd(whichUser($request->header('guard')));
 
         Validator::make($request->all(), ['search' => 'required'])->validate();
 

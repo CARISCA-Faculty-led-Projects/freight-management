@@ -10,7 +10,7 @@ use Livewire\Attributes\Computed;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
-class UpdateLoad extends Component
+class SenderEditLoad extends Component
 {
     use WithFileUploads;
     // Tabs
@@ -37,11 +37,11 @@ class UpdateLoad extends Component
         array_push($this->fsubload, $num);
     }
 
-    public function delSubLoad($num,$v = 'o')
+    public function delSubLoad($num, $v = 'o')
     {
-        if($v = 'o'){
+        if ($v = 'o') {
             array_splice($this->subload, $num, 1);
-        }else{
+        } else {
             array_splice($this->fsubload, $num, 1);
         }
     }
@@ -59,7 +59,6 @@ class UpdateLoad extends Component
     public function general()
     {
         $validated = Validator::make($this->load, [
-            'sender_id' => 'required',
             'length' => 'required',
             'weight' => 'required|numeric',
             'height' => 'required|numeric',
@@ -118,16 +117,12 @@ class UpdateLoad extends Component
 
     public function mount($load_id)
     {
-        $this->load = (array) DB::table('loads')->where('mask', $load_id)->first(['image', 'organization_id', 'load_type', 'sender_id', 'description', 'budget', 'quantity', 'length', 'weight', 'height', 'breadth', 'handling', 'pickup_address', 'dropoff_address', 'insurance_docs','mask','status','payment_status','shipment_status','other_docs','completed','created_at']);
+        $this->load = (array) DB::table('loads')->where('mask', $load_id)->first(['image', 'organization_id', 'load_type', 'sender_id', 'description', 'budget', 'quantity', 'length', 'weight', 'height', 'breadth', 'handling', 'pickup_address', 'dropoff_address', 'insurance_docs', 'mask', 'status', 'payment_status', 'shipment_status', 'other_docs', 'completed', 'created_at']);
         $this->subload = DB::table('sub_loads')->where('load_id', $load_id)->get()->toArray();
     }
 
     public function render()
     {
-        if (whichUser()->getTable() == 'senders') {
-            return view('load.edit')->extends('layout.roles.sender')->section('content');
-        } else {
-            return view('load.edit')->extends('layout.roles.organization')->section('content');
-        }
+        return view('load.senders.edit')->extends('layout.roles.sender')->section('content');
     }
 }

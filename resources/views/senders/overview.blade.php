@@ -185,8 +185,7 @@
                             <!--begin::Toolbar-->
                             <div class="card-toolbar">
                                 <!--begin::Menu-->
-                                <button
-                                    class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
+                                <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
                                     data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
                                     data-kt-menu-overflow="true">
                                     <i class="ki-duotone ki-dots-square fs-1 text-gray-300 me-n1">
@@ -238,250 +237,253 @@
         <!--end::Content container-->
     </div>
     <script>
-        var SenderLoadsCreated = (function () {
-    // Private methods
-    var initChart = function () {
-        // Check if amchart library is included
-        if (typeof am5 === "undefined") {
-            return;
-        }
-
-        var element = document.getElementById("sender_loads_created");
-
-        if (!element) {
-            return;
-        }
-
-        var root;
-
-        var init = function() {
-            // Create root element
-            // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-            root = am5.Root.new(element);
-
-            // Set themes
-            // https://www.amcharts.com/docs/v5/concepts/themes/
-            root.setThemes([am5themes_Animated.new(root)]);
-
-            // Create chart
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/
-            var chart = root.container.children.push(
-                am5xy.XYChart.new(root, {
-                    panX: false,
-                    panY: false,
-                    wheelX: "panX",
-                    wheelY: "zoomX",
-                    layout: root.verticalLayout,
-                })
-            );
-
-            var colors = chart.get("colors");
-
-            var data = [
-                {
-                    month: "Jan",
-                    qty: 725,
-                },
-                {
-                    month: "Feb",
-                    qty: 625,
-                },
-                {
-                    month: "Mar",
-                    qty: 602,
-                },
-                {
-                    month: "Apr",
-                    qty: 509,
-                },
-                {
-                    month: "May",
-                    qty: 322,
-                },
-                {
-                    month: "Jun",
-                    qty: 214,
-                },
-                {
-                    month: "Jul",
-                    qty: 204,
-                },
-                {
-                    month: "Aug",
-                    qty: 198,
-                },
-                {
-                    month: "Sep",
-                    qty: 165,
-                },
-                {
-                    month: "Oct",
-                    qty: 130,
-                },
-                {
-                    month: "Nov",
-                    qty: 93,
-                },
-                {
-                    month: "Dec",
-                    qty: 418,
-                },
-            ];
-
-            prepareParetoData();
-
-            function prepareParetoData() {
-                var total = 0;
-
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
-                    total += value;
+        var SenderLoadsCreated = (function() {
+            // Private methods
+            var initChart = function() {
+                // Check if amchart library is included
+                if (typeof am5 === "undefined") {
+                    return;
                 }
 
-                var sum = 0;
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
-                    sum += value;
-                    data[i].pareto = (sum / total) * 100;
+                var element = document.getElementById("sender_loads_created");
+
+                if (!element) {
+                    return;
                 }
-            }
 
-            // Create axes
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-            var xAxis = chart.xAxes.push(
-                am5xy.CategoryAxis.new(root, {
-                    categoryField: "month",
-                    renderer: am5xy.AxisRendererX.new(root, {
-                        minGridDistance: 30,
-                    }),
-                })
-            );
+                var root;
 
-            xAxis.get("renderer").labels.template.setAll({
-                paddingTop: 10,
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
+                var init = function() {
+                    // Create root element
+                    // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+                    root = am5.Root.new(element);
 
-            xAxis.get("renderer").grid.template.setAll({
-                disabled: true,
-                strokeOpacity: 0
-            });
+                    // Set themes
+                    // https://www.amcharts.com/docs/v5/concepts/themes/
+                    root.setThemes([am5themes_Animated.new(root)]);
 
-            xAxis.data.setAll(data);
+                    // Create chart
+                    // https://www.amcharts.com/docs/v5/charts/xy-chart/
+                    var chart = root.container.children.push(
+                        am5xy.XYChart.new(root, {
+                            panX: false,
+                            panY: false,
+                            wheelX: "panX",
+                            wheelY: "zoomX",
+                            layout: root.verticalLayout,
+                        })
+                    );
 
-            var yAxis = chart.yAxes.push(
-                am5xy.ValueAxis.new(root, {
-                    renderer: am5xy.AxisRendererY.new(root, {}),
-                })
-            );
+                    var colors = chart.get("colors");
 
-            yAxis.get("renderer").labels.template.setAll({
-                paddingLeft: 10,
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
+                    var data = [{
+                            month: "Jan",
+                            qty: 725,
+                        },
+                        {
+                            month: "Feb",
+                            qty: 625,
+                        },
+                        {
+                            month: "Mar",
+                            qty: 602,
+                        },
+                        {
+                            month: "Apr",
+                            qty: 509,
+                        },
+                        {
+                            month: "May",
+                            qty: 322,
+                        },
+                        {
+                            month: "Jun",
+                            qty: 214,
+                        },
+                        {
+                            month: "Jul",
+                            qty: 204,
+                        },
+                        {
+                            month: "Aug",
+                            qty: 198,
+                        },
+                        {
+                            month: "Sep",
+                            qty: 165,
+                        },
+                        {
+                            month: "Oct",
+                            qty: 130,
+                        },
+                        {
+                            month: "Nov",
+                            qty: 93,
+                        },
+                        {
+                            month: "Dec",
+                            qty: 418,
+                        },
+                    ];
 
-            yAxis.get("renderer").grid.template.setAll({
-                stroke: am5.color(KTUtil.getCssVariableValue('--bs-gray-300')),
-                strokeWidth: 1,
-                strokeOpacity: 1,
-                strokeDasharray: [3]
-            });
+                    prepareParetoData();
 
-            var paretoAxisRenderer = am5xy.AxisRendererY.new(root, {
-                opposite: true,
-            });
+                    function prepareParetoData() {
+                        var total = 0;
 
-            var paretoAxis = chart.yAxes.push(
-                am5xy.ValueAxis.new(root, {
-                    renderer: paretoAxisRenderer,
-                    min: 0,
-                    max: 100,
-                    strictMinMax: true,
-                })
-            );
+                        for (var i = 0; i < data.length; i++) {
+                            var value = data[i].qty;
+                            total += value;
+                        }
 
-            paretoAxis.get("renderer").labels.template.setAll({
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
+                        var sum = 0;
+                        for (var i = 0; i < data.length; i++) {
+                            var value = data[i].qty;
+                            sum += value;
+                            data[i].pareto = (sum / total) * 100;
+                        }
+                    }
 
-            paretoAxisRenderer.grid.template.set("forceHidden", true);
-            paretoAxis.set("numberFormat", "#'%");
+                    // Create axes
+                    // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+                    var xAxis = chart.xAxes.push(
+                        am5xy.CategoryAxis.new(root, {
+                            categoryField: "month",
+                            renderer: am5xy.AxisRendererX.new(root, {
+                                minGridDistance: 30,
+                            }),
+                        })
+                    );
 
-            // Add series
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-            var series = chart.series.push(
-                am5xy.ColumnSeries.new(root, {
-                    xAxis: xAxis,
-                    yAxis: yAxis,
-                    valueYField: "qty",
-                    categoryXField: "month",
-                })
-            );
+                    xAxis.get("renderer").labels.template.setAll({
+                        paddingTop: 10,
+                        fontWeight: "400",
+                        fontSize: 13,
+                        fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+                    });
 
-            series.columns.template.setAll({
-                tooltipText: "{categoryX}: {valueY}",
-                tooltipY: 0,
-                strokeOpacity: 0,
-                cornerRadiusTL: 6,
-                cornerRadiusTR: 6,
-            });
+                    xAxis.get("renderer").grid.template.setAll({
+                        disabled: true,
+                        strokeOpacity: 0
+                    });
 
-            series.columns.template.adapters.add(
-                "fill",
-                function (fill, target) {
-                    return chart
-                        .get("colors")
-                        .getIndex(series.dataItems.indexOf(target.dataItem));
+                    xAxis.data.setAll(data);
+
+                    var yAxis = chart.yAxes.push(
+                        am5xy.ValueAxis.new(root, {
+                            renderer: am5xy.AxisRendererY.new(root, {}),
+                        })
+                    );
+
+                    yAxis.get("renderer").labels.template.setAll({
+                        paddingLeft: 10,
+                        fontWeight: "400",
+                        fontSize: 13,
+                        fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+                    });
+
+                    yAxis.get("renderer").grid.template.setAll({
+                        stroke: am5.color(KTUtil.getCssVariableValue('--bs-gray-300')),
+                        strokeWidth: 1,
+                        strokeOpacity: 1,
+                        strokeDasharray: [3]
+                    });
+
+                    var paretoAxisRenderer = am5xy.AxisRendererY.new(root, {
+                        opposite: true,
+                    });
+
+                    var paretoAxis = chart.yAxes.push(
+                        am5xy.ValueAxis.new(root, {
+                            renderer: paretoAxisRenderer,
+                            min: 0,
+                            max: 100,
+                            strictMinMax: true,
+                        })
+                    );
+
+                    paretoAxis.get("renderer").labels.template.setAll({
+                        fontWeight: "400",
+                        fontSize: 13,
+                        fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+                    });
+
+                    paretoAxisRenderer.grid.template.set("forceHidden", true);
+                    paretoAxis.set("numberFormat", "#'%");
+
+                    // Add series
+                    // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+                    var series = chart.series.push(
+                        am5xy.ColumnSeries.new(root, {
+                            xAxis: xAxis,
+                            yAxis: yAxis,
+                            valueYField: "qty",
+                            categoryXField: "month",
+                        })
+                    );
+
+                    series.columns.template.setAll({
+                        tooltipText: "{categoryX}: {valueY}",
+                        tooltipY: 0,
+                        strokeOpacity: 0,
+                        cornerRadiusTL: 6,
+                        cornerRadiusTR: 6,
+                    });
+
+                    series.columns.template.adapters.add(
+                        "fill",
+                        function(fill, target) {
+                            return chart
+                                .get("colors")
+                                .getIndex(series.dataItems.indexOf(target.dataItem));
+                        }
+                    );
+
+                    // pareto series
+                    var paretoSeries = chart.series.push(
+                        am5xy.LineSeries.new(root, {
+                            xAxis: xAxis,
+                            yAxis: paretoAxis,
+                            valueYField: "pareto",
+                            categoryXField: "month",
+                            stroke: am5.color(KTUtil.getCssVariableValue('--bs-dark')),
+                            maskBullets: false,
+                        })
+                    );
+
+                    series.data.setAll(data);
+
+                    // Make stuff animate on load
+                    // https://www.amcharts.com/docs/v5/concepts/animations/
+                    series.appear();
+                    chart.appear(1000, 100);
                 }
-            );
 
-            // pareto series
-            var paretoSeries = chart.series.push(
-                am5xy.LineSeries.new(root, {
-                    xAxis: xAxis,
-                    yAxis: paretoAxis,
-                    valueYField: "pareto",
-                    categoryXField: "month",
-                    stroke: am5.color(KTUtil.getCssVariableValue('--bs-dark')),
-                    maskBullets: false,
-                })
-            );
+                am5.ready(function() {
+                    init();
+                });
 
-            series.data.setAll(data);
+                // Update chart on theme mode change
+                KTThemeMode.on("kt.thememode.change", function() {
+                    // Destroy chart
+                    root.dispose();
 
-            // Make stuff animate on load
-            // https://www.amcharts.com/docs/v5/concepts/animations/
-            series.appear();
-            chart.appear(1000, 100);
-        }
+                    // Reinit chart
+                    init();
+                });
+            };
 
-        am5.ready(function () {
-            init();
+            // Public methods
+            return {
+                init: function() {
+                    initChart();
+                },
+            };
+        })();
+
+        // On document ready
+        KTUtil.onDOMContentLoaded(function() {
+            SenderLoadsCreated.init();
         });
-
-        // Update chart on theme mode change
-		KTThemeMode.on("kt.thememode.change", function() {
-			// Destroy chart
-			root.dispose();
-
-			// Reinit chart
-			init();
-		});
-    };
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        },
-    };
-})();
-
     </script>
 @endsection

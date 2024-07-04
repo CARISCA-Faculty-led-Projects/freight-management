@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends(auth()->guard()->name == 'drivers' ? 'layout.roles.driver' : 'layout.roles.organization')
 @section('content')
     <!--begin::Modal - New Target-->
     <div class="container mt-5 d-flex justify-content-center" id="kt_modal_add_maintenance_schedule" tabindex="-1"
@@ -7,23 +7,12 @@
         <div class="card mw-650px">
             <!--begin::Modal content-->
             <div class="card-body">
-                <!--begin::Modal header-->
-                {{-- <div class="modal-header pb-0 border-0 justify-content-end">
-                <!--begin::Close-->
-                <div class="btn btn-sm btn-icon btn-active-color-primary" data-kt-modal-action-type="close">
-                    <i class="ki-duotone ki-cross fs-1">
-                        <span class="path1"></span>
-                        <span class="path2"></span>
-                    </i>
-                </div>
-                <!--end::Close-->
-            </div> --}}
-                <!--begin::Modal header-->
                 <!--begin::Modal body-->
                 <div class=" scroll-y px-10 px-lg-15 pt-0">
                     <!--begin:Form-->
-                    <form action="{{ route('vehicle.maintenance.save', $vehicle) }}" method="POST"
-                        id="kt_modal_add_maintenance_schedule_form" class="form">
+                    <form
+                        action="{{ route(auth()->guard()->name == 'drivers' ? 'driver.vehicle.maintenance.save' : 'vehicle.maintenance.save', $vehicle) }}"
+                        method="POST" id="kt_modal_add_maintenance_schedule_form" class="form">
                         @csrf
                         <!--begin::Heading-->
                         <div class="mb-13 text-center">
@@ -53,8 +42,9 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('status') ? 'border-danger' : ''}} form-select-solid" data-hide-search="true"
-                                data-placeholder="Select an organization" name="status" required>
+                            <select
+                                class="form-select {{ $errors->has('status') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select an organization" name="status" required>
                                 <option value=""></option>
                                 <option value="Scheduled" selected="selected">Scheduled</option>
                                 <option value="In progress">In progress</option>
@@ -66,8 +56,8 @@
                             @enderror
                         </div>
                         <!--end::Input group-->
-                         <!--begin::Input group-->
-                         <div class="fv-row mb-8">
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-8">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                                 <span class="required">Task</span>
@@ -81,11 +71,11 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('task') ? 'border-danger' : ''}} form-select-solid" data-hide-search="true"
-                                data-placeholder="Select a task" name="task" required>
+                            <select class="form-select {{ $errors->has('task') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select a task" name="task" required>
                                 <option value="">--select--</option>
                                 @foreach ($tasks as $task)
-                                <option value="{{$task}}">{{$task}}</option>
+                                    <option value="{{ $task }}">{{ $task }}</option>
                                 @endforeach
                             </select>
                             <!--end::Select2-->
@@ -109,8 +99,9 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('provider') ? 'border-danger' : ''}} form-select-solid" data-hide-search="true"
-                                data-placeholder="Select an organization" name="provider" required>
+                            <select
+                                class="form-select {{ $errors->has('provider') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select an organization" name="provider" required>
                                 <option value="Craftman Mechanics">Craftman Mechanics</option>
                                 <option value="AutoPro Services"> AutoPro Services</option>
                             </select>
@@ -135,8 +126,9 @@
                             </label>
                             <!--end::Label-->
                             <!--begin::Select2-->
-                            <select class="form-select {{$errors->has('frequency') ? 'border-danger' : ''}} form-select-solid" data-hide-search="true"
-                                data-placeholder="Select an frequency" name="frequency" required>
+                            <select
+                                class="form-select {{ $errors->has('frequency') ? 'border-danger' : '' }} form-select-solid"
+                                data-hide-search="true" data-placeholder="Select an frequency" name="frequency" required>
                                 <option value="">Unplanned</option>
                                 <option value="1 week" selected="selected">Every week</option>
                                 <option value="2 weeks" selected="selected">Every 2 weeks</option>
@@ -163,9 +155,10 @@
                             </label>
                             <!--end::Label-->
 
-                            <input type="date" class="form-control {{$errors->has('date') ? 'border-danger' : ''}} form-control-solid" name="date"
-                                required />
-                                @error('date')
+                            <input type="date"
+                                class="form-control {{ $errors->has('date') ? 'border-danger' : '' }} form-control-solid"
+                                name="date" required />
+                            @error('date')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
@@ -178,7 +171,8 @@
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
                                 <span class="required">Amount</span>
-                                <span class="ms-1" data-bs-toggle="tooltip" title="Specify the bid amount to place in.">
+                                <span class="ms-1" data-bs-toggle="tooltip"
+                                    title="Specify the bid amount to place in.">
                                     <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                         <span class="path1"></span>
                                         <span class="path2"></span>
@@ -188,8 +182,9 @@
                             </label>
                             <!--end::Label-->
 
-                            <input type="text" class="form-control {{$errors->has('amount') ? 'border-danger' : ''}} form-control-solid" placeholder="2000"
-                                name="amount" />
+                            <input type="text"
+                                class="form-control {{ $errors->has('amount') ? 'border-danger' : '' }} form-control-solid"
+                                placeholder="2000" name="amount" />
                             @error('amount')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
@@ -197,27 +192,27 @@
                         <!--end::Input group-->
                         <!--begin::Notice-->
                         <!-- <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
-                            <i class="ki-duotone ki-wallet fs-2tx text-primary me-4">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                                <span class="path3"></span>
-                                <span class="path4"></span>
-                            </i>
+                                    <i class="ki-duotone ki-wallet fs-2tx text-primary me-4">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                        <span class="path4"></span>
+                                    </i>
 
-                            <div class="d-flex flex-stack flex-grow-1">
-                                <div class="fw-semibold">
-                                    <h4 class="text-gray-900 fw-bold">Top up funds</h4>
-                                    <div class="fs-6 text-gray-700">Not enough funds in your wallet?
-                                        <a href="/utilities/modals/wizards/top-up-wallet" class="text-bolder">Top up
-                                            wallet</a>.</div>
-                                </div>
-                            </div>
-                        </div> -->
+                                    <div class="d-flex flex-stack flex-grow-1">
+                                        <div class="fw-semibold">
+                                            <h4 class="text-gray-900 fw-bold">Top up funds</h4>
+                                            <div class="fs-6 text-gray-700">Not enough funds in your wallet?
+                                                <a href="/utilities/modals/wizards/top-up-wallet" class="text-bolder">Top up
+                                                    wallet</a>.</div>
+                                        </div>
+                                    </div>
+                                </div> -->
                         <!--end::Notice-->
                         <!--end::Notice-->
                         <!--begin::Actions-->
                         <div class="text-center">
-                            <a  href="{{route('vehicle.maintenance_list',$vehicle)}}" class="btn btn-light me-3"
+                            <a href="{{ route('vehicle.maintenance_list', $vehicle) }}" class="btn btn-light me-3"
                                 data-kt-modal-action-type="cancel">Cancel</a>
                             <button type="submit" class="btn btn-primary" data-kt-modal-action-type="submit">
                                 <span class="indicator-label">Submit</span>

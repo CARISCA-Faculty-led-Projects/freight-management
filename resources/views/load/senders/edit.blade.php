@@ -8,7 +8,7 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                        Add Load</h1>
+                        Edit Load</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -33,7 +33,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Add</li>
+                        <li class="breadcrumb-item text-muted">Edit</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
@@ -45,8 +45,8 @@
         </div>
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form action="{{route('org.load.save')}}" id="kt_ecommerce_add_category_form" method="POST"
-                class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
+            <form action="{{ route("sender.load.update", $this->load['mask']) }}" id="kt_ecommerce_add_category_form"
+                method="POST" class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
                 @csrf
                 <!--begin::Aside column-->
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -79,9 +79,13 @@
                             <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                 data-kt-image-input="true">
                                 <!--begin::Preview existing avatar-->
-
-                                <div class="image-input-wrapper w-150px h-150px"></div>
-
+                                @if ($this->load['image'])
+                                    <img class="image-input-wrapper w-150px h-150px"
+                                        src="{{ asset('storage/loads/' . $this->load['image']) }}" alt=""
+                                        srcset="">
+                                @else
+                                    <div class="image-input-wrapper w-150px h-150px"></div>
+                                @endif
                                 <!--end::Preview existing avatar-->
                                 <!--begin::Label-->
                                 <label
@@ -156,8 +160,8 @@
                             <select class="form-select mb-2" data-hide-search="true" data-placeholder="Select an option"
                                 name="status" id="kt_ecommerce_add_category_status_select">
                                 <option>--select--</option>
-                                <option value="Draft">Draft</option>
-                                <option value="Completed">Completed</option>
+                                <option value="Draft" {{$this->load['status'] == 'Draft' ? 'selected' : ''}}>Draft</option>
+                                <option value="Completed" {{$this->load['status'] == 'Completed' ? 'selected' : ''}}>Completed</option>
                             </select>
                             <!--end::Select2-->
                             @error('status')
@@ -189,12 +193,12 @@
                                 type</label>
                             <!--end::Select store template-->
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" name="load_type" data-control="select2"
-                                data-hide-search="true" data-placeholder="Select an option"
+                            <select class="form-select mb-2" name="load_type"
+                                data-placeholder="Select an option"
                                 id="kt_ecommerce_add_category_store_template">
                                 <option>--select--</option>
                                 @foreach ($this->loads() as $load)
-                                    <option value="{{ $load->name }}" selected="selected">{{ $load->name }}
+                                    <option value="{{ $load->name }}" {{$this->load['load_type'] == $load->name ? "selected" : ''}}>{{ $load->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -228,33 +232,9 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
-                                <label class="required form-label">Sender</label>
-                                <!--end::Label-->
-                                <!--begin::Select2-->
-                                <select class="form-select mb-2 js-example-basic-single w-200" name="sender_id"
-                                    data-hide-search="true" data-placeholder="Select a sender"
-                                    id="kt_ecommerce_add_category_store_template">
-                                    <option>--select--</option>
-                                    @foreach ($this->senders() as $sender)
-                                        <option value="{{ $sender->mask }}">{{ $sender->name }}</option>
-                                    @endforeach
-                                </select>
-                                <!--end::Select2-->
-                                @error('sender_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">A sender is required and
-                                    recommended to be unique.</div>
-                                <!--end::Description-->
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="mb-10 fv-row">
-                                <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4"></textarea>
+                                <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4" value="{{$this->load['description']}}"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -272,7 +252,7 @@
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="number" class="form-control mb-2" name="budget"
-                                    placeholder="eg. 500" />
+                                    placeholder="eg. 500" value="{{$this->load['budget']}}" />
                                 <!--end::Input-->
                                 @error('budget')
                                     <span class="text-danger">{{ $message }}</span>
@@ -308,7 +288,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" class="form-control mb-2" name="quantity"
-                                            placeholder="eg. 1 Container" />
+                                            placeholder="eg. 1 Container" value="{{$this->load['quantity']}}" />
                                         <!--end::Input-->
                                         @error('quantity')
                                             <span class="text-danger">{{ $message }}</span>
@@ -324,7 +304,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            name="weight" placeholder="60" />
+                                            name="weight" placeholder="60" value="{{$this->load['weight']}}" />
                                         <!--end::Input-->
                                         @error('weight')
                                             <span class="text-danger">{{ $message }}</span>
@@ -345,7 +325,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" class="form-control mb-2" name="length"
-                                            placeholder="eg. 12" />
+                                            placeholder="eg. 12" value="{{$this->load['length']}}" />
                                         <!--end::Input-->
                                         @error('length')
                                             <span class="text-danger">{{ $message }}</span>
@@ -361,7 +341,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            name="breadth" placeholder="60" />
+                                            name="breadth" placeholder="60" value="{{$this->load['breadth']}}" />
                                         <!--end::Input-->
                                         @error('breadth')
                                             <span class="text-danger">{{ $message }}</span>
@@ -378,7 +358,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" class="form-control mb-2" name="height"
-                                            placeholder="60" />
+                                            placeholder="60" value="{{$this->load['height']}}" />
                                         <!--end::Input-->
                                         <!--begin::Description-->
                                         <div class="text-muted fs-7">Set a height</div>
@@ -396,7 +376,7 @@
                                 <!--end::Label-->
                                 <!--begin::Editor-->
                                 <input id="kt_ecommerce_add_category_meta_keywords" name="handling"
-                                    class="form-control mb-2" />
+                                    class="form-control mb-2" value="{{$this->load['handling']}}" />
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a list of keywords that the
@@ -428,7 +408,7 @@
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <select name="pickup_address" class="form-control basic-select2" id="pickup_address">
-                                    <option value="">--select--</option>
+                                    <option value="{{$this->load['pickup_address']}}" selected>{{json_decode($this->load['pickup_address'])->name}}</option>
                                 </select>
                                 <!--end::Input-->
                                 <!--begin::Description-->
@@ -443,8 +423,9 @@
                                 <label class="form-label">Drop-off Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <select name="dropoff_address" class="form-control basic-select2" id="dropoff_address">
-                                    <option value="">--select--</option>
+                                <select name="dropoff_address" class="form-control basic-select2"
+                                    id="dropoff_address">
+                                    <option value="{{$this->load['dropoff_address']}}">{{json_decode($this->load['dropoff_address'])->name}}</option>
                                 </select>
                                 {{-- <input type="text" class="form-control mb-2" wire:model="dropoff_address"
                                     placeholder="eg. 1 Container" /> --}}
@@ -479,6 +460,22 @@
                                 <label class="form-label">Indicate all the items in your load if
                                     they are more than one</label>
                                 <!--end::Label-->
+                                <!--begin::Conditions-->
+                                {{-- <div class="d-flex flex-wrap align-items-center text-gray-600 gap-5 mb-7">
+                                    <span>Save items for future use:</span>
+                                    <div class="form-check form-check-custom form-check-solid">
+                                        <input class="form-check-input" type="radio" wire:model="future"
+                                            value="" id="all_conditions" checked="checked" />
+                                        <label class="form-check-label" for="all_conditions">Yes</label>
+                                    </div>
+
+                                    <div class="form-check form-check-custom form-check-solid">
+                                        <input class="form-check-input" type="radio" wire:model="future"
+                                            value="" id="any_conditions" />
+                                        <label class="form-check-label" for="any_conditions">No</label>
+                                    </div>
+                                </div> --}}
+                                <!--end::Conditions-->
                                 <!--begin::Repeater-->
                                 <div id="kt_ecommerce_add_category_conditions">
                                     @for ($i = 0; $i < count($this->subload); $i++)
@@ -489,10 +486,11 @@
                                                 <div data-repeater-item=""
                                                     class="form-group d-flex flex-wrap align-items-center gap-5">
                                                     <!--begin::Select2-->
+                                                    <input type="hidden" name="subload[{{ $i }}]['id']" value="{{$this->subload[$i]->id}}">
                                                     <!--begin::Input-->
                                                     <input type="text" class="form-control mw-100 w-200px"
                                                         name="subload[{{ $i }}][name]"
-                                                        placeholder="Item Name" />
+                                                        placeholder="Item Name" value="{{$this->subload[$i]->name}}" />
                                                     <!--end::Input-->
                                                     <div class="w-100 w-md-200px">
                                                         <select class="form-select"
@@ -501,8 +499,8 @@
                                                             data-kt-ecommerce-catalog-add-category="condition_type">
                                                             <option value="">--select category--</option>
                                                             @foreach ($this->loads() as $load)
-                                                                <option value="{{ $load->name }}"
-                                                                    selected="selected">{{ $load->name }}</option>
+                                                                <option value="{{ $load->name }}" {{$this->subload[$i]->load_type == $load->name ? "selected" : ''}}
+                                                                >{{ $load->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
@@ -510,12 +508,12 @@
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-100px"
                                                         name="subload[{{ $i }}][quantity]"
-                                                        placeholder="Quantity" />
+                                                        placeholder="Quantity"  value="{{$this->subload[$i]->quantity}}" />
                                                     <!--end::Input-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-200px"
                                                         name="subload[{{ $i }}][value]"
-                                                        placeholder="Value eg. 120.00" />
+                                                        placeholder="Value eg. 120.00"  value="{{$this->subload[$i]->value}}" />
                                                     <!--end::Input-->
                                                     <!--begin::Button-->
                                                     <button type="button"
@@ -531,12 +529,60 @@
                                             </div>
                                         </div>
                                     @endfor
+                                    @for ($i = 0; $i < count($this->fsubload); $i++)
+                                    <!--begin::Form group-->
+                                    <div class="form-group mb-4">
+                                        <div data-repeater-list="kt_ecommerce_add_category_conditions"
+                                            class="d-flex flex-column gap-3">
+                                            <div class="form-group d-flex flex-wrap align-items-center gap-5">
+                                                <!--begin::Input-->
+                                                <input type="text" class="form-control mw-100 w-200px"
+                                                    name="fsubload[{{ $i }}][name]"
+                                                    placeholder="Item Name" value="{{$this->fsubload[$i]->name}}" />
+                                                <!--end::Input-->
+                                                <div class="w-100 w-md-200px">
+                                                    <select class="form-select"
+                                                        name="fsubload[{{ $i }}][load_type]"
+                                                        data-placeholder="Select an option"
+                                                        data-kt-ecommerce-catalog-add-category="condition_type">
+                                                        <option value="">--select category--</option>
+                                                        @foreach ($this->loads() as $load)
+                                                            <option value="{{ $load->name }}" {{$this->fsubload[$i]->load_type == $load->name ? "selected" : ''}}
+                                                            >{{ $load->name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <!--end::Select2-->
+                                                <!--begin::Input-->
+                                                <input type="number" class="form-control mw-100 w-100px"
+                                                    name="fsubload[{{ $i }}][quantity]"
+                                                    placeholder="Quantity"  value="{{$this->fsubload[$i]->quantity}}" />
+                                                <!--end::Input-->
+                                                <!--begin::Input-->
+                                                <input type="number" class="form-control mw-100 w-200px"
+                                                    name="fsubload[{{ $i }}][value]"
+                                                    placeholder="Value eg. 120.00"  value="{{$this->fsubload[$i][value]}}" />
+                                                <!--end::Input-->
+                                                <!--begin::Button-->
+                                                <button type="button"
+                                                    wire:click="delSubLoad({{ $i }},'o')"
+                                                    class="btn btn-sm btn-icon btn-light-danger">
+                                                    <i class="ki-duotone ki-cross fs-2">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i>
+                                                </button>
+                                                <!--end::Button-->
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endfor
                                     <!--end::Form group-->
                                     <!--begin::Form group-->
                                     <div class="form-group mt-5">
                                         <!--begin::Button-->
                                         <button type="button"
-                                            wire:click="addSubLoad({{ count($this->subload) + 1 }})"
+                                            wire:click="addSubLoad({{ count($this->fsubload) + 1 }})"
                                             class="btn btn-sm btn-light-primary">
                                             <i class="ki-duotone ki-plus fs-2"></i>Add another
                                             condition</button>
@@ -679,56 +725,4 @@
             width: 105% !important;
         }
     </style>
-
-    {{-- <script>
-        $('document').ready(function() {
-            $('#pickup_address').select2({
-                ajax: {
-                    url: 'api/v1/location/search',
-                    data: function(params) {
-                        var query = {
-                            search: params.term
-                        }
-                        return query;
-                    },
-                    processResults: function(data) {
-                        var results = [];
-                        data.forEach(element => {
-                            results.push({
-                                id: element.place_id,
-                                text: element.description
-                            });
-                        });
-                        return {
-                            results: results
-                        };
-                    }
-                }
-            });
-
-            $('#dropoff_address').select2({
-                ajax: {
-                    url: 'api/v1/location/search',
-                    data: function(params) {
-                        var query = {
-                            search: params.term
-                        }
-                        return query;
-                    },
-                    processResults: function(data) {
-                        var results = [];
-                        data.forEach(element => {
-                            results.push({
-                                id: element.place_id,
-                                text: element.description
-                            });
-                        });
-                        return {
-                            results: results
-                        };
-                    }
-                }
-            });
-        })
-    </script> --}}
 </div>

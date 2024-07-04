@@ -11,7 +11,7 @@ class LoadBoard extends Component
     public $tot;
 
     public function getLoads(){
-        $this->loads = (object)DB::table('loads')->where('completed',1)->join('senders','senders.mask','loads.sender_id')->select('loads.*','senders.name')->orderByDesc('created_at')->get();
+        $this->loads = (object)DB::table('loads')->where('loads.status',"Completed")->join('senders','senders.mask','loads.sender_id')->select('loads.*','senders.name')->orderByDesc('created_at')->get();
 
         foreach($this->loads as $loads){
             if($loads->organization_id){

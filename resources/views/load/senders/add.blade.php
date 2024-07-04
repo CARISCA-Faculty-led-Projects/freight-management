@@ -1,4 +1,4 @@
-<div class="" >
+<div class="">
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -39,23 +39,15 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Secondary button-->
-                    <a href="{{ route('sender.loads') }}"
-                        class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                        Loads</a>
-                    <!--end::Secondary button-->
-                </div>
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
             <!--begin::Content container-->
         </div>
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form wire:submit.prevent="general" id="kt_ecommerce_add_category_form"
-                class="form d-flex flex-column flex-lg-row">
+            <form action="{{ route('sender.load.save') }}" id="kt_ecommerce_add_category_form" method="POST"
+                class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
+                @csrf
                 <!--begin::Aside column-->
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                     <!--begin::Thumbnail settings-->
@@ -87,13 +79,7 @@
                             <div class="image-input image-input-empty image-input-outline image-input-placeholder mb-3"
                                 data-kt-image-input="true">
                                 <!--begin::Preview existing avatar-->
-                                @if ($image)
-                                    <div class="">
-                                        <img class="w-150px h-150px" src="{{ $image->temporaryUrl() }}">
-                                    </div>
-                                @else
-                                    <div class="image-input-wrapper w-150px h-150px"></div>
-                                @endif
+                                <div class="image-input-wrapper w-150px h-150px"></div>
                                 <!--end::Preview existing avatar-->
                                 <!--begin::Label-->
                                 <label
@@ -106,7 +92,7 @@
                                     </i>
                                     <!--end::Icon-->
                                     <!--begin::Inputs-->
-                                    <input type="file" wire:model="image" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" name="image" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="" />
                                     <!--end::Inputs-->
                                 </label>
@@ -144,6 +130,45 @@
                         <!--end::Card body-->
                     </div>
                     <!--end::Thumbnail settings-->
+                    <!--begin::Status-->
+                    <div class="card card-flush py-4">
+                        <!--begin::Card header-->
+                        <div class="card-header">
+                            <!--begin::Card title-->
+                            <div class="card-title">
+                                <h2>Status</h2>
+                            </div>
+                            <!--end::Card title-->
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar">
+                                <div class="rounded-circle bg-success w-15px h-15px"
+                                    id="kt_ecommerce_add_category_status">
+                                </div>
+                            </div>
+                            <!--begin::Card toolbar-->
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <!--begin::Select2-->
+                            <select class="form-select mb-2" data-hide-search="true" data-placeholder="Select an option"
+                                name="status" id="kt_ecommerce_add_category_status_select">
+                                <option>--select--</option>
+                                <option value="Draft">Draft</option>
+                                <option value="Completed">Completed</option>
+                            </select>
+                            <!--end::Select2-->
+                            @error('status')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+
+                            <!--begin::Description-->
+                            <div class="text-muted fs-7">Set the approval status.</div>
+                            <!--end::Description-->
+                        </div>
+                        <!--end::Card body-->
+                    </div>
+                    <!--end::Status-->
                     <!--begin::Template settings-->
                     <div class="card card-flush py-4">
                         <!--begin::Card header-->
@@ -162,8 +187,9 @@
                                 type</label>
                             <!--end::Select store template-->
                             <!--begin::Select2-->
-                            <select class="form-select mb-2" wire:model="load.load_type" data-hide-search="true"
-                                data-placeholder="Select an option" id="kt_ecommerce_add_category_store_template">
+                            <select class="form-select mb-2" name="load_type" data-control="select2"
+                                data-hide-search="true" data-placeholder="Select an option"
+                                id="kt_ecommerce_add_category_store_template">
                                 <option>--select--</option>
                                 @foreach ($this->loads() as $load)
                                     <option value="{{ $load->name }}" selected="selected">{{ $load->name }}
@@ -197,13 +223,12 @@
                         <!--end::Card header-->
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
-
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea wire:model="load.description" class=" mb-2 form-control" id="" cols="30" rows="5"></textarea>
+                                <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -217,10 +242,10 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
-                                <label class="required form-label">Budget (GHC)</label>
+                                <label class="required form-label">Budget</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <input type="number" class="form-control mb-2" wire:model="load.budget"
+                                <input type="number" class="form-control mb-2" name="budget"
                                     placeholder="eg. 500" />
                                 <!--end::Input-->
                                 @error('budget')
@@ -256,7 +281,7 @@
                                         <label class="form-label">Quantity</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" class="form-control mb-2" wire:model="load.quantity"
+                                        <input type="number" class="form-control mb-2" name="quantity"
                                             placeholder="eg. 1 Container" />
                                         <!--end::Input-->
                                         @error('quantity')
@@ -273,7 +298,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            wire:model="load.weight" placeholder="60" />
+                                            name="weight" placeholder="60" />
                                         <!--end::Input-->
                                         @error('weight')
                                             <span class="text-danger">{{ $message }}</span>
@@ -293,8 +318,8 @@
                                         <label class="form-label">Length (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" class="form-control mb-2" wire:model="load.length"
-                                            placeholder="10" />
+                                        <input type="number" class="form-control mb-2" name="length"
+                                            placeholder="eg. 12" />
                                         <!--end::Input-->
                                         @error('length')
                                             <span class="text-danger">{{ $message }}</span>
@@ -310,7 +335,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            wire:model="load.breadth" placeholder="60" />
+                                            name="breadth" placeholder="60" />
                                         <!--end::Input-->
                                         @error('breadth')
                                             <span class="text-danger">{{ $message }}</span>
@@ -326,7 +351,7 @@
                                         <label class="form-label">Height (M)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" class="form-control mb-2" wire:model="load.height"
+                                        <input type="number" class="form-control mb-2" name="height"
                                             placeholder="60" />
                                         <!--end::Input-->
                                         <!--begin::Description-->
@@ -344,7 +369,7 @@
                                 <label class="form-label">Handling Options</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
-                                <input id="kt_ecommerce_add_category_meta_keywords" wire:model="load.handling"
+                                <input id="kt_ecommerce_add_category_meta_keywords" name="handling"
                                     class="form-control mb-2" />
                                 <!--end::Editor-->
                                 <!--begin::Description-->
@@ -353,58 +378,67 @@
                                     <code>,</code>between each keyword.
                                 </div>
                                 <!--end::Description-->
-                                @error('handling')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
                             </div>
                             <!--end::Input group-->
                         </div>
                         <!--end::Card header-->
                     </div>
                     <!--end::Meta options-->
-                    <!--begin::Meta options-->
-                    <div class="card card-flush py-4">
-                        <!--begin::Card header-->
-                        <div class="card-header">
-                            <div class="card-title">
-                                <h2>Pickup & Dropoff Details</h2>
+                    <div wire:ignore>
+                        <!--begin::Meta options-->
+                        <div class="card card-flush py-4">
+                            <!--begin::Card header-->
+                            <div class="card-header">
+                                <div class="card-title">
+                                    <h2>Pickup & Dropoff Details</h2>
+                                </div>
                             </div>
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="row d-flex card-body pt-0">
-                            <!--begin::Input group-->
-                            <div class="mb-10 col-md-6">
-                                <!--begin::Label-->
-                                <label class="form-label">Pickup Address</label> <span
-                                    class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
-                                <!--end::Label-->
-                                <!--begin::Menu toggle-->
-                                <select wire:model="load.pickup_address" id="pickup_address" class="form-control mt-2">
-                                    <option value="">--select location--</option>
-                                </select>
-                                <!--end::Input-->
+                            <!--end::Card header-->
+                            <!--begin::Card body-->
+                            <div class="d-flex card-body pt-0 justify-content-between">
+                                <!--begin::Input group-->
+                                <div class="mb-10 col-lg-5">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Pickup Address</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <select name="pickup_address" class="form-control basic-select2"
+                                        id="pickup_address">
+                                        <option value="">--select--</option>
+                                    </select>
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set a pickup address. This is where
+                                        the load will be picked up from</div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Input group-->
+                                <!--begin::Input group-->
+                                <div class="mb-10 col-lg-5">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Drop-off Address</label>
+                                    <!--end::Label-->
+                                    <!--begin::Input-->
+                                    <select name="dropoff_address" class="form-control basic-select2"
+                                        id="dropoff_address">
+                                        <option value="">--select--</option>
+                                    </select>
+                                    {{-- <input type="text" class="form-control mb-2" wire:model="dropoff_address"
+                                        placeholder="eg. 1 Container" /> --}}
+                                    <!--end::Input-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set a shipping address. This is where
+                                        the load will be dropped off</div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Input group-->
+
 
                             </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="mb-10 col-md-6">
-                                <!--begin::Label-->
-                                <label class="form-label">Dropoff Address</label> <span
-                                    class="spinner-border spinner-border-sm align-middle ms-2" wire:loading></span>
-                                <!--end::Label-->
-
-                                <select wire:model="load.dropoff_address" id="dropoff_address" class="form-control mt-2">
-                                    <option value="">--select location--</option>
-                                </select>
-                                <!--end::Card body-->
-                                <!--end::Input-->
-                            </div>
-                            <!--end::Input group-->
+                            <!--end::Card header-->
                         </div>
-                        <!--end::Card header-->
+                        <!--end::Meta options-->
                     </div>
-                    <!--end::Meta options-->
                     <!--begin::Automation-->
                     <div class="card card-flush py-4">
                         <!--begin::Card header-->
@@ -451,30 +485,28 @@
                                                     <!--begin::Select2-->
                                                     <!--begin::Input-->
                                                     <input type="text" class="form-control mw-100 w-200px"
-                                                        wire:model="subload.{{ $i }}.name"
+                                                        name="subload[{{ $i }}][name]"
                                                         placeholder="Item Name" />
                                                     <!--end::Input-->
                                                     <div class="w-100 w-md-200px">
                                                         <select class="form-select"
-                                                            wire:model="subload.{{ $i }}.load_type"
-                                                            data-placeholder="Select an option"
-                                                            data-kt-ecommerce-catalog-add-category="condition_type">
+                                                            name="subload[{{ $i }}][load_type]">
                                                             <option value="">--select category--</option>
                                                             @foreach ($this->loads() as $load)
-                                                                <option value="{{ $load->name }}"
-                                                                    selected="selected">{{ $load->name }}</option>
+                                                                <option value="{{ $load->name }}">
+                                                                    {{ $load->name }}</option>
                                                             @endforeach
                                                         </select>
                                                     </div>
                                                     <!--end::Select2-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-100px"
-                                                        wire:model="subload.{{ $i }}.quantity"
+                                                        name="subload[{{ $i }}][quantity]"
                                                         placeholder="Quantity" />
                                                     <!--end::Input-->
                                                     <!--begin::Input-->
                                                     <input type="number" class="form-control mw-100 w-200px"
-                                                        wire:model="subload.{{ $i }}.value"
+                                                        name="subload[{{ $i }}][value]"
                                                         placeholder="Value eg. 120.00" />
                                                     <!--end::Input-->
                                                     <!--begin::Button-->
@@ -534,8 +566,8 @@
                                         </i>
                                         <!--end::Icon-->
                                         <!--begin::Info-->
-                                        <input type="file" wire:model="load.insurance_docs" id=""
-                                            accept=".pdf" class="form-control">
+                                        <input type="file" name="insurance_docs" id=""
+                                            class="form-control">
                                         <div class="ms-4">
                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files
                                                 here or click
@@ -582,8 +614,7 @@
                                         </i>
                                         <!--end::Icon-->
                                         <!--begin::Info-->
-                                        <input type="file" wire:model="load.other_docs" class="form-control"
-                                            accept=".pdf" id="">
+                                        <input type="file" name="other_docs" class="form-control" id="">
                                         <div class="ms-4">
                                             <h3 class="fs-7 fw-bold text-gray-900 mb-1">Drop files
                                                 here or click
@@ -609,7 +640,7 @@
                     <!--end::Media-->
                     <div class="d-flex justify-content-end">
                         <!--begin::Button-->
-                        <a href="{{ route('sender.loads') }}" id="kt_ecommerce_add_product_cancel"
+                        <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
                             class="btn btn-light me-5">Cancel</a>
                         <!--end::Button-->
                         <!--begin::Button-->
@@ -640,59 +671,4 @@
             width: 105% !important;
         }
     </style>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function(e) {
-  console.log("Example page has loaded!");
-});
-        $('document').ready(function() {
-            $('#pickup_address').select2({
-                ajax: {
-                    url: 'api/location/search',
-                    data: function(params) {
-                        var query = {
-                            search: params.term
-                        }
-                        return query;
-                    },
-                    processResults: function(data) {
-                        var results = [];
-                        data.forEach(element => {
-                            results.push({
-                                id: element.place_id,
-                                text: element.description
-                            });
-                        });
-                        return {
-                            results: results
-                        };
-                    }
-                }
-            });
-
-            $('#dropoff_address').select2({
-                ajax: {
-                    url: 'api/location/search',
-                    data: function(params) {
-                        var query = {
-                            search: params.term
-                        }
-                        return query;
-                    },
-                    processResults: function(data) {
-                        var results = [];
-                        data.forEach(element => {
-                            results.push({
-                                id: element.place_id,
-                                text: element.description
-                            });
-                        });
-                        return {
-                            results: results
-                        };
-                    }
-                }
-            });
-        })
-    </script>
 </div>

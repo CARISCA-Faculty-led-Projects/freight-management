@@ -1,9 +1,5 @@
-@extends('layout.roles.broker')
+@extends(auth()->guard()->name == 'brokers' ? 'layout.roles.broker' : 'layout.roles.organization')
 
 @section('content')
-{{-- @php
-dd(auth()->guard()->name);
-
-@endphp --}}
  <chat-view-component guard="{{auth()->guard()->name}}" />
 @endsection

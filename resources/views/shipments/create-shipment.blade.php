@@ -1,4 +1,25 @@
 <div class="">
+    @php
+        $locations = [];
+        foreach ($this->loadsDets as $load) {
+            $pickup = json_decode($load['pickup_address'])->location;
+            $dropoff = json_decode($load['dropoff_address'])->location;
+
+            $pickLocation = [
+                'label' => '#' . $load['mask'] . ' pickup',
+                'position' => $pickup,
+            ];
+            array_push($locations, $pickLocation);
+
+            $dropLocation = [
+                'label' => '#' . $load['mask'] . ' dropoff',
+                'position' => $dropoff,
+            ];
+            array_push($locations, $dropLocation);
+            // dd($locations)
+        }
+        // json_encode($locations);
+    @endphp
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
@@ -48,7 +69,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form class="d-flex flex-column flex-lg-row" method="POST" action="{{ route('broker.shipment.save') }}">
+        <form class="d-flex flex-column flex-lg-row" method="POST" action="{{ route(whichUser()->getTable == "brokers" ? 'broker.shipment.save' : 'org.shipment.save') }}">
                 @csrf
                 <!--end::Aside column-->
                 <!--begin::Main column-->
@@ -69,7 +90,7 @@
                                 <!--begin::Label-->
                                 <label class="required form-label">Selected Loads</label>
                                 <!--end::Label-->
-                              <input type="hidden" name="organization_id" value="{{$this->organization}}">
+                                <input type="hidden" name="organization_id" value="{{ $this->organization }}">
                                 <!--begin::Table-->
                                 <div class="" style="height: 200px; overflow:auto;">
                                     <table class="table align-middle table-row-dashed fs-6 gy-5"
@@ -154,6 +175,8 @@
                             </div>
                         </div>
                         <!--end::Card header-->
+                        {{-- <div id="googleMap" style="width:100%;height:100rem;"></div> --}}
+
                         <!--begin::Card body-->
                         <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
 
@@ -244,8 +267,9 @@
                                     <label class="required form-label">Driver</label>
                                     <!--end::Label-->
                                     <!--begin::Select2-->
-                                    <select class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
-                                        name="driver_id" data-hide-search="true" data-placeholder="Select a sender"
+                                    <select
+                                        class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
+                                        name="driver_id" data-hide-search="true" data-placeholder="Select a driver"
                                         id="kt_ecommerce_add_category_store_template">
                                         <option></option>
                                         @foreach ($this->drivers as $driver)
@@ -299,5 +323,143 @@
         </i>
     </div>
 </div>
+<span id="locs">{{ json_encode($locations) }}</span>
 <!--end::Scrolltop-->
 </div>
+
+{{-- <script>
+    function myMap() {
+    var mapProp= {
+      center:new google.maps.LatLng({{$location}}),
+      zoom:20,
+    };
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+    </script> --}}
+<script>
+    // Initialize and add the map
+    // let map;
+    // const locations = JSON.parse({{ json_encode($locations) }});
+    const locations = document.getElementById('locs').innerText;
+    const mapLocs = JSON.parse(locations)
+    // mapLocs.map((position,i)=>{
+    //     console.log(position.label+" "+position.position.lat);
+    // })
+    // console.log(mapLocs[0].position);
+
+    async function initMap() {
+        // The location of Uluru
+        const main = {
+            lat: 8.342275,
+            lng: -1.183324
+        };
+        // Request needed libraries.
+        //@ts-ignore
+        const {
+            Map
+        } = await google.maps.importLibrary("maps");
+        const {
+            AdvancedMarkerElement
+        } = await google.maps.importLibrary("marker");
+
+        // The map, centered at Uluru
+        map = new Map(document.getElementById("googleMap"), {
+            zoom: 8,
+            center: main,
+            mapId: "Loc",
+        });
+        // Add some markers to the map.
+        // const locations = JSON.parse({{ json_encode($locations) }});
+
+        const markers = mapLocs.map((position, i) => {
+            const ltn = position.position;
+            const pinGlyph = new google.maps.marker.PinElement({
+                glyph: position.label,
+                glyphColor: "black",
+            });
+            const priceTag = document.createElement("div");
+
+            priceTag.className = "price-tag";
+            priceTag.textContent = position.label;
+            priceTag.classList.add('bg-white')
+
+            const marker = new google.maps.marker.AdvancedMarkerElement({
+                position: ltn,
+                content: priceTag,
+            });
+
+            // markers can only be keyboard focusable when they have click listeners
+            // open info window when marker is clicked
+            marker.addListener("click", () => {
+                infoWindow.setContent(ltn.lat + ", " + ltn.lng);
+                infoWindow.open(map, marker);
+            });
+            return marker;
+        });
+
+        // Add a marker clusterer to manage the markers.
+        new markerClusterer.MarkerClusterer({
+            markers,
+            map
+        });
+    }
+
+    // initMap();
+</script>
+{{-- <script>
+    async function initMap() {
+        // Request needed libraries.
+        const {
+            Map,
+            InfoWindow
+        } = await google.maps.importLibrary("maps");
+        const {
+            AdvancedMarkerElement,
+            PinElement
+        } = await google.maps.importLibrary(
+            "marker",
+        );
+        const map = new google.maps.Map(document.getElementById("googleMap"), {
+            zoom: 3,
+            center: {
+                lat: 7.9016225,
+                lng: -3.6717066
+            },
+            mapId: "DEMO_MAP_ID",
+        });
+        const infoWindow = new google.maps.InfoWindow({
+            content: "",
+            disableAutoPan: true,
+        });
+
+        // Add some markers to the map.
+        const locations = JSON.parse({{ json_encode($locations) }});
+
+        const markers = locations.map((position, i) => {
+            const pinGlyph = new google.maps.marker.PinElement({
+                glyph: position.label,
+                glyphColor: "white",
+            });
+            const marker = new google.maps.marker.AdvancedMarkerElement({
+                position.position,
+                content: pinGlyph.element,
+            });
+
+            // markers can only be keyboard focusable when they have click listeners
+            // open info window when marker is clicked
+            marker.addListener("click", () => {
+                infoWindow.setContent(position.lat + ", " + position.lng);
+                infoWindow.open(map, marker);
+            });
+            return marker;
+        });
+
+        // Add a marker clusterer to manage the markers.
+        new MarkerClusterer({
+            markers,
+            map
+        });
+    }
+</script> --}}
+<script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>

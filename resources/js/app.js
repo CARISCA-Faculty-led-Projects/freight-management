@@ -4,8 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-import './bootstrap';
-import { createApp } from 'vue';
+import "./bootstrap";
+import { createApp } from "vue";
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -15,14 +15,20 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-import OrgAddLoadComponent from './components/OrgAddLoadComponent.vue';
-import ChatViewComponent from './components/ChatViewComponent.vue';
+import VueGoogleMaps from "@fawmi/vue-google-maps";
+import ExampleComponent from "./components/ExampleComponent.vue";
+import OrgAddLoadComponent from "./components/OrgAddLoadComponent.vue";
+import ChatViewComponent from "./components/ChatViewComponent.vue";
+import ShipmentsGeoView from "./components/ShipmentsGeoView.vue";
 
-app.component('example-component', ExampleComponent);
-app.component('org-add-load', OrgAddLoadComponent);
-app.component('chat-view-component',ChatViewComponent);
+app.component("example-component", ExampleComponent);
+app.component("org-add-load", OrgAddLoadComponent);
+app.component("chat-view-component", ChatViewComponent);
+app.component("shipments-geo-view", ShipmentsGeoView);
 
+app.use(VueGoogleMaps, {
+    load: { key: "AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0" },
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -41,4 +47,4 @@ app.component('chat-view-component',ChatViewComponent);
  * scaffolding. Otherwise, you will need to add an element yourself.
  */
 
-app.mount('#kt_app_root');
+app.mount("#kt_app_root");

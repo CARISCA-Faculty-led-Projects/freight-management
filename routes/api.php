@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoadsController;
 use App\Http\Controllers\Api\ChatsController;
+use App\Http\Controllers\ShipmentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,5 +23,6 @@ use App\Http\Controllers\Api\ChatsController;
         Route::controller(ChatsController::class)->group(function(){
             Route::post('search-user','searchUser');
         });
+        Route::post('send-location',[ShipmentsController::class,'curr_location']);
     });
 // });
