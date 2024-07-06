@@ -92,7 +92,7 @@
                                     </i>
                                     <!--end::Icon-->
                                     <!--begin::Inputs-->
-                                    <input type="file" name="image" accept=".png, .jpg, .jpeg" />
+                                    <input type="file" name="image" accept=".png, .jpg, .jpeg" required />
                                     <input type="hidden" name="" />
                                     <!--end::Inputs-->
                                 </label>
@@ -192,7 +192,7 @@
                                 id="kt_ecommerce_add_category_store_template">
                                 <option>--select--</option>
                                 @foreach ($this->loads() as $load)
-                                    <option value="{{ $load->name }}" selected="selected">{{ $load->name }}
+                                    <option value="{{ $load->name }}" {{ old('load_type') == $load->name ? 'selected' : '' }}>{{ $load->name }}
                                     </option>
                                 @endforeach
                             </select>
@@ -228,7 +228,7 @@
                                 <!--begin::Label-->
                                 <label class="form-label">Load Description</label>
                                 <!--end::Label-->
-                                <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4"></textarea>
+                                <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4" value="{{ old('description') }}"></textarea>
                                 <!--begin::Description-->
                                 @error('description')
                                     <span class="text-danger">{{ $message }}</span>
@@ -246,7 +246,7 @@
                                 <!--end::Label-->
                                 <!--begin::Input-->
                                 <input type="number" class="form-control mb-2" name="budget"
-                                    placeholder="eg. 500" />
+                                    placeholder="eg. 500" value="{{ old('budget') }}" />
                                 <!--end::Input-->
                                 @error('budget')
                                     <span class="text-danger">{{ $message }}</span>
@@ -282,7 +282,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" class="form-control mb-2" name="quantity"
-                                            placeholder="eg. 1 Container" />
+                                            placeholder="eg. 1 Container" value="{{ old('quantity') }}" />
                                         <!--end::Input-->
                                         @error('quantity')
                                             <span class="text-danger">{{ $message }}</span>
@@ -298,7 +298,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            name="weight" placeholder="60" />
+                                            name="weight" placeholder="60" value="{{ old('weight') }}" />
                                         <!--end::Input-->
                                         @error('weight')
                                             <span class="text-danger">{{ $message }}</span>
@@ -319,7 +319,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" class="form-control mb-2" name="length"
-                                            placeholder="eg. 12" />
+                                            placeholder="eg. 12" value="{{ old('length') }}" />
                                         <!--end::Input-->
                                         @error('length')
                                             <span class="text-danger">{{ $message }}</span>
@@ -335,7 +335,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
-                                            name="breadth" placeholder="60" />
+                                            name="breadth" placeholder="60" value="{{ old('breadth') }}" />
                                         <!--end::Input-->
                                         @error('breadth')
                                             <span class="text-danger">{{ $message }}</span>
@@ -352,7 +352,7 @@
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" class="form-control mb-2" name="height"
-                                            placeholder="60" />
+                                            placeholder="60" value="{{ old('height') }}" />
                                         <!--end::Input-->
                                         <!--begin::Description-->
                                         <div class="text-muted fs-7">Set a height</div>
@@ -370,7 +370,7 @@
                                 <!--end::Label-->
                                 <!--begin::Editor-->
                                 <input id="kt_ecommerce_add_category_meta_keywords" name="handling"
-                                    class="form-control mb-2" />
+                                    class="form-control mb-2" value="{{ old('handling') }}" />
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a list of keywords that the
@@ -404,7 +404,7 @@
                                     <!--begin::Input-->
                                     <select name="pickup_address" class="form-control basic-select2"
                                         id="pickup_address">
-                                        <option value="">--select--</option>
+                                        <option value="">{{ old('pickup_address') }}</option>
                                     </select>
                                     <!--end::Input-->
                                     <!--begin::Description-->
@@ -421,7 +421,7 @@
                                     <!--begin::Input-->
                                     <select name="dropoff_address" class="form-control basic-select2"
                                         id="dropoff_address">
-                                        <option value="">--select--</option>
+                                        <option value="">{{ old('dropoff_address') }}</option>
                                     </select>
                                     {{-- <input type="text" class="form-control mb-2" wire:model="dropoff_address"
                                         placeholder="eg. 1 Container" /> --}}

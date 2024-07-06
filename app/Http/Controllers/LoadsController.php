@@ -232,10 +232,12 @@ class LoadsController extends Controller
         $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
         DB::table('loads')->insert($req);
 
-        foreach ($request->subload as $load) {
-            $load['load_id'] = $load_id;
-            $load['created_at'] = Carbon::now()->toDateTimeString();
-            DB::table('sub_loads')->insert($load);
+        if ($request->has('subload')) {
+            foreach ($request->subload as $load) {
+                $load['load_id'] = $load_id;
+                $load['created_at'] = Carbon::now()->toDateTimeString();
+                DB::table('sub_loads')->insert($load);
+            }
         }
 
         return redirect(route('sender.loads'));
@@ -266,24 +268,24 @@ class LoadsController extends Controller
             'breadth' => 'required|numeric',
         ])->validate();
 
-        $load = DB::table('loads')->where('mask',$load_id)->first();
+        $load = DB::table('loads')->where('mask', $load_id)->first();
 
         if (is_file($request->image)) {
-            unlink('storage/loads/'.$load->image);
+            unlink('storage/loads/' . $load->image);
             $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
             $request->image->storeAs('loads', $imagename, 'real_public');
             $req['image'] = $imagename;
         }
 
         if (is_file($request->insurance_docs)) {
-            unlink('storage/loads/'.$load->insurance_docs);
+            unlink('storage/loads/' . $load->insurance_docs);
             $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
             $request->insurance_docs->storeAs('loads', $ins, 'real_public');
             $req['insurance_docs'] = $ins;
         }
 
         if (is_file($request->other_docs)) {
-            unlink('storage/loads/'.$load->other_docs);
+            unlink('storage/loads/' . $load->other_docs);
             $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
             $request->other_docs->storeAs('loads', $oth, 'real_public');
             $req['other_docs'] = $oth;

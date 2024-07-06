@@ -393,7 +393,7 @@
                                                     <!--begin::Label-->
                                                     <label class="required form-label">Color</label>
                                                     <!--end::Label-->
-                                                    <input type="text" wire:model="vehicle.color" id=""
+                                                    <input type="color" wire:model="vehicle.color" id=""
                                                         class="form-control" required>
 
                                                     <!--begin::Description-->

@@ -114,7 +114,6 @@ class AddOrganization extends Component
             "tax_id" => $this->org['tax_id'],
             'status' => "Approved",
             'created_at' => Carbon::now()->toDateTimeString()
-
         ]);
 
         DB::table('users')->insert([

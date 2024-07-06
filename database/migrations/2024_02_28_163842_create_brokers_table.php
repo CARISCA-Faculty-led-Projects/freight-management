@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('brokers', function (Blueprint $table) {
             $table->id();
             $table->string('image')->nullable();
-            $table->foreignUuid('organisation_id')->nullable();
+            $table->foreignUuid('organization_id')->nullable();
             $table->string('name');
             $table->string('phone');
             $table->string('address')->nullable();

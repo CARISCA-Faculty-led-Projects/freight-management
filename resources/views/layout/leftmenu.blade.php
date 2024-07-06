@@ -5,7 +5,7 @@
     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
         <a href="/">
-            <span class="text-white h-25px app-sidebar-logo-default" style="font-size: 19px;">Fleet Management System</span>
+            <span class="text-white h-25px app-sidebar-logo-default" style="font-size: 19px;">{{ env('APP_NAME') }}</span>
             <!-- <img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default" />
             <img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" /> -->
         </a>

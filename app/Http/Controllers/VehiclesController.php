@@ -15,8 +15,7 @@ class VehiclesController extends Controller
     public function index()
     {
         $vehicles = DB::table('vehicles')->where("organization_id", Auth::user()->mask)
-            ->join('vehicle_owners', 'vehicle_owners.id', 'vehicles.owner_id')
-            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps', 'vehicles.driver_id', 'vehicle_owners.name as owner', 'vehicles.gps', 'vehicles.mask', 'vehicles.number')
+            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps', 'vehicles.driver_id','vehicles.gps', 'vehicles.mask', 'vehicles.number','vehicles.owner_id')
             ->get();
 
         foreach ($vehicles as $vehicle) {
@@ -25,6 +24,12 @@ class VehiclesController extends Controller
                 $vehicle->driver = $driver;
             } else {
                 $vehicle->driver = null;
+            }
+            if($vehicle->owner_id){
+                $owner = DB::table('vehicle_owners')->where('id', $vehicle->owner_id)->pluck('name')->first();
+                $vehicle->owner = $owner;
+            }else{
+                $vehicle->owner = null;
             }
         }
         return view('fleet.vehicles.vehicles', compact('vehicles'));

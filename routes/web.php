@@ -1,46 +1,50 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\BrokersController;
+use App\Http\Controllers\ChatsController;
+use App\Http\Controllers\DriversController;
+use App\Http\Controllers\LoadsController;
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Controllers\SendersController;
+use App\Http\Controllers\ShipmentsController;
+use App\Http\Controllers\VehiclesController;
+use App\Http\Livewire\Broker\AddBroker;
+use App\Http\Livewire\Broker\CreateShipment;
+use App\Http\Livewire\Broker\EditShipment;
+use App\Http\Livewire\Broker\RegisterBroker;
+use App\Http\Livewire\Broker\UpdateBroker;
+use App\Http\Livewire\Driver\AddDriver;
+use App\Http\Livewire\Driver\RegisterDriver;
+use App\Http\Livewire\Driver\UpdateDriver;
 use App\Http\Livewire\Load\AddLoad;
 use App\Http\Livewire\Load\LoadBoard;
-use Illuminate\Support\Facades\Route;
-use App\Http\Livewire\Load\UpdateLoad;
-use App\Http\Livewire\Broker\AddBroker;
-use App\Http\Livewire\Driver\AddDriver;
-use App\Http\Livewire\Sender\AddSender;
-use App\Http\Livewire\ViewOrganisations;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\LoadsController;
 use App\Http\Livewire\Load\SenderAddLoad;
-use App\Http\Livewire\Vehicle\AddVehicle;
-use App\Http\Livewire\Broker\EditShipment;
-use App\Http\Livewire\Broker\UpdateBroker;
-use App\Http\Livewire\Driver\UpdateDriver;
-use App\Http\Livewire\Sender\UpdateSender;
-use App\Http\Controllers\BrokersController;
-use App\Http\Controllers\DriversController;
-use App\Http\Controllers\SendersController;
-use App\Http\Controllers\VehiclesController;
-use App\Http\Livewire\Broker\CreateShipment;
-use App\Http\Livewire\Broker\RegisterBroker;
-use App\Http\Livewire\Driver\RegisterDriver;
-use App\Http\Livewire\Sender\RegisterSender;
-use App\Http\Livewire\Vehicle\UpdateVehicle;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\ShipmentsController;
-use App\Http\Controllers\OrganizationsController;
-use App\Http\Livewire\Organization\AddOrganization;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Livewire\Organization\UpdateOrganization;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Livewire\Organization\RegisterOrganization;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\ChatsController;
 use App\Http\Livewire\Load\SenderEditLoad;
+use App\Http\Livewire\Load\UpdateLoad;
+use App\Http\Livewire\Organization\AddOrganization;
+use App\Http\Livewire\Organization\RegisterOrganization;
+use App\Http\Livewire\Organization\UpdateOrganization;
+use App\Http\Livewire\Sender\AddSender;
+use App\Http\Livewire\Sender\RegisterSender;
+use App\Http\Livewire\Sender\UpdateSender;
+use App\Http\Livewire\Vehicle\AddVehicle;
+use App\Http\Livewire\Vehicle\UpdateVehicle;
+use App\Http\Livewire\ViewOrganisations;
+use App\Models\Shipment;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+
+
 
 Route::middleware('guest')->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -528,4 +532,18 @@ Route::middleware(['auth:organizations'])->group(function () {
     Route::get('test', function () {
         return view('chat');
     });
+});
+
+Route::get('dbrun',function(){
+    $senders = DB::table('senders')->get(['mask']);
+    $drivers = DB::table('drivers')->get(["organization_id", 'mask']);
+    $sender = 0;
+
+    foreach ($drivers as $driver) {
+        $loads = DB::table('loads')->where('organization_id', $driver->organization_id)->pluck('mask')->toArray();
+        dd(json_encode($loads));
+
+        Shipment::factory()->create(['driver_id' => $driver->mask, 'organization_id' => $driver->organization_id, 'loads' => json_encode($loads)]);
+        $sender++;
+    }
 });

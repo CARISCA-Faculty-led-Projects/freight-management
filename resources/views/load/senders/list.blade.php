@@ -122,6 +122,11 @@
                             </tr>
                         </thead>
                         <tbody class="fw-semibold text-gray-600">
+                            {{-- @php
+                                foreach ($loads as $key => $l) {
+                                    # code...
+                                }
+                            @endphp --}}
                             @foreach ($loads as $load)
                                 <tr>
 
@@ -163,7 +168,9 @@
                                             {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
                                     </td>
                                    
-                                    <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
+                                    {{-- <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
+                                    <td class="text-end">{{ $load->dropoff_address == null? '' :json_decode($load->dropoff_address)->name }}</td> --}}
+                                     <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
                                     <td class="text-end">{{ $load->dropoff_address == null? '' :json_decode($load->dropoff_address)->name }}</td>
                                     <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                         @php
