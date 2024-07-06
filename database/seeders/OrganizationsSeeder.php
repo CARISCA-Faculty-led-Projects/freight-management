@@ -22,6 +22,6 @@ class OrganizationsSeeder extends Seeder
     public function run(Generator $faker)
     {
         // \App\Models\User::factory(10)->create();
-        Organization::factory()->count(10)->create();
+        Organization::factory()->count(11)->create();
     }
 }

@@ -32,6 +32,7 @@ class ShipmentsController extends Controller
                 $shipment->driver = '';
             }
         }
+
         return view('shipments.list', compact('shipments'));
     }
 

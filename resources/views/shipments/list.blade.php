@@ -162,8 +162,8 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-ecommerce-order-filter="search"
-                                class="form-control form-control-solid w-250px ps-12" placeholder="Search Report" />
+                            <input type="text" id="shipmentSearch"
+                                class="form-control form-control-solid w-250px ps-12" placeholder="Search Shipment" />
                         </div>
                         <!--end::Search-->
                         <!--begin::Export buttons-->
@@ -235,7 +235,7 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
                     <!--begin::Table-->
-                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_report_shipping_table">
+                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="shipments_table">
                         <thead>
                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                 <th class="w-10px pe-2">
@@ -246,8 +246,7 @@
                                     </div>
                                 </th>
                                 <th class="min-w-100px">Shipment ID</th>
-                                <th class="text-end min-w-100px">Driver</th>
-                                <th class="text-end min-w-100px"># of Loads</th>
+                                <th class="text-center min-w-100px">Driver</th>
                                 <th class="text-end min-w-100px">Pickup Address </th>
                                 <th class="text-end min-w-100px">Dropoff Address</th>
                                 <th class="text-end min-w-100px">Shipment status</th>
@@ -267,8 +266,6 @@
                                             class="text-gray-800 text-hover-primary fw-bold">{{ $shipment->mask }}</a>
                                     </td>
                                     <td class="text-center">{{ $shipment->driver }}</td>
-                                    <td class="text-center">{{ count(json_decode($shipment->loads)) }}</td>
-
 
                                     <td class="text-end">{{ json_decode($shipment->pickup_address)->name }}</td>
                                     <td class="text-end">{{ json_decode($shipment->dropoff_address)->name }}</td>

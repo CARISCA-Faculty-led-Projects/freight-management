@@ -55,11 +55,18 @@ $("document").ready(function () {
     });
 
     //    Load board datatable
-    let table = new DataTable("#loads_table");
+    let loadTable = new DataTable("#loads_table");
 
-    $("#dtaSearch").on("keyup", function () {
-        table.search(this.value).draw();
+    $("#loadSearch").on("keyup", function () {
+        loadTable.search(this.value).draw();
     });
+
+     //Shipments table datatable
+     let shipmentsTable = new DataTable("#shipments_table");
+
+     $("#shipmentSearch").on("keyup", function () {
+        shipmentsTable.search(this.value).draw();
+     });
 
     $("#orgAssigned").on("change", function () {
         console.log(this.value);

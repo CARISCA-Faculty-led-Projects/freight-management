@@ -28,8 +28,7 @@ class ShipmentSeeder extends Seeder
                         Load::factory()->create(['sender_id' => $senders[$s]->mask, 'organization_id' => $org, 'mask' => $mask]);
                         array_push($tmp, $mask);
                     }
-                    $loads = json_encode($tmp);
-                    Shipment::factory()->create(['driver_id' => $driver->mask, 'organization_id' => $driver->organization_id, 'loads' => json_encode($loads)]);
+                    Shipment::factory()->create(['driver_id' => $driver->mask, 'organization_id' => $driver->organization_id, 'loads' => json_encode($tmp)]);
                 }
             }
         }

@@ -56,7 +56,7 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-ecommerce-order-filter="search" id="dtaSearch"
+                            <input type="text" data-kt-ecommerce-order-filter="search" id="loadSearch"
                                 class="form-control form-control-solid w-250px ps-12" placeholder="Search Load" />
                         </div>
                         <!--end::Search-->
