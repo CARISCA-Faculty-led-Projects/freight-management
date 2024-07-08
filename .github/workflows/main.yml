@@ -1,4 +1,4 @@
-name: Deploy website and run remote commands
+name: Deploy website and run minimal commands
 on:
   push:
     branches:
@@ -32,48 +32,20 @@ jobs:
         passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
         port: 7522
         script: |
-          echo "Checking PHP version and extensions..."
-          php -v
-          php -m
-          
-          echo "Checking if phar extension is installed..."
-          if php -m | grep -q phar; then
-            echo "phar extension is installed."
-          else
-            echo "phar extension is not installed. Please contact your hosting provider to install it."
-          fi
-          
-          echo "Checking if xml extension is installed..."
-          if php -m | grep -q xml; then
-            echo "xml extension is installed."
-          else
-            echo "xml extension is not installed. Please contact your hosting provider to install it."
-          fi
-          
-          echo "Checking Composer..."
-          if command -v composer &>/dev/null; then
-            echo "Composer is installed."
-            composer --version
-          else
-            echo "Composer is not installed. Installing locally..."
-            php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-            php composer-setup.php --install-dir=/home/apcserv7/app.daloadmaster.com --filename=composer
-            php -r "unlink('composer-setup.php');"
-            alias composer="php /home/apcserv7/app.daloadmaster.com/composer"
-          fi
-          
           cd /home/apcserv7/app.daloadmaster.com
-          
-          echo "Installing/Updating dependencies..."
-          composer install --no-interaction --prefer-dist --optimize-autoloader
+          echo "PHP Version:"
+          php -v
+          echo "Available PHP extensions:"
+          php -m
           
           echo "Creating Termwind configuration..."
           mkdir -p config
           echo "<?php return ['use_dom_document' => false];" > config/termwind.php
           
-          echo "Running Laravel commands..."
-          php artisan config:clear
-          php artisan cache:clear
-          php artisan route:clear
-          php artisan view:clear
-          php artisan migrate --force
+          echo "Attempting to run minimal Laravel commands..."
+          php -d display_errors=1 artisan config:clear
+          php -d display_errors=1 artisan cache:clear
+          php -d display_errors=1 artisan route:clear
+          php -d display_errors=1 artisan view:clear
+          
+          echo "Deployment completed. Please note that Composer and migrations could not be run due to missing PHP extensions."
