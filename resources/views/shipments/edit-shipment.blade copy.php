@@ -16,8 +16,8 @@
                 'position' => $dropoff,
             ];
             array_push($locations, $dropLocation);
-            // dd($locations)
         }
+        // dd($locations);
         // json_encode($locations);
     @endphp
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
@@ -27,13 +27,13 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Create Shipment</h1>
+                    Edit Shipment</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Home</span>
+                        <a href="/" class="text-muted text-hover-primary">Home</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -42,7 +42,7 @@
                     </li>
                     <!--end::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <span class="text-muted text-hover-primary">Shipment</span>
+                        <a href="/shipments/list" class="text-muted text-hover-primary">Shipment</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -51,26 +51,25 @@
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
-                    <li class="breadcrumb-item text-muted">Create</li>
+                    <li class="breadcrumb-item text-muted">Edit</li>
                     <!--end::Item-->
                 </ul>
                 <!--end::Breadcrumb-->
             </div>
 
             <!--begin::Primary button-->
-            <a href="/shipments/list" class="btn btn-sm fw-bold btn-primary">Shipment Board</a>
+            <a href="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.shipments.list' : 'org.shipments.list') }}"
+                class="btn btn-sm fw-bold btn-primary">Shipment Board</a>
             <!--end::Primary button-->
         </div>
         <!--end::Actions-->
     </div>
-    <!--end::Toolbar container-->
-    <!--end::Toolbar-->
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
             <form class="d-flex flex-column flex-lg-row" method="POST"
-                action="{{ route(whichUser()->getTable == 'brokers' ? 'broker.shipment.save' : 'org.shipment.save') }}">
+                action="{{ route(whichUser()->getTable == 'brokers' ? 'broker.shipment.update' : 'org.shipment.update', $this->shipment['mask']) }}">
                 @csrf
                 <!--end::Aside column-->
                 <!--begin::Main column-->
@@ -91,14 +90,30 @@
                                 <!--begin::Label-->
                                 <label class="required form-label">Selected Loads</label>
                                 <!--end::Label-->
-                                <input type="hidden" name="organization_id" value="{{ $this->organization }}">
+                                {{-- <!--begin::Select2-->
+                                <select class="form-select mb-2" name="load_type" data-control="select2" data-hide-search="true"
+                                    data-placeholder="Select a sender" id="kt_ecommerce_add_category_store_template">
+                                    <option></option>
+                                    @foreach ($loads as $load)
+                                        <option value="{{ $load->mask }}">{{ $load->mask }}</option>
+                                    @endforeach
+                                </select>
+                                <!--end::Select2--> --}}
                                 <!--begin::Table-->
                                 <div class="" style="height: 200px; overflow:auto;">
                                     <table class="table align-middle table-row-dashed fs-6 gy-5"
                                         id="kt_ecommerce_sales_table">
                                         <thead>
                                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
-
+                                                <th class="w-10px pe-2">
+                                                    <div
+                                                        class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                                                        <input class="form-check-input" type="checkbox"
+                                                            data-kt-check="true"
+                                                            data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
+                                                            value="1" />
+                                                    </div>
+                                                </th>
                                                 <th class="min-w-50px">#</th>
                                                 <th class="min-w-50px">Category</th>
                                                 <th class="text-end min-w-70px">Status</th>
@@ -110,7 +125,13 @@
                                         <tbody class="fw-semibold text-gray-600">
                                             @foreach ($this->loadsDets as $load)
                                                 <tr>
-                                                    <input type="hidden" name="loads[]" value="{{ $load['mask'] }}">
+                                                    <td>
+                                                        <div
+                                                            class="form-check form-check-sm form-check-custom form-check-solid">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                name="loads[]" value="{{ $load['mask'] }}" checked />
+                                                        </div>
+                                                    </td>
                                                     <td>{{ $load['mask'] }}</td>
                                                     <td>{{ $load['load_type'] }}</td>
                                                     <td class="text-end pe-0">
@@ -154,7 +175,8 @@
                                 <label class="form-label">Shipment Description</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
-                                <textarea name="description" id="" cols="30" rows="4" class="form-control"></textarea>
+                                <textarea name="description" id="" cols="30" rows="4" class="form-control"
+                                    value="{{ $this->shipment['description'] }}"></textarea>
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a description to the category for
@@ -172,14 +194,14 @@
                         <!--begin::Card header-->
                         <div class="card-header">
                             <div class="card-title">
-                                <h2>Pickups & Dropoffs Details</h2>
+                                <h2>Pickup & Dropoff Details</h2>
                             </div>
                         </div>
                         <!--end::Card header-->
                         <div id="googleMap" style="width:100%;height:100rem;"></div>
 
                         <!--begin::Card body-->
-                        {{-- <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
+                        <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
 
                             <!--begin::Payment address-->
                             <div class="card card-flush py-4 flex-row-fluid position-relative">
@@ -200,11 +222,13 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
+
                                     <!--begin::Menu toggle-->
                                     <select name="pickup_address" id="pickup_address"
-                                        class="form-control mt-2 @error('pickup_address')border-danger @enderror"
+                                        class="form-control mt-2 @error('pickup_address')border-danger @enderror basic-select2"
                                         style="width: 40rem;">
-                                        <option value="">--select location--</option>
+                                        <option value="{{ $this->shipment['pickup_address'] }}" selected>
+                                            {{ json_decode($this->shipment['pickup_address'])->name }}</option>
                                     </select>
                                     @error('pickup_address')
                                         <span class="text-danger">{{ $message }}</span>
@@ -223,7 +247,7 @@
                                 </div>
                                 <!--end::Background-->
                                 <!--begin::Card header-->
-                                <div class="card-header">
+                                <div class="card-header text-center">
                                     <div class="card-title">
                                         <h2>Drop-off Address <span
                                                 class="spinner-border spinner-border-sm align-middle ms-2"
@@ -233,11 +257,12 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-
                                     <select name="dropoff_address" id="dropoff_address"
-                                        class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
+                                        class="form-control mt-2 @error('dropoff_address')border-danger @enderror basic-select2"
                                         style="width: 40rem;">
-                                        <option value="">--select location--</option>
+                                        <option value="{{ $this->shipment['dropoff_address'] }}" selected>
+                                            {{ json_decode($this->shipment['dropoff_address'])->name }}</option>
+
 
                                     </select>
                                     <!--end::Card body-->
@@ -247,7 +272,7 @@
                                 </div>
                                 <!--end::Shipping address-->
                             </div>
-                        </div> --}}
+                        </div>
                         <!--end::Meta options-->
                         <!--begin::Automation-->
                         <div class="card card-flush py-4">
@@ -269,11 +294,12 @@
                                     <!--end::Label-->
                                     <!--begin::Select2-->
                                     <select
-                                        class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
-                                        name="driver_id" data-hide-search="true" data-placeholder="Select a driver"
+                                        class="form-select mb-2 @error('driver_id')border-danger @enderror basic-select2"
+                                        name="driver_id" data-hide-search="true" data-placeholder="Select a sender"
                                         id="kt_ecommerce_add_category_store_template">
-                                        <option></option>
-                                        @foreach ($this->drivers as $driver)
+                                        <option value="{{ $this->driver['mask'] }}">{{ $this->driver['name'] }}
+                                        </option>
+                                        @foreach ($this->getDrivers() as $driver)
                                             <option value="{{ $driver->mask }}">{{ $driver->name }}
                                             </option>
                                         @endforeach
@@ -285,7 +311,7 @@
                                     <div class="">
                                         <input type="checkbox" class="mt-3" name="no_driver" id=""
                                             value="true">
-                                        <label for="">&nbsp;Assign driver later</label>
+                                        <label for="">Assign driver later</label>
                                     </div>
                                 </div>
                                 <!--end::Input group-->
@@ -324,20 +350,20 @@
         </i>
     </div>
 </div>
-<span class="d-none" id="locs">{{ json_encode($locations) }}</span>
 <!--end::Scrolltop-->
-</div>
-
 <script>
     // Initialize and add the map
     // let map;
     // const locations = JSON.parse({{ json_encode($locations) }});
     const locations = document.getElementById('locs').innerText;
-    const mapLocs = JSON.parse(locations);
-    const flightPathCoordinates = [];
+    const mapLocs = JSON.parse(locations)
+    // mapLocs.map((position,i)=>{
+    //     console.log(position.label+" "+position.position.lat);
+    // })
+    // console.log(mapLocs[0].position);
 
     async function initMap() {
-        // The location of GH
+        // The location of Uluru
         const main = {
             lat: 8.342275,
             lng: -1.183324
@@ -362,46 +388,29 @@
 
         const markers = mapLocs.map((position, i) => {
             const ltn = position.position;
+            const pinGlyph = new google.maps.marker.PinElement({
+                glyph: position.label,
+                glyphColor: "black",
+            });
             const priceTag = document.createElement("div");
 
             priceTag.className = "price-tag";
             priceTag.textContent = position.label;
+            priceTag.classList.add('bg-white')
 
             const marker = new google.maps.marker.AdvancedMarkerElement({
-                position: {
-                    lat: parseFloat(ltn.lat),
-                    lng: parseFloat(ltn.lng)
-                },
+                position: ltn,
                 content: priceTag,
             });
 
             // markers can only be keyboard focusable when they have click listeners
             // open info window when marker is clicked
             marker.addListener("click", () => {
-                // infoWindow.setContent(ltn.lat + ", " + ltn.lng);
-                // infoWindow.open(map, marker);
-                addPos({
-                    lat: parseFloat(ltn.lat),
-                    lng: parseFloat(ltn.lng)
-                });
+                infoWindow.setContent(ltn.lat + ", " + ltn.lng);
+                infoWindow.open(map, marker);
             });
             return marker;
         });
-
-        function addPos(location) {
-
-            flightPathCoordinates.push(location);
-            console.log(flightPathCoordinates);
-
-            flightPath = new google.maps.Polyline({
-                path: flightPathCoordinates,
-                strokeColor: "#FF0000",
-                strokeOpacity: 1.0,
-                strokeWeight: 2,
-            });
-
-            flightPath.setMap(map);
-        }
 
         // Add a marker clusterer to manage the markers.
         new markerClusterer.MarkerClusterer({
@@ -412,60 +421,7 @@
 
     // initMap();
 </script>
-{{-- <script>
-    async function initMap() {
-        // Request needed libraries.
-        const {
-            Map,
-            InfoWindow
-        } = await google.maps.importLibrary("maps");
-        const {
-            AdvancedMarkerElement,
-            PinElement
-        } = await google.maps.importLibrary(
-            "marker",
-        );
-        const map = new google.maps.Map(document.getElementById("googleMap"), {
-            zoom: 3,
-            center: {
-                lat: 7.9016225,
-                lng: -3.6717066
-            },
-            mapId: "DEMO_MAP_ID",
-        });
-        const infoWindow = new google.maps.InfoWindow({
-            content: "",
-            disableAutoPan: true,
-        });
-
-        // Add some markers to the map.
-        const locations = JSON.parse({{ json_encode($locations) }});
-
-        const markers = locations.map((position, i) => {
-            const pinGlyph = new google.maps.marker.PinElement({
-                glyph: position.label,
-                glyphColor: "white",
-            });
-            const marker = new google.maps.marker.AdvancedMarkerElement({
-                position.position,
-                content: pinGlyph.element,
-            });
-
-            // markers can only be keyboard focusable when they have click listeners
-            // open info window when marker is clicked
-            marker.addListener("click", () => {
-                infoWindow.setContent(position.lat + ", " + position.lng);
-                infoWindow.open(map, marker);
-            });
-            return marker;
-        });
-
-        // Add a marker clusterer to manage the markers.
-        new MarkerClusterer({
-            markers,
-            map
-        });
-    }
-</script> --}}
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>
+
+</div>

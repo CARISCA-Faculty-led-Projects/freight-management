@@ -145,12 +145,12 @@ class ShipmentsController extends Controller
         } else {
             Validator::make($request->all(), [
                 'driver_id' => 'required',
-                'pickup_address' => 'required',
-                'dropoff_address' => 'required',
+                // 'pickup_address' => 'required',
+                // 'dropoff_address' => 'required',
             ], [
                 'driver_id' => "The driver is required",
-                'pickup_address' => "Search and select a pickup address for the shipment",
-                'dropoff_address' => "Search and select a dropoff address for the shipment"
+                // 'pickup_address' => "Search and select a pickup address for the shipment",
+                // 'dropoff_address' => "Search and select a dropoff address for the shipment"
             ])->validate();
         }
 
@@ -162,8 +162,8 @@ class ShipmentsController extends Controller
             'loads' => json_encode($request->loads),
             'description' => $request->description,
             'mask' => generateNumber(),
-            'pickup_address' => json_encode(getPlaceCoordinates($request->pickup_address)),
-            'dropoff_address' => json_encode(getPlaceCoordinates($request->dropoff_address)),
+            'pickup_address' => $request->pickup_address == null ? '': json_encode(getPlaceCoordinates($request->pickup_address)),
+            'dropoff_address' => $request->dropoff_address == null ? '': json_encode(getPlaceCoordinates($request->dropoff_address)),
             'approval_status' => "Approved",
             'shipment_status' => "Assigned",
             'created_at' => Carbon::now()->toDateTimeString()
@@ -188,12 +188,12 @@ class ShipmentsController extends Controller
         } else {
             Validator::make($request->all(), [
                 'driver_id' => 'required',
-                'pickup_address' => 'required',
-                'dropoff_address' => 'required',
+                // 'pickup_address' => 'required',
+                // 'dropoff_address' => 'required',
             ], [
                 'driver_id' => "The driver is required",
-                'pickup_address' => "Search and select a pickup address for the shipment",
-                'dropoff_address' => "Search and select a dropoff address for the shipment"
+                // 'pickup_address' => "Search and select a pickup address for the shipment",
+                // 'dropoff_address' => "Search and select a dropoff address for the shipment"
             ])->validate();
         }
 
@@ -203,11 +203,11 @@ class ShipmentsController extends Controller
         $req['description'] = $request->description;
         $req['updated_at'] = Carbon::now()->toDateTimeString();
 
-        if (gettype(json_decode($request->pickup_address)) == "NULL") {
+        if ($request->pickup_address != '' && gettype(json_decode($request->pickup_address)) == "NULL") {
             $req['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
         }
 
-        if (gettype(json_decode($request->dropoff_address)) == "NULL") {
+        if ($request->dropoff_address != '' && gettype(json_decode($request->dropoff_address)) == "NULL") {
             $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
         }
 

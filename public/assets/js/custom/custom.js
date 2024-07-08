@@ -61,15 +61,14 @@ $("document").ready(function () {
         loadTable.search(this.value).draw();
     });
 
-     //Shipments table datatable
-     let shipmentsTable = new DataTable("#shipments_table");
+    //Shipments table datatable
+    let shipmentsTable = new DataTable("#shipments_table");
 
-     $("#shipmentSearch").on("keyup", function () {
+    $("#shipmentSearch").on("keyup", function () {
         shipmentsTable.search(this.value).draw();
-     });
+    });
 
     $("#orgAssigned").on("change", function () {
-        console.log(this.value);
         // console.log($('#orgStat').text());
         table.columns(4).search(this.value).draw();
     });
@@ -99,6 +98,18 @@ $("document").ready(function () {
             },
         },
     });
+
+    // Shipment route setup
+    // $.each($('.stops'), function (key, element) {
+    //     element.on('change', (event) => {
+    //         console.log(event.target.value);
+    // })
+
+    // });
+    $('.stops').on('change', (even) => {
+        console.log(even.target.value);
+    });
+
 
 
 });

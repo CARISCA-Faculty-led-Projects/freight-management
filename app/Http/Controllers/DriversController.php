@@ -9,8 +9,12 @@ use Illuminate\Support\Facades\Auth;
 class DriversController extends Controller
 {
     public function overview(){
+        $all = DB::table('shipments')->where('driver_id',whichUser()->mask)->count();
+        $failed = DB::table('shipments')->where('driver_id',whichUser()->mask)->where('shipment_status','Cancelled')->count();
+        $delivered = DB::table('shipments')->where('driver_id',whichUser()->mask)->where('shipment_status','Delivered')->count();
+        $pending = DB::table('shipments')->where('driver_id',whichUser()->mask)->where('shipment_status','Assigned')->count();
 
-        return view('fleet.drivers.overview');
+        return view('fleet.drivers.overview',compact("all",'delivered','failed','pending'));
     }
 
     public function index()

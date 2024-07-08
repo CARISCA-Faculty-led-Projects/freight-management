@@ -61,12 +61,12 @@
                                 <!--begin::Info-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">47,769,700</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $loads }}</span>
                                     <!--end::Value-->
                                 </div>
                                 <!--end::Info-->
                                 <!--begin::Description-->
-                                <span class="fs-6 fw-semibold text-gray-400">Total Loads added</span>
+                                <span class="fs-6 fw-semibold text-gray-400">Total assigned loads</span>
                                 <!--end::Description-->
                             </div>
                             <!--end::Statistics-->
@@ -75,6 +75,7 @@
                     </div>
                     <!--end::Card widget 12-->
                 </div>
+                
                 <!--end::Col-->
                 <!--begin::Col-->
                 <div class="col-md-4 col-xl-3 mb-md-5 mb-xl-10">
@@ -87,14 +88,14 @@
                                 <!--begin::Statistics-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">259,786</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $shipments }}</span>
                                     <!--end::Value-->
                                     <!--begin::Label-->
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Statistics-->
                                 <!--begin::Description-->
-                                <span class="fs-6 fw-semibold text-gray-400">Loads delivered</span>
+                                <span class="fs-6 fw-semibold text-gray-400">Total shipments created</span>
                                 <!--end::Description-->
                             </div>
                             <!--end::Statistics-->
@@ -117,14 +118,14 @@
                                 <!--begin::Statistics-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">259,786</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $completed_shipments }}</span>
                                     <!--end::Value-->
                                     <!--begin::Label-->
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Statistics-->
                                 <!--begin::Description-->
-                                <span class="fs-6 fw-semibold text-gray-400">Loads Cancelled</span>
+                                <span class="fs-6 fw-semibold text-gray-400">Successful shipments</span>
                                 <!--end::Description-->
                             </div>
                             <!--end::Statistics-->
@@ -146,14 +147,14 @@
                                 <!--begin::Statistics-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">259,786</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $pending_shipments }}</span>
                                     <!--end::Value-->
                                     <!--begin::Label-->
                                     <!--end::Label-->
                                 </div>
                                 <!--end::Statistics-->
                                 <!--begin::Description-->
-                                <span class="fs-6 fw-semibold text-gray-400">Loads pending shipment</span>
+                                <span class="fs-6 fw-semibold text-gray-400">Shipments pending delivery</span>
                                 <!--end::Description-->
                             </div>
                             <!--end::Statistics-->

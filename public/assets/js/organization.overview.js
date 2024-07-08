@@ -1,4 +1,4 @@
-async function getShipments() {
+    async function getShipments() {
     var res = "nu";
  await $.ajax({
         url: "organization/active-shipment-coordinates",

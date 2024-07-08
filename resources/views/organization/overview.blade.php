@@ -50,7 +50,7 @@
                                     <!--begin::Title-->
                                     <div class="card-title d-flex flex-column">
                                         <!--begin::Amount-->
-                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">6,700</span>
+                                        <span class="fs-2hx fw-bold text-dark me-2 lh-1 ls-n2">{{ $shipments }}</span>
                                         <!--end::Amount-->
                                         <!--begin::Subtitle-->
                                         <span class="text-gray-400 pt-1 fw-semibold fs-6">Total Shipments</span>
@@ -141,7 +141,7 @@
                                         <!--begin::Info-->
                                         <div class="d-flex align-items-center mb-2">
                                             <!--begin::Value-->
-                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">47,769,700</span>
+                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $brokers }}</span>
                                             <!--end::Value-->
                                         </div>
                                         <!--end::Info-->
@@ -166,7 +166,7 @@
                                         <!--begin::Info-->
                                         <div class="d-flex align-items-center mb-2">
                                             <!--begin::Value-->
-                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">47,769,700</span>
+                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $drivers }}</span>
                                             <!--end::Value-->
                                         </div>
                                         <!--end::Info-->
@@ -196,7 +196,7 @@
                                         <!--begin::Info-->
                                         <div class="d-flex align-items-center">
                                             <!--begin::Value-->
-                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">47</span>
+                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $vehicles }}</span>
                                             <!--end::Value-->
                                         </div>
                                         <!--end::Info-->
@@ -221,7 +221,7 @@
                                         <!--begin::Info-->
                                         <div class="d-flex align-items-center mb-2">
                                             <!--begin::Value-->
-                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">GHC 470,000</span>
+                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">GHC 0</span>
                                             <!--end::Value-->
                                         </div>
                                         <!--end::Info-->
@@ -382,8 +382,11 @@
                         <!--end::Title-->
                         <!--begin::Toolbar-->
                         <div class="card-toolbar">
+                            <h3 class="card-title align-items-end flex-column">
+                                <span class="card-label fw-bold text-dark">{{ $active_shipments }} active shipments</span>
+                            </h3>
                             <!--begin::Menu-->
-                            <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
+                            {{-- <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
                                 data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
                                 data-kt-menu-overflow="true">
                                 <i class="ki-duotone ki-dots-square fs-1 text-gray-300 me-n1">
@@ -392,9 +395,9 @@
                                     <span class="path3"></span>
                                     <span class="path4"></span>
                                 </i>
-                            </button>
+                            </button> --}}
                             <!--begin::Menu-->
-                            <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-100px py-4"
+                            {{-- <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-100px py-4"
                                 data-kt-menu="true">
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-3">
@@ -411,7 +414,7 @@
                                     <a href="#" id="lnk" class="menu-link px-3">Settings</a>
                                 </div>
                                 <!--end::Menu item-->
-                            </div>
+                            </div> --}}
                             <!--end::Menu-->
                             <!--end::Menu-->
                         </div>

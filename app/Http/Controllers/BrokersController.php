@@ -15,12 +15,17 @@ class BrokersController extends Controller
 {
     public function overview()
     {
-        return view('brokers.overview');
+        $loads = DB::table("loads")->where('org_assigned_by',whichUser()->mask)->count();
+        $shipments = DB::table("shipments")->where('broker_id',whichUser()->mask)->count();
+        $pending_shipments = DB::table("shipments")->where('broker_id',whichUser()->mask)->where('shipment_status','Assigned')->count();
+        $completed_shipments = DB::table("shipments")->where('broker_id',whichUser()->mask)->where('shipment_status','Delivered')->count();
+
+        return view('brokers.overview',compact('loads','shipments','pending_shipments','completed_shipments'));
     }
 
     public function list()
     {
-        $brokers = DB::table('brokers')->where('organisation_id', whichUser()->mask)->get();
+        $brokers = DB::table('brokers')->where('organization_id', whichUser()->mask)->get();
         return view('brokers.list', compact('brokers'));
     }
 
@@ -32,7 +37,7 @@ class BrokersController extends Controller
         $request['password'] = Hash::make($request->password);
         $request['created_at'] = Carbon::now()->toDateTimeString();
         $request['mask'] = Str::orderedUuid();
-        $request['organisation_id'] = whichUser()->mask;
+        $request['organization_id'] = whichUser()->mask;
         $request['password'] = $password;
 
         DB::table('brokers')->insert($request->except(['_token']));
@@ -65,7 +70,7 @@ class BrokersController extends Controller
     public function delete($broker)
     {
 
-        DB::table('brokers')->where('organisation_id', whichUser()->mask)->where('mask', $broker)->delete();
+        DB::table('brokers')->where('organization_id', whichUser()->mask)->where('mask', $broker)->delete();
 
         return redirect(route('org.broker.list'))->with('success', 'Account deleted!');
     }

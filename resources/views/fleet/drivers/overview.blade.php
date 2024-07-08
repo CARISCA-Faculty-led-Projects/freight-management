@@ -40,7 +40,7 @@
                                 <!--begin::Info-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">47,769,700</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $all }}</span>
                                     <!--end::Value-->
                                 </div>
                                 <!--end::Info-->
@@ -66,7 +66,7 @@
                                 <!--begin::Statistics-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">259,786</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $delivered }}</span>
                                     <!--end::Value-->
                                     <!--begin::Label-->
                                     <!--end::Label-->
@@ -96,7 +96,7 @@
                                 <!--begin::Statistics-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">259,786</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $failed }}</span>
                                     <!--end::Value-->
                                     <!--begin::Label-->
                                     <!--end::Label-->
@@ -125,7 +125,7 @@
                                 <!--begin::Statistics-->
                                 <div class="d-flex align-items-center mb-2">
                                     <!--begin::Value-->
-                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">259,786</span>
+                                    <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $pending }}</span>
                                     <!--end::Value-->
                                     <!--begin::Label-->
                                     <!--end::Label-->

@@ -10,7 +10,13 @@ class OrganizationsController extends Controller
 {
 
     public function overview(){
-        return view('organization.overview');
+        $drivers = DB::table("drivers")->where('organization_id',whichUser()->mask)->count();
+        $brokers = DB::table("brokers")->where('organization_id',whichUser()->mask)->count();
+        $vehicles = DB::table("vehicles")->where('organization_id',whichUser()->mask)->count();
+        $shipments = DB::table("shipments")->where('organization_id',whichUser()->mask)->count();
+        $active_shipments = DB::table("shipments")->where('organization_id',whichUser()->mask)->where('shipment_status','On route')->count();
+
+        return view('organization.overview',compact('drivers','brokers','vehicles','shipments','active_shipments'));
     }
     
     public function index(){

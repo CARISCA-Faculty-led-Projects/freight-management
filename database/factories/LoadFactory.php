@@ -17,11 +17,11 @@ class LoadFactory extends Factory
      */
     public function definition(): array
     {
-        $lat1 = fake()->numberBetween(5,7).'.'.fake()->numberBetween(1403004030403,148620999999999);
-        $lng1 = '-'.fake()->numberBetween(0,1).'.'.fake()->numberBetween(1434858839999,148620999999999);
+        $lat1 = (float) fake()->numberBetween(5,7).'.'.fake()->numberBetween(1403004030403,148620999999999);
+        $lng1 = (float)'-'.fake()->numberBetween(0,1).'.'.fake()->numberBetween(1434858839999,148620999999999);
 
-        $lat = fake()->numberBetween(5,7).'.'.fake()->numberBetween(1403004030403,148620999999999);
-        $lng = '-'.fake()->numberBetween(0,1).'.'.fake()->numberBetween(1434858839999,148620999999999);
+        $lat = (float)fake()->numberBetween(5,7).'.'.fake()->numberBetween(1403004030403,148620999999999);
+        $lng = (float)'-'.fake()->numberBetween(0,1).'.'.fake()->numberBetween(1434858839999,148620999999999);
 
         $mask = fake()->numberBetween(129188,991829);
         $handling = fake()->word.','.fake()->word;

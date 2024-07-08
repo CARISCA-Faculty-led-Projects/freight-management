@@ -19,7 +19,7 @@ License: For each use you must have a valid license purchased only from above li
 <meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
 
 <head>
-    <title>Fleet Management System :: Login
+    <title>{{ env('APP_NAME') }} :: Login
     </title>
     <meta charset="utf-8" />
     <meta name="description"
@@ -119,7 +119,7 @@ License: For each use you must have a valid license purchased only from above li
 
                         <!--begin::Title-->
                         <h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">
-                            Welcome to CARISCA Freight Management System  </h1>
+                            Welcome to {{ env("APP_NAME") }}  </h1>
                         <!--end::Title-->
 
                         <!--begin::Description-->

@@ -41,104 +41,6 @@
                 <!--end::Page title-->
                 <!--begin::Actions-->
                 <div class="d-flex align-items-center gap-2 gap-lg-3">
-                    <!--begin::Filter menu-->
-                    <div class="m-0">
-                        <!--begin::Menu toggle-->
-                        <a href="#"
-                            class="btn btn-sm btn-flex bg-body btn-color-gray-700 btn-active-color-primary fw-bold"
-                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
-                            <i class="ki-duotone ki-filter fs-6 text-muted me-1">
-                                <span class="path1"></span>
-                                <span class="path2"></span>
-                            </i>Filter</a>
-                        <!--end::Menu toggle-->
-                        <!--begin::Menu 1-->
-                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true"
-                            id="kt_menu_641ac417f0d97">
-                            <!--begin::Header-->
-                            <div class="px-7 py-5">
-                                <div class="fs-5 text-dark fw-bold">Filter Options</div>
-                            </div>
-                            <!--end::Header-->
-                            <!--begin::Menu separator-->
-                            <div class="separator border-gray-200"></div>
-                            <!--end::Menu separator-->
-                            <!--begin::Form-->
-                            <div class="px-7 py-5">
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Status:</label>
-                                    <!--end::Label-->
-                                    <!--begin::Input-->
-                                    <div>
-                                        <select class="form-select form-select-solid" data-kt-select2="true"
-                                            data-placeholder="Select option" data-dropdown-parent="#kt_menu_641ac417f0d97"
-                                            data-allow-clear="true">
-                                            <option></option>
-                                            <option value="1">Approved</option>
-                                            <option value="2">Pending</option>
-                                            <option value="2">In Process</option>
-                                            <option value="2">Rejected</option>
-                                        </select>
-                                    </div>
-                                    <!--end::Input-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Member Type:</label>
-                                    <!--end::Label-->
-                                    <!--begin::Options-->
-                                    <div class="d-flex">
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid me-5">
-                                            <input class="form-check-input" type="checkbox" value="1" />
-                                            <span class="form-check-label">Author</span>
-                                        </label>
-                                        <!--end::Options-->
-                                        <!--begin::Options-->
-                                        <label class="form-check form-check-sm form-check-custom form-check-solid">
-                                            <input class="form-check-input" type="checkbox" value="2"
-                                                checked="checked" />
-                                            <span class="form-check-label">Customer</span>
-                                        </label>
-                                        <!--end::Options-->
-                                    </div>
-                                    <!--end::Options-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Input group-->
-                                <div class="mb-10">
-                                    <!--begin::Label-->
-                                    <label class="form-label fw-semibold">Notifications:</label>
-                                    <!--end::Label-->
-                                    <!--begin::Switch-->
-                                    <div class="form-check form-switch form-switch-sm form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="checkbox" value="" name="notifications"
-                                            checked="checked" />
-                                        <label class="form-check-label">Enabled</label>
-                                    </div>
-                                    <!--end::Switch-->
-                                </div>
-                                <!--end::Input group-->
-                                <!--begin::Actions-->
-                                <div class="d-flex justify-content-end">
-                                    <button type="reset" class="btn btn-sm btn-light btn-active-light-primary me-2"
-                                        data-kt-menu-dismiss="true">Reset</button>
-                                    <button type="submit" class="btn btn-sm btn-primary"
-                                        data-kt-menu-dismiss="true">Apply</button>
-                                </div>
-                                <!--end::Actions-->
-                            </div>
-                            <!--end::Form-->
-                        </div>
-                        <!--end::Menu 1-->
-                    </div>
-                    <!--end::Filter menu-->
-                    <!--begin::Secondary button-->
-                    <!--end::Secondary button-->
                     <!--begin::Primary button-->
                     <a href="{{ route('org.load.board') }}" class="btn btn-sm fw-bold btn-primary">Add Shipment</a>
                     <!--end::Primary button-->
@@ -162,8 +64,8 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" id="shipmentSearch"
-                                class="form-control form-control-solid w-250px ps-12" placeholder="Search Shipment" />
+                            <input type="text" id="shipmentSearch" class="form-control form-control-solid w-250px ps-12"
+                                placeholder="Search Shipment" />
                         </div>
                         <!--end::Search-->
                         <!--begin::Export buttons-->
@@ -185,15 +87,15 @@
                                 <option></option>
                                 <option value="all">All</option>
                                 <option value="Completed">Completed</option>
-                                <option value="In Transit">In Transit</option>
-                                <option value="Pending">Pending</option>
+                                <option value="In Transit">Assigned</option>
+                                <option value="Pending">Unassigned</option>
                                 <option value="Cancelled">Cancelled</option>
                             </select>
                             <!--end::Select2-->
                         </div>
                         <!--end::Filter-->
                         <!--begin::Export dropdown-->
-                        <button type="button" class="btn btn-light-primary" data-kt-menu-trigger="click"
+                        {{-- <button type="button" class="btn btn-light-primary" data-kt-menu-trigger="click"
                             data-kt-menu-placement="bottom-end">
                             <i class="ki-duotone ki-exit-up fs-2">
                                 <span class="path1"></span>
@@ -225,7 +127,7 @@
                                 <a href="#" class="menu-link px-3" data-kt-ecommerce-export="pdf">Export as PDF</a>
                             </div>
                             <!--end::Menu item-->
-                        </div>
+                        </div> --}}
                         <!--end::Menu-->
                         <!--end::Export dropdown-->
                     </div>
@@ -245,10 +147,11 @@
                                             value="1" />
                                     </div>
                                 </th>
-                                <th class="min-w-100px">Shipment ID</th>
-                                <th class="text-center min-w-100px">Driver</th>
-                                <th class="text-end min-w-100px">Pickup Address </th>
-                                <th class="text-end min-w-100px">Dropoff Address</th>
+                                <th class="min-w-50px">Shipment ID</th>
+                                <th class="text-center min-w-50px">Driver</th>
+                                <th class="text-center min-w-20px"># of loads</th>
+                                <th class="text-end min-w-100px">Starting point</th>
+                                <th class="text-end min-w-100px">Destination</th>
                                 <th class="text-end min-w-100px">Shipment status</th>
                                 <th class="text-end min-w-100px">Action</th>
                             </tr>
@@ -266,9 +169,10 @@
                                             class="text-gray-800 text-hover-primary fw-bold">{{ $shipment->mask }}</a>
                                     </td>
                                     <td class="text-center">{{ $shipment->driver }}</td>
+                                    <td class="text-center">{{ count(json_decode($shipment->loads)) }}</td>
 
-                                    <td class="text-end">{{ json_decode($shipment->pickup_address)->name }}</td>
-                                    <td class="text-end">{{ json_decode($shipment->dropoff_address)->name }}</td>
+                                    <td class="text-end">{{ $shipment->pickup_address == '' ? '':json_decode($shipment->pickup_address)->name }}</td>
+                                    <td class="text-end">{{ $shipment->dropoff_address == '' ? '':json_decode($shipment->dropoff_address)->name }}</td>
                                     <td class="text-end pe-0" data-order="Delivering">
                                         <!--begin::Badges-->
                                         <div class="badge badge-light-warning">{{ $shipment->shipment_status }}</div>
@@ -284,7 +188,8 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route(whichUser()->getTable == "brokers" ? 'broker.shipment.edit' : 'org.shipment.edit',$shipment->mask)}}" class="menu-link px-3">Edit</a>
+                                                <a href="{{ route(whichUser()->getTable == 'brokers' ? 'broker.shipment.edit' : 'org.shipment.edit', $shipment->mask) }}"
+                                                    class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
@@ -299,7 +204,9 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route(whichUser()->getTable == "brokers" ? 'broker.shipment.delete':'org.shipment.delete',$shipment->mask)}}" onclick="return confirm('Confirm you want to delete shipment?');" class="menu-link px-3"
+                                                <a href="{{ route(whichUser()->getTable == 'brokers' ? 'broker.shipment.delete' : 'org.shipment.delete', $shipment->mask) }}"
+                                                    onclick="return confirm('Confirm you want to delete shipment?');"
+                                                    class="menu-link px-3"
                                                     data-kt-ecommerce-order-filter="delete_row">Delete</a>
                                             </div>
                                             <!--end::Menu item-->
@@ -332,8 +239,8 @@
     <!--end::Scrolltop-->
 
     <!--end::Modals--
-    @include('partials.modals.assign_to_driver')
-    @include('partials.modals.assign_load_to_driver')
-    @include('partials.modals.bid')
-    @include('partials.modals.add_shipment')
+            @include('partials.modals.assign_to_driver')
+            @include('partials.modals.assign_load_to_driver')
+            @include('partials.modals.bid')
+            @include('partials.modals.add_shipment')
 @endsection

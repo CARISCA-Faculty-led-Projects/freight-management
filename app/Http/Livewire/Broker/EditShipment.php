@@ -59,28 +59,10 @@ class EditShipment extends Component
         return $this->pickup_address;
     }
 
-    public function updated()
-    {
-        $this->search_pickup = $this->pickupSearch($this->search_pickup);
-        $this->search_dropoff = $this->dropoffSearch($this->search_dropoff);
-    }
-
-    public function pickupSearch($field)
-    {
-        $this->pickup_list = lookupLocation($field);
-        return $field;
-    }
-
     public function getDrivers()
     {
        return DB::table('drivers')->where('organization_id', $this->organization)->get(['name', 'phone', 'mask']);
 
-    }
-
-    public function dropoffSearch($field)
-    {
-        $this->dropoff_list = lookupLocation($field);
-        return $field;
     }
 
     public function edit_shipment()
