@@ -1,4 +1,4 @@
-name: Deploy website and run minimal commands
+name: Deploy website and run remote commands
 on:
   push:
     branches:
@@ -10,6 +10,7 @@ jobs:
     steps:
     - name: Get latest code
       uses: actions/checkout@v2
+
     - name: Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
@@ -17,35 +18,27 @@ jobs:
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /
+
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.SERVER_SSH_KEY }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
         passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
+
     - name: Execute remote SSH commands
       uses: appleboy/ssh-action@master
       with:
         host: 104.243.32.71
-        username: ${{ secrets.SERVER_SSH_USERNAME }}
+        username: apcserv7
         key: ${{ secrets.SERVER_SSH_KEY }}
         passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
         port: 7522
         script: |
           cd /home/apcserv7/app.daloadmaster.com
-          echo "PHP Version:"
-          php -v
-          echo "Available PHP extensions:"
-          php -m
-          
-          echo "Creating Termwind configuration..."
-          mkdir -p config
-          echo "<?php return ['use_dom_document' => false];" > config/termwind.php
-          
-          echo "Attempting to run minimal Laravel commands..."
-          php -d display_errors=1 artisan config:clear
-          php -d display_errors=1 artisan cache:clear
-          php -d display_errors=1 artisan route:clear
-          php -d display_errors=1 artisan view:clear
-          
-          echo "Deployment completed. Please note that Composer and migrations could not be run due to missing PHP extensions."
+          composer install --no-interaction --prefer-dist --optimize-autoloader
+          php artisan migrate --force
+          php artisan cache:clear
+          php artisan config:clear
+          php artisan route:clear
+          php artisan view:clear
