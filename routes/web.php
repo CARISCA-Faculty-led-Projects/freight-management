@@ -175,6 +175,7 @@ Route::middleware('auth:organizations')->group(function () {
         Route::get('add', AddOrganization::class);
         Route::controller(OrganizationsController::class)->group(function () {
             Route::get('overview', 'overview')->name('org.overview');
+            Route::get('charts', 'dashboardCharts');
             Route::get('list', 'index')->name('organizations');
             Route::get('{organization}/details', 'details')->name('org.details');
             Route::get('{organization}/delete', 'destroy')->name('org.delete');

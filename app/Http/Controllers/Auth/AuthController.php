@@ -28,6 +28,8 @@ class AuthController extends Controller
 
     public function store(Request $request)
     {
+        dd($request->all());
+
         Validator::make($request->all(), ['name' => 'required', 'email' => 'required|email|unique:' . $request->type, 'phone' => 'required', 'password' => 'required', 'confirm-password' => 'required|same:password'], ['confirm-password' => "Password fields do not match"])->validate();
 
         $request['password'] = Hash::make($request->password);
@@ -36,7 +38,6 @@ class AuthController extends Controller
         $request['status'] = "Approved";
 
         DB::table($request->type)->insert($request->except(['_token', 'type', 'confirm-password']));
-
         sendMail("Account Created", $request->email, "Your account has been created and pending review.");
         sendAdminMessage("Account Created", "An account has been created. Log in to your dashboard and approve account");
 

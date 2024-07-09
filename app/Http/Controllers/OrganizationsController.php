@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
+use App\Traits\ResponseTrait;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class OrganizationsController extends Controller
 {
+use ResponseTrait;
 
     public function overview(){
         $drivers = DB::table("drivers")->where('organization_id',whichUser()->mask)->count();
@@ -17,6 +21,19 @@ class OrganizationsController extends Controller
         $active_shipments = DB::table("shipments")->where('organization_id',whichUser()->mask)->where('shipment_status','On route')->count();
 
         return view('organization.overview',compact('drivers','brokers','vehicles','shipments','active_shipments'));
+    }
+
+    public function dashboardCharts(){
+      
+        $months = array_map(fn($month) => Carbon::create(null, $month)->format('M'), range(1, 12));
+        $drivers = DB::table('drivers')->where("organization_id",whichUser()->mask)->get();
+
+        // foreach($drivers as $driver){
+
+        // }
+        // $drivers = DB::table('shipments')->where('organization_id',whichUser()->mask)->groupBy('driver_id')->get();
+
+        return $this->successResponse('',$months);
     }
     
     public function index(){
