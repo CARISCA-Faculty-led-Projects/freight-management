@@ -49,8 +49,12 @@ class AuthController extends Controller
 
         if (Auth::guard($request->type)->attempt(['email' => $request->email, 'password' => $request->password])) {
             $logged = Carbon::now()->toDateTimeString();
-            DB::table($request->type)->where('email', $request->email)->update(['last_login' => $logged]);
-            DB::table('login_activity')->insert(['type'=>$request->type,'mask'=>whichUser()->mask,'created_at'=>$logged]);
+            $user = DB::table($request->type)->where('email', $request->email);
+
+            DB::table('login_activity')->insert([
+                'type' => $request->type, 'mask' => $user->first()->mask, 'created_at' => $logged
+            ]);
+            $user->update(['last_login' => $logged]);
 
             if ($request->type == "senders") {
                 return redirect(route("sender.overview"));
@@ -100,7 +104,7 @@ class AuthController extends Controller
         $user = DB::table($request->type)->where('mask', $request->user);
 
         $msg = "Your password has been changed. Your new password is " . $new;
-        
+
         sendMail("Password Reset", $user->first()->email, $msg);
         $user->update(['password' => Hash::make($new)]);
         return back()->with('success', "Password reset successful");
