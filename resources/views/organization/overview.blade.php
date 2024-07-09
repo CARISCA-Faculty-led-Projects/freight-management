@@ -63,7 +63,7 @@
                                 <div class="card-body d-flex flex-column flex-center">
                                     <!--begin::Chart-->
                                     <div class="d-flex me-7">
-                                        <div id="kt_card_widget_10_chart" class="" style="height: 200px; width: 200px"
+                                        <div id="org_shipments_statuses" class="" style="height: 200px; width: 200px"
                                             data-kt-size="200" data-kt-line="33"></div>
                                     </div>
                                     <!--end::Chart-->
@@ -141,7 +141,8 @@
                                         <!--begin::Info-->
                                         <div class="d-flex align-items-center mb-2">
                                             <!--begin::Value-->
-                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $brokers }}</span>
+                                            <span
+                                                class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $brokers }}</span>
                                             <!--end::Value-->
                                         </div>
                                         <!--end::Info-->
@@ -166,7 +167,8 @@
                                         <!--begin::Info-->
                                         <div class="d-flex align-items-center mb-2">
                                             <!--begin::Value-->
-                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $drivers }}</span>
+                                            <span
+                                                class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $drivers }}</span>
                                             <!--end::Value-->
                                         </div>
                                         <!--end::Info-->
@@ -196,7 +198,8 @@
                                         <!--begin::Info-->
                                         <div class="d-flex align-items-center">
                                             <!--begin::Value-->
-                                            <span class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $vehicles }}</span>
+                                            <span
+                                                class="fs-2hx fw-bold text-gray-800 me-2 lh-1 ls-n2">{{ $vehicles }}</span>
                                             <!--end::Value-->
                                         </div>
                                         <!--end::Info-->
@@ -254,8 +257,8 @@
                     <div class="card-header pt-7">
                         <!--begin::Title-->
                         <h3 class="card-title align-items-start flex-column">
-                            <span class="card-label fw-bold text-dark">Active Drivers per month</span>
-                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying number of active drivers per month
+                            <span class="card-label fw-bold text-dark">Shipments per month</span>
+                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying number of shipments per month
                                 for this year</span>
                         </h3>
                         <!--end::Title-->
@@ -300,7 +303,7 @@
                     <!--begin::Body-->
                     <div class="card-body pt-5">
                         <!--begin::Chart container-->
-                        <div id="org_drivers_pm_chart" class="w-100 h-350px"></div>
+                        <div id="org_shipments_pm_chart" class="w-100 h-350px"></div>
                         <!--end::Chart container-->
                     </div>
                     <!--end::Body-->
@@ -372,12 +375,13 @@
             <!--end::Col-->
             <div class="col-xl-12 mt-5">
                 <div class="card card-flush p-3">
-                     <!--begin::Header-->
-                     <div class="card-header pt-7">
+                    <!--begin::Header-->
+                    <div class="card-header pt-7">
                         <!--begin::Title-->
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label fw-bold text-dark">Realtime shipments location</span>
-                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying realtime locations of all active shipments</span>
+                            <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying realtime locations of all active
+                                shipments</span>
                         </h3>
                         <!--end::Title-->
                         <!--begin::Toolbar-->
@@ -431,6 +435,11 @@
         <!--end::Content container-->
     </div>
     <script src="{{ asset('assets/js/organization.overview.js') }}"></script>
+    <script>
+        $('document').ready(function() {
+            getOrgChartsData();
+        });
+    </script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>
 @endsection

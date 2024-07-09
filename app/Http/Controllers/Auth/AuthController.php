@@ -48,7 +48,9 @@ class AuthController extends Controller
         Validator::make($request->all(), ['email' => 'required|email', 'password' => 'required'])->validate();
 
         if (Auth::guard($request->type)->attempt(['email' => $request->email, 'password' => $request->password])) {
-            DB::table($request->type)->where('email', $request->email)->update(['last_login' => Carbon::now()->toDateTimeString()]);
+            $logged = Carbon::now()->toDateTimeString();
+            DB::table($request->type)->where('email', $request->email)->update(['last_login' => $logged]);
+            DB::table('login_activity')->insert(['type'=>$request->type,'mask'=>whichUser()->mask,'created_at'=>$logged]);
 
             if ($request->type == "senders") {
                 return redirect(route("sender.overview"));
