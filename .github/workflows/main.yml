@@ -10,14 +10,26 @@ jobs:
     steps:
     - name: Get latest code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: List files before FTP
+      run: |
+        echo "Files in repository:"
+        ls -R
 
     - name: Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with:
         server: 104.243.32.71
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
         server-dir: /
+        dangerous-clean-slate: true
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
 
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
@@ -36,9 +48,12 @@ jobs:
         port: 7522
         script: |
           cd /home/apcserv7/app.daloadmaster.com
+          echo "Current directory content:"
+          ls -la
           composer install --no-interaction --prefer-dist --optimize-autoloader
           php artisan migrate --force
           php artisan cache:clear
           php artisan config:clear
           php artisan route:clear
           php artisan view:clear
+          echo "Deployment completed"
