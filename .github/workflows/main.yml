@@ -10,30 +10,19 @@ jobs:
     steps:
     - name: Get latest code
       uses: actions/checkout@v2
-
-    - name: FTP Deploy
-      uses: SamKirkland/FTP-Deploy-Action@4.3.3
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.1.0
       with:
         server: 104.243.32.71
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        server-dir: /home/apcserv7/app.daloadmaster.com
-        state-name: .sync-state.json
-        dry-run: false
-        exclude: |
-          **/.git*
-          **/.git*/**
-          **/node_modules/**
-          .env
-        log-level: verbose
-
+        server-dir: /home/apcserv7/app.daloadmaster.com/
     - name: Install SSH Key
       uses: shimataro/ssh-key-action@v2
       with:
         key: ${{ secrets.SERVER_SSH_KEY }}
         known_hosts: ${{ secrets.KNOWN_HOSTS }}
         passphrase: ${{ secrets.SSH_KEY_PASSPHRASE }}
-
     - name: Execute remote SSH commands
       uses: appleboy/ssh-action@master
       with:
@@ -44,12 +33,9 @@ jobs:
         port: 7522
         script: |
           cd /home/apcserv7/app.daloadmaster.com
-          echo "Current directory content:"
-          ls -la
           composer install --no-interaction --prefer-dist --optimize-autoloader
           php artisan migrate --force
           php artisan cache:clear
           php artisan config:clear
           php artisan route:clear
           php artisan view:clear
-          echo "Deployment completed"
