@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+
 
 function generateAccNumber()
 {
@@ -106,6 +108,10 @@ function sendAccCredentials($creds)
     });
 }
 
+function getMonths(){
+    $months = array_map(fn ($month) => Carbon::create(null, $month)->format('M'), range(1, 12));
+    return $months;
+}
 
 function sendRegisteredMail()
 {

@@ -245,14 +245,14 @@
                                             value="1" />
                                     </div>
                                 </th>
-                                <th class="min-w-100px">Shipment ID</th>
-                                <th class="min-w-100px">Organization</th>
-                                <th class="text-end min-w-100px">Driver</th>
-                                <th class="text-end min-w-100px">Loads</th>
-                                <th class="text-end min-w-100px">Pickup Address </th>
-                                <th class="text-end min-w-100px">Dropoff Address</th>
-                                <th class="text-end min-w-100px">Shipment status</th>
-                                <th class="text-end min-w-100px">Action</th>
+                                <th class="text-center min-w-100px">Shipment ID</th>
+                                <th class="text-center min-w-100px">Organization</th>
+                                <th class="text-center min-w-100px">Driver</th>
+                                <th class="text-center min-w-100px">Loads</th>
+                                <th class="text-center min-w-100px">Starting point </th>
+                                <th class="text-center min-w-100px">Destination</th>
+                                <th class="text-center min-w-100px">Shipment status</th>
+                                <th class="text-center min-w-100px">Action</th>
                             </tr>
                         </thead>
                         <tbody class="fw-semibold text-gray-600">
@@ -270,13 +270,26 @@
                                     <td class="text-center">{{ $shipment->organization }}</td>
                                     <td class="text-center">{{ $shipment->driver }}</td>
                                     <td class="text-center">{{ count(json_decode($shipment->loads)) }}</td>
+                                    <td class="text-end">
+                                        {{ $shipment->pickup_address == null ? '' : json_decode($shipment->pickup_address)->name }}
+                                    </td>
+                                    <td class="text-end">
+                                        {{ $shipment->dropoff_address == null ? '' : json_decode($shipment->dropoff_address)->name }}
+                                    </td>
 
-
-                                    <td class="text-end">{{ json_decode($shipment->pickup_address)->name }}</td>
-                                    <td class="text-end">{{ json_decode($shipment->dropoff_address)->name }}</td>
-                                    <td class="text-end pe-0" data-order="Delivering">
+                                    <td class="text-end pe-0">
                                         <!--begin::Badges-->
-                                        <div class="badge badge-light-warning">{{ $shipment->shipment_status }}</div>
+                                        <div
+                                            class="badge @if ($shipment->shipment_status == 'Assigned') badge-light-primary
+                                                    @elseif($shipment->shipment_status == 'On route')
+                                                    badge-light-warning
+                                                    @elseif($shipment->shipment_status == 'Cancelled')
+                                                    badge-light-danger
+                                                    @elseif($shipment->shipment_status == 'Delivered')
+                                                    badge-light-success
+                                                    @else
+                                                    badge-light-primary @endif">
+                                            {{ $shipment->shipment_status }}</div>
                                         <!--end::Badges-->
                                     </td>
                                     <td class="text-end">
@@ -289,7 +302,8 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route('broker.shipment.edit',$shipment->mask)}}" class="menu-link px-3">Edit</a>
+                                                <a href="{{ route('broker.shipment.edit', $shipment->mask) }}"
+                                                    class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
@@ -304,7 +318,9 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{route('broker.shipment.delete',$shipment->mask)}}" onclick="return confirm('Confirm you want to delete shipment?');" class="menu-link px-3"
+                                                <a href="{{ route('broker.shipment.delete', $shipment->mask) }}"
+                                                    onclick="return confirm('Confirm you want to delete shipment?');"
+                                                    class="menu-link px-3"
                                                     data-kt-ecommerce-order-filter="delete_row">Delete</a>
                                             </div>
                                             <!--end::Menu item-->
@@ -337,8 +353,8 @@
     <!--end::Scrolltop-->
 
     <!--end::Modals--
-    @include('partials.modals.assign_to_driver')
-    @include('partials.modals.assign_load_to_driver')
-    @include('partials.modals.bid')
-    @include('partials.modals.add_shipment')
+        @include('partials.modals.assign_to_driver')
+        @include('partials.modals.assign_load_to_driver')
+        @include('partials.modals.bid')
+        @include('partials.modals.add_shipment')
 @endsection

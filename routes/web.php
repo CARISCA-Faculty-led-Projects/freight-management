@@ -112,7 +112,7 @@ Route::group(['auth:drivers', 'auth:senders', 'auth:organizations', 'auth:broker
 Route::middleware('auth')->group(function () {
 
     Route::controller(AdminController::class)->group(function () {
-        Route::get('/admin/dashboard', 'dashboard')->name('admin.overview');
+        Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
     });
     // // Shipments start
     // Route::controller(ShipmentsController::class)->group(function () {
@@ -311,6 +311,7 @@ Route::middleware('auth:drivers')->group(function () {
     Route::prefix('driver')->group(function () {
         Route::controller(DriversController::class)->group(function () {
             Route::get('overview', 'overview')->name('driver.overview');
+            Route::get('charts', 'dashboardCharts');
             Route::get('shipments', 'shipments')->name('driver.shipments');
         });
         Route::controller(VehiclesController::class)->group(function () {
@@ -346,6 +347,7 @@ Route::middleware('auth:senders')->group(function () {
 
         Route::controller(SendersController::class)->group(function () {
             Route::get('overview', 'overview')->name('sender.overview');
+            Route::get('charts', 'dashboardCharts');
             Route::get('/senders/list', function () {
                 return view('senders.list');
             });
@@ -412,6 +414,7 @@ Route::middleware('auth:brokers')->group(function () {
     Route::prefix('brokers')->group(function () {
         Route::controller(BrokersController::class)->group(function () {
             Route::get('overview', 'overview')->name('broker.overview');
+            Route::get('charts', 'dashboardCharts');
             Route::get('{broker}/update', 'update')->name('broker.update');
             Route::post('{broker}/update', 'saveUpdate')->name('broker.update');
             // Route::get('{broker}/edit', 'edit')->name('broker.edit');

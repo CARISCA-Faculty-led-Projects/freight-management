@@ -70,7 +70,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
             <form class="d-flex flex-column flex-lg-row" method="POST"
-                action="{{ route(whichUser()->getTable == 'brokers' ? 'broker.shipment.save' : 'org.shipment.save') }}">
+                action="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.shipment.save' : 'org.shipment.save') }}">
                 @csrf
                 <!--end::Aside column-->
                 <!--begin::Main column-->

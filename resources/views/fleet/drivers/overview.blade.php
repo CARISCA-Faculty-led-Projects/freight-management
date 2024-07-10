@@ -215,5 +215,10 @@
         <!--end::Row-->
     </div>
     <!--end::Content container-->
+    <script>
+        $('document').ready(function() {
+            getDriverChartsData();
+        });
+    </script>
 </div>
 @endsection

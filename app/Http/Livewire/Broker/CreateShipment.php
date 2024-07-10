@@ -117,6 +117,6 @@ class CreateShipment extends Component
 
         $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
 
-        return view('shipments.create-shipment')->extends(whichUser()->getTable == "brokers" ? 'layout.roles.broker' : 'layout.roles.organization')->section('content');
+        return view('shipments.create-shipment')->extends(whichUser()->getTable() == "brokers" ? 'layout.roles.broker' : 'layout.roles.organization')->section('content');
     }
 }

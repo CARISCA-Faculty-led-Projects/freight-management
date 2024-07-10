@@ -5,10 +5,54 @@ function getOrgChartsData() {
         url: "organization/charts",
         success: function (res) {
             data = res.data;
-            console.log(data);
             // On document ready
             KTUtil.onDOMContentLoaded(function () {
                 OrgShipmentsPm.init();
+                OrgShipmentStatuses.init();
+                OrgBrokersPm.init();
+            });
+        }
+    });
+}
+
+function getDriverChartsData() {
+    $.ajax({
+        url: "driver/charts",
+        success: function (res) {
+            data = res.data;
+            console.log(data);
+            // On document ready
+            KTUtil.onDOMContentLoaded(function () {
+                DriverAssignedShipmentspm.init();
+
+            });
+        }
+    });
+}
+
+function getBrokersChartsData() {
+    $.ajax({
+        url: "brokers/charts",
+        success: function (res) {
+            data = res.data;
+            // On document ready
+            KTUtil.onDOMContentLoaded(function () {
+                BrokerShipmentsPm.init();
+
+            });
+        }
+    });
+}
+
+function getSendersChartsData() {
+    $.ajax({
+        url: "senders/charts",
+        success: function (res) {
+            data = res.data;
+            // On document ready
+            KTUtil.onDOMContentLoaded(function () {
+                SenderLoadsCreated.init();
+
             });
         }
     });
@@ -373,6 +417,171 @@ KTUtil.onDOMContentLoaded(function () {
 });
 
 // total drivers for org end
+
+// sender loads pm start
+var SenderLoadsCreated = (function() {
+    // Private methods
+    var initChart = function () {
+        // Check if amchart library is included
+        if (typeof am5 === "undefined") {
+            return;
+        }
+
+        var element = document.getElementById("sender_loads_created");
+
+        if (!element) {
+            return;
+        }
+
+        var root;
+
+        var init = function () {
+            // Create root element
+            // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+            root = am5.Root.new(element);
+
+            // Set themes
+            // https://www.amcharts.com/docs/v5/concepts/themes/
+            root.setThemes([am5themes_Animated.new(root)]);
+
+            // Create chart
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/
+            var chart = root.container.children.push(
+                am5xy.XYChart.new(root, {
+                    panX: false,
+                    panY: false,
+                    wheelX: "panX",
+                    wheelY: "zoomX",
+                    layout: root.verticalLayout,
+                })
+            );
+
+            var colors = chart.get("colors");
+
+            prepareParetoData();
+
+            function prepareParetoData() {
+
+                var total = 0;
+
+                for (var i = 0; i < data.lpm.length; i++) {
+                    var value = data.lpm[i].qty;
+                    total += value;
+                }
+
+                var sum = 0;
+                for (var i = 0; i < data.lpm.length; i++) {
+                    var value = data.lpm[i].qty;
+                    sum += value;
+                    data.lpm[i].pareto = (sum / total) * 100;
+                }
+            }
+
+            // Create axes
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+            var xAxis = chart.xAxes.push(
+                am5xy.CategoryAxis.new(root, {
+                    categoryField: "months",
+                    renderer: am5xy.AxisRendererX.new(root, {
+                        minGridDistance: 30,
+                    }),
+                })
+            );
+
+            xAxis.get("renderer").labels.template.setAll({
+                paddingTop: 10,
+                fontWeight: "400",
+                fontSize: 13,
+                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+            });
+
+            xAxis.get("renderer").grid.template.setAll({
+                disabled: true,
+                strokeOpacity: 0
+            });
+
+            xAxis.data.setAll(data.lpm);
+
+            var yAxis = chart.yAxes.push(
+                am5xy.ValueAxis.new(root, {
+                    renderer: am5xy.AxisRendererY.new(root, {}),
+                })
+            );
+
+            yAxis.get("renderer").labels.template.setAll({
+                paddingLeft: 10,
+                fontWeight: "400",
+                fontSize: 13,
+                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+            });
+
+            yAxis.get("renderer").grid.template.setAll({
+                stroke: am5.color(KTUtil.getCssVariableValue('--bs-gray-300')),
+                strokeWidth: 1,
+                strokeOpacity: 1,
+                strokeDasharray: [3]
+            });
+
+
+            // Add series
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+            var series = chart.series.push(
+                am5xy.ColumnSeries.new(root, {
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    valueYField: "qty",
+                    categoryXField: "months",
+                })
+            );
+
+            series.columns.template.setAll({
+                tooltipText: "{categoryX}: {valueY}",
+                tooltipY: 0,
+                strokeOpacity: 0,
+                cornerRadiusTL: 6,
+                cornerRadiusTR: 6,
+            });
+
+            series.columns.template.adapters.add(
+                "fill",
+                function (fill, target) {
+                    return chart
+                        .get("colors")
+                        .getIndex(series.dataItems.indexOf(target.dataItem));
+                }
+            );
+            series.data.setAll(data.lpm);
+
+            // Make stuff animate on load
+            // https://www.amcharts.com/docs/v5/concepts/animations/
+            series.appear();
+            chart.appear(1000, 100);
+        }
+
+        am5.ready(function () {
+            init();
+        });
+
+        // Update chart on theme mode change
+        KTThemeMode.on("kt.thememode.change", function () {
+            // Destroy chart
+            root.dispose();
+
+            // Reinit chart
+            init();
+        });
+    };
+
+    // Public methods
+    return {
+        init: function() {
+            initChart();
+        },
+    };
+})();
+
+
+// sender load pm end
 
 // total vehicles for org start
 "use strict";
@@ -779,56 +988,361 @@ var OrgShipmentsPm = (function () {
 
             var colors = chart.get("colors");
 
-            // var data = [
-            //     {
-            //         months: "US",
-            //         qty: 725,
-            //     },
-            //     {
-            //         months: "UK",
-            //         qty: 625,
-            //     },
-            //     {
-            //         months: "China",
-            //         qty: 602,
-            //     },
-            //     {
-            //         months: "Japan",
-            //         qty: 509,
-            //     },
-            //     {
-            //         months: "Germany",
-            //         qty: 322,
-            //     },
-            //     {
-            //         months: "France",
-            //         qty: 214,
-            //     },
-            //     {
-            //         months: "India",
-            //         qty: 204,
-            //     },
-            //     {
-            //         months: "Spain",
-            //         qty: 198,
-            //     },
-            //     {
-            //         months: "Italy",
-            //         qty: 165,
-            //     },
-            //     {
-            //         months: "Russia",
-            //         qty: 130,
-            //     },
-            //     {
-            //         months: "Norway",
-            //         qty: 93,
-            //     },
-            //     {
-            //         months: "Canada",
-            //         qty: 41,
-            //     },
-            // ];
+            prepareParetoData();
+
+            function prepareParetoData() {
+
+                var total = 0;
+
+                for (var i = 0; i < data.spm.length; i++) {
+                    var value = data.spm[i].qty;
+                    total += value;
+                }
+
+                var sum = 0;
+                for (var i = 0; i < data.spm.length; i++) {
+                    var value = data.spm[i].qty;
+                    sum += value;
+                    data.spm[i].pareto = (sum / total) * 100;
+                }
+            }
+
+            // Create axes
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+            var xAxis = chart.xAxes.push(
+                am5xy.CategoryAxis.new(root, {
+                    categoryField: "months",
+                    renderer: am5xy.AxisRendererX.new(root, {
+                        minGridDistance: 30,
+                    }),
+                })
+            );
+
+            xAxis.get("renderer").labels.template.setAll({
+                paddingTop: 10,
+                fontWeight: "400",
+                fontSize: 13,
+                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+            });
+
+            xAxis.get("renderer").grid.template.setAll({
+                disabled: true,
+                strokeOpacity: 0
+            });
+
+            xAxis.data.setAll(data.spm);
+
+            var yAxis = chart.yAxes.push(
+                am5xy.ValueAxis.new(root, {
+                    renderer: am5xy.AxisRendererY.new(root, {}),
+                })
+            );
+
+            yAxis.get("renderer").labels.template.setAll({
+                paddingLeft: 10,
+                fontWeight: "400",
+                fontSize: 13,
+                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+            });
+
+            yAxis.get("renderer").grid.template.setAll({
+                stroke: am5.color(KTUtil.getCssVariableValue('--bs-gray-300')),
+                strokeWidth: 1,
+                strokeOpacity: 1,
+                strokeDasharray: [3]
+            });
+
+
+            // Add series
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+            var series = chart.series.push(
+                am5xy.ColumnSeries.new(root, {
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    valueYField: "qty",
+                    categoryXField: "months",
+                })
+            );
+
+            series.columns.template.setAll({
+                tooltipText: "{categoryX}: {valueY}",
+                tooltipY: 0,
+                strokeOpacity: 0,
+                cornerRadiusTL: 6,
+                cornerRadiusTR: 6,
+            });
+
+            series.columns.template.adapters.add(
+                "fill",
+                function (fill, target) {
+                    return chart
+                        .get("colors")
+                        .getIndex(series.dataItems.indexOf(target.dataItem));
+                }
+            );
+            series.data.setAll(data.spm);
+
+            // Make stuff animate on load
+            // https://www.amcharts.com/docs/v5/concepts/animations/
+            series.appear();
+            chart.appear(1000, 100);
+        }
+
+        am5.ready(function () {
+            init();
+        });
+
+        // Update chart on theme mode change
+        KTThemeMode.on("kt.thememode.change", function () {
+            // Destroy chart
+            root.dispose();
+
+            // Reinit chart
+            init();
+        });
+    };
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        },
+    };
+})();
+
+
+
+// Webpack support
+if (typeof module !== "undefined") {
+    module.exports = OrgShipmentsPm;
+}
+
+// // On document ready
+// KTUtil.onDOMContentLoaded(function () {
+//     OrgShipmentsPm.init();
+// });
+
+// active drivers per month end
+
+// active brokers per month start
+"use strict";
+
+// Class definition
+var OrgBrokersPm = (function () {
+    // Private methods
+    var initChart = function () {
+        // Check if amchart library is included
+        if (typeof am5 === "undefined") {
+            return;
+        }
+
+        var element = document.getElementById("org_brokers_pm_chart");
+
+        if (!element) {
+            return;
+        }
+
+        var root;
+
+        var init = function () {
+            // Create root element
+            // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+            root = am5.Root.new(element);
+
+            // Set themes
+            // https://www.amcharts.com/docs/v5/concepts/themes/
+            root.setThemes([am5themes_Animated.new(root)]);
+
+            // Create chart
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/
+            var chart = root.container.children.push(
+                am5xy.XYChart.new(root, {
+                    panX: false,
+                    panY: false,
+                    wheelX: "panX",
+                    wheelY: "zoomX",
+                    layout: root.verticalLayout,
+                })
+            );
+
+            var colors = chart.get("colors");
+
+            prepareParetoData();
+
+            function prepareParetoData() {
+                var total = 0;
+
+                for (var i = 0; i < data.abpm.length; i++) {
+                    var value = data.abpm[i].qty;
+                    total += value;
+                }
+
+                var sum = 0;
+                for (var i = 0; i < data.abpm.length; i++) {
+                    var value = data.abpm[i].qty;
+                    sum += value;
+                    data.abpm[i].pareto = (sum / total) * 100;
+                }
+            }
+
+            // Create axes
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
+            var xAxis = chart.xAxes.push(
+                am5xy.CategoryAxis.new(root, {
+                    categoryField: "months",
+                    renderer: am5xy.AxisRendererX.new(root, {
+                        minGridDistance: 30,
+                    }),
+                })
+            );
+
+            xAxis.get("renderer").labels.template.setAll({
+                paddingTop: 10,
+                fontWeight: "400",
+                fontSize: 13,
+                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+            });
+
+            xAxis.get("renderer").grid.template.setAll({
+                disabled: true,
+                strokeOpacity: 0
+            });
+
+            xAxis.data.setAll(data.abpm);
+
+            var yAxis = chart.yAxes.push(
+                am5xy.ValueAxis.new(root, {
+                    renderer: am5xy.AxisRendererY.new(root, {}),
+                })
+            );
+
+            yAxis.get("renderer").labels.template.setAll({
+                paddingLeft: 10,
+                fontWeight: "400",
+                fontSize: 13,
+                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
+            });
+
+            yAxis.get("renderer").grid.template.setAll({
+                stroke: am5.color(KTUtil.getCssVariableValue('--bs-gray-300')),
+                strokeWidth: 1,
+                strokeOpacity: 1,
+                strokeDasharray: [3]
+            });
+
+
+            // Add series
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
+            var series = chart.series.push(
+                am5xy.ColumnSeries.new(root, {
+                    xAxis: xAxis,
+                    yAxis: yAxis,
+                    valueYField: "qty",
+                    categoryXField: "months",
+                })
+            );
+
+            series.columns.template.setAll({
+                tooltipText: "{categoryX}: {valueY}",
+                tooltipY: 0,
+                strokeOpacity: 0,
+                cornerRadiusTL: 6,
+                cornerRadiusTR: 6,
+            });
+
+            series.columns.template.adapters.add(
+                "fill",
+                function (fill, target) {
+                    return chart
+                        .get("colors")
+                        .getIndex(series.dataItems.indexOf(target.dataItem));
+                }
+            );
+
+            // pareto series
+
+            series.data.setAll(data.abpm);
+
+            // Make stuff animate on load
+            // https://www.amcharts.com/docs/v5/concepts/animations/
+            series.appear();
+            chart.appear(1000, 100);
+        }
+
+        am5.ready(function () {
+            init();
+        });
+
+        // Update chart on theme mode change
+        KTThemeMode.on("kt.thememode.change", function () {
+            // Destroy chart
+            root.dispose();
+
+            // Reinit chart
+            init();
+        });
+    };
+
+    // Public methods
+    return {
+        init: function () {
+            initChart();
+        },
+    };
+})();
+
+
+
+// Webpack support
+if (typeof module !== "undefined") {
+    module.exports = OrgBrokersPm;
+}
+
+// active brokers per month end
+
+// Driver assigned shipments start
+
+"use strict";
+
+// Class definition
+var DriverAssignedShipmentspm = (function () {
+    // Private methods
+    var initChart = function () {
+        // Check if amchart library is included
+        if (typeof am5 === "undefined") {
+            return;
+        }
+
+        var element = document.getElementById("driver_shipments_assigned");
+
+        if (!element) {
+            return;
+        }
+
+        var root;
+
+        var init = function () {
+            // Create root element
+            // https://www.amcharts.com/docs/v5/getting-started/#Root_element
+            root = am5.Root.new(element);
+
+            // Set themes
+            // https://www.amcharts.com/docs/v5/concepts/themes/
+            root.setThemes([am5themes_Animated.new(root)]);
+
+            // Create chart
+            // https://www.amcharts.com/docs/v5/charts/xy-chart/
+            var chart = root.container.children.push(
+                am5xy.XYChart.new(root, {
+                    panX: false,
+                    panY: false,
+                    wheelX: "panX",
+                    wheelY: "zoomX",
+                    layout: root.verticalLayout,
+                })
+            );
+
+            var colors = chart.get("colors");
 
             prepareParetoData();
 
@@ -956,499 +1470,9 @@ var OrgShipmentsPm = (function () {
 
 // Webpack support
 if (typeof module !== "undefined") {
-    module.exports = OrgShimentsPm;
-}
-
-// // On document ready
-// KTUtil.onDOMContentLoaded(function () {
-//     OrgShipmentsPm.init();
-// });
-
-// active drivers per month end
-
-// active brokers per month start
-
-"use strict";
-
-// Class definition
-var OrgBrokersPm = (function () {
-    // Private methods
-    var initChart = function () {
-        // Check if amchart library is included
-        if (typeof am5 === "undefined") {
-            return;
-        }
-
-        var element = document.getElementById("org_brokers_pm_chart");
-
-        if (!element) {
-            return;
-        }
-
-        var root;
-
-        var init = function () {
-            // Create root element
-            // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-            root = am5.Root.new(element);
-
-            // Set themes
-            // https://www.amcharts.com/docs/v5/concepts/themes/
-            root.setThemes([am5themes_Animated.new(root)]);
-
-            // Create chart
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/
-            var chart = root.container.children.push(
-                am5xy.XYChart.new(root, {
-                    panX: false,
-                    panY: false,
-                    wheelX: "panX",
-                    wheelY: "zoomX",
-                    layout: root.verticalLayout,
-                })
-            );
-
-            var colors = chart.get("colors");
-
-            var data = [
-                {
-                    months: "US",
-                    qty: 725,
-                },
-                {
-                    months: "UK",
-                    qty: 625,
-                },
-                {
-                    months: "China",
-                    qty: 602,
-                },
-                {
-                    months: "Japan",
-                    qty: 509,
-                },
-                {
-                    months: "Germany",
-                    qty: 322,
-                },
-                {
-                    months: "France",
-                    qty: 214,
-                },
-                {
-                    months: "India",
-                    qty: 204,
-                },
-                {
-                    months: "Spain",
-                    qty: 198,
-                },
-                {
-                    months: "Italy",
-                    qty: 165,
-                },
-                {
-                    months: "Russia",
-                    qty: 130,
-                },
-                {
-                    months: "Norway",
-                    qty: 93,
-                },
-                {
-                    months: "Canada",
-                    qty: 41,
-                },
-            ];
-
-            prepareParetoData();
-
-            function prepareParetoData() {
-                var total = 0;
-
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
-                    total += value;
-                }
-
-                var sum = 0;
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
-                    sum += value;
-                    data[i].pareto = (sum / total) * 100;
-                }
-            }
-
-            // Create axes
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-            var xAxis = chart.xAxes.push(
-                am5xy.CategoryAxis.new(root, {
-                    categoryField: "months",
-                    renderer: am5xy.AxisRendererX.new(root, {
-                        minGridDistance: 30,
-                    }),
-                })
-            );
-
-            xAxis.get("renderer").labels.template.setAll({
-                paddingTop: 10,
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
-
-            xAxis.get("renderer").grid.template.setAll({
-                disabled: true,
-                strokeOpacity: 0
-            });
-
-            xAxis.data.setAll(data);
-
-            var yAxis = chart.yAxes.push(
-                am5xy.ValueAxis.new(root, {
-                    renderer: am5xy.AxisRendererY.new(root, {}),
-                })
-            );
-
-            yAxis.get("renderer").labels.template.setAll({
-                paddingLeft: 10,
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
-
-            yAxis.get("renderer").grid.template.setAll({
-                stroke: am5.color(KTUtil.getCssVariableValue('--bs-gray-300')),
-                strokeWidth: 1,
-                strokeOpacity: 1,
-                strokeDasharray: [3]
-            });
-
-
-            // Add series
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-            var series = chart.series.push(
-                am5xy.ColumnSeries.new(root, {
-                    xAxis: xAxis,
-                    yAxis: yAxis,
-                    valueYField: "qty",
-                    categoryXField: "months",
-                })
-            );
-
-            series.columns.template.setAll({
-                tooltipText: "{categoryX}: {valueY}",
-                tooltipY: 0,
-                strokeOpacity: 0,
-                cornerRadiusTL: 6,
-                cornerRadiusTR: 6,
-            });
-
-            series.columns.template.adapters.add(
-                "fill",
-                function (fill, target) {
-                    return chart
-                        .get("colors")
-                        .getIndex(series.dataItems.indexOf(target.dataItem));
-                }
-            );
-
-            // pareto series
-
-            series.data.setAll(data);
-
-            // Make stuff animate on load
-            // https://www.amcharts.com/docs/v5/concepts/animations/
-            series.appear();
-            chart.appear(1000, 100);
-        }
-
-        am5.ready(function () {
-            init();
-        });
-
-        // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function () {
-            // Destroy chart
-            root.dispose();
-
-            // Reinit chart
-            init();
-        });
-    };
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        },
-    };
-})();
-
-
-
-// Webpack support
-if (typeof module !== "undefined") {
-    module.exports = OrgBrokersPm;
-}
-
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    OrgBrokersPm.init();
-});
-// active brokers per month end
-
-// Driver assigned shipments start
-
-"use strict";
-
-// Class definition
-var DriverAssignedShipmentspm = (function () {
-    // Private methods
-    var initChart = function () {
-        // Check if amchart library is included
-        if (typeof am5 === "undefined") {
-            return;
-        }
-
-        var element = document.getElementById("driver_shipments_assigned");
-
-        if (!element) {
-            return;
-        }
-
-        var root;
-
-        var init = function () {
-            // Create root element
-            // https://www.amcharts.com/docs/v5/getting-started/#Root_element
-            root = am5.Root.new(element);
-
-            // Set themes
-            // https://www.amcharts.com/docs/v5/concepts/themes/
-            root.setThemes([am5themes_Animated.new(root)]);
-
-            // Create chart
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/
-            var chart = root.container.children.push(
-                am5xy.XYChart.new(root, {
-                    panX: false,
-                    panY: false,
-                    wheelX: "panX",
-                    wheelY: "zoomX",
-                    layout: root.verticalLayout,
-                })
-            );
-
-            var colors = chart.get("colors");
-
-            var data = [
-                {
-                    months: "US",
-                    qty: 725,
-                },
-                {
-                    months: "UK",
-                    qty: 625,
-                },
-                {
-                    months: "China",
-                    qty: 602,
-                },
-                {
-                    months: "Japan",
-                    qty: 509,
-                },
-                {
-                    months: "Germany",
-                    qty: 322,
-                },
-                {
-                    months: "France",
-                    qty: 214,
-                },
-                {
-                    months: "India",
-                    qty: 204,
-                },
-                {
-                    months: "Spain",
-                    qty: 198,
-                },
-                {
-                    months: "Italy",
-                    qty: 165,
-                },
-                {
-                    months: "Russia",
-                    qty: 130,
-                },
-                {
-                    months: "Norway",
-                    qty: 93,
-                },
-                {
-                    months: "Canada",
-                    qty: 41,
-                },
-            ];
-
-            prepareParetoData();
-
-            function prepareParetoData() {
-                var total = 0;
-
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
-                    total += value;
-                }
-
-                var sum = 0;
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
-                    sum += value;
-                    data[i].pareto = (sum / total) * 100;
-                }
-            }
-
-            // Create axes
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/axes/
-            var xAxis = chart.xAxes.push(
-                am5xy.CategoryAxis.new(root, {
-                    categoryField: "Months",
-                    renderer: am5xy.AxisRendererX.new(root, {
-                        minGridDistance: 30,
-                    }),
-                })
-            );
-
-            xAxis.get("renderer").labels.template.setAll({
-                paddingTop: 10,
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
-
-            xAxis.get("renderer").grid.template.setAll({
-                disabled: true,
-                strokeOpacity: 0
-            });
-
-            xAxis.data.setAll(data);
-
-            var yAxis = chart.yAxes.push(
-                am5xy.ValueAxis.new(root, {
-                    renderer: am5xy.AxisRendererY.new(root, {}),
-                })
-            );
-
-            yAxis.get("renderer").labels.template.setAll({
-                paddingLeft: 10,
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
-
-            yAxis.get("renderer").grid.template.setAll({
-                stroke: am5.color(KTUtil.getCssVariableValue('--bs-gray-300')),
-                strokeWidth: 1,
-                strokeOpacity: 1,
-                strokeDasharray: [3]
-            });
-
-            var paretoAxisRenderer = am5xy.AxisRendererY.new(root, {
-                opposite: true,
-            });
-
-            var paretoAxis = chart.yAxes.push(
-                am5xy.ValueAxis.new(root, {
-                    renderer: paretoAxisRenderer,
-                    min: 0,
-                    max: 100,
-                    strictMinMax: true,
-                })
-            );
-
-            paretoAxis.get("renderer").labels.template.setAll({
-                fontWeight: "400",
-                fontSize: 13,
-                fill: am5.color(KTUtil.getCssVariableValue('--bs-gray-500'))
-            });
-
-            paretoAxisRenderer.grid.template.set("forceHidden", true);
-            paretoAxis.set("numberFormat", "#'%");
-
-            // Add series
-            // https://www.amcharts.com/docs/v5/charts/xy-chart/series/
-            var series = chart.series.push(
-                am5xy.ColumnSeries.new(root, {
-                    xAxis: xAxis,
-                    yAxis: yAxis,
-                    valueYField: "qty",
-                    categoryXField: "months",
-                })
-            );
-
-            series.columns.template.setAll({
-                tooltipText: "{categoryX}: {valueY}",
-                tooltipY: 0,
-                strokeOpacity: 0,
-                cornerRadiusTL: 6,
-                cornerRadiusTR: 6,
-            });
-
-            series.columns.template.adapters.add(
-                "fill",
-                function (fill, target) {
-                    return chart
-                        .get("colors")
-                        .getIndex(series.dataItems.indexOf(target.dataItem));
-                }
-            );
-
-
-
-            series.data.setAll(data);
-
-            // Make stuff animate on load
-            // https://www.amcharts.com/docs/v5/concepts/animations/
-            series.appear();
-            chart.appear(1000, 100);
-        }
-
-        am5.ready(function () {
-            init();
-        });
-
-        // Update chart on theme mode change
-        KTThemeMode.on("kt.thememode.change", function () {
-            // Destroy chart
-            root.dispose();
-
-            // Reinit chart
-            init();
-        });
-    };
-
-    // Public methods
-    return {
-        init: function () {
-            initChart();
-        },
-    };
-})();
-
-
-
-// Webpack support
-if (typeof module !== "undefined") {
     module.exports = DriverAssignedShipmentspm;
 }
 
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    DriverAssignedShipmentspm.init();
-});
 // Driver assigned shipments end
 
 // broker shipments created start
@@ -1493,72 +1517,22 @@ var BrokerShipmentsPm = (function () {
 
             var colors = chart.get("colors");
 
-            var data = [
-                {
-                    months: "US",
-                    qty: 725,
-                },
-                {
-                    months: "UK",
-                    qty: 625,
-                },
-                {
-                    months: "China",
-                    qty: 602,
-                },
-                {
-                    months: "Japan",
-                    qty: 509,
-                },
-                {
-                    months: "Germany",
-                    qty: 322,
-                },
-                {
-                    months: "France",
-                    qty: 214,
-                },
-                {
-                    months: "India",
-                    qty: 204,
-                },
-                {
-                    months: "Spain",
-                    qty: 198,
-                },
-                {
-                    months: "Italy",
-                    qty: 165,
-                },
-                {
-                    months: "Russia",
-                    qty: 130,
-                },
-                {
-                    months: "Norway",
-                    qty: 93,
-                },
-                {
-                    months: "Canada",
-                    qty: 41,
-                },
-            ];
-
             prepareParetoData();
 
             function prepareParetoData() {
+
                 var total = 0;
 
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
+                for (var i = 0; i < data.spm.length; i++) {
+                    var value = data.spm[i].qty;
                     total += value;
                 }
 
                 var sum = 0;
-                for (var i = 0; i < data.length; i++) {
-                    var value = data[i].qty;
+                for (var i = 0; i < data.spm.length; i++) {
+                    var value = data.spm[i].qty;
                     sum += value;
-                    data[i].pareto = (sum / total) * 100;
+                    data.spm[i].pareto = (sum / total) * 100;
                 }
             }
 
@@ -1585,7 +1559,7 @@ var BrokerShipmentsPm = (function () {
                 strokeOpacity: 0
             });
 
-            xAxis.data.setAll(data);
+            xAxis.data.setAll(data.spm);
 
             var yAxis = chart.yAxes.push(
                 am5xy.ValueAxis.new(root, {
@@ -1635,7 +1609,7 @@ var BrokerShipmentsPm = (function () {
                         .getIndex(series.dataItems.indexOf(target.dataItem));
                 }
             );
-            series.data.setAll(data);
+            series.data.setAll(data.spm);
 
             // Make stuff animate on load
             // https://www.amcharts.com/docs/v5/concepts/animations/
@@ -1672,10 +1646,6 @@ if (typeof module !== "undefined") {
     module.exports = BrokerShipmentsPm;
 }
 
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    BrokerShipmentsPm.init();
-});
 // Broker shipments created end
 "use strict";
 
@@ -1684,52 +1654,32 @@ KTUtil.onDOMContentLoaded(function () {
 var OrgShipmentStatuses = function () {
     // Private methods
     var initChart = function () {
-        var el = document.getElementById('org_shipments_statuses');
-
-        if (!el) {
-            return;
-        }
-
         var options = {
-            size: el.getAttribute('data-kt-size') ? parseInt(el.getAttribute('data-kt-size')) : 70,
-            lineWidth: el.getAttribute('data-kt-line') ? parseInt(el.getAttribute('data-kt-line')) : 11,
-            rotate: el.getAttribute('data-kt-rotate') ? parseInt(el.getAttribute('data-kt-rotate')) : 145,
-            //percent:  el.getAttribute('data-kt-percent') ,
-        }
+            dataLabels:{
+                enabled: false
+            },
 
-        var canvas = document.createElement('canvas');
-        var span = document.createElement('span');
-
-        if (typeof (G_vmlCanvasManager) !== 'undefined') {
-            G_vmlCanvasManager.initElement(canvas);
-        }
-
-        var ctx = canvas.getContext('2d');
-        canvas.width = canvas.height = options.size;
-
-        el.appendChild(span);
-        el.appendChild(canvas);
-
-        ctx.translate(options.size / 2, options.size / 2); // change center
-        ctx.rotate((-1 / 2 + options.rotate / 180) * Math.PI); // rotate -90 deg
-
-        //imd = ctx.getImageData(0, 0, 240, 240);
-        var radius = (options.size - options.lineWidth) / 2;
-
-        var drawCircle = function (color, lineWidth, percent) {
-            percent = Math.min(Math.max(0, percent || 1), 1);
-            ctx.beginPath();
-            ctx.arc(0, 0, radius, 0, Math.PI * 2*percent, false);
-            ctx.strokeStyle = color;
-            ctx.lineCap = 'round'; // butt, round or square
-            ctx.lineWidth = lineWidth
-            ctx.stroke();
-        };
-
-        // Init 
-        drawCircle('#E4E6EF', options.lineWidth, 100 / 10);
-        drawCircle(KTUtil.getCssVariableValue('--bs-primary'), options.lineWidth, 100 / 190);
-        // drawCircle(KTUtil.getCssVariableValue('--bs-success'), options.lineWidth, 100 / 200);
+            legend: {
+                show: false
+              },
+            series: data.sr.series,
+            labels: data.sr.labels,
+            chart: {
+            type: 'donut',
+          },
+          responsive: [{
+            breakpoint: 480,
+            options: {
+              chart: {
+                width: 500
+              },
+              
+            }
+          }]
+          };
+  
+          var chart = new ApexCharts(document.querySelector("#org_shipments_statuses"), options);
+          chart.render();
     }
 
     // Public methods
@@ -1745,10 +1695,6 @@ if (typeof module !== 'undefined') {
     module.exports = OrgShipmentStatuses;
 }
 
-// On document ready
-KTUtil.onDOMContentLoaded(function () {
-    OrgShipmentStatuses.init();
-});
 
 
 "use strict";

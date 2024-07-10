@@ -154,7 +154,6 @@ class ShipmentsController extends Controller
             ])->validate();
         }
 
-
         DB::table('shipments')->insert([
             'organization_id' => $request->organization_id,
             'driver_id' => $request->driver_id,
@@ -171,7 +170,7 @@ class ShipmentsController extends Controller
 
         DB::table('loads')->whereIn('mask', $request->loads)->update(['shipment_status' => "Assigned"]);
 
-        return redirect(route(whichUser()->getTable() == 'brokers' ? 'load.board' : 'org.shipments.list'));
+        return redirect(route(whichUser()->getTable() == 'brokers' ? 'broker.shipments.list' : 'org.shipments.list'));
     }
 
     public function update(Request $request, $shipment)

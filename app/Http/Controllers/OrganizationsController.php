@@ -21,36 +21,54 @@ class OrganizationsController extends Controller
         $shipments = DB::table("shipments")->where('organization_id', whichUser()->mask)->count();
         $active_shipments = DB::table("shipments")->where('organization_id', whichUser()->mask)->where('shipment_status', 'On route')->count();
 
-        return view('organization.overview', compact('drivers', 'brokers', 'vehicles', 'shipments', 'active_shipments'));
+        $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->count();
+        $s_com = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
+        $s_complete = ($s_com / $shipments) * 100;
+        $s_pen = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Assigned')->count();
+        $s_pending = ($s_pen / $shipments) * 100;
+        $s_can = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Cancelled')->count();
+        $s_cancelled = ($s_can / $shipments) * 100;
+
+        $shipment_stats = [
+            'complete'=>$s_complete,
+            'pending'=>$s_pending,
+            'cancelled'=>$s_cancelled,
+        ];
+
+        return view('organization.overview', compact('drivers', 'brokers', 'vehicles', 'shipments', 'active_shipments','shipment_stats'));
     }
 
     public function dashboardCharts()
     {
         $spm = [];
-        $sr = [];
+        $active_brokers_pm = [];
         $months = array_map(fn ($month) => Carbon::create(null, $month)->format('M'), range(1, 12));
         $drivers = DB::table('drivers')->where("organization_id", whichUser()->mask)->pluck('mask')->toArray();
+         // Active brokers per month
+         $brokers = DB::table('brokers')->where('organization_id', whichUser()->mask)->pluck('mask')->toArray();
 
         // Shipments per month of the year
         for ($m = 1; $m <= 12; $m++) {
             $shipments = DB::table('shipments')->whereIn('driver_id', $drivers)->whereMonth('created_at', $m)->count();
-            array_push($spm,['months'=> $months[$m-1],'qty'=> $shipments]);
+            $activity = DB::table('login_activity')->whereIn('mask', $brokers)->whereMonth('created_at', $m)->count();
+            array_push($spm, ['months' => $months[$m - 1], 'qty' => $shipments]);
+            array_push($active_brokers_pm, ['months' => $months[$m - 1], 'qty' => $activity]);
         }
 
-        // Shipments success and failure rates
-        $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->get();
-        foreach($shipments as $shipment){
-            if(in_array($shipment->shipment_status,$sr)){
-                $sr[$shipment->shipment_status] ++      ;
-            }else{
-                $sr[$shipment->shipment_status] = 1;
-            }
-        }
+        // Shipments success and failure rates$
+        $ss = []; //shipment status series
+        $sl = []; //shipment status labels
+        $s_com = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
+        array_push($ss, $s_com);
+        array_push($sl, "Delivered");
+        $s_pen = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Assigned')->count();
+        array_push($ss, $s_pen);
+        array_push($sl, "Pending");
+        $s_can = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Cancelled')->count();
+        array_push($ss, $s_can);
+        array_push($sl, "Cancelled");
 
-        // Active brokers per month
-
-
-        return $this->successResponse('', ["spm"=>$spm,'sr'=>$sr]);
+        return $this->successResponse('', ["spm" => $spm,'abpm'=> $active_brokers_pm ,'sr' => ['series'=>$ss,'labels'=>$sl]]);
     }
 
     public function index()

@@ -63,12 +63,30 @@
                                 <div class="card-body d-flex flex-column flex-center">
                                     <!--begin::Chart-->
                                     <div class="d-flex me-7">
-                                        <div id="org_shipments_statuses" class="" style="height: 200px; width: 200px"
+                                        <div id="org_shipments_statuses" class=""
                                             data-kt-size="200" data-kt-line="33"></div>
                                     </div>
                                     <!--end::Chart-->
                                     <!--begin::Labels-->
                                     <div class="d-flex flex-column content-justify-start mt-3">
+                                         <!--begin::Label-->
+                                         <div class="d-flex fs-6 fw-semibold align-items-start">
+                                            <!--begin::Bullet-->
+                                            <div class="bullet w-8px h-6px rounded-2 me-3"
+                                                style="background-color: #E4E6EF"></div>
+                                            <!--end::Bullet-->
+                                            <!--begin::Label-->
+                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Pending shipments
+                                            </div>
+                                            <!--end::Label-->
+                                            <!--begin::Separator-->
+                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
+                                            <!--end::Separator-->
+                                            <!--begin::Stats-->
+                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ $shipment_stats['pending'] }}%</div>
+                                            <!--end::Stats-->
+                                        </div>
+                                        <!--end::Label-->
                                         <!--begin::Label-->
                                         <div class="d-flex fs-6 fw-semibold align-items-center">
                                             <!--begin::Bullet-->
@@ -82,7 +100,7 @@
                                             <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
-                                            <div class="ms-auto fw-bolder text-gray-700 text-end">45%</div>
+                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ $shipment_stats['complete'] }}%</div>
                                             <!--end::Stats-->
                                         </div>
                                         <!--end::Label-->
@@ -99,25 +117,7 @@
                                             <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
-                                            <div class="ms-auto fw-bolder text-gray-700 text-end">21%</div>
-                                            <!--end::Stats-->
-                                        </div>
-                                        <!--end::Label-->
-                                        <!--begin::Label-->
-                                        <div class="d-flex fs-6 fw-semibold align-items-start">
-                                            <!--begin::Bullet-->
-                                            <div class="bullet w-8px h-6px rounded-2 me-3"
-                                                style="background-color: #E4E6EF"></div>
-                                            <!--end::Bullet-->
-                                            <!--begin::Label-->
-                                            <div class="fs-6 fw-semibold text-gray-400 flex-shrink-0">Cancelled shipments
-                                            </div>
-                                            <!--end::Label-->
-                                            <!--begin::Separator-->
-                                            <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
-                                            <!--end::Separator-->
-                                            <!--begin::Stats-->
-                                            <div class="ms-auto fw-bolder text-gray-700 text-end">34%</div>
+                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ $shipment_stats['cancelled'] }}%</div>
                                             <!--end::Stats-->
                                         </div>
                                         <!--end::Label-->
@@ -438,6 +438,7 @@
     <script>
         $('document').ready(function() {
             getOrgChartsData();
+            DriverAssignedShipmentspm.init();
         });
     </script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
