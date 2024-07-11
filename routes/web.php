@@ -143,11 +143,9 @@ Route::middleware('auth:organizations')->group(function () {
         Route::prefix('vehicles')->group(function () {
             Route::controller(VehiclesController::class)->group(function () {
                 Route::get('/', 'index')->name('vehicles');
-                Route::get('{vehicle}/delete', 'delete')->name('vehicles.delete');
-                Route::get('{vehicles}/details', 'details')->name('vehicles.view');
-                Route::get('locate', function () {
-                    return view('fleet.vehicles.locate');
-                });
+                Route::get('{vehicle}/delete', 'delete')->name('vehicle.delete');
+                Route::get('{vehicles}/details', 'details')->name('vehicle.view');
+                Route::get('{vehicle}/locate', 'locate')->name('vehicle.locate');
                 Route::prefix('maintenance')->group(function () {
                     Route::get('{vehicle}/list', 'maintenance_logs')->name('vehicle.maintenance_list');
                     Route::get('{vehicle}/add', 'add_maintenance')->name('vehicle.maintenance.add');
@@ -158,14 +156,12 @@ Route::middleware('auth:organizations')->group(function () {
                 });
             });
             Route::get('add', AddVehicle::class);
-            Route::get('{mask}/edit', UpdateVehicle::class)->name('vehicles.edit');
+            Route::get('{mask}/edit', UpdateVehicle::class)->name('vehicle.edit');
         });
         Route::get('overview', function () {
             return view('fleet.overview');
         });
-        Route::get('locate', function () {
-            return view('fleet.locate');
-        });
+      
 
 
         Route::get('maintenance', [VehiclesController::class, 'all_schedules'])->name('schedules.list');

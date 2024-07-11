@@ -389,7 +389,7 @@
                                                     <label class="required form-label">Color</label>
                                                     <!--end::Label-->
                                                     <!--begin::Input-->
-                                                    <input class="form-control mb-2" wire:model="vehicle.color" />
+                                                    <input type="color" class="form-control mb-2" wire:model="vehicle.color" />
                                                     <!--end::Input-->
                                                     <!--begin::Description-->
                                                     <div class="text-muted fs-7">Set the vehicle current color.</div>
@@ -705,18 +705,18 @@
                                             </div>
                                             <!--end::Input group-->
                                             <!--begin::Input group-->
-                                            {{-- <div class="fv-row">
+                                            <div class="fv-row">
                                                 <!--begin::Label-->
                                                 <label class="form-label">Same as Organization?</label>
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <div class="form-check form-check-custom form-check-solid mb-2">
-                                                    <input class="form-check-input" wire:model="org_owned"
-                                                        type="checkbox" value="Yes" />
+                                                    <input class="form-check-input" wire:click="org_owned($event.target.checked)"
+                                                        type="checkbox" />
                                                     <label class="form-check-label">Yes</label>
                                                 </div>
                                                 <!--end::Input-->
-                                            </div> --}}
+                                            </div>
                                             <!--end::Input group-->
                                         </div>
                                         <!--end::Card header-->

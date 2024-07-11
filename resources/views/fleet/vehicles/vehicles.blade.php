@@ -239,19 +239,19 @@
                                             data-kt-menu="true">
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('vehicles.view', $vehicle->mask) }}"
+                                                <a href="{{ route('vehicle.view', $vehicle->mask) }}"
                                                     class="menu-link px-3">View</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('vehicles.edit', $vehicle->mask) }}"
+                                                <a href="{{ route('vehicle.edit', $vehicle->mask) }}"
                                                     class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="/fleet/vehicles/locate" class="menu-link px-3">Locate</a>
+                                                <a href="{{ route('vehicle.locate', $vehicle->mask) }}" class="menu-link px-3">Locate</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
@@ -262,7 +262,7 @@
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="{{ route('vehicles.delete', $vehicle->mask) }}"
+                                                <a href="{{ route('vehicle.delete', $vehicle->mask) }}"
                                                     onclick="return confirm('Confirm you want to delete?')"
                                                     class="menu-link px-3">Delete</a>
                                             </div>

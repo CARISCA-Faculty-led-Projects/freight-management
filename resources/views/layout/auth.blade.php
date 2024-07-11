@@ -46,18 +46,6 @@ License: For each use you must have a valid license purchased only from above li
     <link href="../../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <!--end::Global Stylesheets Bundle-->
 
-    <!--begin::Google tag-->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-37564768-1"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-
-        function gtag() {
-            dataLayer.push(arguments);
-        }
-        gtag('js', new Date());
-        gtag('config', 'UA-37564768-1');
-    </script>
-    <!--end::Google tag-->
     <script>
         // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
         if (window.top != window.self) {
@@ -103,7 +91,10 @@ License: For each use you must have a valid license purchased only from above li
         <!--begin::Authentication - Sign-up -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
             <!--begin::Aside-->
-            <div class="d-flex flex-column flex-lg-row-auto bg-dark w-xl-600px positon-xl-relative">
+            <div class="d-flex flex-column flex-lg-row-auto w-xl-600px bg-dark">
+            {{-- <div class="d-flex flex-column flex-lg-row-auto w-xl-600px" style="background-image: url(../../assets/media/misc/wolfgang-hasselmann-nbRgZltoOck-unsplash.jpg);background-size:cover;background-color:rgba(0, 0, 0, 0.3);"> --}}
+                {{-- Photo by <a href="https://unsplash.com/@wolfgang_hasselmann?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Wolfgang Hasselmann</a> on <a href="https://unsplash.com/photos/grayscale-photo-of-cars-on-road-nbRgZltoOck?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> --}}
+  
                 <!--begin::Wrapper-->
                 <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
                     <!--begin::Header-->
@@ -130,11 +121,7 @@ License: For each use you must have a valid license purchased only from above li
                     </div>
                     <!--end::Header-->
 
-                    <!--begin::Illustration-->
-                    <div class="d-none d-lg-block d-flex flex-row-auto bgi-no-repeat bgi-position-x-center bgi-size-contain bgi-position-y-bottom min-h-100px min-h-lg-350px"
-                        style="background-image: url(../../assets/media/illustrations/dozzy-1/17.png)">
-                    </div>
-                    <!--end::Illustration-->
+                  
                 </div>
                 <!--end::Wrapper-->
             </div>

@@ -51,11 +51,12 @@ class UpdateVehicle extends Component
 
     public function addRoute($num)
     {
-        array_push($this->veh_routes,$num);
+        array_push($this->veh_routes, $num);
     }
 
-    public function delRoute($route){
-        array_splice($this->veh_routes,$route,1);
+    public function delRoute($route)
+    {
+        array_splice($this->veh_routes, $route, 1);
     }
 
 
@@ -76,11 +77,23 @@ class UpdateVehicle extends Component
         }
     }
 
+    public function org_owned($event){
+        if ($event) {
+            $org = (array)DB::table('organizations')->where('mask', whichUser()->mask)->first(['name', 'phone', 'email', 'address']);
+
+            $this->owner = $org;
+        } else  {
+            $this->owner = [];
+        }
+    }
+
     public function general()
     {
         if (is_file($this->image)) {
-            unlink('storage/vehicles/'.$this->vehicle['image']);
-            $imagename = uniqid() . '.' . $this->vehicle['image']->getClientOriginalExtension();
+            if (file_exists('storage/vehicles/' . $this->vehicle['image'])) {
+                unlink('storage/vehicles/' . $this->vehicle['image']);
+            }
+            $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('vehicles', $imagename, 'real_public');
             $this->vehicle['image'] = $imagename;
         }
@@ -88,7 +101,7 @@ class UpdateVehicle extends Component
         if ($this->load_type != []) {
             $this->vehicle['load_type'] = json_encode($this->load_type);
         }
-// dd($this->vehicle);
+        // dd($this->vehicle);
         DB::table('vehicles')->where('mask', $this->vehicle['mask'])->update($this->vehicle);
 
         $this->activate('others');
@@ -96,7 +109,11 @@ class UpdateVehicle extends Component
 
     public function others()
     {
-        DB::table('vehicle_owners')->where('vehicle_id', $this->vehicle['mask'])->where('id', $this->owner['id'])->update($this->owner);
+        if(array_key_exists('id',$this->owner)){
+            DB::table('vehicle_owners')->where('vehicle_id', $this->vehicle['mask'])->where('id', $this->owner['id'])->update($this->owner);
+        }else{
+            DB::table('vehicle_owners')->where('vehicle_id', $this->vehicle['mask'])->update($this->owner);
+        }
 
         DB::table('vehicles')->where('mask', $this->vehicle['mask'])->update([
             'weight' => $this->vehicle['weight'],
@@ -128,22 +145,28 @@ class UpdateVehicle extends Component
 
     public function documents()
     {
-        if(is_file($this->owners_documents)){
-            unlink('storage/vehicles/'.$this->vehicle['owners_documents']);
+        if (is_file($this->owners_documents)) {
+            if (file_exists('storage/vehicles/' . $this->vehicle['owners_documents'])) {
+                unlink('storage/vehicles/' . $this->vehicle['owners_documents']);
+            }
             $owners = uniqid() . '.' . $this->owners_documents->getClientOriginalExtension();
             $this->owners_documents->storeAs('vehicles', $owners, 'real_public');
             $this->vehicle['owners_documents'] = $owners;
         }
 
-        if(is_file($this->road_worth_documents)){
-            unlink('storage/vehicles/'.$this->vehicle['road_worth_documents']);
+        if (is_file($this->road_worth_documents)) {
+            if (file_exists('storage/vehicles/' . $this->vehicle['owners_documents'])) {
+                unlink('storage/vehicles/' . $this->vehicle['road_worth_documents']);
+            }
             $roadworth = uniqid() . '.' . $this->road_worth_documents->getClientOriginalExtension();
             $this->road_worth_documents->storeAs('vehicles', $roadworth, 'real_public');
             $this->vehicle['road_worth_documents'] = $roadworth;
         }
 
-        if(is_file($this->insurance_documents)){
-            unlink('storage/vehicles/'.$this->vehicle['insurance_documents']);
+        if (is_file($this->insurance_documents)) {
+            if (file_exists('storage/vehicles/' . $this->vehicle['owners_documents'])) {
+                unlink('storage/vehicles/' . $this->vehicle['insurance_documents']);
+            }
             $insurance = uniqid() . '.' . $this->insurance_documents->getClientOriginalExtension();
             $this->insurance_documents->storeAs('vehicles', $insurance, 'real_public');
             $this->vehicle['insurance_documents'] = $insurance;
@@ -181,16 +204,16 @@ class UpdateVehicle extends Component
         return DB::table('load_types')->get(['id', 'name']);
     }
 
-    public function drivers(){
-        return DB::table('drivers')->where('organization_id',$this->vehicle['organization_id'])->get();
-
+    public function drivers()
+    {
+        return DB::table('drivers')->where('organization_id', $this->vehicle['organization_id'])->get();
     }
 
     public function mount($mask)
     {
         $vehicle = DB::table('vehicles')->where('mask', $mask)->first();
 
-        $assigned_vehicles = DB::table('vehicles')->where('organization_id',$vehicle->organization_id)->pluck('driver_id')->toArray();
+        $assigned_vehicles = DB::table('vehicles')->where('organization_id', $vehicle->organization_id)->pluck('driver_id')->toArray();
 
         // dd($drivers);
 

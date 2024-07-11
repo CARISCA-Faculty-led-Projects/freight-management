@@ -2,18 +2,18 @@
     @php
         $locations = [];
         foreach ($this->loadsDets as $load) {
-            $pickup = json_decode($load['pickup_address']);
-            $dropoff = json_decode($load['dropoff_address']);
+            $pickup = json_decode($load['pickup_address'])->location;
+            $dropoff = json_decode($load['dropoff_address'])->location;
 
             $pickLocation = [
-                'label' => $pickup->name,
-                'position' => $pickup->location,
+                'label' => '#' . $load['mask'] . ' pickup',
+                'position' => $pickup,
             ];
             array_push($locations, $pickLocation);
 
             $dropLocation = [
-                'label' => $dropoff->name,
-                'position' => $dropoff->location,
+                'label' => '#' . $load['mask'] . ' dropoff',
+                'position' => $dropoff,
             ];
             array_push($locations, $dropLocation);
             // dd($locations)
@@ -176,7 +176,10 @@
                             </div>
                         </div>
                         <!--end::Card header-->
-                        <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
+                        <div id="googleMap" style="width:100%;height:100rem;"></div>
+
+                        <!--begin::Card body-->
+                        {{-- <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
 
                             <!--begin::Payment address-->
                             <div class="card card-flush py-4 flex-row-fluid position-relative">
@@ -189,21 +192,19 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Pick a starting point</h2>
+                                        <h2>Pickup Address <span
+                                                class="spinner-border spinner-border-sm align-middle ms-2"
+                                                wire:loading></span></h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
                                     <!--begin::Menu toggle-->
-                                    <select name="pickup_address" id="start"
+                                    <select name="pickup_address" id="pickup_address"
                                         class="form-control mt-2 @error('pickup_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
-                                        @foreach ($locations as $index => $location)
-                                            <option value="{{ $index }}">
-                                                {{ $location['label'] }}</option>
-                                        @endforeach
                                     </select>
                                     @error('pickup_address')
                                         <span class="text-danger">{{ $message }}</span>
@@ -224,7 +225,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Pick a destination<span
+                                        <h2>Drop-off Address <span
                                                 class="spinner-border spinner-border-sm align-middle ms-2"
                                                 wire:loading></span></h2>
                                     </div>
@@ -232,14 +233,12 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <select name="dropoff_address" id="end"
+
+                                    <select name="dropoff_address" id="dropoff_address"
                                         class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
-                                        @foreach ($locations as $index => $location)
-                                            <option value="{{ $index }}">
-                                                {{ $location['label'] }}</option>
-                                        @endforeach
+
                                     </select>
                                     <!--end::Card body-->
                                     @error('dropoff_address')
@@ -248,14 +247,7 @@
                                 </div>
                                 <!--end::Shipping address-->
                             </div>
-                        </div>
-                        <input type="text" name="route" class="" id="route">
-                        <div id="googleMap" style="width:100%;height:100rem;"></div>
-                        <div id="sidebar"></div>
-                        <div id="floating-panel"></div>
-
-                        <!--begin::Card body-->
-
+                        </div> --}}
                         <!--end::Meta options-->
                         <!--begin::Automation-->
                         <div class="card card-flush py-4">
@@ -336,83 +328,87 @@
 
 <script>
     // Initialize and add the map
+    // let map;
+    // const locations = JSON.parse({{ json_encode($locations) }});
     const locations = document.getElementById('locs').innerText;
     const mapLocs = JSON.parse(locations);
+    const flightPathCoordinates = [];
 
-    function initMap() {
-        const directionsRenderer = new google.maps.DirectionsRenderer();
-        const directionsService = new google.maps.DirectionsService();
-        const map = new google.maps.Map(document.getElementById("googleMap"), {
+    async function initMap() {
+        // The location of GH
+        const main = {
+            lat: 8.342275,
+            lng: -1.183324
+        };
+        // Request needed libraries.
+        //@ts-ignore
+        const {
+            Map
+        } = await google.maps.importLibrary("maps");
+        const {
+            AdvancedMarkerElement
+        } = await google.maps.importLibrary("marker");
+
+        // The map, centered at Uluru
+        map = new Map(document.getElementById("googleMap"), {
             zoom: 8,
-            center: {
-                lat: 8.342275,
-                lng: -1.183324
-            },
-            disableDefaultUI: true,
+            center: main,
+            mapId: "Loc",
+        });
+        // Add some markers to the map.
+        // const locations = JSON.parse({{ json_encode($locations) }});
+
+        const markers = mapLocs.map((position, i) => {
+            const ltn = position.position;
+            const priceTag = document.createElement("div");
+
+            priceTag.className = "price-tag";
+            priceTag.textContent = position.label;
+
+            const marker = new google.maps.marker.AdvancedMarkerElement({
+                position: {
+                    lat: parseFloat(ltn.lat),
+                    lng: parseFloat(ltn.lng)
+                },
+                content: priceTag,
+            });
+
+            // markers can only be keyboard focusable when they have click listeners
+            // open info window when marker is clicked
+            marker.addListener("click", () => {
+                // infoWindow.setContent(ltn.lat + ", " + ltn.lng);
+                // infoWindow.open(map, marker);
+                addPos({
+                    lat: parseFloat(ltn.lat),
+                    lng: parseFloat(ltn.lng)
+                });
+            });
+            return marker;
         });
 
-        directionsRenderer.setMap(map);
-        // directionsRenderer.setPanel(document/.getElementById("sidebar"));
+        function addPos(location) {
 
-        // const control = document.getElementById("floating-panel");
+            flightPathCoordinates.push(location);
+            console.log(flightPathCoordinates);
 
-        // map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
-
-        const onChangeHandler = function() {
-            calculateAndDisplayRoute(directionsService, directionsRenderer);
-        };
-
-        document.getElementById("start").addEventListener("change", onChangeHandler);
-        document.getElementById("end").addEventListener("change", onChangeHandler);
-    }
-
-    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
-        const start = document.getElementById("start").value;
-        const end = document.getElementById("end").value;
-        // const route = document.getElementById("route").value;
-
-        if (start != '' && end != '') {
-            var wayPts = [];
-            mapLocs.forEach((element, i) => {
-
-                if (i != start && i != end) {
-                    wayPts.push({
-                        location: element.position,
-                        stopover: true
-                    });
-                }
+            flightPath = new google.maps.Polyline({
+                path: flightPathCoordinates,
+                strokeColor: "#FF0000",
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
             });
-            directionsService
-                .route({
-                    origin: mapLocs[start].position,
-                    destination: mapLocs[end].position,
-                    travelMode: google.maps.TravelMode.DRIVING,
-                    waypoints: wayPts,
-                    optimizeWaypoints: true,
-                    provideRouteAlternatives: true,
 
-                })
-                .then((response) => {
-                    var allroute = [];
-                    allroute.push(mapLocs[start].position);
-                    directionsRenderer.setDirections(response);
-                    response.routes[0].waypoint_order.forEach((element) => {
-                        allroute.push(wayPts[element].location);
-                    });
-                    allroute.push(mapLocs[end].position);
-                    document.getElementById("route").value = JSON.stringify(allroute);
-                    console.log(allroute);
-
-                })
-                .catch((e) => window.alert("Directions request failed due to " + e));
+            flightPath.setMap(map);
         }
+
+        // Add a marker clusterer to manage the markers.
+        new markerClusterer.MarkerClusterer({
+            markers,
+            map
+        });
     }
 
-    // window.initMap = initMap;
-    $('document').ready(function() {
-
-        initMap();
-    });
+    // initMap();
 </script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>

@@ -15,7 +15,7 @@ class LoadsController extends Controller
     public function index()
     {
 
-        $loads = DB::table('loads')->get();
+        $loads = DB::table('loads')->orderByDesc('created_at')->get();
 
         return view('load.list', compact('loads'));
     }
@@ -258,7 +258,6 @@ class LoadsController extends Controller
 
     public function update(Request $request, $load_id)
     {
-        dd($request->all());
         $validated = Validator::make($request->all(), [
             'sender_id' => 'required',
             'length' => 'required',
@@ -330,7 +329,7 @@ class LoadsController extends Controller
         if (whichUser()->getTable() == 'senders') {
             return redirect(route('sender.loads'));
         } else {
-            return redirect(route('loads'));
+            return back()->with('success',"Edit successful");
         }
     }
 }

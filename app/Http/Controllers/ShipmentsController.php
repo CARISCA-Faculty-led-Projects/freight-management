@@ -153,7 +153,7 @@ class ShipmentsController extends Controller
                 // 'dropoff_address' => "Search and select a dropoff address for the shipment"
             ])->validate();
         }
-
+// dd($request->all());
         DB::table('shipments')->insert([
             'organization_id' => $request->organization_id,
             'driver_id' => $request->driver_id,
@@ -165,6 +165,7 @@ class ShipmentsController extends Controller
             'dropoff_address' => $request->dropoff_address == null ? '': json_encode(getPlaceCoordinates($request->dropoff_address)),
             'approval_status' => "Approved",
             'shipment_status' => "Assigned",
+            'route' => $request->route,
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 

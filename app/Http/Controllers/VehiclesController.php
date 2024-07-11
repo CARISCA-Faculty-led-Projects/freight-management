@@ -15,7 +15,7 @@ class VehiclesController extends Controller
     public function index()
     {
         $vehicles = DB::table('vehicles')->where("organization_id", Auth::user()->mask)
-            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps', 'vehicles.driver_id','vehicles.gps', 'vehicles.mask', 'vehicles.number','vehicles.owner_id')
+            ->select('vehicles.make', 'vehicles.model', 'vehicles.engine_type', 'vehicles.gps', 'vehicles.driver_id', 'vehicles.gps', 'vehicles.mask', 'vehicles.number', 'vehicles.owner_id')
             ->get();
 
         foreach ($vehicles as $vehicle) {
@@ -25,10 +25,10 @@ class VehiclesController extends Controller
             } else {
                 $vehicle->driver = null;
             }
-            if($vehicle->owner_id){
+            if ($vehicle->owner_id) {
                 $owner = DB::table('vehicle_owners')->where('id', $vehicle->owner_id)->pluck('name')->first();
                 $vehicle->owner = $owner;
-            }else{
+            } else {
                 $vehicle->owner = null;
             }
         }
@@ -182,5 +182,18 @@ class VehiclesController extends Controller
         $vehicle = $veh->mask;
 
         return view('fleet.vehicles.maintenance.view', compact('vehicle', 'veh', 'logs'));
+    }
+
+    public function locate($mask)
+    {
+        $vehicle = DB::table('vehicles')->where('mask', $mask)
+            ->join('vehicle_categories', 'vehicle_categories.id', 'vehicles.vehicle_category_id')
+            ->join('vehicle_sub_categories', 'vehicle_sub_categories.id', 'vehicles.vehicle_subcategory_id')
+            ->select('vehicle_categories.name as category', 'vehicle_sub_categories.name as subcategory', 'vehicles.*')
+            ->first();
+        $org = DB::table('organizations')->where('mask', $vehicle->organization_id)->first();
+        $driver = DB::table('drivers')->where("mask", $vehicle->driver_id)->first();
+
+        return view('fleet.vehicles.locate', compact('vehicle', 'org', 'driver'));
     }
 }

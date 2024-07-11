@@ -718,7 +718,7 @@
                     <!--end::Media-->
                     <div class="d-flex justify-content-end">
                         <!--begin::Button-->
-                        <a href="/apps/ecommerce/catalog/products" id="kt_ecommerce_add_product_cancel"
+                        <a href="{{ route('loads') }}" id="kt_ecommerce_add_product_cancel"
                             class="btn btn-light me-5">Cancel</a>
                         <!--end::Button-->
                         <!--begin::Button-->
