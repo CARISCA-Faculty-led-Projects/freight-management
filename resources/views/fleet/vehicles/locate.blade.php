@@ -152,8 +152,9 @@
 
                                 <!--begin::Details item-->
                                 <div class="fw-bold mt-5">Assigned Driver</div>
+                                @if ($driver)
                                 <div class="text-gray-600">
-                                    <a href="/apps/ecommerce/sales/details"
+                                    <a href="{{ route('drivers.view',$driver->mask) }}"
                                         class="text-gray-600 text-hover-primary">{{ $driver->name }}</a>
                                 </div>
                                 <!--begin::Details item-->
@@ -162,6 +163,10 @@
                                 <div class="fw-bold mt-5">Driver Phone</div>
                                 <div class="text-gray-600">{{ $driver->phone }}</div>
                                 <!--begin::Details item-->
+                                @else
+                                    <span class="badge badge-warning">Unassigned</span>
+                                @endif
+                              
                             </div>
                             <!--end::Details content-->
                         </div>

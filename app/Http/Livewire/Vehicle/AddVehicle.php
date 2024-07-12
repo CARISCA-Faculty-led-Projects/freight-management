@@ -95,12 +95,13 @@ class AddVehicle extends Component
         $this->resetValidation();
     }
 
-    public function org_owned($event){
+    public function org_owned($event)
+    {
         if ($event) {
             $org = (array)DB::table('organizations')->where('mask', whichUser()->mask)->first(['name', 'phone', 'email', 'address']);
 
             $this->owner = $org;
-        } else  {
+        } else {
             $this->owner = [];
         }
     }
@@ -150,7 +151,7 @@ class AddVehicle extends Component
             'model' => $this->vehicle['model'],
             'number' => $this->vehicle['number'],
             'year' => $this->vehicle['year'],
-            'color' => $this->vehicle['color'],
+            'color' => array_key_exists('color', $this->vehicle) ? $this->vehicle['color'] : '',
             'gps' => $this->vehicle['gps'],
             'mask' => Str::orderedUuid(),
             'engine_type' => $this->vehicle['engine_type'],
