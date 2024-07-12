@@ -369,7 +369,6 @@
             lng: -1.183324
         };
         // Request needed libraries.
-        //@ts-ignore
         const {
             Map
         } = await google.maps.importLibrary("maps");
@@ -425,3 +424,55 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>
 
 </div>
+
+
+{{-- <div role="dialog" tabindex="-1" class="gm-style-iw gm-style-iw-c" aria-label="DAK FARMS"
+    style="padding-top: 0px; max-width: 648px; max-height: 1138px; min-width: 228px;">
+    <div class="gm-style-iw-chr">
+        <div class="gm-style-iw-ch" id="B67F8993-B82E-4D16-AFBA-CD6BE11830C2">
+            <div dir="ltr" style="" jstcache="0">
+                <div jstcache="37" class="transit-container">
+                    <div jstcache="10">
+                        <div jstcache="11" class="gm-title gm-full-width" jsan="7.gm-title,7.gm-full-width">DAK
+                            FARMS</div>
+                    </div>
+                    <div jstcache="12" class="transit-title" style="display:none"> <span jstcache="13"></span>
+                        <div aria-label=" Station is accessible " title=" Station is accessible " role="img"
+                            jstcache="14" class="transit-wheelchair-icon" style="display:none"></div>
+                    </div>
+                </div>
+            </div>
+        </div><button
+            style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; width: 48px; height: 48px;"
+            draggable="false" aria-label="Close" title="Close" type="button" class="gm-ui-hover-effect"><span
+                style="mask-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%206.41L17.59%205%2012%2010.59%206.41%205%205%206.41%2010.59%2012%205%2017.59%206.41%2019%2012%2013.41%2017.59%2019%2019%2017.59%2013.41%2012z%22/%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22/%3E%3C/svg%3E&quot;); pointer-events: none; display: block; width: 24px; height: 24px; margin: 12px;"></span></button>
+    </div>
+    <div class="gm-style-iw-d" style="max-height: 1102px;">
+        <div dir="ltr" style="" jstcache="0">
+            <div jstcache="36" class="poi-info-window gm-style">
+                <div jstcache="2">
+                    <div jstcache="3" class="transit-container" style="display:none">
+                        <div jstcache="10">
+                            <div jstcache="11" class="gm-title gm-full-width" jsan="7.gm-title,7.gm-full-width">DAK
+                                FARMS</div>
+                        </div>
+                        <div jstcache="12" class="transit-title" style="display:none"> <span jstcache="13"></span>
+                            <div aria-label=" Station is accessible " title=" Station is accessible " role="img"
+                                jstcache="14" class="transit-wheelchair-icon" style="display:none"></div>
+                        </div>
+                    </div>
+                    <div class="address">
+                        <div jstcache="4" jsinstance="0" class="address-line full-width"
+                            jsan="7.address-line,7.full-width">Abesre</div>
+                        <div jstcache="4" jsinstance="*1" class="address-line full-width"
+                            jsan="7.address-line,7.full-width">Ghana</div>
+                    </div>
+                </div>
+                <div jstcache="5" style="display:none"></div>
+                <div class="view-link"> <a target="_blank" jstcache="6"
+                        href="https://maps.google.com/maps?ll=6.463781,-0.254107&amp;z=16&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3&amp;cid=13376516282763094761"
+                        tabindex="0"> <span> View on Google Maps </span> </a> </div>
+            </div>
+        </div>
+    </div>
+</div> --}}

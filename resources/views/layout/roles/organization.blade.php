@@ -1,6 +1,9 @@
 @extends('layout.app')
 @section('role-name')
-    Organization
+<div class="row w-10">
+    <img src="{{asset('storage/logos/'.whichUser()->image)}}" alt="" srcset="">
+    <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
+</div>
 @endsection
 
 @section('profile-link')
@@ -96,7 +99,13 @@
                                         class="path4"></span></i></span><span class="menu-title">Loads</span><span
                                 class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
                         <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
-                            <!--end:Menu item--><!--begin:Menu item-->
+                            <!--end:Menu item-->
+                            <!--begin:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{ route('org.load.overview') }}"><span
+                                class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
+                                class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                    <!--end:Menu item-->
+                            <!--begin:Menu item-->
                             <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/bids"><span
                                         class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                                         class="menu-title">Bid</span></a><!--end:Menu link--></div>

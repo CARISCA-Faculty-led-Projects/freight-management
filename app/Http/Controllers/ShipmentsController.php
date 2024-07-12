@@ -22,7 +22,7 @@ class ShipmentsController extends Controller
 
     public function list()
     {
-        $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->get();
+        $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->orderByDesc('created_at')->get();
 
         foreach ($shipments as $shipment) {
             if ($shipment->driver_id != null) {
@@ -124,7 +124,7 @@ class ShipmentsController extends Controller
 
         $loads = json_decode($shipment->loads);
 
-        DB::table('loads')->whereIn('mask',$loads)->update(['shipment_status'=> 'Unassigned']);
+        DB::table('loads')->whereIn('mask', $loads)->update(['shipment_status' => 'Unassigned']);
 
         DB::table('shipments')->where('mask', $mask)->delete();
 
@@ -153,7 +153,7 @@ class ShipmentsController extends Controller
                 // 'dropoff_address' => "Search and select a dropoff address for the shipment"
             ])->validate();
         }
-// dd($request->all());
+        // dd($request->all());
         DB::table('shipments')->insert([
             'organization_id' => $request->organization_id,
             'driver_id' => $request->driver_id,
@@ -161,8 +161,10 @@ class ShipmentsController extends Controller
             'loads' => json_encode($request->loads),
             'description' => $request->description,
             'mask' => generateNumber(),
-            'pickup_address' => $request->pickup_address == null ? '': json_encode(getPlaceCoordinates($request->pickup_address)),
-            'dropoff_address' => $request->dropoff_address == null ? '': json_encode(getPlaceCoordinates($request->dropoff_address)),
+            'pickup_address' => $request->starting_addr,
+            'dropoff_address' => $request->destination_addr,
+            'starting_point' => $request->starting_point,
+            'destination' => $request->destination,
             'approval_status' => "Approved",
             'shipment_status' => "Assigned",
             'route' => $request->route,
@@ -201,7 +203,10 @@ class ShipmentsController extends Controller
         $req['driver_id'] = $request->driver_id;
         $req['loads'] = json_encode($request->loads);
         $req['description'] = $request->description;
+        $req['starting_point'] = $request->starting_point;
+        $req['destination'] = $request->destination;
         $req['updated_at'] = Carbon::now()->toDateTimeString();
+
 
         if ($request->pickup_address != '' && gettype(json_decode($request->pickup_address)) == "NULL") {
             $req['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
@@ -226,17 +231,19 @@ class ShipmentsController extends Controller
         return redirect(route(whichUser()->getTable() == 'brokers' ? 'load.board' : 'org.shipments.list'));
     }
 
-    public function curr_location(Request $request){
-        $location = ['lat'=> $request->lat,'lng'=>$request->lng];
+    public function curr_location(Request $request)
+    {
+        $location = ['lat' => $request->lat, 'lng' => $request->lng];
 
-        broadcast(new SendLocation('org','shipment', $location))->toOthers();
+        broadcast(new SendLocation('org', 'shipment', $location))->toOthers();
 
-        return $this->successResponse('Location sent',$location);
+        return $this->successResponse('Location sent', $location);
     }
 
-    public function getShipmentCoordinates(){
-        $shipments = DB::table('shipments')->where('organization_id',whichUser()->mask)->where('shipment_status','On route')->pluck('last_location')->toArray();
+    public function getShipmentCoordinates()
+    {
+        $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'On route')->pluck('last_location')->toArray();
 
-        return $this->successResponse('',$shipments);
+        return $this->successResponse('', $shipments);
     }
 }

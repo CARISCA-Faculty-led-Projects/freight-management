@@ -177,7 +177,6 @@
                         </div>
                         <!--end::Card header-->
                         <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
-
                             <!--begin::Payment address-->
                             <div class="card card-flush py-4 flex-row-fluid position-relative">
                                 <!--begin::Background-->
@@ -249,7 +248,11 @@
                                 <!--end::Shipping address-->
                             </div>
                         </div>
-                        <input type="text" name="route" class="" id="route">
+                        <input type="text" name="route" class="d-none" id="route">
+                        <input type="text" name="starting_point" class="d-none" id="starting">
+                        <input type="text" name="destination" class="d-none" id="dest">
+                        <input type="text" name="starting_addr" class="d-none" id="startingAdr">
+                        <input type="text" name="destination_addr" class="d-none" id="destAdr">
                         <div id="googleMap" style="width:100%;height:100rem;"></div>
                         <div id="sidebar"></div>
                         <div id="floating-panel"></div>
@@ -372,6 +375,11 @@
         // const route = document.getElementById("route").value;
 
         if (start != '' && end != '') {
+            document.getElementById("starting").value = mapLocs[start].label;
+            document.getElementById("dest").value = mapLocs[end].label;
+            document.getElementById("startingAdr").value = JSON.stringify(mapLocs[start].position);
+            document.getElementById("destAdr").value = JSON.stringify(mapLocs[end].position);
+            
             var wayPts = [];
             mapLocs.forEach((element, i) => {
 
@@ -394,14 +402,11 @@
                 })
                 .then((response) => {
                     var allroute = [];
-                    allroute.push(mapLocs[start].position);
                     directionsRenderer.setDirections(response);
                     response.routes[0].waypoint_order.forEach((element) => {
                         allroute.push(wayPts[element].location);
                     });
-                    allroute.push(mapLocs[end].position);
                     document.getElementById("route").value = JSON.stringify(allroute);
-                    console.log(allroute);
 
                 })
                 .catch((e) => window.alert("Directions request failed due to " + e));

@@ -195,12 +195,11 @@ Route::middleware('auth:organizations')->group(function () {
             Route::get('{broker}/login', [BrokersController::class, 'loginAs'])->name('org.broker.login');
         });
         Route::prefix('load')->group(function () {
-            Route::get('overview', function () {
-                return view('load.overview');
-            });
+           
 
             // Loads
             Route::controller(LoadsController::class)->group(function () {
+                Route::get('overview', 'overview')->name('org.load.overview');
                 Route::get('list', 'index')->name('loads');
                 Route::get('{load}/delete', 'delete')->name('loads.delete');
                 Route::get('{load}/details', 'details')->name('loads.details');

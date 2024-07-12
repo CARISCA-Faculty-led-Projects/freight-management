@@ -83,7 +83,7 @@
                                             <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
-                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ $shipment_stats['pending'] }}%</div>
+                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ floor($shipment_stats['pending']) }}%</div>
                                             <!--end::Stats-->
                                         </div>
                                         <!--end::Label-->
@@ -100,7 +100,7 @@
                                             <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
-                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ $shipment_stats['complete'] }}%</div>
+                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ floor($shipment_stats['complete']) }}%</div>
                                             <!--end::Stats-->
                                         </div>
                                         <!--end::Label-->
@@ -117,7 +117,7 @@
                                             <div class="separator separator-dashed min-w-10px flex-grow-1 mx-2"></div>
                                             <!--end::Separator-->
                                             <!--begin::Stats-->
-                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ $shipment_stats['cancelled'] }}%</div>
+                                            <div class="ms-auto fw-bolder text-gray-700 text-end">{{ floor($shipment_stats['cancelled']) }}%</div>
                                             <!--end::Stats-->
                                         </div>
                                         <!--end::Label-->

@@ -171,8 +171,8 @@
                                     <td class="text-center">{{ $shipment->driver }}</td>
                                     <td class="text-center">{{ count(json_decode($shipment->loads)) }}</td>
 
-                                    <td class="text-end">{{ $shipment->pickup_address == '' ? '':json_decode($shipment->pickup_address)->name }}</td>
-                                    <td class="text-end">{{ $shipment->dropoff_address == '' ? '':json_decode($shipment->dropoff_address)->name }}</td>
+                                    <td class="text-end">{{ $shipment->starting_point }}</td>
+                                    <td class="text-end">{{ $shipment->destination }}</td>
                                     <td class="text-end pe-0" data-order="Delivering">
                                         <!--begin::Badges-->
                                         <div class="badge badge-light-warning">{{ $shipment->shipment_status }}</div>
@@ -239,8 +239,8 @@
     <!--end::Scrolltop-->
 
     <!--end::Modals--
-            @include('partials.modals.assign_to_driver')
-            @include('partials.modals.assign_load_to_driver')
-            @include('partials.modals.bid')
-            @include('partials.modals.add_shipment')
+                @include('partials.modals.assign_to_driver')
+                @include('partials.modals.assign_load_to_driver')
+                @include('partials.modals.bid')
+                @include('partials.modals.add_shipment')
 @endsection

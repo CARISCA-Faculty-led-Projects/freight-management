@@ -20,6 +20,10 @@ class LoadsController extends Controller
         return view('load.list', compact('loads'));
     }
 
+    public function overview(){
+        return view('load.overview');
+    }
+
 
     public function edit()
     {
@@ -259,32 +263,33 @@ class LoadsController extends Controller
     public function update(Request $request, $load_id)
     {
         $validated = Validator::make($request->all(), [
-            'sender_id' => 'required',
-            'length' => 'required',
-            'weight' => 'required|numeric',
-            'height' => 'required|numeric',
-            'status' => 'required',
-            'breadth' => 'required|numeric',
+            'sender_id' => 'required'
         ])->validate();
 
         $load = DB::table('loads')->where('mask', $load_id)->first();
 
         if (is_file($request->image)) {
-            unlink('storage/loads/' . $load->image);
+            if (file_exists('storage/loads/' . $load->image)) {
+                unlink('storage/loads/' . $load->image);
+            }
             $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
             $request->image->storeAs('loads', $imagename, 'real_public');
             $req['image'] = $imagename;
         }
 
         if (is_file($request->insurance_docs)) {
-            unlink('storage/loads/' . $load->insurance_docs);
+            if (file_exists('storage/loads/' . $load->insurance_docs)) {
+                unlink('storage/loads/' . $load->insurance_docs);
+            }
             $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
             $request->insurance_docs->storeAs('loads', $ins, 'real_public');
             $req['insurance_docs'] = $ins;
         }
 
         if (is_file($request->other_docs)) {
-            unlink('storage/loads/' . $load->other_docs);
+            if (file_exists('storage/loads/' . $load->other_docs)) {
+                unlink('storage/loads/' . $load->other_docs);
+            }
             $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
             $request->other_docs->storeAs('loads', $oth, 'real_public');
             $req['other_docs'] = $oth;
@@ -329,7 +334,7 @@ class LoadsController extends Controller
         if (whichUser()->getTable() == 'senders') {
             return redirect(route('sender.loads'));
         } else {
-            return back()->with('success',"Edit successful");
+            return redirect(route('org.load.board'))->with('success', "Edit successful");
         }
     }
 }

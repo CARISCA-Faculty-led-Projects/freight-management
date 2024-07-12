@@ -253,40 +253,7 @@
                                 <!--end::Description-->
                             </div>
                             <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="mb-10 fv-row">
-                                <!--begin::Label-->
-                                <label class="form-label">Load Description</label>
-                                <!--end::Label-->
-                                <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4" value="{{$this->load['description']}}"></textarea>
-                                <!--begin::Description-->
-                                @error('description')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                                <div class="text-muted fs-7">Set a description to the category for
-                                    better visibility.</div>
-                                <!--end::Description-->
-                            </div>
-                            <!--end::Input group-->
-
-                            <!--begin::Input group-->
-                            <div class="mb-10 fv-row">
-                                <!--begin::Label-->
-                                <label class="required form-label">Budget</label>
-                                <!--end::Label-->
-                                <!--begin::Input-->
-                                <input type="number" class="form-control mb-2" name="budget"
-                                    placeholder="eg. 500" value="{{$this->load['budget']}}" />
-                                <!--end::Input-->
-                                @error('budget')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">A budget is required. This amount is
-                                    what the sender wants to pay to move the load</div>
-                                <!--end::Description-->
-                            </div>
-                            <!--end::Input group-->
+                            
                         </div>
                         <!--end::Card header-->
                     </div>
@@ -622,8 +589,48 @@
                     </div>
                     <!--begin::Media-->
                     <div class="card card-flush py-4">
-                        <!--begin::Card header-->
-                        <div class="card-header">
+                       <div class="card-body">
+                        <!--begin::Input group-->
+                        <div class="mb-10 fv-row">
+                            <!--begin::Label-->
+                            <label class="form-label">Load Description</label>
+                            <!--end::Label-->
+                            <textarea name="description" class="min-h-100px mb-2 form-control" id="" cols="30" rows="4" value="{{$this->load['description']}}"></textarea>
+                            <!--begin::Description-->
+                            @error('description')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <div class="text-muted fs-7">Set a description to the category for
+                                better visibility.</div>
+                            <!--end::Description-->
+                        </div>
+                        <!--end::Input group-->
+
+                        <!--begin::Input group-->
+                        <div class="mb-10 fv-row">
+                            <!--begin::Label-->
+                            <label class="required form-label">Budget</label>
+                            <!--end::Label-->
+                            <!--begin::Input-->
+                            <input type="number" class="form-control mb-2" name="budget"
+                                placeholder="eg. 500" value="{{$this->load['budget']}}" />
+                            <!--end::Input-->
+                            @error('budget')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <!--begin::Description-->
+                            <div class="text-muted fs-7">A budget is required. This amount is
+                                what the sender wants to pay to move the load</div>
+                            <!--end::Description-->
+                        </div>
+                        <!--end::Input group-->
+                       </div>
+                    </div>
+                    <!--end::Media-->
+                    <!--begin::Media-->
+                    <div class="card card-flush py-4">
+                         <!--begin::Card header-->
+                         <div class="card-header">
                             <div class="card-title">
                                 <h2>Insurance Documents</h2>
                             </div>
@@ -666,10 +673,6 @@
                             <!--end::Description-->
                         </div>
                         <!--end::Card header-->
-                    </div>
-                    <!--end::Media-->
-                    <!--begin::Media-->
-                    <div class="card card-flush py-4">
                         <!--begin::Card header-->
                         <div class="card-header">
                             <div class="card-title">
