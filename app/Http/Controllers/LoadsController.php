@@ -21,7 +21,11 @@ class LoadsController extends Controller
     }
 
     public function overview(){
-        return view('load.overview');
+        $loads = DB::table('loads')->where('organization_id',whichUser()->mask)
+        ->join('senders','senders.mask','loads.sender_id')
+        ->get(['senders.name as sender','loads.image','loads.pickup_address','loads.dropoff_address'])->toArray();
+
+        return view('load.overview',compact('loads'));
     }
 
 
