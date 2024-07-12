@@ -20,14 +20,19 @@ class OrganizationsController extends Controller
         $vehicles = DB::table("vehicles")->where('organization_id', whichUser()->mask)->count();
         $shipments = DB::table("shipments")->where('organization_id', whichUser()->mask)->count();
         $active_shipments = DB::table("shipments")->where('organization_id', whichUser()->mask)->where('shipment_status', 'On route')->count();
+        $s_complete = 0;
+        $s_pending = 0;
+        $s_cancelled = 0;
 
         $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->count();
-        $s_com = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
-        $s_complete = ($s_com / $shipments) * 100;
-        $s_pen = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Assigned')->count();
-        $s_pending = ($s_pen / $shipments) * 100;
-        $s_can = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Cancelled')->count();
-        $s_cancelled = ($s_can / $shipments) * 100;
+        if($shipments){
+            $s_com = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
+            $s_complete = ($s_com / $shipments) * 100;
+            $s_pen = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Assigned')->count();
+            $s_pending = ($s_pen / $shipments) * 100;
+            $s_can = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Cancelled')->count();
+            $s_cancelled = ($s_can / $shipments) * 100;
+        }
 
         $shipment_stats = [
             'complete'=>$s_complete,
