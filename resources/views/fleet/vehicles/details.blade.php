@@ -159,7 +159,7 @@
                                         <div class="fs-6 text-gray-700">{{ $vehicle->make . ' ' . $vehicle->model }} has not
                                             been assigned to any
                                             driver
-                                            <a class="fw-bold" href="{{route('vehicles.edit',$vehicle->mask)}}">Assign</a>.
+                                            <a class="fw-bold" href="{{route('vehicle.edit',$vehicle->mask)}}">Assign</a>.
                                         </div>
                                     </div>
                                     <!--end::Content-->
