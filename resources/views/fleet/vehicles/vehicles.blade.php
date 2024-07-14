@@ -57,7 +57,7 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-customer-table-filter="search"
+                            <input type="text" data-kt-customer-table-filter="search" id="itemSearch"
                                 class="form-control form-control-solid w-250px ps-12" placeholder="Search Vehicles" />
                         </div>
                         <!--end::Search-->
@@ -68,12 +68,12 @@
                         <!--begin::Toolbar-->
                         <div class="d-flex justify-content-end" data-kt-customer-table-toolbar="base">
                             <!--begin::Filter-->
-                            <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click"
+                            {{-- <button type="button" class="btn btn-light-primary me-3" data-kt-menu-trigger="click"
                                 data-kt-menu-placement="bottom-end">
                                 <i class="ki-duotone ki-filter fs-2">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
-                                </i>Filter</button>
+                                </i>Filter</button> --}}
                             <!--begin::Menu 1-->
                             <div class="menu menu-sub menu-sub-dropdown w-300px w-md-325px" data-kt-menu="true"
                                 id="kt-toolbar-filter">
@@ -162,12 +162,12 @@
                             <!--end::Menu 1-->
                             <!--end::Filter-->
                             <!--begin::Export-->
-                            <button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal"
+                            {{-- <button type="button" class="btn btn-light-primary me-3" data-bs-toggle="modal"
                                 data-bs-target="#kt_customers_export_modal">
                                 <i class="ki-duotone ki-exit-up fs-2">
                                     <span class="path1"></span>
                                     <span class="path2"></span>
-                                </i>Export</button>
+                                </i>Export</button> --}}
                             <!--end::Export-->
                             <!--begin::Add customer-->
                             <a href="/fleet/vehicles/add"><button type="button" class="btn btn-primary">Add
@@ -182,7 +182,7 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
                     <!--begin::Table-->
-                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="vehicles_table">
+                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="data_table">
                         <thead>
                             <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                 <th class="w-10px pe-2">
@@ -286,15 +286,15 @@
     <!--end::Content-->
     </div>
     <script>
-        $('document').ready(function() {
-            let table = new DataTable('#vehicles_table', {
-                searching: true,
-                fixedHeader: {
-                    header: true,
-                    footer: true
-                }
-            });
-            table.search();
-        });
+        // $('document').ready(function() {
+        //     let table = new DataTable('#vehicles_table', {
+        //         searching: true,
+        //         fixedHeader: {
+        //             header: true,
+        //             footer: true
+        //         }
+        //     });
+        //     table.search();
+        // });
     </script>
 @endsection

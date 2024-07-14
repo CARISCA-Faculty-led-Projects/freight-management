@@ -60,7 +60,11 @@ class VehiclesController extends Controller
 
     public function details($mask)
     {
-        $vehicle =  DB::table('vehicles')->where('mask', $mask)->first();
+        $vehicle =  DB::table('vehicles')->where('mask', $mask)
+            ->join("vehicle_categories", 'vehicle_categories.id', 'vehicles.vehicle_category_id')
+            ->join("vehicle_sub_categories", 'vehicle_sub_categories.id', 'vehicles.vehicle_subcategory_id')
+            ->select('vehicles.*', 'vehicle_categories.name as category', 'vehicle_sub_categories.name as subcategory')
+            ->first();
         $vehicle_routes = DB::table('vehicle_routes')->where('vehicle_id', $mask)->get();
         $vehicle_owner = $vehicle->organization_id ? DB::table('organizations')->where("mask", $vehicle->organization_id)->first() : DB::table('vehicle_owners')->where('vehicle_id', $mask)->first();
 

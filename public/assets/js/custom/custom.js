@@ -61,6 +61,13 @@ $("document").ready(function () {
         loadTable.search(this.value).draw();
     });
 
+    // Table search
+    let dataTable = new DataTable("#data_table");
+
+    $("#itemSearch").on("keyup", function () {
+        dataTable.search(this.value).draw();
+    });
+
     //Shipments table datatable
     let shipmentsTable = new DataTable("#shipments_table");
 

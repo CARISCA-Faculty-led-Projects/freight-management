@@ -25,7 +25,7 @@ class OrganizationsController extends Controller
         $s_cancelled = 0;
 
         $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->count();
-        if($shipments){
+        if ($shipments) {
             $s_com = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
             $s_complete = ($s_com / $shipments) * 100;
             $s_pen = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Assigned')->count();
@@ -35,12 +35,12 @@ class OrganizationsController extends Controller
         }
 
         $shipment_stats = [
-            'complete'=>$s_complete,
-            'pending'=>$s_pending,
-            'cancelled'=>$s_cancelled,
+            'complete' => $s_complete,
+            'pending' => $s_pending,
+            'cancelled' => $s_cancelled,
         ];
 
-        return view('organization.overview', compact('drivers', 'brokers', 'vehicles', 'shipments', 'active_shipments','shipment_stats'));
+        return view('organization.overview', compact('drivers', 'brokers', 'vehicles', 'shipments', 'active_shipments', 'shipment_stats'));
     }
 
     public function dashboardCharts()
@@ -49,8 +49,8 @@ class OrganizationsController extends Controller
         $active_brokers_pm = [];
         $months = array_map(fn ($month) => Carbon::create(null, $month)->format('M'), range(1, 12));
         $drivers = DB::table('drivers')->where("organization_id", whichUser()->mask)->pluck('mask')->toArray();
-         // Active brokers per month
-         $brokers = DB::table('brokers')->where('organization_id', whichUser()->mask)->pluck('mask')->toArray();
+        // Active brokers per month
+        $brokers = DB::table('brokers')->where('organization_id', whichUser()->mask)->pluck('mask')->toArray();
 
         // Shipments per month of the year
         for ($m = 1; $m <= 12; $m++) {
@@ -73,7 +73,36 @@ class OrganizationsController extends Controller
         array_push($ss, $s_can);
         array_push($sl, "Cancelled");
 
-        return $this->successResponse('', ["spm" => $spm,'abpm'=> $active_brokers_pm ,'sr' => ['series'=>$ss,'labels'=>$sl]]);
+        return $this->successResponse('', ["spm" => $spm, 'abpm' => $active_brokers_pm, 'sr' => ['series' => $ss, 'labels' => $sl]]);
+    }
+
+    public function orgMapData()
+    {
+        $loads = DB::table('loads')->where('organization_id', whichUser()->mask)->where('shipment_status', "Unassigned")->get(['image', 'mask', 'pickup_address']);
+        foreach ($loads as $load) {
+            $load->pickup_address = json_decode($load->pickup_address);
+        }
+
+        $shipments = DB::table('shipments')->where('shipments.shipment_status', "On route")
+            ->join('drivers', 'drivers.mask', 'shipments.driver_id')
+            ->select('shipments.mask as shipment', 'shipments.last_location as shipment_location', 'drivers.name as driver', 'drivers.mask as driver_id', 'drivers.phone as driver_contact')
+            ->get();
+
+        // foreach($shipments as $shipment){
+        //     $shipment->last_location = json_decode($shipment->last_location);
+        // }
+
+        $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image', 'name', 'phone', 'mask', 'last_login','last_location']);
+        foreach($drivers as $driver){
+            $driver->last_location = json_decode($driver->last_location);
+        }
+
+        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image','number','make','model','mask', 'last_location']);
+         foreach($vehicles as $vehicle){
+            $vehicle->last_location = json_decode($vehicle->last_location);
+        }
+
+        return $this->successResponse('', ['loads' => $loads, 'shipments' => $shipments, 'drivers' => $drivers, 'vehicles' => $vehicles]);
     }
 
     public function index()

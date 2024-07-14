@@ -435,12 +435,12 @@
         <!--end::Content container-->
     </div>
     <script src="{{ asset('assets/js/organization.overview.js') }}"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>
     <script>
         $('document').ready(function() {
             getOrgChartsData();
             DriverAssignedShipmentspm.init();
         });
     </script>
-    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>
 @endsection

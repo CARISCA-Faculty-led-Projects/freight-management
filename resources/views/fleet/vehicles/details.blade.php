@@ -257,6 +257,34 @@
                                                                     <span class="path3"></span>
                                                                     <span class="path4"></span>
                                                                     <span class="path5"></span>
+                                                                </i>Category
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">{{ $vehicle->category}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-truck fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                    <span class="path3"></span>
+                                                                    <span class="path4"></span>
+                                                                    <span class="path5"></span>
+                                                                </i>Sub Category
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">{{ $vehicle->subcategory}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-truck fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                    <span class="path3"></span>
+                                                                    <span class="path4"></span>
+                                                                    <span class="path5"></span>
                                                                 </i>Year
                                                             </div>
                                                         </td>

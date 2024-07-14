@@ -20,12 +20,13 @@ class LoadsController extends Controller
         return view('load.list', compact('loads'));
     }
 
-    public function overview(){
-        $loads = DB::table('loads')->where('organization_id',whichUser()->mask)
-        ->join('senders','senders.mask','loads.sender_id')
-        ->get(['senders.name as sender','loads.image','loads.pickup_address','loads.dropoff_address'])->toArray();
+    public function overview()
+    {
+        $loads = DB::table('loads')->where('organization_id', whichUser()->mask)
+            ->join('senders', 'senders.mask', 'loads.sender_id')
+            ->get(['senders.name as sender', 'loads.image', 'loads.pickup_address', 'loads.dropoff_address'])->toArray();
 
-        return view('load.overview',compact('loads'));
+        return view('load.overview', compact('loads'));
     }
 
 
@@ -133,7 +134,7 @@ class LoadsController extends Controller
             'status' => 'required',
             'budget' => 'required|numeric',
             'breadth' => 'required|numeric',
-            'insurance_docs' => 'required|mimes:pdf,docx,doc',
+            // 'insurance_docs' => 'required|mimes:pdf,docx,doc',
             'image' => 'required|mimes:png,jpg,jpeg',
             // 'other_docs' => 'required|mimes:pdf,docx,doc',
             'pickup_address' => 'required',
@@ -142,12 +143,18 @@ class LoadsController extends Controller
 
         $load_id = generateNumber();
         $oth = null;
+        $ins = null;
+        $imagename = null;
 
-        $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
-        $request->image->storeAs('loads', $imagename, 'real_public');
+        if (is_file($request->image)) {
+            $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->storeAs('loads', $imagename, 'real_public');
+        }
 
-        $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
-        $request->insurance_docs->storeAs('loads', $ins, 'real_public');
+        if (is_file($request->insurance_docs)) {
+            $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
+            $request->insurance_docs->storeAs('loads', $ins, 'real_public');
+        }
 
         if (is_file($request->other_docs)) {
             $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
@@ -187,6 +194,15 @@ class LoadsController extends Controller
 
         return redirect(route('loads'));
     }
+
+    // foreach($loads as $key => $load){
+    //     $pickup_address = json_decode($load->pickup_address);
+    //     $dropoff_address = json_decode($load->dropoff_address);
+    //     $paddress = ['name'=>$pickup_address->name,'location'=>['lat'=> floatval($pickup_address->location->lat),'lng'=> floatval($pickup_address->location->lng)]];
+    //     $daddress = ['name'=>$dropoff_address->name,'location'=>['lat'=> floatval($dropoff_address->location->lat),'lng'=> floatval($dropoff_address->location->lng)]];
+       
+    //     // DB::table('loads')->where('mask',$load->mask)->update(['pickup_address'=> $paddress,'dropoff_address'=>$daddress]);
+    // }
 
     public function s_store(Request $request)
     {
