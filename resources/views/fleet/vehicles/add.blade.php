@@ -822,7 +822,7 @@
                                         <!--begin::Input group-->
                                         <div class="fv-row">
                                             <!--begin::Label-->
-                                            {{-- <label class="form-label">Weight (KG)</label> --}}
+                                            <label class="form-label">Weight (KG)</label>
                                             <!--end::Label-->
                                             <!--begin::Input-->
                                             <div class="d-flex flex-wrap flex-sm-nowrap gap-3">
