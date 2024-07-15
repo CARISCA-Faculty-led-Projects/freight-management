@@ -2,12 +2,14 @@
     data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px"
     data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
     <!--begin::Logo-->
-    <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
+    <div class="app-sidebar-logo px-6 d-flex justify-content-center align-items-center py-3" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
-        <a href="/">
-            <span class="text-white h-25px app-sidebar-logo-default" style="font-size: 19px;">{{ env('APP_NAME') }}</span>
-            <!-- <img alt="Logo" src="assets/media/logos/default-dark.svg" class="h-25px app-sidebar-logo-default" />
-            <img alt="Logo" src="assets/media/logos/default-small.svg" class="h-20px app-sidebar-logo-minimize" /> -->
+        <a href="/organization/overview">
+            <img alt="Logo" src="assets/media/logos/daloadman-logo-no-background.png" class="h-60px app-sidebar-logo-default" style="width:150px;"/>
+            <img alt="Logo" src="assets/media/logos/daloadman-logo-no-background.png" class="h-20px app-sidebar-logo-minimize"/>
+            </br>
+            <!-- <span class="text-white h-25px app-sidebar-logo-default" style="font-size: 19px;">{{ env('APP_NAME') }}</span> -->
+            
         </a>
         <!--end::Logo image-->
         <!--begin::Sidebar toggle-->

@@ -17,6 +17,12 @@
                     @csrf
                     <!--begin::Heading-->
                     <div class="mb-10 text-center mb-4">
+                        <a class="py-2 py-lg-20">
+                            <img alt="Logo" src="../../assets/media/logos/daloadman-logo-black.png"
+                                class="theme-light-show h-150px h-lg-150px" />
+                            <img alt="Logo" src="../../assets/media/logos/daloadman-logo-black.png"
+                                class="theme-dark-show h-150px h-lg-150px" />
+                        </a>
                         <!--begin::Title-->
                         <h1 class="text-gray-900 mb-3">
                             Login to your Account

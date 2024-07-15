@@ -39,12 +39,26 @@ License: For each use you must have a valid license purchased only from above li
     <!--begin::Fonts(mandatory for all pages)-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" /> <!--end::Fonts-->
     <style>
-        .freight-bg {
-            background-image: url('/assets/media/auth/trucks_bg.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-        }
+    .freight-bg {
+        background-image: url('/assets/media/auth/trucks_bg.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        position: relative;
+    }
+    .freight-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to change the darkness of the overlay */
+    }
+    .freight-bg > * {
+        position: relative;
+        z-index: 1;
+    }
     </style>
 
 
@@ -107,23 +121,24 @@ License: For each use you must have a valid license purchased only from above li
                     <!--begin::Header-->
                     <div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
                         <!--begin::Logo-->
-                        {{-- <a href="../../index-2.html" class="py-2 py-lg-20">
-                            <img alt="Logo" src="../../assets/media/icons/truck.png"
+                        <a class="py-2 py-lg-20">
+                            <img alt="Logo" src="../../assets/media/logos/daloadman-logo-no-background.png"
                                 class="theme-light-show h-150px h-lg-150px" />
-                            <img alt="Logo" src="../../assets/media/icons/truck.png"
+                            <img alt="Logo" src="../../assets/media/logos/daloadman-logo-no-background.png"
                                 class="theme-dark-show h-150px h-lg-150px" />
-                        </a> --}}
+                        </a>
                         <div class="h-150px h-lg-150px"></div>
                         <!--end::Logo-->
 
                         <!--begin::Title-->
                         <h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">
-                            Welcome to {{ env('APP_NAME') }} </h1>
+                            Load Smart, Ship Smarter with {{ env('APP_NAME') }} </h1>
                         <!--end::Title-->
 
                         <!--begin::Description-->
                         <p class="d-none d-lg-block fw-semibold fs-2 text-white">
-                            @yield('page')
+                        <!-- @yield('page')  -->
+                        Empty Freight? That's So Yesterday. Welcome to DaLoadMaster's Full-Load Future.
                         </p>
                         <!--end::Description-->
                     </div>
