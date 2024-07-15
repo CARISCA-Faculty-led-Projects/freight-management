@@ -86,7 +86,7 @@ async function initMap() {
                         lat: ltn.lat,
                         lng: ltn.lng
                     },
-                    content: img,
+                    content: buildLoadContent(load),
                 });
 
                 // markers can only be keyboard focusable when they have click listeners
@@ -98,6 +98,7 @@ async function initMap() {
                     //     lat: parseFloat(ltn.lat),
                     //     lng: parseFloat(ltn.lng)
                     // });
+                    toggleHighlight(marker, option);
                 });
                 return marker;
             });
@@ -177,21 +178,90 @@ async function initMap() {
                 markers,
                 map
             });
-        } 
-        // else if (option == 'vehicles') {
+        }
+        // else if (option == 'shipments') {
 
         // }
         return markers;
     });
-    // ((options, i) => {
-
-
-    // });
 
 
 }
 
+function toggleHighlight(markerView, property) {
+    if (markerView.content.classList.contains("highlight")) {
+        markerView.content.classList.remove("highlight");
+        markerView.zIndex = null;
+    } else {
+        markerView.content.classList.add("highlight");
+        markerView.zIndex = 1;
+    }
+}
 
+function buildContent(property) {
+    const content = document.createElement("div");
+
+    content.classList.add("property");
+    content.innerHTML = `
+      <div class="icon">
+          <i aria-hidden="true" class="bg-dark fa fa-icon fa-property.type}" title="property.type}"></i>
+          <span class="fa-sr-only">property.type</span>
+      </div>
+      <div class="details">
+          <div class="price">property.price}</div>
+          <div class="address">property.address}</div>
+          <div class="features">
+          <div>
+              <i aria-hidden="true" class="fa fa-bed fa-lg bed" title="bedroom"></i>
+              <span class="fa-sr-only">bedroom</span>
+              <span>property.bed}</span>
+          </div>
+          <div>
+              <i aria-hidden="true" class="fa fa-bath fa-lg bath" title="bathroom"></i>
+              <span class="fa-sr-only">bathroom</span>
+              <span>$roperty.bath}</span>
+          </div>
+          <div>
+              <i aria-hidden="true" class="fa fa-ruler fa-lg size" title="size"></i>
+              <span class="fa-sr-only">size</span>
+              <span>property.size} ft<sup>2</sup></span>
+          </div>
+          </div>
+      </div>
+      `;
+    return content;
+}
+
+function buildLoadContent(load) {
+    const content = document.createElement("div");
+console.log(load);
+    content.classList.add("property");
+    content.innerHTML = `
+      <div class="icon">
+      <img src="/assets/media/icons/boxes.png"/>
+      </div>
+      <div class="details mt-2">
+          <div class="price">Sender name: ${load.sender}</div>
+          <div class="address">Sender phone:${load.sender_phone}</div>
+          <div class="features">
+          <div>
+              <img src="/storage/loads/${load.image}" />
+          </div>
+          <div>
+              <i aria-hidden="true" class="fa fa-bath fa-lg bath" title="bathroom"></i>
+              <span class="fa-sr-only">bathroom</span>
+              <span>$roperty.bath}</span>
+          </div>
+          <div>
+              <i aria-hidden="true" class="fa fa-ruler fa-lg size" title="size"></i>
+              <span class="fa-sr-only">size</span>
+              <span>property.size} ft<sup>2</sup></span>
+          </div>
+          </div>
+      </div>
+      `;
+    return content;
+}
 
 // async function initMap() {
 //     // The location of Uluru

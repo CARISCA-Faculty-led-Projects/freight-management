@@ -241,22 +241,14 @@ console.log(load);
       <img src="/assets/media/icons/boxes.png"/>
       </div>
       <div class="details mt-2">
+          <div class="price">Load id ${load.mask}</div>
           <div class="price">Sender name: ${load.sender}</div>
           <div class="address">Sender phone:${load.sender_phone}</div>
           <div class="features">
           <div>
               <img src="/storage/loads/${load.image}" />
           </div>
-          <div>
-              <i aria-hidden="true" class="fa fa-bath fa-lg bath" title="bathroom"></i>
-              <span class="fa-sr-only">bathroom</span>
-              <span>$roperty.bath}</span>
-          </div>
-          <div>
-              <i aria-hidden="true" class="fa fa-ruler fa-lg size" title="size"></i>
-              <span class="fa-sr-only">size</span>
-              <span>property.size} ft<sup>2</sup></span>
-          </div>
+         
           </div>
       </div>
       `;
