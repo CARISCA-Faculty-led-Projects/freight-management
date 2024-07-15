@@ -25,10 +25,10 @@
 
 <head>
     <base href="../../../" />
-    <title>{{ config('app.name', 'Fleet Management System') }}</title>
+    <title>{{ env('APP_NAME', 'Fleet Management System') }}</title>
     <meta charset="utf-8" />
     <meta name="description"
-        content="The most advanced Bootstrap 5 Admin Theme with 40 unique prebuilt layouts on Themeforest trusted by 100,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue, Asp.Net Core, Rails, Spring, Blazor, Django, Express.js, Node.js, Flask, Symfony & Laravel versions. Grab your copy now and get life-time updates for free." />
+        content="daLoadMaster is the best platform to handle your shipping and delivery" />
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta property="og:locale" content="en_US" />
