@@ -78,7 +78,10 @@ class OrganizationsController extends Controller
 
     public function orgMapData()
     {
-        $loads = DB::table('loads')->where('organization_id', whichUser()->mask)->where('shipment_status', "Unassigned")->get(['image', 'mask', 'pickup_address']);
+        $loads = DB::table('loads')->where('organization_id', whichUser()->mask)
+        ->where('shipment_status', "Unassigned")
+        ->join('senders','senders.mask','loads.sender_id')
+        ->get(['loads.image', 'loads.mask', 'pickup_address','senders.name as sender','senders.phone as sender_phone']);
         foreach ($loads as $load) {
             $load->pickup_address = json_decode($load->pickup_address);
         }
