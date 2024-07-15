@@ -97,10 +97,42 @@ License: For each use you must have a valid license purchased only from above li
     <div class="d-flex flex-column flex-root" id="kt_app_root">
         <!--begin::Authentication - Sign-up -->
         <div class="d-flex flex-column flex-lg-row flex-column-fluid">
-             <!-- Left side with freight image -->
-             <div class="d-flex flex-column flex-lg-row-auto w-xl-600px positon-xl-relative freight-bg">
-            </div>
+            <!--begin::Aside-->
+            <div class="d-flex flex-column flex-lg-row-auto w-xl-600px freight-bg">
+                {{-- <div class="d-flex flex-column flex-lg-row-auto w-xl-600px" style="background-image: url(../../assets/media/misc/wolfgang-hasselmann-nbRgZltoOck-unsplash.jpg);background-size:cover;background-color:rgba(0, 0, 0, 0.3);"> --}}
+                {{-- Photo by <a href="https://unsplash.com/@wolfgang_hasselmann?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Wolfgang Hasselmann</a> on <a href="https://unsplash.com/photos/grayscale-photo-of-cars-on-road-nbRgZltoOck?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a> --}}
 
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
+                    <!--begin::Header-->
+                    <div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
+                        <!--begin::Logo-->
+                        {{-- <a href="../../index-2.html" class="py-2 py-lg-20">
+                            <img alt="Logo" src="../../assets/media/icons/truck.png"
+                                class="theme-light-show h-150px h-lg-150px" />
+                            <img alt="Logo" src="../../assets/media/icons/truck.png"
+                                class="theme-dark-show h-150px h-lg-150px" />
+                        </a> --}}
+                        <div class="h-150px h-lg-150px"></div>
+                        <!--end::Logo-->
+
+                        <!--begin::Title-->
+                        <h1 class="d-none d-lg-block fw-bold text-white fs-2qx pb-5 pb-md-10">
+                            Welcome to {{ env('APP_NAME') }} </h1>
+                        <!--end::Title-->
+
+                        <!--begin::Description-->
+                        <p class="d-none d-lg-block fw-semibold fs-2 text-white">
+                            @yield('page')
+                        </p>
+                        <!--end::Description-->
+                    </div>
+                    <!--end::Header-->
+
+
+                </div>
+                <!--end::Wrapper-->
+            </div>
             <!--begin::Aside-->
 
             @yield('content')
@@ -108,8 +140,8 @@ License: For each use you must have a valid license purchased only from above li
         <!--end::Authentication - Sign-up-->
     </div>
     <!--end::Root-->
-     <!--begin::Footer-->
-     {{-- <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
+    <!--begin::Footer-->
+    {{-- <div class="d-flex flex-center flex-wrap fs-6 p-5 pb-0">
         <!--begin::Links-->
         <div class="d-flex flex-center fw-semibold fs-6">
             <a href="#" class="text-muted text-hover-primary px-2"
