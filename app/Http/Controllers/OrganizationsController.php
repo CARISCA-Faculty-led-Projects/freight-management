@@ -81,9 +81,10 @@ class OrganizationsController extends Controller
         $loads = DB::table('loads')->where('organization_id', whichUser()->mask)
             ->where('shipment_status', "Unassigned")
             ->join('senders', 'senders.mask', 'loads.sender_id')
-            ->get(['loads.image', 'loads.mask', 'pickup_address', 'senders.name as sender', 'senders.phone as sender_phone']);
+            ->get(['loads.image', 'loads.mask', 'pickup_address','dropoff_address', 'senders.name as sender', 'senders.phone as sender_phone']);
         foreach ($loads as $load) {
             $load->pickup_address = json_decode($load->pickup_address);
+            $load->dropoff_address = json_decode($load->dropoff_address);
         }
 
         $shipments = DB::table('shipments')->where('shipments.shipment_status', "On route")

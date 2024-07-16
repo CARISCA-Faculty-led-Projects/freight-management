@@ -225,6 +225,7 @@ function buildContent(property) {
 
 function buildLoadContent(load) {
     const content = document.createElement("div");
+    console.log(load);
     content.classList.add("property");
     content.innerHTML = `
       <div class="icon">
@@ -233,7 +234,9 @@ function buildLoadContent(load) {
       <div class="details mt-2">
           <div class="price">Load #${load.mask}</div>
           <div class="price">Sender name: ${load.sender}</div>
-          <div class="address">Sender phone: ${load.sender_phone}</div>
+          <div class="address mb-3">Sender phone: ${load.sender_phone}</div>
+          <div class="price">Load dropoff: ${load.dropoff_address.name}</div>
+
             </div>
       `;
     return content;
