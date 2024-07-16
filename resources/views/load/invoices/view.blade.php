@@ -1,4 +1,4 @@
-@extends('layout.app')
+@extends('layout.roles.all')
 @section('content')
 <!--begin::Content-->
 <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -9,7 +9,7 @@
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
                 <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">
-                    Load #78778</h1>
+                    Load #{{ $load->mask }}</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -45,7 +45,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href="/organization/details" class="text-muted text-hover-primary">#8989</a>
+                        <a href="/organization/details" class="text-muted text-hover-primary">#{{ $load->mask }}</a>
                     </li>
                     <!--end::Item-->
                     <!--begin::Item-->
@@ -73,11 +73,11 @@
             <!--begin::Actions-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin::Secondary button-->
-                <a href="/" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
-                    Shipments</a>
+                {{-- <a href="/" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary">Browse
+                    Shipments</a> --}}
                 <!--end::Secondary button-->
                 <!--begin::Primary button-->
-                <a href="/load/invoices/edit" class="btn btn-sm fw-bold btn-primary">Edit Invoice</a>
+                <span class="btn btn-sm fw-bold btn-primary">Edit Invoice</span>
                 <!--end::Primary button-->
             </div>
             <!--end::Actions-->
@@ -100,14 +100,14 @@
                         <div class="text-sm-end">
                             <!--begin::Logo-->
                             <a href="#" class="d-block mw-150px ms-sm-auto">
-                                <img alt="Logo" src="assets/media/svg/brand-logos/lloyds-of-london-logo.svg"
+                                <img alt="Logo" src="{{ asset('assets/media/logos/daloadman-logo-black.png') }}"
                                     class="w-100" />
                             </a>
                             <!--end::Logo-->
                             <!--begin::Text-->
                             <div class="text-sm-end fw-semibold fs-4 text-muted mt-7">
-                                <div>Cecilia Chapman, 711-2880 Nulla St, Mankato</div>
-                                <div>Mississippi 96522</div>
+                                <div>{{ $load->organization_name }}, {{ $load->organization_address }}</div>
+                                {{-- <div>Mississippi 96522</div> --}}
                             </div>
                             <!--end::Text-->
                         </div>
@@ -118,11 +118,11 @@
                         <!--begin::Wrapper-->
                         <div class="d-flex flex-column gap-7 gap-md-10">
                             <!--begin::Message-->
-                            <div class="fw-bold fs-2">Dear Melody Macy
-                                <span class="fs-6">(melody@altbox.com)</span>,
+                            <div class="fw-bold fs-2">Dear {{ $load->sender_name }}
+                                <span class="fs-6">({{ $load->sender_email }})</span>,
                                 <br />
                                 <span class="text-muted fs-5">Here are your order details. We thank you for your
-                                    purchase.</span></div>
+                                    order.</span></div>
                             <!--begin::Message-->
                             <!--begin::Separator-->
                             <div class="separator"></div>
@@ -130,38 +130,32 @@
                             <!--begin::Order details-->
                             <div class="d-flex flex-column flex-sm-row gap-7 gap-md-10 fw-bold">
                                 <div class="flex-root d-flex flex-column">
-                                    <span class="text-muted">Order ID</span>
-                                    <span class="fs-5">#14534</span>
+                                    <span class="text-muted">Load ID</span>
+                                    <span class="fs-5">#{{ $load->mask }}</span>
                                 </div>
                                 <div class="flex-root d-flex flex-column">
                                     <span class="text-muted">Date</span>
-                                    <span class="fs-5">22 March, 2023</span>
+                                    <span class="fs-5">{{ date('D,F m Y',strtotime($load->created_at)) }}</span>
                                 </div>
-                                <div class="flex-root d-flex flex-column">
+                                {{-- <div class="flex-root d-flex flex-column">
                                     <span class="text-muted">Invoice ID</span>
                                     <span class="fs-5">#INV-000414</span>
-                                </div>
-                                <div class="flex-root d-flex flex-column">
+                                </div> --}}
+                                {{-- <div class="flex-root d-flex flex-column">
                                     <span class="text-muted">Shipment ID</span>
                                     <span class="fs-5">#SHP-0025410</span>
-                                </div>
+                                </div> --}}
                             </div>
                             <!--end::Order details-->
                             <!--begin::Billing & shipping-->
                             <div class="d-flex flex-column flex-sm-row gap-7 gap-md-10 fw-bold">
                                 <div class="flex-root d-flex flex-column">
-                                    <span class="text-muted">Billing Address</span>
-                                    <span class="fs-6">Unit 1/23 Hastings Road,
-                                        <br />Melbourne 3000,
-                                        <br />Victoria,
-                                        <br />Australia.</span>
+                                    <span class="text-muted">Pickup Address</span>
+                                    <span class="fs-6">{{json_decode($load->pickup_address)->name}}</span>
                                 </div>
                                 <div class="flex-root d-flex flex-column">
-                                    <span class="text-muted">Shipping Address</span>
-                                    <span class="fs-6">Unit 1/23 Hastings Road,
-                                        <br />Melbourne 3000,
-                                        <br />Victoria,
-                                        <br />Australia.</span>
+                                    <span class="text-muted">Dropoff Address</span>
+                                    <span class="fs-6">{{json_decode($load->dropoff_address)->name}}</span>
                                 </div>
                             </div>
                             <!--end::Billing & shipping-->

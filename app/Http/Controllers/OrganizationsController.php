@@ -100,9 +100,14 @@ class OrganizationsController extends Controller
             $driver->last_location = json_decode($driver->last_location);
         }
 
-        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image', 'number', 'make', 'model', 'mask', 'last_location']);
+        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image', 'number', 'make', 'model', 'mask', 'last_location','driver_id']);
         foreach ($vehicles as $vehicle) {
             $vehicle->last_location = json_decode($vehicle->last_location);
+            if ($vehicle->driver_id != null) {
+                $driver = DB::table('drivers')->where('mask', $vehicle->driver_id)->first(['name', 'phone']);
+                $vehicle->driver = $driver->name;
+                $vehicle->driver_phone = $driver->phone;
+            }
         }
 
         return $this->successResponse('', ['loads' => $loads, 'shipments' => $shipments, 'drivers' => $drivers, 'vehicles' => $vehicles]);

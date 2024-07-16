@@ -13,6 +13,7 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\BrokersController;
 use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\DriversController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LoadsController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\SendersController;
@@ -211,6 +212,11 @@ Route::middleware('auth:organizations')->group(function () {
             Route::get('add', AddLoad::class)->name('org.load.add');
             Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
             // Route::get('s/board', [LoadsController::class, 'board'])->name('org.load.board');
+            Route::prefix('{load}/invoice')->group(function(){
+                Route::controller(InvoiceController::class)->group(function(){
+                    Route::get('view', 'view')->name('org.load.invoice.view');
+                });
+            });
 
             Route::get('bids', function () {
                 return view('load.bids');

@@ -5,8 +5,8 @@
     <div class="app-sidebar-logo px-6 d-flex justify-content-center align-items-center py-3" id="kt_app_sidebar_logo">
         <!--begin::Logo image-->
         <a href="/organization/overview">
-            <img alt="Logo" src="assets/media/logos/daloadman-logo-no-background.png" class="h-60px app-sidebar-logo-default" style="width:150px;"/>
-            <img alt="Logo" src="assets/media/logos/daloadman-logo-no-background.png" class="h-20px app-sidebar-logo-minimize"/>
+            <img alt="Logo" src="{{ asset('assets/media/logos/daloadman-logo-no-background.png') }}" class="h-60px app-sidebar-logo-default" style="width:150px;"/>
+            <img alt="Logo" src="{{ asset('assets/media/logos/daloadman-logo-no-background.png') }}" class="h-20px app-sidebar-logo-minimize"/>
             </br>
             <!-- <span class="text-white h-25px app-sidebar-logo-default" style="font-size: 19px;">{{ env('APP_NAME') }}</span> -->
             

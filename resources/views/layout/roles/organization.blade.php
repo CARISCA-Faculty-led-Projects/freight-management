@@ -1,20 +1,18 @@
 @extends('layout.app')
 @section('role-name')
-<div class="row w-10 justify-content-center align-items-center">
-<img src="{{ asset('storage/logos/'.whichUser()->image) }}" 
-     alt="User Avatar" 
-     class="rounded-circle"
-     style="width: 100px; height: 80px; object-fit: cover;">  
-     <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
-</div>
+    <div class="row w-10 justify-content-center align-items-center">
+        <img src="{{ asset('storage/logos/' . whichUser()->image) }}" alt="User Avatar" class="rounded-circle"
+            style="width: 100px; height: 80px; object-fit: cover;">
+        <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
+    </div>
 @endsection
 
 @section('profile-link')
-{{route('org.profile',whichUser()->mask)}}
+    {{ route('org.profile', whichUser()->mask) }}
 @endsection
 
 @section('profile-image')
-    {{asset('storage/logos/'.whichUser()->image)}}
+    {{ asset('storage/logos/' . whichUser()->image) }}
 @endsection
 
 @section('sidebar')
@@ -32,7 +30,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{route('org.overview')}}">
+                        <a class="menu-link" href="{{ route('org.overview') }}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-home fs-2">
                                     <span class="path1"></span>
@@ -104,33 +102,35 @@
                         <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
                             <!--end:Menu item-->
                             <!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{ route('org.load.overview') }}"><span
-                                class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                class="menu-title">Overview</span></a><!--end:Menu link--></div>
-                    <!--end:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="{{ route('org.load.overview') }}"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
                             <!--begin:Menu item-->
                             <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/bids"><span
                                         class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
                                         class="menu-title">Bid</span></a><!--end:Menu link--></div>
                             <!--end:Menu item-->
                             <!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{route('org.load.board')}}"><span
-                                class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                class="menu-title">Board</span></a><!--end:Menu link--></div>
-                    <!--end:Menu item-->
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
+                                    href="{{ route('org.load.board') }}"><span class="menu-bullet"><span
+                                            class="bullet bullet-dot"></span></span><span
+                                        class="menu-title">Board</span></a><!--end:Menu link--></div>
+                            <!--end:Menu item-->
 
                         </div><!--end:Menu sub-->
                     </div><!--end:Menu item-->
 
                     <!--begin:Menu item-->
                     <!-- <div class="menu-item">
-                        <a class="menu-link" href="/load/offer-a-deal">
-                            <span class="menu-bullet">
-                                <span class="bullet bullet-dot"></span>
-                            </span>
-                            <span class="menu-title">Offer a deal</span>
-                        </a>
-                    </div> -->
+                            <a class="menu-link" href="/load/offer-a-deal">
+                                <span class="menu-bullet">
+                                    <span class="bullet bullet-dot"></span>
+                                </span>
+                                <span class="menu-title">Offer a deal</span>
+                            </a>
+                        </div> -->
                     <!--end:Menu item-->
                     {{-- <!--begin:Menu item-->
                 <div class="menu-item">
@@ -144,19 +144,21 @@
                     <!--end:Menu link-->
                 </div>
                 <!--begin:Menu item--> --}}
-                    <div  class="menu-item">
-                        <!--begin:Menu link--><a href="{{route('org.broker.list')}}" class="menu-link"><span class="menu-icon"><i
-                                    class="ki-duotone ki-general-mouse fs-1"><span class="path1"></span><span
-                                        class="path2"></span><span class="path3"></span><span
-                                        class="path4"></span></i></span><span class="menu-title">Brokers</span></a><!--end:Menu link-->
+                    <div class="menu-item">
+                        <!--begin:Menu link--><a href="{{ route('org.broker.list') }}" class="menu-link"><span
+                                class="menu-icon"><i class="ki-duotone ki-general-mouse fs-1"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span></i></span><span
+                                class="menu-title">Brokers</span></a><!--end:Menu link-->
                     </div><!--end:Menu item-->
 
                     <!--begin:Menu item-->
                     <div class="menu-item">
-                        <!--begin:Menu link--><a href="{{route('org.shipments.list')}}" class="menu-link"><span class="menu-icon"><i
-                                    class="ki-duotone ki-delivery-door fs-1"><span class="path1"></span><span
-                                        class="path2"></span><span class="path3"></span><span
-                                        class="path4"></span></i></span><span class="menu-title">Shipments</span></a><!--end:Menu link-->
+                        <!--begin:Menu link--><a href="{{ route('org.shipments.list') }}" class="menu-link"><span
+                                class="menu-icon"><i class="ki-duotone ki-delivery-door fs-1"><span
+                                        class="path1"></span><span class="path2"></span><span
+                                        class="path3"></span><span class="path4"></span></i></span><span
+                                class="menu-title">Shipments</span></a><!--end:Menu link-->
                     </div><!--end:Menu item-->
                 </div>
             </div>

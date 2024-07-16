@@ -191,7 +191,7 @@
                                             <!--end::Menu item--> --}}
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
-                                                <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
+                                                <a href="{{ route('org.load.invoice.view',$load->mask) }}" class="menu-link px-3">Invoice</a>
                                             </div>
                                             <!--end::Menu item-->
                                         </div>

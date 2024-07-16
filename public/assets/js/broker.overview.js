@@ -250,7 +250,7 @@ function buildDriverContent(driver) {
           <div class="price">Driver name: ${driver.name}</div>
           <div class="price mt-2">Driver phone: ${driver.phone}</div>
           <div class="address">Last login: ${driver.last_login}</div>
-     </div>
+            </div>
       `;
     return content;
 }
@@ -264,10 +264,7 @@ function buildVehicleContent(vehicle) {
       </div>
       <div class="details mt-2">
           <div class="price">${vehicle.make} ${vehicle.model}</div>
-          <div class="price mt-2 mb-3">Reg Number: ${vehicle.number}</div>
-
-          <div class="price">Driver name: ${vehicle.driver_id != null ? vehicle.driver : 'Unassigned'}</div>
-          <div class="price mt-2">Driver contact: ${vehicle.driver_id != null ? vehicle.driver_phone : 'Unassigned'}</div>
+          <div class="price mt-2">Reg Number: ${vehicle.number}</div>
             </div>
       `;
     return content;
