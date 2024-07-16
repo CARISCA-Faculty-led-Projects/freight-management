@@ -1,8 +1,11 @@
 @extends('layout.app')
 @section('role-name')
-<div class="row w-10">
-    <img src="{{asset('storage/logos/'.whichUser()->image)}}" alt="" srcset="">
-    <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
+<div class="row w-10 justify-content-center align-items-center">
+<img src="{{ asset('storage/logos/'.whichUser()->image) }}" 
+     alt="User Avatar" 
+     class="rounded-circle"
+     style="width: 100px; height: 80px; object-fit: cover;">  
+     <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
 </div>
 @endsection
 
@@ -66,7 +69,7 @@
                     <!--end:Menu item-->
                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
-                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                    class="ki-duotone ki-truck fs-1"><span class="path1"></span><span
                                         class="path2"></span><span class="path3"></span><span
                                         class="path4"></span></i></span><span class="menu-title">Fleet</span><span
                                 class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
@@ -94,7 +97,7 @@
                     <!--end:Menu item-->
                     <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
                         <!--begin:Menu link--><span class="menu-link"><span class="menu-icon"><i
-                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                    class="ki-duotone ki-cube-2 fs-1"><span class="path1"></span><span
                                         class="path2"></span><span class="path3"></span><span
                                         class="path4"></span></i></span><span class="menu-title">Loads</span><span
                                 class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
@@ -143,7 +146,7 @@
                 <!--begin:Menu item--> --}}
                     <div  class="menu-item">
                         <!--begin:Menu link--><a href="{{route('org.broker.list')}}" class="menu-link"><span class="menu-icon"><i
-                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                    class="ki-duotone ki-general-mouse fs-1"><span class="path1"></span><span
                                         class="path2"></span><span class="path3"></span><span
                                         class="path4"></span></i></span><span class="menu-title">Brokers</span></a><!--end:Menu link-->
                     </div><!--end:Menu item-->
@@ -151,7 +154,7 @@
                     <!--begin:Menu item-->
                     <div class="menu-item">
                         <!--begin:Menu link--><a href="{{route('org.shipments.list')}}" class="menu-link"><span class="menu-icon"><i
-                                    class="ki-duotone ki-colors-square fs-1"><span class="path1"></span><span
+                                    class="ki-duotone ki-delivery-door fs-1"><span class="path1"></span><span
                                         class="path2"></span><span class="path3"></span><span
                                         class="path4"></span></i></span><span class="menu-title">Shipments</span></a><!--end:Menu link-->
                     </div><!--end:Menu item-->

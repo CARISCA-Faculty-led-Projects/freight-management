@@ -112,7 +112,7 @@
                                             <div class="d-flex align-items-center">
 
                                                 <div class="fs-2 fw-bold" data-kt-countup="true"
-                                                    data-kt-countup-value="4500" data-kt-countup-prefix="GHS">0</div>
+                                                    data-kt-countup-value="0" data-kt-countup-prefix="GHS">0</div>
                                             </div>
                                             <!--end::Number-->
                                             <!--begin::Label-->
@@ -126,7 +126,7 @@
                                             <!--begin::Number-->
                                             <div class="d-flex align-items-center">
                                                
-                                                <div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="80">
+                                                <div class="fs-2 fw-bold" data-kt-countup="true" data-kt-countup-value="0">
                                                     0</div>
                                             </div>
                                             <!--end::Number-->

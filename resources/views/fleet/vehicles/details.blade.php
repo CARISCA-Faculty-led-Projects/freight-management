@@ -170,23 +170,87 @@
                             @endif
                             @if ($driver)
                             <div class="row row-cols-2 row-cols-md-2 mb-6 mb-xl-9 mt-10">
-                                <div class="col col-lg-12 text-center">
-                                    <!--begin::Reward Tier-->
-                                    <a href="#" class="card bg-success hoverable h-md-100">
-                                        <!--begin::Body-->
-                                        <div class="card-body">
-                                            <i class="ki-duotone ki-award text-white fs-3x ms-n1">
-                                                <span class="path1"></span>
-                                                <span class="path2"></span>
-                                                <span class="path3"></span>
-                                            </i>
-                                            <div class="text-white fw-bold fs-2 mt-5">{{$driver->name}}</div>
-                                            <div class="fw-semibold text-white">Driver</div>
+                            <div class="col col-lg-12">
+                                <!--begin::Driver Card-->
+                                <div class="card bg-white hoverable h-100">
+                                    
+                                     <!--begin::Card Header-->
+                                    <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
+                                        <h3 class="card-title fw-bold text-dark mb-0">Driver</h3>
+                                        <a href="organization/drivers/{{ $driver->mask }}/details" class="btn btn-sm btn-primary">Go to Driver</a>
+                                    </div>
+                                    <!--end::Card Header-->
+
+                                    <!--begin::Card Body-->
+                                    <div class="card-body d-flex p-0">
+                                        <!-- Driver Image -->
+                                        <div class="d-flex align-items-center justify-content-center bg-white p-3" style="width: 150px;">
+                                            <img src="{{ asset('storage/logos/'.$driver->image) }}" alt="{{$driver->name}}" class="rounded-circle" style="width: 120px; height: 120px; object-fit: cover;">
                                         </div>
-                                        <!--end::Body-->
-                                    </a>
-                                    <!--end::Reward Tier-->
+
+                                        <!-- Driver Information -->
+                                        <div class="flex-grow-1 p-4">
+                                            <div class="text-dark fw-bold fs-2 mb-3">{{$driver->name}}</div>
+
+                                            <table
+                                                class="table align-middle table-row-bordered mb-0 fs-6 gy-5 min-w-300px">
+                                                <tbody class="fw-semibold text-gray-600">
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-message-text fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>Contact Phone
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                            {{ $driver->phone }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-notification-2 fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>Email
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                            {{ $driver->email }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-parcel-tracking fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>Physical Address
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                            {{ $driver->address }}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-calendar fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>DOB
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                            {{ $driver->dob }}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                    </div>
+                                    <!--end::Card Body-->
                                 </div>
+                                <!--end::Driver Card-->
+                            </div>
                             </div>
                             @endif
 
