@@ -75,11 +75,6 @@ async function initMap() {
         if (option == 'loads') {
             const markers = mapData[option].map((load) => {
                 const ltn = load.pickup_address.location;
-                const img = document.createElement("img");
-                img.src = "/assets/media/icons/boxes.png";
-
-                // priceTag.className = "price-tag";
-                // priceTag.textContent = load.mask;
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
@@ -92,12 +87,6 @@ async function initMap() {
                 // markers can only be keyboard focusable when they have click listeners
                 // open info window when marker is clicked
                 marker.addListener("click", () => {
-                    // infoWindow.setContent(ltn.lat + ", " + ltn.lng);
-                    // infoWindow.open(map, marker);
-                    // addPos({
-                    //     lat: parseFloat(ltn.lat),
-                    //     lng: parseFloat(ltn.lng)
-                    // });
                     toggleHighlight(marker, option);
                 });
                 return marker;
@@ -111,29 +100,19 @@ async function initMap() {
         } else if (option == 'drivers') {
             const markers = mapData[option].map((driver) => {
                 const ltn = driver.last_location;
-                const img = document.createElement("img");
-                img.src = 'assets/media/icons/driver.png';
-
-                // priceTag.className = "price-tag";
-                // priceTag.textContent = driver.name;
-
+                
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
                         lat: ltn.lat,
                         lng: ltn.lng
                     },
-                    content: img,
+                    content: buildDriverContent(driver),
                 });
 
                 // markers can only be keyboard focusable when they have click listeners
                 // open info window when marker is clicked
                 marker.addListener("click", () => {
-                    // infoWindow.setContent(ltn.lat + ", " + ltn.lng);
-                    // infoWindow.open(map, marker);
-                    // addPos({
-                    //     lat: parseFloat(ltn.lat),
-                    //     lng: parseFloat(ltn.lng)
-                    // });
+                    toggleHighlight(marker,option);
                 });
                 return marker;
             });
@@ -146,8 +125,6 @@ async function initMap() {
         } else if (option == 'vehicles') {
             const markers = mapData[option].map((vehicle) => {
                 const ltn = vehicle.last_location;
-                const img = document.createElement("img");
-                img.src = "/assets/media/icons/3d-truck.png";
                 // img.className = "price-tag";
                 // img.style = "width:10px";
                 // priceTag.textContent = vehicle.make;
@@ -157,7 +134,7 @@ async function initMap() {
                         lat: ltn.lat,
                         lng: ltn.lng
                     },
-                    content: img,
+                    content: buildVehicleContent(vehicle),
                 });
 
                 // markers can only be keyboard focusable when they have click listeners
@@ -169,6 +146,7 @@ async function initMap() {
                     //     lat: parseFloat(ltn.lat),
                     //     lng: parseFloat(ltn.lng)
                     // });
+                    toggleHighlight(marker,option);
                 });
                 return marker;
             });
@@ -234,27 +212,50 @@ function buildContent(property) {
 
 function buildLoadContent(load) {
     const content = document.createElement("div");
-console.log(load);
     content.classList.add("property");
     content.innerHTML = `
       <div class="icon">
       <img src="/assets/media/icons/boxes.png"/>
       </div>
       <div class="details mt-2">
-          <div class="price">Load id ${load.mask}</div>
+          <div class="price">Load #${load.mask}</div>
           <div class="price">Sender name: ${load.sender}</div>
-          <div class="address">Sender phone:${load.sender_phone}</div>
-          <div class="features">
-          <div>
-              <img src="/storage/loads/${load.image}" />
-          </div>
-         
-          </div>
-      </div>
+          <div class="address">Sender phone: ${load.sender_phone}</div>
+            </div>
       `;
     return content;
 }
 
+function buildDriverContent(driver) {
+    const content = document.createElement("div");
+    content.classList.add("property");
+    content.innerHTML = `
+      <div class="icon">
+      <img src="/assets/media/icons/driver.png"/>
+      </div>
+      <div class="details mt-2">
+          <div class="price">Driver name: ${driver.name}</div>
+          <div class="price mt-2">Driver phone: ${driver.phone}</div>
+          <div class="address">Last login: ${driver.last_login}</div>
+            </div>
+      `;
+    return content;
+}
+
+function buildVehicleContent(vehicle) {
+    const content = document.createElement("div");
+    content.classList.add("property");
+    content.innerHTML = `
+      <div class="icon">
+      <img src="/assets/media/icons/3d-truck.png"/>
+      </div>
+      <div class="details mt-2">
+          <div class="price">${vehicle.make} ${vehicle.model}</div>
+          <div class="price mt-2">Reg Number: ${vehicle.number}</div>
+            </div>
+      `;
+    return content;
+}
 // async function initMap() {
 //     // The location of Uluru
 //     const main = {
