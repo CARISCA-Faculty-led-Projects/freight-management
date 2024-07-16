@@ -71,7 +71,7 @@ async function initMap() {
     var mapDataKeys = Object.keys(mapData);
     mapDataKeys.forEach((option) => {
         const markers = [];
-        console.log(mapData[option]);
+        // console.log(mapData[option]);
         if (option == 'loads') {
             const markers = mapData[option].map((load) => {
                 const ltn = load.pickup_address.location;
@@ -225,7 +225,6 @@ function buildContent(property) {
 
 function buildLoadContent(load) {
     const content = document.createElement("div");
-    console.log(load);
     content.classList.add("property");
     content.innerHTML = `
       <div class="icon">

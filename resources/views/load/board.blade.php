@@ -77,7 +77,8 @@
                         </div> --}}
                         <!--begin::Add product-->
                         @if (whichUser()->getTable() == 'organizations')
-                        <a href="{{route('org.load.add')}}" class="btn btn-primary"> <span class="indicator-label">Add load</span></a>
+                            <a href="{{ route('org.load.add') }}" class="btn btn-primary"> <span
+                                    class="indicator-label">Add load</span></a>
                         @endif
 
                         <!--end::Add product-->
@@ -104,6 +105,7 @@
                                     </th>
                                     <th class="min-w-150px">#</th>
                                     <th class="min-w-105px">Category</th>
+                                    <th class="min-w-105px">Image</th>
                                     <th class="min-w-105px">Sender</th>
                                     <th class="min-w-105px">Organization</th>
                                     <th class="text-center min-w-70px">Status</th>
@@ -126,6 +128,9 @@
                                         </td>
                                         <td>{{ $load->mask }}</td>
                                         <td>{{ $load->load_type }}</td>
+                                        <td><img class="w-20px"
+                                            src="{{ asset('storage/loads/' . $load->image) }}" alt=""
+                                            srcset=""></td>
                                         <td>{{ $load->name }}</td>
                                         <td id="orgStat" class="text-center pe-0">
                                             <div
@@ -241,8 +246,7 @@
                             <label for="shipment">Create shipment after</label>
                         </div>
                         <div class="d-flex w-35" wire:ignore>
-                            <select name="organization_id" class="form-control basic-select2 w-25"
-                                id="">
+                            <select name="organization_id" class="form-control basic-select2 w-25" id="">
                                 <option value="">--select--</option>
                                 @foreach ($this->getOrgs() as $org)
                                     <option value="{{ $org->mask }}">{{ $org->name }}</option>
@@ -256,5 +260,4 @@
             <!--end::Products-->
         </div>
         <!--end::Content container-->
-
     </div>

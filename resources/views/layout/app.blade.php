@@ -101,6 +101,8 @@
     <!--end::Modal - Invite Friend-->
     <!--end::Modals-->
     <!--begin::Javascript-->
+    {{-- @include('partials.modals.view-image') --}}
+
     @include('layout.scripts')
     <!--end::Custom Javascript-->
     <!--end::Javascript-->
