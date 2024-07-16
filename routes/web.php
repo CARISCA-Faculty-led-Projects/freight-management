@@ -46,7 +46,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::middleware('guest')->group(function () {
+Route::middleware(['guest'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
         Route::get('/', 'login')->name('login');
         Route::get('admin', 'adminLogin');

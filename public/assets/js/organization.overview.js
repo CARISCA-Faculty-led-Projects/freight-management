@@ -100,7 +100,7 @@ async function initMap() {
         } else if (option == 'drivers') {
             const markers = mapData[option].map((driver) => {
                 const ltn = driver.last_location;
-                
+
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
                         lat: ltn.lat,
@@ -112,7 +112,7 @@ async function initMap() {
                 // markers can only be keyboard focusable when they have click listeners
                 // open info window when marker is clicked
                 marker.addListener("click", () => {
-                    toggleHighlight(marker,option);
+                    toggleHighlight(marker, option);
                 });
                 return marker;
             });
@@ -125,9 +125,6 @@ async function initMap() {
         } else if (option == 'vehicles') {
             const markers = mapData[option].map((vehicle) => {
                 const ltn = vehicle.last_location;
-                // img.className = "price-tag";
-                // img.style = "width:10px";
-                // priceTag.textContent = vehicle.make;
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
@@ -140,13 +137,32 @@ async function initMap() {
                 // markers can only be keyboard focusable when they have click listeners
                 // open info window when marker is clicked
                 marker.addListener("click", () => {
-                    // infoWindow.setContent(ltn.lat + ", " + ltn.lng);
-                    // infoWindow.open(map, marker);
-                    // addPos({
-                    //     lat: parseFloat(ltn.lat),
-                    //     lng: parseFloat(ltn.lng)
-                    // });
-                    toggleHighlight(marker,option);
+                    toggleHighlight(marker, option);
+                });
+                return marker;
+            });
+
+            // Add a marker clusterer to manage the markers.
+            new markerClusterer.MarkerClusterer({
+                markers,
+                map
+            });
+        } else if (option == 'shipments') {
+            const markers = mapData[option].map((shipment) => {
+                const ltn = shipment.shipment_location;
+
+                const marker = new google.maps.marker.AdvancedMarkerElement({
+                    position: {
+                        lat: ltn.lat,
+                        lng: ltn.lng
+                    },
+                    content: buildShipmentContent(shipment),
+                });
+
+                // markers can only be keyboard focusable when they have click listeners
+                // open info window when marker is clicked
+                marker.addListener("click", () => {
+                    toggleHighlight(marker, option);
                 });
                 return marker;
             });
@@ -157,9 +173,6 @@ async function initMap() {
                 map
             });
         }
-        // else if (option == 'shipments') {
-
-        // }
         return markers;
     });
 
@@ -253,6 +266,24 @@ function buildVehicleContent(vehicle) {
           <div class="price">${vehicle.make} ${vehicle.model}</div>
           <div class="price mt-2">Reg Number: ${vehicle.number}</div>
             </div>
+      `;
+    return content;
+}
+
+function buildShipmentContent(shipment) {
+    const content = document.createElement("div");
+
+    content.classList.add("property");
+    content.innerHTML = `
+      <div class="icon">
+         <img src="/assets/media/icons/shipment.png"/>
+      </div>
+      <div class="details">
+          <div class="price">Shipment #${shipment.shipment}</div>
+          <div class="address mt-2">Driver - <strong>${shipment.driver}</strong></div>
+          <div class="address mt-2">Driver contact- <strong>${shipment.driver_contact}</strong></div>
+          
+      </div>
       `;
     return content;
 }

@@ -79,9 +79,9 @@ class OrganizationsController extends Controller
     public function orgMapData()
     {
         $loads = DB::table('loads')->where('organization_id', whichUser()->mask)
-        ->where('shipment_status', "Unassigned")
-        ->join('senders','senders.mask','loads.sender_id')
-        ->get(['loads.image', 'loads.mask', 'pickup_address','senders.name as sender','senders.phone as sender_phone']);
+            ->where('shipment_status', "Unassigned")
+            ->join('senders', 'senders.mask', 'loads.sender_id')
+            ->get(['loads.image', 'loads.mask', 'pickup_address', 'senders.name as sender', 'senders.phone as sender_phone']);
         foreach ($loads as $load) {
             $load->pickup_address = json_decode($load->pickup_address);
         }
@@ -91,17 +91,17 @@ class OrganizationsController extends Controller
             ->select('shipments.mask as shipment', 'shipments.last_location as shipment_location', 'drivers.name as driver', 'drivers.mask as driver_id', 'drivers.phone as driver_contact')
             ->get();
 
-        // foreach($shipments as $shipment){
-        //     $shipment->last_location = json_decode($shipment->last_location);
-        // }
+        foreach ($shipments as $shipment) {
+            $shipment->shipment_location = json_decode($shipment->shipment_location);
+        }
 
-        $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image', 'name', 'phone', 'mask', 'last_login','last_location']);
-        foreach($drivers as $driver){
+        $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image', 'name', 'phone', 'mask', 'last_login', 'last_location']);
+        foreach ($drivers as $driver) {
             $driver->last_location = json_decode($driver->last_location);
         }
 
-        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image','number','make','model','mask', 'last_location']);
-         foreach($vehicles as $vehicle){
+        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image', 'number', 'make', 'model', 'mask', 'last_location']);
+        foreach ($vehicles as $vehicle) {
             $vehicle->last_location = json_decode($vehicle->last_location);
         }
 
