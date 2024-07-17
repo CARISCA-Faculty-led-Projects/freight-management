@@ -32,7 +32,10 @@ class CreateShipment extends Component
     {
         $this->loads = $request->loads;
         // $this->organization = $request->organization_id;
-        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
+        // $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
+        $assigned_veh_drivers = DB::table('vehicles')->where('organization_id', $request->organization_id)->whereNotNull('driver_id')->pluck('driver_id')->toArray();
+
+        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask',$assigned_veh_drivers)->get(['name', 'phone', 'mask']);
         $this->organization = (array)DB::table('organizations')->where('mask',$request->organization_id)->first(['mask','name']);
 
     }
@@ -122,7 +125,9 @@ class CreateShipment extends Component
             }
         }
 
-        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->where('shipment_status','Unassigned')->get(['name', 'phone', 'mask']);
+        $assigned_veh_drivers = DB::table('vehicles')->where('organization_id', $request->organization_id)->whereNotNull('driver_id')->pluck('driver_id')->toArray();
+
+        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask',$assigned_veh_drivers)->get(['name', 'phone', 'mask']);
 
         return view('shipments.create-shipment')->extends(whichUser()->getTable() == "brokers" ? 'layout.roles.broker' : 'layout.roles.organization')->section('content');
     }
