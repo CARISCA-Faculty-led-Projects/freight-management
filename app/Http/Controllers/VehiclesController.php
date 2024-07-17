@@ -120,7 +120,7 @@ class VehiclesController extends Controller
         if ($veh->driver_id) {
             $driver = DB::table('drivers')->where('mask', $veh->driver_id)->first();
             $msg = "Your vehicle has been assigned for maintenance on " . $date;
-            sendMail("Maintenance Schedule", $driver->email, $msg);
+            // sendMail("Maintenance Schedule", $driver->email, $msg);
         }
 
         return redirect(route(auth()->guard()->name == 'drivers' ? 'driver.vehicle.maintenance' : 'vehicle.maintenance_list', $vehicle))->with('success', 'Schedule added');

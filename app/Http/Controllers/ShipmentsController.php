@@ -186,8 +186,8 @@ class ShipmentsController extends Controller
         ]);
 
         $driver = DB::table('drivers')->where('mask',$request->driver_id);
-        $msg = "Hello {$driver->first()->name}, You have been assigned a shipment";
-        sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
+        // $msg = "Hello {$driver->first()->name}, You have been assigned a shipment";
+        // sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
         $driver->update(['shipment_status'=> "Assigned"]);
         DB::table('loads')->whereIn('mask', $request->loads)->update(['shipment_status' => "Assigned"]);
 

@@ -37,8 +37,8 @@ class AuthController extends Controller
 
         DB::table($request->type)->insert($request->except(['_token', 'type', 'confirm-password']));
 
-        sendMail("Account Created", $request->email, "Your account has been created and pending review.");
-        sendAdminMessage("Account Created", "An account has been created. Log in to your dashboard and approve account");
+        // sendMail("Account Created", $request->email, "Your account has been created and pending review.");
+        // sendAdminMessage("Account Created", "An account has been created. Log in to your dashboard and approve account");
 
         return redirect(route('login'))->with('success', 'Account created!');
     }
@@ -105,7 +105,7 @@ class AuthController extends Controller
 
         $msg = "Your password has been changed. Your new password is " . $new;
 
-        sendMail("Password Reset", $user->first()->email, $msg);
+        // sendMail("Password Reset", $user->first()->email, $msg);
         $user->update(['password' => Hash::make($new)]);
         return back()->with('success', "Password reset successful");
     }

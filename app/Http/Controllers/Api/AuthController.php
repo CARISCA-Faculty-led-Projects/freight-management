@@ -52,8 +52,8 @@ class AuthController extends Controller
 
         DB::table($request->type)->insert($request->except(['type']));
 
-        sendMail("Account Created", $request->email, "Your account has been created and pending review.");
-        sendAdminMessage("Account Created", "An account has been created. Log in to your dashboard and approve account");
+        // sendMail("Account Created", $request->email, "Your account has been created and pending review.");
+        // sendAdminMessage("Account Created", "An account has been created. Log in to your dashboard and approve account");
 
         return $this->successResponse('Account created successfully');
     }

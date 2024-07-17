@@ -31,8 +31,7 @@ class CreateShipment extends Component
     public function mount(Request $request)
     {
         $this->loads = $request->loads;
-        // $this->organization = $request->organization_id;
-        // $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
+        
         $assigned_veh_drivers = DB::table('vehicles')->where('organization_id', $request->organization_id)->whereNotNull('driver_id')->pluck('driver_id')->toArray();
 
         $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask',$assigned_veh_drivers)->get(['name', 'phone', 'mask']);
