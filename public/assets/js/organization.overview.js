@@ -154,21 +154,23 @@ async function initMap() {
         } else if (option == 'shipments') {
             const markers = mapData[option].map((shipment) => {
                 const ltn = shipment.shipment_location;
+                if (ltn.lat != null && ltn.lng != null) {
 
-                const marker = new google.maps.marker.AdvancedMarkerElement({
-                    position: {
-                        lat: ltn.lat,
-                        lng: ltn.lng
-                    },
-                    content: buildShipmentContent(shipment),
-                });
+                    const marker = new google.maps.marker.AdvancedMarkerElement({
+                        position: {
+                            lat: ltn.lat,
+                            lng: ltn.lng
+                        },
+                        content: buildShipmentContent(shipment),
+                    });
 
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                    toggleHighlight(marker, option);
-                });
-                return marker;
+                    // markers can only be keyboard focusable when they have click listeners
+                    // open info window when marker is clicked
+                    marker.addListener("click", () => {
+                        toggleHighlight(marker, option);
+                    });
+                    return marker;
+                }
             });
 
             // Add a marker clusterer to manage the markers.
