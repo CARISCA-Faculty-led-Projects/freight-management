@@ -154,7 +154,7 @@ async function initMap() {
         } else if (option == 'shipments') {
             const markers = mapData[option].map((shipment) => {
                 const ltn = shipment.shipment_location;
-                if (ltn.lat != null && ltn.lng != null) {
+                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
 
                     const marker = new google.maps.marker.AdvancedMarkerElement({
                         position: {
