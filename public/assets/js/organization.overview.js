@@ -101,7 +101,7 @@ async function initMap() {
         } else if (option == 'drivers') {
             const markers = mapData[option].map((driver) => {
                 const ltn = driver.last_location;
-                if (ltn.lat != null && ltn.lng != null) {
+                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
 
                     const marker = new google.maps.marker.AdvancedMarkerElement({
                         position: {
@@ -128,7 +128,7 @@ async function initMap() {
         } else if (option == 'vehicles') {
             const markers = mapData[option].map((vehicle) => {
                 const ltn = vehicle.last_location;
-                if (ltn.lat != null && ltn.lng != null) {
+                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
                     const marker = new google.maps.marker.AdvancedMarkerElement({
                         position: {
                             lat: ltn.lat,

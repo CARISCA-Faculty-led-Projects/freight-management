@@ -27,6 +27,7 @@ class UpdateDriver extends Component
     public $load_type = [];
     public $image;
     public $license_image;
+    public $llocation;
 
 
     public function activate($tab)
@@ -50,7 +51,9 @@ class UpdateDriver extends Component
     {
 
         if (is_file($this->image)) {
-            unlink('storage/logos/' . $this->driver['image']);
+            if (file_exists('storage/logos/' . $this->driver['image'])) {
+                unlink('storage/logos/' . $this->driver['image']);
+            }
             $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('logos', $imagename, 'real_public');
             $this->driver['image'] = $imagename;
@@ -67,6 +70,9 @@ class UpdateDriver extends Component
         }
 
         $this->driver['updated_at'] = Carbon::now()->toDateTimeString();
+        // dd($this->driver);
+        // dd(getPlaceCoordinates($this->llocation));
+        // $this->driver['last_location'] = getPlaceCoordinates($this->llocation)['location'];
         DB::table('drivers')->where('mask', $this->driver['mask'])->update($this->driver);
 
         // $this->activate('payment');

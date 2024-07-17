@@ -57,7 +57,7 @@
             <!--begin::Form-->
             <div id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row">
                 <!--begin::Aside column-->
-                <form wire:submit.prevent="general" method="post" method="post">
+                <form wire:submit.prevent="general" method="post">
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                         <!--begin::Thumbnail settings-->
                         <div class="card card-flush py-4">
@@ -93,7 +93,8 @@
                                         </div>
                                     @else
                                         <img class="w-150px h-150px"
-                                            src="{{ asset('storage/logos/' . $this->driver['image']) }}" alt="image" />
+                                            src="{{ asset('storage/logos/' . $this->driver['image']) }}"
+                                            alt="image" />
                                     @endif
                                     <!--end::Preview existing avatar-->
                                     <!--begin::Label-->
@@ -145,42 +146,48 @@
                         </div>
                         <!--end::Thumbnail settings-->
                         @if (auth()->guard()->name == 'organizations')
-                        <!--begin::Status-->
-                        <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <!--begin::Card title-->
-                                <div class="card-title">
-                                    <h2>Status</h2>
-                                </div>
-                                <!--end::Card title-->
-                                <!--begin::Card toolbar-->
-                                <div class="card-toolbar">
-                                    <div class="rounded-circle bg-success w-15px h-15px"
-                                        id="kt_ecommerce_add_product_status">
+                            <!--begin::Status-->
+                            <div class="card card-flush py-4">
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <!--begin::Card title-->
+                                    <div class="card-title">
+                                        <h2>Status</h2>
                                     </div>
+                                    <!--end::Card title-->
+                                    <!--begin::Card toolbar-->
+                                    <div class="card-toolbar">
+                                        <button type="button"
+                                        class="btn btn-icon btn-active-light-primary w-30px h-30px ms-auto"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#add_lastLocation">
+                                        <span class="rounded-circle bg-success w-15px h-15px"
+                                        id="kt_ecommerce_add_product_status">
+                                    </span>
+                                    </button>
+                                       
+                                    </div>
+                                    <!--begin::Card toolbar-->
                                 </div>
-                                <!--begin::Card toolbar-->
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Select2-->
+                                    <select class="form-select mb-2" data-hide-search="true" wire:model="driver.status"
+                                        data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select"
+                                        required>
+                                        <option></option>
+                                        <option value="Pending" selected="selected">Pending</option>
+                                        <option value="Approved">Approved</option>
+                                    </select>
+                                    <!--end::Select2-->
+                                    <!--begin::Description-->
+                                    <div class="text-muted fs-7">Set the driver status.</div>
+                                    <!--end::Description-->
+                                </div>
+                                <!--end::Card body-->
                             </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Select2-->
-                                <select class="form-select mb-2" data-hide-search="true" wire:model="driver.status"
-                                    data-placeholder="Select an option" id="kt_ecommerce_add_product_status_select"
-                                    required>
-                                    <option></option>
-                                    <option value="Pending" selected="selected">Pending</option>
-                                    <option value="Approved">Approved</option>
-                                </select>
-                                <!--end::Select2-->
-                                <!--begin::Description-->
-                                <div class="text-muted fs-7">Set the driver status.</div>
-                                <!--end::Description-->
-                            </div>
-                            <!--end::Card body-->
-                        </div>
-                        <!--end::Status-->
+                            <!--end::Status-->
                         @endif
                         <!--begin::Status-->
                         <!--begin::Status-->
@@ -256,6 +263,8 @@
                             <!--end::Card body-->
                         </div>
                         <!--end::Status-->
+                        <!--begin::Status-->
+                        
                         <!--end::Status-->
 
                     </div>
@@ -298,29 +307,7 @@
                                         </div>
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
-                                        <div class="card-body pt-0">
-                                            <!-- <div class="mb-10 fv-row">
-                                            <label class="required form-label">Organization</label>
-
-                                            <select class="form-select mb-2" data-control="select2" data-hide-search="true"
-                                                data-placeholder="Select an option"
-                                                id="kt_ecommerce_add_product_status_select">
-                                                <option></option>
-                                                <option value="published" selected="selected">Individual
-                                                <option value="published">Jess Fleet Mangement Inc
-                                                </option>
-                                                <option value="draft"> TopTier Trucks Co</option>
-                                            </select>
-                                            <div class="text-muted fs-7">Set the organization the Driver is affiliated to.
-                                            </div>
-                                            <div class="d-none mt-10">
-                                                <label for="kt_ecommerce_add_product_status_datepicker"
-                                                    class="form-label">Select publishing
-                                                    date and time</label>
-                                                <input class="form-control" id="kt_ecommerce_add_product_status_datepicker"
-                                                    placeholder="Pick date & time" />
-                                            </div>
-                                        </div> -->
+                                        <div class="card-body pt-0">                                               
                                             <!--end::Card body-->
                                             <div class="mb-10 fv-row">
                                                 <!--begin::Label-->
@@ -453,7 +440,9 @@
                                         <div class="card-header">
                                             <div class="card-title">
                                                 <h2>Drivers Licence
-                                                </h2><a href="{{asset('storage/drivers/'.$this->driver['license_image'])}}" class="text-muted" download>&nbsp;&nbsp; view</a>
+                                                </h2><a
+                                                    href="{{ asset('storage/drivers/' . $this->driver['license_image']) }}"
+                                                    class="text-muted" download>&nbsp;&nbsp; view</a>
                                             </div>
                                         </div>
                                         <!--end::Card header-->

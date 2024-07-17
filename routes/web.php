@@ -247,6 +247,8 @@ Route::middleware('auth:organizations')->group(function () {
                 Route::get('/', 'index')->name('drivers');
                 Route::get('{driver}/delete', 'delete')->name('driver.delete');
                 Route::get('{driver}/details', 'details')->name('drivers.view');
+            Route::post('update-location', 'updateLocation')->name('driver.update-location');
+
             });
             Route::get('add', AddDriver::class)->name('driver.add');
             Route::get('{mask}/edit', UpdateDriver::class)->name('driver.edit');

@@ -81,4 +81,8 @@ class DriversController extends Controller
         $driver = DB::table('drivers')->where('mask',whichUser()->mask)->first();
         return view('fleet.drivers.edit',compact('driver'));
     }
+
+    public function updateLocation(Request $request) {
+        dd($request->all());
+    }
 }
