@@ -178,9 +178,8 @@
                                             {{ $shipment->shipment_status }}</div>
                                         <!--end::Badges-->
                                     </td>
-
-                                    <td class="text-end">{{ json_decode($shipment->pickup_address)->name }}</td>
-                                    <td class="text-end">{{ json_decode($shipment->dropoff_address)->name }}</td>
+                                    <td class="text-end">{{ $shipment->starting_point}}</td>
+                                    <td class="text-end">{{ $shipment->destination }}</td>
                                     <td class="text-end">
                                         {{ $shipment->load_delivered }}/{{ count(json_decode($shipment->loads)) }}</td>
 
