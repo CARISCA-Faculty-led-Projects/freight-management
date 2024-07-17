@@ -49,7 +49,7 @@ class EditShipment extends Component
         }
 
         // $this->loads = json_decode($shipment->loads);
-        // $this->organization = $shipment->organization_id;
+        $this->organization = (array)DB::table('organizations')->where('mask',$this->shipment['organization_id'])->first(['mask','name']);
         // $this->drivers = (object)DB::table('drivers')->where('organization_id', $shipment->organization_id)->get(['name', 'phone', 'mask']);
     }
 
@@ -61,7 +61,13 @@ class EditShipment extends Component
 
     public function getDrivers()
     {
-       return DB::table('drivers')->where('organization_id', $this->organization)->get(['name', 'phone', 'mask']);
+       return DB::table('drivers')->where('organization_id', $this->organization['mask'])->where('shipment_status','Unassigned')->get(['name', 'phone', 'mask']);
+
+    }
+
+    public function getOrgs()
+    {
+       return DB::table('organizations')->get(['name','mask']);
 
     }
 

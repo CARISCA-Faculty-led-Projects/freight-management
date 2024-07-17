@@ -18,7 +18,6 @@
             array_push($locations, $dropLocation);
             // dd($locations)
         }
-        // json_encode($locations);
     @endphp
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
@@ -91,7 +90,7 @@
                                 <!--begin::Label-->
                                 <label class="required form-label">Selected Loads</label>
                                 <!--end::Label-->
-                                <input type="hidden" name="organization_id" value="{{ $this->organization }}">
+                                <input type="hidden" name="organization_id" value="{{ $this->organization['mask'] }}">
                                 <!--begin::Table-->
                                 <div class="" style="height: 200px; overflow:auto;">
                                     <table class="table align-middle table-row-dashed fs-6 gy-5"
@@ -151,6 +150,25 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
+                                <label class="form-label">Assigned Organization</label>
+                                <!--end::Label-->
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
+                                    name="organization_id" data-hide-search="true" data-placeholder="Select an organization">
+                                    @foreach ($this->getOrgs() as $org)
+                                        <option value="{{ $org->mask }}" {{ $this->organization['mask'] == $org->mask ? "selected" : '' }}>{{ $org->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('organization_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="mb-10 fv-row">
+                                <!--begin::Label-->
                                 <label class="form-label">Shipment Description</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
@@ -195,7 +213,7 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
                                     <!--begin::Menu toggle-->
-                                    <select name="pickup_address" id="start"
+                                    <select name="pickup_address" id="start" required
                                         class="form-control mt-2 @error('pickup_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
@@ -231,7 +249,7 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-                                    <select name="dropoff_address" id="end"
+                                    <select name="dropoff_address" id="end" required
                                         class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>

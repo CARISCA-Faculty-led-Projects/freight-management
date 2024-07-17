@@ -96,7 +96,7 @@ class OrganizationsController extends Controller
             $shipment->shipment_location = json_decode($shipment->shipment_location);
         }
 
-        $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Unassigned')->get(['image', 'name', 'phone', 'mask', 'last_login', 'last_location']);
+        $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Assigned')->get(['image', 'name', 'phone', 'mask', 'last_login', 'last_location']);
         foreach ($drivers as $driver) {
             $driver->last_location = json_decode($driver->last_location);
         }

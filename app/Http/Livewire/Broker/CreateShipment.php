@@ -31,14 +31,22 @@ class CreateShipment extends Component
     public function mount(Request $request)
     {
         $this->loads = $request->loads;
-        $this->organization = $request->organization_id;
+        // $this->organization = $request->organization_id;
         $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
+        $this->organization = (array)DB::table('organizations')->where('mask',$request->organization_id)->first(['mask','name']);
+
     }
 
     public function check()
     {
         $this->count += 1;
         return $this->pickup_address;
+    }
+
+    public function getOrgs()
+    {
+       return DB::table('organizations')->get(['name','mask']);
+
     }
 
     public function updated()
@@ -65,7 +73,6 @@ class CreateShipment extends Component
 
     public function create_shipment()
     {
-        dd($this->pickup_address);
         if ($this->no_driver == "true") {
             // Validator::make([$this->pickup_address, $this->dropoff_address], [
             //     'pickup_address' => 'required',
@@ -89,7 +96,7 @@ class CreateShipment extends Component
 
 
         DB::table('shipments')->insert([
-            'organization_id' => $this->organization,
+            'organization_id' => $this->organization['mask'],
             'driver_id' => $this->driver_id,
             'broker_id' => whichUser()->mask,
             'loads' => json_encode($this->loads),
@@ -115,7 +122,7 @@ class CreateShipment extends Component
             }
         }
 
-        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->get(['name', 'phone', 'mask']);
+        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->where('shipment_status','Unassigned')->get(['name', 'phone', 'mask']);
 
         return view('shipments.create-shipment')->extends(whichUser()->getTable() == "brokers" ? 'layout.roles.broker' : 'layout.roles.organization')->section('content');
     }

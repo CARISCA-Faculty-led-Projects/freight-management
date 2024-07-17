@@ -103,6 +103,20 @@ class ShipmentsController extends Controller
         return back()->with('success', 'Shipment delivery started');
     }
 
+    public function end_delivery($shipment)
+    {
+        DB::table('shipments')->where('mask', $shipment)->update(['shipment_status' => 'Delivered']);
+        // notify senders with load in shipment
+        return back()->with('success', 'Shipment delivery started');
+    }
+
+    public function cancel_delivery($shipment)
+    {
+        DB::table('shipments')->where('mask', $shipment)->update(['shipment_status' => 'Cancelled']);
+        // notify senders with load in shipment
+        return back()->with('success', 'Shipment delivery cancelled');
+    }
+
     public function shipment_loads($shipment_id)
     {
         $shipment = DB::table('shipments')->where('mask', $shipment_id)->first();
@@ -171,6 +185,10 @@ class ShipmentsController extends Controller
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
+        $driver = DB::table('drivers')->where('mask',$request->driver_id);
+        $msg = "Hello {$driver->first()->name}, You have been assigned a shipment";
+        sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
+        $driver->update(['shipment_status'=> "Assigned"]);
         DB::table('loads')->whereIn('mask', $request->loads)->update(['shipment_status' => "Assigned"]);
 
         return redirect(route(whichUser()->getTable() == 'brokers' ? 'broker.shipments.list' : 'org.shipments.list'));
@@ -201,6 +219,7 @@ class ShipmentsController extends Controller
 
         $req = [];
         $req['driver_id'] = $request->driver_id;
+        $req['organization_id'] = $request->organization_id;
         $req['loads'] = json_encode($request->loads);
         $req['description'] = $request->description;
         $req['starting_point'] = $request->starting_point;
@@ -225,6 +244,11 @@ class ShipmentsController extends Controller
                 DB::table('loads')->where('mask', $load)->update(['shipment_status' => "Unassigned"]);
             }
         }
+
+        $driver = DB::table('drivers')->where('mask',$request->driver_id);
+        // $msg = "Hello {$driver->first()->name}, You have been assigned a shipment";
+        // sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
+        $driver->update(['shipment_status'=> "Assigned"]);
 
         DB::table('shipments')->where('mask', $shipment)->update($req);
 

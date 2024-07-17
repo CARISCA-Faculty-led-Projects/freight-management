@@ -9,9 +9,12 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Livewire\Broker\CreateShipment;
+use App\Traits\ResponseTrait;
 
 class LoadsController extends Controller
 {
+    use ResponseTrait;
+
     public function index()
     {
 
@@ -27,6 +30,20 @@ class LoadsController extends Controller
             ->get(['senders.name as sender', 'loads.image', 'loads.pickup_address', 'loads.dropoff_address'])->toArray();
 
         return view('load.overview', compact('loads'));
+    }
+
+    public function overviewMap()
+    {
+        $loads = DB::table('loads')->where('organization_id', whichUser()->mask)
+            ->where('shipment_status', "Unassigned")
+            ->join('senders', 'senders.mask', 'loads.sender_id')
+            ->get(['loads.image', 'loads.mask', 'pickup_address', 'dropoff_address', 'senders.name as sender', 'senders.phone as sender_phone']);
+        foreach ($loads as $load) {
+            $load->pickup_address = json_decode($load->pickup_address);
+            $load->dropoff_address = json_decode($load->dropoff_address);
+        }
+
+        return $this->successResponse('',$loads);
     }
 
 
@@ -200,7 +217,7 @@ class LoadsController extends Controller
     //     $dropoff_address = json_decode($load->dropoff_address);
     //     $paddress = ['name'=>$pickup_address->name,'location'=>['lat'=> floatval($pickup_address->location->lat),'lng'=> floatval($pickup_address->location->lng)]];
     //     $daddress = ['name'=>$dropoff_address->name,'location'=>['lat'=> floatval($dropoff_address->location->lat),'lng'=> floatval($dropoff_address->location->lng)]];
-       
+
     //     // DB::table('loads')->where('mask',$load->mask)->update(['pickup_address'=> $paddress,'dropoff_address'=>$daddress]);
     // }
 
@@ -356,5 +373,10 @@ class LoadsController extends Controller
         } else {
             return redirect(route('org.load.board'))->with('success', "Edit successful");
         }
+    }
+
+    public function bids(){
+        
+        return view('load.bids');
     }
 }

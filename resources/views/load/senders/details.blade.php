@@ -1,5 +1,5 @@
 {{-- @if ($user != 'organization') --}}
-@extends(whichUser()->getTable() == 'senders' ? 'layout.roles.sender' : 'layout.roles.organization')
+@extends('layout.roles.all')
 
 @section('content')
     <!--begin::Content-->
@@ -234,6 +234,19 @@
                                                             @foreach ($handling as $item)
                                                                 <span class="badge badge-dark">{{ $item }}</span>
                                                             @endforeach
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-calendar fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>Budget
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                          GHc {{ $load->budget }}                                                           
                                                         </td>
                                                     </tr>
                                                     <tr>

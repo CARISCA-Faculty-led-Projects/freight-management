@@ -108,7 +108,7 @@
                                     <th class="min-w-105px">Image</th>
                                     <th class="min-w-105px">Sender</th>
                                     <th class="min-w-105px">Organization</th>
-                                    <th class="text-center min-w-70px">Status</th>
+                                    <th class="text-center min-w-70px">Payment status</th>
                                     <th class="text-end min-w-70px">Shipment Status</th>
                                     <th class="text-end min-w-100px">Size</th>
                                     <th class="text-end min-w-100px">Pickup</th>
@@ -128,9 +128,8 @@
                                         </td>
                                         <td>{{ $load->mask }}</td>
                                         <td>{{ $load->load_type }}</td>
-                                        <td><img class="w-20px"
-                                            src="{{ asset('storage/loads/' . $load->image) }}" alt=""
-                                            srcset=""></td>
+                                        <td><img class="w-20px" src="{{ asset('storage/loads/' . $load->image) }}"
+                                                alt="" srcset=""></td>
                                         <td>{{ $load->name }}</td>
                                         <td id="orgStat" class="text-center pe-0">
                                             <div
@@ -141,16 +140,10 @@
                                         <td class="text-center pe-0">
                                             <!--begin::Badges-->
                                             <div
-                                                class="badge @if ($load->status == 'Approved') badge-light-primary
-                                                    @elseif($load->status == 'Pending')
-                                                    badge-light-warning text-dark
-                                                    @elseif($load->status == 'Rejected')
-                                                    badge-light-danger
-                                                    @elseif($load->status == 'Paid')
-                                                    badge-light-success
-                                                    @else
-                                                    badge-light-primary @endif">
-                                                {{ $load->status }}</div>
+                                                class="badge @if ($load->payment_status == 'Unpaid') badge-light-danger
+                                                    @elseif($load->payment_status == 'Paid')
+                                                    badge-light-success @endif">
+                                                {{ $load->payment_status }}</div>
                                             {{-- | <div
                                                 class="badge @if ($load->payment_status == 'Unpaid') badge-light-warning text-dark
                                                     @elseif($load->payment_status == 'Paid')

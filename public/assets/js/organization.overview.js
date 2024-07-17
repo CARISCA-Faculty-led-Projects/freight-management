@@ -71,25 +71,26 @@ async function initMap() {
     var mapDataKeys = Object.keys(mapData);
     mapDataKeys.forEach((option) => {
         const markers = [];
-        // console.log(mapData[option]);
+        console.log(mapData[option]);
         if (option == 'loads') {
             const markers = mapData[option].map((load) => {
                 const ltn = load.pickup_address.location;
+                if (ltn.lat != null && ltn.lng != null) {
+                    const marker = new google.maps.marker.AdvancedMarkerElement({
+                        position: {
+                            lat: ltn.lat,
+                            lng: ltn.lng
+                        },
+                        content: buildLoadContent(load),
+                    });
 
-                const marker = new google.maps.marker.AdvancedMarkerElement({
-                    position: {
-                        lat: ltn.lat,
-                        lng: ltn.lng
-                    },
-                    content: buildLoadContent(load),
-                });
-
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                    toggleHighlight(marker, option);
-                });
-                return marker;
+                    // markers can only be keyboard focusable when they have click listeners
+                    // open info window when marker is clicked
+                    marker.addListener("click", () => {
+                        toggleHighlight(marker, option);
+                    });
+                    return marker;
+                }
             });
 
             // Add a marker clusterer to manage the markers.
@@ -100,21 +101,23 @@ async function initMap() {
         } else if (option == 'drivers') {
             const markers = mapData[option].map((driver) => {
                 const ltn = driver.last_location;
+                if (ltn.lat != null && ltn.lng != null) {
 
-                const marker = new google.maps.marker.AdvancedMarkerElement({
-                    position: {
-                        lat: ltn.lat,
-                        lng: ltn.lng
-                    },
-                    content: buildDriverContent(driver),
-                });
+                    const marker = new google.maps.marker.AdvancedMarkerElement({
+                        position: {
+                            lat: ltn.lat,
+                            lng: ltn.lng
+                        },
+                        content: buildDriverContent(driver),
+                    });
 
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                    toggleHighlight(marker, option);
-                });
-                return marker;
+                    // markers can only be keyboard focusable when they have click listeners
+                    // open info window when marker is clicked
+                    marker.addListener("click", () => {
+                        toggleHighlight(marker, option);
+                    });
+                    return marker;
+                }
             });
 
             // Add a marker clusterer to manage the markers.

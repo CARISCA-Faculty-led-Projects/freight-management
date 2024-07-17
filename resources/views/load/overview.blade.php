@@ -99,7 +99,7 @@
     <!--end::Scrolltop-->
     </div>
 
-    <script>
+    {{-- <script>
         // Initialize and add the map
         const locations = document.getElementById('locs').innerText;
         const mapLocs = JSON.parse(locations);
@@ -130,46 +130,22 @@
 
             const markers = mapLocs.map((position, i) => {
                 const ltn = position.position;
-                const priceTag = document.createElement("div");
-
-                priceTag.className = "price-tag";
-                priceTag.textContent = position.label;
-
+              console.log(position);
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
                         lat: parseFloat(ltn.lat),
                         lng: parseFloat(ltn.lng)
                     },
-                    content: priceTag,
+                    content: buildLoadContent(position),
                 });
 
                 // markers can only be keyboard focusable when they have click listeners
                 // open info window when marker is clicked
                 marker.addListener("click", () => {
-                    // infoWindow.setContent(ltn.lat + ", " + ltn.lng);
-                    // infoWindow.open(map, marker);
-                    // addPos({
-                    //     lat: parseFloat(ltn.lat),
-                    //     lng: parseFloat(ltn.lng)
-                    // });
+                    toggleHighlight(marker,position);
                 });
                 return marker;
             });
-
-            function addPos(location) {
-
-                flightPathCoordinates.push(location);
-                console.log(flightPathCoordinates);
-
-                flightPath = new google.maps.Polyline({
-                    path: flightPathCoordinates,
-                    strokeColor: "#FF0000",
-                    strokeOpacity: 1.0,
-                    strokeWeight: 2,
-                });
-
-                flightPath.setMap(map);
-            }
 
             // Add a marker clusterer to manage the markers.
             new markerClusterer.MarkerClusterer({
@@ -177,7 +153,38 @@
                 map
             });
         }
-    </script>
+
+        function toggleHighlight(markerView, property) {
+            if (markerView.content.classList.contains("highlight")) {
+                markerView.content.classList.remove("highlight");
+                markerView.zIndex = null;
+            } else {
+                markerView.content.classList.add("highlight");
+                markerView.zIndex = 1;
+            }
+        }
+
+        function buildLoadContent(load) {
+            const content = document.createElement("div");
+            content.classList.add("property");
+            content.innerHTML = `
+      <div class="icon">
+      <img src="/assets/media/icons/boxes.png"/>
+      </div>
+      <div class="details mt-2">
+          <div class="price">Load #${load.mask}</div>
+          <div class="price">Sender name: ${load.sender}</div>
+          <div class="address mb-3">Sender phone: ${load.sender_phone}</div>
+          <div class="price">Load dropoff: ${load.dropoff_address.name}</div>
+
+            </div>
+      `;
+            return content;
+        }
+    </script> --}}
+    <script src="{{ asset('assets/js/org.load.overview.js') }}"></script>
     <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap">
+    </script>
 @endsection

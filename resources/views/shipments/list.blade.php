@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends('layout.roles.all')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -175,7 +175,17 @@
                                     <td class="text-end">{{ $shipment->destination }}</td>
                                     <td class="text-end pe-0" data-order="Delivering">
                                         <!--begin::Badges-->
-                                        <div class="badge badge-light-warning">{{ $shipment->shipment_status }}</div>
+                                        <div
+                                                class="badge @if ($shipment->shipment_status == 'Unassigned') badge-light-danger
+                                                @elseif($shipment->shipment_status == 'On route')
+                                                badge-light-warning
+                                                @elseif($shipment->shipment_status == 'Delivered')
+                                                badge-light-success
+                                                @elseif($shipment->shipment_status == 'Cancelled')
+                                                badge-light-secondary
+                                                @else
+                                                badge-light-primary @endif">
+                                                {{ $shipment->shipment_status }}</div>
                                         <!--end::Badges-->
                                     </td>
                                     <td class="text-end">

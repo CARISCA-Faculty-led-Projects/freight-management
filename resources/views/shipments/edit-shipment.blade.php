@@ -174,6 +174,25 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
+                                <label class="form-label">Assigned Organization</label>
+                                <!--end::Label-->
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
+                                    name="organization_id" data-hide-search="true" data-placeholder="Select an organization">
+                                    @foreach ($this->getOrgs() as $org)
+                                        <option value="{{ $org->mask }}" {{ $this->organization['mask'] == $org->mask ? "selected" : '' }}>{{ $org->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                @error('organization_id')
+                                    <span class="text-danger">{{ $message }}</span>
+                                @enderror
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="mb-10 fv-row">
+                                <!--begin::Label-->
                                 <label class="form-label">Shipment Description</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
@@ -307,10 +326,8 @@
                                         class="form-select mb-2 @error('driver_id')border-danger @enderror basic-select2"
                                         name="driver_id" data-hide-search="true" data-placeholder="Select a sender"
                                         id="kt_ecommerce_add_category_store_template">
-                                        <option value="{{ $this->driver['mask'] }}">{{ $this->driver['name'] }}
-                                        </option>
                                         @foreach ($this->getDrivers() as $driver)
-                                            <option value="{{ $driver->mask }}">{{ $driver->name }}
+                                            <option value="{{ $driver->mask }}" {{ $this->driver['mask'] == $driver->mask ? "selected" : ''}}>{{ $driver->name }}
                                             </option>
                                         @endforeach
                                     </select>
@@ -379,7 +396,7 @@
         });
 
         directionsRenderer.setMap(map);
-        
+
         showRoute(directionsService, directionsRenderer);
         // directionsRenderer.setPanel(document/.getElementById("sidebar"));
 
@@ -474,5 +491,7 @@
     });
 </script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap">
+</script>
 </div>

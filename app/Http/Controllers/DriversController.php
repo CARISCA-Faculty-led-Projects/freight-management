@@ -67,6 +67,13 @@ class DriversController extends Controller
 
     public function shipments(){
         $shipments = DB::table('shipments')->where("driver_id",whichUser()->mask)->orderByDesc('created_at')->get();
+        foreach($shipments as $shipment){
+            $shipmentLoads = json_decode($shipment->loads);
+            // dd();
+            $loads = DB::table('loads')->whereIn('mask',$shipmentLoads)->where('shipment_status',"Delivered")->count();
+
+            $shipment->load_delivered = $loads;
+        }
         return view('fleet.drivers.shipments',compact('shipments'));
     }
 

@@ -1,4 +1,4 @@
-@extends('layout.app');
+@extends('layout.roles.all');
 @section('content');
 <div id="kt_app_content" class="app-content flex-column-fluid">
     <!--begin::Toolbar-->

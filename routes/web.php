@@ -197,17 +197,17 @@ Route::middleware('auth:organizations')->group(function () {
             Route::get('{broker}/login', [BrokersController::class, 'loginAs'])->name('org.broker.login');
         });
         Route::prefix('load')->group(function () {
-           
-
             // Loads
             Route::controller(LoadsController::class)->group(function () {
                 Route::get('overview', 'overview')->name('org.load.overview');
+                Route::get('overview-map-data', 'overviewMap');
                 Route::get('list', 'index')->name('loads');
                 Route::get('{load}/delete', 'delete')->name('loads.delete');
                 Route::get('{load}/details', 'details')->name('loads.details');
                 Route::post('assign', 'orgLoadAssign')->name('org.loads.assign');
                 Route::post('save', 'store')->name('org.load.save');
                 Route::post('{load}/edit', 'update')->name('org.load.update');
+                Route::get('bids', 'bids');
             });
             Route::get('add', AddLoad::class)->name('org.load.add');
             Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
@@ -218,9 +218,7 @@ Route::middleware('auth:organizations')->group(function () {
                 });
             });
 
-            Route::get('bids', function () {
-                return view('load.bids');
-            });
+           
             Route::get('locate', function () {
                 return view('load.locate');
             });
@@ -331,6 +329,8 @@ Route::middleware('auth:drivers')->group(function () {
         Route::prefix('shipment')->group(function () {
             Route::controller(ShipmentsController::class)->group(function () {
                 Route::get('{shipment}/start-shipment', 'start_delivery')->name('driver.start-delivery');
+                Route::get('{shipment}/end-shipment', 'end_delivery')->name('driver.end-delivery');
+                Route::get('{shipment}/cancel-shipment', 'cancel_delivery')->name('driver.cancel-delivery');
                 Route::get('{shipment}/loads', 'shipment_loads')->name('driver.shipment.loads.view');
             });
             Route::controller(LoadsController::class)->group(function () {
