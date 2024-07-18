@@ -423,8 +423,6 @@
                                         id="dropoff_address">
                                         <option value="">{{ old('dropoff_address') }}</option>
                                     </select>
-                                    {{-- <input type="text" class="form-control mb-2" wire:model="dropoff_address"
-                                        placeholder="eg. 1 Container" /> --}}
                                     <!--end::Input-->
                                     <!--begin::Description-->
                                     <div class="text-muted fs-7">Set a shipping address. This is where
@@ -475,60 +473,15 @@
                                 <!--end::Conditions-->
                                 <!--begin::Repeater-->
                                 <div id="kt_ecommerce_add_category_conditions">
-                                    @for ($i = 0; $i < count($this->subload); $i++)
-                                        <!--begin::Form group-->
-                                        <div class="form-group mb-4">
-                                            <div data-repeater-list="kt_ecommerce_add_category_conditions"
-                                                class="d-flex flex-column gap-3">
-                                                <div data-repeater-item=""
-                                                    class="form-group d-flex flex-wrap align-items-center gap-5">
-                                                    <!--begin::Select2-->
-                                                    <!--begin::Input-->
-                                                    <input type="text" class="form-control mw-100 w-200px"
-                                                        name="subload[{{ $i }}][name]"
-                                                        placeholder="Item Name" />
-                                                    <!--end::Input-->
-                                                    <div class="w-100 w-md-200px">
-                                                        <select class="form-select"
-                                                            name="subload[{{ $i }}][load_type]">
-                                                            <option value="">--select category--</option>
-                                                            @foreach ($this->loads() as $load)
-                                                                <option value="{{ $load->name }}">
-                                                                    {{ $load->name }}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                    <!--end::Select2-->
-                                                    <!--begin::Input-->
-                                                    <input type="number" class="form-control mw-100 w-100px"
-                                                        name="subload[{{ $i }}][quantity]"
-                                                        placeholder="Quantity" />
-                                                    <!--end::Input-->
-                                                    <!--begin::Input-->
-                                                    <input type="number" class="form-control mw-100 w-200px"
-                                                        name="subload[{{ $i }}][value]"
-                                                        placeholder="Value eg. 120.00" />
-                                                    <!--end::Input-->
-                                                    <!--begin::Button-->
-                                                    <button type="button"
-                                                        wire:click="delSubLoad({{ $i }})"
-                                                        class="btn btn-sm btn-icon btn-light-danger">
-                                                        <i class="ki-duotone ki-cross fs-2">
-                                                            <span class="path1"></span>
-                                                            <span class="path2"></span>
-                                                        </i>
-                                                    </button>
-                                                    <!--end::Button-->
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endfor
+                                    <div class="subs" id="subLoads_group" data-load-categories="{{ $this->loads() }}">
+
+                                    </div>
                                     <!--end::Form group-->
                                     <!--begin::Form group-->
                                     <div class="form-group mt-5">
                                         <!--begin::Button-->
                                         <button type="button"
-                                            wire:click="addSubLoad({{ count($this->subload) + 1 }})"
+                                            id="addSubLoad"
                                             class="btn btn-sm btn-light-primary">
                                             <i class="ki-duotone ki-plus fs-2"></i>Add another
                                             condition</button>
@@ -631,7 +584,7 @@
                             </div>
                             <!--end::Input group-->
                             <!--begin::Description-->
-                            <div class="text-muted fs-7">Upload the other relevant documents here.
+                            <div class="text-muted fs-7">Upload the other relevant documents like a bill of leading and weigh hill.
                             </div>
                             <!--end::Description-->
                         </div>

@@ -43,7 +43,7 @@ class LoadsController extends Controller
             $load->dropoff_address = json_decode($load->dropoff_address);
         }
 
-        return $this->successResponse('',$loads);
+        return $this->successResponse('', $loads);
     }
 
 
@@ -77,7 +77,7 @@ class LoadsController extends Controller
     public function s_index()
     {
 
-        $loads = DB::table('loads')->where('sender_id', Auth::user()->mask)->get();
+        $loads = DB::table('loads')->where('sender_id', Auth::user()->mask)->orderByDesc('created_at')->get();
 
         return view('load.senders.list', compact('loads'));
     }
@@ -223,28 +223,34 @@ class LoadsController extends Controller
 
     public function s_store(Request $request)
     {
-
         $validated = Validator::make($request->all(), [
-            'length' => 'required|numeric',
-            'weight' => 'required|numeric',
-            'height' => 'required|numeric',
-            'breadth' => 'required|numeric',
-            'insurance_docs' => 'required|mimes:pdf,docx,doc',
-            'image' => 'required|mimes:png,jpg,jpeg',
+            'length' => 'nullable|numeric',
+            'weight' => 'nullable|numeric',
+            'height' => 'nullable|numeric',
+            'breadth' => 'nullable|numeric',
+            'insurance_docs' => 'nullable|mimes:pdf,docx,doc',
+            'image' => 'nullable|mimes:png,jpg,jpeg',
             'other_docs' => 'nullable|mimes:pdf,docx,doc',
             'handling' => 'required'
         ])->validate();
 
 
         $load_id = generateNumber();
-
-        $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
-        $request->image->storeAs('loads', $imagename, 'real_public');
-
-        $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
-        $request->insurance_docs->storeAs('loads', $ins, 'real_public');
-
         $oth = null;
+        $ins = null;
+        $imagename = null;
+
+
+        if (is_file($request->image)) {
+            $imagename = uniqid() . '.' . $request->image->getClientOriginalExtension();
+            $request->image->storeAs('loads', $imagename, 'real_public');
+        }
+
+        if (is_file($request->insurance_docs)) {
+            $ins = uniqid() . '.' . $request->insurance_docs->getClientOriginalExtension();
+            $request->insurance_docs->storeAs('loads', $ins, 'real_public');
+        }
+
         if (is_file($request->other_docs)) {
             $oth = uniqid() . '.' . $request->other_docs->getClientOriginalExtension();
             $request->other_docs->storeAs('loads', $oth, 'real_public');
@@ -256,7 +262,7 @@ class LoadsController extends Controller
         $req['insurance_docs'] = $ins;
         $req['other_docs'] = $oth;
         $req['mask'] = $load_id;
-        $req['status'] = "Pending";
+        $req['status'] = $request->status;
         $req['shipment_status'] = "Unassigned";
         $req['load_type'] = $request->load_type;
         $req['sender_id'] = whichUser()->mask;
@@ -300,7 +306,7 @@ class LoadsController extends Controller
     public function update(Request $request, $load_id)
     {
         $validated = Validator::make($request->all(), [
-            'sender_id' => 'required'
+            'sender_id' => 'nullable'
         ])->validate();
 
         $load = DB::table('loads')->where('mask', $load_id)->first();
@@ -333,7 +339,7 @@ class LoadsController extends Controller
         }
 
         $req['status'] = $request->status;
-        $req['sender_id'] = $request->sender_id;
+        // $req['sender_id'] = $request->sender_id;
         $req['load_type'] = $request->load_type;
         $req['description'] = $request->description;
         $req['quantity'] = $request->quantity;
@@ -353,14 +359,15 @@ class LoadsController extends Controller
         }
 
         DB::table('loads')->where('mask', $load_id)->update($req);
-
         if ($request->subload != null) {
+            DB::table('sub_loads')->where('load_id', $load_id)->delete();
+
             foreach ($request->subload as $sload) {
                 if (array_key_exists('id', $sload)) {
-                    $this->subload['updated_at'] = Carbon::now()->toDateTimeString();
-                    DB::table('sub_loads')->where('load_id', $sload['load_id'])->where('id', $sload['id'])->update($sload);
+                    $sload['updated_at'] = Carbon::now()->toDateTimeString();
+                    $sload['load_id'] = $load_id;
+                    DB::table('sub_loads')->insert($sload);
                 } else {
-                    dd($sload);
                     $sload['load_id'] = $load_id;
                     $sload['created_at'] = Carbon::now()->toDateTimeString();
                     DB::table('sub_loads')->insert($sload);
@@ -375,8 +382,8 @@ class LoadsController extends Controller
         }
     }
 
-    public function bids(){
-        
+    public function bids()
+    {
         return view('load.bids');
     }
 }

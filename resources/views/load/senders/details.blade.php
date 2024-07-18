@@ -246,7 +246,7 @@
                                                             </div>
                                                         </td>
                                                         <td class="fw-bold text-end">
-                                                          GHc {{ $load->budget }}                                                           
+                                                          GHc {{ $load->budget }}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -517,7 +517,7 @@
                                             <thead>
                                                 <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
                                                     <th class="min-w-175px">Product</th>
-                                                    <th class="min-w-100px text-end">SKU</th>
+                                                    <th class="min-w-100px text-end">Category</th>
                                                     <th class="min-w-70px text-end">Qty</th>
                                                     <th class="min-w-100px text-end">Value Price
                                                     </th>
@@ -525,28 +525,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody class="fw-semibold text-gray-600">
+                                                @php
+                                                    $total = 0;
+                                                @endphp
                                                 @foreach ($subload as $load)
+                                                @php
+                                                    $total += $load->quantity * $load->value
+                                                @endphp
                                                     <tr>
                                                         <td>
                                                             <div class="d-flex align-items-center">
-                                                                <!--begin::Thumbnail-->
-                                                                <a href="/apps/ecommerce/catalog/edit-product"
-                                                                    class="symbol symbol-50px">
-                                                                    <span class="symbol-label"
-                                                                        style="background-image:url(assets/media//stock/ecommerce/1.png);"></span>
-                                                                </a>
-                                                                <!--end::Thumbnail-->
                                                                 <!--begin::Title-->
                                                                 <div class="ms-5">
-                                                                    <a href="/apps/ecommerce/catalog/edit-product"
-                                                                        class="fw-bold text-gray-600 text-hover-primary">{{ $load->name }}</a>
-                                                                    <div class="fs-7 text-muted">
-                                                                        Category: {{ $load->load_type }}</div>
+                                                                    <span class="fw-bold text-gray-600 text-hover-primary">{{ $load->name }}</span>
+
                                                                 </div>
                                                                 <!--end::Title-->
                                                             </div>
                                                         </td>
-                                                        <td class="text-end">04726008</td>
+                                                        <td class="text-end">{{ $load->load_type }}</td>
                                                         <td class="text-end">{{ $load->quantity }}</td>
                                                         <td class="text-end">GHS {{ $load->value }}</td>
                                                         <td class="text-end">GHS {{ $load->quantity * $load->value }}</td>
@@ -554,9 +551,9 @@
                                                 @endforeach
                                                 <tr>
                                                     <td colspan="4" class="text-end">Subtotal</td>
-                                                    <td class="text-end">GHS 264,000.00</td>
+                                                    <td class="text-end">GHS {{ number_format($total,2) }}</td>
                                                 </tr>
-                                                <tr>
+                                                {{-- <tr>
                                                     <td colspan="4" class="text-end">VAT (0%)</td>
                                                     <td class="text-end">GHS 0.00</td>
                                                 </tr>
@@ -564,12 +561,12 @@
                                                     <td colspan="4" class="text-end">Shipping Rate
                                                     </td>
                                                     <td class="text-end">GHS 5.00</td>
-                                                </tr>
+                                                </tr> --}}
                                                 <tr>
                                                     <td colspan="4" class="fs-3 text-dark text-end">
                                                         Grand Total</td>
                                                     <td class="text-dark fs-3 fw-bolder text-end">
-                                                        GHS 264,000.00</td>
+                                                        GHS {{ number_format($total,2) }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

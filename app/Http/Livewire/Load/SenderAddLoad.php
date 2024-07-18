@@ -59,7 +59,7 @@ class SenderAddLoad extends Component
             'weight' => 'required|numeric',
             'height' => 'required|numeric',
             'breadth' => 'required|numeric',
-            'insurance_docs' => 'required|mimes:pdf,docx,doc',
+            'insurance_docs' => 'nullable|mimes:pdf,docx,doc',
             'image' => 'required|mimes:png,jpg,jpeg',
             'other_docs' => 'required|mimes:pdf,docx,doc',
             'handling' => 'required'

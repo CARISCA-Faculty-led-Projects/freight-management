@@ -117,6 +117,71 @@ $("document").ready(function () {
         console.log(even.target.value);
     });
 
+    $('#addSubLoad').on('click', function () {
+        var total = $('#subLoads_group').children().length + 1;
+        // console.log($('#subLoads_group').children().length);
+        addSubload(total);
+    })
+
+    function addSubload(curr, data = null) {
+
+        var subloads = $('#subLoads_group');
+        var categories = subloads.data('load-categories');
+        // console.log();
+
+        const child = `<div class="form-group mb-4">
+        <div data-repeater-list="kt_ecommerce_add_category_conditions"
+            class="d-flex flex-column gap-3">
+            <div data-repeater-item=""
+                class="form-group d-flex flex-wrap align-items-center gap-5">
+                <!--begin::Select2-->
+                <!--begin::Input-->
+                <input type="text" class="form-control mw-100 w-200px"
+                    name="subload[${curr}][name]"
+                    value="${data!= null ? data.name : ''}"
+                    placeholder="Item Name" />
+                <!--end::Input-->
+                <div class="w-100 w-md-200px">
+                    <select class="form-select load_types"
+                        name="subload[${curr}][load_type]">
+                        <option value="">--select category--</option>
+                        ${categories.map((m) => {
+            return `<option value="${m.name}">${m.name}</option>`
+        })}
+                    </select>
+                </div>
+                <!--end::Select2-->
+                <!--begin::Input-->
+                <input type="number" class="form-control mw-100 w-100px"
+                    name="subload[${curr}][quantity]"
+                    placeholder="Quantity" />
+                <!--end::Input-->
+                <!--begin::Input-->
+                <input type="number" class="form-control mw-100 w-200px"
+                    name="subload[${curr}][value]"
+                    placeholder="Value eg. 120.00" />
+                <!--end::Input-->
+                <!--begin::Button-->
+                <button type="button" data-subload="${curr}"
+                    class="btn btn-sm btn-icon btn-light-danger delSubLoad">
+                    <i class="ki-duotone ki-cross fs-2">
+                        <span class="path1"></span>
+                        <span class="path2"></span>
+                    </i>
+                </button>
+                <!--end::Button-->
+            </div>
+        </div>
+    </div>`;
+        subloads.append(child);
+
+    }
+
+    $('.subs').on('click', '.delSubLoad', function () {
+        var subloads = $('#subLoads_group');
+        const sub = $(this).data('subload') - 1;
+        subloads.children()[sub].remove();
+    });
 
 
 });

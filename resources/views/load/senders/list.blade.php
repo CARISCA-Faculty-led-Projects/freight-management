@@ -167,7 +167,7 @@
                                         <span class="fw-bold">{{ $load->quantity }}, {{ $load->weight }} KG,
                                             {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
                                     </td>
-                                   
+
                                     {{-- <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
                                     <td class="text-end">{{ $load->dropoff_address == null? '' :json_decode($load->dropoff_address)->name }}</td> --}}
                                      <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
@@ -215,11 +215,6 @@
                                                 <a href="{{ route('sender.loads.delete', $load->mask) }}"
                                                     onclick="return confirm('Confirm you want to delete load and subloads?')"
                                                     class="menu-link px-3">Delete</a>
-                                            </div>
-                                            <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="/load/locate" class="menu-link px-3">Locate</a>
                                             </div>
                                             <!--end::Menu item-->
                                             <!--begin::Menu item-->

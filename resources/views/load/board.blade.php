@@ -210,7 +210,9 @@
                                                         class="menu-link px-3">Delete</a>
                                                 </div>
                                                 <!--end::Menu item-->
-
+                                                <div class="menu-item px-3">
+                                                    <a href="#" data-bs-toggle="modal" data-bs-target="#view-load-location-modal" class="menu-link px-3">Locate</a>
+                                                </div>
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
                                                     <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
@@ -252,5 +254,6 @@
             </div>
             <!--end::Products-->
         </div>
+        @include('partials.modals.view-load-location')
         <!--end::Content container-->
     </div>
