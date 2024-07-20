@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('bids', function (Blueprint $table) {
             $table->id();
+            $table->foreignUuid('sender_id');
             $table->foreignUuid('broker_id')->nullable();
             $table->string('load_id');
-            $table->string('status');
+            $table->enum('status',['Not Started','Pending','Completed'])->default('Not Started');
             $table->timestamps();
         });
     }

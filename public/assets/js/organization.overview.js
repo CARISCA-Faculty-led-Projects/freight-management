@@ -42,8 +42,6 @@ async function getMapData() {
     return res;
 }
 // Initialize and add the map
-// let map;
-
 async function initMap() {
     // The location of GH
     const main = {
@@ -71,7 +69,6 @@ async function initMap() {
     var mapDataKeys = Object.keys(mapData);
     mapDataKeys.forEach((option) => {
         const markers = [];
-        console.log(mapData[option]);
         if (option == 'loads') {
             const markers = mapData[option].map((load) => {
                 const ltn = load.pickup_address.location;
@@ -293,7 +290,7 @@ function buildShipmentContent(shipment) {
           <div class="price">Shipment #${shipment.shipment}</div>
           <div class="address mt-2">Driver - <strong>${shipment.driver}</strong></div>
           <div class="address mt-2">Driver contact- <strong>${shipment.driver_contact}</strong></div>
-          
+
       </div>
       `;
     return content;
@@ -316,7 +313,7 @@ function buildShipmentContent(shipment) {
 //         mapId: "Loc",
 //     });
 
-//     // get data 
+//     // get data
 //     const mapData = await getMapData();
 
 //     // Add some markers to the map.

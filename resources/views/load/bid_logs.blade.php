@@ -9,8 +9,8 @@
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
                     <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Load
-                        Request
-                        Negotiations</h1>
+                        #{{ $bid->load_id }}
+                        Bid Logs</h1>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -35,7 +35,7 @@
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
-                        <li class="breadcrumb-item text-muted">Load Negotiation</li>
+                        <li class="breadcrumb-item text-muted">Bid Logs</li>
                         <!--end::Item-->
                     </ul>
                     <!--end::Breadcrumb-->
@@ -68,13 +68,26 @@
                         <div class="card-header pt-7">
                             <!--begin::Title-->
                             <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-gray-800">Active Negotiations</span>
-                                <span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span>
+                                <span class="card-label fw-bold text-gray-800">Bid Negotiations History</span>
+                                {{-- <span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span> --}}
                             </h3>
                             <!--end::Title-->
                             <!--begin::Toolbar-->
                             <div class="card-toolbar">
-                                <a href="/loads/bids" class="btn btn-sm btn-light">History</a>
+                                {{ $agree }}
+                                <h3 class="card-title d-flex align-items-start flex-column">
+                                    <span class="card-label fw-bold text-gray-800">Last offer</span>
+                                    <span class="text-gray-400 mt-1 fw-semibold fs-6">{{ $recent->offer }}</span>
+                                    <a href="" class="text-gray-400 mt-1 fw-semibold fs-6 btn btn-primary">Agree</a>
+                                </h3>
+                            </div>
+                            <!--end::Toolbar-->
+                            <!--begin::Toolbar-->
+                            <div class="card-toolbar">
+                                <a href="#" data-bs-target="#kt_modal_bid" data-bs-toggle="modal"
+                                    class="btn btn-bg-primary text-white btn-active-color-primary h-40px">
+                                    <i class="ki-duotone ki-black-chart fs-2"></i>Negotiate
+                                </a>
                             </div>
                             <!--end::Toolbar-->
                         </div>
@@ -88,63 +101,38 @@
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr class="fs-5 fw-bold text-dark border-bottom-0">
-                                            <th class="p-0 pb-3 text-start">ID</th>
-                                            <th class="p-0 pb-3 w-250px text-end">Sender</th>
-                                            <th class="p-0 pb-3 text-end">Status</th>
-                                            <th class="p-0 pb-3 text-end">Load #</th>
-                                            <th class="p-0 pb-3 text-end">Sender Budget</th>
-                                            <th class="p-0 pb-3 min-w-50px text-end">Agreed Prize</th>
-                                            <th class="p-0 pb-3 w-250px text-end">VIEW</th>
+                                            <th class="p-0 pb-3 text-start">#</th>
+                                            <th class="p-0 pb-3 w-250px text-center">Offer from</th>
+                                            <th class="p-0 pb-3 text-center">Offer</th>
+                                            <th class="p-0 pb-3 w-250px text-center">Message</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
-                                    <tbody class="bid_list">
-                                        @foreach ($bids as $bid)
+                                    <tbody>
+                                        @foreach ($bid_history as $bid)
                                             <tr>
                                                 <td>
                                                     {{ $loop->iteration }}
                                                 </td>
                                                 <td class="text-end pe-0">
                                                     <div class="d-flex w-250px justify-content-start flex-column">
-                                                        <a href="#"
-                                                            class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">{{ $bid->sender }}</a>
-                                                        <span
-                                                            class="text-gray-400 fw-semibold d-block fs-7">{{ $bid->sender_phone }}</span>
+                                                        <div class="d-flex align-items-center justify-content-center">
+                                                            <span
+                                                                class="text-gray-600 fw-bold d-block fs-6">{{ ucwords(rtrim($bid->offer_from, 's')) }}</span>
+                                                        </div>
                                                     </div>
                                                 </td>
-                                                <td class="text-end pe-0">
-                                                    <span class="badge badge-success">{{ $bid->status }}d</span>
-                                                </td>
-                                                <td class="text-end pe-0">
-                                                    <span class="text-gray-600 fw-bold fs-6">{{ $bid->load_id }}
-                                                    </span>
-                                                </td>
-                                                <td class="text-end pe-0">
-                                                    <span class="text-gray-600 fw-bold fs-6">GHS {{ $bid->budget }}</span>
-                                                </td>
-                                                <td class="pe-0">
-                                                    <div class="d-flex align-items-center justify-content-end">
+                                                <td class="text-center pe-0">
+                                                    <div class="d-flex align-items-center justify-content-center">
                                                         <span class="text-gray-600 fw-bold d-block fs-6">GHS
-                                                            {{ $bid->price }}</span>
+                                                            {{ $bid->offer }}</span>
                                                     </div>
                                                 </td>
-                                                <td class="text-end">
-                                                    @if ($bid->broker_id == null)
-                                                        <span id="negotiate"
-                                                             data-bid-id="{{ $bid->id }}" data-load-id="{{ $bid->load_id }}"
-                                                            class="btn btn-primary text-white">
-                                                            <i
-                                                                class="ki-duotone ki-black-right fs-2 text-white"></i>Negotiate
-                                                        </span>
-                                                    @else
-                                                        <a href="{{ route('broker.load.bid-logs', $bid->load_id) }}"
-                                                            class="btn btn-bg-primary text-white h-40px">
-                                                            <i class="ki-duotone ki-black-right fs-2 text-white"></i>View
-                                                            Log
-                                                        </a>
-                                                    @endif
+                                                <td class="text-center pe-0">
+                                                    <p name="" id="">{{ $bid->message }}</->
                                                 </td>
+
                                             </tr>
                                         @endforeach
                                     </tbody>
@@ -197,12 +185,13 @@
                 <!--begin::Modal body-->
                 <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
                     <!--begin:Form-->
-                    <form class="form" action="{{ route('broker.make-offer') }}" method="POST">
+                    <form class="form" method="POST"
+                        action="{{ route(whichUser()->getTable() == 'senders' ? 'sender.make-offer' : 'broker.make-offer') }}">
                         @csrf
                         <!--begin::Heading-->
                         <div class="mb-13 text-center">
                             <!--begin::Title-->
-                            <input type="hidden" id="bid_id" name="bid_id">
+                            <input type="hidden" name="bid_id" value="{{ $bid->id }}">
                             <h1 class="mb-3">Make an Offer</h1>
                             <!--end::Title-->
                             <!--begin::Description-->
@@ -226,15 +215,15 @@
                                 </span>
                             </label>
                             <!--end::Label-->
-                            <input type="text" class="form-control form-control-solid"
-                                placeholder="Enter Offer Amount" name="offer" />
+                            <input type="text" class="form-control form-control-solid" placeholder="Enter Offer Amount"
+                                name="offer" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->
                         <div class="fv-row mb-8">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
-                                <span class="">Message</span>
+                                <span class="required">Message</span>
                                 <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
                                     <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
                                         <span class="path1"></span>
@@ -294,7 +283,6 @@
         </div>
         <!--end::Modal dialog-->
     </div>
-    <!--end::Modal - New Target-->
     <script>
         $('document').ready(function() {
             $('.bid_list').on('click', '#negotiate', function() {
@@ -305,4 +293,5 @@
             })
         });
     </script>
+    <!--end::Modal - New Target-->
 @endsection

@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('bids_history', function (Blueprint $table) {
             $table->id();
-            $table->string('bid_id');
-            $table->string('sender_id');
-            $table->string('broker_id')->nullable();
-            $table->string('sender_id');
-            $table->string('offer');
-            $table->timestamps();
+            $table->foreignId('bid_id')->constrained('bids','id')->onDelete('cascade');
+            $table->string('offer_from');
+            $table->string('user_id');
+            $table->float('offer');
+            $table->text('message')->nullable();
+            $table->timestamp('created_at');
         });
     }
 

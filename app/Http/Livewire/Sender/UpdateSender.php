@@ -50,7 +50,7 @@ class UpdateSender extends Component
         $validated = Validator::make($this->sender, [
             'email' => 'required',
             'name' => 'required',
-            'national_id' => 'required',
+            'national_id' => 'nullable',
         ])->validate();
 
 

@@ -2,14 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use Reflector;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Api\ShipmentsController;
+use App\Http\Controllers\Controller;
 use App\Http\Livewire\Broker\CreateShipment;
 use App\Traits\ResponseTrait;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Validator;
+use Reflector;
 
 class LoadsController extends Controller
 {
@@ -84,15 +87,27 @@ class LoadsController extends Controller
 
     public function board()
     {
-        $loads = DB::table('loads')->join('senders', 'senders.mask', 'loads.sender_id')->select('senders.name', 'loads.*')->orderByDesc('created_at')->get();
+        // $loads = DB::table('loads')->join('senders', 'senders.mask', 'loads.sender_id')->select('senders.name', 'loads.*')->orderByDesc('created_at')->get();
+        $loads = DB::table('loads')->where('loads.status', "Completed")->join('senders', 'senders.mask', 'loads.sender_id')->select('loads.*', 'senders.name')->orderByDesc('created_at')->get();
+        $orgs = DB::table("organizations")->where('status', 'Approved')->get(['name', 'mask']);
 
-        return view('organization.loads.board', compact('loads'));
+        foreach ($loads as $load) {
+            if ($load->organization_id) {
+                $organization = DB::table("organizations")->where('mask', $load->organization_id)->first('name');
+                $load->organization = $organization->name;
+            } else {
+                $load->organization = 'Unassigned';
+            }
+        }
+        // dd($loads->mask);
+        // return view('organization.loads.board', compact('loads'));
+        return view('load.board', compact('loads', 'orgs'));
     }
 
     public function completed($load)
     {
-        DB::table('loads')->where('sender_id', whichUser()->mask)->where('mask', $load)->update(['completed' => 1, 'status' => "Completed"]);
-
+        DB::table('loads')->where('sender_id', whichUser()->mask)->where('mask', $load)->update(['completed' => 1, 'status' => "Bidding"]);
+        DB::table('bids')->insert(['load_id' => $load, 'created_at' => Carbon::now()->toDateTimeString()]);
         return redirect()->back()->with('success', "Load marked as completed");
     }
 
@@ -182,7 +197,12 @@ class LoadsController extends Controller
         $req['insurance_docs'] = $ins;
         $req['other_docs'] = $oth;
         $req['mask'] = $load_id;
-        $req['status'] = $request->status;
+        if ($request->status == "Completed") {
+            $req['status'] = "Bidding";
+            $req['completed'] = 1;
+        } else {
+            $req['status'] = $request->status;
+        }
         $req['sender_id'] = $request->sender_id;
         $req['load_type'] = $request->load_type;
         $req['description'] = $request->description;
@@ -199,9 +219,10 @@ class LoadsController extends Controller
         $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
 
         DB::table('loads')->insert($req);
+        DB::table('bids')->insert(['sender_id'=>whichUser()->mask,'load_id' => $load_id, 'created_at' => Carbon::now()->toDateTimeString()]);
+
 
         if ($request->has('subload')) {
-
             foreach ($request->subload as $load) {
                 $load['load_id'] = $load_id;
                 $load['created_at'] = Carbon::now()->toDateTimeString();
@@ -385,5 +406,18 @@ class LoadsController extends Controller
     public function bids()
     {
         return view('load.bids');
+    }
+
+    // public function board()
+    // {
+    //     return view('load.board')->extends('layout.roles.broker')->section('content');
+    // }
+
+    public function locateLoad($load)
+    {
+        $load = DB::table('loads')->where("mask", $load)->first();
+        $sender = DB::table('senders')->where('mask', $load->sender_id)->first();
+
+        return view('load.locate', compact('load', 'sender'));
     }
 }

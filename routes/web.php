@@ -10,6 +10,7 @@ use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Controllers\BidsController;
 use App\Http\Controllers\BrokersController;
 use App\Http\Controllers\ChatsController;
 use App\Http\Controllers\DriversController;
@@ -162,7 +163,7 @@ Route::middleware('auth:organizations')->group(function () {
         Route::get('overview', function () {
             return view('fleet.overview');
         });
-      
+
 
 
         Route::get('maintenance', [VehiclesController::class, 'all_schedules'])->name('schedules.list');
@@ -204,21 +205,23 @@ Route::middleware('auth:organizations')->group(function () {
                 Route::get('list', 'index')->name('loads');
                 Route::get('{load}/delete', 'delete')->name('loads.delete');
                 Route::get('{load}/details', 'details')->name('loads.details');
+                Route::get('{load}/locate', 'locateLoad')->name('org.load.locate');
                 Route::post('assign', 'orgLoadAssign')->name('org.loads.assign');
                 Route::post('save', 'store')->name('org.load.save');
                 Route::post('{load}/edit', 'update')->name('org.load.update');
                 Route::get('bids', 'bids');
+                Route::get('board', 'board')->name('org.load.board');
             });
             Route::get('add', AddLoad::class)->name('org.load.add');
             Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
             // Route::get('s/board', [LoadsController::class, 'board'])->name('org.load.board');
-            Route::prefix('{load}/invoice')->group(function(){
-                Route::controller(InvoiceController::class)->group(function(){
+            Route::prefix('{load}/invoice')->group(function () {
+                Route::controller(InvoiceController::class)->group(function () {
                     Route::get('view', 'view')->name('org.load.invoice.view');
                 });
             });
 
-           
+
             Route::get('locate', function () {
                 return view('load.locate');
             });
@@ -247,8 +250,7 @@ Route::middleware('auth:organizations')->group(function () {
                 Route::get('/', 'index')->name('drivers');
                 Route::get('{driver}/delete', 'delete')->name('driver.delete');
                 Route::get('{driver}/details', 'details')->name('drivers.view');
-            Route::post('update-location', 'updateLocation')->name('driver.update-location');
-
+                Route::post('update-location', 'updateLocation')->name('driver.update-location');
             });
             Route::get('add', AddDriver::class)->name('driver.add');
             Route::get('{mask}/edit', UpdateDriver::class)->name('driver.edit');
@@ -280,14 +282,13 @@ Route::middleware('auth:organizations')->group(function () {
             Route::post('shipment/{shipment}/update', 'update')->name('org.shipment.update');
 
             // Route::post('shipments/create', 'create')->name('shipment.create');
-            Route::get('active-shipment-coordinates','getShipmentCoordinates');
+            Route::get('active-shipment-coordinates', 'getShipmentCoordinates');
         });
         Route::get('shipment/create', CreateShipment::class)->name('org.shipment.create');
         Route::get('shipment/{mask}/edit', EditShipment::class)->name('org.shipment.edit');
         // Shipments end
     });
 
-    Route::get('organization/loads/board', LoadBoard::class)->name('org.load.board');
 
 
 
@@ -383,10 +384,17 @@ Route::middleware('auth:senders')->group(function () {
             Route::get('add', SenderAddLoad::class)->name('sender.load.add');
             Route::get('{load_id}/edit', SenderEditLoad::class)->name('sender.load.edit');
 
+            Route::prefix('bids')->group(function () {
+                Route::name('sender.')->group(function () {
+                    Route::controller(BidsController::class)->group(function () {
+                        Route::get('/', "sender_bids")->name('load.bids');
+                        Route::get('{load}/logs', 'logs')->name('load.bid-logs');
+                        Route::post('offer', 'make_offer')->name('make-offer');
+                    });
+                });
+            });
 
-            Route::get('bids', function () {
-                return view('load.bids');
-            })->name('sender.load.bid');
+
             Route::get('locate', function () {
                 return view('load.locate');
             });
@@ -425,9 +433,19 @@ Route::middleware('auth:brokers')->group(function () {
             Route::get('{broker}/view', 'show')->name('broker.view');
         });
         Route::get('{mask}/profile', UpdateBroker::class)->name('broker.profile');
-        Route::prefix('loads')->group(function () {
+        Route::prefix('load')->group(function () {
             Route::controller(LoadsController::class)->group(function () {
                 Route::post('assign', 'brokerLoadAssign')->name('broker.loads.assign');
+                Route::get('board', 'board')->name('load.board');
+            });
+            Route::prefix('bids')->group(function () {
+                Route::name('broker.')->group(function () {
+                    Route::controller(BidsController::class)->group(function () {
+                        Route::get('', 'index')->name('load.bids');
+                        Route::get('{load}/logs', 'logs')->name('load.bid-logs');
+                        Route::post('offer', 'make_offer')->name('make-offer');
+                    });
+                });
             });
         });
         Route::get('shipment/{mask}/edit', EditShipment::class)->name('broker.shipment.edit');
@@ -452,7 +470,6 @@ Route::middleware('auth:brokers')->group(function () {
 
         // shipments end
     });
-    Route::get('loads/board', LoadBoard::class)->name('load.board');
 });
 // Auth brokers end
 
@@ -542,7 +559,7 @@ Route::middleware(['auth:organizations'])->group(function () {
     });
 });
 
-Route::get('dbrun',function(){
+Route::get('dbrun', function () {
     $senders = DB::table('senders')->get(['mask']);
     $drivers = DB::table('drivers')->get(["organization_id", 'mask']);
     $sender = 0;
