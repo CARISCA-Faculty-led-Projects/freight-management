@@ -122,11 +122,6 @@
                             </tr>
                         </thead>
                         <tbody class="fw-semibold text-gray-600">
-                            {{-- @php
-                                foreach ($loads as $key => $l) {
-                                    # code...
-                                }
-                            @endphp --}}
                             @foreach ($loads as $load)
                                 <tr>
 

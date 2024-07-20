@@ -43,12 +43,12 @@
                 <!--end::Page title-->
                 <!--begin::Actions-->
                 <!-- <div class="d-flex align-items-center gap-2 gap-lg-3">
-                                            <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
-                                                data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
+                                                                    <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
+                                                                        data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
 
-                                            <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                                                data-bs-target="#kt_modal_create_campaign">Start Auction</a>
-                                        </div> -->
+                                                                    <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
+                                                                        data-bs-target="#kt_modal_create_campaign">Start Auction</a>
+                                                                </div> -->
                 <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
@@ -72,26 +72,55 @@
                                 {{-- <span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span> --}}
                             </h3>
                             <!--end::Title-->
-                            <!--begin::Toolbar-->
-                            <div class="card-toolbar">
-                                {{ $agree }}
-                                <h3 class="card-title d-flex align-items-start flex-column">
-                                    <span class="card-label fw-bold text-gray-800">Last offer</span>
-                                    <span class="text-gray-400 mt-1 fw-semibold fs-6">{{ $recent->offer }}</span>
-                                    <a href="" class="text-gray-400 mt-1 fw-semibold fs-6 btn btn-primary">Agree</a>
-                                </h3>
-                            </div>
-                            <!--end::Toolbar-->
-                            <!--begin::Toolbar-->
-                            <div class="card-toolbar">
-                                <a href="#" data-bs-target="#kt_modal_bid" data-bs-toggle="modal"
-                                    class="btn btn-bg-primary text-white btn-active-color-primary h-40px">
-                                    <i class="ki-duotone ki-black-chart fs-2"></i>Negotiate
-                                </a>
-                            </div>
-                            <!--end::Toolbar-->
+                            @if ($bid->status != 'Completed')
+                                <!--begin::Toolbar-->
+                                <div class="card-toolbar">
+                                    <a href="#" data-bs-target="#kt_modal_bid" data-bs-toggle="modal"
+                                        class="btn btn-bg-primary text-white btn-active-color-primary h-40px">
+                                        <i class="ki-duotone ki-black-chart fs-2"></i>Negotiate
+                                    </a>
+                                </div>
+                                <!--end::Toolbar-->
+                            @endif
+
                         </div>
                         <!--end::Header-->
+                        <div class="separator separator-dashed my-3"></div>
+                        @if (whichUser()->getTable() != $recent->offer_from)
+                            <!--begin::Body-->
+                            <div class="d-flex flex-column flex-start ps-5 ms-5">
+                                <!--begin::Chart-->
+                                <div class="d-flex me-7">
+                                    <div id="" class="">
+                                        <h2 class="fs-2">
+                                            Last offer
+                                        </h2>
+                                        <h3 class="text-dark-400 mt-1 fw-bold" style="font-size: 4rem">
+                                            GHc {{ $recent->offer }}
+                                        </h3>
+                                        @if ($bid->status != 'Completed')
+                                            <a href="{{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }}"
+                                                onclick="return confirm('You are agreeing to pay the amount for your load')"
+                                                class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success">Agree</a>
+                                        @else
+                                            @if (whichUser()->getTable() == 'brokers')
+                                                {{-- {{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }} --}}
+                                                <a href="#" data-bs-toggle="modal" data-bs-target=""
+                                                    class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success"
+                                                    disabled>Finalize load</a>
+                                            @else
+                                                {{-- {{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }} --}}
+                                                <a href="#" onclick="return confirm('Currently not functional')"
+                                                    class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success"
+                                                    disabled>Make Payment</a>
+                                            @endif
+                                        @endif
+                                    </div>
+                                </div>
+                                <!--end::Chart-->
+                            </div>
+                            <!--end::Body-->
+                        @endif
                         <!--begin::Body-->
                         <div class="card-body">
                             <!--begin::Table container-->
@@ -110,7 +139,7 @@
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
                                     <tbody>
-                                        @foreach ($bid_history as $bid)
+                                        @foreach ($bid_history as $log)
                                             <tr>
                                                 <td>
                                                     {{ $loop->iteration }}
@@ -119,18 +148,18 @@
                                                     <div class="d-flex w-250px justify-content-start flex-column">
                                                         <div class="d-flex align-items-center justify-content-center">
                                                             <span
-                                                                class="text-gray-600 fw-bold d-block fs-6">{{ ucwords(rtrim($bid->offer_from, 's')) }}</span>
+                                                                class="text-gray-600 fw-bold d-block fs-6">{{ ucwords(rtrim($log->offer_from, 's')) }}</span>
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td class="text-center pe-0">
                                                     <div class="d-flex align-items-center justify-content-center">
                                                         <span class="text-gray-600 fw-bold d-block fs-6">GHS
-                                                            {{ $bid->offer }}</span>
+                                                            {{ $log->offer }}</span>
                                                     </div>
                                                 </td>
                                                 <td class="text-center pe-0">
-                                                    <p name="" id="">{{ $bid->message }}</->
+                                                    <p name="" id="">{{ $log->message }}</->
                                                 </td>
 
                                             </tr>
@@ -215,8 +244,8 @@
                                 </span>
                             </label>
                             <!--end::Label-->
-                            <input type="text" class="form-control form-control-solid" placeholder="Enter Offer Amount"
-                                name="offer" />
+                            <input type="text" class="form-control form-control-solid"
+                                placeholder="Enter Offer Amount" name="offer" />
                         </div>
                         <!--end::Input group-->
                         <!--begin::Input group-->

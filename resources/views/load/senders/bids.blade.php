@@ -42,12 +42,12 @@
                 <!--end::Page title-->
                 <!--begin::Actions-->
                 <!-- <div class="d-flex align-items-center gap-2 gap-lg-3">
-                                <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
-                                    data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
+                                    <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
+                                        data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
 
-                                <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                                    data-bs-target="#kt_modal_create_campaign">Start Auction</a>
-                            </div> -->
+                                    <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="#kt_modal_create_campaign">Start Auction</a>
+                                </div> -->
                 <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
@@ -143,6 +143,11 @@
                                                                 class="ki-duotone ki-black-right fs-2 text-white"></i>Negotiate
                                                         </span>
                                                     @else
+                                                        @if (whichUser()->getTable() != $bid->last_offer_from && $bid->status != 'Completed')
+                                                            <span
+                                                                class="bullet bullet-dot bg-success h-10px w-10px top-0 start-50 animation-blink me-3">
+                                                            </span>
+                                                        @endif
                                                         <a href="{{ route('sender.load.bid-logs', $bid->load_id) }}"
                                                             class="btn btn-bg-primary text-white h-40px">
                                                             <i class="ki-duotone ki-black-right fs-2 text-white"></i>View

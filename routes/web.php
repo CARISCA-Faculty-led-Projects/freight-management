@@ -390,6 +390,7 @@ Route::middleware('auth:senders')->group(function () {
                         Route::get('/', "sender_bids")->name('load.bids');
                         Route::get('{load}/logs', 'logs')->name('load.bid-logs');
                         Route::post('offer', 'make_offer')->name('make-offer');
+                        Route::get('{load}/agree', 'acceptOffer')->name('bid.agree');
                     });
                 });
             });
@@ -444,6 +445,8 @@ Route::middleware('auth:brokers')->group(function () {
                         Route::get('', 'index')->name('load.bids');
                         Route::get('{load}/logs', 'logs')->name('load.bid-logs');
                         Route::post('offer', 'make_offer')->name('make-offer');
+                        Route::get('{load}/agree', 'acceptOffer')->name('bid.agree');
+
                     });
                 });
             });

@@ -16,17 +16,25 @@ class BidsController extends Controller
             ->select('loads.mask', 'bids.*', 'loads.budget', 'loads.price')
             ->get();
         foreach ($bids as $bid) {
-            if($bid->broker_id != null){
-                $broker = DB::table('brokers')->where('mask', $bid->broker_id)->first(['name','organization_id']);
+            $bid_history = DB::table('bids_history')->where('bid_id', $bid->id)->orderByDesc('created_at')->first('offer_from');
+
+            if ($bid->broker_id != null) {
+                $broker = DB::table('brokers')->where('mask', $bid->broker_id)->first(['name', 'organization_id']);
                 $bid->broker = $broker->name;
                 // dd($broker->organization_id);
-                if (array_key_exists('organization_id',(array)$broker)) {
+                if (array_key_exists('organization_id', (array)$broker)) {
                     $org = DB::table("organizations")->where('mask', $broker->organization_id)->first(['name']);
                     $bid->broker_organization = $org->name;
                 }
-            }else{
+            } else {
                 $bid->broker = null;
                 $bid->broker_organization = null;
+            }
+
+            if ($bid_history) {
+                $bid->last_offer_from = $bid_history->offer_from;
+            } else {
+                $bid->last_offer_from = null;
             }
         }
         return view('load.senders.bids', compact('bids'));
@@ -39,6 +47,15 @@ class BidsController extends Controller
             ->join('senders', 'senders.mask', 'loads.sender_id')
             ->select('senders.name as sender', 'senders.phone as sender_phone', 'loads.price', 'loads.budget', 'bids.*')
             ->get();
+
+        foreach ($bids as $bid) {
+            $bid_history = DB::table('bids_history')->where('bid_id', $bid->id)->orderByDesc('created_at')->first('offer_from');
+            if ($bid_history) {
+                $bid->last_offer_from = $bid_history->offer_from;
+            } else {
+                $bid->last_offer_from = null;
+            }
+        }
 
         return view('load.bids', compact('bids'));
     }
@@ -65,18 +82,27 @@ class BidsController extends Controller
 
     public function logs($load_id)
     {
-        $agree = false;
+        $agreeBtn = false;
         $load = DB::table('loads')->where('mask', $load_id)->first();
         $bid = DB::table('bids')->where('load_id', $load_id)->first();
         $sender = DB::table('senders')->where('mask', $load->sender_id)->first(['name', 'phone']);
         $bid_history = DB::table('bids_history')->where('bid_id', $bid->id)->orderByDesc('created_at')->get();
         $recent = $bid_history[0];
-        if($recent->offer_from != whichUser()->getTable()){
-            $agree = true;
+        if ($recent->offer_from != whichUser()->getTable()) {
+            $agreeBtn = true;
         }
-        // dd($bid);
+        // dd($bid_history);
 
 
-        return view('load.bid_logs', compact('load', 'bid', 'bid_history', 'agree','recent'));
+        return view('load.bid_logs', compact('load', 'bid', 'bid_history', 'agreeBtn', 'recent'));
+    }
+
+    public function acceptOffer($load_id){
+        $bid = DB::table('bids')->where('load_id',$load_id);
+        $bid_history = DB::table('bids_history')->where('bid_id', $bid->first()->id)->orderByDesc('created_at')->first();
+        DB::table('loads')->where('mask',$load_id)->update(['status'=> 'Completed','price'=>$bid_history->offer]);
+        $bid->update(['status'=> 'Completed']);
+
+        return back()->with('success','Bidding completed');
     }
 }
