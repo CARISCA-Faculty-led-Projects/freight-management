@@ -97,7 +97,7 @@
                            <!--begin::Table-->
                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="loads_table">
                                <thead>
-                                   <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                   <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                                        <th class="w-10px pe-2">
                                            <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
                                                <input class="form-check-input" type="checkbox" data-kt-check="true"
@@ -195,22 +195,22 @@
                                                    data-kt-menu="true">
                                                    <!--begin::Menu item-->
                                                    <div class="menu-item px-3">
-                                                       <a href="{{ route('loads.details', $load->mask) }}"
+                                                       <a href="{{ route(whichUser()->getTable() == "brokers" ? 'broker.load.details' :     'loads.details', $load->mask) }}"
                                                            class="menu-link px-3">View</a>
                                                    </div>
                                                    <!--end::Menu item-->
                                                    <!--begin::Menu item-->
-                                                   <div class="menu-item px-3">
+                                                   {{-- <div class="menu-item px-3">
                                                        <a href="{{ route('loads.edit', $load->mask) }}"
                                                            class="menu-link px-3">Edit</a>
-                                                   </div>
+                                                   </div> --}}
                                                    <!--end::Menu item-->
                                                    <!--begin::Menu item-->
-                                                   <div class="menu-item px-3">
+                                                   {{-- <div class="menu-item px-3">
                                                        <a href="{{ route('loads.delete', $load->mask) }}"
                                                            onclick="return confirm('Confirm you want to delete load and subloads?')"
                                                            class="menu-link px-3">Delete</a>
-                                                   </div>
+                                                   </div> --}}
                                                    <!--end::Menu item-->
                                                    <div class="menu-item px-3">
                                                        <a href="{{ route('org.load.locate',$load->mask) }}"

@@ -26,7 +26,7 @@
                         <!--end::Item-->
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-muted">
-                            <a href="/load/list" class="text-muted text-hover-primary">Load</a>
+                            <span class="text-muted text-hover-primary">Load</span>
                         </li>
                         <!--end::Item-->
                         <!--begin::Item-->
@@ -41,25 +41,14 @@
                     <!--end::Breadcrumb-->
                 </div>
                 <!--end::Page title-->
-                <!--begin::Actions-->
-                <!-- <div class="d-flex align-items-center gap-2 gap-lg-3">
-                                                                    <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
-                                                                        data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
-
-                                                                    <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                                                                        data-bs-target="#kt_modal_create_campaign">Start Auction</a>
-                                                                </div> -->
-                <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
         </div>
         <!--end::Toolbar-->
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-
             <!--begin::Row-->
             <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
-
                 <!--begin::Col-->
                 <div class="col-xl-12">
                     <!--begin::Table widget 12-->
@@ -82,45 +71,49 @@
                                 </div>
                                 <!--end::Toolbar-->
                             @endif
-
                         </div>
                         <!--end::Header-->
+
                         <div class="separator separator-dashed my-3"></div>
-                        @if (whichUser()->getTable() != $recent->offer_from)
-                            <!--begin::Body-->
-                            <div class="d-flex flex-column flex-start ps-5 ms-5">
-                                <!--begin::Chart-->
-                                <div class="d-flex me-7">
-                                    <div id="" class="">
-                                        <h2 class="fs-2">
-                                            Last offer
-                                        </h2>
-                                        <h3 class="text-dark-400 mt-1 fw-bold" style="font-size: 4rem">
-                                            GHc {{ $recent->offer }}
-                                        </h3>
-                                        @if ($bid->status != 'Completed')
-                                            <a href="{{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }}"
-                                                onclick="return confirm('You are agreeing to pay the amount for your load')"
-                                                class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success">Agree</a>
-                                        @else
-                                            @if (whichUser()->getTable() == 'brokers')
-                                                {{-- {{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }} --}}
-                                                <a href="#" data-bs-toggle="modal" data-bs-target=""
-                                                    class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success"
-                                                    disabled>Finalize load</a>
+                        <!--begin::Body-->
+                        <div class="d-flex flex-column flex-start ps-5 ms-5">
+                            <!--begin::Chart-->
+                            <div class="d-flex me-7">
+                                <div id="" class="">
+                                    <h2 class="fs-2">
+                                        Last offer
+                                    </h2>
+                                    <h3 class="text-dark-400 mt-1 fw-bold" style="font-size: 4rem">
+                                        GHc {{ $recent->offer }}
+                                    </h3>
+                                    @if ($bid->status != 'Completed' && whichUser()->getTable() != $recent->offer_from)
+                                        <a href="{{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }}"
+                                            onclick="return confirm('You are agreeing to the amount for this load')"
+                                            class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success">Agree</a>
+                                    @else
+                                        @if (whichUser()->getTable() == 'brokers')
+                                            @if ($load->payment_status == 'Unpaid')
+                                                <span class="badge badge-warning">Awaiting payment</span>
                                             @else
-                                                {{-- {{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }} --}}
-                                                <a href="#" onclick="return confirm('Currently not functional')"
+                                                <span class="badge badge-success">Paid</span>
+
+                                                {{-- <a href="#" data-bs-toggle="modal" data-bs-target=""
                                                     class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success"
-                                                    disabled>Make Payment</a>
+                                                    disabled>Finalize load</a> --}}
                                             @endif
+                                            {{-- {{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }} --}}
+                                        @else
+                                            <a href="{{ route('sender.load.make-payment', $bid->load_id) }}"
+                                                onclick="return confirm('Currently not functional')"
+                                                class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success"
+                                                disabled>Make Payment</a>
                                         @endif
-                                    </div>
+                                    @endif
                                 </div>
-                                <!--end::Chart-->
                             </div>
-                            <!--end::Body-->
-                        @endif
+                            <!--end::Chart-->
+                        </div>
+                        <!--end::Body-->
                         <!--begin::Body-->
                         <div class="card-body">
                             <!--begin::Table container-->

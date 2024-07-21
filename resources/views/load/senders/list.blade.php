@@ -4,7 +4,7 @@
     <div id="kt_app_content" class="app-content flex-column">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
             <!--begin::Toolbar container-->
-            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
@@ -45,7 +45,7 @@
         </div>
         <!--begin::Content container-->
         <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-xxl">
+        <div id="kt_app_content_container" class="app-container container-fluid">
             <!--begin::Products-->
             <div class="card card-flush">
                 <!--begin::Card header-->
@@ -58,8 +58,8 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-ecommerce-order-filter="search"
-                                class="form-control form-control-solid w-250px ps-12" placeholder="Search Load" />
+                            <input type="text" id="loadSearch" class="form-control form-control-solid w-250px ps-12"
+                                placeholder="Search Load" />
                         </div>
                         <!--end::Search-->
                     </div>
@@ -107,13 +107,14 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
                     <!--begin::Table-->
-                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_sales_table">
+                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="loads_table">
                         <thead>
-                            <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                            <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                                 <th class="min-w-105px">Load #</th>
                                 <th class="min-w-105px">Category</th>
                                 <th class="text-end min-w-70px">Status</th>
-                                <th class="text-end min-w-70px">Shipment Status</th>
+                                <th class="text-end min-w-70px">Payment status</th>
+                                <th class="text-end min-w-70px">Shipment status</th>
                                 <th class="text-end min-w-100px">Size</th>
                                 <th class="text-end min-w-100px">Pickup</th>
                                 <th class="text-end min-w-100px">Dropoff</th>
@@ -124,7 +125,6 @@
                         <tbody class="fw-semibold text-gray-600">
                             @foreach ($loads as $load)
                                 <tr>
-
                                     <td>{{ $load->mask }}</td>
                                     <td>{{ $load->load_type }}</td>
                                     <td class="text-end pe-0">
@@ -140,6 +140,15 @@
                                                     @else
                                                     badge-light-primary @endif">
                                             {{ $load->status }}</div>
+                                        <!--end::Badges-->
+                                    </td>
+                                    <td class="text-end pe-0">
+                                        <!--begin::Badges-->
+                                        <div
+                                            class="badge @if ($load->payment_status == 'Unpaid') badge-light-danger
+                                                    @elseif($load->payment_status == 'Paid')
+                                                    badge-light-success @endif">
+                                            {{ $load->payment_status }}</div>
                                         <!--end::Badges-->
                                     </td>
                                     {{-- shipment status --}}
@@ -165,8 +174,12 @@
 
                                     {{-- <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
                                     <td class="text-end">{{ $load->dropoff_address == null? '' :json_decode($load->dropoff_address)->name }}</td> --}}
-                                     <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
-                                    <td class="text-end">{{ $load->dropoff_address == null? '' :json_decode($load->dropoff_address)->name }}</td>
+                                    <td class="text-end">
+                                        {{ $load->pickup_address == null ? '' : json_decode($load->pickup_address)->name }}
+                                    </td>
+                                    <td class="text-end">
+                                        {{ $load->dropoff_address == null ? '' : json_decode($load->dropoff_address)->name }}
+                                    </td>
                                     <td data-kt-ecommerce-order-filter="order_id" class="text-end">
                                         @php
                                             $handling = explode(',', $load->handling);
@@ -189,7 +202,7 @@
                                                     class="menu-link px-3">View</a>
                                             </div>
                                             <!--end::Menu item-->
-                                            @if ($load->status != "Completed")
+                                            @if ($load->completed != 1)
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
                                                     <a href="{{ route('sender.load.edit', $load->mask) }}"
@@ -204,7 +217,6 @@
                                                 </div>
                                                 <!--end::Menu item-->
                                             @endif
-
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a href="{{ route('sender.loads.delete', $load->mask) }}"
@@ -212,11 +224,13 @@
                                                     class="menu-link px-3">Delete</a>
                                             </div>
                                             <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
-                                            </div>
-                                            <!--end::Menu item-->
+                                            @if ($load->status == 'Completed')
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                            @endif
                                         </div>
                                         <!--end::Menu-->
                                     </td>

@@ -368,7 +368,7 @@
                             <!--begin::Table head-->
                             <thead>
                                 <!--begin::Table row-->
-                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                                     <th class="min-w-150px">Shipment #</th>
                                     <th class="pe-3 min-w-100px">Pickup / Delivery Location</th>
                                     <th class="text-end pe-3 min-w-150px">Cargo Type</th>

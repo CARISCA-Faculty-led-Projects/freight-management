@@ -14,6 +14,7 @@ class BidsController extends Controller
         $bids = DB::table('bids')->where('bids.sender_id', whichUser()->mask)
             ->join('loads', 'loads.mask', 'bids.load_id')
             ->select('loads.mask', 'bids.*', 'loads.budget', 'loads.price')
+            ->orderByDesc('created_at')
             ->get();
         foreach ($bids as $bid) {
             $bid_history = DB::table('bids_history')->where('bid_id', $bid->id)->orderByDesc('created_at')->first('offer_from');
@@ -45,7 +46,8 @@ class BidsController extends Controller
         $bids = DB::table('bids')->where('broker_id', whichUser()->mask)->orWhereNull('broker_id')
             ->join('loads', 'loads.mask', 'bids.load_id')
             ->join('senders', 'senders.mask', 'loads.sender_id')
-            ->select('senders.name as sender', 'senders.phone as sender_phone', 'loads.price', 'loads.budget', 'bids.*')
+            ->select('senders.name as sender', 'senders.phone as sender_phone', 'loads.price','loads.payment_status', 'loads.budget', 'bids.*')
+            ->orderByDesc('created_at')
             ->get();
 
         foreach ($bids as $bid) {

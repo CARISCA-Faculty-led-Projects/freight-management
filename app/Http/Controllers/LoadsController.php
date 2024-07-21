@@ -107,7 +107,7 @@ class LoadsController extends Controller
     public function completed($load)
     {
         DB::table('loads')->where('sender_id', whichUser()->mask)->where('mask', $load)->update(['completed' => 1, 'status' => "Bidding"]);
-        DB::table('bids')->insert(['load_id' => $load, 'created_at' => Carbon::now()->toDateTimeString()]);
+        DB::table('bids')->insert(['sender_id'=>whichUser()->mask,'load_id' => $load, 'created_at' => Carbon::now()->toDateTimeString()]);
         return redirect()->back()->with('success', "Load marked as completed");
     }
 
@@ -419,5 +419,11 @@ class LoadsController extends Controller
         $sender = DB::table('senders')->where('mask', $load->sender_id)->first();
 
         return view('load.locate', compact('load', 'sender'));
+    }
+
+    public function makePayment($load_id){
+        DB::table('loads')->where('mask',$load_id)->update(['payment_status'=> "Paid"]);
+
+        return redirect(route('sender.loads'))->with('success',"Load ");
     }
 }

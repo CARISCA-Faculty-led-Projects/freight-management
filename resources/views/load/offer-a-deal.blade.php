@@ -9894,7 +9894,7 @@ License: For each use you must have a valid license purchased only from above li
 														<!--begin::Table head-->
 														<thead>
 															<!--begin::Table row-->
-															<tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+															<tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
 																<th class="min-w-100px">Order ID</th>
 																<th class="text-end min-w-100px">Created</th>
 																<th class="text-end min-w-125px">Customer</th>

@@ -239,7 +239,7 @@
                                                     <tr>
                                                         <td class="text-muted">
                                                             <div class="d-flex align-items-center">
-                                                                <i class="ki-duotone ki-calendar fs-2 me-2">
+                                                                <i class="ki-duotone ki-dollar fs-2 me-2">
                                                                     <span class="path1"></span>
                                                                     <span class="path2"></span>
                                                                 </i>Budget
@@ -247,6 +247,19 @@
                                                         </td>
                                                         <td class="fw-bold text-end">
                                                           GHc {{ $load->budget }}
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">
+                                                            <div class="d-flex align-items-center">
+                                                                <i class="ki-duotone ki-dollar fs-2 me-2">
+                                                                    <span class="path1"></span>
+                                                                    <span class="path2"></span>
+                                                                </i>Agreed price
+                                                            </div>
+                                                        </td>
+                                                        <td class="fw-bold text-end">
+                                                          GHc {{ $load->price }}
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -515,7 +528,7 @@
                                         <!--begin::Table-->
                                         <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
                                             <thead>
-                                                <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                                <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                                                     <th class="min-w-175px">Product</th>
                                                     <th class="min-w-100px text-end">Category</th>
                                                     <th class="min-w-70px text-end">Qty</th>

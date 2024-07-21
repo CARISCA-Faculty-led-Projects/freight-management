@@ -1,50 +1,51 @@
 <?php
 
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\AuthenticatedSessionController;
-use App\Http\Controllers\Auth\ConfirmablePasswordController;
-use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-use App\Http\Controllers\Auth\EmailVerificationPromptController;
-use App\Http\Controllers\Auth\NewPasswordController;
-use App\Http\Controllers\Auth\PasswordResetLinkController;
-use App\Http\Controllers\Auth\RegisteredUserController;
-use App\Http\Controllers\Auth\VerifyEmailController;
-use App\Http\Controllers\BidsController;
-use App\Http\Controllers\BrokersController;
-use App\Http\Controllers\ChatsController;
-use App\Http\Controllers\DriversController;
-use App\Http\Controllers\InvoiceController;
-use App\Http\Controllers\LoadsController;
-use App\Http\Controllers\OrganizationsController;
-use App\Http\Controllers\SendersController;
-use App\Http\Controllers\ShipmentsController;
-use App\Http\Controllers\VehiclesController;
-use App\Http\Livewire\Broker\AddBroker;
-use App\Http\Livewire\Broker\CreateShipment;
-use App\Http\Livewire\Broker\EditShipment;
-use App\Http\Livewire\Broker\RegisterBroker;
-use App\Http\Livewire\Broker\UpdateBroker;
-use App\Http\Livewire\Driver\AddDriver;
-use App\Http\Livewire\Driver\RegisterDriver;
-use App\Http\Livewire\Driver\UpdateDriver;
-use App\Http\Livewire\Load\AddLoad;
-use App\Http\Livewire\Load\LoadBoard;
-use App\Http\Livewire\Load\SenderAddLoad;
-use App\Http\Livewire\Load\SenderEditLoad;
-use App\Http\Livewire\Load\UpdateLoad;
-use App\Http\Livewire\Organization\AddOrganization;
-use App\Http\Livewire\Organization\RegisterOrganization;
-use App\Http\Livewire\Organization\UpdateOrganization;
-use App\Http\Livewire\Sender\AddSender;
-use App\Http\Livewire\Sender\RegisterSender;
-use App\Http\Livewire\Sender\UpdateSender;
-use App\Http\Livewire\Vehicle\AddVehicle;
-use App\Http\Livewire\Vehicle\UpdateVehicle;
-use App\Http\Livewire\ViewOrganisations;
+use Carbon\Carbon;
 use App\Models\Shipment;
 use Illuminate\Support\Facades\DB;
+use App\Http\Livewire\Load\AddLoad;
+use App\Http\Livewire\Load\LoadBoard;
 use Illuminate\Support\Facades\Route;
+use App\Http\Livewire\Load\UpdateLoad;
+use App\Http\Livewire\Broker\AddBroker;
+use App\Http\Livewire\Driver\AddDriver;
+use App\Http\Livewire\Sender\AddSender;
+use App\Http\Controllers\BidsController;
+use App\Http\Livewire\ViewOrganisations;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChatsController;
+use App\Http\Controllers\LoadsController;
+use App\Http\Livewire\Load\SenderAddLoad;
+use App\Http\Livewire\Vehicle\AddVehicle;
+use App\Http\Livewire\Broker\EditShipment;
+use App\Http\Livewire\Broker\UpdateBroker;
+use App\Http\Livewire\Driver\UpdateDriver;
+use App\Http\Livewire\Load\SenderEditLoad;
+use App\Http\Livewire\Sender\UpdateSender;
+use App\Http\Controllers\BrokersController;
+use App\Http\Controllers\DriversController;
+use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\SendersController;
+use App\Http\Controllers\VehiclesController;
+use App\Http\Livewire\Broker\CreateShipment;
+use App\Http\Livewire\Broker\RegisterBroker;
+use App\Http\Livewire\Driver\RegisterDriver;
+use App\Http\Livewire\Sender\RegisterSender;
+use App\Http\Livewire\Vehicle\UpdateVehicle;
+use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\ShipmentsController;
+use App\Http\Controllers\OrganizationsController;
+use App\Http\Livewire\Organization\AddOrganization;
+use App\Http\Controllers\Auth\NewPasswordController;
+use App\Http\Controllers\Auth\VerifyEmailController;
+use App\Http\Livewire\Organization\UpdateOrganization;
+use App\Http\Controllers\Auth\RegisteredUserController;
+use App\Http\Livewire\Organization\RegisterOrganization;
+use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Auth\ConfirmablePasswordController;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 
 
 
@@ -129,7 +130,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/brokers/list', [BrokersController::class, 'list'])->name('broker.list');
 });
 
-Route::middleware(['auth:organizations', 'auth:brokers', 'auth:senders'])->group(function () {
+Route::middleware(['auth:brokers', 'auth:organizations', 'auth:senders'])->group(function () {
+    Route::controller(LoadsController::class)->group(function () {
+        Route::get('list', 'index')->name('loads');
+        Route::get('{load}/delete', 'delete')->name('loads.delete');
+        Route::get('{load}/details', 'details')->name('loads.details');
+    });
+    Route::get('add', AddLoad::class);
+    Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
+});
+Route::middleware(['auth:brokers', 'auth:organizations', 'auth:senders'])->group(function () {
     Route::controller(LoadsController::class)->group(function () {
         Route::get('list', 'index')->name('loads');
         Route::get('{load}/delete', 'delete')->name('loads.delete');
@@ -204,7 +214,7 @@ Route::middleware('auth:organizations')->group(function () {
                 Route::get('overview-map-data', 'overviewMap');
                 Route::get('list', 'index')->name('loads');
                 Route::get('{load}/delete', 'delete')->name('loads.delete');
-                Route::get('{load}/details', 'details')->name('loads.details');
+                // Route::get('{load}/details', 'details')->name('loads.details');
                 Route::get('{load}/locate', 'locateLoad')->name('org.load.locate');
                 Route::post('assign', 'orgLoadAssign')->name('org.loads.assign');
                 Route::post('save', 'store')->name('org.load.save');
@@ -371,15 +381,17 @@ Route::middleware('auth:senders')->group(function () {
             Route::get('overview', function () {
                 return view('load.overview');
             })->name('sender.loads.overview');
-
             // Loads
             Route::controller(LoadsController::class)->group(function () {
-                Route::get('list', 's_index')->name('sender.loads');
-                Route::get('{load}/delete', 'delete')->name('sender.loads.delete');
-                Route::get('{load}/details', 'details')->name('sender.loads.details');
-                Route::get('{load}/completed', 'completed')->name('sender.loads.complete');
-                Route::post('add', 's_store')->name('sender.load.save');
-                Route::post('{load}/update', 'update')->name('sender.load.update');
+                Route::name('sender.')->group(function () {
+                    Route::get('list', 's_index')->name('loads');
+                    Route::get('{load}/delete', 'delete')->name('loads.delete');
+                    Route::get('{load}/details', 'details')->name('loads.details');
+                    Route::get('{load}/completed', 'completed')->name('loads.complete');
+                    Route::post('add', 's_store')->name('load.save');
+                    Route::post('{load}/update', 'update')->name('load.update');
+                    Route::get('{load}/make-payment', 'makePayment')->name('load.make-payment');
+                });
             });
             Route::get('add', SenderAddLoad::class)->name('sender.load.add');
             Route::get('{load_id}/edit', SenderEditLoad::class)->name('sender.load.edit');
@@ -438,6 +450,7 @@ Route::middleware('auth:brokers')->group(function () {
             Route::controller(LoadsController::class)->group(function () {
                 Route::post('assign', 'brokerLoadAssign')->name('broker.loads.assign');
                 Route::get('board', 'board')->name('load.board');
+                Route::get('{load}/details', 'details')->name('broker.load.details');
             });
             Route::prefix('bids')->group(function () {
                 Route::name('broker.')->group(function () {
@@ -446,7 +459,6 @@ Route::middleware('auth:brokers')->group(function () {
                         Route::get('{load}/logs', 'logs')->name('load.bid-logs');
                         Route::post('offer', 'make_offer')->name('make-offer');
                         Route::get('{load}/agree', 'acceptOffer')->name('bid.agree');
-
                     });
                 });
             });
@@ -574,4 +586,19 @@ Route::get('dbrun', function () {
         Shipment::factory()->create(['driver_id' => $driver->mask, 'organization_id' => $driver->organization_id, 'loads' => json_encode($loads)]);
         $sender++;
     }
+});
+
+Route::get('move-load-to-{status}', function ($status) {
+    $loads = DB::table('loads')->where('payment_status', 'Unpaid')->where('shipment_status', 'Unassigned')->where('completed', 0)->get();
+    foreach ($loads as $load) {
+        if($status == 'bidding'){
+            DB::table('loads')->where('mask', $load->mask)->update(['status' => "Bidding",'completed'=> 1]);
+            DB::table('bids')->where('load_id','!=',$load->mask)->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
+        }elseif($status == 'draft'){
+            DB::table('loads')->where('mask', $load->mask)->update(['status' => "Draft"]);
+        }
+        // DB::table('bids')->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
+    }
+
+    dd('done-'.$status);
 });

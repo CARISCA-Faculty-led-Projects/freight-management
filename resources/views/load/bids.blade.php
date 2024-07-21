@@ -43,12 +43,12 @@
                 <!--end::Page title-->
                 <!--begin::Actions-->
                 <!-- <div class="d-flex align-items-center gap-2 gap-lg-3">
-                                                        <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
-                                                            data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
+                                                                            <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
+                                                                                data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
 
-                                                        <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
-                                                            data-bs-target="#kt_modal_create_campaign">Start Auction</a>
-                                                    </div> -->
+                                                                            <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
+                                                                                data-bs-target="#kt_modal_create_campaign">Start Auction</a>
+                                                                        </div> -->
                 <!--end::Actions-->
             </div>
             <!--end::Toolbar container-->
@@ -64,27 +64,53 @@
                 <div class="col-xl-12">
                     <!--begin::Table widget 12-->
                     <div class="card card-flush h-xl-100">
-                        <!--begin::Header-->
-                        <div class="card-header pt-7">
-                            <!--begin::Title-->
-                            <h3 class="card-title align-items-start flex-column">
-                                <span class="card-label fw-bold text-gray-800">Active Negotiations</span>
-                                <span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span>
-                            </h3>
-                            <!--end::Title-->
-                            <!--begin::Toolbar-->
-                            <div class="card-toolbar">
-                                <a href="/loads/bids" class="btn btn-sm btn-light">History</a>
+
+                        <div class="card-header align-items-center py-5 gap-2 gap-md-5">
+                            <!--begin::Card title-->
+                            <div class="card-title">
+                                <!--begin::Title-->
+                                <h3 class="card-title align-items-start flex-column">
+                                    <span class="card-label fw-bold text-gray-800">All Load bids</span>
+                                    {{-- <span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span> --}}
+                                </h3>
+                                <!--end::Title-->
+
                             </div>
-                            <!--end::Toolbar-->
+                            <!--end::Card title-->
+                            <!--begin::Card toolbar-->
+                            <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
+                                {{-- <div class="w-100 mw-150px">
+                         <!--begin::Select2-->
+                         <select class="form-select form-select-solid w-55" id="orgAssigned"
+                             data-placeholder="Status" data-kt-ecommerce-order-filter="status">
+                             <option></option>
+                             <option value="all">All</option>
+                             <option value="Assigned">Assigned</option>
+                             <option value="Unassigned">Unassigned</option>
+                         </select>
+                         <!--end::Select2-->
+                     </div> --}}
+                                <!--begin::Search-->
+                                <div class="d-flex align-items-center position-relative my-1">
+                                    <i class="ki-duotone ki-magnifier fs-3 position-absolute ms-4">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                    </i>
+                                    <input type="text" id="itemSearch"
+                                        class="form-control form-control-solid w-250px ps-12" placeholder="Search table" />
+                                </div>
+                                <!--end::Search-->
+                            </div>
+                            <!--end::Card toolbar-->
                         </div>
+                        <!--end::Card header-->
                         <!--end::Header-->
                         <!--begin::Body-->
                         <div class="card-body">
                             <!--begin::Table container-->
                             <div class="table-responsive">
                                 <!--begin::Table-->
-                                <table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
+                                <table class="table table-row-dashed align-middle gs-0 gy-3 my-0" id="data_table">
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr class="fs-5 fw-bold text-dark border-bottom-0">
@@ -94,7 +120,8 @@
                                             <th class="p-0 pb-3 text-end">Load #</th>
                                             <th class="p-0 pb-3 text-end">Sender Budget</th>
                                             <th class="p-0 pb-3 min-w-50px text-end">Agreed Prize</th>
-                                            <th class="p-0 pb-3 w-250px text-end">VIEW</th>
+                                            <th class="p-0 pb-3 min-w-50px text-end">Load Payment status</th>
+                                            <th class="p-0 pb-3 w-250px text-end">Actions</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
@@ -135,6 +162,14 @@
                                                             {{ $bid->price }}</span>
                                                     </div>
                                                 </td>
+                                                <td class="pe-0 text-center">
+                                                    <div
+                                                        class="badge @if ($bid->payment_status == 'Unpaid') badge-light-warning
+                                            @elseif($bid->payment_status == 'Paid')
+                                            badge-light-success @endif">
+                                                        {{ $bid->payment_status }}
+                                                    </div>
+                                                </td>
                                                 <td class="text-end">
                                                     @if ($bid->broker_id == null)
                                                         <span id="negotiate" data-bid-id="{{ $bid->id }}"
@@ -144,11 +179,11 @@
                                                                 class="ki-duotone ki-black-right fs-2 text-white"></i>Negotiate
                                                         </span>
                                                     @else
-                                                    @if (whichUser()->getTable() != $bid->last_offer_from)
-                                                    <span
-                                                        class="bullet bullet-dot bg-success h-10px w-10px top-0 start-50 animation-blink me-3">
-                                                    </span>
-                                                    @endif
+                                                        @if (whichUser()->getTable() != $bid->last_offer_from && $bid->status != 'Completed')
+                                                            <span
+                                                                class="bullet bullet-dot bg-success h-10px w-10px top-0 start-50 animation-blink me-3">
+                                                            </span>
+                                                        @endif
                                                         <a href="{{ route('broker.load.bid-logs', $bid->load_id) }}"
                                                             class="btn btn-bg-primary text-white h-40px">
                                                             <i class="ki-duotone ki-black-right fs-2 text-white"></i>View

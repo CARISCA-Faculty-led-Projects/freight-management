@@ -395,7 +395,7 @@
                             <table class="table align-middle table-row-dashed fs-6 gy-5"
                                 id="kt_ecommerce_report_shipping_table">
                                 <thead>
-                                    <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                    <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                                         <th class="min-w-100px">Transaction #</th>
                                         <th class="min-w-100px">Date</th>
                                         <th class="min-w-100px">Amount</th>
@@ -450,7 +450,7 @@
                                                 class="text-dark text-hover-primary">#SHP-0049343</a>
                                         </td>
                                     </tr>
-                                   
+
                                 </tbody>
                             </table>
                             <!--end::Table-->

@@ -573,7 +573,7 @@
 										<!--begin::Body-->
 										<div class="card-body py-10">
 											<h2 class="mb-9">Prizing</h2>
-										
+
 											<!--begin::Stats-->
 											<div class="row">
 												<!--begin::Col-->
@@ -604,7 +604,7 @@
 													</div>
 												</div>
 												<!--end::Col-->
-										
+
 											</div>
 											<!--end::Stats-->
 											<!--begin::Info-->
@@ -864,7 +864,7 @@
                                     <!--begin::Table-->
                                     <table class="table align-middle table-row-dashed fs-6 gy-5 mb-0">
                                         <thead>
-                                            <tr class="text-start text-gray-400 fw-bold fs-7 text-uppercase gs-0">
+                                            <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                                                 <th class="min-w-175px">Product</th>
                                                 <th class="min-w-100px text-end">SKU</th>
                                                 <th class="min-w-70px text-end">Qty</th>

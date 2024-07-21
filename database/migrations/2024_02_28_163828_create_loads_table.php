@@ -28,7 +28,7 @@ return new class extends Migration
             $table->string('dropoff_address')->nullable();
             $table->string('insurance_docs')->nullable();
             $table->string('mask');
-            $table->string('status');
+            $table->string('status'); // Bidding, Completed
             $table->string('other_docs')->nullable();
             $table->timestamps();
         });
