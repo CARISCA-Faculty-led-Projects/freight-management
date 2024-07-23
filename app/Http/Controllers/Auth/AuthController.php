@@ -61,7 +61,7 @@ class AuthController extends Controller
             } else if ($request->type == "organizations") {
                 return redirect(route("org.overview"));
             } else if ($request->type == "brokers") {
-                return redirect('brokers/overview');
+                return redirect(route('broker.overview'));
             } else if ($request->type == "drivers") {
                 return redirect(route("driver.overview"));
             }

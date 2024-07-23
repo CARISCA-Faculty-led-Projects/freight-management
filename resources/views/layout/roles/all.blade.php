@@ -127,11 +127,6 @@
                                             class="menu-title">Overview</span></a><!--end:Menu link--></div>
                                 <!--end:Menu item-->
                                 <!--begin:Menu item-->
-                                <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/load/bids"><span
-                                            class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                            class="menu-title">Bid</span></a><!--end:Menu link--></div>
-                                <!--end:Menu item-->
-                                <!--begin:Menu item-->
                                 <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
                                         href="{{ route('org.load.board') }}"><span class="menu-bullet"><span
                                                 class="bullet bullet-dot"></span></span><span

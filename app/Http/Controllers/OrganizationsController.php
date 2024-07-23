@@ -87,7 +87,7 @@ class OrganizationsController extends Controller
             $load->dropoff_address = json_decode($load->dropoff_address);
         }
 
-        $shipments = DB::table('shipments')->where('shipments.shipment_status', "On route")
+        $shipments = DB::table('shipments')->where('shipments.organization_id',whichUser()->mask)->where('shipments.shipment_status', "On route")
             ->join('drivers', 'drivers.mask', 'shipments.driver_id')
             ->select('shipments.mask as shipment', 'shipments.last_location as shipment_location', 'drivers.name as driver', 'drivers.mask as driver_id', 'drivers.phone as driver_contact')
             ->get();

@@ -436,10 +436,11 @@ Route::middleware('auth:senders')->group(function () {
 
 // Auth brokers start
 Route::middleware('auth:brokers')->group(function () {
-    Route::prefix('brokers')->group(function () {
+    Route::prefix('broker')->group(function () {
         Route::controller(BrokersController::class)->group(function () {
             Route::get('overview', 'overview')->name('broker.overview');
             Route::get('charts', 'dashboardCharts');
+            Route::get('map-activity', 'mapData');
             Route::get('{broker}/update', 'update')->name('broker.update');
             Route::post('{broker}/update', 'saveUpdate')->name('broker.update');
             // Route::get('{broker}/edit', 'edit')->name('broker.edit');
@@ -451,12 +452,14 @@ Route::middleware('auth:brokers')->group(function () {
                 Route::post('assign', 'brokerLoadAssign')->name('broker.loads.assign');
                 Route::get('board', 'board')->name('load.board');
                 Route::get('{load}/details', 'details')->name('broker.load.details');
+                Route::get('{load}/locate', 'locateLoad')->name('broker.load.locate');
             });
             Route::prefix('bids')->group(function () {
                 Route::name('broker.')->group(function () {
                     Route::controller(BidsController::class)->group(function () {
                         Route::get('', 'index')->name('load.bids');
                         Route::get('{load}/logs', 'logs')->name('load.bid-logs');
+                        Route::post('start', 'start_bid')->name('start-bid');
                         Route::post('offer', 'make_offer')->name('make-offer');
                         Route::get('{load}/agree', 'acceptOffer')->name('bid.agree');
                     });

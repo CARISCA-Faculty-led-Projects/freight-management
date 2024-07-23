@@ -1,7 +1,7 @@
 async function getShipments() {
     var res = "nu";
     await $.ajax({
-        url: "organization/active-shipment-coordinates",
+        url: "brokers/active-shipment-coordinates",
         data: function (params) {
             var query = {
                 search: params.term,
@@ -26,7 +26,7 @@ async function getShipments() {
 async function getMapData() {
     var res = "nu";
     await $.ajax({
-        url: "organization/map-activity",
+        url: "broker/map-activity",
         success: function (data) {
             var results = [];
             // data.data.forEach((element) => {
@@ -75,6 +75,7 @@ async function initMap() {
         if (option == 'loads') {
             const markers = mapData[option].map((load) => {
                 const ltn = load.pickup_address.location;
+                if (ltn.lat != null && ltn.lng != null) {
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
@@ -90,6 +91,7 @@ async function initMap() {
                     toggleHighlight(marker, option);
                 });
                 return marker;
+            }
             });
 
             // Add a marker clusterer to manage the markers.
@@ -100,6 +102,7 @@ async function initMap() {
         } else if (option == 'drivers') {
             const markers = mapData[option].map((driver) => {
                 const ltn = driver.last_location;
+                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
@@ -115,6 +118,7 @@ async function initMap() {
                     toggleHighlight(marker, option);
                 });
                 return marker;
+            }
             });
 
             // Add a marker clusterer to manage the markers.
@@ -125,6 +129,7 @@ async function initMap() {
         } else if (option == 'vehicles') {
             const markers = mapData[option].map((vehicle) => {
                 const ltn = vehicle.last_location;
+                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
@@ -140,6 +145,7 @@ async function initMap() {
                     toggleHighlight(marker, option);
                 });
                 return marker;
+            }
             });
 
             // Add a marker clusterer to manage the markers.
@@ -150,6 +156,7 @@ async function initMap() {
         } else if (option == 'shipments') {
             const markers = mapData[option].map((shipment) => {
                 const ltn = shipment.shipment_location;
+                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
                     position: {
@@ -165,6 +172,7 @@ async function initMap() {
                     toggleHighlight(marker, option);
                 });
                 return marker;
+            }
             });
 
             // Add a marker clusterer to manage the markers.
@@ -282,7 +290,7 @@ function buildShipmentContent(shipment) {
           <div class="price">Shipment #${shipment.shipment}</div>
           <div class="address mt-2">Driver - <strong>${shipment.driver}</strong></div>
           <div class="address mt-2">Driver contact- <strong>${shipment.driver_contact}</strong></div>
-          
+
       </div>
       `;
     return content;
@@ -305,7 +313,7 @@ function buildShipmentContent(shipment) {
 //         mapId: "Loc",
 //     });
 
-//     // get data 
+//     // get data
 //     const mapData = await getMapData();
 
 //     // Add some markers to the map.

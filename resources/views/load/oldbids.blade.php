@@ -44,7 +44,7 @@
             <!-- <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <a href="#" class="btn btn-sm fw-bold bg-body btn-color-gray-700 btn-active-color-primary"
                     data-bs-toggle="modal" data-bs-target="#kt_modal_create_project">Manage Bids</a>
-               
+
                 <a href="#" class="btn btn-sm fw-bold btn-primary" data-bs-toggle="modal"
                     data-bs-target="#kt_modal_create_campaign">Start Auction</a>
             </div> -->
@@ -86,7 +86,7 @@
                             <table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
                                 <!--begin::Table head-->
                                 <thead>
-                                    <tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
+                                    <tr class="fs-5 fw-bold text-dark border-bottom-0">
                                         <th class="p-0 pb-3 min-w-105px text-start">ID</th>
                                         <th class="p-0 pb-3 min-w-100px text-end">Sender</th>
                                         <th class="p-0 pb-3 min-w-100px text-end">Broker</th>
@@ -115,7 +115,7 @@
                                                     class="text-gray-400 fw-semibold d-block fs-7">+233268977129</span>
                                             </div>
                                         </td>
-                                        
+
                                         <td class="text-end pe-0">
 
                                             <div class="d-flex justify-content-start flex-column">
@@ -161,7 +161,7 @@
                                                     class="text-gray-400 fw-semibold d-block fs-7">+233555444888</span>
                                             </div>
                                         </td>
-                                       
+
                                         <td class="text-end pe-0">
                                             <div class="d-flex justify-content-start flex-column">
                                                 <a href="#"
@@ -204,7 +204,7 @@
                                                     class="text-gray-400 fw-semibold d-block fs-7">+233555987654</span>
                                             </div>
                                         </td>
-                                        
+
                                         <td class="text-end pe-0">
                                             <div class="d-flex justify-content-start flex-column">
                                                 <a href="#"

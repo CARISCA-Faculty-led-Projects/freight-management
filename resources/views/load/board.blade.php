@@ -4,7 +4,7 @@
        <div id="kt_app_content" class="app-content flex-column-fluid">
            <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
                <!--begin::Toolbar container-->
-               <div id="kt_app_toolbar_container" class="app-container d-flex flex-stack">
+               <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                    <!--begin::Page title-->
                    <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                        <!--begin::Title-->
@@ -40,6 +40,18 @@
                        <!--end::Breadcrumb-->
                    </div>
                    <!--end::Page title-->
+                   <!--begin::Actions-->
+                   <div class="d-flex align-items-end gap-2 gap-lg-3">
+                       <!--begin::Primary button-->
+                       @if (whichUser()->getTable() == 'organizations')
+                           <a href="{{ route('org.load.add') }}" class="btn btn-sm btn-primary"> <span
+                                   class="indicator-label">Add
+                                   load</span></a>
+                       @endif
+                       <!--end::Primary button-->
+                   </div>
+                   <!--end::Actions-->
+
                </div>
                <!--end::Toolbar container-->
            </div>
@@ -78,10 +90,7 @@
                             <!--end::Select2-->
                         </div> --}}
                            <!--begin::Add product-->
-                           @if (whichUser()->getTable() == 'organizations')
-                               <a href="{{ route('org.load.add') }}" class="btn btn-primary"> <span
-                                       class="indicator-label">Add load</span></a>
-                           @endif
+
 
                            <!--end::Add product-->
                        </div>
@@ -89,22 +98,23 @@
                    </div>
                    <!--end::Card header-->
                    <!--begin::Card body-->
-                   <form
-                       action="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.loads.assign' : 'org.loads.assign') }}"
-                       method="post">
+                   <form action="{{ route('broker.loads.assign') }}" method="post">
                        @csrf
-                       <div class="card-body pt-0" style="height: 50vh; overflow:auto">
+                       <div class="card-body pt-0">
                            <!--begin::Table-->
                            <table class="table align-middle table-row-dashed fs-6 gy-5" id="loads_table">
                                <thead>
                                    <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
-                                       <th class="w-10px pe-2">
-                                           <div class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                               <input class="form-check-input" type="checkbox" data-kt-check="true"
-                                                   data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
-                                                   value="1" />
-                                           </div>
-                                       </th>
+                                       @if (whichUser()->getTable() == 'brokers')
+                                           <th class="w-10px pe-2">
+                                               <div
+                                                   class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                                                   <input class="form-check-input" type="checkbox" data-kt-check="true"
+                                                       data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
+                                                       value="1" />
+                                               </div>
+                                           </th>
+                                       @endif
                                        <th class="min-w-150px">#</th>
                                        <th class="min-w-105px">Category</th>
                                        <th class="min-w-105px">Image</th>
@@ -122,12 +132,15 @@
                                <tbody class="fw-semibold text-gray-600">
                                    @foreach ($loads as $load)
                                        <tr>
+                                           @if (whichUser()->getTable() == 'brokers')
                                            <td>
-                                               <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                   <input class="form-check-input" name="loads[]" type="checkbox"
-                                                       value="{{ $load->mask }}" />
-                                               </div>
-                                           </td>
+                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                <input class="form-check-input" name="loads[]" type="checkbox"
+                                                    value="{{ $load->mask }}" />
+                                            </div>
+                                        </td>
+                                           @endif
+
                                            <td>{{ $load->mask }}</td>
                                            <td>{{ $load->load_type }}</td>
                                            <td><img class="w-20px" src="{{ asset('storage/loads/' . $load->image) }}"
@@ -195,7 +208,7 @@
                                                    data-kt-menu="true">
                                                    <!--begin::Menu item-->
                                                    <div class="menu-item px-3">
-                                                       <a href="{{ route(whichUser()->getTable() == "brokers" ? 'broker.load.details' :     'loads.details', $load->mask) }}"
+                                                       <a href="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.load.details' : 'loads.details', $load->mask) }}"
                                                            class="menu-link px-3">View</a>
                                                    </div>
                                                    <!--end::Menu item-->
@@ -213,7 +226,7 @@
                                                    </div> --}}
                                                    <!--end::Menu item-->
                                                    <div class="menu-item px-3">
-                                                       <a href="{{ route('org.load.locate',$load->mask) }}"
+                                                       <a href="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.load.locate' : 'org.load.locate', $load->mask) }}"
                                                            class="menu-link px-3">Locate</a>
                                                    </div>
                                                    {{-- <div class="menu-item px-3">
@@ -241,25 +254,28 @@
                        @error('loads')
                            <span class="text-danger pl-3">{{ $message }}</span>
                        @enderror
+                       @if (whichUser()->getTable() == 'brokers')
+                           <!--end::Card body-->
+                           <div class="card-footer">
+                               <h3 for="">Assign checked loads to organization</h3> <small
+                                   class="text-danger">Loads
+                                   will be reassigned if it has been already assigned to an organization</small>
+                               <div class="d-flex mt-2 mb-3">
+                                   <input type="checkbox" name="shipment" id="" class="me-2" value="yes">
+                                   <label for="shipment">Create shipment after</label>
+                               </div>
+                               <div class="d-flex w-35">
+                                   <select name="organization_id" class="form-control basic-select2 w-25" id="">
+                                       <option value="">--select--</option>
+                                       @foreach ($orgs as $org)
+                                           <option value="{{ $org->mask }}">{{ $org->name }}</option>
+                                       @endforeach
+                                   </select>
+                                   <button type="submit" class="btn btn-warning ">Assign</button>
+                               </div>
+                           </div>
+                       @endif
 
-                       <!--end::Card body-->
-                       <div class="card-footer">
-                           <h3 for="">Assign checked loads to organization</h3> <small class="text-danger">Loads
-                               will be reassigned if it has been already assigned to an organization</small>
-                           <div class="d-flex mt-2 mb-3">
-                               <input type="checkbox" name="shipment" id="" class="me-2" value="yes">
-                               <label for="shipment">Create shipment after</label>
-                           </div>
-                           <div class="d-flex w-35">
-                               <select name="organization_id" class="form-control basic-select2 w-25" id="">
-                                   <option value="">--select--</option>
-                                   @foreach ($orgs as $org)
-                                       <option value="{{ $org->mask }}">{{ $org->name }}</option>
-                                   @endforeach
-                               </select>
-                               <button type="submit" class="btn btn-warning ">Assign</button>
-                           </div>
-                       </div>
                    </form>
                </div>
                <!--end::Products-->

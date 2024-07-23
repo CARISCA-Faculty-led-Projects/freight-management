@@ -15,6 +15,7 @@ function getOrgChartsData() {
     });
 }
 
+
 function getDriverChartsData() {
     $.ajax({
         url: "driver/charts",
@@ -32,7 +33,7 @@ function getDriverChartsData() {
 
 function getBrokersChartsData() {
     $.ajax({
-        url: "brokers/charts",
+        url: "broker/charts",
         success: function (res) {
             data = res.data;
             // On document ready
@@ -1673,11 +1674,11 @@ var OrgShipmentStatuses = function () {
               chart: {
                 width: 500
               },
-              
+
             }
           }]
           };
-  
+
           var chart = new ApexCharts(document.querySelector("#org_shipments_statuses"), options);
           chart.render();
     }

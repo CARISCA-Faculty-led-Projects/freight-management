@@ -46,7 +46,7 @@ class BidsController extends Controller
         $bids = DB::table('bids')->where('broker_id', whichUser()->mask)->orWhereNull('broker_id')
             ->join('loads', 'loads.mask', 'bids.load_id')
             ->join('senders', 'senders.mask', 'loads.sender_id')
-            ->select('senders.name as sender', 'senders.phone as sender_phone', 'loads.price','loads.payment_status', 'loads.budget', 'bids.*')
+            ->select('senders.name as sender', 'senders.phone as sender_phone', 'loads.price', 'loads.organization_id', 'loads.payment_status', 'loads.budget', 'bids.*')
             ->orderByDesc('created_at')
             ->get();
 
@@ -62,13 +62,29 @@ class BidsController extends Controller
         return view('load.bids', compact('bids'));
     }
 
-    public function make_offer(Request $request)
+    public function start_bid(Request $request)
     {
-        Validator::make($request->all(), ['offer' => 'required']);
+        dd($request->all());
 
         if (whichUser()->getTable() == 'brokers') {
             DB::table('bids')->where('id', $request->bid_id)->whereNull('broker_id')->update(['broker_id' => whichUser()->mask, 'status' => 'Pending']);
+            DB::table('loads')->where('mask', $request->load_id)->update(['org_assigned_by' => whichUser()->mask]);
         }
+        DB::table('bids_history')->insert([
+            'bid_id' => $request->bid_id,
+            'offer_from' => whichUser()->getTable(),
+            'user_id' => whichUser()->mask,
+            'offer' => $request->offer,
+            'message' => $request->message,
+            'created_at' => Carbon::now()->toDateTimeString()
+        ]);
+
+        return back()->with('success', 'Offer on bid sent');
+    }
+
+    public function make_offer(Request $request)
+    {
+        Validator::make($request->all(), ['offer' => 'required']);
 
         DB::table('bids_history')->insert([
             'bid_id' => $request->bid_id,
@@ -99,12 +115,13 @@ class BidsController extends Controller
         return view('load.bid_logs', compact('load', 'bid', 'bid_history', 'agreeBtn', 'recent'));
     }
 
-    public function acceptOffer($load_id){
-        $bid = DB::table('bids')->where('load_id',$load_id);
+    public function acceptOffer($load_id)
+    {
+        $bid = DB::table('bids')->where('load_id', $load_id);
         $bid_history = DB::table('bids_history')->where('bid_id', $bid->first()->id)->orderByDesc('created_at')->first();
-        DB::table('loads')->where('mask',$load_id)->update(['status'=> 'Completed','price'=>$bid_history->offer]);
-        $bid->update(['status'=> 'Completed']);
+        DB::table('loads')->where('mask', $load_id)->update(['status' => 'Completed', 'price' => $bid_history->offer]);
+        $bid->update(['status' => 'Completed']);
 
-        return back()->with('success','Bidding completed');
+        return back()->with('success', 'Bidding completed');
     }
 }

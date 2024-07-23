@@ -166,7 +166,8 @@
         </i>
     </div>
     <!--end::Scrolltop-->
-
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap" defer></script>
     <script>
         // Initialize and add the map
         const addr = document.getElementById('last_location').innerText;
@@ -224,6 +225,5 @@
             marker.setMap(map);
         }
     </script>
-    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap"></script>
+
 @endsection

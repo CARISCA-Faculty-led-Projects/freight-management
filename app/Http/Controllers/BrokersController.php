@@ -22,8 +22,9 @@ class BrokersController extends Controller
         $shipments = DB::table("shipments")->where('broker_id', whichUser()->mask)->count();
         $pending_shipments = DB::table("shipments")->where('broker_id', whichUser()->mask)->where('shipment_status', 'Assigned')->count();
         $completed_shipments = DB::table("shipments")->where('broker_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
+        $active_shipments = DB::table("shipments")->where('broker_id', whichUser()->mask)->where('shipment_status', 'On route')->count();
 
-        return view('brokers.overview', compact('loads', 'shipments', 'pending_shipments', 'completed_shipments'));
+        return view('brokers.overview', compact('loads', 'shipments', 'pending_shipments', 'completed_shipments','active_shipments'));
     }
 
     public function dashboardCharts()
@@ -38,6 +39,45 @@ class BrokersController extends Controller
         }
         return $this->successResponse('', ["spm" => $spm]);
     }
+
+    public function mapData()
+    {
+        $loads = DB::table('loads')->where('org_assigned_by', whichUser()->mask)
+            ->where('shipment_status', "Unassigned")
+            ->join('senders', 'senders.mask', 'loads.sender_id')
+            ->get(['loads.image', 'loads.mask', 'pickup_address','dropoff_address', 'senders.name as sender', 'senders.phone as sender_phone']);
+        foreach ($loads as $load) {
+            $load->pickup_address = json_decode($load->pickup_address);
+            $load->dropoff_address = json_decode($load->dropoff_address);
+        }
+
+        $shipments = DB::table('shipments')->where('shipments.organization_id', whichUser()->organization_id)->where('shipments.shipment_status', "On route")
+            ->join('drivers', 'drivers.mask', 'shipments.driver_id')
+            ->select('shipments.mask as shipment', 'shipments.last_location as shipment_location', 'drivers.name as driver', 'drivers.mask as driver_id', 'drivers.phone as driver_contact')
+            ->get();
+
+        foreach ($shipments as $shipment) {
+            $shipment->shipment_location = json_decode($shipment->shipment_location);
+        }
+
+        $drivers = DB::table('drivers')->where('organization_id', whichUser()->organization_id)->where('shipment_status', 'Assigned')->get(['image', 'name', 'phone', 'mask', 'last_login', 'last_location']);
+        foreach ($drivers as $driver) {
+            $driver->last_location = json_decode($driver->last_location);
+        }
+
+        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->organization_id)->where('shipment_status', 'Unassigned')->get(['image', 'number', 'make', 'model', 'mask', 'last_location','driver_id']);
+        foreach ($vehicles as $vehicle) {
+            $vehicle->last_location = json_decode($vehicle->last_location);
+            if ($vehicle->driver_id != null) {
+                $driver = DB::table('drivers')->where('mask', $vehicle->driver_id)->first(['name', 'phone']);
+                $vehicle->driver = $driver->name;
+                $vehicle->driver_phone = $driver->phone;
+            }
+        }
+
+        return $this->successResponse('', ['loads' => $loads, 'shipments' => $shipments, 'drivers' => $drivers, 'vehicles' => $vehicles]);
+    }
+
 
     public function list()
     {

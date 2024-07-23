@@ -9010,7 +9010,7 @@ License: For each use you must have a valid license purchased only from above li
 														<table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
 															<!--begin::Table head-->
 															<thead>
-																<tr class="fs-7 fw-bold text-gray-400 border-bottom-0">
+																<tr class="fs-7 fw-bold text-dark border-bottom-0">
 																	<th class="p-0 pb-3 min-w-175px text-start">ITEM</th>
 																	<th class="p-0 pb-3 min-w-100px text-end">OPEN PRICE</th>
 																	<th class="p-0 pb-3 min-w-100px text-end">YOUR OFFER</th>
