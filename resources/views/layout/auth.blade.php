@@ -118,6 +118,15 @@ License: For each use you must have a valid license purchased only from above li
 
                 <!--begin::Wrapper-->
                 <div class="d-flex flex-column position-xl-fixed top-0 bottom-0 w-xl-600px scroll-y">
+                    <!-- Sponsor Overlay -->
+                    <div class="sponsor-overlay position-absolute top-0 start-0 w-100 py-3 mt-3 bg-white bg-opacity-75">
+                        <div class="container">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <!-- <span class="me-3 text-dark">Sponsored by:</span> -->
+                                <img src="assets/media/logos/CARISCA_Logo-removebg-preview.png" alt="Sponsor" class="img-fluid" style="max-height: 30px;">
+                            </div>
+                        </div>
+                    </div>
                     <!--begin::Header-->
                     <div class="d-flex flex-row-fluid flex-column text-center p-5 p-lg-10 pt-lg-20">
                         <!--begin::Logo-->
