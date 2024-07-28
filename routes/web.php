@@ -10,6 +10,7 @@ use App\Http\Livewire\Load\UpdateLoad;
 use App\Http\Livewire\Broker\AddBroker;
 use App\Http\Livewire\Driver\AddDriver;
 use App\Http\Livewire\Sender\AddSender;
+use Illuminate\Support\Facades\Request;
 use App\Http\Controllers\BidsController;
 use App\Http\Livewire\ViewOrganisations;
 use App\Http\Controllers\AdminController;
@@ -46,8 +47,6 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
-
-
 
 Route::middleware(['guest'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -329,6 +328,7 @@ Route::middleware('auth:drivers')->group(function () {
         });
         Route::controller(VehiclesController::class)->group(function () {
             Route::get('vehicle/maintenance', 'driver_vehicle_maintenance')->name('driver.vehicle.maintenance');
+            Route::get('vehicle', 'driver_vehicle')->name('driver.vehicle');
             Route::prefix('maintenance')->group(function () {
                 Route::get('{vehicle}/add', 'add_maintenance')->name('driver.vehicle.maintenance.add');
                 Route::get('{log}/edit', 'edit_maintenance')->name('driver.vehicle.maintenance.edit');
@@ -594,14 +594,19 @@ Route::get('dbrun', function () {
 Route::get('move-load-to-{status}', function ($status) {
     $loads = DB::table('loads')->where('payment_status', 'Unpaid')->where('shipment_status', 'Unassigned')->where('completed', 0)->get();
     foreach ($loads as $load) {
-        if($status == 'bidding'){
-            DB::table('loads')->where('mask', $load->mask)->update(['status' => "Bidding",'completed'=> 1]);
-            DB::table('bids')->where('load_id','!=',$load->mask)->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
-        }elseif($status == 'draft'){
+        if ($status == 'bidding') {
+            DB::table('loads')->where('mask', $load->mask)->update(['status' => "Bidding", 'completed' => 1]);
+            DB::table('bids')->where('load_id', '!=', $load->mask)->insert(['sender_id' => $load->sender_id, 'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
+        } elseif ($status == 'draft') {
             DB::table('loads')->where('mask', $load->mask)->update(['status' => "Draft"]);
         }
         // DB::table('bids')->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
     }
 
-    dd('done-'.$status);
+    dd('done-' . $status);
 });
+
+
+Route::post('svae', function (Request $request) {
+    dd($request->all());
+})->name('img.svae');

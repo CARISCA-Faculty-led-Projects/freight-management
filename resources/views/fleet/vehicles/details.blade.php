@@ -82,7 +82,7 @@
                                 <!--end::Summary-->
                                 <!--begin::Details toggle-->
                                 <div class="d-flex flex-stack fs-4 py-3">
-                                    <div class="fw-bold">Details</div>
+                                    <div class="fw-bold">Organizations Details</div>
                                 </div>
                                 <!--end::Details toggle-->
                                 <div class="separator separator-dashed my-3"></div>
@@ -173,7 +173,7 @@
                             <div class="col col-lg-12">
                                 <!--begin::Driver Card-->
                                 <div class="card bg-white hoverable h-100">
-                                    
+
                                      <!--begin::Card Header-->
                                     <div class="card-header bg-white py-3 d-flex justify-content-between align-items-center">
                                         <h3 class="card-title fw-bold text-dark mb-0">Driver</h3>
@@ -253,16 +253,19 @@
                             </div>
                             </div>
                             @endif
-
                             <!--begin::Order summary-->
                             <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
                                 <!--begin::Order details-->
                                 <div class="card card-flush py-4 flex-row-fluid">
                                     <!--begin::Card header-->
                                     <div class="card-header">
-                                        <div class="card-title">
-                                            <h2>Vehicle Details</h2>
+                                        <div class="card-title min-h-10px">
+                                            <h2>Vehicle Details</h2> &nbsp;
+                                        <span class="badge badge-warning">{{ $onmaintenance ? "On Maintenance" : ''}}</span>
+
                                         </div>
+                                        {{-- <div class="d-flex badge badge-warning p-0">
+                                        </div> --}}
                                     </div>
                                     <!--end::Card header-->
                                     <!--begin::Card body-->

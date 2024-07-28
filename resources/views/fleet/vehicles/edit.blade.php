@@ -273,17 +273,37 @@
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
                                         <div class="card-body pt-0">
-                                            <div class="fv-row w-100 flex-md-root mb-10">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Vehicle Number</label>
-                                                <!--end::Label-->
-                                                <!--begin::Select2-->
-                                                <input type="text" wire:model="vehicle.number"
-                                                    class="text form-control" placeholder="GT-5466-22">
-                                                <!--end::Select2-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">Enter vehicle license plate number</div>
-                                                <!--end::Description-->
+                                            <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="required form-label">Vehicle Registration
+                                                        number</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Select2-->
+                                                    <input type="text" wire:model="vehicle.number"
+                                                        class="text form-control" placeholder="GT-5466-22">
+                                                    <!--end::Select2-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Enter vehicle license plate number
+                                                    </div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Input group-->
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="form-label">Vehicle Organization Number</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Select2-->
+                                                    <input type="text" wire:model="vehicle.org_num"
+                                                        class="text form-control" placeholder="V5466">
+                                                    <!--end::Select2-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Enter number given to vehicle inside
+                                                        organization</div>
+                                                    <!--end::Description-->
+                                                </div>
                                             </div>
                                             <!--begin::Input group-->
                                             <div class="d-flex flex-wrap gap-5 mb-10 mt-5">

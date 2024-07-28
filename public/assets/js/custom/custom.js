@@ -119,7 +119,7 @@ $("document").ready(function () {
 
     $('#addSubLoad').on('click', function () {
         var total = $('#subLoads_group').children().length + 1;
-        // console.log($('#subLoads_group').children().length);
+        console.log($('#subLoads_group').children().length);
         addSubload(total);
     })
 
@@ -138,7 +138,7 @@ $("document").ready(function () {
                 <!--begin::Input-->
                 <input type="text" class="form-control mw-100 w-200px"
                     name="subload[${curr}][name]"
-                    value="${data!= null ? data.name : ''}"
+                    value="${data != null ? data.name : ''}"
                     placeholder="Item Name" />
                 <!--end::Input-->
                 <div class="w-100 w-md-200px">
@@ -184,4 +184,7 @@ $("document").ready(function () {
     });
 
 
+
 });
+
+

@@ -189,8 +189,30 @@
                             @enderror
                         </div>
                         <!--end::Input group-->
+                        <!--end::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Due Date</span>
+                                <span class="ms-1" data-bs-toggle="tooltip"
+                                    title="Specify the date maintenance would be complete.">
+                                    <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                </span>
+                            </label>
+                            <!--end::Label-->
 
-                        <!--begin::Notice-->
+                            <input type="date"
+                                class="form-control {{ $errors->has('date') ? 'border-danger' : '' }} form-control-solid"
+                                name="due_date" required />
+                            @error('due_date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <!--end::Input group-->
 
                         <!--end::Input group-->
                         <div class="d-flex flex-column mb-8 fv-row">

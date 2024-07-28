@@ -70,8 +70,10 @@ class VehiclesController extends Controller
 
         $organization = null;
         $driver = DB::table('drivers')->where('mask', $vehicle->driver_id)->first();
+        $today = Carbon::now()->toDateString();
+        $onmaintenance = DB::table('maintenance_schedule')->where('vehicle_id',$vehicle->mask)->whereDate('date',"<",$today)->whereDate('due_date',">",$today)->exists();
 
-        return view('fleet.vehicles.details', compact('vehicle', "vehicle_routes", 'vehicle_owner', 'organization', 'driver'));
+        return view('fleet.vehicles.details', compact('vehicle', "vehicle_routes", 'vehicle_owner', 'organization', 'driver','onmaintenance'));
     }
 
     public function maintenance_logs($vehicle)
@@ -93,23 +95,25 @@ class VehiclesController extends Controller
     public function store_maintenance(Request $request, $vehicle)
     {
         $validated = Validator::make($request->all(), [
-            'status' => 'required',
             'provider' => 'required',
             'frequency' => 'required',
             'date' => 'required',
+            'due_date' => 'required',
             'amount' => 'required|numeric'
         ])->validate();
 
         $date = Carbon::parse($request->date)->toDateString();
+        $due_date = Carbon::parse($request->due_date)->toDateString();
 
 
         DB::table('maintenance_schedule')->insert([
             'vehicle_id' => $vehicle,
-            'status' => $request->status,
+            'status' => "Scheduled",
             'task' => $request->task,
             'provider' => $request->provider,
             'frequency' => $request->frequency,
             'date' => $date,
+            'due_date' => $due_date,
             'cost' => $request->amount,
             'next_visit' => Carbon::parse($request->date)->add($request->frequency)->toDateString(),
             'created_at' => Carbon::now()->toDateTimeString()
@@ -142,6 +146,7 @@ class VehiclesController extends Controller
             'provider' => 'required',
             'frequency' => 'required',
             'date' => 'required',
+            'due_date' => 'required',
             'amount' => 'required|numeric'
         ])->validate();
 
@@ -151,6 +156,7 @@ class VehiclesController extends Controller
             'provider' => $request->provider,
             'frequency' => $request->frequency,
             'date' => Carbon::parse($request->date)->toDateString(),
+            'due_date' => Carbon::parse($request->due_date)->toDateString(),
             'cost' => $request->amount,
             'next_visit' => Carbon::parse($request->date)->add($request->frequency)->toDateString(),
             'created_at' => Carbon::now()->toDateTimeString()
@@ -199,5 +205,27 @@ class VehiclesController extends Controller
         $driver = DB::table('drivers')->where("mask", $vehicle->driver_id)->first();
 
         return view('fleet.vehicles.locate', compact('vehicle', 'org', 'driver'));
+    }
+
+    public function driver_vehicle()
+    {
+        $vehicle =  DB::table('vehicles')->where('driver_id', whichUser()->mask)
+        ->join("vehicle_categories", 'vehicle_categories.id', 'vehicles.vehicle_category_id')
+        ->join("vehicle_sub_categories", 'vehicle_sub_categories.id', 'vehicles.vehicle_subcategory_id')
+        ->select('vehicles.*', 'vehicle_categories.name as category', 'vehicle_sub_categories.name as subcategory')
+        ->first();
+        // $vehicle = DB::table('vehicles')->where('driver_id', whichUser()->mask)->first();
+        $vehicle_owner = DB::table('vehicle_owners')->where("vehicle_id", $vehicle->mask)->first();
+
+        $logs = DB::table('maintenance_schedule')->where("vehicle_id", $vehicle->mask)->get();
+
+
+        $vehicle_routes = DB::table('vehicle_routes')->where('vehicle_id', whichUser()->mask)->get();
+        $vehicle_owner = $vehicle->organization_id ? DB::table('organizations')->where("mask", $vehicle->organization_id)->first() : DB::table('vehicle_owners')->where('vehicle_id', $vehicle->mask)->first();
+
+        $organization = null;
+        $driver = DB::table('drivers')->where('mask', $vehicle->driver_id)->first();
+
+        return view('fleet.vehicles.details', compact('vehicle', 'vehicle_owner', 'logs','driver','vehicle_routes'));
     }
 }

@@ -165,7 +165,7 @@
                                         id="kt_ecommerce_add_product_status">
                                     </span>
                                     </button>
-                                       
+
                                     </div>
                                     <!--begin::Card toolbar-->
                                 </div>
@@ -264,7 +264,7 @@
                         </div>
                         <!--end::Status-->
                         <!--begin::Status-->
-                        
+
                         <!--end::Status-->
 
                     </div>
@@ -307,7 +307,7 @@
                                         </div>
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
-                                        <div class="card-body pt-0">                                               
+                                        <div class="card-body pt-0">
                                             <!--end::Card body-->
                                             <div class="mb-10 fv-row">
                                                 <!--begin::Label-->
@@ -336,12 +336,7 @@
                                                         class="form-control mb-2" placeholder="Driver name"
                                                         value="" required />
                                                     <!--end::Input-->
-                                                    <!--begin::Description-->
-                                                    <div class="text-muted fs-7">A product name is required and
-                                                        recommended to
-                                                        be
-                                                        unique.</div>
-                                                    <!--end::Description-->
+
                                                 </div>
                                                 <!--end::Input group-->
                                                 <!--begin::Input group-->
@@ -354,11 +349,37 @@
                                                         class="form-control mb-2" placeholder="Driver name"
                                                         value="" required />
                                                     <!--end::Input-->
-                                                    <!--begin::Description-->
-                                                    <div class="text-muted fs-7">A product name is required and
-                                                        recommended to
-                                                        be
-                                                        unique.</div>
+
+                                                </div>
+                                                <!--end::Input group-->
+                                            </div>
+                                            <!--end:Tax-->
+                                             <!--begin::Tax-->
+                                             <div class="d-flex flex-wrap gap-5 mt-3 ">
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <label class="form-label">Gender</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Select-->
+                                                    <select wire:model="driver.gender" id="" class="form-control">
+                                                        <option value="">--select--</option>
+                                                        <option value="Male">Male</option>
+                                                        <option value="Female">Female</option>
+                                                    </select>
+                                                    <!--end::select-->
+
+                                                </div>
+                                                <!--end::Input group-->
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="form-label">Years of experience</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Input-->
+                                                    <input type="number" min="0" wire:model="driver.experience"
+                                                        class="form-control mb-2" placeholder="Years of experience"
+                                                        value="" />
+                                                    <!--end::Input-->
                                                 </div>
                                                 <!--end::Input group-->
                                             </div>

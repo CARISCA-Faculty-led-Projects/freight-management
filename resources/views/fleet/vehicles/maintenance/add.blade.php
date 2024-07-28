@@ -27,7 +27,7 @@
                             <!--end::Description-->
                         </div>
                         <!--end::Heading-->
-                        <!--begin::Input group-->
+                        {{-- <!--begin::Input group-->
                         <div class="fv-row mb-8">
                             <!--begin::Label-->
                             <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
@@ -55,7 +55,7 @@
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
-                        <!--end::Input group-->
+                        <!--end::Input group--> --}}
                         <!--begin::Input group-->
                         <div class="fv-row mb-8">
                             <!--begin::Label-->
@@ -163,8 +163,30 @@
                             @enderror
                         </div>
                         <!--end::Input group-->
+                        <!--end::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Due Date</span>
+                                <span class="ms-1" data-bs-toggle="tooltip"
+                                    title="Specify the date maintenance would be complete.">
+                                    <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                </span>
+                            </label>
+                            <!--end::Label-->
 
-                        <!--begin::Notice-->
+                            <input type="date"
+                                class="form-control {{ $errors->has('date') ? 'border-danger' : '' }} form-control-solid"
+                                name="due_date" required />
+                            @error('due_date')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                        </div>
+                        <!--end::Input group-->
 
                         <!--end::Input group-->
                         <div class="d-flex flex-column mb-8 fv-row">
@@ -192,22 +214,22 @@
                         <!--end::Input group-->
                         <!--begin::Notice-->
                         <!-- <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
-                                    <i class="ki-duotone ki-wallet fs-2tx text-primary me-4">
-                                        <span class="path1"></span>
-                                        <span class="path2"></span>
-                                        <span class="path3"></span>
-                                        <span class="path4"></span>
-                                    </i>
+                                            <i class="ki-duotone ki-wallet fs-2tx text-primary me-4">
+                                                <span class="path1"></span>
+                                                <span class="path2"></span>
+                                                <span class="path3"></span>
+                                                <span class="path4"></span>
+                                            </i>
 
-                                    <div class="d-flex flex-stack flex-grow-1">
-                                        <div class="fw-semibold">
-                                            <h4 class="text-gray-900 fw-bold">Top up funds</h4>
-                                            <div class="fs-6 text-gray-700">Not enough funds in your wallet?
-                                                <a href="/utilities/modals/wizards/top-up-wallet" class="text-bolder">Top up
-                                                    wallet</a>.</div>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                            <div class="d-flex flex-stack flex-grow-1">
+                                                <div class="fw-semibold">
+                                                    <h4 class="text-gray-900 fw-bold">Top up funds</h4>
+                                                    <div class="fs-6 text-gray-700">Not enough funds in your wallet?
+                                                        <a href="/utilities/modals/wizards/top-up-wallet" class="text-bolder">Top up
+                                                            wallet</a>.</div>
+                                                </div>
+                                            </div>
+                                        </div> -->
                         <!--end::Notice-->
                         <!--end::Notice-->
                         <!--begin::Actions-->

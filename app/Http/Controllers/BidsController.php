@@ -64,7 +64,7 @@ class BidsController extends Controller
 
     public function start_bid(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
 
         if (whichUser()->getTable() == 'brokers') {
             DB::table('bids')->where('id', $request->bid_id)->whereNull('broker_id')->update(['broker_id' => whichUser()->mask, 'status' => 'Pending']);

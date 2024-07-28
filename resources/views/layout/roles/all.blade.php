@@ -230,9 +230,9 @@
                         </div>
                         <!--end:Menu item-->
                         <!--begin:Menu item-->
-                        {{-- <div class="menu-item">
+                        <div class="menu-item">
                         <!--begin:Menu link-->
-                        <a class="menu-link" href="{{route("driver.profile")}}">
+                        <a class="menu-link" href="{{route("driver.vehicle")}}">
                             <span class="menu-icon">
                                 <i class="ki-duotone ki-element-plus fs-2">
                                     <span class="path1"></span>
@@ -242,10 +242,10 @@
                                     <span class="path5"></span>
                                 </i>
                             </span>
-                            <span class="menu-title">My Profile</span>
+                            <span class="menu-title">My Vehicle</span>
                         </a>
                         <!--end:Menu link-->
-                    </div> --}}
+                    </div>
                         <!--end:Menu item-->
                         <!--begin:Menu item-->
                         <div class="menu-item">

@@ -296,7 +296,7 @@
                     </div>
 
                 </div>
-            </div>p
+            </div>
         </div>
         <!--end::Content container-->
         <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>

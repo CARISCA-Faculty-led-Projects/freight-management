@@ -213,12 +213,75 @@
             <!--end::Col-->
         </div>
         <!--end::Row-->
+        <div class="col-xl-12 mt-5">
+            <div class="card card-flush p-3">
+                <!--begin::Header-->
+                <div class="card-header pt-7">
+                    <!--begin::Title-->
+                    <h3 class="card-title align-items-start flex-column">
+                        <span class="card-label fw-bold text-dark">Assigned shipments</span>
+                        <span class="text-gray-400 pt-2 fw-semibold fs-6">Displaying locations of all assigned
+                            shipments</span>
+                    </h3>
+                    <!--end::Title-->
+                    <!--begin::Toolbar-->
+                    <div class="card-toolbar">
+                        <h3 class="card-title align-items-end flex-column">
+                            {{-- <span class="card-label fw-bold text-dark">{{ $active_shipments }} assigned shipments</span> --}}
+                        </h3>
+                        <!--begin::Menu-->
+                        {{-- <button class="btn btn-icon btn-color-gray-400 btn-active-color-primary justify-content-end"
+                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"
+                            data-kt-menu-overflow="true">
+                            <i class="ki-duotone ki-dots-square fs-1 text-gray-300 me-n1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                            </i>
+                        </button> --}}
+                        <!--begin::Menu-->
+                        {{-- <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold w-100px py-4"
+                            data-kt-menu="true">
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3">
+                                <a href="#" class="menu-link px-3">Remove</a>
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3">
+                                <a href="#" class="menu-link px-3">Mute</a>
+                            </div>
+                            <!--end::Menu item-->
+                            <!--begin::Menu item-->
+                            <div class="menu-item px-3">
+                                <a href="#" id="lnk" class="menu-link px-3">Settings</a>
+                            </div>
+                            <!--end::Menu item-->
+                        </div> --}}
+                        <!--end::Menu-->
+                        <!--end::Menu-->
+                    </div>
+                    <!--end::Toolbar-->
+                </div>
+                <!--end::Header-->
+                <div class="card-body">
+                    <div id="googleMap" style="width:100%;height:100rem;"></div>
+                </div>
+
+            </div>
+        </div>
     </div>
     <!--end::Content container-->
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap" defer></script>
+    <script src="{{ asset('assets/js/broker.overview.js') }}"></script>
     <script>
         $('document').ready(function() {
             getDriverChartsData();
+
         });
     </script>
+
 </div>
 @endsection

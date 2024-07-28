@@ -212,6 +212,65 @@
                 <!--end::Aside column-->
                 <!--begin::Main column-->
                 <div class="d-flex flex-column flex-row-fluid gap-7 gap-lg-10">
+                     <!--begin::Automation-->
+                     <div class="card card-flush py-4">
+                        <!--begin::Card header-->
+                        <div class="card-header">
+                            <div class="card-title">
+                                <h2>Load Breakdown</h2>
+                            </div>
+                        </div>
+                        <!--end::Card header-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+
+                            <!--begin::Input group-->
+                            <div class="mt-5">
+                                <!--begin::Label-->
+                                <label class="form-label">Indicate all the items in your load if
+                                    they are more than one</label>
+                                <!--end::Label-->
+                                <!--begin::Conditions-->
+                                {{-- <div class="d-flex flex-wrap align-items-center text-gray-600 gap-5 mb-7">
+                                    <span>Save items for future use:</span>
+                                    <div class="form-check form-check-custom form-check-solid">
+                                        <input class="form-check-input" type="radio" wire:model="future"
+                                            value="" id="all_conditions" checked="checked" />
+                                        <label class="form-check-label" for="all_conditions">Yes</label>
+                                    </div>
+
+                                    <div class="form-check form-check-custom form-check-solid">
+                                        <input class="form-check-input" type="radio" wire:model="future"
+                                            value="" id="any_conditions" />
+                                        <label class="form-check-label" for="any_conditions">No</label>
+                                    </div>
+                                </div> --}}
+                                <!--end::Conditions-->
+                                <!--begin::Repeater-->
+                                <div id="kt_ecommerce_add_category_conditions">
+                                    <div class="subs" id="subLoads_group" data-load-categories="{{ $this->loads() }}">
+
+                                    </div>
+                                    <!--end::Form group-->
+                                    <!--begin::Form group-->
+                                    <div class="form-group mt-5">
+                                        <!--begin::Button-->
+                                        <button type="button"
+                                            id="addSubLoad"
+                                            class="btn btn-sm btn-light-primary">
+                                            <i class="ki-duotone ki-plus fs-2"></i>Add another
+                                            condition</button>
+                                        <!--end::Button-->
+                                    </div>
+                                    <!--end::Form group-->
+                                </div>
+                                <!--end::Repeater-->
+                            </div>
+                            <!--end::Input group-->
+                        </div>
+                        <!--end::Card header-->
+                    </div>
+                    <!--begin::Media-->
                     <!--begin::General options-->
                     <div class="card card-flush py-4">
                         <!--begin::Card header-->
@@ -437,65 +496,7 @@
                         </div>
                         <!--end::Meta options-->
                     </div>
-                    <!--begin::Automation-->
-                    <div class="card card-flush py-4">
-                        <!--begin::Card header-->
-                        <div class="card-header">
-                            <div class="card-title">
-                                <h2>Load Breakdown</h2>
-                            </div>
-                        </div>
-                        <!--end::Card header-->
-                        <!--begin::Card body-->
-                        <div class="card-body pt-0">
 
-                            <!--begin::Input group-->
-                            <div class="mt-5">
-                                <!--begin::Label-->
-                                <label class="form-label">Indicate all the items in your load if
-                                    they are more than one</label>
-                                <!--end::Label-->
-                                <!--begin::Conditions-->
-                                {{-- <div class="d-flex flex-wrap align-items-center text-gray-600 gap-5 mb-7">
-                                    <span>Save items for future use:</span>
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="radio" wire:model="future"
-                                            value="" id="all_conditions" checked="checked" />
-                                        <label class="form-check-label" for="all_conditions">Yes</label>
-                                    </div>
-
-                                    <div class="form-check form-check-custom form-check-solid">
-                                        <input class="form-check-input" type="radio" wire:model="future"
-                                            value="" id="any_conditions" />
-                                        <label class="form-check-label" for="any_conditions">No</label>
-                                    </div>
-                                </div> --}}
-                                <!--end::Conditions-->
-                                <!--begin::Repeater-->
-                                <div id="kt_ecommerce_add_category_conditions">
-                                    <div class="subs" id="subLoads_group" data-load-categories="{{ $this->loads() }}">
-
-                                    </div>
-                                    <!--end::Form group-->
-                                    <!--begin::Form group-->
-                                    <div class="form-group mt-5">
-                                        <!--begin::Button-->
-                                        <button type="button"
-                                            id="addSubLoad"
-                                            class="btn btn-sm btn-light-primary">
-                                            <i class="ki-duotone ki-plus fs-2"></i>Add another
-                                            condition</button>
-                                        <!--end::Button-->
-                                    </div>
-                                    <!--end::Form group-->
-                                </div>
-                                <!--end::Repeater-->
-                            </div>
-                            <!--end::Input group-->
-                        </div>
-                        <!--end::Card header-->
-                    </div>
-                    <!--begin::Media-->
                     <div class="card card-flush py-4">
                         <!--begin::Card header-->
                         <div class="card-header">

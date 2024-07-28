@@ -128,6 +128,7 @@
                                 <th class="min-w-100px">Maintenance Task</th>
                                 <th class="min-w-100px">Status</th>
                                 <th class="min-w-100px">Scheduled Date</th>
+                                <th class="min-w-100px">Due Date</th>
                                 <th class="min-w-100px">Provider</th>
                                 <th class="min-w-100px">Cost</th>
                                 <th class="text-end min-w-75px">Next Scheduled Date</th>
@@ -155,7 +156,8 @@
                                         <!--end::Badges-->
                                     </td>
                                     <td>{{ $schedule->task }}</td>
-                                    <td>{{ date('D, d M Y', strtotime($schedule->date)) }}</td>
+                                    <td>{{$schedule->date ? date('D, d M Y', strtotime($schedule->date)) : '' }}</td>
+                                    <td>{{$schedule->due_date ?  date('D, d M Y', strtotime($schedule->due_date)) : '' }}</td>
                                     <td>
                                         <a href="#"
                                             class="text-dark text-hover-primary">{{ $schedule->provider }}</a>

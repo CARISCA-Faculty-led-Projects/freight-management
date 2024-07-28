@@ -50,7 +50,7 @@
             <div id="kt_ecommerce_add_product_form" class="form d-flex flex-column flex-lg-row"
                 data-kt-redirect="/apps/ecommerce/catalog/products">
                 <!--begin::Aside column-->
-                <form action="" method="post">
+                <form wire:submit.prevent="general" method="post">
                     <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
                         <!--begin::Thumbnail settings-->
                         <div class="card card-flush py-4">
@@ -272,19 +272,37 @@
                                         <!--end::Card header-->
                                         <!--begin::Card body-->
                                         <div class="card-body pt-0">
-
-                                            <!--end:Tax-->
-                                            <div class="fv-row w-100 flex-md-root mb-10">
-                                                <!--begin::Label-->
-                                                <label class="required form-label">Vehicle Number</label>
-                                                <!--end::Label-->
-                                                <!--begin::Select2-->
-                                                <input type="text" wire:model="vehicle.number"
-                                                    class="text form-control" placeholder="GT-5466-22">
-                                                <!--end::Select2-->
-                                                <!--begin::Description-->
-                                                <div class="text-muted fs-7">Enter vehicle license plate number</div>
-                                                <!--end::Description-->
+                                            <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="required form-label">Vehicle Registration
+                                                        number</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Select2-->
+                                                    <input type="text" wire:model="vehicle.number"
+                                                        class="text form-control" placeholder="GT-5466-22">
+                                                    <!--end::Select2-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Enter vehicle license plate number
+                                                    </div>
+                                                    <!--end::Description-->
+                                                </div>
+                                                <!--end::Input group-->
+                                                <!--begin::Input group-->
+                                                <div class="fv-row w-100 flex-md-root">
+                                                    <!--begin::Label-->
+                                                    <label class="form-label">Vehicle Organization Number</label>
+                                                    <!--end::Label-->
+                                                    <!--begin::Select2-->
+                                                    <input type="text" wire:model="vehicle.org_num"
+                                                        class="text form-control" placeholder="V5466">
+                                                    <!--end::Select2-->
+                                                    <!--begin::Description-->
+                                                    <div class="text-muted fs-7">Enter number given to vehicle inside
+                                                        organization</div>
+                                                    <!--end::Description-->
+                                                </div>
                                             </div>
                                             <div class="d-flex flex-wrap gap-5 mb-10 mt-5">
                                                 <!--begin::Input group-->
@@ -714,7 +732,8 @@
                                                 <!--end::Label-->
                                                 <!--begin::Input-->
                                                 <div class="form-check form-check-custom form-check-solid mb-2">
-                                                    <input class="form-check-input" wire:click="org_owned($event.target.checked)"
+                                                    <input class="form-check-input"
+                                                        wire:click="org_owned($event.target.checked)"
                                                         type="checkbox" />
                                                     <label class="form-check-label">Yes</label>
                                                 </div>
@@ -731,7 +750,7 @@
                                     </div>
                                     <!--end::Inventory-->
                                     <!--begin::Variations-->
-                                    <div class="card card-flush py-4">
+                                    {{-- <div class="card card-flush py-4">
                                         <!--begin::Card header-->
                                         <div class="card-header">
                                             <div class="card-title">
@@ -799,7 +818,7 @@
                                         </div>
                                         <!--end::Card body-->
                                         <!--end::Repeater-->
-                                    </div>
+                                    </div> --}}
                                     <!--end::Variations-->
                                     <!--end::Input group-->
                                 </div>
