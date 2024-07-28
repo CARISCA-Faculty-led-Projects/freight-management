@@ -90,7 +90,7 @@
                                         <a href="{{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }}"
                                             onclick="return confirm('You are agreeing to the amount for this load')"
                                             class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success">Agree</a>
-                                    @else
+                                    @elseif ($bid->status == 'Completed')
                                         @if (whichUser()->getTable() == 'brokers')
                                             @if ($load->payment_status == 'Unpaid')
                                                 <span class="badge badge-warning">Awaiting payment</span>
