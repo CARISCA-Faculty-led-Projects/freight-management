@@ -107,14 +107,17 @@
                                         id="kt_ecommerce_sales_table">
                                         <thead>
                                             <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
+
                                                 <th class="w-10px pe-2">
+                                                    @if ($shipment['shipment_status'] != 'Cancelled')
                                                     <div
-                                                        class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                                        <input class="form-check-input" type="checkbox"
-                                                            data-kt-check="true"
-                                                            data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
-                                                            value="1" />
-                                                    </div>
+                                                    class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        data-kt-check="true"
+                                                        data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
+                                                        value="1" />
+                                                </div>
+                                                    @endif
                                                 </th>
                                                 <th class="min-w-50px">#</th>
                                                 <th class="min-w-50px">Category</th>
@@ -130,7 +133,7 @@
                                                     <td>
                                                         <div
                                                             class="form-check form-check-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input" type="checkbox"
+                                                            <input class="form-check-input {{ $shipment['shipment_status'] == 'Cancelled' ? "d-none" : '' }}" type="checkbox"
                                                                 name="loads[]" value="{{ $load['mask'] }}" checked />
                                                         </div>
                                                     </td>
@@ -171,25 +174,31 @@
                                 <!--end::Table-->
                             </div>
                             <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="mb-10 fv-row">
-                                <!--begin::Label-->
-                                <label class="form-label">Assigned Organization</label>
-                                <!--end::Label-->
-                                <!--begin::Select2-->
-                                <select
-                                    class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
-                                    name="organization_id" data-hide-search="true" data-placeholder="Select an organization">
-                                    @foreach ($this->getOrgs() as $org)
-                                        <option value="{{ $org->mask }}" {{ $this->organization['mask'] == $org->mask ? "selected" : '' }}>{{ $org->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('organization_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <!--end::Input group-->
+                            @if (whichUser()->getTable() == 'brokers')
+                                <!--begin::Input group-->
+                                <div class="mb-10 fv-row">
+                                    <!--begin::Label-->
+                                    <label class="form-label">Assigned Organization</label>
+                                    <!--end::Label-->
+                                    <!--begin::Select2-->
+                                    <select
+                                        class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
+                                        name="organization_id" data-hide-search="true"
+                                        data-placeholder="Select an organization">
+                                        @foreach ($this->getOrgs() as $org)
+                                            <option value="{{ $org->mask }}"
+                                                {{ $this->organization['mask'] == $org->mask ? 'selected' : '' }}>
+                                                {{ $org->name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    @error('organization_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                                <!--end::Input group-->
+                            @endif
+
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
@@ -197,7 +206,7 @@
                                 <!--end::Label-->
                                 <!--begin::Editor-->
                                 <textarea name="description" id="" cols="30" rows="4" class="form-control"
-                                    value="{{ $this->shipment['description'] }}"></textarea>
+                                    value="{{ $this->shipment['description'] }}" {{ $shipment['shipment_status'] == 'Cancelled' ? "disabled" : '' }}></textarea>
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a description to the category for
@@ -240,7 +249,7 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
                                     <!--begin::Menu toggle-->
-                                    <select name="pickup_address" id="start"
+                                    <select name="pickup_address" id="start" {{ $shipment['shipment_status'] == 'Cancelled' ? "disabled" : '' }}
                                         class="form-control mt-2 @error('pickup_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">{{ $shipment['starting_point'] }}</option>
@@ -275,7 +284,7 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
                                     <select name="dropoff_address" id="end"
-                                        class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
+                                        class="form-control mt-2 @error('dropoff_address')border-danger @enderror" {{ $shipment['shipment_status'] == 'Cancelled' ? "disabled" : '' }}
                                         style="width: 40rem;">
                                         <option value="">{{ $shipment['destination'] }}</option>
                                         @foreach ($locations as $index => $location)
@@ -324,10 +333,12 @@
                                     <!--begin::Select2-->
                                     <select
                                         class="form-select mb-2 @error('driver_id')border-danger @enderror basic-select2"
-                                        name="driver_id" data-hide-search="true" data-placeholder="Select a sender"
+                                        name="driver_id"
                                         id="kt_ecommerce_add_category_store_template">
                                         @foreach ($this->getDrivers() as $driver)
-                                            <option value="{{ $driver->mask }}" {{ $this->driver['mask'] == $driver->mask ? "selected" : ''}}>{{ $driver->name }}
+                                            <option value="{{ $driver->mask }}"
+                                                {{ $this->driver['mask'] == $driver->mask ? 'selected' : '' }}>
+                                                {{ $driver->name }}
                                             </option>
                                         @endforeach
                                     </select>

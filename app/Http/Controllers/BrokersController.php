@@ -44,6 +44,7 @@ class BrokersController extends Controller
     {
         $loads = DB::table('loads')->where('org_assigned_by', whichUser()->mask)
             ->where('shipment_status', "Unassigned")
+            ->where('payment_status', "Paid")
             ->join('senders', 'senders.mask', 'loads.sender_id')
             ->get(['loads.image', 'loads.mask', 'pickup_address','dropoff_address', 'senders.name as sender', 'senders.phone as sender_phone']);
         foreach ($loads as $load) {

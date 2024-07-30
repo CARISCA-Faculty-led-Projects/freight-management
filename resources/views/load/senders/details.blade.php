@@ -69,12 +69,14 @@
                                 href="#kt_ecommerce_sales_Load_summary">Load Summary</a>
                         </li>
                         <!--end:::Tab item-->
-                        <!--begin:::Tab item-->
-                        <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
-                                href="#kt_ecommerce_sales_Load_history">Load Breakdown</a>
-                        </li>
-                        <!--end:::Tab item-->
+                        @if (count($subload) > 0)
+                            <!--begin:::Tab item-->
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                                    href="#kt_ecommerce_sales_Load_history">Load Breakdown</a>
+                            </li>
+                            <!--end:::Tab item-->
+                        @endif
                         <!--begin:::Tab item-->
                         <!-- <li class="nav-item">
                                             <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"

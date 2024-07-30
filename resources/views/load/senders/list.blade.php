@@ -1,4 +1,4 @@
-@extends('layout.roles.sender')
+@extends('layout.roles.all')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column">

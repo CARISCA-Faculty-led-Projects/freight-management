@@ -289,6 +289,7 @@ Route::middleware('auth:organizations')->group(function () {
             Route::get('shipments/{shipment}/delete', 'delete')->name('org.shipment.delete');
             Route::post('shipment/save', 'create')->name('org.shipment.save');
             Route::post('shipment/{shipment}/update', 'update')->name('org.shipment.update');
+            Route::post('shipment/{shipment}/reassign-driver', 'reassignDriver')->name('org.shipment.driver.reassign');
 
             // Route::post('shipments/create', 'create')->name('shipment.create');
             Route::get('active-shipment-coordinates', 'getShipmentCoordinates');
@@ -324,6 +325,7 @@ Route::middleware('auth:drivers')->group(function () {
         Route::controller(DriversController::class)->group(function () {
             Route::get('overview', 'overview')->name('driver.overview');
             Route::get('charts', 'dashboardCharts');
+            Route::get('map-activity', 'mapData');
             Route::get('shipments', 'shipments')->name('driver.shipments');
         });
         Route::controller(VehiclesController::class)->group(function () {
@@ -342,6 +344,7 @@ Route::middleware('auth:drivers')->group(function () {
         Route::prefix('shipment')->group(function () {
             Route::controller(ShipmentsController::class)->group(function () {
                 Route::get('{shipment}/start-shipment', 'start_delivery')->name('driver.start-delivery');
+                Route::post('schedule-shipment', 'schedule_shipment')->name('driver.shipment.schedule');
                 Route::get('{shipment}/end-shipment', 'end_delivery')->name('driver.end-delivery');
                 Route::get('{shipment}/cancel-shipment', 'cancel_delivery')->name('driver.cancel-delivery');
                 Route::get('{shipment}/loads', 'shipment_loads')->name('driver.shipment.loads.view');

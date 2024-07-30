@@ -353,11 +353,16 @@
                                     <!--end::Input group-->
                                     <div class="mb-10 flex-row-fluid position-relative">
                                         <!--begin::Label-->
-                                        <label class="form-label">Weight (KG)</label>
+                                        <label class="form-label">Weight</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <input type="number" min="1" class="form-control mb-2"
-                                            name="weight" placeholder="60" value="{{ old('weight') }}" />
+                                        <select name="weight" id="" class="form-control">
+                                            <option value="">--select--</option>
+                                            <option value="less than a ton">less than a ton</option>
+                                            <option value="1-5 tons">1-5 tons</option>
+                                            <option value="5-20 tons">5-20 tons</option>
+                                            <option value="20+ tons">20+ tons</option>
+                                        </select>
                                         <!--end::Input-->
                                         @error('weight')
                                             <span class="text-danger">{{ $message }}</span>

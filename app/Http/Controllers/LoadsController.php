@@ -71,9 +71,7 @@ class LoadsController extends Controller
         $load = DB::table('loads')->where('mask', $load_id)->first();
         $subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
         $sender = DB::table('senders')->where('mask', $load->sender_id)->first();
-        $user = auth()->guard()->name;
-
-        return view('load.senders.details', compact('load', 'subload', 'user', 'sender'));
+        return view('load.senders.details', compact('load', 'subload','sender'));
     }
 
     // Sender
@@ -107,7 +105,7 @@ class LoadsController extends Controller
     public function completed($load)
     {
         DB::table('loads')->where('sender_id', whichUser()->mask)->where('mask', $load)->update(['completed' => 1, 'status' => "Bidding"]);
-        DB::table('bids')->insert(['sender_id'=>whichUser()->mask,'load_id' => $load, 'created_at' => Carbon::now()->toDateTimeString()]);
+        DB::table('bids')->insert(['sender_id' => whichUser()->mask, 'load_id' => $load, 'created_at' => Carbon::now()->toDateTimeString()]);
         return redirect()->back()->with('success', "Load marked as completed");
     }
 
@@ -160,12 +158,12 @@ class LoadsController extends Controller
     {
         $validated = Validator::make($request->all(), [
             'sender_id' => 'required',
-            'length' => 'required|numeric',
-            'weight' => 'required|numeric',
-            'height' => 'required|numeric',
+            'length' => 'nullable|numeric',
+            'weight' => 'nullable|numeric',
+            'height' => 'nullable|numeric',
             'status' => 'required',
             'budget' => 'required|numeric',
-            'breadth' => 'required|numeric',
+            'breadth' => 'nullable|numeric',
             // 'insurance_docs' => 'required|mimes:pdf,docx,doc',
             'image' => 'required|mimes:png,jpg,jpeg',
             // 'other_docs' => 'required|mimes:pdf,docx,doc',
@@ -219,7 +217,9 @@ class LoadsController extends Controller
         $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
 
         DB::table('loads')->insert($req);
-        DB::table('bids')->insert(['sender_id'=>whichUser()->mask,'load_id' => $load_id, 'created_at' => Carbon::now()->toDateTimeString()]);
+        if ($request->status == "Completed") {
+            DB::table('bids')->insert(['sender_id' => $request->sender_id, 'load_id' => $load_id, 'created_at' => Carbon::now()->toDateTimeString()]);
+        }
 
 
         if ($request->has('subload')) {
@@ -246,13 +246,13 @@ class LoadsController extends Controller
     {
         $validated = Validator::make($request->all(), [
             'length' => 'nullable|numeric',
-            'weight' => 'nullable|numeric',
+            'weight' => 'nullable',
             'height' => 'nullable|numeric',
             'breadth' => 'nullable|numeric',
             'insurance_docs' => 'nullable|mimes:pdf,docx,doc',
             'image' => 'nullable|mimes:png,jpg,jpeg',
             'other_docs' => 'nullable|mimes:pdf,docx,doc',
-            'handling' => 'required'
+            'handling' => 'nullable'
         ])->validate();
 
 
@@ -283,7 +283,12 @@ class LoadsController extends Controller
         $req['insurance_docs'] = $ins;
         $req['other_docs'] = $oth;
         $req['mask'] = $load_id;
-        $req['status'] = $request->status;
+        if ($request->status == "Completed") {
+            $req['status'] = "Bidding";
+            $req['completed'] = 1;
+        } else {
+            $req['status'] = $request->status;
+        }
         $req['shipment_status'] = "Unassigned";
         $req['load_type'] = $request->load_type;
         $req['sender_id'] = whichUser()->mask;
@@ -299,6 +304,10 @@ class LoadsController extends Controller
         $req['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
         $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
         DB::table('loads')->insert($req);
+
+        if ($request->status == "Completed") {
+            DB::table('bids')->insert(['sender_id' => whichUser()->mask, 'load_id' => $load_id, 'created_at' => Carbon::now()->toDateTimeString()]);
+        }
 
         if ($request->has('subload')) {
             foreach ($request->subload as $load) {
@@ -421,9 +430,10 @@ class LoadsController extends Controller
         return view('load.locate', compact('load', 'sender'));
     }
 
-    public function makePayment($load_id){
-        DB::table('loads')->where('mask',$load_id)->update(['payment_status'=> "Paid"]);
+    public function makePayment($load_id)
+    {
+        DB::table('loads')->where('mask', $load_id)->update(['payment_status' => "Paid"]);
 
-        return redirect(route('sender.loads'))->with('success',"Load ");
+        return redirect(route('sender.loads'))->with('success', "Load ");
     }
 }

@@ -1,5 +1,4 @@
-{{-- @if ($user != 'organization') --}}
-@extends($user != 'organization' ? 'layout.roles.driver' : 'layout.roles.organization')
+@extends('layout.roles.all')
 
 @section('content')
     <!--begin::Content-->
@@ -69,17 +68,20 @@
                                 href="#kt_ecommerce_sales_Load_summary">Load Summary</a>
                         </li>
                         <!--end:::Tab item-->
-                        <!--begin:::Tab item-->
-                        <li class="nav-item">
-                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
-                                href="#kt_ecommerce_sales_Load_history">Load Breakdown</a>
-                        </li>
-                        <!--end:::Tab item-->
+                        @if ($subload != null)
+                            <!--begin:::Tab item-->
+                            <li class="nav-item">
+                                <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                                    href="#kt_ecommerce_sales_Load_history">Load Breakdown</a>
+                            </li>
+                            <!--end:::Tab item-->
+                        @endif
+
                         <!--begin:::Tab item-->
                         <!-- <li class="nav-item">
-                                        <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
-                                            href="#kt_ecommerce_payment_information">Payment Information</a>
-                                    </li> -->
+                                            <a class="nav-link text-active-primary pb-4" data-bs-toggle="tab"
+                                                href="#kt_ecommerce_payment_information">Payment Information</a>
+                                        </li> -->
                         <!--end:::Tab item-->
                     </ul>
                     <!--end:::Tabs-->
@@ -101,7 +103,7 @@
                                 </i>
                                 <div class="text-white fw-bold fs-2 mb-2 mt-5">{{ $load->status }}</div>
                                 <div class="fw-semibold text-white">This order
-                                    {{ $load->status == 'Pending' ? 'is pending' : 'has been marked as completed' }}
+                                    {{ $load->status == 'Draft' ? 'is pending' : 'has been marked as completed' }}
                                 </div>
                             </div>
                             <!--end::Body-->
@@ -133,7 +135,6 @@
                         <!--end::Statistics Widget 5-->
                     </div>
                 </div>
-
 
                 <!--begin::Tab content-->
                 <div class="tab-content">

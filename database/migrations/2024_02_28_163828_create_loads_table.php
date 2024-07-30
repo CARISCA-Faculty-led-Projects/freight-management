@@ -18,17 +18,17 @@ return new class extends Migration
             $table->string('sender_id');
             $table->longText('description')->nullable();
             $table->double('budget');
-            $table->integer('quantity');
-            $table->integer('length');
-            $table->double('weight');
-            $table->double('height');
-            $table->double('breadth');
-            $table->string('handling');
+            $table->integer('quantity')->nullable();
+            $table->integer('length')->nullable();
+            $table->string('weight')->nullable();
+            $table->double('height')->nullable();
+            $table->double('breadth')->nullable();
+            $table->string('handling')->nullable();
             $table->string('pickup_address')->nullable();
             $table->string('dropoff_address')->nullable();
             $table->string('insurance_docs')->nullable();
             $table->string('mask');
-            $table->string('status'); // Bidding, Completed
+            $table->string('status'); // Bidding, Completed, draft
             $table->string('other_docs')->nullable();
             $table->timestamps();
         });

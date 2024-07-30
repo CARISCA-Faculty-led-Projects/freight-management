@@ -150,8 +150,8 @@
                                                         {{ $bid->status }}</div>
                                                 </td>
                                                 <td class="text-end pe-0">
-                                                    <span class="text-gray-600 fw-bold fs-6">{{ $bid->load_id }}
-                                                    </span>
+                                                    <a href="{{ route('broker.load.details',$bid->load_id) }}" class="btn text-gray-600 fw-bold fs-6" >{{ $bid->load_id }}
+                                                    </a>
                                                 </td>
                                                 <td class="text-end pe-0">
                                                     <span class="text-gray-600 fw-bold fs-6">GHS {{ $bid->budget }}</span>
@@ -342,6 +342,127 @@
         <!--end::Modal dialog-->
     </div>
     <!--end::Modal - New Target-->
+     <!--begin::Modal - New Target-->
+     <div class="modal fade" id="kt_modal_load_details" tabindex="-1" aria-hidden="true">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <!--begin::Modal content-->
+            <div class="modal-content rounded">
+                <!--begin::Modal header-->
+                <div class="modal-header pb-0 border-0 justify-content-end">
+                    <!--begin::Close-->
+                    <div class="btn btn-sm btn-icon btn-active-color-primary" data-bs-dismiss="modal"
+                        data-bs-target="#kt_modal_bid">
+                        <i class="ki-duotone ki-cross fs-1">
+                            <span class="path1"></span>
+                            <span class="path2"></span>
+                        </i>
+                    </div>
+                    <!--end::Close-->
+                </div>
+                <!--begin::Modal header-->
+                <!--begin::Modal body-->
+                <div class="modal-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+                    <!--begin:Form-->
+                    <form class="form" action="{{ route('broker.start-bid') }}" method="POST">
+                        @csrf
+                        <!--begin::Heading-->
+                        <div class="mb-13 text-center">
+                            <!--begin::Title-->
+                            <input type="hidden" id="bid_id" name="bid_id">
+                            <input type="hidden" id="load_id" name="load_id">
+                            <h1 class="mb-3">Load Details</h1>
+                            <!--end::Title-->
+                            <!--begin::Description-->
+                            {{-- <div class="text-muted fw-semibold fs-5">If you need more info, please check
+                                <a href="#" class="fw-bold link-primary">Bidding Guidelines</a>.
+                            </div> --}}
+                            <!--end::Description-->
+                        </div>
+                        <!--end::Heading-->
+                        <!--begin::Input group-->
+                        <div class="d-flex flex-column mb-8 fv-row">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="required">Your offer</span>
+                                <span class="ms-1" data-bs-toggle="tooltip" title="Enter your offer for the load">
+                                    <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                </span>
+                            </label>
+                            <!--end::Label-->
+                            <input type="text" class="form-control form-control-solid"
+                                placeholder="Enter Offer Amount" name="offer" />
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Input group-->
+                        <div class="fv-row mb-8">
+                            <!--begin::Label-->
+                            <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                                <span class="">Message</span>
+                                <span class="ms-1" data-bs-toggle="tooltip" title="Select the currency type.">
+                                    <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                        <span class="path1"></span>
+                                        <span class="path2"></span>
+                                        <span class="path3"></span>
+                                    </i>
+                                </span>
+                            </label>
+                            <!--end::Label-->
+                            <!--begin::textarea-->
+                            <textarea name="message" class="form-control" id="" cols="30" rows="6"></textarea>
+                            <!--end::textara-->
+                        </div>
+                        <!--end::Input group-->
+                        <!--begin::Notice-->
+                        {{-- <div class="notice d-flex bg-light-primary rounded border-primary border border-dashed mb-9 p-6">
+                            <!--begin::Icon-->
+                            <i class="ki-duotone ki-wallet fs-2tx text-primary me-4">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                                <span class="path3"></span>
+                                <span class="path4"></span>
+                            </i>
+                            <!--end::Icon-->
+                            <!--begin::Wrapper-->
+                            <div class="d-flex flex-stack flex-grow-1">
+                                <!--begin::Content-->
+                                <div class="fw-semibold">
+                                    <h4 class="text-gray-900 fw-bold">Top up funds</h4>
+                                    <div class="fs-6 text-gray-700">Not enough funds in your wallet?
+                                        <a href="/utilities/modals/wizards/top-up-wallet" class="text-bolder">Top up
+                                            wallet</a>.
+                                    </div>
+                                </div>
+                                <!--end::Content-->
+                            </div>
+                            <!--end::Wrapper-->
+                        </div> --}}
+                        <!--end::Notice-->
+                        <!--begin::Actions-->
+                        <div class="text-center">
+                            <button type="reset" class="btn btn-light me-3" data-bs-dismiss="modal"
+                                data-bs-target="#kt_modal_bid">Cancel</button>
+                            <button type="submit" class="btn btn-primary">
+                                <span class="indicator-label">Submit</span>
+                                <span class="indicator-progress">Please wait...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                            </button>
+                        </div>
+                        <!--end::Actions-->
+                    </form>
+                    <!--end:Form-->
+                </div>
+                <!--end::Modal body-->
+            </div>
+            <!--end::Modal content-->
+        </div>
+        <!--end::Modal dialog-->
+    </div>
+    <!--end::Modal - New Target-->
     <script>
         $('document').ready(function() {
             $('.bid_list').on('click', '#negotiate', function() {
@@ -351,6 +472,15 @@
                 $('#load_id').val(load);
                 console.log(load);
                 $('#kt_modal_bid').modal('show');
+            })
+
+            $('.bid_list').on('click', '#load_id', function() {
+                const bid = $(this).data('bid-id')
+                const load = $(this).data('load-id')
+                $('#bid_id').val(bid);
+                $('#load_id').val(load);
+                console.log(load);
+                $('#kt_modal_load_details').modal('show');
             })
         });
     </script>

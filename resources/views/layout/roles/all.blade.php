@@ -7,13 +7,13 @@
             <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
         </div>
     @elseif(whichUser()->getTable() == 'drivers')
-        <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
+        <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span><br>
         <span class="strong mt-3 fs-4">Driver</span>
     @elseif (whichUser()->getTable() == 'brokers')
-        <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
+        <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span><br>
         <span class="strong mt-3 fs-4">Broker</span>
     @elseif (whichUser()->getTable() == 'senders')
-        <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
+        <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span><br>
         <span class="strong mt-3 fs-4">Sender</span>
     @endif
 @endsection

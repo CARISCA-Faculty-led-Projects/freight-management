@@ -67,95 +67,13 @@ async function initMap() {
     });
     // Add some markers to the map.
     var mapData = await getMapData();
-    // const locations = JSON.parse({{ json_encode($locations) }});
     var mapDataKeys = Object.keys(mapData);
     mapDataKeys.forEach((option) => {
         const markers = [];
-        console.log(mapData[option]);
-        if (option == 'loads') {
-            const markers = mapData[option].map((load) => {
-                const ltn = load.pickup_address.location;
-                if (ltn.lat != null && ltn.lng != null) {
-
-                const marker = new google.maps.marker.AdvancedMarkerElement({
-                    position: {
-                        lat: ltn.lat,
-                        lng: ltn.lng
-                    },
-                    content: buildLoadContent(load),
-                });
-
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                    toggleHighlight(marker, option);
-                });
-                return marker;
-            }
-            });
-
-            // Add a marker clusterer to manage the markers.
-            new markerClusterer.MarkerClusterer({
-                markers,
-                map
-            });
-        } else if (option == 'drivers') {
-            const markers = mapData[option].map((driver) => {
-                const ltn = driver.last_location;
-                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
-
-                const marker = new google.maps.marker.AdvancedMarkerElement({
-                    position: {
-                        lat: ltn.lat,
-                        lng: ltn.lng
-                    },
-                    content: buildDriverContent(driver),
-                });
-
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                    toggleHighlight(marker, option);
-                });
-                return marker;
-            }
-            });
-
-            // Add a marker clusterer to manage the markers.
-            new markerClusterer.MarkerClusterer({
-                markers,
-                map
-            });
-        } else if (option == 'vehicles') {
-            const markers = mapData[option].map((vehicle) => {
-                const ltn = vehicle.last_location;
-                if (ltn !=null && ltn.lat != null && ltn.lng != null) {
-
-                const marker = new google.maps.marker.AdvancedMarkerElement({
-                    position: {
-                        lat: ltn.lat,
-                        lng: ltn.lng
-                    },
-                    content: buildVehicleContent(vehicle),
-                });
-
-                // markers can only be keyboard focusable when they have click listeners
-                // open info window when marker is clicked
-                marker.addListener("click", () => {
-                    toggleHighlight(marker, option);
-                });
-                return marker;
-            }
-            });
-
-            // Add a marker clusterer to manage the markers.
-            new markerClusterer.MarkerClusterer({
-                markers,
-                map
-            });
-        } else if (option == 'shipments') {
+        // console.log(mapData[option]);
+            if (option == 'shipments') {
             const markers = mapData[option].map((shipment) => {
-                const ltn = shipment.shipment_location;
+                const ltn = shipment.shipment_location;  //pickup address from backend is shipment_location here
                 if (ltn !=null && ltn.lat != null && ltn.lng != null) {
 
                 const marker = new google.maps.marker.AdvancedMarkerElement({
@@ -231,52 +149,6 @@ function buildContent(property) {
     return content;
 }
 
-function buildLoadContent(load) {
-    const content = document.createElement("div");
-    content.classList.add("property");
-    content.innerHTML = `
-      <div class="icon">
-      <img src="/assets/media/icons/boxes.png"/>
-      </div>
-      <div class="details mt-2">
-          <div class="price">Load #${load.mask}</div>
-          <div class="price">Sender name: ${load.sender}</div>
-          <div class="address">Sender phone: ${load.sender_phone}</div>
-            </div>
-      `;
-    return content;
-}
-
-function buildDriverContent(driver) {
-    const content = document.createElement("div");
-    content.classList.add("property");
-    content.innerHTML = `
-      <div class="icon">
-      <img src="/assets/media/icons/driver.png"/>
-      </div>
-      <div class="details mt-2">
-          <div class="price">Driver name: ${driver.name}</div>
-          <div class="price mt-2">Driver phone: ${driver.phone}</div>
-          <div class="address">Last login: ${driver.last_login}</div>
-            </div>
-      `;
-    return content;
-}
-
-function buildVehicleContent(vehicle) {
-    const content = document.createElement("div");
-    content.classList.add("property");
-    content.innerHTML = `
-      <div class="icon">
-      <img src="/assets/media/icons/3d-truck.png"/>
-      </div>
-      <div class="details mt-2">
-          <div class="price">${vehicle.make} ${vehicle.model}</div>
-          <div class="price mt-2">Reg Number: ${vehicle.number}</div>
-            </div>
-      `;
-    return content;
-}
 
 function buildShipmentContent(shipment) {
     const content = document.createElement("div");
@@ -288,9 +160,8 @@ function buildShipmentContent(shipment) {
       </div>
       <div class="details">
           <div class="price">Shipment #${shipment.shipment}</div>
-          <div class="address mt-2">Driver - <strong>${shipment.driver}</strong></div>
-          <div class="address mt-2">Driver contact- <strong>${shipment.driver_contact}</strong></div>
-
+          <div class="address mt-2">Starting point:  <strong>${shipment.starting_point}</strong></div>
+          <div class="address mt-2">Destination:- <strong>${shipment.destination}</strong></div>
       </div>
       `;
     return content;

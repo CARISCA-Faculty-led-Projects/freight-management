@@ -55,6 +55,12 @@ class ShipmentsController extends Controller
         return view('brokers.shipments.list', compact('shipments'));
     }
 
+    public function schedule_shipment(Request $request)
+    {
+        DB::table('shipments')->where('mask', $request->mask)->update(['pickup_date' => $request->start_date]);
+        return back()->with("Shipments start time set successfully ");
+    }
+
     public function add()
     {
 
@@ -185,10 +191,10 @@ class ShipmentsController extends Controller
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
-        $driver = DB::table('drivers')->where('mask',$request->driver_id);
+        $driver = DB::table('drivers')->where('mask', $request->driver_id);
         // $msg = "Hello {$driver->first()->name}, You have been assigned a shipment";
         // sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
-        $driver->update(['shipment_status'=> "Assigned"]);
+        $driver->update(['shipment_status' => "Assigned"]);
         DB::table('loads')->whereIn('mask', $request->loads)->update(['shipment_status' => "Assigned"]);
 
         return redirect(route(whichUser()->getTable() == 'brokers' ? 'broker.shipments.list' : 'org.shipments.list'));
@@ -219,7 +225,7 @@ class ShipmentsController extends Controller
 
         $req = [];
         $req['driver_id'] = $request->driver_id;
-        $req['organization_id'] = $request->organization_id;
+        // $req['organization_id'] = $request->organization_id;
         $req['loads'] = json_encode($request->loads);
         $req['description'] = $request->description;
         $req['starting_point'] = $request->starting_point;
@@ -237,7 +243,6 @@ class ShipmentsController extends Controller
 
         // Get old loads
         $old_loads = DB::table('shipments')->where('mask', $shipment)->first(['loads']);
-
         // Check old loads if a load has been taken out
         foreach (json_decode($old_loads->loads) as $load) {
             if (!in_array($load, $request->loads)) {
@@ -245,10 +250,10 @@ class ShipmentsController extends Controller
             }
         }
 
-        $driver = DB::table('drivers')->where('mask',$request->driver_id);
+        $driver = DB::table('drivers')->where('mask', $request->driver_id);
         // $msg = "Hello {$driver->first()->name}, You have been assigned a shipment";
         // sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
-        $driver->update(['shipment_status'=> "Assigned"]);
+        $driver->update(['shipment_status' => "Assigned"]);
 
         DB::table('shipments')->where('mask', $shipment)->update($req);
 
@@ -269,5 +274,9 @@ class ShipmentsController extends Controller
         $shipments = DB::table('shipments')->where('organization_id', whichUser()->mask)->where('shipment_status', 'On route')->pluck('last_location')->toArray();
 
         return $this->successResponse('', $shipments);
+    }
+
+    public function reassignDriver(Request $request){
+
     }
 }

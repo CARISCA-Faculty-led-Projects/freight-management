@@ -242,6 +242,9 @@ function buildLoadContent(load) {
           <div class="price">Load #${load.mask}</div>
           <div class="price">Sender name: ${load.sender}</div>
           <div class="address">Sender phone: ${load.sender_phone}</div>
+          <div class="price mt-3 mb-2">Pickup address: ${load.pickup_address.name}</div>
+          <div class="price mt-1 mb-2">Dropoff address: ${load.dropoff_address.name}</div>
+
             </div>
       `;
     return content;

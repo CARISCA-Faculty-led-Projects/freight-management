@@ -33,6 +33,24 @@ class DriversController extends Controller
         return $this->successResponse('',['spm'=>$d_shipments]);
     }
 
+
+    public function mapData()
+    {
+
+        $shipments = DB::table('shipments')->where('shipments.driver_id', whichUser()->mask)->where('shipments.shipment_status', "Assigned")
+            ->join('drivers', 'drivers.mask', 'shipments.driver_id')
+            ->select('shipments.mask as shipment', 'shipments.starting_point','shipments.pickup_address','shipments.destination','shipments.loads')
+            ->get();
+
+        foreach ($shipments as $shipment) {
+            $shipment->shipment_location = json_decode($shipment->pickup_address);
+            $shipment->totloads = count(json_decode($shipment->loads));
+        }
+
+
+        return $this->successResponse('', ['shipments' => $shipments]);
+    }
+
     public function index()
     {
 
