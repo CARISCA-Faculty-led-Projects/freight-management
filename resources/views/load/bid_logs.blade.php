@@ -8,9 +8,10 @@
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
-                    <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Load
-                        #{{ $bid->load_id }}
-                        Bid Logs</h1>
+                    <div class="d-flex">
+                        <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Load #{{ $bid->load_id }}
+                            Bid Logs</h1>
+                    </div>
                     <!--end::Title-->
                     <!--begin::Breadcrumb-->
                     <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -56,9 +57,10 @@
                         <!--begin::Header-->
                         <div class="card-header pt-7">
                             <!--begin::Title-->
-                            <h3 class="card-title align-items-start flex-column">
+                            <h3 class="card-title align-items-center flex-row">
                                 <span class="card-label fw-bold text-gray-800">Bid Negotiations History</span>
                                 {{-- <span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span> --}}
+                                <span class="btn btn-sm btn-primary" data-bs-target="#viewLoad_modal" data-bs-toggle="modal">View load</span>
                             </h3>
                             <!--end::Title-->
                             @if ($bid->status != 'Completed')
@@ -103,10 +105,14 @@
                                             @endif
                                             {{-- {{ route(whichUser()->getTable() == 'senders' ? 'sender.bid.agree' : 'broker.bid.agree', $bid->load_id) }} --}}
                                         @else
-                                            <a href="{{ route('sender.load.make-payment', $bid->load_id) }}"
-                                                onclick="return confirm('Currently not functional')"
-                                                class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success"
-                                                disabled>Make Payment</a>
+                                            @if ($load->payment_status == 'Unpaid')
+                                                <span id="makePayment" data-load-id="{{ $load->id }}"
+                                                    class="text-white btn-sm mt-1 fw-semibold fs-6 btn btn-success"
+                                                    disabled>Make Payment</span>
+                                            @else
+                                                <span class="badge badge-success">Paid</span>
+                                            @endif
+
                                         @endif
                                     @endif
                                 </div>
@@ -305,14 +311,31 @@
         </div>
         <!--end::Modal dialog-->
     </div>
+    @include('partials.modals.initiate_payment')
+    @include('partials.modals.view_load',['load'=>$load])
     <script>
         $('document').ready(function() {
             $('.bid_list').on('click', '#negotiate', function() {
                 const bid = $(this).data('bid-id')
                 $('#bid_id').val(bid);
-                console.log(bid);
                 $('#kt_modal_bid').modal('show');
             })
+
+            $('#makePayment').on('click', function() {
+                console.log('pressed');
+                $.ajax({
+                    url: "/senders/load/" + {{ $bid->load_id }} + "/make-payment",
+                    success: function(response) {
+                        window.open(response);
+                    }
+                })
+
+            });
+
+            $('#viewLoad').on("click",function(){
+
+            });
+
         });
     </script>
     <!--end::Modal - New Target-->

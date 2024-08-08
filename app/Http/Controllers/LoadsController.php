@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\Paystack;
 use App\Http\Controllers\Api\ShipmentsController;
 use App\Http\Controllers\Controller;
 use App\Http\Livewire\Broker\CreateShipment;
@@ -21,9 +22,17 @@ class LoadsController extends Controller
     public function index()
     {
 
-        $loads = DB::table('loads')->orderByDesc('created_at')->get();
+        $loads = DB::table('loads')->where('completed',1)->orderByDesc('created_at')->paginate(50);
 
         return view('load.list', compact('loads'));
+    }
+
+    public function indexJson()
+    {
+
+        $loads = DB::table('loads')->where('completed',1)->orderByDesc('created_at')->paginate(50);
+
+        return $loads;
     }
 
     public function overview()
@@ -71,7 +80,7 @@ class LoadsController extends Controller
         $load = DB::table('loads')->where('mask', $load_id)->first();
         $subload = DB::table('sub_loads')->where('load_id', $load_id)->get();
         $sender = DB::table('senders')->where('mask', $load->sender_id)->first();
-        return view('load.senders.details', compact('load', 'subload','sender'));
+        return view('load.senders.details', compact('load', 'subload', 'sender'));
     }
 
     // Sender
@@ -432,8 +441,39 @@ class LoadsController extends Controller
 
     public function makePayment($load_id)
     {
-        DB::table('loads')->where('mask', $load_id)->update(['payment_status' => "Paid"]);
+        $response = (new PaymentsController)->make_load_payment($load_id);
+        return $response;
+    }
 
-        return redirect(route('sender.loads'))->with('success', "Load ");
+    public function paymentSuccessful(Request $request)
+    {
+        $response = (new Paystack)->verify($request->reference);
+        $payment = DB::table('load_payments')->where('order_id', $request->reference);
+
+        if ($response['data']['status']) {
+            $status = $payment->first(['status','load_id','amount']);
+
+            if ($status->status == "Unpaid") {
+                $payment->update(['status' => "Paid", 'updated_at' => Carbon::now()->toDateTimeString()]);
+                DB::table('loads')->where('mask', $status->load_id)->update(['payment_status' => "Paid"]);
+                DB::table('system_account')->increment('holding',$status->amount);
+                return view('partials.modals.payment-success', ['status' => $response['data']['status'], 'message' => "Payment successful"]);
+            } else {
+                return view('partials.modals.payment-success', ['status' => $response['data']['status'], 'message' => "Payment already verified"]);
+            }
+        } else {
+            return view('partials.modals.payment-success', ['status' => $response['data']['status'], 'message' => $response['message']]);
+        }
+        // dd($response);
+        // // dd($request->all());
+        // return view('partials.modals.payment-success');
+    }
+
+    public function load_received($load_id){
+        DB::table('loads')->where('mask',$load_id)->update(['recipient_status'=> "Yes"]);
+        shareLoadPayment($load_id);
+
+        DB::table('load_payments')->where('load_id',$load_id)->update(['disbursement_status'=> "Released"]);
+        return back()->with('success','Load receipt successful');
     }
 }

@@ -113,6 +113,20 @@ function getMonths(){
     return $months;
 }
 
+function shareLoadPayment($load_id){
+    $load = DB::table('loads')->where('mask',$load_id)->first(['organization_id','org_assigned_by as broker_id','price']);
+
+    $settings = DB::table('settings')->first();
+    $broker_amount = floor(($settings->brokers_percentage_pl/100) * $load->price);
+    $org_amount = floor(($settings->organizations_percentage_pl/100) * $load->price);
+    $system_amount = floor(($settings->system_percentage_pl/100) * $load->price);
+
+    DB::table('brokers')->where('mask',$load->broker_id)->increment('balance',$broker_amount);
+    DB::table('organizations')->where('mask',$load->organization_id)->increment('balance',$org_amount);
+    DB::table('system_account')->increment('balance',$system_amount);
+
+}
+
 function sendRegisteredMail()
 {
 }

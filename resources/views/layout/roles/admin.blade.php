@@ -67,9 +67,9 @@
                                         class="path4"></span></i></span><span class="menu-title">Organizations</span><span
                                 class="menu-arrow"></span></span><!--end:Menu link--><!--begin:Menu sub-->
                         <div class="menu-sub menu-sub-accordion"><!--begin:Menu item-->
-                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="/fleet/overview"><span
+                            <div class="menu-item"><!--begin:Menu link--><a class="menu-link" href="{{ route('org.list') }}"><span
                                         class="menu-bullet"><span class="bullet bullet-dot"></span></span><span
-                                        class="menu-title">Overview</span></a><!--end:Menu link--></div>
+                                        class="menu-title">List</span></a><!--end:Menu link--></div>
                             <!--end:Menu item--><!--begin:Menu item-->
                             <div class="menu-item"><!--begin:Menu link--><a class="menu-link"
                                     href="{{ route('vehicles') }}"><span class="menu-bullet"><span
@@ -81,7 +81,7 @@
                                             class="bullet bullet-dot"></span></span><span
                                         class="menu-title">Approved</span></a><!--end:Menu link--></div>
                             <!--end:Menu item-->
-                            
+
                         </div><!--end:Menu sub-->
                     </div><!--end:Menu item-->
                      <!--end:Menu item-->

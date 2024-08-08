@@ -24,7 +24,7 @@ class BrokersController extends Controller
         $completed_shipments = DB::table("shipments")->where('broker_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
         $active_shipments = DB::table("shipments")->where('broker_id', whichUser()->mask)->where('shipment_status', 'On route')->count();
 
-        return view('brokers.overview', compact('loads', 'shipments', 'pending_shipments', 'completed_shipments','active_shipments'));
+        return view('brokers.overview', compact('loads', 'shipments', 'pending_shipments', 'completed_shipments', 'active_shipments'));
     }
 
     public function dashboardCharts()
@@ -46,7 +46,7 @@ class BrokersController extends Controller
             ->where('shipment_status', "Unassigned")
             ->where('payment_status', "Paid")
             ->join('senders', 'senders.mask', 'loads.sender_id')
-            ->get(['loads.image', 'loads.mask', 'pickup_address','dropoff_address', 'senders.name as sender', 'senders.phone as sender_phone']);
+            ->get(['loads.image', 'loads.mask', 'pickup_address', 'dropoff_address', 'senders.name as sender', 'senders.phone as sender_phone']);
         foreach ($loads as $load) {
             $load->pickup_address = json_decode($load->pickup_address);
             $load->dropoff_address = json_decode($load->dropoff_address);
@@ -66,7 +66,7 @@ class BrokersController extends Controller
             $driver->last_location = json_decode($driver->last_location);
         }
 
-        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->organization_id)->where('shipment_status', 'Unassigned')->get(['image', 'number', 'make', 'model', 'mask', 'last_location','driver_id']);
+        $vehicles = DB::table('vehicles')->where('organization_id', whichUser()->organization_id)->where('shipment_status', 'Unassigned')->get(['image', 'number', 'make', 'model', 'mask', 'last_location', 'driver_id']);
         foreach ($vehicles as $vehicle) {
             $vehicle->last_location = json_decode($vehicle->last_location);
             if ($vehicle->driver_id != null) {
@@ -151,5 +151,12 @@ class BrokersController extends Controller
         Auth::guard('brokers')->loginUsingId($user->id);
 
         return redirect(route('broker.overview'));
+    }
+
+    public function listAll()
+    {
+        $brokers = DB::table('brokers')->get();
+
+        return view('brokers.list', compact('brokers'));
     }
 }

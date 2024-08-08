@@ -1,4 +1,4 @@
-@extends('layout.roles.organization')
+@extends('layout.roles.all')
 @section('content')
     <!--begin::Content-->
     <div id="kt_app_content" class="app-content flex-column-fluid">
@@ -58,7 +58,7 @@
                                 <span class="path1"></span>
                                 <span class="path2"></span>
                             </i>
-                            <input type="text" data-kt-ecommerce-order-filter="search" id="loadSearch"
+                            <input type="text" id="itemSearch"
                                 class="form-control form-control-solid w-250px ps-12" placeholder="Search Load" />
                         </div>
                         <!--end::Search-->
@@ -77,7 +77,7 @@
                 <!--begin::Card body-->
                 <div class="card-body pt-0">
                     <!--begin::Table-->
-                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="kt_ecommerce_sales_table">
+                    <table class="table align-middle table-row-dashed fs-6 gy-5" id="loads_table">
                         <thead>
                             <tr class="text-start text-dark fw-bold fs-7 text-uppercase gs-0">
                                 <th class="w-10px pe-2">

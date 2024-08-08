@@ -36,3 +36,4 @@
 <!--begin::Custom Javascript(used for this page only)-->
 {{-- <script src="{{ asset('assets/js/custom/apps/ecommerce/catalog/save-product.js') }}"></script> --}}
 <script src="{{ asset('assets/js/custom/utilities/modals/create-app.js') }}"></script>
+    

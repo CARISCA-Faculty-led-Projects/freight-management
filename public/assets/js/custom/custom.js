@@ -61,6 +61,18 @@ $("document").ready(function () {
         loadTable.search(this.value).draw();
     });
 
+    // Load
+    function setupDataTable(identifier,data) {
+        $(identifier).DataTable({
+            ajax: '/loads'
+        })
+        let loadTable = new DataTable(identifier);
+
+        $("#loadSearch").on("keyup", function () {
+            loadTable.search(this.value).draw();
+        });
+    }
+
     // Table search
     let dataTable = new DataTable("#data_table");
 

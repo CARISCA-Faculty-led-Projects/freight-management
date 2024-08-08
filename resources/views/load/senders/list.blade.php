@@ -216,14 +216,22 @@
                                                         class="menu-link px-3">Publish</a>
                                                 </div>
                                                 <!--end::Menu item-->
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a href="{{ route('sender.loads.delete', $load->mask) }}"
+                                                        onclick="return confirm('Confirm you want to delete load and subloads?')"
+                                                        class="menu-link px-3">Delete</a>
+                                                </div>
+                                                <!--end::Menu item-->
                                             @endif
-                                            <!--begin::Menu item-->
-                                            <div class="menu-item px-3">
-                                                <a href="{{ route('sender.loads.delete', $load->mask) }}"
-                                                    onclick="return confirm('Confirm you want to delete load and subloads?')"
-                                                    class="menu-link px-3">Delete</a>
-                                            </div>
                                             <!--end::Menu item-->
+                                            @if ($load->recipient_status == 'No')
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <a href="{{ route('sender.loads.received', $load->mask) }}" onclick="return confirm('Confirm you have received load and subloads?')" class="menu-link px-3">Confirm receipt</a>
+                                                </div>
+                                                <!--end::Menu item-->
+                                            @endif
                                             @if ($load->status == 'Completed')
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">

@@ -4,7 +4,7 @@
     <div id="kt_app_content" class="app-content flex-column-fluid">
         <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
             <!--begin::Toolbar container-->
-            <div id="kt_app_toolbar_container" class="app-container container-xxl d-flex flex-stack">
+            <div id="kt_app_toolbar_container" class="app-container container-fluid d-flex flex-stack">
                 <!--begin::Page title-->
                 <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                     <!--begin::Title-->
@@ -45,7 +45,7 @@
         </div>
         <!--begin::Content container-->
         <!--begin::Content container-->
-        <div id="kt_app_content_container" class="app-container container-xxl">
+        <div id="kt_app_content_container" class="app-container container-fluid">
             <!--begin::Card-->
             <div class="card">
                 <!--begin::Card header-->
@@ -194,6 +194,7 @@
                                 <th class="min-w-125px">Email</th>
                                 <th class="min-w-125px">Licence #</th>
                                 <th class="min-w-125px">Assigned Vehicle</th>
+                                <th class="min-w-125px">Shipment Status</th>
                                 <th class="min-w-125px">Last Login</th>
                                 <th class="text-end min-w-70px">Actions</th>
                             </tr>
@@ -226,9 +227,16 @@
                                                 class="text-gray-600 text-hover-primary mb-1">{{ $driver->vehicle }}</a>
                                         @endif
                                     </td>
+                                    <td>
+                                        <div
+                                            class="badge @if ($driver->shipment_status == 'Unassigned') badge-light-primary
+                                            @elseif($driver->shipment_status == 'Assigned')
+                                            badge-light-success @endif">
+                                            {{ $driver->shipment_status }}</div>
+                                    </td>
                                     <td>{{ $driver->last_login != null ? date('l jS \of M Y h:i A', strtotime($driver->last_login)) : '-' }}
                                     </td>
-                                    <td class="text-end">
+                                    <td class="text-end options">
                                         <a href="#"
                                             class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
                                             data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
@@ -248,11 +256,14 @@
                                                     class="menu-link px-3">Edit</a>
                                             </div>
                                             <!--end::Menu item-->
-                                            <!--begin::Menu item-->
-                                            {{-- <div class="menu-item px-3">
-                                                <a href="/fleet/drivers/locate" class="menu-link px-3">Locate</a>
-                                            </div> --}}
-                                            <!--end::Menu item-->
+                                            @if ($driver->shipment_status == 'Assigned')
+                                                <!--begin::Menu item-->
+                                                <div class="menu-item px-3">
+                                                    <span id="locate_driver" data-location="{{ $driver->last_location }}" data-driver="{{ $driver->name }}" class="menu-link px-3">Locate</span>
+                                                </div>
+                                                <!--end::Menu item-->
+                                            @endif
+
                                             <!--begin::Menu item-->
                                             <div class="menu-item px-3">
                                                 <a href="{{ route('driver.delete', $driver->mask) }}"
@@ -278,5 +289,95 @@
         </div>
         <!--end::Content container-->
     </div>
+    <!--begin::Modal - Broker - Add-->
+    <div class="modal fade" id="view_location" tabindex="-1" aria-hidden="true">
+        <!--begin::Modal dialog-->
+        <div class="modal-dialog modal-dialog-centered mw-650px">
+            <!--begin::Modal content-->
+            <div class="modal-content">
+                    <!--begin::Modal header-->
+                    <div class="modal-header d-flex justify-content-between" id="kt_modal_add_customer_header">
+                        <!--begin::Modal title-->
+                        <h2 class="fw-bold">Last location</h2>
+                        <!--end::Modal title-->
+                        <!--begin::Close-->
+                        <div id="kt_modal_add_customer_close" class="btn btn-icon btn-sm btn-active-icon-primary">
+                            <i class="ki-duotone ki-cross fs-1">
+                                <span class="path1"></span>
+                                <span class="path2"></span>
+                            </i>
+                        </div>
+                        <!--end::Close-->`
+                    </div>
+                    <!--end::Modal header-->
+                    <!--begin::Modal body-->
+                    <div class="modal-body py-10 px-lg-17">
+                        <!--begin::Scroll-->
+                        <!--begin::Card body-->
+                        <div class="card-body pt-0">
+                            <div id="googleMap" style="width:100%;height:30rem;"></div>
+
+                            <!--end::Scroll-->
+                        </div>
+                        <!--end::Modal body-->
+                        <!--begin::Modal footer-->
+                        {{-- <div class="modal-footer flex-center">
+                            <!--begin::Button-->
+                            <button type="reset" id="kt_modal_add_customer_cancel"
+                                class="btn btn-light me-3">Discard</button>
+                            <!--end::Button-->
+                            <!--begin::Button-->
+                            <button type="submit" id="kt_modal_add_customer_submit" class="btn btn-primary">
+                                <span class="indicator-label">Submit</span>
+                                <span class="indicator-progress">Please wait...
+                                    <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+                            </button>
+                            <!--end::Button-->
+                        </div> --}}
+                        <!--end::Modal footer-->
+            </div>
+        </div>
+    </div>
+    <!--end::Modal - Broker - Add-->
+
     <!--end::Content-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async" defer>
+    </script>
+    <script>
+        $('document').ready(function() {
+            $('.options').on('click', '#locate_driver', function() {
+                $('#view_location').modal('show');
+                initMap($(this).data('location'),$(this).data('driver'));
+            })
+            // Initialize and add the map
+            let map;
+
+            async function initMap(location,name) {
+                // The location of Uluru
+                const position = location;
+                // Request needed libraries.
+                //@ts-ignore
+                const {
+                    Map
+                } = await google.maps.importLibrary("maps");
+                const {
+                    AdvancedMarkerElement
+                } = await google.maps.importLibrary("marker");
+
+                // The map, centered at Uluru
+                map = new Map(document.getElementById("googleMap"), {
+                    zoom: 15,
+                    center: position,
+                    mapId: "Driver location",
+                });
+
+                // The marker, positioned at Uluru
+                const marker = new AdvancedMarkerElement({
+                    map: map,
+                    position: position,
+                    title: name,
+                });
+            }
+        });
+    </script>
 @endsection

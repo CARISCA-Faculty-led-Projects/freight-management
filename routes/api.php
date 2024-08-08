@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoadsController;
 use App\Http\Controllers\Api\ChatsController;
+use App\Http\Controllers\Api\DriversController;
 use App\Http\Controllers\Api\ShipmentsController as ApiShipmentsController;
 use App\Http\Controllers\ShipmentsController;
 
@@ -37,7 +38,17 @@ Route::prefix('v1')->group(function () {
         Route::prefix('driver')->group(function () {
             Route::controller(ApiShipmentsController::class)->group(function () {
                 Route::get('shipments', 'driver_shipments');
-                Route::get('shipment/{$shipment}/start-shipment', 'start-shipment');
+                Route::prefix('shipment/{shipment}')->group(function () {
+                    Route::get('view', 'viewShipment');
+                    Route::get('loads', 'viewShipmentLoads');
+                    Route::get('start-shipment', 'start_shipment');
+                    Route::get('cancel-shipment', 'cancel_shipment');
+                });
+            });
+            Route::prefix('profile')->group(function () {
+                Route::controller(DriversController::class)->group(function () {
+                    Route::get('/', 'profile');
+                });
             });
         });
     });

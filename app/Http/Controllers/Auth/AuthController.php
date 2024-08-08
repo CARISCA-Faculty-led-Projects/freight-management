@@ -82,7 +82,7 @@ class AuthController extends Controller
 
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
 
-            return redirect(route("admin.dashboard"));
+            return redirect(route("admin.overview"));
         } else {
             return redirect()->back()->with("error", "Email / Password incorrect or different account type selected");
         }
@@ -112,8 +112,9 @@ class AuthController extends Controller
 
     public function destroy(Request $request)
     {
-        if ($request->session()->has('old_user_id')) {
-            $user = DB::table(session('old_guard'))->where('mask', session('old_user_id'))->first(['id']);
+        if ($request->session()->has('old_guard')) {
+            $guard = session('old_guard');
+            $user = DB::table($guard == 'web' ? "users" : $guard)->where('mask', session('old_user_id'))->first(['id']);
             Auth::guard(session('old_guard'))->loginUsingId($user->id);
 
             if (session('old_guard') == 'organizations') {

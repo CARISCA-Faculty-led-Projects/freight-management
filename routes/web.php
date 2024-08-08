@@ -47,6 +47,7 @@ use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
+use App\Http\Livewire\Organisation;
 
 Route::middleware(['guest'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -78,7 +79,7 @@ Route::middleware(['guest'])->group(function () {
         ->name('password.update');
 });
 
-Route::group(['auth:drivers', 'auth:senders', 'auth:organizations', 'auth:brokers'], function () {
+Route::group(['auth','auth:drivers', 'auth:senders', 'auth:organizations', 'auth:brokers'], function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
         ->name('verification.notice');
 
@@ -101,6 +102,8 @@ Route::group(['auth:drivers', 'auth:senders', 'auth:organizations', 'auth:broker
         Route::get('user-chats', 'userMessages');
     });
 
+    // Route::get('loads',[LoadsController::class, 'indexJson']);
+
     Route::get('logout', [AuthController::class, 'destroy'])
         ->name('signout');
 });
@@ -114,7 +117,45 @@ Route::group(['auth:drivers', 'auth:senders', 'auth:organizations', 'auth:broker
 Route::middleware('auth')->group(function () {
 
     Route::controller(AdminController::class)->group(function () {
-        Route::get('/admin/dashboard', 'dashboard')->name('admin.dashboard');
+        Route::prefix('admin')->group(function(){
+            Route::get('dashboard', 'dashboard')->name('admin.overview');
+            Route::get('profile', 'profile')->name('admin.profile');
+            Route::get('manage', 'loginAs')->name('admin.account.manage');
+            Route::get('settings', 'settings')->name('settings');
+        });
+
+    });
+
+    // Organisation
+    Route::controller(OrganizationsController::class)->group(function () {
+        Route::prefix('organizations')->group(function () {
+            Route::get('/', 'index')->name('org.list');
+            Route::get('edit/{mask}', UpdateOrganization::class)->name('org.edit');
+        });
+    });
+
+    // Loads
+    Route::controller(LoadsController::class)->group(function () {
+        Route::prefix('loads')->group(function () {
+            Route::get('/', 'index')->name('loads.all');
+            Route::get('edit/{mask}', UpdateOrganization::class)->name('org.edit');
+        });
+    });
+
+    // Senders
+    Route::controller(SendersController::class)->group(function () {
+        Route::prefix('senders')->group(function () {
+            Route::get('/', 'index')->name('sender.list');
+            Route::get('edit/{mask}', UpdateOrganization::class)->name('org.edit');
+        });
+    });
+
+    // Brokers
+    Route::controller(BrokersController::class)->group(function () {
+        Route::prefix('brokers')->group(function () {
+            Route::get('/', 'listAll')->name('broker.list');
+            Route::get('edit/{mask}', UpdateOrganization::class)->name('org.edit');
+        });
     });
     // // Shipments start
     // Route::controller(ShipmentsController::class)->group(function () {
@@ -358,6 +399,7 @@ Route::middleware('auth:drivers')->group(function () {
 });
 // Auth drivers end
 
+Route::get('load/payment-success',[LoadsController::class,'paymentSuccessful']);
 // Auth senders start
 Route::middleware('auth:senders')->group(function () {
     Route::prefix('senders')->group(function () {
@@ -391,6 +433,7 @@ Route::middleware('auth:senders')->group(function () {
                     Route::get('{load}/delete', 'delete')->name('loads.delete');
                     Route::get('{load}/details', 'details')->name('loads.details');
                     Route::get('{load}/completed', 'completed')->name('loads.complete');
+                    Route::get('{load}/received', 'load_received')->name('loads.received');
                     Route::post('add', 's_store')->name('load.save');
                     Route::post('{load}/update', 'update')->name('load.update');
                     Route::get('{load}/make-payment', 'makePayment')->name('load.make-payment');
@@ -610,6 +653,6 @@ Route::get('move-load-to-{status}', function ($status) {
 });
 
 
-Route::post('svae', function (Request $request) {
-    dd($request->all());
-})->name('img.svae');
+Route::get('page',function(){
+    return view('partials.modals.payment-success');
+});

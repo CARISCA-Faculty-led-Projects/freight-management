@@ -78,7 +78,7 @@
                             <!--begin::Table container-->
                             <div class="table-responsive">
                                 <!--begin::Table-->
-                                <table class="table table-row-dashed align-middle gs-0 gy-3 my-0">
+                                <table class="table table-row-dashed align-middle gs-0 gy-3 my-0" id="loads_table">
                                     <!--begin::Table head-->
                                     <thead>
                                         <tr class="fs-5 fw-bold text-dark border-bottom-0">

@@ -23,10 +23,10 @@
               <div class="modal-body scroll-y mx-5 mx-xl-15 my-7">
                   <!--begin::Balance preview-->
                   <div class="d-flex text-center mb-9">
-                      
+
                       <div class="w-50 border border-dashed border-gray-300 rounded mx-2 p-4">
                           <div class="fs-6 fw-semibold mb-2 text-muted">Order #
-                              
+
                             </div>
                           <div class="fs-2 fw-bold" kt-modal-adjust-balance="new_balance">#78898</div>
                       </div>
@@ -58,7 +58,7 @@
                       <!--begin::Input group-->
                       <!-- <div class="fv-row mb-7">
                           <label class="required fs-6 fw-semibold form-label mb-2">Amount</label>
-                          
+
                           <input id="kt_modal_inputmask" type="text" class="form-control form-control-solid"
                               name="amount" value="" />
                       </div> -->
