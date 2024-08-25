@@ -22,7 +22,7 @@ class LoadsController extends Controller
     public function index()
     {
 
-        $loads = DB::table('loads')->where('completed',1)->orderByDesc('created_at')->paginate(50);
+        $loads = DB::table('loads')->where('completed', 1)->orderByDesc('created_at')->paginate(50);
 
         return view('load.list', compact('loads'));
     }
@@ -30,7 +30,7 @@ class LoadsController extends Controller
     public function indexJson()
     {
 
-        $loads = DB::table('loads')->where('completed',1)->orderByDesc('created_at')->paginate(50);
+        $loads = DB::table('loads')->where('completed', 1)->orderByDesc('created_at')->paginate(50);
 
         return $loads;
     }
@@ -86,7 +86,6 @@ class LoadsController extends Controller
     // Sender
     public function s_index()
     {
-
         $loads = DB::table('loads')->where('sender_id', Auth::user()->mask)->orderByDesc('created_at')->get();
 
         return view('load.senders.list', compact('loads'));
@@ -95,8 +94,29 @@ class LoadsController extends Controller
     public function board()
     {
         // $loads = DB::table('loads')->join('senders', 'senders.mask', 'loads.sender_id')->select('senders.name', 'loads.*')->orderByDesc('created_at')->get();
-        $loads = DB::table('loads')->where('loads.status', "Completed")->join('senders', 'senders.mask', 'loads.sender_id')->select('loads.*', 'senders.name')->orderByDesc('created_at')->get();
+        $loads = DB::table('loads')->where('loads.status', "Completed")->join('senders', 'senders.mask', 'loads.sender_id')->select('loads.*', 'senders.name')->orderByDesc('created_at')->paginate(20);
         $orgs = DB::table("organizations")->where('status', 'Approved')->get(['name', 'mask']);
+
+        foreach ($loads as $load) {
+            if ($load->organization_id) {
+                $organization = DB::table("organizations")->where('mask', $load->organization_id)->first('name');
+                $load->organization = $organization->name;
+            } else {
+                $load->organization = 'Unassigned';
+            }
+            $sender = DB::table('senders')->where('mask', $load->sender_id)->first(['name', 'email', 'phone', 'address', 'image', "description"]);
+            $load->sender = json_encode($sender);
+        }
+        // dd($loads->mask);
+        // return view('organization.loads.board', compact('loads'));
+        return view('load.board', compact('loads', 'orgs'));
+    }
+
+    public function searchLoad(Request $request)
+    {
+        dd($request->all());
+        // $loads = DB::table('loads')->join('senders', 'senders.mask', 'loads.sender_id')->select('senders.name', 'loads.*')->orderByDesc('created_at')->get();
+        $loads = DB::table('loads')->where('loads.status', "Completed")->join('senders', 'senders.mask', 'loads.sender_id')->select('loads.*', 'senders.name')->orderByDesc('created_at')->paginate(20);
 
         foreach ($loads as $load) {
             if ($load->organization_id) {
@@ -108,7 +128,7 @@ class LoadsController extends Controller
         }
         // dd($loads->mask);
         // return view('organization.loads.board', compact('loads'));
-        return view('load.board', compact('loads', 'orgs'));
+        return $this->successResponse('', $loads);
     }
 
     public function completed($load)
@@ -125,10 +145,7 @@ class LoadsController extends Controller
         }
 
         if ($request->shipment == 'yes') {
-            // dd("her");
-            // return (new CreateShipment)->render($request);
             return redirect(route('broker.shipment.create', $request->all()));
-            // return (new ShipmentsController)->create($request);
         }
 
         return back()->with('success', "Loads assigned successfully");
@@ -253,6 +270,7 @@ class LoadsController extends Controller
 
     public function s_store(Request $request)
     {
+
         $validated = Validator::make($request->all(), [
             'length' => 'nullable|numeric',
             'weight' => 'nullable',
@@ -288,6 +306,8 @@ class LoadsController extends Controller
 
         $req = [];
 
+        $distance = $request->pickup_address == null || $request->pickup_address == null ? 0 : getPlaceCoordinatesDistance($request->pickup_address, $request->dropoff_address);
+
         $req['image'] = $imagename;
         $req['insurance_docs'] = $ins;
         $req['other_docs'] = $oth;
@@ -309,9 +329,12 @@ class LoadsController extends Controller
         $req['breadth'] = $request->breadth;
         $req['budget'] = $request->budget;
         $req['height'] = $request->height;
+        $req['distance'] = (string)$distance['distance']/1000;
         $req['created_at'] = Carbon::now()->toDateTimeString();
-        $req['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
-        $req['dropoff_address'] = json_encode(getPlaceCoordinates($request->dropoff_address));
+        $req['pickup_address'] = $request->pickup_address == null ? null : json_encode(getPlaceCoordinates($request->pickup_address));
+        $req['dropoff_address'] = $request->dropoff_address == null ? null : json_encode(getPlaceCoordinates($request->dropoff_address));
+        // dd($req);
+
         DB::table('loads')->insert($req);
 
         if ($request->status == "Completed") {
@@ -451,12 +474,12 @@ class LoadsController extends Controller
         $payment = DB::table('load_payments')->where('order_id', $request->reference);
 
         if ($response['data']['status']) {
-            $status = $payment->first(['status','load_id','amount']);
+            $status = $payment->first(['status', 'load_id', 'amount']);
 
             if ($status->status == "Unpaid") {
                 $payment->update(['status' => "Paid", 'updated_at' => Carbon::now()->toDateTimeString()]);
                 DB::table('loads')->where('mask', $status->load_id)->update(['payment_status' => "Paid"]);
-                DB::table('system_account')->increment('holding',$status->amount);
+                DB::table('system_account')->increment('holding', $status->amount);
                 return view('partials.modals.payment-success', ['status' => $response['data']['status'], 'message' => "Payment successful"]);
             } else {
                 return view('partials.modals.payment-success', ['status' => $response['data']['status'], 'message' => "Payment already verified"]);
@@ -469,11 +492,19 @@ class LoadsController extends Controller
         // return view('partials.modals.payment-success');
     }
 
-    public function load_received($load_id){
-        DB::table('loads')->where('mask',$load_id)->update(['recipient_status'=> "Yes"]);
+    public function load_received($load_id)
+    {
+        DB::table('loads')->where('mask', $load_id)->update(['recipient_status' => "Yes"]);
         shareLoadPayment($load_id);
 
-        DB::table('load_payments')->where('load_id',$load_id)->update(['disbursement_status'=> "Released"]);
-        return back()->with('success','Load receipt successful');
+        DB::table('load_payments')->where('load_id', $load_id)->update(['disbursement_status' => "Released"]);
+        return back()->with('success', 'Load receipt successful');
+    }
+
+    public function  systemPricingSettings(Request $request)
+    {
+        $settings = DB::table('settings')->first();
+
+        return $this->successResponse('', $settings);
     }
 }

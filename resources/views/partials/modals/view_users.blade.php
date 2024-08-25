@@ -1,4 +1,4 @@
-<div class="modal fade" id="kt_modal_view_users" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="k" tabindex="-1" aria-hidden="true">
     <!--begin::Modal dialog-->
     <div class="modal-dialog mw-650px">
         <!--begin::Modal content-->

@@ -23,4 +23,22 @@ class DriversController extends Controller
 
         return $this->successResponse('', $driver);
     }
+
+    public function rate_driver(Request $request)
+    {
+        $shipment = DB::table('loads')->where('mask', $request->load_id)->pluck('shipment_id')->first();
+
+        $driver_id = DB::table('shipments')->where('mask',$shipment)->pluck('driver_id')->first();
+
+        DB::table('driver_ratings')->insert(['driver_id' => $driver_id, 'rating' => $request->rating]);
+
+        $ratings = DB::table('driver_ratings')->where('driver_id', $driver_id);
+        $total = $ratings->count();
+        $sum = $ratings->sum('rating');
+
+        $curr = $sum / $total;
+        DB::table('drivers')->where('mask', $driver_id)->update(['rating' => $curr]);
+
+        return $this->successResponse('driver rated');
+    }
 }

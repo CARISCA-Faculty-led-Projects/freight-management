@@ -173,6 +173,7 @@ class ShipmentsController extends Controller
                 // 'dropoff_address' => "Search and select a dropoff address for the shipment"
             ])->validate();
         }
+        $mask = generateNumber();
         // dd($request->all());
         DB::table('shipments')->insert([
             'organization_id' => $request->organization_id,
@@ -180,7 +181,7 @@ class ShipmentsController extends Controller
             'broker_id' => whichUser()->mask,
             'loads' => json_encode($request->loads),
             'description' => $request->description,
-            'mask' => generateNumber(),
+            'mask' => $mask,
             'pickup_address' => $request->starting_addr,
             'dropoff_address' => $request->destination_addr,
             'starting_point' => $request->starting_point,
@@ -196,7 +197,7 @@ class ShipmentsController extends Controller
         // sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
         $driver->update(['shipment_status' => "Assigned"]);
         DB::table('loads')->whereIn('mask', $request->loads)->update(['shipment_status' => "Assigned"]);
-
+        // return redirect(route('broker.shipment.assign_driver', $mask));
         return redirect(route(whichUser()->getTable() == 'brokers' ? 'broker.shipments.list' : 'org.shipments.list'));
     }
 
@@ -230,6 +231,7 @@ class ShipmentsController extends Controller
         $req['description'] = $request->description;
         $req['starting_point'] = $request->starting_point;
         $req['destination'] = $request->destination;
+        $req['shipment_status'] = $request->driver_id ? "Assigned" : null;
         $req['updated_at'] = Carbon::now()->toDateTimeString();
 
 
@@ -276,7 +278,37 @@ class ShipmentsController extends Controller
         return $this->successResponse('', $shipments);
     }
 
-    public function reassignDriver(Request $request){
+    public function getShipmentSupportedDrivers(Request $request)
+    {
 
+        $supp_vehicles  = DB::table('vehicles')->where('organization_id', $request->organization)->get(['number as name', 'driver_id', 'mask', 'load_type']);
+
+        $loads = DB::table('loads')->whereIn('mask', $request->loads)->pluck('load_type')->toArray();
+
+        $supported = [];
+        $supp_organizations  = DB::table('organizations')->get(['name', 'mask', 'load_type']);
+
+        foreach ($supp_vehicles as $preferred) {
+            $veh_loads = json_decode($preferred->load_type);
+            if ($veh_loads != null) {
+                $shipment_loads_supported = 0;
+                $shipment_loads_unsupported = 0;
+                foreach ($loads as $load) {
+                    // dd(gettype($org_loads));
+                    if (in_array($load, $veh_loads)) {
+                        $shipment_loads_supported += 1;
+                    } else {
+                        $shipment_loads_unsupported += 1;
+                    }
+                }
+
+                if (count($loads) == $shipment_loads_supported) {
+                    array_push($supported, $preferred->driver_id);
+                }
+            }
+
+        }
+        $drivers = DB::table('drivers')->whereIn('mask',$supported)->get(['name','mask']);
+        return $drivers;
     }
 }

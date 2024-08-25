@@ -55,11 +55,11 @@ $("document").ready(function () {
     });
 
     //    Load board datatable
-    let loadTable = new DataTable("#loads_table");
+    // let loadTable = new DataTable("#loads_table");
 
-    $("#loadSearch").on("keyup", function () {
-        loadTable.search(this.value).draw();
-    });
+    // $("#loadSearch").on("keyup", function () {
+    //     loadTable.search(this.value).draw();
+    // });
 
     // Load
     function setupDataTable(identifier,data) {

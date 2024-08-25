@@ -172,8 +172,8 @@
                                             {{ $load->length }}*{{ $load->breadth }}*{{ $load->height }}</span>
                                     </td>
 
-                                    {{-- <td class="text-end">{{ $load->pickup_address == null? '' : json_decode($load->pickup_address)->name }}</td>
-                                    <td class="text-end">{{ $load->dropoff_address == null? '' :json_decode($load->dropoff_address)->name }}</td> --}}
+                                    {{-- <td class="text-end">{{ $load->pickup_address == null? '' : $load->pickup_address }}</td>
+                                    <td class="text-end">{{ $load->dropoff_address == null? '' :$load->dropoff_address }}</td> --}}
                                     <td class="text-end">
                                         {{ $load->pickup_address == null ? '' : json_decode($load->pickup_address)->name }}
                                     </td>
@@ -225,7 +225,7 @@
                                                 <!--end::Menu item-->
                                             @endif
                                             <!--end::Menu item-->
-                                            @if ($load->recipient_status == 'No')
+                                            @if ($load->recipient_status == 'No' && $load->shipment_status = "Delivered")
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
                                                     <a href="{{ route('sender.loads.received', $load->mask) }}" onclick="return confirm('Confirm you have received load and subloads?')" class="menu-link px-3">Confirm receipt</a>
@@ -257,4 +257,5 @@
     <!--end::Content-->
     @include('partials.modals.bid')
     @include('partials.modals.assign_load_to_driver')
+    @include('partials.modals.driver_rating')
 @endsection

@@ -22,7 +22,15 @@ var KTAppEcommerceReportShipping = function () {
         datatable = $(table).DataTable({
             "info": false,
             'order': [],
-            'pageLength': 10,
+            'pageLength': 50,
+            'paging': false,
+            // 'layout': {
+            //     topStart: 'searchPanes'
+            // },
+            // ajax: 'organization/load/search',
+            // processing: true,
+            // serverSide: true
+
         });
     }
 
@@ -52,6 +60,18 @@ var KTAppEcommerceReportShipping = function () {
         cb(start, end);
     }
 
+    var handleDateFilter = () => {
+        const filterStatus = document.querySelector('#kt_ecommerce_report_shipping_daterangepicker');
+        $(filterStatus).on('change', e => {
+            let value = e.target.value;
+            console.log(value);
+            if (value === 'all') {
+                value = '';
+            }
+            // datatable.column(6).search(value).draw();
+        });
+    }
+
     // Handle status filter dropdown
     var handleStatusFilter = () => {
         const filterStatus = document.querySelector('[data-kt-ecommerce-order-filter="status"]');
@@ -60,7 +80,7 @@ var KTAppEcommerceReportShipping = function () {
             if (value === 'all') {
                 value = '';
             }
-            datatable.column(3).search(value).draw();
+            datatable.column(6).search(value).draw();
         });
     }
 
@@ -116,7 +136,7 @@ var KTAppEcommerceReportShipping = function () {
     // Public methods
     return {
         init: function () {
-            table = document.querySelector('#kt_ecommerce_report_shipping_table');
+            table = document.querySelector('#loads_table');
 
             if (!table) {
                 return;
@@ -127,6 +147,7 @@ var KTAppEcommerceReportShipping = function () {
             exportButtons();
             handleSearchDatatable();
             handleStatusFilter();
+            handleDateFilter();
         }
     };
 }();

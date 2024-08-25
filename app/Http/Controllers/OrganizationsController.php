@@ -89,11 +89,13 @@ class OrganizationsController extends Controller
 
         $shipments = DB::table('shipments')->where('shipments.organization_id',whichUser()->mask)->where('shipments.shipment_status', "On route")
             ->join('drivers', 'drivers.mask', 'shipments.driver_id')
-            ->select('shipments.mask as shipment', 'shipments.last_location as shipment_location', 'drivers.name as driver', 'drivers.mask as driver_id', 'drivers.phone as driver_contact')
+            ->join('vehicles','vehicles.driver_id','drivers.mask')
+            ->select('shipments.mask as shipment', 'shipments.last_location as shipment_location','vehicles.number','vehicles.org_num','shipments.loads', 'drivers.name as driver', 'drivers.mask as driver_id', 'drivers.phone as driver_contact')
             ->get();
 
         foreach ($shipments as $shipment) {
             $shipment->shipment_location = json_decode($shipment->shipment_location);
+            $shipment->loads = count(json_decode($shipment->loads));
         }
 
         $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->where('shipment_status', 'Assigned')->get(['image', 'name', 'phone', 'mask', 'last_login', 'last_location']);

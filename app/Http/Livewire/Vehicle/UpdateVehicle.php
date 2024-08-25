@@ -206,7 +206,8 @@ class UpdateVehicle extends Component
 
     public function drivers()
     {
-        return DB::table('drivers')->where('organization_id', $this->vehicle['organization_id'])->get();
+        $drivers = DB::table('vehicles')->where('organization_id',$this->vehicle['organization_id'])->whereNotNull('driver_id')->pluck('driver_id')->toArray();
+        return DB::table('drivers')->where('organization_id', $this->vehicle['organization_id'])->whereNotIn('mask',$drivers)->get();
     }
 
     public function mount($mask)

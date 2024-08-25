@@ -48,6 +48,7 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Livewire\Organisation;
+use App\Http\Livewire\Shipments\AssignDriver;
 
 Route::middleware(['guest'])->group(function () {
     Route::controller(AuthController::class)->group(function () {
@@ -79,7 +80,7 @@ Route::middleware(['guest'])->group(function () {
         ->name('password.update');
 });
 
-Route::group(['auth','auth:drivers', 'auth:senders', 'auth:organizations', 'auth:brokers'], function () {
+Route::group(['auth', 'auth:drivers', 'auth:senders', 'auth:organizations', 'auth:brokers'], function () {
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])
         ->name('verification.notice');
 
@@ -117,13 +118,13 @@ Route::group(['auth','auth:drivers', 'auth:senders', 'auth:organizations', 'auth
 Route::middleware('auth')->group(function () {
 
     Route::controller(AdminController::class)->group(function () {
-        Route::prefix('admin')->group(function(){
+        Route::prefix('admin')->group(function () {
             Route::get('dashboard', 'dashboard')->name('admin.overview');
             Route::get('profile', 'profile')->name('admin.profile');
             Route::get('manage', 'loginAs')->name('admin.account.manage');
             Route::get('settings', 'settings')->name('settings');
+            Route::get('update-settings', 'updateSettings')->name('settings.update');
         });
-
     });
 
     // Organisation
@@ -261,6 +262,7 @@ Route::middleware('auth:organizations')->group(function () {
                 Route::post('{load}/edit', 'update')->name('org.load.update');
                 Route::get('bids', 'bids');
                 Route::get('board', 'board')->name('org.load.board');
+                Route::get('search', 'searchLoad')->name('org.load.search');
             });
             Route::get('add', AddLoad::class)->name('org.load.add');
             Route::get('{load_id}/edit', UpdateLoad::class)->name('loads.edit');
@@ -399,7 +401,7 @@ Route::middleware('auth:drivers')->group(function () {
 });
 // Auth drivers end
 
-Route::get('load/payment-success',[LoadsController::class,'paymentSuccessful']);
+Route::get('load/payment-success', [LoadsController::class, 'paymentSuccessful']);
 // Auth senders start
 Route::middleware('auth:senders')->group(function () {
     Route::prefix('senders')->group(function () {
@@ -453,7 +455,6 @@ Route::middleware('auth:senders')->group(function () {
                 });
             });
 
-
             Route::get('locate', function () {
                 return view('load.locate');
             });
@@ -497,6 +498,7 @@ Route::middleware('auth:brokers')->group(function () {
             Route::controller(LoadsController::class)->group(function () {
                 Route::post('assign', 'brokerLoadAssign')->name('broker.loads.assign');
                 Route::get('board', 'board')->name('load.board');
+                Route::get('get-pricing-settings', 'systemPricingSettings');
                 Route::get('{load}/details', 'details')->name('broker.load.details');
                 Route::get('{load}/locate', 'locateLoad')->name('broker.load.locate');
             });
@@ -519,6 +521,7 @@ Route::middleware('auth:brokers')->group(function () {
             Route::get('/shipments/all', 'all_shipments')->name('broker.shipments.list');
             Route::get('shipment/create', CreateShipment::class)->name('broker.shipment.create');
             Route::post('shipment/save', 'create')->name('broker.shipment.save');
+            Route::get('shipment/{shipment_id}/assign-driver', AssignDriver::class)->name('broker.shipment.assign_driver');
             Route::post('shipment/{shipment}/update', 'update')->name('broker.shipment.update');
             Route::get('/shipments/{shipment}/delete', 'delete')->name('broker.shipment.delete');
         });
@@ -637,22 +640,34 @@ Route::get('dbrun', function () {
     }
 });
 
-Route::get('move-load-to-{status}', function ($status) {
-    $loads = DB::table('loads')->where('payment_status', 'Unpaid')->where('shipment_status', 'Unassigned')->where('completed', 0)->get();
+// Route::get('move-load-to-{status}', function ($status) {
+//     $loads = DB::table('loads')->where('payment_status', 'Unpaid')->where('shipment_status', 'Unassigned')->where('completed', 0)->get();
+//     foreach ($loads as $load) {
+//         if ($status == 'bidding') {
+//             DB::table('loads')->where('mask', $load->mask)->update(['status' => "Bidding", 'completed' => 1]);
+//             DB::table('bids')->where('load_id', '!=', $load->mask)->insert(['sender_id' => $load->sender_id, 'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
+//         } elseif ($status == 'draft') {
+//             DB::table('loads')->where('mask', $load->mask)->update(['status' => "Draft"]);
+//         }
+//         // DB::table('bids')->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
+//     }
+
+//     dd('done-' . $status);
+// });
+
+
+Route::get('update_load_with_shipments', function () {
+    $loads = DB::table('shipments')->get(['loads', 'mask']);
     foreach ($loads as $load) {
-        if ($status == 'bidding') {
-            DB::table('loads')->where('mask', $load->mask)->update(['status' => "Bidding", 'completed' => 1]);
-            DB::table('bids')->where('load_id', '!=', $load->mask)->insert(['sender_id' => $load->sender_id, 'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
-        } elseif ($status == 'draft') {
-            DB::table('loads')->where('mask', $load->mask)->update(['status' => "Draft"]);
-        }
+        $alod = json_decode($load->loads);
+
+        DB::table('loads')->whereIn('mask', $alod)->update(['shipment_id' => $load->mask]);
         // DB::table('bids')->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
     }
 
-    dd('done-' . $status);
+    dd('done-');
 });
 
-
-Route::get('page',function(){
+Route::get('page', function () {
     return view('partials.modals.payment-success');
 });

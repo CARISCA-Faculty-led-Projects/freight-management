@@ -78,21 +78,61 @@
                        <!--end::Card title-->
                        <!--begin::Card toolbar-->
                        <div class="card-toolbar flex-row-fluid justify-content-end gap-5">
-                           {{-- <div class="w-100 mw-150px">
-                            <!--begin::Select2-->
-                            <select class="form-select form-select-solid w-55" id="orgAssigned"
-                                data-placeholder="Status" data-kt-ecommerce-order-filter="status">
-                                <option></option>
-                                <option value="all">All</option>
-                                <option value="Assigned">Assigned</option>
-                                <option value="Unassigned">Unassigned</option>
-                            </select>
-                            <!--end::Select2-->
-                        </div> --}}
-                           <!--begin::Add product-->
-
-
-                           <!--end::Add product-->
+                           <!--begin::Daterangepicker-->
+                           <input class="form-control form-control-solid w-100 mw-250px" placeholder="Pick date range"
+                               id="kt_ecommerce_report_shipping_daterangepicker" />
+                           <!--end::Daterangepicker-->
+                           <!--begin::Filter-->
+                           <div class="w-150px">
+                               <!--begin::Select2-->
+                               <select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+                                   data-placeholder="Status" data-kt-ecommerce-order-filter="status">
+                                   <option></option>
+                                   <option value="all">All</option>
+                                   <option value="On route">On route</option>
+                                   <option value="Assigned">Assigned</option>
+                                   <option value="Unassigned">Unassigned</option>
+                                   <option value="Cancelled">Cancelled</option>
+                               </select>
+                               <!--end::Select2-->
+                           </div>
+                           <!--end::Filter-->
+                           <!--begin::Export dropdown-->
+                           <button type="button" class="btn btn-light-primary" data-kt-menu-trigger="click"
+                               data-kt-menu-placement="bottom-end">
+                               <i class="ki-duotone ki-exit-up fs-2">
+                                   <span class="path1"></span>
+                                   <span class="path2"></span>
+                               </i>Export Report</button>
+                           <!--begin::Menu-->
+                           <div id="kt_ecommerce_report_shipping_export_menu"
+                               class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-200px py-4"
+                               data-kt-menu="true">
+                               <!--begin::Menu item-->
+                               <div class="menu-item px-3">
+                                   <a href="#" class="menu-link px-3" data-kt-ecommerce-export="copy">Copy to
+                                       clipboard</a>
+                               </div>
+                               <!--end::Menu item-->
+                               <!--begin::Menu item-->
+                               <div class="menu-item px-3">
+                                   <a href="#" class="menu-link px-3" data-kt-ecommerce-export="excel">Export as
+                                       Excel</a>
+                               </div>
+                               <!--end::Menu item-->
+                               <!--begin::Menu item-->
+                               <div class="menu-item px-3">
+                                   <a href="#" class="menu-link px-3" data-kt-ecommerce-export="csv">Export as CSV</a>
+                               </div>
+                               <!--end::Menu item-->
+                               <!--begin::Menu item-->
+                               <div class="menu-item px-3">
+                                   <a href="#" class="menu-link px-3" data-kt-ecommerce-export="pdf">Export as PDF</a>
+                               </div>
+                               <!--end::Menu item-->
+                           </div>
+                           <!--end::Menu-->
+                           <!--end::Export dropdown-->
                        </div>
                        <!--end::Card toolbar-->
                    </div>
@@ -133,19 +173,20 @@
                                    @foreach ($loads as $load)
                                        <tr>
                                            @if (whichUser()->getTable() == 'brokers')
-                                           <td>
-                                            <div class="form-check form-check-sm form-check-custom form-check-solid">
-                                                <input class="form-check-input" name="loads[]" type="checkbox"
-                                                    value="{{ $load->mask }}" />
-                                            </div>
-                                        </td>
+                                               <td>
+                                                   <div
+                                                       class="form-check form-check-sm form-check-custom form-check-solid">
+                                                       <input class="form-check-input" name="loads[]" type="checkbox"
+                                                           value="{{ $load->mask }}" />
+                                                   </div>
+                                               </td>
                                            @endif
 
                                            <td>{{ $load->mask }}</td>
                                            <td>{{ $load->load_type }}</td>
                                            <td><img class="w-20px" src="{{ asset('storage/loads/' . $load->image) }}"
                                                    alt="" srcset=""></td>
-                                           <td>{{ $load->name }}</td>
+                                           <td id="view_sender" data-sender="{{ $load->sender }}">{{ $load->name }}</td>
                                            <td id="orgStat" class="text-center pe-0">
                                                <div
                                                    class="@if ($load->organization == 'Unassigned') badge badge-light-warning @endif">
@@ -201,7 +242,8 @@
                                            <td class="text-end">
                                                <a href="#"
                                                    class="btn btn-sm btn-light btn-flex btn-center btn-active-light-primary"
-                                                   data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">Actions
+                                                   data-kt-menu-trigger="click"
+                                                   data-kt-menu-placement="bottom-end">Actions
                                                    <i class="ki-duotone ki-down fs-5 ms-1"></i></a>
                                                <!--begin::Menu-->
                                                <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4"
@@ -250,6 +292,7 @@
                                </tbody>
                            </table>
                            <!--end::Table-->
+                           {{ $loads->links('vendor.pagination.bootstrap-5') }}
                        </div>
                        @error('loads')
                            <span class="text-danger pl-3">{{ $message }}</span>
@@ -281,5 +324,20 @@
                <!--end::Products-->
            </div>
            @include('partials.modals.view-load-location')
+           @include('partials.modals.view_sender')
+           <script>
+               $('document').ready(function() {
+                   $('.table').on('click', '#view_sender', function() {
+                       console.log($(this).data('sender'));
+                       var sender = $(this).data('sender');
+                       $('#sender_name').text(sender.name);
+                       $('#sender_description').text(sender.description);
+                       $('#sender_email').text(sender.email);
+                       $('#sender_phone').text(sender.phone);
+                       $('#sender_address').text(sender.address);
+                       $('#view_sender_modal').modal('show');
+                   });
+               });
+           </script>
        </div>
    @endsection

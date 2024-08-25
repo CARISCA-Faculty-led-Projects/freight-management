@@ -1,24 +1,23 @@
 <div class="">
     @php
-        $locations = [];
-        foreach ($this->loadsDets as $load) {
-            $pickup = json_decode($load['pickup_address'])->location;
-            $dropoff = json_decode($load['dropoff_address'])->location;
+    $locations = [];
+    foreach ($this->loadsDets as $load) {
+    $pickup = json_decode($load['pickup_address']);
+    $dropoff = json_decode($load['dropoff_address']);
 
-            $pickLocation = [
-                'label' => '#' . $load['mask'] . ' pickup',
-                'position' => $pickup,
-            ];
-            array_push($locations, $pickLocation);
+    $pickLocation = [
+    'label' => $pickup->name,
+    'position' => $pickup->location,
+    ];
+    array_push($locations, $pickLocation);
 
-            $dropLocation = [
-                'label' => '#' . $load['mask'] . ' dropoff',
-                'position' => $dropoff,
-            ];
-            array_push($locations, $dropLocation);
-            // dd($locations)
-        }
-        // json_encode($locations);
+    $dropLocation = [
+    'label' => $dropoff->name,
+    'position' => $dropoff->location,
+    ];
+    array_push($locations, $dropLocation);
+    // dd($locations)
+    }
     @endphp
     <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
         <!--begin::Toolbar container-->
@@ -91,7 +90,7 @@
                                 <!--begin::Label-->
                                 <label class="required form-label">Selected Loads</label>
                                 <!--end::Label-->
-                                <input type="hidden" name="organization_id" value="{{ $this->organization }}">
+                                <input type="hidden" name="organization_id" value="{{ $this->organization['mask'] }}">
                                 <!--begin::Table-->
                                 <div class="" style="height: 200px; overflow:auto;">
                                     <table class="table align-middle table-row-dashed fs-6 gy-5"
@@ -109,14 +108,14 @@
                                         </thead>
                                         <tbody class="fw-semibold text-gray-600">
                                             @foreach ($this->loadsDets as $load)
-                                                <tr>
-                                                    <input type="hidden" name="loads[]" value="{{ $load['mask'] }}">
-                                                    <td>{{ $load['mask'] }}</td>
-                                                    <td>{{ $load['load_type'] }}</td>
-                                                    <td class="text-end pe-0">
-                                                        <!--begin::Badges-->
-                                                        <div
-                                                            class="badge @if ($load['status'] == 'Approved') badge-light-primary
+                                            <tr>
+                                                <input type="hidden" name="loads[]" value="{{ $load['mask'] }}">
+                                                <td>{{ $load['mask'] }}</td>
+                                                <td>{{ $load['load_type'] }}</td>
+                                                <td class="text-end pe-0">
+                                                    <!--begin::Badges-->
+                                                    <div
+                                                        class="badge @if ($load['status'] == 'Approved') badge-light-primary
                                                         @elseif($load['status'] == 'Pending')
                                                         badge-light-warning
                                                         @elseif($load['status'] == 'Rejected')
@@ -125,27 +124,49 @@
                                                         badge-light-success
                                                         @else
                                                         badge-light-primary @endif">
-                                                            {{ $load['status'] }}</div>
-                                                        <!--end::Badges-->
-                                                    </td>
-                                                    <td class="text-end pe-0">
-                                                        <span class="fw-bold">{{ $load['quantity'] }},
-                                                            {{ $load['weight'] }} KG,
-                                                            {{ $load['length'] }}*{{ $load['breadth'] }}*{{ $load['height'] }}</span>
-                                                    </td>
-                                                    <td class="text-end">
-                                                        {{ json_decode($load['pickup_address'])->name }}</td>
-                                                    <td class="text-end">
-                                                        {{ json_decode($load['dropoff_address'])->name }}</td>
+                                                        {{ $load['status'] }}
+                                                    </div>
+                                                    <!--end::Badges-->
+                                                </td>
+                                                <td class="text-end pe-0">
+                                                    <span class="fw-bold">{{ $load['quantity'] }},
+                                                        {{ $load['weight'] }} KG,
+                                                        {{ $load['length'] }}*{{ $load['breadth'] }}*{{ $load['height'] }}</span>
+                                                </td>
+                                                <td class="text-end">
+                                                    {{ json_decode($load['pickup_address'])->name }}
+                                                </td>
+                                                <td class="text-end">
+                                                    {{ json_decode($load['dropoff_address'])->name }}
+                                                </td>
 
 
-                                                </tr>
+                                            </tr>
                                             @endforeach
 
                                         </tbody>
                                     </table>
                                 </div>
                                 <!--end::Table-->
+                            </div>
+                            <!--end::Input group-->
+                            <!--begin::Input group-->
+                            <div class="mb-10 fv-row">
+                                <!--begin::Label-->
+                                <label class="form-label">Assigned Organization</label>
+                                <!--end::Label-->
+                                <!--begin::Select2-->
+                                <select
+                                    class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
+                                    name="organization_id" data-hide-search="true" data-placeholder="Select an organization">
+                                    @foreach ($this->getOrgs() as $org)
+                                    <option value="{{ $org->mask }}" {{ $this->organization['mask'] == $org->mask ? "selected" : '' }}>{{ $org->name }}
+                                    </option>
+                                    @endforeach
+                                </select>
+                                @error('organization_id')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <!--end::Input group-->
                             <!--begin::Input group-->
@@ -176,11 +197,7 @@
                             </div>
                         </div>
                         <!--end::Card header-->
-                        <div id="googleMap" style="width:100%;height:100rem;"></div>
-
-                        <!--begin::Card body-->
-                        {{-- <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
-
+                        <div class="d-flex flex-column flex-xl-row gap-7 gap-lg-10">
                             <!--begin::Payment address-->
                             <div class="card card-flush py-4 flex-row-fluid position-relative">
                                 <!--begin::Background-->
@@ -192,22 +209,25 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Pickup Address <span
-                                                class="spinner-border spinner-border-sm align-middle ms-2"
-                                                wire:loading></span></h2>
+                                        <h2>Pick a starting point</h2>
                                     </div>
                                 </div>
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
                                     <!--begin::Menu toggle-->
-                                    <select name="pickup_address" id="pickup_address"
+                                    <select name="pickup_address" id="start" required
                                         class="form-control mt-2 @error('pickup_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
+                                        @foreach ($locations as $index => $location)
+                                        <option value="{{ $index }}">
+                                            {{ $location['label'] }}
+                                        </option>
+                                        @endforeach
                                     </select>
                                     @error('pickup_address')
-                                        <span class="text-danger">{{ $message }}</span>
+                                    <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <!--end::Card body-->
@@ -225,7 +245,7 @@
                                 <!--begin::Card header-->
                                 <div class="card-header">
                                     <div class="card-title">
-                                        <h2>Drop-off Address <span
+                                        <h2>Pick a destination<span
                                                 class="spinner-border spinner-border-sm align-middle ms-2"
                                                 wire:loading></span></h2>
                                     </div>
@@ -233,66 +253,106 @@
                                 <!--end::Card header-->
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
-
-                                    <select name="dropoff_address" id="dropoff_address"
+                                    <select name="dropoff_address" id="end" required
                                         class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">--select location--</option>
-
+                                        @foreach ($locations as $index => $location)
+                                        <option value="{{ $index }}">
+                                            {{ $location['label'] }}
+                                        </option>
+                                        @endforeach
                                     </select>
                                     <!--end::Card body-->
                                     @error('dropoff_address')
-                                        <span class="text-danger">{{ $message }}</span>
+                                    <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                 </div>
                                 <!--end::Shipping address-->
                             </div>
-                        </div> --}}
+                        </div>
+                        <input type="text" name="route" class="d-none" id="route">
+                        <input type="text" name="starting_point" class="d-none" id="starting">
+                        <input type="text" name="destination" class="d-none" id="dest">
+                        <input type="text" name="starting_addr" class="d-none" id="startingAdr">
+                        <input type="text" name="destination_addr" class="d-none" id="destAdr">
+                        <div id="googleMap" style="width:100%;height:100rem;"></div>
+                        <div id="sidebar"></div>
+                        <div id="floating-panel"></div>
+
+                        <!--begin::Card body-->
+
                         <!--end::Meta options-->
-                        <!--begin::Automation-->
+                        <!--begin::Meta options-->
                         <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>Available drivers</h2> <a wire:click="check"
-                                        class="btn btn-sm btn-primary ms-3">Look
-                                        up</a>
-                                </div>
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Input group-->
-                                <div class="mb-10 py-4">
-                                    <!--begin::Label-->
-                                    <label class="required form-label">Driver</label>
-                                    <!--end::Label-->
-                                    <!--begin::Select2-->
-                                    <select
-                                        class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
-                                        name="driver_id" data-hide-search="true" data-placeholder="Select a driver"
-                                        id="kt_ecommerce_add_category_store_template">
-                                        <option></option>
-                                        @foreach ($this->drivers as $driver)
-                                            <option value="{{ $driver->mask }}">{{ $driver->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('driver_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                    <!--end::Select2-->
-                                    <div class="">
-                                        <input type="checkbox" class="mt-3" name="no_driver" id=""
-                                            value="true">
-                                        <label for="">&nbsp;Assign driver later</label>
+
+                            <!--begin::Automation-->
+                            <div class="card card-flush py-4">
+
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>Available drivers</h2> <a wire:click="check"
+                                            class="btn btn-sm btn-primary ms-3">Look
+                                            up</a>
                                     </div>
                                 </div>
-                                <!--end::Input group-->
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="mb-10 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Assign Organization</label>
+                                        <!--end::Label-->
+                                        <!--begin::Select2-->
+                                        <select
+                                            class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
+                                            name="organization_id" id="org" data-shipment-id="{{ $this->shipment }}"
+                                            data-placeholder="Select an organization">
+                                            <option value="">--select--</option>
+                                            @foreach ($this->getOrgs() as $org)
+                                            <option value="{{ $org->mask }}">
+                                                {{ $org->name }}
+                                            </option>
+                                            @endforeach
+                                        </select>
+                                        @error('organization_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <!--end::Input group-->
+                                    <div class="mb-10 py-4">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Driver</label>
+                                        <!--end::Label-->
+                                        <!--begin::Select2-->
+                                        <select
+                                            class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
+                                            name="driver_id" data-hide-search="true" id="drivers"
+                                            data-placeholder="Select a driver">
+                                            <option></option>
+
+                                        </select>
+                                        @error('driver_id')
+                                        <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <!--end::Select2-->
+                                        <div class="">
+                                            <input type="checkbox" class="mt-3" name="no_driver" id=""
+                                                value="true">
+                                            <label for="">&nbsp;Assign driver later</label>
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Card header-->
                             </div>
-                            <!--end::Card header-->
+                            <!--end::Automation-->
+
                         </div>
-                        <!--end::Automation-->
+                        <!--end::Main column-->
 
                         <div class="d-flex justify-content-end me-5">
                             <!--begin::Button-->
@@ -328,87 +388,108 @@
 
 <script>
     // Initialize and add the map
-    // let map;
-    // const locations = JSON.parse({{ json_encode($locations) }});
     const locations = document.getElementById('locs').innerText;
     const mapLocs = JSON.parse(locations);
-    const flightPathCoordinates = [];
 
-    async function initMap() {
-        // The location of GH
-        const main = {
-            lat: 8.342275,
-            lng: -1.183324
-        };
-        // Request needed libraries.
-        //@ts-ignore
-        const {
-            Map
-        } = await google.maps.importLibrary("maps");
-        const {
-            AdvancedMarkerElement
-        } = await google.maps.importLibrary("marker");
-
-        // The map, centered at Uluru
-        map = new Map(document.getElementById("googleMap"), {
+    function initMap() {
+        const directionsRenderer = new google.maps.DirectionsRenderer();
+        const directionsService = new google.maps.DirectionsService();
+        const map = new google.maps.Map(document.getElementById("googleMap"), {
             zoom: 8,
-            center: main,
-            mapId: "Loc",
-        });
-        // Add some markers to the map.
-        // const locations = JSON.parse({{ json_encode($locations) }});
-
-        const markers = mapLocs.map((position, i) => {
-            const ltn = position.position;
-            const priceTag = document.createElement("div");
-
-            priceTag.className = "price-tag";
-            priceTag.textContent = position.label;
-
-            const marker = new google.maps.marker.AdvancedMarkerElement({
-                position: {
-                    lat: parseFloat(ltn.lat),
-                    lng: parseFloat(ltn.lng)
-                },
-                content: priceTag,
-            });
-
-            // markers can only be keyboard focusable when they have click listeners
-            // open info window when marker is clicked
-            marker.addListener("click", () => {
-                // infoWindow.setContent(ltn.lat + ", " + ltn.lng);
-                // infoWindow.open(map, marker);
-                addPos({
-                    lat: parseFloat(ltn.lat),
-                    lng: parseFloat(ltn.lng)
-                });
-            });
-            return marker;
+            center: {
+                lat: 8.342275,
+                lng: -1.183324
+            },
+            disableDefaultUI: true,
         });
 
-        function addPos(location) {
+        directionsRenderer.setMap(map);
+        // directionsRenderer.setPanel(document/.getElementById("sidebar"));
 
-            flightPathCoordinates.push(location);
-            console.log(flightPathCoordinates);
+        // const control = document.getElementById("floating-panel");
 
-            flightPath = new google.maps.Polyline({
-                path: flightPathCoordinates,
-                strokeColor: "#FF0000",
-                strokeOpacity: 1.0,
-                strokeWeight: 2,
-            });
+        // map.controls[google.maps.ControlPosition.TOP_CENTER].push(control);
 
-            flightPath.setMap(map);
-        }
+        const onChangeHandler = function() {
+            calculateAndDisplayRoute(directionsService, directionsRenderer);
+        };
 
-        // Add a marker clusterer to manage the markers.
-        new markerClusterer.MarkerClusterer({
-            markers,
-            map
-        });
+        document.getElementById("start").addEventListener("change", onChangeHandler);
+        document.getElementById("end").addEventListener("change", onChangeHandler);
     }
 
-    // initMap();
+    function calculateAndDisplayRoute(directionsService, directionsRenderer) {
+        const start = document.getElementById("start").value;
+        const end = document.getElementById("end").value;
+        // const route = document.getElementById("route").value;
+
+        if (start != '' && end != '') {
+            document.getElementById("starting").value = mapLocs[start].label;
+            document.getElementById("dest").value = mapLocs[end].label;
+            document.getElementById("startingAdr").value = JSON.stringify(mapLocs[start].position);
+            document.getElementById("destAdr").value = JSON.stringify(mapLocs[end].position);
+
+            var wayPts = [];
+            mapLocs.forEach((element, i) => {
+
+                if (i != start && i != end) {
+                    wayPts.push({
+                        location: element.position,
+                        stopover: true
+                    });
+                }
+            });
+            directionsService
+                .route({
+                    origin: mapLocs[start].position,
+                    destination: mapLocs[end].position,
+                    travelMode: google.maps.TravelMode.DRIVING,
+                    waypoints: wayPts,
+                    optimizeWaypoints: true,
+                    provideRouteAlternatives: true,
+
+                })
+                .then((response) => {
+                    var allroute = [];
+                    directionsRenderer.setDirections(response);
+                    response.routes[0].waypoint_order.forEach((element) => {
+                        allroute.push(wayPts[element].location);
+                    });
+                    document.getElementById("route").value = JSON.stringify(allroute);
+
+                })
+                .catch((e) => window.alert("Directions request failed due to " + e));
+        }
+    }
+
+    // window.initMap = initMap;
+    $('document').ready(function() {
+        initMap();
+
+        function getDrivers(org, shipment) {
+            $.ajax({
+                url: 'api/v1/get-shipment-load-drivers',
+                method: "POST",
+                data: {
+                    organization: org,
+                    shipment_id: shipment
+                },
+                success: function(res) {
+                    $('#drivers').empty();
+                    $('#drivers').append(`<option></option>`);
+
+                    res.forEach(element => {
+                        var el = `<option value="${element.mask}">${element.name}</option>`;
+                        $('#drivers').append(el);
+                    });
+                }
+            })
+        }
+        $('#org').on('change', function(event) {
+            getDrivers(event.target.value, $(this).data('shipment-id'));
+        });
+
+    });
 </script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key={{ env('MAP_API') }}&loading=async&callback=initMap"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap"></script>

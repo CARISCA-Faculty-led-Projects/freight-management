@@ -150,25 +150,6 @@
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
                                 <!--begin::Label-->
-                                <label class="form-label">Assigned Organization</label>
-                                <!--end::Label-->
-                                <!--begin::Select2-->
-                                <select
-                                    class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
-                                    name="organization_id" data-hide-search="true" data-placeholder="Select an organization">
-                                    @foreach ($this->getOrgs() as $org)
-                                        <option value="{{ $org->mask }}" {{ $this->organization['mask'] == $org->mask ? "selected" : '' }}>{{ $org->name }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                @error('organization_id')
-                                    <span class="text-danger">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <!--end::Input group-->
-                            <!--begin::Input group-->
-                            <div class="mb-10 fv-row">
-                                <!--begin::Label-->
                                 <label class="form-label">Shipment Description</label>
                                 <!--end::Label-->
                                 <!--begin::Editor-->
@@ -278,50 +259,75 @@
                         <!--begin::Card body-->
 
                         <!--end::Meta options-->
-                        <!--begin::Automation-->
+                        <!--begin::Meta options-->
                         <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>Available drivers</h2> <a wire:click="check"
-                                        class="btn btn-sm btn-primary ms-3">Look
-                                        up</a>
-                                </div>
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Input group-->
-                                <div class="mb-10 py-4">
-                                    <!--begin::Label-->
-                                    <label class="required form-label">Driver</label>
-                                    <!--end::Label-->
-                                    <!--begin::Select2-->
-                                    <select
-                                        class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
-                                        name="driver_id" data-hide-search="true" data-placeholder="Select a driver"
-                                        id="kt_ecommerce_add_category_store_template">
-                                        <option></option>
-                                        @foreach ($this->drivers as $driver)
-                                            <option value="{{ $driver->mask }}">{{ $driver->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('driver_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                    <!--end::Select2-->
-                                    <div class="">
-                                        <input type="checkbox" class="mt-3" name="no_driver" id=""
-                                            value="true">
-                                        <label for="">&nbsp;Assign driver later</label>
+
+                            <!--begin::Automation-->
+                            <div class="card card-flush py-4">
+
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>Assign Organization & driver</h2>
                                     </div>
                                 </div>
-                                <!--end::Input group-->
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="mb-10 fv-row">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Assign Organization</label>
+                                        <!--end::Label-->
+                                        <!--begin::Select2-->
+
+                                        <select
+                                            class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
+                                            name="organization_id" id="org"
+                                            data-loads="{{ json_encode($this->loads) }}"
+                                            data-placeholder="Select an organization">
+                                            <option value="">--select--</option>
+                                            @foreach ($this->getOrgs() as $org)
+                                                <option value="{{ $org->mask }}">
+                                                    {{ $org->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('organization_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                    <!--end::Input group-->
+                                    <div class="mb-10 py-4">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Driver</label> <small><span id="drivers_count">0</span> drivers</small>
+                                        <!--end::Label-->
+                                        <!--begin::Select2-->
+                                        <select
+                                            class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
+                                            name="driver_id" data-hide-search="true" id="drivers"
+                                            data-placeholder="Select a driver">
+                                            <option></option>
+
+                                        </select>
+                                        @error('driver_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <!--end::Select2-->
+                                        <div class="">
+                                            <input type="checkbox" class="mt-3" name="no_driver" id=""
+                                                value="true">
+                                            <label for="">&nbsp;Assign driver later</label>
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Card header-->
                             </div>
-                            <!--end::Card header-->
+                            <!--end::Automation-->
                         </div>
-                        <!--end::Automation-->
+                        <!--end::Main column-->
 
                         <div class="d-flex justify-content-end me-5">
                             <!--begin::Button-->
@@ -433,9 +439,34 @@
 
     // window.initMap = initMap;
     $('document').ready(function() {
-
         initMap();
+
+        function getDrivers(org, loads) {
+            $.ajax({
+                url: 'api/v1/get-shipment-load-drivers',
+                method: "POST",
+                data: {
+                    organization: org,
+                    loads: loads
+                },
+                success: function(res) {
+                    $('#drivers').empty();
+                    $('#drivers').append(`<option></option>`);
+                    $('#drivers_count').text(res.length);
+
+                    res.forEach(element => {
+                        var el = `<option value="${element.mask}">${element.name}</option>`;
+                        $('#drivers').append(el);
+                    });
+                }
+            })
+        }
+        $('#org').on('change', function(event) {
+            getDrivers(event.target.value, $(this).data('loads'));
+        });
     });
 </script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaquW_WUJP20HZnftmUWYGEXdNUqGoai0&loading=async&callback=initMap">
+</script>

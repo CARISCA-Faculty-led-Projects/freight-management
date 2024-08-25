@@ -6,31 +6,34 @@ use App\Traits\ResponseTrait;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use PDO;
 
 class DriversController extends Controller
 {
     use ResponseTrait;
 
-    public function overview(){
-        $all = DB::table('shipments')->where('driver_id',whichUser()->mask)->count();
-        $failed = DB::table('shipments')->where('driver_id',whichUser()->mask)->where('shipment_status','Cancelled')->count();
-        $delivered = DB::table('shipments')->where('driver_id',whichUser()->mask)->where('shipment_status','Delivered')->count();
-        $pending = DB::table('shipments')->where('driver_id',whichUser()->mask)->where('shipment_status','Assigned')->count();
+    public function overview()
+    {
+        $all = DB::table('shipments')->where('driver_id', whichUser()->mask)->count();
+        $failed = DB::table('shipments')->where('driver_id', whichUser()->mask)->where('shipment_status', 'Cancelled')->count();
+        $delivered = DB::table('shipments')->where('driver_id', whichUser()->mask)->where('shipment_status', 'Delivered')->count();
+        $pending = DB::table('shipments')->where('driver_id', whichUser()->mask)->where('shipment_status', 'Assigned')->count();
 
-        return view('fleet.drivers.overview',compact("all",'delivered','failed','pending'));
+        return view('fleet.drivers.overview', compact("all", 'delivered', 'failed', 'pending'));
     }
 
-    public function dashboardCharts(){
+    public function dashboardCharts()
+    {
         $d_shipments = [];
         $months = getMonths();
 
-       // Shipments per month of the year
-       for ($m = 1; $m <= 12; $m++) {
-        $shipments = DB::table('shipments')->where('driver_id', whichUser()->mask)->whereMonth('created_at', $m)->count();
-        array_push($d_shipments, ['months' => $months[$m - 1], 'qty' => $shipments]);
-    }
+        // Shipments per month of the year
+        for ($m = 1; $m <= 12; $m++) {
+            $shipments = DB::table('shipments')->where('driver_id', whichUser()->mask)->whereMonth('created_at', $m)->count();
+            array_push($d_shipments, ['months' => $months[$m - 1], 'qty' => $shipments]);
+        }
 
-        return $this->successResponse('',['spm'=>$d_shipments]);
+        return $this->successResponse('', ['spm' => $d_shipments]);
     }
 
 
@@ -39,7 +42,7 @@ class DriversController extends Controller
 
         $shipments = DB::table('shipments')->where('shipments.driver_id', whichUser()->mask)->where('shipments.shipment_status', "Assigned")
             ->join('drivers', 'drivers.mask', 'shipments.driver_id')
-            ->select('shipments.mask as shipment', 'shipments.starting_point','shipments.pickup_address','shipments.destination','shipments.loads')
+            ->select('shipments.mask as shipment', 'shipments.starting_point', 'shipments.pickup_address', 'shipments.destination', 'shipments.loads')
             ->get();
 
         foreach ($shipments as $shipment) {
@@ -54,14 +57,14 @@ class DriversController extends Controller
     public function index()
     {
 
-        $drivers = DB::table('drivers')->where('organization_id',whichUser()->mask)->get();
+        $drivers = DB::table('drivers')->where('organization_id', whichUser()->mask)->get();
 
-        foreach($drivers as $driver){
-            $vehicle = DB::table('vehicles')->where('driver_id',$driver->mask)->first(['number']);
-            if($vehicle){
+        foreach ($drivers as $driver) {
+            $vehicle = DB::table('vehicles')->where('driver_id', $driver->mask)->first(['number']);
+            if ($vehicle) {
                 $driver->vehicle = $vehicle->number;
-            }else{
-                $driver->vehicle =null;
+            } else {
+                $driver->vehicle = null;
             }
         }
         return view('fleet.drivers.drivers', compact('drivers'));
@@ -78,29 +81,34 @@ class DriversController extends Controller
     public function details($mask)
     {
         $driver = DB::table('drivers')->where('mask', $mask)->first();
-        $org = DB::table('organizations')->where('mask',$driver->organization_id)->first();
+        $org = DB::table('organizations')->where('mask', $driver->organization_id)->first();
 
-        return view('fleet.drivers.details', compact('driver','org'));
+        return view('fleet.drivers.details', compact('driver', 'org'));
     }
 
-    public function shipments(){
-        $shipments = DB::table('shipments')->where("driver_id",whichUser()->mask)->orderByDesc('created_at')->get();
-        foreach($shipments as $shipment){
+    public function shipments()
+    {
+        $shipments = DB::table('shipments')->where("driver_id", whichUser()->mask)->orderByDesc('created_at')->get();
+        foreach ($shipments as $shipment) {
             $shipmentLoads = json_decode($shipment->loads);
             // dd();
-            $loads = DB::table('loads')->whereIn('mask',$shipmentLoads)->where('shipment_status',"Delivered")->count();
+            $loads = DB::table('loads')->whereIn('mask', $shipmentLoads)->where('shipment_status', "Delivered")->count();
 
             $shipment->load_delivered = $loads;
         }
-        return view('fleet.drivers.shipments',compact('shipments'));
+        return view('fleet.drivers.shipments', compact('shipments'));
     }
 
-    public function profile(){
-        $driver = DB::table('drivers')->where('mask',whichUser()->mask)->first();
-        return view('fleet.drivers.edit',compact('driver'));
+    public function profile()
+    {
+        $driver = DB::table('drivers')->where('mask', whichUser()->mask)->first();
+        return view('fleet.drivers.edit', compact('driver'));
     }
 
-    public function updateLocation(Request $request) {
+    public function updateLocation(Request $request)
+    {
         dd($request->all());
     }
+
+    
 }

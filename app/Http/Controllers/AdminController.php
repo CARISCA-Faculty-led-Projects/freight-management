@@ -15,14 +15,14 @@ class AdminController extends Controller
         $settings = DB::table('settings')->first();
         $account = DB::table('system_account')->first();
 
-        $orgs = DB::table('organizations')->where('status',"Approved")->count();
-        $drivers = DB::table('drivers')->where('status',"Approved")->count();
-        $brokers = DB::table('brokers')->where('status',"Approved")->count();
-        $senders = DB::table('senders')->where('status',"Approved")->count();
+        $orgs = DB::table('organizations')->where('status', "Approved")->count();
+        $drivers = DB::table('drivers')->where('status', "Approved")->count();
+        $brokers = DB::table('brokers')->where('status', "Approved")->count();
+        $senders = DB::table('senders')->where('status', "Approved")->count();
 
         $shipments = DB::table('shipments')->count();
 
-        return view('admin.dashboard',compact("settings",'account','orgs','drivers','brokers','senders','shipments'));
+        return view('admin.dashboard', compact("settings", 'account', 'orgs', 'drivers', 'brokers', 'senders', 'shipments'));
     }
 
     public function profile()
@@ -44,10 +44,19 @@ class AdminController extends Controller
         Auth::guard($request->type)->loginUsingId($user->id);
 
         $type = rtrim($request->type, 's');
-        return redirect(route(($type == 'organization' ? 'org' : $type ). '.overview'));
+        return redirect(route(($type == 'organization' ? 'org' : $type) . '.overview'));
     }
 
-    public function settings()  {
-return view('settings.index');
+    public function settings()
+    {
+        $settings = DB::table('settings')->first();
+        return view('settings.index',compact('settings'));
+    }
+
+    public function updateSetting(Request $request)
+    {
+        DB::table('settings')->update($request->except(['_token']));
+
+        return back()->with('success','Settings updated');
     }
 }

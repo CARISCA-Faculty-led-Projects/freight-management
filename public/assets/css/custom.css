@@ -56,7 +56,7 @@
   display: flex;
   font-size: 14px;
   gap: 15px;
-  height: 35px;
+  height: 40px;
   justify-content: center;
   padding: 4px;
   position: relative;
@@ -64,6 +64,12 @@
   transition: all 0.3s ease-out;
   width: 30px;
 }
+
+.property_shipment {
+    height: 45px !important;
+    justify-content: center;
+    width: 30px;
+  }
 
 .property::after {
   border-left: 9px solid transparent;
@@ -106,8 +112,8 @@
 .property .address {
   color: #9E9E9E;
   font-size: 12px;
-  margin-bottom: 10px;
-  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-top: 1px;
 }
 
 .property .features {

@@ -64,7 +64,6 @@ class BidsController extends Controller
 
     public function start_bid(Request $request)
     {
-        // dd($request->all());
 
         if (whichUser()->getTable() == 'brokers') {
             DB::table('bids')->where('id', $request->bid_id)->whereNull('broker_id')->update(['broker_id' => whichUser()->mask, 'status' => 'Pending']);
@@ -109,8 +108,8 @@ class BidsController extends Controller
         if ($recent->offer_from != whichUser()->getTable()) {
             $agreeBtn = true;
         }
-        // dd($bid_history);
 
+        
 
         return view('load.bid_logs', compact('load', 'bid', 'bid_history', 'agreeBtn', 'recent'));
     }

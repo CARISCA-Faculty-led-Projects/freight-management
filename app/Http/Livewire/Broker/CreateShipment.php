@@ -28,15 +28,19 @@ class CreateShipment extends Component
     public $organization;
     public $no_driver;
 
+    public $general = true;
+    public $routes = false;
+
+
+
     public function mount(Request $request)
     {
         $this->loads = $request->loads;
-        
+        // dd($this->loads);
         $assigned_veh_drivers = DB::table('vehicles')->where('organization_id', $request->organization_id)->whereNotNull('driver_id')->pluck('driver_id')->toArray();
 
-        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask',$assigned_veh_drivers)->get(['name', 'phone', 'mask']);
-        $this->organization = (array)DB::table('organizations')->where('mask',$request->organization_id)->first(['mask','name']);
-
+        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask', $assigned_veh_drivers)->get(['name', 'phone', 'mask']);
+        $this->organization = (array)DB::table('organizations')->where('mask', $request->organization_id)->first(['mask', 'name']);
     }
 
     public function check()
@@ -47,8 +51,32 @@ class CreateShipment extends Component
 
     public function getOrgs()
     {
-       return DB::table('organizations')->get(['name','mask']);
+        $supp_organizations  = DB::table('organizations')->get(['name', 'mask', 'load_type']);
+        $loadtypes = DB::table('loads')->whereIn('mask',$this->loads)->pluck('load_type')->toArray();
+        $organizations = [];
+        foreach ($supp_organizations as $preferred) {
+            $org_loads = json_decode($preferred->load_type);
+            if ($org_loads != null) {
+                $shipment_loads_supported = 0;
+                $shipment_loads_unsupported = 0;
 
+                foreach ($loadtypes as $load) {
+                    if (in_array($load, $org_loads)) {
+                        $shipment_loads_supported += 1;
+                    } else {
+                        $shipment_loads_unsupported += 1;
+                    }
+                }
+
+                if (count($this->loads) == $shipment_loads_supported) {
+                    array_push($organizations, $preferred);
+                }
+            }
+            // dd($org_loads);
+
+        }
+
+        return $organizations;
     }
 
     public function updated()
@@ -57,62 +85,9 @@ class CreateShipment extends Component
         $this->search_dropoff = $this->dropoffSearch($this->search_dropoff);
     }
 
-    public function pickupSearch($field)
-    {
-        $this->pickup_list = lookupLocation($field);
-        return $field;
-    }
 
-    public function getDrivers()
-    {
-    }
+    public function getDrivers() {}
 
-    public function dropoffSearch($field)
-    {
-        $this->dropoff_list = lookupLocation($field);
-        return $field;
-    }
-
-    public function create_shipment()
-    {
-        if ($this->no_driver == "true") {
-            // Validator::make([$this->pickup_address, $this->dropoff_address], [
-            //     'pickup_address' => 'required',
-            //     'dropoff_address' => 'required',
-            // ], [
-            //     'pickup_address' => "Search and select a pickup address for the shipment",
-            //     'dropoff_address' => "Search and select a dropoff address for the shipment"
-            // ])->validate();
-
-        } else {
-            Validator::make([$this->pickup_address, $this->dropoff_address, $this->driver_id], [
-                'driver_id' => 'required',
-                'pickup_address' => 'required',
-                'dropoff_address' => 'required',
-            ], [
-                'driver_id' => "The driver is required",
-                'pickup_address' => "Search and select a pickup address for the shipment",
-                'dropoff_address' => "Search and select a dropoff address for the shipment"
-            ])->validate();
-        }
-
-
-        DB::table('shipments')->insert([
-            'organization_id' => $this->organization['mask'],
-            'driver_id' => $this->driver_id,
-            'broker_id' => whichUser()->mask,
-            'loads' => json_encode($this->loads),
-            'description' => $this->description,
-            'mask' => generateNumber(),
-            'pickup_address' => json_encode(getPlaceCoordinates($this->pickup_address)),
-            'dropoff_address' => json_encode(getPlaceCoordinates($this->dropoff_address)),
-            'approval_status' => "Approved",
-            'shipment_status' => "Assigned",
-            'created_at' => Carbon::now()->toDateTimeString()
-        ]);
-
-        return redirect(route(whichUser()->getTable() == 'brokers' ? 'load.board' : 'org.shipments.list'));
-    }
 
     public function render(Request $request)
     {
@@ -126,7 +101,7 @@ class CreateShipment extends Component
 
         $assigned_veh_drivers = DB::table('vehicles')->where('organization_id', $request->organization_id)->whereNotNull('driver_id')->pluck('driver_id')->toArray();
 
-        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask',$assigned_veh_drivers)->get(['name', 'phone', 'mask']);
+        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask', $assigned_veh_drivers)->get(['name', 'phone', 'mask']);
 
         return view('shipments.create-shipment')->extends(whichUser()->getTable() == "brokers" ? 'layout.roles.broker' : 'layout.roles.organization')->section('content');
     }

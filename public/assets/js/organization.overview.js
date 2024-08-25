@@ -150,6 +150,7 @@ async function initMap() {
             });
         } else if (option == 'shipments') {
             const markers = mapData[option].map((shipment) => {
+                console.log(shipment);
                 const ltn = shipment.shipment_location;
                 if (ltn !=null && ltn.lat != null && ltn.lng != null) {
 
@@ -282,14 +283,17 @@ function buildShipmentContent(shipment) {
     const content = document.createElement("div");
 
     content.classList.add("property");
+    // content.classList.add();
     content.innerHTML = `
       <div class="icon">
          <img src="/assets/media/icons/shipment.png"/>
       </div>
       <div class="details">
           <div class="price">Shipment #${shipment.shipment}</div>
-          <div class="address mt-2">Driver - <strong>${shipment.driver}</strong></div>
-          <div class="address mt-2">Driver contact- <strong>${shipment.driver_contact}</strong></div>
+          <div class="address mt-2">Vehicle Number: <strong>${shipment.number}</strong></div>
+          <div class="address ">Driver - <strong>${shipment.driver}</strong></div>
+          <div class="address ">Driver contact- <strong>${shipment.driver_contact}</strong></div>
+          <div class="address ">Number of loads:- <strong>${shipment.loads}</strong></div>
 
       </div>
       `;

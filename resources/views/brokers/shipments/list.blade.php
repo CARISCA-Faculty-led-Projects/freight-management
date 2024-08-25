@@ -271,10 +271,10 @@
                                     <td class="text-center">{{ $shipment->driver }}</td>
                                     <td class="text-center">{{ count(json_decode($shipment->loads)) }}</td>
                                     <td class="text-end">
-                                        {{ $shipment->pickup_address == null ? '' : json_decode($shipment->pickup_address)->name }}
+                                        {{ $shipment->pickup_address == null ? '' : $shipment->starting_point}}
                                     </td>
                                     <td class="text-end">
-                                        {{ $shipment->dropoff_address == null ? '' : json_decode($shipment->dropoff_address)->name }}
+                                        {{ $shipment->dropoff_address == null ? '' : $shipment->destination }}
                                     </td>
 
                                     <td class="text-end pe-0">

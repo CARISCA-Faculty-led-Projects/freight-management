@@ -23,6 +23,7 @@ use App\Http\Controllers\ShipmentsController;
 // Route::middleware('auth.general')->group(function () {
 Route::prefix('v1')->group(function () {
     Route::get('location/search', [LoadsController::class, 'location']);
+    Route::post('get-shipment-load-drivers', [ShipmentsController::class, 'getShipmentSupportedDrivers']);
     Route::controller(ChatsController::class)->group(function () {
         Route::post('search-user', 'searchUser');
     });
@@ -50,6 +51,13 @@ Route::prefix('v1')->group(function () {
                     Route::get('/', 'profile');
                 });
             });
+        });
+
+        Route::prefix('sender')->group(function(){
+            Route::prefix('load')->group(function(){
+                Route::post('rate-driver', [DriversController::class, 'rate_driver'])->name('sender.rate-driver');
+            });
+
         });
     });
 });
