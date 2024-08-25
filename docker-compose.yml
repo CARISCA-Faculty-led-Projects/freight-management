@@ -10,6 +10,14 @@ services:
       - ./public:/usr/src/app/public
     depends_on:
       - db
+    # Expose the port that the app is running on inside the container (e.g., 9000)
+    ports:
+      - "9000:9000"
+
+    # command: >
+    #   sh -c "php artisan migrate && php-fpm"
+    #   # sh -c "./wait-for-it.sh db:3307 -- php artisan migrate && php-fpm"
+
 
   nginx:
     container_name: nginx
@@ -17,12 +25,15 @@ services:
       context: .
       dockerfile: ./docker/nginx/Dockerfile
     volumes:
-    - ./public:/usr/src/app/public
+      - ./public:/usr/src/app/public
     depends_on:
       - app
     environment:
       NGINX_FPM_HOST: app
       NGINX_ROOT: /usr/src/app/public
+    ports:
+      - "80:80"    # Expose the default HTTP port
+      - "443:443"  # Expose the default HTTPS port
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik-access"
@@ -34,6 +45,7 @@ services:
       - "traefik.http.routers.carisca-innovations-freight-management.tls.certresolver=le"
       - "traefik.http.routers.carisca-innovations-freight-management.middlewares=freight-management-ratelimit"
       - "traefik.http.services.carisca-innovations-freight-management.loadbalancer.server.port=80"
+
   db:
     container_name: db
     image: mysql:latest
@@ -47,11 +59,14 @@ services:
       MYSQL_ROOT_PASSWORD: digitalFreight
       # MYSQL_USER: root
       # MYSQL_PASSWORD:
-
+    ports:
+      - "3307:3306"  # Expose the MySQL port
 
   redis:
     container_name: redis
     image: redis:latest
+    ports:
+      - "6379:6379"  # Expose the Redis port
 
 networks:
   traefik-access:
