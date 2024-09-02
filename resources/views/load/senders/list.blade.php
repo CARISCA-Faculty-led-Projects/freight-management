@@ -225,7 +225,7 @@
                                                 <!--end::Menu item-->
                                             @endif
                                             <!--end::Menu item-->
-                                            @if ($load->recipient_status == 'No' && $load->shipment_status = "Delivered")
+                                            @if ($load->recipient_status == 'No' && $load->shipment_status == "Delivered")
                                                 <!--begin::Menu item-->
                                                 <div class="menu-item px-3">
                                                     <a href="{{ route('sender.loads.received', $load->mask) }}" onclick="return confirm('Confirm you have received load and subloads?')" class="menu-link px-3">Confirm receipt</a>

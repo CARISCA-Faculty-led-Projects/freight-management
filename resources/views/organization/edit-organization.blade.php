@@ -85,7 +85,7 @@
                                         </div>
                                     @else
                                         <img class="w-150px h-150px"
-                                            src="{{ asset('storage/logos/' . $this->org['image']) }}" alt="image" />
+                                            src="{{ $this->org['image'] }}" alt="image" />
                                     @endif
                                     <!--end::Preview existing avatar-->
                                     <!--begin::Label-->
@@ -448,7 +448,7 @@
                                         <div class="card-header">
                                             <div class="card-title">
                                                 <h2>Business Registration Documents &nbsp;</h2> <a
-                                                    href="{{ asset('storage/org_registration/' . $this->org['registration_docs']) }}"><small>View</small></a>
+                                                    href="{{$this->org['registration_docs'] }}"><strong class="text-danger">View</strong></a>
                                             </div>
                                         </div>
                                         <!--end::Card header-->
@@ -499,9 +499,9 @@
                                         <div class="card-header">
                                             <div class="card-title">
                                                 <h2>Insurance Documents &nbsp;
-                                                    
+
                                                 </h2><a
-                                                href="{{ asset('storage/org_insurance/' . $this->org['insurance_docs']) }}"><small>View</small></a>
+                                                href="{{$this->org['insurance_docs'] }}"><strong class="text-danger">View</strong></a>
                                             </div>
                                         </div>
                                         <!--end::Card header-->

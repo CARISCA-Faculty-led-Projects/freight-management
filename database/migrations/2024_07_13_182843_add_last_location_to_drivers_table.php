@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('drivers', function (Blueprint $table) {
-            $table->json('last_location')->after('last_login');
+            $table->json('last_location')->nullable()->after('last_login');
             $table->string('shipment_status')->default('Unassigned')->after('last_location');
         });
     }

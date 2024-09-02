@@ -19,33 +19,20 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            // UsersSeeder::class,
+            UsersSeeder::class,
             LoadtypesSeeder::class,
             VehicleCategorySeeder::class,
             VehicleSubCategorySeeder::class,
             MaintenanceTasksSeeder::class,
             MaintenanceProvidersSeeders::class,
-            OrganizationsSeeder::class,
-            DriverSeeder::class,
-            SenderSeeder::class,
-            LoadSeeder::class,
-            ShipmentSeeder::class,
-            BrokerSeeder::class,
-            VehicleSeeder::class
+            SettingsSeeder::class,
+            // OrganizationsSeeder::class,
+            // DriverSeeder::class,
+            // SenderSeeder::class,
+            // LoadSeeder::class,
+            // ShipmentSeeder::class,
+            // BrokerSeeder::class,
+            // VehicleSeeder::class
         ]);
-
-        User::create([
-            'name'              => "Super admin",
-            'email'             => 'admin@freight.com',
-            'password'          => Hash::make('demo'),
-            'email_verified_at' => now(),
-        ]);
-
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
     }
 }

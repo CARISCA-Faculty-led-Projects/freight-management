@@ -35,6 +35,13 @@ class AuthController extends Controller
         $request['mask'] = Str::orderedUuid();
         $request['status'] = "Approved";
 
+
+        if ($request->type == 'organizations') {
+            $request['image'] = url('/assets/media/icons/organization.png');
+        }else{
+            $request['image'] = url('/assets/media/icons/user.png');
+        }
+
         DB::table($request->type)->insert($request->except(['_token', 'type', 'confirm-password']));
 
         // sendMail("Account Created", $request->email, "Your account has been created and pending review.");
@@ -52,7 +59,9 @@ class AuthController extends Controller
             $user = DB::table($request->type)->where('email', $request->email);
 
             DB::table('login_activity')->insert([
-                'type' => $request->type, 'mask' => $user->first()->mask, 'created_at' => $logged
+                'type' => $request->type,
+                'mask' => $user->first()->mask,
+                'created_at' => $logged
             ]);
             $user->update(['last_login' => $logged]);
 

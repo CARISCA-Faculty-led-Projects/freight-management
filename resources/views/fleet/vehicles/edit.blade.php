@@ -141,7 +141,7 @@
                             <div class="card-header">
                                 <!--begin::Card title-->
                                 <div class="card-title">
-                                    <h2>Assign Driver</h2>
+                                    <h2>Assign Driver</h2> <strong class="text-success ms-3">{{ $this->vehicle['driver_id'] ? "Assigned" : '' }}</strong>
                                 </div>
                                 <!--end::Card title-->
                             </div>

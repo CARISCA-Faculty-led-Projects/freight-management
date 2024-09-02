@@ -115,13 +115,14 @@
                                     <thead>
                                         <tr class="fs-5 fw-bold text-dark border-bottom-0">
                                             <th class="p-0 pb-3 text-start">ID</th>
-                                            <th class="p-0 pb-3 w-250px text-end">Sender</th>
-                                            <th class="p-0 pb-3 text-end">Status</th>
-                                            <th class="p-0 pb-3 text-end">Load #</th>
-                                            <th class="p-0 pb-3 text-end">Sender Budget</th>
+                                            <th class="p-0 pb-3 w-250px text-center">Sender</th>
+                                            <th class="p-0 pb-3 text-center">Status</th>
+                                            <th class="p-0 pb-3 text-center">Load #</th>
+                                            <th class="p-0 pb-3 text-center">Distance (KM)</th>
+                                            <th class="p-0 pb-3 text-center">Sender Budget</th>
                                             <th class="p-0 pb-3 min-w-50px text-end">Agreed Prize</th>
                                             <th class="p-0 pb-3 min-w-50px text-end">Load Payment status</th>
-                                            <th class="p-0 pb-3 w-250px text-end">Actions</th>
+                                            <th class="p-0 pb-3 text-end">Actions</th>
                                         </tr>
                                     </thead>
                                     <!--end::Table head-->
@@ -152,6 +153,10 @@
                                                 <td class="text-end pe-0">
                                                     <a href="{{ route('broker.load.details',$bid->load_id) }}" class="btn text-gray-600 fw-bold fs-6" >{{ $bid->load_id }}
                                                     </a>
+                                                </td>
+                                                <td class="text-end pe-0">
+                                                    <span class="text-gray-600 fw-bold fs-6">{{ $bid->distance }}</span>
+
                                                 </td>
                                                 <td class="text-end pe-0">
                                                     <span class="text-gray-600 fw-bold fs-6">GHS {{ $bid->budget }}</span>

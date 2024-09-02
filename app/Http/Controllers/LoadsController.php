@@ -88,13 +88,22 @@ class LoadsController extends Controller
     {
         $loads = DB::table('loads')->where('sender_id', Auth::user()->mask)->orderByDesc('created_at')->get();
 
+        foreach ($loads as $load) {
+            $load->pickup_address = gettype(json_decode($load->pickup_address)) == 'string' ? null : $load->pickup_address;
+            $load->dropoff_address = gettype(json_decode($load->dropoff_address)) == 'string' ? null : $load->dropoff_address;
+        }
+
         return view('load.senders.list', compact('loads'));
     }
 
     public function board()
     {
         // $loads = DB::table('loads')->join('senders', 'senders.mask', 'loads.sender_id')->select('senders.name', 'loads.*')->orderByDesc('created_at')->get();
-        $loads = DB::table('loads')->where('loads.status', "Completed")->join('senders', 'senders.mask', 'loads.sender_id')->select('loads.*', 'senders.name')->orderByDesc('created_at')->paginate(20);
+        $loads = DB::table('loads')->where('loads.status', "Completed")->where('loads.payment_status', "Paid")
+            ->where('org_assigned_by', whichUser()->mask)
+            // ->orWhereNull('org_assigned_by')
+            ->join('senders', 'senders.mask', 'loads.sender_id')
+            ->select('loads.*', 'senders.name')->orderByDesc('created_at')->paginate(20);
         $orgs = DB::table("organizations")->where('status', 'Approved')->get(['name', 'mask']);
 
         foreach ($loads as $load) {
@@ -140,9 +149,15 @@ class LoadsController extends Controller
 
     public function brokerLoadAssign(Request $request)
     {
+        $paid = [];
         foreach ($request->loads as $load) {
-            DB::table("loads")->where('mask', $load)->where('shipment_status', "Unassigned")->update(['organization_id' => $request->organization_id, 'org_assigned_by' => whichUser()->mask]);
+            $load_details = DB::table('loads')->where("mask", $load)->first(['payment_status', 'shipment_status']);
+            if ($load_details->payment_status == 'Paid' && $load_details->shipment_status == 'Unassigned') {
+                array_push($paid, $load);
+            }
         }
+
+        $request['loads'] = $paid;
 
         if ($request->shipment == 'yes') {
             return redirect(route('broker.shipment.create', $request->all()));
@@ -308,9 +323,9 @@ class LoadsController extends Controller
 
         $distance = $request->pickup_address == null || $request->pickup_address == null ? 0 : getPlaceCoordinatesDistance($request->pickup_address, $request->dropoff_address);
 
-        $req['image'] = $imagename;
-        $req['insurance_docs'] = $ins;
-        $req['other_docs'] = $oth;
+        $req['image'] = url('/storage/loads/' . $imagename);
+        $req['insurance_docs'] = url('/storage/loads/' . $ins);
+        $req['other_docs'] = url('/storage/loads/' . $oth);
         $req['mask'] = $load_id;
         if ($request->status == "Completed") {
             $req['status'] = "Bidding";
@@ -329,7 +344,7 @@ class LoadsController extends Controller
         $req['breadth'] = $request->breadth;
         $req['budget'] = $request->budget;
         $req['height'] = $request->height;
-        $req['distance'] = (string)$distance['distance']/1000;
+        $req['distance'] = (string)$distance['distance'] / 1000;
         $req['created_at'] = Carbon::now()->toDateTimeString();
         $req['pickup_address'] = $request->pickup_address == null ? null : json_encode(getPlaceCoordinates($request->pickup_address));
         $req['dropoff_address'] = $request->dropoff_address == null ? null : json_encode(getPlaceCoordinates($request->dropoff_address));

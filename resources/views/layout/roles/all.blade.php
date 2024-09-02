@@ -2,7 +2,7 @@
 @section('role-name')
     @if (whichUser()->getTable() == 'organizations')
         <div class="row w-10 justify-content-center align-items-center">
-            <img src="{{ asset('storage/logos/' . whichUser()->image) }}" alt="User Avatar" class="rounded-circle"
+            <img src="{{ (whichUser()->image) }}" alt="User Avatar" class="rounded-circle"
                 style="width: 100px; height: 80px; object-fit: cover;">
             <span class="strong mt-3 fs-3">{{ whichUser()->name }}</span>
         </div>
@@ -36,7 +36,7 @@
 @endsection
 
 @section('profile-image')
-    {{ asset('storage/logos/' . whichUser()->image) }}
+    {{ whichUser()->image }}
 @endsection
 @section('sidebar')
     @if (whichUser()->getTable() == 'organizations')
@@ -630,7 +630,7 @@
                             </a>
                         </div>
                                 <!--end:Menu link-->
-                        
+
                         <!--begin:Menu item-->
                         <div class="menu-item pt-5">
                             <!--begin:Menu content-->

@@ -43,7 +43,7 @@
                    <!--begin::Actions-->
                    <div class="d-flex align-items-end gap-2 gap-lg-3">
                        <!--begin::Primary button-->
-                       @if (whichUser()->getTable() == 'organizations')
+                       @if (whichUser()->getTable() == 'brokers')
                            <a href="{{ route('org.load.add') }}" class="btn btn-sm btn-primary"> <span
                                    class="indicator-label">Add
                                    load</span></a>
@@ -200,14 +200,6 @@
                                                     @elseif($load->payment_status == 'Paid')
                                                     badge-light-success @endif">
                                                    {{ $load->payment_status }}</div>
-                                               {{-- | <div
-                                                class="badge @if ($load->payment_status == 'Unpaid') badge-light-warning text-dark
-                                                    @elseif($load->payment_status == 'Paid')
-                                                    badge-light-success
-                                                    @else
-                                                    badge-light-primary @endif">
-                                                {{ $load->payment_status }}</div> --}}
-                                               <!--end::Badges-->
                                            </td>
                                            {{-- shipment status --}}
                                            <td class="text-end pe-0">
@@ -250,34 +242,17 @@
                                                    data-kt-menu="true">
                                                    <!--begin::Menu item-->
                                                    <div class="menu-item px-3">
-                                                       <a href="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.load.details' : 'loads.details', $load->mask) }}"
+                                                       <a href="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.load.details' : 'org.loads.details', $load->mask) }}"
                                                            class="menu-link px-3">View</a>
                                                    </div>
                                                    <!--end::Menu item-->
                                                    <!--begin::Menu item-->
-                                                   {{-- <div class="menu-item px-3">
-                                                       <a href="{{ route('loads.edit', $load->mask) }}"
-                                                           class="menu-link px-3">Edit</a>
-                                                   </div> --}}
-                                                   <!--end::Menu item-->
-                                                   <!--begin::Menu item-->
-                                                   {{-- <div class="menu-item px-3">
-                                                       <a href="{{ route('loads.delete', $load->mask) }}"
-                                                           onclick="return confirm('Confirm you want to delete load and subloads?')"
-                                                           class="menu-link px-3">Delete</a>
-                                                   </div> --}}
+
                                                    <!--end::Menu item-->
                                                    <div class="menu-item px-3">
                                                        <a href="{{ route(whichUser()->getTable() == 'brokers' ? 'broker.load.locate' : 'org.load.locate', $load->mask) }}"
                                                            class="menu-link px-3">Locate</a>
                                                    </div>
-                                                   {{-- <div class="menu-item px-3">
-                                                    <a href="#" id="locateBtn" data-bs-toggle="modal"
-                                                        data-pickup-address="{{ $load->pickup_address }}"
-                                                        data-load="{{ json_encode($load) }}"
-                                                        data-bs-target="#view_load_location_modal"
-                                                        class="menu-link px-3">Locate</a>
-                                                </div> --}}
                                                    <!--begin::Menu item-->
                                                    <div class="menu-item px-3">
                                                        <a href="/load/invoices/view" class="menu-link px-3">Invoice</a>
@@ -300,21 +275,14 @@
                        @if (whichUser()->getTable() == 'brokers')
                            <!--end::Card body-->
                            <div class="card-footer">
-                               <h3 for="">Assign checked loads to organization</h3> <small
-                                   class="text-danger">Loads
-                                   will be reassigned if it has been already assigned to an organization</small>
+                            <button type="submit" class="btn btn-primary ">Create shipment with selected loads</button> <br>
+
+                               <strong
+                                   class="text-danger strong">Unpaid loads would be exempted</strong>
                                <div class="d-flex mt-2 mb-3">
-                                   <input type="checkbox" name="shipment" id="" class="me-2" value="yes">
-                                   <label for="shipment">Create shipment after</label>
-                               </div>
+                                   <input type="checkbox" name="shipment" id="" class="me-2 d-none" value="yes" checked>
+                                   </div>
                                <div class="d-flex w-35">
-                                   <select name="organization_id" class="form-control basic-select2 w-25" id="">
-                                       <option value="">--select--</option>
-                                       @foreach ($orgs as $org)
-                                           <option value="{{ $org->mask }}">{{ $org->name }}</option>
-                                       @endforeach
-                                   </select>
-                                   <button type="submit" class="btn btn-warning ">Assign</button>
                                </div>
                            </div>
                        @endif

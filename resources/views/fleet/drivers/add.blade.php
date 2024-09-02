@@ -104,7 +104,7 @@
                                         <span class="path2"></span>
                                     </i>
                                     <!--begin::Inputs-->
-                                    <input type="file" wire:model="driver.image" accept=".png, .jpg, .jpeg" required />
+                                    <input type="file" wire:model="driver.image" accept=".png, .jpg, .jpeg" />
                                     <input type="hidden" name="avatar_remove" />
                                     <!--end::Inputs-->
                                 </label>
@@ -151,13 +151,7 @@
                                 <h2>Status</h2>
                             </div>
                             <!--end::Card title-->
-                            <!--begin::Card toolbar-->
-                            <div class="card-toolbar">
-                                <div class="rounded-circle bg-success w-15px h-15px"
-                                    id="kt_ecommerce_add_product_status">
-                                </div>
-                            </div>
-                            <!--begin::Card toolbar-->
+
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->
@@ -188,13 +182,7 @@
                                 <h2>Location</h2>
                             </div>
                             <!--end::Card title-->
-                            <!--begin::Card toolbar-->
-                            <div class="card-toolbar">
-                                <div class="rounded-circle bg-success w-15px h-15px"
-                                    id="kt_ecommerce_add_broker_status">
-                                </div>
-                            </div>
-                            <!--begin::Card toolbar-->
+
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->

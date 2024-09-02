@@ -77,9 +77,9 @@ class SenderAddLoad extends Component
         $oth = uniqid() . '.' . $this->load['other_docs']->getClientOriginalExtension();
         $this->load['other_docs']->storeAs('loads', $oth, 'real_public');
 
-        $this->load['image'] = $imagename;
-        $this->load['insurance_docs'] = $ins;
-        $this->load['other_docs'] = $oth;
+        $this->load['image'] = url('/storage/loads/'.$imagename);
+        $this->load['insurance_docs'] = url('/storage/loads/'.$ins);
+        $this->load['other_docs'] = url('/storage/loads/'.$oth);
         $this->load['mask'] = $load_id;
         $this->load['status'] = "Pending";
         $this->load['shipment_status'] = "Unassigned";

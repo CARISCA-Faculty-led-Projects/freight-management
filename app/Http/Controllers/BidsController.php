@@ -22,10 +22,13 @@ class BidsController extends Controller
             if ($bid->broker_id != null) {
                 $broker = DB::table('brokers')->where('mask', $bid->broker_id)->first(['name', 'organization_id']);
                 $bid->broker = $broker->name;
-                // dd($broker->organization_id);
-                if (array_key_exists('organization_id', (array)$broker)) {
+
+                if ($broker->organization_id != null && array_key_exists('organization_id', (array)$broker)) {
                     $org = DB::table("organizations")->where('mask', $broker->organization_id)->first(['name']);
                     $bid->broker_organization = $org->name;
+                }else{
+                $bid->broker_organization = null;
+
                 }
             } else {
                 $bid->broker = null;
@@ -46,7 +49,7 @@ class BidsController extends Controller
         $bids = DB::table('bids')->where('broker_id', whichUser()->mask)->orWhereNull('broker_id')
             ->join('loads', 'loads.mask', 'bids.load_id')
             ->join('senders', 'senders.mask', 'loads.sender_id')
-            ->select('senders.name as sender', 'senders.phone as sender_phone', 'loads.price', 'loads.organization_id', 'loads.payment_status', 'loads.budget', 'bids.*')
+            ->select('senders.name as sender', 'senders.phone as sender_phone', 'loads.price', 'loads.organization_id', 'loads.payment_status', 'loads.budget','loads.distance', 'bids.*')
             ->orderByDesc('created_at')
             ->get();
 
@@ -109,7 +112,7 @@ class BidsController extends Controller
             $agreeBtn = true;
         }
 
-        
+
 
         return view('load.bid_logs', compact('load', 'bid', 'bid_history', 'agreeBtn', 'recent'));
     }

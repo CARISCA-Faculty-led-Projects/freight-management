@@ -45,8 +45,8 @@
         </div>
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
-            <form action="{{ route('sender.load.update', $this->load['mask']) }}"
-                method="POST" class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
+            <form action="{{ route('sender.load.update', $this->load['mask']) }}" method="POST"
+                class="form d-flex flex-column flex-lg-row" enctype="multipart/form-data">
                 @csrf
                 <!--begin::Aside column-->
                 <div class="d-flex flex-column gap-7 gap-lg-10 w-100 w-lg-300px mb-7 me-lg-10">
@@ -55,7 +55,7 @@
                         <!--begin::Card header-->
                         <div class="card-header">
                             <!--begin::Card title-->
-                            <div class="card-title">
+                            <div class="card-title required">
                                 <h2>Image</h2>
                             </div>
                             <!--end::Card title-->
@@ -81,7 +81,7 @@
                                 <!--begin::Preview existing avatar-->
                                 @if ($this->load['image'])
                                     <img class="image-input-wrapper w-150px h-150px"
-                                        src="{{ asset('storage/loads/' . $this->load['image']) }}" alt=""
+                                        src="{{ $this->load['image'] }}" alt=""
                                         srcset="">
                                 @else
                                     <div class="image-input-wrapper w-150px h-150px"></div>
@@ -141,17 +141,11 @@
                         <!--begin::Card header-->
                         <div class="card-header">
                             <!--begin::Card title-->
-                            <div class="card-title">
+                            <div class="card-title required">
                                 <h2>Status</h2>
                             </div>
                             <!--end::Card title-->
-                            <!--begin::Card toolbar-->
-                            <div class="card-toolbar">
-                                <div class="rounded-circle bg-success w-15px h-15px"
-                                    id="kt_ecommerce_add_category_status">
-                                </div>
-                            </div>
-                            <!--begin::Card toolbar-->
+
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->
@@ -191,7 +185,8 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select store template-->
-                            <label for="kt_ecommerce_add_category_store_template" class="form-label">Select a load
+                            <label for="kt_ecommerce_add_category_store_template" class="form-label required">Select a
+                                load
                                 type</label>
                             <!--end::Select store template-->
                             <!--begin::Select2-->
@@ -304,7 +299,7 @@
                                     <!--end::Input group-->
                                     <div class="mb-10 flex-row-fluid position-relative">
                                         <!--begin::Label-->
-                                        <label class="form-label">Weight (KG)</label>
+                                        <label class="form-label required">Weight (KG)</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
                                         <input type="number" min="1" class="form-control mb-2"
@@ -408,12 +403,15 @@
                             <!--begin::Input group-->
                             <div class="mb-10 col-lg-5">
                                 <!--begin::Label-->
-                                <label class="form-label">Pickup Address</label>
+                                <label class="form-label required">Pickup Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <select name="pickup_address" class="form-control basic-select2" id="pickup_address">
+                                <select name="pickup_address" class="form-control basic-select2" id="pickup_address"
+                                    required>
                                     <option value="{{ $this->load['pickup_address'] }}" selected>
-                                        {{ json_decode($this->load['pickup_address'])->name }}</option>
+
+                                        {{ gettype(json_decode($this->load['pickup_address'])) == 'string' ? null : json_decode($this->load['pickup_address'])->name }}
+                                    </option>
                                 </select>
                                 <!--end::Input-->
                                 <!--begin::Description-->
@@ -425,13 +423,14 @@
                             <!--begin::Input group-->
                             <div class="mb-10 col-lg-5">
                                 <!--begin::Label-->
-                                <label class="form-label">Drop-off Address</label>
+                                <label class="form-label required">Drop-off Address</label>
                                 <!--end::Label-->
                                 <!--begin::Input-->
-                                <select name="dropoff_address" class="form-control basic-select2"
+                                <select name="dropoff_address" class="form-control basic-select2" required
                                     id="dropoff_address">
                                     <option value="{{ $this->load['dropoff_address'] }}">
-                                        {{ json_decode($this->load['dropoff_address'])->name }}</option>
+                                        {{ gettype(json_decode($this->load['dropoff_address'])) == 'string' ? null : json_decode($this->load['dropoff_address'])->name }}
+                                    </option>
                                 </select>
                                 {{-- <input type="text" class="form-control mb-2" wire:model="dropoff_address"
                                     placeholder="eg. 1 Container" /> --}}
@@ -493,8 +492,7 @@
                                                     <div data-repeater-item=""
                                                         class="form-group d-flex flex-wrap align-items-center gap-5">
                                                         <!--begin::Select2-->
-                                                        <input type="hidden"
-                                                            name="subload[{{ $i }}][id]"
+                                                        <input type="hidden" name="subload[{{ $i }}][id]"
                                                             value="{{ $this->subload[$i]->id }}">
                                                         <!--begin::Input-->
                                                         <input type="text" class="form-control mw-100 w-200px"
@@ -567,6 +565,10 @@
                         <div class="card-header">
                             <div class="card-title">
                                 <h2>Insurance Documents</h2>
+                                @if ($this->load['insurance_docs'])
+                                    <a href="{{ $this->load['insurance_docs'] }}"><strong
+                                            class="ms-5 text-danger">View</strong></a>
+                                @endif
                             </div>
                         </div>
                         <!--end::Card header-->
@@ -615,6 +617,10 @@
                         <div class="card-header">
                             <div class="card-title">
                                 <h2>Other Relevant Documents</h2>
+                                @if ($this->load['insurance_docs'])
+                                    <a href="{{ $this->load['insurance_docs'] }}"><strong
+                                            class="ms-5 text-danger">View</strong></a>
+                                @endif
                             </div>
                         </div>
                         <!--end::Card header-->

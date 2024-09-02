@@ -90,7 +90,7 @@
                                 <!--begin::Label-->
                                 <label class="required form-label">Selected Loads</label>
                                 <!--end::Label-->
-                                <input type="hidden" name="organization_id" value="{{ $this->organization['mask'] }}">
+
                                 <!--begin::Table-->
                                 <div class="" style="height: 200px; overflow:auto;">
                                     <table class="table align-middle table-row-dashed fs-6 gy-5"
@@ -276,7 +276,7 @@
                                 <div class="card-body pt-0">
                                     <!--begin::Input group-->
                                     <!--begin::Input group-->
-                                    <div class="mb-10 fv-row">
+                                    <div class="mb-10 fv-row org_assign">
                                         <!--begin::Label-->
                                         <label class="form-label">Assign Organization</label>
                                         <!--end::Label-->
@@ -297,6 +297,7 @@
                                         @error('organization_id')
                                             <span class="text-danger">{{ $message }}</span>
                                         @enderror
+                                        <small class="text-danger">{{ count($this->getOrgs()) == 0 ? "No Organization can ship selected load(s)" : '' }}</small>
                                     </div>
                                     <!--end::Input group-->
                                     <div class="mb-10 py-4">
@@ -439,6 +440,13 @@
 
     // window.initMap = initMap;
     $('document').ready(function() {
+        console.log('workign');
+        $('.org_assign').on('change','#org', function(event) {
+            console.log(event.target.value);
+            console.log($(this).data('loads'));
+            getDrivers(event.target.value, $(this).data('loads'));
+        });
+
         initMap();
 
         function getDrivers(org, loads) {
@@ -461,9 +469,7 @@
                 }
             })
         }
-        $('#org').on('change', function(event) {
-            getDrivers(event.target.value, $(this).data('loads'));
-        });
+
     });
 </script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>

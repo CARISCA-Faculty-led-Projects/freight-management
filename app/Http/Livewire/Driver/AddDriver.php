@@ -70,7 +70,7 @@ class AddDriver extends Component
         $this->driver['password'] = Hash::make($pass);
 
         $creds = (object)['email' => $this->driver['email'], 'password' => $pass];
-        sendAccCredentials($creds);
+        // sendAccCredentials($creds);
 
         $driverid = DB::table('drivers')->insertGetId($this->driver);
 

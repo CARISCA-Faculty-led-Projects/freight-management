@@ -35,7 +35,7 @@
                     <!--begin::Input group-->
                     <div class="row text-center">
                         <h1 class="mb-3 mt-3">Overall total (GHC)</h1>
-                        <h1 class="mb-3 mt-3">43</h1>
+                        <h1 class="mb-3 mt-3" id="total">0</h1>
                     </div>
 
                     <!--begin::Input group-->
@@ -167,7 +167,6 @@
                 url: '/broker/load/get-pricing-settings',
                 type: "GET",
                 success: function(res) {
-                    console.log(res.data);
                     perc_Broker = res.data.brokers_percentage_pl;
                     perc_Org = res.data.organizations_percentage_pl;
                     perc_System = res.data.system_percentage_pl;
@@ -197,7 +196,7 @@
             })
 
             $('#load_distance').on('keyup', function() {
-                $('#driver_amount').val($(this).val()* price_per_km);
+                $('#driver_amount').val($(this).val() * price_per_km);
             })
         })
     </script>

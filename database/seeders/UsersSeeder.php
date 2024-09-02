@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\User;
 use Faker\Generator;
+use Illuminate\Support\Str;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -16,17 +17,11 @@ class UsersSeeder extends Seeder
      */
     public function run(Generator $faker)
     {
-        $demoUser = User::create([
+        User::create([
             'name'              => $faker->name,
-            'email'             => 'demo@retail.com',
+            'email'             => 'admin@daloadmaster.com',
             'password'          => Hash::make('demo'),
-            'email_verified_at' => now(),
-        ]);
-
-        $demoUser2 = User::create([
-            'name'              => $faker->name,
-            'email'             => 'admin@retail.com',
-            'password'          => Hash::make('admin'),
+            'mask'=> Str::orderedUuid(),
             'email_verified_at' => now(),
         ]);
     }

@@ -37,10 +37,10 @@ class CreateShipment extends Component
     {
         $this->loads = $request->loads;
         // dd($this->loads);
-        $assigned_veh_drivers = DB::table('vehicles')->where('organization_id', $request->organization_id)->whereNotNull('driver_id')->pluck('driver_id')->toArray();
+        // $assigned_veh_drivers = DB::table('vehicles')->where('organization_id', $request->organization_id)->whereNotNull('driver_id')->pluck('driver_id')->toArray();
 
-        $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask', $assigned_veh_drivers)->get(['name', 'phone', 'mask']);
-        $this->organization = (array)DB::table('organizations')->where('mask', $request->organization_id)->first(['mask', 'name']);
+        // $this->drivers = (object)DB::table('drivers')->where('organization_id', $request->organization_id)->whereIn('mask', $assigned_veh_drivers)->get(['name', 'phone', 'mask']);
+        // $this->organization = (array)DB::table('organizations')->where('mask', $request->organization_id)->first(['mask', 'name']);
     }
 
     public function check()

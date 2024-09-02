@@ -66,6 +66,23 @@
                         <div class="text-muted fw-semibold fs-5">GHc {{ $load->budget }}</div>
                     </div>
                     <!--end::Input group-->
+                     <!--begin::Input group-->
+                     <div class="fv-row mb-8">
+                        <!--begin::Label-->
+                        <label class="d-flex align-items-center fs-6 fw-semibold mb-2">
+                            <span class="">Distance (KM)</span>
+                            <span class="ms-1">
+                                <i class="ki-duotone ki-information-5 text-gray-500 fs-6">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    <span class="path3"></span>
+                                </i>
+                            </span>
+                        </label>
+                        <!--end::Label-->
+                        <div class="text-muted fw-semibold fs-5">{{ $load->distance }}</div>
+                    </div>
+                    <!--end::Input group-->
                     <!--begin::Input group-->
                     <div class="fv-row mb-8">
                         <!--begin::Label-->

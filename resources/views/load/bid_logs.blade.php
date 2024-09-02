@@ -59,9 +59,10 @@
                             <!--begin::Title-->
                             <h3 class="card-title align-items-center flex-row">
                                 <span class="card-label fw-bold text-gray-800">Bid Negotiations History</span>
-                                {{-- <span class="text-gray-400 mt-1 fw-semibold fs-6">Updated 37 minutes ago</span> --}}
+                                @if (whichUser()->getTable() == 'brokers')
                                 <span class="btn btn-sm btn-primary" data-bs-target="#viewLoad_modal" data-bs-toggle="modal">View load</span>
                                 <span class="btn btn-sm btn-primary ms-3" data-bs-target="#calculator_modal" data-bs-toggle="modal">Calculate</span>
+                                @endif
                             </h3>
                             <!--end::Title-->
                             @if ($bid->status != 'Completed')

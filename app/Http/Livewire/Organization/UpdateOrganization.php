@@ -106,19 +106,19 @@ class UpdateOrganization extends Component
         if (is_file($this->image)) {
             $image = uniqid() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('logos', $image, 'real_public');
-            $this->org['image'] = $image;
+            $this->org['image'] = url('/storage/logos/'.$image);
         }
 
         if (is_file($this->org['insurance_docs'])) {
             $ins = uniqid() . '.' . $this->org['insurance_docs']->getClientOriginalExtension();
             $this->org['insurance_docs']->storeAs('org_insurance', $ins, 'real_public');
-            $this->org['insurance_docs'] = $ins;
+            $this->org['insurance_docs'] = url('/storage/org_insurance/'.$ins);
         }
 
         if (is_file($this->org['registration_docs'])) {
             $regs = uniqid() . '.' . $this->org['registration_docs']->getClientOriginalExtension();
             $this->org['registration_docs']->storeAs('org_registration', $regs, 'real_public');
-            $this->org['registration_docs'] = $regs;
+            $this->org['registration_docs'] = url('/storage/logos/'.$regs);
         }
 
 

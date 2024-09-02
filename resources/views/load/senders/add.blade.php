@@ -55,7 +55,7 @@
                         <!--begin::Card header-->
                         <div class="card-header">
                             <!--begin::Card title-->
-                            <div class="card-title">
+                            <div class="card-title required">
                                 <h2>Image</h2>
                             </div>
                             <!--end::Card title-->
@@ -135,24 +135,18 @@
                         <!--begin::Card header-->
                         <div class="card-header">
                             <!--begin::Card title-->
-                            <div class="card-title">
+                            <div class="card-title required">
                                 <h2>Status</h2>
                             </div>
                             <!--end::Card title-->
-                            <!--begin::Card toolbar-->
-                            <div class="card-toolbar">
-                                <div class="rounded-circle bg-success w-15px h-15px"
-                                    id="kt_ecommerce_add_category_status">
-                                </div>
-                            </div>
-                            <!--begin::Card toolbar-->
+                            
                         </div>
                         <!--end::Card header-->
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select2-->
                             <select class="form-select mb-2" data-hide-search="true" data-placeholder="Select an option"
-                                name="status" id="kt_ecommerce_add_category_status_select">
+                                name="status" id="kt_ecommerce_add_category_status_select" required>
                                 <option>--select--</option>
                                 <option value="Draft">Draft</option>
                                 <option value="Completed">Completed</option>
@@ -183,7 +177,7 @@
                         <!--begin::Card body-->
                         <div class="card-body pt-0">
                             <!--begin::Select store template-->
-                            <label for="kt_ecommerce_add_category_store_template" class="form-label">Select a load
+                            <label for="kt_ecommerce_add_category_store_template" class="form-label required">Select a load
                                 type</label>
                             <!--end::Select store template-->
                             <!--begin::Select2-->
@@ -353,10 +347,10 @@
                                     <!--end::Input group-->
                                     <div class="mb-10 flex-row-fluid position-relative">
                                         <!--begin::Label-->
-                                        <label class="form-label">Weight</label>
+                                        <label class="form-label required">Weight</label>
                                         <!--end::Label-->
                                         <!--begin::Input-->
-                                        <select name="weight" id="" class="form-control">
+                                        <select name="weight" id="" class="form-control" required>
                                             <option value="">--select--</option>
                                             <option value="less than a ton">less than a ton</option>
                                             <option value="1-5 tons">1-5 tons</option>
@@ -463,10 +457,10 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 col-lg-5">
                                     <!--begin::Label-->
-                                    <label class="form-label">Pickup Address</label>
+                                    <label class="form-label required">Pickup Address</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select name="pickup_address" class="form-control basic-select2"
+                                    <select name="pickup_address" class="form-control basic-select2" required
                                         id="pickup_address">
                                         <option value="">{{ old('pickup_address') }}</option>
                                     </select>
@@ -480,10 +474,10 @@
                                 <!--begin::Input group-->
                                 <div class="mb-10 col-lg-5">
                                     <!--begin::Label-->
-                                    <label class="form-label">Drop-off Address</label>
+                                    <label class="form-label required">Drop-off Address</label>
                                     <!--end::Label-->
                                     <!--begin::Input-->
-                                    <select name="dropoff_address" class="form-control basic-select2"
+                                    <select name="dropoff_address" class="form-control basic-select2" required
                                         id="dropoff_address">
                                         <option value="">{{ old('dropoff_address') }}</option>
                                     </select>

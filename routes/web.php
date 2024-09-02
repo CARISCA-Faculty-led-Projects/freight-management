@@ -255,7 +255,7 @@ Route::middleware('auth:organizations')->group(function () {
                 Route::get('overview-map-data', 'overviewMap');
                 Route::get('list', 'index')->name('loads');
                 Route::get('{load}/delete', 'delete')->name('loads.delete');
-                // Route::get('{load}/details', 'details')->name('loads.details');
+                Route::get('{load}/details', 'details')->name('org.loads.details');
                 Route::get('{load}/locate', 'locateLoad')->name('org.load.locate');
                 Route::post('assign', 'orgLoadAssign')->name('org.loads.assign');
                 Route::post('save', 'store')->name('org.load.save');
