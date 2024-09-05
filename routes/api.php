@@ -1,13 +1,15 @@
 <?php
 
-use App\Http\Controllers\Api\AuthController;
 use Illuminate\Http\Request;
+use OpenSpout\Common\Entity\Row;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoadsController;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\ChatsController;
+use App\Http\Controllers\ShipmentsController;
 use App\Http\Controllers\Api\DriversController;
 use App\Http\Controllers\Api\ShipmentsController as ApiShipmentsController;
-use App\Http\Controllers\ShipmentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +38,9 @@ Route::prefix('v1')->group(function () {
     });
 
     Route::middleware('auth:sanctum')->group(function () {
+        Route::get('auth', function () {
+            return ['message'=> "Authenticated"];
+        });
         Route::prefix('driver')->group(function () {
             Route::controller(ApiShipmentsController::class)->group(function () {
                 Route::get('shipments', 'driver_shipments');
@@ -46,18 +51,18 @@ Route::prefix('v1')->group(function () {
                     Route::get('cancel-shipment', 'cancel_shipment');
                 });
             });
-            Route::prefix('profile')->group(function () {
-                Route::controller(DriversController::class)->group(function () {
+            Route::controller(DriversController::class)->group(function () {
+                Route::get('dashboard', 'dashboard');
+                Route::prefix('profile')->group(function () {
                     Route::get('/', 'profile');
                 });
             });
         });
 
-        Route::prefix('sender')->group(function(){
-            Route::prefix('load')->group(function(){
+        Route::prefix('sender')->group(function () {
+            Route::prefix('load')->group(function () {
                 Route::post('rate-driver', [DriversController::class, 'rate_driver'])->name('sender.rate-driver');
             });
-
         });
     });
 });

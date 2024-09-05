@@ -41,4 +41,17 @@ class DriversController extends Controller
 
         return $this->successResponse('driver rated');
     }
+
+    public function dashboard() {
+        $driver = DB::table('drivers')->where('mask',whichUser()->mask)->first(['name','image']);
+
+        $shipments = DB::table('shipments')->where('driver_id',whichUser()->mask)->get();
+
+        foreach($shipments as $shipment){
+            $shipment->loads = count(json_decode($shipment->loads));
+        }
+
+        return $this->successResponse('',['driver'=>$driver,'shipments'=>$shipments]);
+
+    }
 }

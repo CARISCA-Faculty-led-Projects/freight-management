@@ -93,7 +93,7 @@
                                         </div>
                                     @else
                                         <img class="w-150px h-150px"
-                                            src="{{ asset('storage/logos/' . $this->driver['image']) }}"
+                                            src="{{ $this->driver['image'] }}"
                                             alt="image" />
                                     @endif
                                     <!--end::Preview existing avatar-->

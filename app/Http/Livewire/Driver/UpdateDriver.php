@@ -56,7 +56,8 @@ class UpdateDriver extends Component
             }
             $imagename = uniqid() . '.' . $this->image->getClientOriginalExtension();
             $this->image->storeAs('logos', $imagename, 'real_public');
-            $this->driver['image'] = $imagename;
+            $image_loc = url('storage/logos/'.$imagename);
+            $this->driver['image'] = $image_loc;
         }
 
         if (is_file($this->driver['license_image'])) {
@@ -66,7 +67,9 @@ class UpdateDriver extends Component
             }
             $imagename = uniqid() . '.' . $this->driver['license_image']->getClientOriginalExtension();
             $this->driver['license_image']->storeAs('drivers', $imagename, 'real_public');
-            $this->driver['license_image'] = $imagename;
+            $image_loc = url('storage/drivers/'.$imagename);
+
+            $this->driver['license_image'] = $image_loc;
         }
 
         $this->driver['updated_at'] = Carbon::now()->toDateTimeString();
