@@ -8,12 +8,16 @@
             $pickLocation = [
                 'label' => $pickup->name,
                 'position' => $pickup->location,
+                'mask' => $load['mask'],
+                'activity' => 'Pickup',
             ];
             array_push($locations, $pickLocation);
 
             $dropLocation = [
                 'label' => $dropoff->name,
                 'position' => $dropoff->location,
+                'mask' => $load['mask'],
+                'activity' => 'Dropoff',
             ];
             array_push($locations, $dropLocation);
             // dd($locations)
@@ -71,7 +75,7 @@
         <!--begin::Content container-->
         <div id="kt_app_content_container" class="app-container container-xxl">
             <form class="d-flex flex-column flex-lg-row" method="POST"
-                action="{{ route(whichUser()->getTable == 'brokers' ? 'broker.shipment.update' : 'org.shipment.update', $this->shipment['mask']) }}">
+                action="{{ route('broker.shipment.update', $this->shipment['mask']) }}">
                 @csrf
                 <!--end::Aside column-->
                 <!--begin::Main column-->
@@ -110,13 +114,13 @@
 
                                                 <th class="w-10px pe-2">
                                                     @if ($shipment['shipment_status'] != 'Cancelled')
-                                                    <div
-                                                    class="form-check form-check-sm form-check-custom form-check-solid me-3">
-                                                    <input class="form-check-input" type="checkbox"
-                                                        data-kt-check="true"
-                                                        data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
-                                                        value="1" />
-                                                </div>
+                                                        <div
+                                                            class="form-check form-check-sm form-check-custom form-check-solid me-3">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                data-kt-check="true"
+                                                                data-kt-check-target="#kt_ecommerce_sales_table .form-check-input"
+                                                                value="1" />
+                                                        </div>
                                                     @endif
                                                 </th>
                                                 <th class="min-w-50px">#</th>
@@ -133,8 +137,10 @@
                                                     <td>
                                                         <div
                                                             class="form-check form-check-sm form-check-custom form-check-solid">
-                                                            <input class="form-check-input {{ $shipment['shipment_status'] == 'Cancelled' ? "d-none" : '' }}" type="checkbox"
-                                                                name="loads[]" value="{{ $load['mask'] }}" checked />
+                                                            <input
+                                                                class="form-check-input {{ $shipment['shipment_status'] == 'Cancelled' ? 'd-none' : '' }}"
+                                                                type="checkbox" name="loads[]"
+                                                                value="{{ $load['mask'] }}" checked />
                                                         </div>
                                                     </td>
                                                     <td>{{ $load['mask'] }}</td>
@@ -174,30 +180,6 @@
                                 <!--end::Table-->
                             </div>
                             <!--end::Input group-->
-                            @if (whichUser()->getTable() == 'brokers')
-                                <!--begin::Input group-->
-                                <div class="mb-10 fv-row">
-                                    <!--begin::Label-->
-                                    <label class="form-label">Assigned Organization</label>
-                                    <!--end::Label-->
-                                    <!--begin::Select2-->
-                                    <select
-                                        class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
-                                        name="organization_id" data-hide-search="true"
-                                        data-placeholder="Select an organization">
-                                        @foreach ($this->getOrgs() as $org)
-                                            <option value="{{ $org->mask }}"
-                                                {{ $this->organization['mask'] == $org->mask ? 'selected' : '' }}>
-                                                {{ $org->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('organization_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                </div>
-                                <!--end::Input group-->
-                            @endif
 
                             <!--begin::Input group-->
                             <div class="mb-10 fv-row">
@@ -206,7 +188,7 @@
                                 <!--end::Label-->
                                 <!--begin::Editor-->
                                 <textarea name="description" id="" cols="30" rows="4" class="form-control"
-                                    value="{{ $this->shipment['description'] }}" {{ $shipment['shipment_status'] == 'Cancelled' ? "disabled" : '' }}></textarea>
+                                    value="{{ $this->shipment['description'] }}" {{ $shipment['shipment_status'] == 'Cancelled' ? 'disabled' : '' }}></textarea>
                                 <!--end::Editor-->
                                 <!--begin::Description-->
                                 <div class="text-muted fs-7">Set a description to the category for
@@ -249,7 +231,8 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0 ">
                                     <!--begin::Menu toggle-->
-                                    <select name="pickup_address" id="start" {{ $shipment['shipment_status'] == 'Cancelled' ? "disabled" : '' }}
+                                    <select name="pickup_address" id="start"
+                                        {{ $shipment['shipment_status'] == 'Cancelled' ? 'disabled' : '' }}
                                         class="form-control mt-2 @error('pickup_address')border-danger @enderror"
                                         style="width: 40rem;">
                                         <option value="">{{ $shipment['starting_point'] }}</option>
@@ -284,7 +267,8 @@
                                 <!--begin::Card body-->
                                 <div class="card-body pt-0">
                                     <select name="dropoff_address" id="end"
-                                        class="form-control mt-2 @error('dropoff_address')border-danger @enderror" {{ $shipment['shipment_status'] == 'Cancelled' ? "disabled" : '' }}
+                                        class="form-control mt-2 @error('dropoff_address')border-danger @enderror"
+                                        {{ $shipment['shipment_status'] == 'Cancelled' ? 'disabled' : '' }}
                                         style="width: 40rem;">
                                         <option value="">{{ $shipment['destination'] }}</option>
                                         @foreach ($locations as $index => $location)
@@ -302,6 +286,7 @@
                         </div>
                         <input type="text" name="route" class="d-none" id="route"
                             value="{{ $shipment['route'] }}">
+                        <input type="text" name="locations" class="d-none" id="locations" value="">
                         <input type="text" name="starting_point" class="d-none" id="starting"
                             value="{{ $shipment['starting_point'] }}">
                         <input type="text" name="destination" class="d-none" id="dest"
@@ -312,52 +297,76 @@
                             value="{{ $shipment['dropoff_address'] }}">
                         <div id="googleMap" style="width:100%;height:100rem;"></div>
                         <!--end::Meta options-->
-                        <!--begin::Automation-->
+                        <!--begin::Meta options-->
                         <div class="card card-flush py-4">
-                            <!--begin::Card header-->
-                            <div class="card-header">
-                                <div class="card-title">
-                                    <h2>Available drivers</h2> <a wire:click="check"
-                                        class="btn btn-sm btn-primary ms-3">Look
-                                        up</a>
-                                </div>
-                            </div>
-                            <!--end::Card header-->
-                            <!--begin::Card body-->
-                            <div class="card-body pt-0">
-                                <!--begin::Input group-->
-                                <div class="mb-10 py-4">
-                                    <!--begin::Label-->
-                                    <label class="required form-label">Driver</label>
-                                    <!--end::Label-->
-                                    <!--begin::Select2-->
-                                    <select
-                                        class="form-select mb-2 @error('driver_id')border-danger @enderror basic-select2"
-                                        name="driver_id"
-                                        id="kt_ecommerce_add_category_store_template">
-                                        @foreach ($this->getDrivers() as $driver)
-                                            <option value="{{ $driver->mask }}"
-                                                {{ $this->driver['mask'] == $driver->mask ? 'selected' : '' }}>
-                                                {{ $driver->name }}
-                                            </option>
-                                        @endforeach
-                                    </select>
-                                    @error('driver_id')
-                                        <span class="text-danger">{{ $message }}</span>
-                                    @enderror
-                                    <!--end::Select2-->
-                                    <div class="">
-                                        <input type="checkbox" class="mt-3" name="no_driver" id=""
-                                            value="true">
-                                        <label for="">&nbsp; Assign driver later</label>
+
+                            <!--begin::Automation-->
+                            <div class="card card-flush py-4">
+
+                                <!--begin::Card header-->
+                                <div class="card-header">
+                                    <div class="card-title">
+                                        <h2>Assign Organization & driver</h2>
                                     </div>
                                 </div>
-                                <!--end::Input group-->
-                            </div>
-                            <!--end::Card header-->
-                        </div>
-                        <!--end::Automation-->
+                                <!--end::Card header-->
+                                <!--begin::Card body-->
+                                <div class="card-body pt-0">
+                                    <!--begin::Input group-->
+                                    <!--begin::Input group-->
+                                    <div class="mb-10 fv-row org_assign">
+                                        <!--begin::Label-->
+                                        <label class="form-label">Assign Organization</label>
+                                        <!--end::Label-->
+                                        <!--begin::Select2-->
 
+                                        <select
+                                            class="form-select mb-2 @error('organization_id')border-danger @enderror basic-select2"
+                                            name="organization_id" id="org"
+                                            data-loads="{{$this->shipment['loads'] }}"
+                                            data-placeholder="Select an organization">
+                                            <option value="">--select--</option>
+                                            @foreach ($this->getOrgs() as $org)
+                                                <option value="{{ $org->mask }}">
+                                                    {{ $org->name }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        @error('organization_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <small class="text-danger">{{ count($this->getOrgs()) == 0 ? "No Organization can ship selected load(s)" : '' }}</small>
+                                    </div>
+                                    <!--end::Input group-->
+                                    <div class="mb-10 py-4">
+                                        <!--begin::Label-->
+                                        <label class="required form-label">Driver</label> <small><span id="drivers_count">0</span> drivers</small>
+                                        <!--end::Label-->
+                                        <!--begin::Select2-->
+                                        <select
+                                            class="form-select basic-select2 mb-2 @error('driver_id')border-danger @enderror"
+                                            name="driver_id" data-hide-search="true" id="drivers"
+                                            data-placeholder="Select a driver">
+                                            <option></option>
+
+                                        </select>
+                                        @error('driver_id')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                        <!--end::Select2-->
+                                        <div class="">
+                                            <input type="checkbox" class="mt-3" name="no_driver" id=""
+                                                value="true">
+                                            <label for="">&nbsp;Assign driver later</label>
+                                        </div>
+                                    </div>
+                                    <!--end::Input group-->
+                                </div>
+                                <!--end::Card header-->
+                            </div>
+                            <!--end::Automation-->
+                        </div>
+                        <!--end::Main column-->
                         <div class="d-flex justify-content-end me-5">
                             <!--begin::Button-->
                             <a href="{{ route('org.shipments.list') }}" id="kt_ecommerce_add_product_cancel"
@@ -394,6 +403,7 @@
     const locations = document.getElementById('locs').innerText;
     const mapLocs = JSON.parse(locations);
 
+
     function initMap() {
         const directionsRenderer = new google.maps.DirectionsRenderer();
         const directionsService = new google.maps.DirectionsService();
@@ -418,6 +428,8 @@
         const onChangeHandler = function() {
             calculateAndDisplayRoute(directionsService, directionsRenderer);
         };
+        document.getElementById("locations").value = locations;
+
 
         document.getElementById("start").addEventListener("change", onChangeHandler);
         document.getElementById("end").addEventListener("change", onChangeHandler);
@@ -499,6 +511,32 @@
     $('document').ready(function() {
         initMap();
 
+        $('.org_assign').on('change','#org', function(event) {
+            console.log(event.target.value);
+            console.log($(this).data('loads'));
+            getDrivers(event.target.value, $(this).data('loads'));
+        });
+
+        function getDrivers(org, loads) {
+            $.ajax({
+                url: 'api/v1/get-shipment-load-drivers',
+                method: "POST",
+                data: {
+                    organization: org,
+                    loads: loads
+                },
+                success: function(res) {
+                    $('#drivers').empty();
+                    $('#drivers').append(`<option></option>`);
+                    $('#drivers_count').text(res.length);
+
+                    res.forEach(element => {
+                        var el = `<option value="${element.mask}">${element.name}</option>`;
+                        $('#drivers').append(el);
+                    });
+                }
+            })
+        }
     });
 </script>
 <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>

@@ -7,6 +7,7 @@ use App\Traits\ResponseTrait;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\DriversController as ControllersDriversController;
+use PhpParser\JsonDecoder;
 
 class DriversController extends Controller
 {
@@ -43,15 +44,23 @@ class DriversController extends Controller
     }
 
     public function dashboard() {
+        $active_shipment = null;
         $driver = DB::table('drivers')->where('mask',whichUser()->mask)->first(['name','image']);
 
         $shipments = DB::table('shipments')->where('driver_id',whichUser()->mask)->get();
 
         foreach($shipments as $shipment){
+            if($shipment->shipment_status == 'On route'){
+                $delivered = DB::table('loads')->whereIn('mask',json_decode($shipment->loads))->where('shipment_status','Delivered')->count();
+                $undelivered = DB::table('loads')->whereIn('mask',json_decode($shipment->loads))->where('shipment_status','Assigned')->count();
+
+                $active_shipment = ['mask'=>$shipment->mask,'delivered'=> $delivered,'pending'=>$undelivered];
+            }
             $shipment->loads = count(json_decode($shipment->loads));
+
         }
 
-        return $this->successResponse('',['driver'=>$driver,'shipments'=>$shipments]);
+        return $this->successResponse('',['driver'=>$driver,'shipments'=>$shipments,'active_shipment'=> $active_shipment]);
 
     }
 }

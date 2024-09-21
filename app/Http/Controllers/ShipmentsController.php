@@ -153,6 +153,7 @@ class ShipmentsController extends Controller
 
     public function create(Request $request)
     {
+        // dd($request->all());
         if ($request->no_driver == "true") {
             // Validator::make([$this->pickup_address, $this->dropoff_address], [
             //     'pickup_address' => 'required',
@@ -173,8 +174,44 @@ class ShipmentsController extends Controller
                 // 'dropoff_address' => "Search and select a dropoff address for the shipment"
             ])->validate();
         }
+        $activity = [];
+        $startingAddr = json_decode($request->starting_addr, true);
+        $destinationAddr = json_decode($request->destination_addr, true);
+        $route = json_decode($request->route, true);
+        $locations = json_decode($request->locations, true);
+
+        // Find the starting address in the locations array
+        foreach ($locations as $location) {
+            if ($location['position']['lat'] == $startingAddr['lat'] && $location['position']['lng'] == $startingAddr['lng']) {
+                array_push($activity, $location);
+                break;
+            }
+        }
+
+        // Loop through route and order locations variable
+        foreach ($route as $routePoint) {
+            foreach ($locations as $location) {
+                if ($routePoint['lat'] == $location['position']['lat'] && $routePoint['lng'] == $location['position']['lng']) {
+                    array_push($activity, $location);
+                    break;
+                }
+            }
+        }
+
+        // Find the destination address in the locations array
+        foreach ($locations as $location) {
+            if ($location['position']['lat'] == $destinationAddr['lat'] && $location['position']['lng'] == $destinationAddr['lng']) {
+                array_push($activity, $location);
+                break;
+            }
+        }
+
+        // dd($activity);
+
+
+        // dd('catch');
         $mask = generateNumber();
-        // dd($request->all());
+
         DB::table('shipments')->insert([
             'organization_id' => $request->organization_id,
             'driver_id' => $request->driver_id,
@@ -189,6 +226,7 @@ class ShipmentsController extends Controller
             'approval_status' => "Approved",
             'shipment_status' => "Assigned",
             'route' => $request->route,
+            'route_activity' => json_encode($activity),
             'created_at' => Carbon::now()->toDateTimeString()
         ]);
 
@@ -196,13 +234,14 @@ class ShipmentsController extends Controller
         // $msg = "Hello {$driver->first()->name}, You have been assigned a shipment";
         // sendMail("SHIPMENT ASSIGNMENT",$driver->first()->email,$msg);
         $driver->update(['shipment_status' => "Assigned"]);
-        DB::table('loads')->whereIn('mask', $request->loads)->update(['shipment_status' => "Assigned"]);
+        DB::table('loads')->whereIn('mask', $request->loads)->update(['shipment_status' => "Assigned", 'shipment_id' => $mask,'organization_id'=>$request->organization_id]);
         // return redirect(route('broker.shipment.assign_driver', $mask));
         return redirect(route(whichUser()->getTable() == 'brokers' ? 'broker.shipments.list' : 'org.shipments.list'));
     }
 
     public function update(Request $request, $shipment)
     {
+        // dd($request->all());
         if ($request->no_driver == "true") {
             // Validator::make([$this->pickup_address, $this->dropoff_address], [
             //     'pickup_address' => 'required',
@@ -224,6 +263,40 @@ class ShipmentsController extends Controller
             ])->validate();
         }
 
+        $activity = [];
+        if ($request->pickup_address != null && $request->dropoff_address != null) {
+            $startingAddr = json_decode($request->starting_addr, true);
+            $destinationAddr = json_decode($request->destination_addr, true);
+            $route = json_decode($request->route, true);
+            $locations = json_decode($request->locations, true);
+
+            // Find the starting address in the locations array
+            foreach ($locations as $location) {
+                if ($location['position']['lat'] == $startingAddr['lat'] && $location['position']['lng'] == $startingAddr['lng']) {
+                    array_push($activity, $location);
+                    break;
+                }
+            }
+
+            // Loop through route and order locations variable
+            foreach ($route as $routePoint) {
+                foreach ($locations as $location) {
+                    if ($routePoint['lat'] == $location['position']['lat'] && $routePoint['lng'] == $location['position']['lng']) {
+                        array_push($activity, $location);
+                        break;
+                    }
+                }
+            }
+
+            // Find the destination address in the locations array
+            foreach ($locations as $location) {
+                if ($location['position']['lat'] == $destinationAddr['lat'] && $location['position']['lng'] == $destinationAddr['lng']) {
+                    array_push($activity, $location);
+                    break;
+                }
+            }
+        }
+
         $req = [];
         $req['driver_id'] = $request->driver_id;
         // $req['organization_id'] = $request->organization_id;
@@ -232,8 +305,12 @@ class ShipmentsController extends Controller
         $req['starting_point'] = $request->starting_point;
         $req['destination'] = $request->destination;
         $req['shipment_status'] = $request->driver_id ? "Assigned" : null;
-        $req['updated_at'] = Carbon::now()->toDateTimeString();
+        $req['route'] = $request->route;
+        if ($activity != []) {
+            $req['route_activity'] = json_encode($activity);
+        }
 
+        $req['updated_at'] = Carbon::now()->toDateTimeString();
 
         if ($request->pickup_address != '' && gettype(json_decode($request->pickup_address)) == "NULL") {
             $req['pickup_address'] = json_encode(getPlaceCoordinates($request->pickup_address));
@@ -248,7 +325,7 @@ class ShipmentsController extends Controller
         // Check old loads if a load has been taken out
         foreach (json_decode($old_loads->loads) as $load) {
             if (!in_array($load, $request->loads)) {
-                DB::table('loads')->where('mask', $load)->update(['shipment_status' => "Unassigned"]);
+                DB::table('loads')->where('mask', $load)->update(['shipment_status' => "Unassigned", "shipment_id" => null]);
             }
         }
 
@@ -306,9 +383,8 @@ class ShipmentsController extends Controller
                     array_push($supported, $preferred->driver_id);
                 }
             }
-
         }
-        $drivers = DB::table('drivers')->whereIn('mask',$supported)->get(['name','mask']);
+        $drivers = DB::table('drivers')->whereIn('mask', $supported)->get(['name', 'mask']);
         return $drivers;
     }
 }

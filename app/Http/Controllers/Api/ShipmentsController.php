@@ -40,16 +40,15 @@ class ShipmentsController extends Controller
         if ($shipment_on_route->exists()) {
             $shipment_on_route->update(['shipment_status' => 'Cancelled']);
             return $this->successResponse('Shipment cancelled');
-        }else{
+        } else {
             return $this->successResponse('Shipment not started or already cancelled',);
-
         }
     }
 
 
     public function viewShipment($shipment)
     {
-        $shipment = DB::table('shipments')->where('mask', $shipment)->first(['pickup_date as start_date', 'created_at', 'description', 'starting_point', 'pickup_address as starting_point_address', 'destination', 'dropoff_address as destination_address', 'mask', 'loads', 'route','shipment_status']);
+        $shipment = DB::table('shipments')->where('mask', $shipment)->first(['pickup_date as start_date', 'created_at', 'description', 'starting_point', 'pickup_address as starting_point_address', 'destination', 'dropoff_address as destination_address', 'mask', 'loads', 'route', 'shipment_status']);
         // $broker = DB::table('brokers')->where('mask',$shipment->broker_id)->first();
         // $shipment->broker_name = $broker->name;
         // dd($broker);
@@ -62,17 +61,35 @@ class ShipmentsController extends Controller
         $shipment_loads = DB::table('shipments')->where('mask', $shipment)->pluck('loads')->first();
 
         $load_ids = json_decode($shipment_loads);
-        $loads = DB::table('loads')->whereIn('mask',$load_ids)->get(['image','load_type','description','quantity','length','weight','height','breadth','handling','pickup_address','dropoff_address','mask','shipment_status','sender_id']);
+        $loads = DB::table('loads')->whereIn('mask', $load_ids)->get(['image', 'load_type', 'description', 'quantity', 'length', 'weight', 'height', 'breadth', 'handling', 'pickup_address', 'dropoff_address', 'mask', 'shipment_status', 'sender_id']);
         // $broker = DB::table('brokers')->where('mask',$shipment->broker_id)->first();
         // $shipment->broker_name = $broker->name;
         // dd($broker);
-        foreach($loads as $load){
+        foreach ($loads as $load) {
             $load->dropoff_address = json_decode($load->dropoff_address);
             $load->pickup_address = json_decode($load->pickup_address);
-            $sender = DB::table('senders')->where('mask',$load->sender_id)->first(['name','email','phone']);
+            $sender = DB::table('senders')->where('mask', $load->sender_id)->first(['name', 'email', 'phone']);
             $load->sender = $sender;
         }
 
         return $this->successResponse('', $loads);
+    }
+
+    public function viewShipmentRoutes($shipment)
+    {
+        $route_activity = [];
+        $routes = DB::table('shipments')->where('mask', $shipment)->pluck('route_activity')->first();
+        foreach (json_decode($routes) as $route) {
+            $load = DB::table('loads')->where('loads.mask', $route->mask)
+                ->join('senders', 'senders.mask', 'loads.sender_id')
+                ->first(['shipment_status', 'senders.name', 'senders.phone']);
+            $route->shipment_status = $load->shipment_status;
+            $route->sender = $load->name;
+            $route->phone = $load->phone;
+
+            array_push($route_activity,$route);
+        }
+
+        return $this->successResponse('', $route_activity);
     }
 }

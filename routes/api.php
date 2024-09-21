@@ -48,6 +48,7 @@ Route::prefix('v1')->group(function () {
                 Route::prefix('shipment/{shipment}')->group(function () {
                     Route::get('view', 'viewShipment');
                     Route::get('loads', 'viewShipmentLoads');
+                    Route::get('route', 'viewShipmentRoutes');
                     Route::get('start-shipment', 'start_shipment');
                     Route::get('cancel-shipment', 'cancel_shipment');
                 });

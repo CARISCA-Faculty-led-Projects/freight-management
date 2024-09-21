@@ -8,12 +8,16 @@
             $pickLocation = [
                 'label' => $pickup->name,
                 'position' => $pickup->location,
+                'mask' => $load['mask'],
+                'activity' => 'Pickup',
             ];
             array_push($locations, $pickLocation);
 
             $dropLocation = [
                 'label' => $dropoff->name,
                 'position' => $dropoff->location,
+                'mask' => $load['mask'],
+                'activity' => 'Dropoff',
             ];
             array_push($locations, $dropLocation);
             // dd($locations)
@@ -248,6 +252,7 @@
                             </div>
                         </div>
                         <input type="text" name="route" class="d-none" id="route">
+                        <input type="text" name="locations" class="d-none" id="locations">
                         <input type="text" name="starting_point" class="d-none" id="starting">
                         <input type="text" name="destination" class="d-none" id="dest">
                         <input type="text" name="starting_addr" class="d-none" id="startingAdr">
@@ -381,6 +386,7 @@
 
         directionsRenderer.setMap(map);
         // directionsRenderer.setPanel(document/.getElementById("sidebar"));
+        document.getElementById("locations").value = locations;
 
         // const control = document.getElementById("floating-panel");
 

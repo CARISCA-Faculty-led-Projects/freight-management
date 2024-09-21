@@ -651,7 +651,6 @@ Route::get('dbrun', function () {
 //         }
 //         // DB::table('bids')->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
 //     }
-
 //     dd('done-' . $status);
 // });
 
@@ -661,7 +660,7 @@ Route::get('update_load_with_shipments', function () {
     foreach ($loads as $load) {
         $alod = json_decode($load->loads);
 
-        DB::table('loads')->whereIn('mask', $alod)->update(['shipment_id' => $load->mask]);
+        DB::table('loads')->whereIn('mask', $alod)->update(['shipment_id' => null, 'shipment_status' => "Assigned"]);
         // DB::table('bids')->insert(['sender_id'=>$load->sender_id,'load_id' => $load->mask, 'created_at' => Carbon::now()->toDateTimeString()]);
     }
 
