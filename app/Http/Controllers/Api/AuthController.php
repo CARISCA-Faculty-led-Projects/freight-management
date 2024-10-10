@@ -26,12 +26,12 @@ class AuthController extends Controller
         }
 
         if (Auth::guard($request->type)->attempt(['email' => $request->email, 'password' => $request->password])) {
-            $driver = Driver::where('email',$request->email)->first();
+            $driver = Driver::where('email', $request->email)->first();
             $user = [
                 'type' => $request->type,
-                'token' => $driver->createToken($request->email,['type:'.$request->type])->plainTextToken
+                'token' => $driver->createToken($request->email, ['type:' . $request->type])->plainTextToken
             ];
-            return $this->successResponse('',$user);
+            return $this->successResponse('', $user);
         } else {
             return $this->errorResponse('Email or Password incorrect or wrong user type selected');
         }
@@ -56,5 +56,11 @@ class AuthController extends Controller
         // sendAdminMessage("Account Created", "An account has been created. Log in to your dashboard and approve account");
 
         return $this->successResponse('Account created successfully');
+    }
+
+    public function logout(Request $request)
+    {
+        $request->user()->currentAccessToken()->delete();
+        return $this->successResponse('Logged out successfully');
     }
 }

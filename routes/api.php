@@ -43,8 +43,10 @@ Route::prefix('v1')->group(function () {
             return ['message' => "Authenticated"];
         });
         Route::prefix('driver')->group(function () {
+            Route::get('logout',[AuthController::class, 'logout']);
             Route::controller(ApiShipmentsController::class)->group(function () {
                 Route::get('shipments', 'driver_shipments');
+                Route::get('shipments/history', 'shipments_completed');
                 Route::prefix('shipment/{shipment}')->group(function () {
                     Route::get('view', 'viewShipment');
                     Route::get('loads', 'viewShipmentLoads');
